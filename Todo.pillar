@@ -1,0 +1,112 @@
+! Pharo Mooc
+
+
+
+!! Brainstorm about the outline
+
+
+
+!!! Fun with numbers
+- direct manipulation in a workspace
+- addition the fraction exact
+- factorial 
+
+videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.mov
+	
+
+
+!!! Loops - Iterateurs
+- do: 
+- http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- Ideas: use ZnEasy instead to select files served by a server
+
+
+
+!!! [env] Sender/implementors
+
+!!! [env] Inspecting an object 
+
+!!! [env] Defining a Method
+
+!!! [env] Creating a class
+
+!!! 
+
+!!!
+
+!!!
+
+
+
+
+
+
+
+
+!! Possible Exercises
+
+- Pharo by example
+--
+
+- Kata 
+	-- *http://www.smalltalkhub.com/#!/~zeroflag/TDD-Kata*
+
+- LAN
+
+- Tamagashi 
+	- https://ci.inria.fr/pharo-contribution/job/FunWithPharo/ws/Tamagoshi/
+
+- https://ci.inria.fr/pharo-contribution/job/FunWithPharo/ws/Captcha/
+
+- DSL
+--https://ci.inria.fr/pharo-contribution/job/PharoForTheEnterprise/ws/DSL/
+
+!! QCM
+
+- Pharo by example
+
+- 
+
+!! Resources
+
+- Updated Pharo this is the repository for the currently updated version of Pharo by Example  (*https://github.com/SquareBracketAssociates/UpdatedPharoByExample*) 
+
+- Pharo by Example (for an older version) *https://github.com/SquareBracketAssociates/PharoByExample-english* 
+
+- Pillar *https://github.com/pillar-markup/pillar-documentation*
+
+- *http://pharo.org/documentation*
+
+- *http://www.pharocasts.com*
+
+- 2008 Videos: *http://sdmeta.gforge.inria.fr/Videos/2008-SmalltalkVideos/*
+
+- 2005 Videos: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/*
+!! Open Questions
+
+- What is the format for the Mooc contents
+-- do we have to have 
+
+- Can damien get delegation to work on the mooc
+
+- Cours = mec qui parle sur une video
+-- exercices scenarises sous forme de videos comme *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+
+
+- 15 min de seances
+
+- Public: L1 
+-- 1000 par an
+
+- certification Pharo Level One 
+- Un semestre
+- forum 
+
+
+
+
+!! ToDo
+
+- Stef/Damien: make sure that we can run the expression automatically as it was done in Pharo by Example.
+
+- Call for the community for 
