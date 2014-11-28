@@ -6,6 +6,9 @@
 
 
 
+!!! Maths
+- 
+
 !!! Fun with numbers
 - direct manipulation in a workspace
 - addition the fraction exact
@@ -20,7 +23,7 @@ videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.
 - http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
 - Ideas: use ZnEasy instead to select files served by a server
 
-
+!!! Seaside intro
 
 !!! [env] Sender/implementors
 
@@ -30,18 +33,45 @@ videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.
 
 !!! [env] Creating a class
 
+!!! Conditional
+
+!!! block
+
+!!! block
+
+!!! array static vs. array dynamic
+
+!!! object initialization
+
+!!! printing
+
 !!! 
 
-!!!
+!!! [ env ] Print vs doit
 
-!!!
+!!! String concat
 
+!!! 
 
+!!! [env] debugger
 
+!!! [env] Commiting a package 
 
+!!! [env] Workspace
 
+!!! [env] Code browser
 
+!!! [oop] Class
 
+!!! [oop] lookup
+
+!!! [oop] metaclass
+
+!!! 
+
+!!! 
+
+!!! 
 
 !! Possible Exercises
 
@@ -93,9 +123,12 @@ videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.
 -- exercices scenarises sous forme de videos comme *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
 
 
-- 15 min de seances
+- videos 6 a 8 min pour une heure
+-- questions simples
+-- questions ouvertes
+ 
 
-- Public: L1 
+- Public: prerequis base en programmation en objet
 -- 1000 par an
 
 - certification Pharo Level One 
