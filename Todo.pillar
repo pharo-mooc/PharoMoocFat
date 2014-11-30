@@ -1,9 +1,80 @@
 ! Pharo Mooc
 
 
+- videos 6 a 8 min pour une heure
+-- questions simples
+-- questions ouvertes
+ 
 
-!! Brainstorm about the outline
+- Public: prerequis base en programmation en objet
+-- 1000 par an
 
+- certification Pharo Level One 
+- Un semestre
+- forum 
+
+
+!! Open Questions
+
+
+- Can damien get delegation to work on the mooc
+
+- Cours = a person who is talk showing stuff + slides
+-- exercices scenarises sous forme de videos comme *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+
+
+!! ToDo
+
+- Stef/Damien: make sure that we can run the expression automatically as it was done in Pharo by Example.
+
+- make sure that pillar compiles this file and also on the machine of seb
+
+- Call for the community for ideas and if people want to join
+
+- Announce the mailing-list
+
+
+
+
+
+
+
+! Items: Fragments of Lectures and Exercises
+
+Items are units of knowledge. A typical session (video) will be between 6 to 9 minutes and composed of a couple of 
+items. Exercises will be also based on items. 
+
+!! Item Description
+
+An item is composed of 
+
+- Name: Iteration with ZnEasy
+- A tag: env, syntax, model, fun, tip
+- A Problem: how to iterate/manipulate collections?
+- A description about one line: students learn iterators such as do: collect: select: on 
+- resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- Ideas: use ZnEasy instead to select files served by a server
+- Contents: 
+
+
+
+!! Items List
+
+!!! Simple loops 
+- Name: Simple loops 
+- Tag: system, syntax
+- Problem: how to loop over a collection?
+- Description about one line: students simple loops such as timesRepeat:, to:do:, to:do:by: 
+- Resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- Contents: 
+
+!!! to:do: vs. (to:)do: 
+- Name: to:do: vs. (to:)do: 
+- Tag: system, syntax, tip
+- Problem: how to loop over a collection?
+- Description about one line: students simple loops such as timesRepeat:, to:do:, to:do:by: 
+- Resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- Contents: 
 
 
 !!! Maths
@@ -19,11 +90,11 @@ videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.
 
 
 !!! Loops - Iterateurs
-- do: 
-- http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- Problem: how to iterate/manipulate collections
+- Describes: do: collect: select: 
+- resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
 - Ideas: use ZnEasy instead to select files served by a server
-
-!!! Seaside intro
+- Contents: 
 
 !!! [env] Sender/implementors
 
@@ -35,17 +106,17 @@ videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.
 
 !!! Conditional
 
-!!! block
+!!! Block
 
-!!! block
+!!! Array static vs. array dynamic
 
-!!! array static vs. array dynamic
-
-!!! object initialization
+!!! Object initialization
 
 !!! printing
 
 !!! 
+
+!!! Seaside intro
 
 !!! [ env ] Print vs doit
 
@@ -53,7 +124,7 @@ videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.
 
 !!! 
 
-!!! [env] debugger
+!!! [env] Debugger
 
 !!! [env] Commiting a package 
 
@@ -63,18 +134,25 @@ videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.
 
 !!! [oop] Class
 
-!!! [oop] lookup
+!!! [oop] Lookup
 
-!!! [oop] metaclass
-
-!!! 
+!!! [oop] Metaclass
 
 !!! 
 
 !!! 
 
-!! Possible Exercises
+!!! 
 
+
+
+! Exercises Resources
+
+There will be threee kinds of exercises: simple todo corrected by other participants and teachers, multiple choices and more challenging exercises.
+The following are the resources for the three categories.
+
+
+!! Books and Chapters
 - Pharo by example
 --
 
@@ -91,13 +169,22 @@ videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.
 - DSL
 --https://ci.inria.fr/pharo-contribution/job/PharoForTheEnterprise/ws/DSL/
 
-!! QCM
+
+
+! QCM
 
 - Pharo by example
 
 - 
 
-!! Resources
+
+
+
+
+! Resources
+
+Here are various resources:
+
 
 - Updated Pharo this is the repository for the currently updated version of Pharo by Example  (*https://github.com/SquareBracketAssociates/UpdatedPharoByExample*) 
 
@@ -112,34 +199,20 @@ videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.
 - 2008 Videos: *http://sdmeta.gforge.inria.fr/Videos/2008-SmalltalkVideos/*
 
 - 2005 Videos: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/*
-!! Open Questions
 
-- What is the format for the Mooc contents
--- do we have to have 
+- *http://stephane.ducasse.free.fr/FreeBooks.html*
 
-- Can damien get delegation to work on the mooc
+!! Lectures support
 
-- Cours = mec qui parle sur une video
--- exercices scenarises sous forme de videos comme *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+- Stef
+-- *http://sdmeta.gforge.inria.fr/Teaching/CoursAnnecy/0506-M1-OOP/*
+-- *http://sdmeta.gforge.inria.fr/Teaching/0809OOP/*
+-- *http://sdmeta.gforge.inria.fr/Archive/ArchivedLectures/*
 
+- Oscar
 
-- videos 6 a 8 min pour une heure
--- questions simples
--- questions ouvertes
- 
+- Noury
 
-- Public: prerequis base en programmation en objet
--- 1000 par an
-
-- certification Pharo Level One 
-- Un semestre
-- forum 
+- H. Verjus
 
 
-
-
-!! ToDo
-
-- Stef/Damien: make sure that we can run the expression automatically as it was done in Pharo by Example.
-
-- Call for the community for 
