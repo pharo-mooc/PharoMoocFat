@@ -154,21 +154,20 @@ The following are the resources for the three categories.
 
 !! Books and Chapters
 - Pharo by example
---
+-- *http://stephane.ducasse.free.fr/FreeBooks.html*
 
 - Kata 
-	-- *http://www.smalltalkhub.com/#!/~zeroflag/TDD-Kata*
+-- *http://www.smalltalkhub.com/#!/~zeroflag/TDD-Kata*
 
 - LAN
 
 - Tamagashi 
-	- https://ci.inria.fr/pharo-contribution/job/FunWithPharo/ws/Tamagoshi/
+-- https://ci.inria.fr/pharo-contribution/job/FunWithPharo/ws/Tamagoshi/
 
 - https://ci.inria.fr/pharo-contribution/job/FunWithPharo/ws/Captcha/
 
 - DSL
 --https://ci.inria.fr/pharo-contribution/job/PharoForTheEnterprise/ws/DSL/
-
 
 
 ! QCM
