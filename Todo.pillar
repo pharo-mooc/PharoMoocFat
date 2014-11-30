@@ -1,25 +1,23 @@
 ! Pharo Mooc
 
+Welcome to the Pharo-Mooc working document. 
 
-- videos 6 a 8 min pour une heure
--- questions simples
--- questions ouvertes
- 
 
-- Public: prerequis base en programmation en objet
--- 1000 par an
+!! Goal 
+Our goal is to build a mooc around Pharo. The objectives is that a student should be able to get fluent in Pharo.
+The prerequesites will be that people already got in touch with OOP even if we will revisit some aspects of OOP.
 
-- certification Pharo Level One 
-- Un semestre
-- forum 
+The format we plan is the following one videos of 6 to 8 min and around 1 hour in total per week of lectures.
+We expect 1000 followers per year. 
 
+We will design a certification named: Pharo Level One 
 
 !! Open Questions
 
 
 - Can damien get delegation to work on the mooc
 
-- Cours = a person who is talk showing stuff + slides
+- Lecture = a person who is talk showing stuff and  slides
 -- exercices scenarises sous forme de videos comme *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
 
 
@@ -60,6 +58,31 @@ An item is composed of
 
 !! Items List
 
+!!! Pharo in a nutshell 
+- Name: Pharo in a nutshell 
+- Tag: info
+- Problem: What is pharo
+- Description about one line: Pharo is open-source dynamically typed reflective language
+- Resources: 
+- Contents: 
+
+!!! Downloading and getting started 
+- Name: Pharo in a nutshell 
+- Tag: info
+- Problem: How to get and run pharo
+- Description about one line: We will show the launcher and files.pharo.org
+- Resources: Chapter on zero-conf
+- Contents: 
+
+!!! Pharo Resources 
+- Name: Resources
+- Tag: info
+- Problem: Where are the key ressources
+- Description about one line: We will present mailing-list, web site, books
+- Resources: 
+- Contents: 
+
+
 !!! Simple loops 
 - Name: Simple loops 
 - Tag: system, syntax
@@ -83,7 +106,8 @@ An item is composed of
 !!! Fun with numbers
 - direct manipulation in a workspace
 - addition the fraction exact
-- factorial 
+- factorial
+- automatic coercion
 
 videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.mov
 	
@@ -95,6 +119,11 @@ videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.
 - resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
 - Ideas: use ZnEasy instead to select files served by a server
 - Contents: 
+
+
+!!!Characters		
+	051-BasicTypesIntroduction.mov
+
 
 !!! [env] Sender/implementors
 
@@ -109,6 +138,8 @@ videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.
 !!! Block
 
 !!! Array static vs. array dynamic
+Array 	051-BasicTypesIntroduction.mov
+Dynamic Array 051-BasicTypesIntroduction.mov
 
 !!! Object initialization
 
