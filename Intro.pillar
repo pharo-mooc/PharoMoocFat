@@ -1,0 +1,33 @@
+! Pharo Mooc
+
+Welcome to the Pharo-Mooc working document. 
+
+
+!! Goal 
+Our goal is to build a mooc around Pharo. The objectives is that a student should be able to get fluent in Pharo.
+The prerequesites will be that people already got in touch with OOP even if we will revisit some aspects of OOP.
+
+The format we plan is the following one videos of 6 to 8 min and around 1 hour in total per week of lectures.
+We expect 1000 followers per year. 
+
+We will design a certification named: Pharo Level One 
+
+!! Open Questions
+
+
+- Can damien get delegation to work on the mooc
+
+- Lecture = a person who is talk showing stuff and  slides
+-- exercices scenarises sous forme de videos comme *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+
+
+!! ToDo
+
+- Stef/Damien: make sure that we can run the expression automatically as it was done in Pharo by Example.
+
+- make sure that pillar compiles this file and also on the machine of seb
+
+- Call for the community for ideas and if people want to join
+
+- Announce the mailing-list
+

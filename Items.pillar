@@ -1,0 +1,143 @@
+
+
+
+
+
+
+! Items: Fragments of Lectures and Exercises
+
+Items are units of knowledge. A typical session (video) will be between 6 to 9 minutes and composed of a couple of 
+items. Exercises will be also based on items. 
+
+!! Item Description
+
+An item is composed of 
+
+- Name: Iteration with ZnEasy
+- A tag: env, syntax, model, fun, tip
+- A Problem: how to iterate/manipulate collections?
+- A description about one line: students learn iterators such as do: collect: select: on 
+- resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- Ideas: use ZnEasy instead to select files served by a server
+- Contents: 
+
+
+
+!! Items List
+
+!!! Pharo in a nutshell 
+- Name: Pharo in a nutshell 
+- Tag: info
+- Problem: What is pharo
+- Description about one line: Pharo is open-source dynamically typed reflective language
+- Resources: 
+- Contents: 
+
+!!! Downloading and getting started 
+- Name: Pharo in a nutshell 
+- Tag: info
+- Problem: How to get and run pharo
+- Description about one line: We will show the launcher and files.pharo.org
+- Resources: Chapter on zero-conf
+- Contents: 
+
+!!! Pharo Resources 
+- Name: Resources
+- Tag: info
+- Problem: Where are the key ressources
+- Description about one line: We will present mailing-list, web site, books
+- Resources: 
+- Contents: 
+
+
+!!! Simple loops 
+- Name: Simple loops 
+- Tag: system, syntax
+- Problem: how to loop over a collection?
+- Description about one line: students simple loops such as timesRepeat:, to:do:, to:do:by: 
+- Resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- Contents: 
+
+!!! to:do: vs. (to:)do: 
+- Name: to:do: vs. (to:)do: 
+- Tag: system, syntax, tip
+- Problem: how to loop over a collection?
+- Description about one line: students simple loops such as timesRepeat:, to:do:, to:do:by: 
+- Resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- Contents: 
+
+
+!!! Maths
+- 
+
+!!! Fun with numbers
+- direct manipulation in a workspace
+- addition the fraction exact
+- factorial
+- automatic coercion
+
+videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.mov
+	
+
+
+!!! Loops - Iterateurs
+- Problem: how to iterate/manipulate collections
+- Describes: do: collect: select: 
+- resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- Ideas: use ZnEasy instead to select files served by a server
+- Contents: 
+
+
+!!!Characters		
+	051-BasicTypesIntroduction.mov
+
+
+!!! [env] Sender/implementors
+
+!!! [env] Inspecting an object 
+
+!!! [env] Defining a Method
+
+!!! [env] Creating a class
+
+!!! Conditional
+
+!!! Block
+
+!!! Array static vs. array dynamic
+Array 	051-BasicTypesIntroduction.mov
+Dynamic Array 051-BasicTypesIntroduction.mov
+
+!!! Object initialization
+
+!!! printing
+
+!!! 
+
+!!! Seaside intro
+
+!!! [ env ] Print vs doit
+
+!!! String concat
+
+!!! 
+
+!!! [env] Debugger
+
+!!! [env] Commiting a package 
+
+!!! [env] Workspace
+
+!!! [env] Code browser
+
+!!! [oop] Class
+
+!!! [oop] Lookup
+
+!!! [oop] Metaclass
+
+!!! 
+
+!!! 
+
+!!! 
