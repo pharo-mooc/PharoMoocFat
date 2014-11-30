@@ -1,18 +1,24 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 VM_INSTALL_URL="http://get.pharo.org/vm"
 IMAGE_URL="https://ci.inria.fr/pharo-contribution/job/Pillar/PHARO=30,VERSION=stable,VM=vm/lastSuccessfulBuild/artifact/Pillar.zip"
+PHARO_VM=${PHARO_VM:-./pharo}
 
 usage() {
     cat <<HELP
 Usage: $0 [-h|--help] [vm] [image]
+
 Downloads the latest image and virtual machine (edit the script to set from where).  By default, only the image will be downloaded.
+
 image: $IMAGE_URL
    VM: $VM_INSTALL_URL
 HELP
 }
 
 get_vm() {
+    if [ -d pharo-vm ]; then
+        rm -rf pharo-vm
+    fi
     wget ${CERTCHECK} --output-document - "$VM_INSTALL_URL" | bash
 }
 
@@ -35,8 +41,8 @@ get_image() {
     done
 }
 prepare_image() {
-    ./pharo Pharo.image eval --save "StartupPreferencesLoader allowStartupScript: false."
-    ./pharo Pharo.image eval --save "Deprecation raiseWarning: false; showWarning: false. 'ok'"
+    ${PHARO_VM} Pharo.image --no-default-preferences eval --save "StartupPreferencesLoader allowStartupScript: false."
+    ${PHARO_VM} Pharo.image eval --save "Deprecation raiseWarning: false; showWarning: false. 'ok'"
 }
 
 # stop the script if a single command fails
