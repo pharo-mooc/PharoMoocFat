@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ! Items: Fragments of Lectures and Exercises
 
 Items are units of knowledge. A typical session (video) will be between 6 to 9 minutes and composed of a couple of 
@@ -14,14 +8,14 @@ items. Exercises will be also based on items.
 An item is composed of 
 
 - Name: Iteration with ZnEasy
-- A tag: env, syntax, model, fun, tip
+- ID:
+- A tag: environment, syntax, model, fun, tip
 - A Problem: how to iterate/manipulate collections?
 - A description about one line: students learn iterators such as do: collect: select: on 
 - resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
 - Ideas: use ZnEasy instead to select files served by a server
-- Contents: 
-
-
+- Exercises: a list of exercises
+- Contents: A little synopsis for the videos
 
 !! Unit of Knowledge Item List
 
@@ -54,8 +48,8 @@ An item is composed of
 - Name: Simple loops 
 - Tag: system, syntax
 - Problem: how to loop over a collection?
-- Description about one line: students simple loops such as timesRepeat:, to:do:, to:do:by: 
-- Resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- Description about one line: students will learn simple loops such as timesRepeat:, to:do:, to:do:by: 
+- Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
 - Contents: 
 
 !!! to:do: vs. (to:)do: 
@@ -63,8 +57,20 @@ An item is composed of
 - Tag: system, syntax, tip
 - Problem: how to loop over a collection?
 - Description about one line: students simple loops such as timesRepeat:, to:do:, to:do:by: 
-- Resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
 - Contents: 
+
+
+
+
+!!! Strings
+- Name: Strings 
+- Tag: syntax
+- Problem: how to declare and manipulate strings?
+- Description about one line: students will learn string syntax and how to manipulate them 
+- Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/*
+- Exercises: #(ex-select-0001)
+
 
 
 !!! Maths
@@ -80,17 +86,20 @@ videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.
 	
 
 
-!!! Loops - Iterateurs
+!!! Loops - Iterators
 - Problem: how to iterate/manipulate collections
 - Describes: do: collect: select: 
 - resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
 - Ideas: use ZnEasy instead to select files served by a server
 - Contents: 
+- Exercises: #(ex-select-0001)
 
 
 !!!Characters		
 	051-BasicTypesIntroduction.mov
 
+
+!!! most commons errors
 
 !!! [env] Sender/implementors
 
@@ -140,4 +149,16 @@ Dynamic Array 051-BasicTypesIntroduction.mov
 
 !!! 
 
-!!! 
+
+
+
+!! Exercises
+
+- Name: Select 
+- ID: ex-select-0001
+- Purpose: Filtering a collection with select:
+- Expression: ''hello there' select: [ :each | each isVowel ]'
+- Result: 'eoee'
+- Expression: '#(1 3 4 5 6 11 17 12 2 3) select: [:each | each odd ]'
+- Result: #(1 3 5 11 17 3)
+
