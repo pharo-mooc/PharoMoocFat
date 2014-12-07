@@ -11,7 +11,7 @@ An item is composed of
 - A tag: environment, syntax, model, fun, tip
 - A Problem: how to iterate/manipulate collections?
 - A description about one line: students learn iterators such as do: collect: select: on 
-- resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
 - Ideas: use ZnEasy instead to select files served by a server
 - Exercises: a list of exercises
 - Contents: A little synopsis for the videos
@@ -124,7 +124,7 @@ value, value:, value:value:
 
 
 !!!Characters		
-	051-BasicTypesIntroduction.mov
+	051-BasicTypesIntroduction.mov*
 
 !!! Strings
 - Name: Strings 
@@ -153,8 +153,8 @@ value, value:, value:value:
 
 
 !!! Array static vs. array dynamic
-Array 	051-BasicTypesIntroduction.mov
-Dynamic Array 051-BasicTypesIntroduction.mov
+Array 	051-BasicTypesIntroduction.mov*
+Dynamic Array 051-BasicTypesIntroduction.mov*
 
 
 
@@ -256,7 +256,7 @@ i := 1.
 !!!  [] vs. () 
 - Name: [] vs. ()  
 - Tag: system, syntax
-- Problem: When should we use [] and when should we use ()
+- Problem: When should we use ==[]== and when should we use ==()==
 - Description about one line: students will learn that expressions inside () are always executed while inside [] are conditionally executed.
 - Resources: 
 - Precondition: Syntax on Blocks
@@ -267,7 +267,7 @@ i := 1.
 !!! Loops - Iterators
 - Problem: how to iterate/manipulate collections
 - Describes: do: collect: select: 
-- resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
+- resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
 - Ideas: use ZnEasy instead to select files served by a server
 - Contents: 
 - Precondition: Syntax on Blocks
@@ -320,30 +320,30 @@ i := 1.
 
 !!! [env] Messages finder
 Old but the idea is there.
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/015-MessageFinder.mov
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/015-MessageFinder.mov*
 
 !!! [env] Example driven finder
 Old but the idea is there.
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/011-FunMethodFinder.mov
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/012-FunWithMethodFinder.mov
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/013-FunWithMethodFinder.mov
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/011-FunMethodFinder.mov*
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/012-FunWithMethodFinder.mov*
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/013-FunWithMethodFinder.mov*
 	
 !!! [env] Implementors
 Old but the idea is there.	
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/016-Implementors.mov	
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/016-Implementors.mov	
 	
 
 !!! [env] Loading a package with the configuration browser
 Old but the idea is there.
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/051-LoadingFromSqueakMap.mov
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/052-LoadingBreakOutFromSqueakMap.mov
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/051-LoadingFromSqueakMap.mov*
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/052-LoadingBreakOutFromSqueakMap.mov*
 	
-!!! Loading a package 	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/060-LoadingPackageFromSqueakSource.mov
+!!! Loading a package 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/060-LoadingPackageFromSqueakSource.mov*
 
 	
 !!! [env] SmalltalkHub package information
 Old but the idea is there.
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/055-SqueakSourcePackageInformation.mov	
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/055-SqueakSourcePackageInformation.mov*
 	
 !!! [env] Behind a firewall
 ???
@@ -355,61 +355,52 @@ Old but the idea is there.
 Old but the idea is there.
 
 !!! [Dev] Creating a class
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/100-ClassDefinition.mov
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/100-ClassDefinition.mov*
 
 !!! [Dev] Defining an initialize method	
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/101-InitializeMethod.mov	
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/101-InitializeMethod.mov*	
 	
 !!! [Dev] Defining a Getter
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/103-AddingGetterAccessor.mov
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/103-AddingGetterAccessor.mov*
 	
 !!! [Dev] Defining a increment/decrement
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/104-AddingOperations.mov	
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/104-AddingOperations.mov*	
 	
 !!! [Dev] Difference printing vs. doing it
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/105-DifferencePrintItDoIt.mov	
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/105-DifferencePrintItDoIt.mov*	
 
 !!! [Dev] Adding a printOn: method
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/106-PrintingMethod.mov
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/106-PrintingMethod.mov*
 	
 !!! [Dev] Invoking an overriden method
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/107-InvokingOverridenMethodOrNot.mov
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/107-InvokingOverridenMethodOrNot.mov*
 	
 !!! [Dev] Writing a test
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/120-TestingSimpleCounter.mov
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/120-TestingSimpleCounter.mov*
 	
 !!! [Dev] Running a test
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/121-OpeningTestRunner.mov
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/121-OpeningTestRunner.mov*
 
 !!! [Dev] Defining other tests
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/122-OtherTests.mov
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/122-OtherTests.mov*
 	
 !!! [Dev] creating a project on SHUB
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/130-CreatingASqueakSourceProject.mov	
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/130-CreatingASqueakSourceProject.mov*	
 	
 !!! [Dev] Saving a package 
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/131-SavingSimpleCounterAsMCPackage2.mov
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/131-SavingSimpleCounterAsMCPackage2.mov*
 	
 	
 	
 !! Unit of Knowledge Item: Programming Idioms
 
 !!! Object initialization
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/101-InitializeMethod.mov	
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/101-InitializeMethod.mov*	
 	
 	
 !!! printing
-	http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/106-PrintingMethod.mov
-
-!!! 
-
-
-
-
-
-
-
-
+	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/106-PrintingMethod.mov*
+	
 !! Unit of Knowledge Item: OOP Reloaded
 
 !!! [oop] Class
