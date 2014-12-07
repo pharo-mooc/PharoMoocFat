@@ -1,33 +1,56 @@
 ! Pharo Mooc
 
-Welcome to the Pharo-Mooc working document. 
+Welcome to the Pharo-Mooc working document. This is a working document. The idea is that we want to create a Mooc/Spooc around Pharo. Now we do not want to simply type script, slides into Word like documents. We will use Pillar to be able to script outputs: descriptions of lectures, exercises, resources.
+
+Latest Revision: 7 December 2014.
 
 
 !! Goal 
-Our goal is to build a mooc around Pharo. The objectives is that a student should be able to get fluent in Pharo.
-The prerequesites will be that people already got in touch with OOP even if we will revisit some aspects of OOP.
+Our goal is to build a Mooc around Pharo. The objectives is that a student should be able to get fluent in Pharo. The prerequesites will be that people already got in touch with OOP even if we will revisit some aspects of OOP.
 
-The format we plan is the following one videos of 6 to 8 min and around 1 hour in total per week of lectures.
-We expect 1000 followers per year. 
+The format we plan is the following one videos of 6 to 8 min and around 1 hour in total per week of lectures. We expect 1000 followers per year. 
 
-We will design a certification named: Pharo Level One 
+We think about design a certification named: Pharo Level One 
+
+!! Current structure
+
+Right now this document is structured in three parts:
+- This intro.
+- Unit of Knowledge and Exercises. Here we are describing single units of knowledge. They will be grouped to form a session. Exercises are also described. 
+- Resources description. Here we collect and described available resources.
+
+In the future we expect to have also slides description and probably definition - because right now we have a format problem. We do not want to invest into powerpoint, open-office.... similarly to the point that we do not want to invest into Word to describe our lectures.
+
+
+
 
 !! Open Questions
 
-
-- Can damien get delegation to work on the mooc
-
-- Lecture = a person who is talk showing stuff and  slides
--- exercices scenarises sous forme de videos comme *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
-
+- Can damien get delegation to work on the mooc? Contact uniciel and his administration.
 
 !! ToDo
 
-- Stef/Damien: make sure that we can run the expression automatically as it was done in Pharo by Example.
+- Look at iUniversity the german open platform or the english open platform
 
-- make sure that pillar compiles this file and also on the machine of seb
+- About slides. We will extend pillar with double columns and write outputters for web based slides format. http://beta.rdsign.net/article_66 and Beamer.
+
+- About structured documents: we will extend pillar with STON syntax to get structured objects
+
+- Probably we should ask sponsoring to ESUG.
+
+- Contact Uniciel
+
+- Stef/Damien: make sure that we can run the expression automatically as it was done in Pharo by Example.
 
 - Call for the community for ideas and if people want to join
 
-- Announce the mailing-list
+- Announce to the mailing-lists to ask for feedback. But we should do it around July 2015.
 
+
+
+!! Log
+- Mid Nov 2014: started.
+- Mid December 2014: talk to organizations that could help us.
+- Beginning December 2014: talk to Noury and Luc
+- Mid December 2014: structured better the item list and wrote a better intro
+- Mid December 2014: Converted entries from http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/ into KUnit.
