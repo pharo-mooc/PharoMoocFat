@@ -1,0 +1,426 @@
+% $Id$
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\documentclass[8pt,a4paper]{leaflet}
+%\documentclass[8pt,a4paper,nofoldmark]{leaflet}
+
+% packages
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{palatino}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{microtype}
+\usepackage{textcomp}
+
+% forked font-size
+\usepackage[9pt]{extsizes}
+
+% pdf package
+\usepackage[
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=black,
+	citecolor=black
+]{hyperref}
+
+% listings package
+\usepackage{listings}
+\lstdefinelanguage{Smalltalk}{
+	morestring=[d]',
+	morecomment=[s]{"}{"},
+	alsoletter={\#:},
+	escapechar={!},
+	literate=
+		{BANG}{!}1
+		{~}{{$\sim$}}1
+		{-}{{\sf -\hspace{-0.13em}-}}1
+		{+}{\raisebox{0.08ex}{+}}1
+		{-->}{{\quad$\longrightarrow$\quad}}3
+		{---}{{--}}3
+		,
+	tabsize=6
+}[keywords,comments,strings]
+\lstset{language=Smalltalk,
+	basicstyle=\sffamily,
+	keywordstyle=\color{black}\bfseries,
+	mathescape=true,
+	showstringspaces=false,
+	keepspaces=true,
+	breaklines=true,
+	breakautoindent=true,
+	lineskip={-1pt},
+	upquote=true,
+	columns=fullflexible
+}
+\newcommand{\ct}{\lstinline[mathescape=false,basicstyle={\sffamily\upshape}]}
+\lstnewenvironment{code}{\lstset{mathescape=false}}{}
+
+% document settings
+%\CutLine*{1}
+%\CutLine*{3}
+%\CutLine*{4}
+%\CutLine*{6}
+
+% begin document
+\begin{document}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\title{\huge{\textbf{Smalltalk Cheat Sheet}}}
+\author{Software Composition Group\\
+University of Bern}
+%\author{Lukas Renggli\\
+%Software Composition Group\\
+%University of Bern}
+\date{\today}
+\maketitle
+\thispagestyle{empty}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{1. The Environment}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{browser.pdf}
+	\caption{The Smalltalk Code Browser}
+\end{figure}
+
+\begin{itemize}
+	\item Do it ({\sc cmd--d}): 
+	Evaluate selected code.
+	\item Print it ({\sc cmd--p}):
+	Display the result of evaluating selected code.
+	\item Debug it: Evaluate selected code step-by-step with the integrated debugger.
+	\item Inspect it ({\sc cmd--i}):
+	Show an \emph{object inspector} on the result of evaluating selected code.
+	\item Explore it ({\sc cmd--shift--i}):
+	Show an \emph{object explorer} on the result of evaluating selected code.
+\end{itemize}
+
+\newpage
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{2. The Language}
+
+\begin{itemize}
+	\item Everything is an object.
+	\item Everything happens by sending messages.
+	\item Single inheritance.
+	\item Methods are public.
+	\item Instance variables are private to objects.
+\end{itemize}
+
+% % % % % % % % % % % % 
+\subsection{Keywords}
+
+\begin{itemize}
+	\item \ct{self},			the receiver.
+	\item \ct{super},		the receiver, method lookup starts in superclass.
+	\item \ct{nil},			the unique instance of the class \ct{UndefinedObject}.
+	\item \ct{true},			the unique instance of the class \ct{True}.
+	\item \ct{false},		the unique instance of the class \ct{False}.
+	\item \ct{thisContext},	the current execution context.
+\end{itemize}
+
+% % % % % % % % % % % % 
+\subsection{Literals}
+
+\begin{itemize}
+	\item Integer \\
+	\ct{123} \\
+	\ct{2r1111011} (123 in binary) \\
+	\ct{16r7B} (123 in hexadecimal)
+	
+	\item Float \\
+	\ct{123.4} \\
+	\ct{1.23e-4}
+	
+	\item Character \\
+	\ct{$a}
+	
+	\item String \\
+	\ct{'abc'}
+	
+	\item Symbol \\
+	\ct{#abc}
+	
+	\item Array \\
+	\ct{#(123 123.4 $a 'abc' #abc)}
+\end{itemize}
+
+% % % % % % % % % % % % 
+\subsection{Message Sends}
+
+\begin{enumerate}
+	\item \emph{Unary messages} take no argument. \\
+	\ct{1 factorial} sends the message \ct{factorial} to the object \ct{1}.	
+	\item \emph{Binary messages} take exactly one argument.\\
+	\ct{3 + 4} sends message \ct{+} with argument \ct{4} to the object \mbox{\ct{3}.} \\
+	\ct{#answer -> 42} sends \ct{->} with argument \ct{42} to \ct{#answer}.\\
+	Binary selectors are built from one or more of the characters \ct{+}, \ct{-}, \ct{*}, \ct{=}, \ct{<}, \ct{>}, ...
+	
+	\item \emph{Keyword messages} take one or more arguments. \\
+	\ct{2 raisedTo: 6 modulo: 10} sends the message named \ct{raisedTo:modulo:} with arguments \ct{6} and \ct{10} to the object \ct{2}. 
+\end{enumerate}
+
+Unary messages are sent first, then binary messages and finally keyword messages:\\
+\centerline{\ct{2 raisedTo: 1 + 3 factorial --> 128}}\\
+Messages are sent left to right. Use parentheses to change the order:\\
+\centerline{\ct{1 + 2 * 3 --> 9}}\\
+\centerline{\ct{1 + (2 * 3) --> 7}}
+%Unary messages have the highest precedence, then binary and finally keyword messages. Precedence aside, evaluation is strictly from left to right. Parentheses must be used to alter the order of evaluation.
+
+% % % % % % % % % % % % 
+\subsection{Syntax}
+
+\begin{itemize}
+	\item{Comments} \\
+	\ct{"Comments are enclosed in double quotes"}
+	
+	\item{Temporary Variables}  \\
+	\ct{| var |} \\
+	\ct{| var1 var2 |}
+	
+	\item{Assignment} \\
+	\ct{var := aStatement} \\
+	\ct{var1 := var2 := aStatement}
+	
+	\item{Statements} \\
+	\ct{aStatement1. aStatement2} \\
+	\ct{aStatement1. aStatement2. aStatement3}
+	
+	\item{Messages} \\
+	\ct{receiver message} (unary message) \\
+	\ct{receiver + argument} (binary message) \\
+	\ct{receiver message: argument} (keyword message) \\
+	\ct{receiver message: argument1 with: argument2}
+	
+	\item{Cascade} \\
+	\ct{receiver message1; message2} \\
+	\ct{receiver message1; message2: arg2; message3: arg3}	
+	
+	\item{Blocks} \\
+	\ct{[ aStatement1. aStatement2 ]} \\
+	\ct{[ :argument1 | aStatement1. aStatement2 ]} \\
+	\ct{[ :argument1 :argument2 | | temp1 temp2 | aStatement1 ]}
+	
+	\item{Return Statement} \\
+	\ct{^ aStatement}
+	
+\end{itemize}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{3. Standard Classes}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{Logical expressions}
+
+\begin{code}
+true not --> false
+1 = 2 or: [ 2 = 1 ] --> false
+1 < 2 and: [ 2 > 1 ] --> true
+\end{code}
+	
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\newpage
+\subsection{Conditionals}
+
+\begin{code}
+1 = 2 ifTrue: [ Transcript show: '1 is equal to 2' ].
+1 = 2 ifFalse: [ Transcript show: '1 isn''t equal to 2' ].
+
+100 factorial / 99 factorial = 100
+	ifTrue: [ Transcript show: 'condition evaluated to true' ]
+	ifFalse: [ Beeper beep ].
+\end{code}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{Loops}
+
+\begin{code}
+" conditional iteration "
+[ Sensor anyButtonPressed ] 
+	whileFalse: [ "wait" ].
+
+pen := Pen newOnForm: Display.
+pen place: Sensor cursorPoint.
+[ Sensor anyButtonPressed ]
+	whileTrue: [ pen goto: Sensor cursorPoint ].
+
+" fixed iteration "
+180 timesRepeat: [
+	pen turn: 88.
+	pen go: 250 ].
+	
+1 to: 100 do: [ :index |
+	pen go: index * 4.
+ 	bic turn: 89 ].
+
+" infinite loop (press CMD+. to break) "	
+[ pen goto: Sensor cursorPoint ] repeat.
+\end{code}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{Blocks (anonymous functions)}
+
+\begin{code}
+" evaluation "
+[ 1 + 2 ] value --> 3
+[ :x | x + 2 ] value: 1 --> 3
+[ :x :y | x + y ] value: 1 value: 2 --> 3
+	
+" processes "
+[ (Delay forDuration: 5 seconds) wait.
+  Transcript show: 'done' ] fork --> aProcess
+\end{code}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{Collections}
+
+\begin{code}
+" iterating "
+'abc' do: [ :each | Transcript show: each ].
+'abc'
+	do: [ :each | Transcript show: each ]
+	separatedBy: [ Transcript cr ].
+\end{code}
+
+\begin{code}
+" transforming "
+#(1 2 3 4) select: [ :each | each even ] --> #( 2 4 )
+#(1 2 3 4) reject: [ :each | each = 2 ] --> #( 1 3 4 )
+#(1 2 3 4) collect: [ :each | each * 2 ] --> #( 2 4 6 8 )
+#(1 2 3 4) 
+	inject: 0 
+	into: [ :each :result | each + result ] --> 10
+\end{code}
+
+\begin{code}
+" testing "
+#( 2 4 ) anySatisfy: [ :each | each odd ] --> false
+#( 2 4 ) allSatisfy: [ :each | each even ] --> true
+\end{code}
+
+\begin{code}
+" finding "
+'abcdef' includes: $e --> true
+'abcdef' contains: [ :each | each isUppercase ] --> false
+'abcdef'
+	detect: [ :each | each isVowel ]
+	ifNone: [ $u ] --> $a
+\end{code}
+
+\begin{code}
+" String --- a collection of characters "
+string := 'abc'.
+string := string , 'DEF' --> 'abcDEF'
+string beginsWith: 'abc' --> true
+string endsWith: 'abc' --> false
+string includesSubString: 'cD' --> true
+string asLowercase --> 'abcdef
+string asUppercase --> 'ABCDEF'
+\end{code}
+
+\begin{code}
+" OrderedCollection --- an ordered collection of objects "
+ordered := OrderedCollection new.
+ordered addLast: 'world'.
+ordered addFirst: 'hello'.
+ordered size --> 2
+ordered at: 2 --> 'world'
+ordered removeLast --> 'world'
+ordered removeFirst --> 'hello'
+ordered isEmpty --> true
+\end{code}
+
+\begin{code}
+" Set --- an unordered collection of objects without duplicates "
+set := Set new.
+set add 'hello'; add: 'hello'.
+set size --> 1
+\end{code}
+
+\begin{code}
+" Bag --- an unordered collection of objects with duplicates "
+bag := Bag new.
+bag add: 'this'; add: 'that'; add: 'that'.
+bag occurrencesOf: 'that' --> 2
+bag remove: 'that'.
+bag occurrencesOf: 'that' --> 1
+\end{code}
+
+\begin{code}
+" Dictionary --- associates unique keys with objects "
+dictionary := Dictionary new.
+dictionary at: 'smalltalk' put: 80.
+dictionary at: 'smalltalk' --> 80
+dictionary at: 'squeak' ifAbsent: [ 82 ] --> 82
+dictionary removeKey: 'smalltalk'.
+dictionary isEmpty --> true
+\end{code}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{Streams}
+
+\begin{code}
+" ReadStream --- to read a sequence of objects from a collection "
+stream := 'Hello World' readStream.
+stream next --> $H
+stream upTo: $o --> 'ell'
+stream skip: 2.
+stream peek --> $o
+stream upToEnd --> 'orld'
+
+" WriteStream --- to write a sequence of objects to a collection "
+stream := WriteStream on: Array new.
+stream nextPut: 'Hello'.
+stream nextPutAll: #( 1 2 3 ).
+stream contents -->  #( 'Hello' 1 2 3 )
+\end{code}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{File Streams}
+
+\begin{code}
+fileStream := FileDirectory default newFileNamed: 'tmp.txt'.
+fileStream nextPutAll: 'my cool stuff'.
+fileStream close.
+
+fileStream := FileDirectory default oldFileNamed: 'tmp.txt'.
+fileStream contents --> 'my cool stuff'
+\end{code}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{Method Definition}
+
+\begin{code}
+messageSelectorAndArgumentNames
+	"comment stating purpose of message"
+	| temporary variable names |
+	statements
+\end{code}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{Class Definition}
+
+\begin{code}
+Object subclass: #NameOfSubclass
+	instanceVariableNames: 'instVar1 instVar2'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Category-Name'
+\end{code}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{References}
+
+\begin{enumerate}
+	\item Andrew Black, Stéphane Ducasse, Oscar Nierstrasz and Damien Pollet, \emph{Squeak by Example}, Square Bracket Associates, 2007, \url{squeakbyexample.org}.
+	\item Chris Rathman, \emph{Terse guide to Squeak}, \url{wiki.squeak.org/squeak/5699}.
+	\item \emph{Smalltalk}, Wikipedia, the free encyclopedia, \url{en.wikipedia.org/wiki/Smalltalk}.
+	
+\end{enumerate}
+
+\end{document}
