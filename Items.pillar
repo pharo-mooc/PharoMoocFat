@@ -4,25 +4,25 @@ Items are units of knowledge. A typical session (video) will be between 6 to 9 m
 
 !! Item Description
 
-An item is composed of 
-
-- Name: Iteration with ZnEasy
-- ID:
+An item is composed of: 
+- Name: ''Iteration with ZnEasy''
+- Id: An id
 - A tag: environment, syntax, model, fun, tip
-- A Problem: how to iterate/manipulate collections?
-- A description about one line: students learn iterators such as do: collect: select: on 
-- resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
-- Ideas: use ZnEasy instead to select files served by a server
-- Exercises: a list of exercises
-- Contents: A little synopsis for the videos
-
+- A Problem: How to iterate/manipulate collections?
+- A description about one line: students learn iterators such as ==do:==, ==collect:==, and ==select:== on 
+- Resources: 
+-- *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+- Ideas: use ZnEasy instead to select files served by a server.
+- Exercises: A list of exercises.
+- Contents: A little synopsis for the videos.
+- Slides: A list of ids of useful slides.
 
 !! Exercise Description
 
 Again we want to be able build objects that we can manipulate so exercises are described using a specific format.
 
 !!! Exercise Select
-- Name: Select 
+- Name: ''Select''
 - ID: ex-select-0001
 - Purpose: Filtering a collection with select:
 - Expression: =='hello there' select: [ :each | each isVowel ]==
@@ -40,6 +40,7 @@ Again we want to be able build objects that we can manipulate so exercises are d
 - Description about one line: Pharo is open-source dynamically typed reflective language
 - Resources: 
 - Contents: 
+- Slides:
 
 !!! Downloading and getting started 
 - Name: Pharo in a nutshell 
@@ -48,6 +49,7 @@ Again we want to be able build objects that we can manipulate so exercises are d
 - Description about one line: We will show the launcher and files.pharo.org
 - Resources: Chapter on zero-conf
 - Contents: 
+- Slides: 
 
 !!! Pharo Resources 
 - Name: Resources
@@ -56,7 +58,7 @@ Again we want to be able build objects that we can manipulate so exercises are d
 - Description about one line: We will present mailing-list, web site, books
 - Resources: 
 - Contents: 
-
+- Slides:
 
 
 !! Unit of Knowledge Item: Messages
@@ -73,14 +75,13 @@ Again we want to be able build objects that we can manipulate so exercises are d
 - Tag: system, syntax
 - Problem: How do we specify action to be done such as a button trigger?
 - Description: Block are anonymous methods that are really powerful. 
-- Resources: 
 - Contents: 
 Comparison with ==f(x) -> x + 2, f(5) -> 7==
 [[[
 [ :x | x + 2 ] 
 value, value:, value:value:
 ]]]
-- slides:
+- Slides:
 
 
 
@@ -89,9 +90,8 @@ value, value:, value:value:
 - Tag: system, API
 - Problem: How do we specify action to be done such as a button trigger?
 - Description: Block are anonymous methods that are really powerful. 
-- Resources: **
 - Contents: cull:, bench,....
-- slides:
+- Slides:
 
 
 
@@ -107,7 +107,8 @@ value, value:, value:value:
 - Tag: system, syntax
 - Problem: how to loop over a collection?
 - Description about one line: students will learn simple loops such as timesRepeat:, to:do:, to:do:by: 
-- Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
 - Contents: 
 
 !!! to:do: vs. (to:)do: 
@@ -115,7 +116,8 @@ value, value:, value:value:
 - Tag: system, syntax, tip
 - Problem: how to loop over a collection?
 - Description about one line: students simple loops such as timesRepeat:, to:do:, to:do:by: 
-- Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
 - Contents: 
 
 
@@ -124,14 +126,14 @@ value, value:, value:value:
 
 
 !!!Characters		
-	051-BasicTypesIntroduction.mov*
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/051-BasicTypesIntroduction.mov*
 
 !!! Strings
 - Name: Strings 
 - Tag: syntax
 - Problem: how to declare and manipulate strings?
 - Description about one line: students will learn string syntax and how to manipulate them 
-- Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/*
 - Exercises: #(ex-select-0001)
 
 
@@ -142,7 +144,8 @@ value, value:, value:value:
 - Tag: system, syntax
 - Problem: how to loop over a collection?
 - Description about one line: students will learn simple loops such as timesRepeat:, to:do:, to:do:by: 
-- Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/007-FunWithCollection.mov*
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/007-FunWithCollection.mov*
 - Contents: 
 [[[
 #(1 2 3 4 5) at: 1
@@ -153,10 +156,8 @@ value, value:, value:value:
 
 
 !!! Array static vs. array dynamic
-Array 	051-BasicTypesIntroduction.mov*
-Dynamic Array 051-BasicTypesIntroduction.mov*
-
-
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/051-BasicTypesIntroduction.mov*
 
 
 
@@ -168,7 +169,8 @@ Dynamic Array 051-BasicTypesIntroduction.mov*
 - Tag: system, syntax
 - Problem: Math in Pharo in 3 min?
 - Description about one line: students will learn about direct manipulation, automatic coercion, fraction addition is exact, and Pharo can handle large numbers.
-- Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.mov*
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.mov*
 - Contents: 
 
 [[[
@@ -178,7 +180,7 @@ Dynamic Array 051-BasicTypesIntroduction.mov*
 	1000 factorial printString size
 	1000 factorial / 999 factorial -> 1000
 ]]]
-- slides:
+- Slides:
 
 	
 !!! Pi, sin and others
@@ -192,7 +194,7 @@ Dynamic Array 051-BasicTypesIntroduction.mov*
 Float pi
 0.5 sin
 ]]]
-- slides:
+- Slides:
 
 
 !!! No Precedence with Mathematical 
@@ -201,14 +203,14 @@ Float pi
 - Problem: How to express mathematical precedence?
 - Description about one line: students will learn that mathematical operators are just plain messages so to specify precedence we should use ().
 - Resources: 
-- precondition: students should have seen syntax of messages.
+- Precondition: students should have seen syntax of messages.
 - Contents: 
 [[[
 	1/3 + 2/3
 	vs. 
 	(1/3) + (2/3)
 ]]]
-- slides:
+- Slides:
 
 
 
@@ -220,8 +222,9 @@ Float pi
 - Tag: system, syntax
 - Problem: how to loop over a collection?
 - Description about one line: students will learn simple loops such as timesRepeat:, to:do:, to:do:by: 
-- Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/008-FunWithCollection.mov*
--precondition: Syntax on Blocks
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/008-FunWithCollection.mov*
+- Precondition: Syntax on Blocks
 - Contents: 
 [[[
 100 timesRepeat: [ Transcript show: 'Pharo is cool' ; cr]
@@ -247,8 +250,9 @@ i := 1.
 - Tag: system, syntax
 - Problem: how to write a condition?
 - Description about one line: students will learn about ifTrue:, ifFalse:, ifTrue:ifFalse:
-- Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/009-FunWithCondition.mov*
-			*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/010-FunWithCondition.mov*
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/009-FunWithCondition.mov*
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/010-FunWithCondition.mov*
 - Precondition: Syntax on Blocks
 - Contents: 
 
@@ -265,9 +269,11 @@ i := 1.
 
 
 !!! Loops - Iterators
+- Name: ''Iterators are your best friends''
 - Problem: how to iterate/manipulate collections
-- Describes: do: collect: select: 
-- resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+- Description: do: collect: select: 
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
 - Ideas: use ZnEasy instead to select files served by a server
 - Contents: 
 - Precondition: Syntax on Blocks
@@ -302,8 +308,8 @@ i := 1.
 - Problem: How cna I tweek an object?
 - Description about one line: students will learn to use an inspector to interact with an object. 
 - Resources: 
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/007-FunWithCollection.mov*
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/102-ChangingValueInInspector.mov*
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/007-FunWithCollection.mov*
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/102-ChangingValueInInspector.mov*
 - Contents: 
 [[[
 #(1 2 3 4 5) at: 1
@@ -320,30 +326,39 @@ i := 1.
 
 !!! [env] Messages finder
 Old but the idea is there.
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/015-MessageFinder.mov*
+- Resources: 
+-- *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/015-MessageFinder.mov*
 
 !!! [env] Example driven finder
 Old but the idea is there.
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/011-FunMethodFinder.mov*
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/012-FunWithMethodFinder.mov*
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/013-FunWithMethodFinder.mov*
+- Resources: 
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/011-FunMethodFinder.mov*
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/012-FunWithMethodFinder.mov*
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/013-FunWithMethodFinder.mov*
 	
 !!! [env] Implementors
 Old but the idea is there.	
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/016-Implementors.mov	
+- Resources: 
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/016-Implementors.mov	
 	
 
 !!! [env] Loading a package with the configuration browser
 Old but the idea is there.
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/051-LoadingFromSqueakMap.mov*
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/052-LoadingBreakOutFromSqueakMap.mov*
+- Resources: 
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/051-LoadingFromSqueakMap.mov*
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/052-LoadingBreakOutFromSqueakMap.mov*
 	
-!!! Loading a package 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/060-LoadingPackageFromSqueakSource.mov*
+!!! Loading a package 
+- Resources: 
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/060-LoadingPackageFromSqueakSource.mov*
+
+
 
 	
 !!! [env] SmalltalkHub package information
 Old but the idea is there.
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/055-SqueakSourcePackageInformation.mov*
+- Resources: 
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/055-SqueakSourcePackageInformation.mov*
 	
 !!! [env] Behind a firewall
 ???
@@ -355,51 +370,65 @@ Old but the idea is there.
 Old but the idea is there.
 
 !!! [Dev] Creating a class
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/100-ClassDefinition.mov*
+- Resources: 
+-- *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/100-ClassDefinition.mov*
 
 !!! [Dev] Defining an initialize method	
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/101-InitializeMethod.mov*	
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/101-InitializeMethod.mov*	
 	
 !!! [Dev] Defining a Getter
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/103-AddingGetterAccessor.mov*
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/103-AddingGetterAccessor.mov*
 	
 !!! [Dev] Defining a increment/decrement
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/104-AddingOperations.mov*	
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/104-AddingOperations.mov*	
 	
 !!! [Dev] Difference printing vs. doing it
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/105-DifferencePrintItDoIt.mov*	
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/105-DifferencePrintItDoIt.mov*	
 
 !!! [Dev] Adding a printOn: method
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/106-PrintingMethod.mov*
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/106-PrintingMethod.mov*
 	
 !!! [Dev] Invoking an overriden method
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/107-InvokingOverridenMethodOrNot.mov*
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/107-InvokingOverridenMethodOrNot.mov*
 	
 !!! [Dev] Writing a test
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/120-TestingSimpleCounter.mov*
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/120-TestingSimpleCounter.mov*
 	
 !!! [Dev] Running a test
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/121-OpeningTestRunner.mov*
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/121-OpeningTestRunner.mov*
 
 !!! [Dev] Defining other tests
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/122-OtherTests.mov*
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/122-OtherTests.mov*
 	
 !!! [Dev] creating a project on SHUB
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/130-CreatingASqueakSourceProject.mov*	
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/130-CreatingASqueakSourceProject.mov*	
 	
 !!! [Dev] Saving a package 
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/131-SavingSimpleCounterAsMCPackage2.mov*
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/131-SavingSimpleCounterAsMCPackage2.mov*
 	
 	
 	
 !! Unit of Knowledge Item: Programming Idioms
 
 !!! Object initialization
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/101-InitializeMethod.mov*	
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/101-InitializeMethod.mov*	
 	
 	
 !!! printing
-	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/106-PrintingMethod.mov*
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/106-PrintingMethod.mov*
 	
 !! Unit of Knowledge Item: OOP Reloaded
 
