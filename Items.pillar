@@ -1,7 +1,6 @@
 ! Items: Fragments of Lectures and Exercises
 
-Items are units of knowledge. A typical session (video) will be between 6 to 9 minutes and composed of a couple of 
-items. Exercises will be also based on items. 
+Items are units of knowledge. A typical session (video) will be between 6 to 9 minutes and composed of a couple of items. Exercises will be also based on items. 
 
 !! Item Description
 
@@ -16,6 +15,21 @@ An item is composed of
 - Ideas: use ZnEasy instead to select files served by a server
 - Exercises: a list of exercises
 - Contents: A little synopsis for the videos
+
+
+!! Exercise Description
+
+Again we want to be able build objects that we can manipulate so exercises are described using a specific format.
+
+!!! Exercise Select
+- Name: Select 
+- ID: ex-select-0001
+- Purpose: Filtering a collection with select:
+- Expression: =='hello there' select: [ :each | each isVowel ]==
+- Result: =='eoee'==
+- Expression: ==#(1 3 4 5 6 11 17 12 2 3) select: [:each | each odd ]==
+- Result: ==#(1 3 5 11 17 3)==
+
 
 !! Unit of Knowledge Item: Welcome
 
@@ -59,25 +73,24 @@ An item is composed of
 - Tag: system, syntax
 - Problem: How do we specify action to be done such as a button trigger?
 - Description: Block are anonymous methods that are really powerful. 
-- Resources: **
-- Contents: '
-Comparison with f(x) -> x + 2, f(5) -> 7
+- Resources: 
+- Contents: 
+Comparison with ==f(x) -> x + 2, f(5) -> 7==
+[[[
 [ :x | x + 2 ] 
 value, value:, value:value:
-'
+]]]
 - slides:
 
-!!! Blocks other
+
+
+!!! Blocks other protocols
 - Name: Blocks a.k.a lexical closure
-- Tag: system, syntax
+- Tag: system, API
 - Problem: How do we specify action to be done such as a button trigger?
 - Description: Block are anonymous methods that are really powerful. 
 - Resources: **
-- Contents: '
-Comparison with f(x) -> x + 2, f(5) -> 7
-[ :x | x + 2 ] 
-value, value:, value:value:
-'
+- Contents: cull:, bench,....
 - slides:
 
 
@@ -131,10 +144,10 @@ value, value:, value:value:
 - Description about one line: students will learn simple loops such as timesRepeat:, to:do:, to:do:by: 
 - Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/007-FunWithCollection.mov*
 - Contents: 
-'#(1 2 3 4 5) at: 1
+[[[
+#(1 2 3 4 5) at: 1
 #(1 2 3 4 5) at: 1 put: 33
-
-'
+]]]
 
 
 
@@ -151,17 +164,20 @@ Dynamic Array 051-BasicTypesIntroduction.mov
 
 
 !!! First look at Maths 
-- Name:  First look at Maths 
+- Name: First look at Maths 
 - Tag: system, syntax
 - Problem: Math in Pharo in 3 min?
 - Description about one line: students will learn about direct manipulation, automatic coercion, fraction addition is exact, and Pharo can handle large numbers.
 - Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.mov*
-- Contents: '
-1+2
-(1/3)+(2/3) -> 1
-1000 factorial printString size
-1000 factorial / 999 factorial -> 1000
-'
+- Contents: 
+
+[[[
+	1+2
+	(1/3) + (2/3) 
+	-> 1
+	1000 factorial printString size
+	1000 factorial / 999 factorial -> 1000
+]]]
 - slides:
 
 	
@@ -171,16 +187,12 @@ Dynamic Array 051-BasicTypesIntroduction.mov
 - Problem: how to express mathematical operations?
 - Description about one line: students will learn that numbers are objects too, so we just send them message.
 - Resources: 
-- Contents: '
+- Contents: 
+[[[
 Float pi
 0.5 sin
-'
+]]]
 - slides:
-
-
-
-
-
 
 
 !!! No Precedence with Mathematical 
@@ -188,13 +200,14 @@ Float pi
 - Tag: system, syntax
 - Problem: How to express mathematical precedence?
 - Description about one line: students will learn that mathematical operators are just plain messages so to specify precedence we should use ().
-- Resources: **
+- Resources: 
 - precondition: students should have seen syntax of messages.
-- Contents: '
-1/3 + 2/3
-vs. 
-(1/3) + (2/3)
-'
+- Contents: 
+[[[
+	1/3 + 2/3
+	vs. 
+	(1/3) + (2/3)
+]]]
 - slides:
 
 
@@ -210,15 +223,22 @@ vs.
 - Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/008-FunWithCollection.mov*
 -precondition: Syntax on Blocks
 - Contents: 
-'100 timesRepeat: [ Transcript show: 'Pharo is cool' ; cr]
+[[[
+100 timesRepeat: [ Transcript show: 'Pharo is cool' ; cr]
+
 | i |
 i := 1.
 100 timesRepeat: [ Transcript show: i printString ; cr.
 					i := i + 1].
+					
 1 to: 100 do: [ :i | Transcript show: i printString ; cr]
+
 1 to: 100 by: 2 do: [ :i | Transcript show: i printString ; cr]
+
 100 to: 1 by: -3 do: [ :i | Transcript show: i printString ; cr]
-'
+
+]]]
+
 
 
 
@@ -229,10 +249,9 @@ i := 1.
 - Description about one line: students will learn about ifTrue:, ifFalse:, ifTrue:ifFalse:
 - Resources: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/009-FunWithCondition.mov*
 			*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/010-FunWithCondition.mov*
--precondition: Syntax on Blocks
+- Precondition: Syntax on Blocks
 - Contents: 
-'
-'
+
 
 !!!  [] vs. () 
 - Name: [] vs. ()  
@@ -240,10 +259,9 @@ i := 1.
 - Problem: When should we use [] and when should we use ()
 - Description about one line: students will learn that expressions inside () are always executed while inside [] are conditionally executed.
 - Resources: 
--precondition: Syntax on Blocks
+- Precondition: Syntax on Blocks
 - Contents: 
-'
-'
+
 
 
 !!! Loops - Iterators
@@ -252,12 +270,19 @@ i := 1.
 - resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
 - Ideas: use ZnEasy instead to select files served by a server
 - Contents: 
-'#(1 2 3 5 -1 12 0) collect: [:each | each * each]
-#(1 2 3 5 -1 12 0) select: [:each | each odd]
-#(1 2 3 5 -1 12 0) reject: [:each | each odd]
-#(1 2 3 5 -1 12 0) do: [:each | Transcript show: each asString; cr ]'
--precondition: Syntax on Blocks
+- Precondition: Syntax on Blocks
 - Exercises: #(ex-select-0001)
+[[[
+#(1 2 3 5 -1 12 0) collect: [:each | each * each]
+
+#(1 2 3 5 -1 12 0) select: [:each | each odd]
+
+#(1 2 3 5 -1 12 0) reject: [:each | each odd]
+
+#(1 2 3 5 -1 12 0) do: [:each | Transcript show: each asString; cr ]
+]]]
+
+
 
 
 
@@ -280,10 +305,10 @@ i := 1.
 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/007-FunWithCollection.mov*
 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/102-ChangingValueInInspector.mov*
 - Contents: 
-'#(1 2 3 4 5) at: 1
+[[[
+#(1 2 3 4 5) at: 1
 #(1 2 3 4 5) at: 1 put: 33
-
-'
+]]]
 
 !!! [env] Debugger
 
@@ -428,8 +453,8 @@ Old but the idea is there.
 - Name: Select 
 - ID: ex-select-0001
 - Purpose: Filtering a collection with select:
-- Expression: ''hello there' select: [ :each | each isVowel ]'
-- Result: 'eoee'
-- Expression: '#(1 3 4 5 6 11 17 12 2 3) select: [:each | each odd ]'
-- Result: #(1 3 5 11 17 3)
+- Expression: =='hello there' select: [ :each | each isVowel ]==
+- Result: =='eoee'==
+- Expression: ==#(1 3 4 5 6 11 17 12 2 3) select: [:each | each odd ]==
+- Result: ==#(1 3 5 11 17 3)==
 
