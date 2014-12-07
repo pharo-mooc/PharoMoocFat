@@ -42,7 +42,7 @@ We will have to describe a bit better the resources. For now let us get a nice l
 !! Smalltalk cheatsheet
 
 - Flyer made by damien
-
+-- *git@github.com:pharo-project/flyers.git*
 - Terse Guides
 -- *http://wiki.squeak.org/squeak/5699*
 -- *http://www.angelfire.com/tx4/cus/notes/smalltalk.html*
