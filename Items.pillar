@@ -489,3 +489,30 @@ Old but the idea is there.
 - Expression: ==5 + (2 * 3)==
 - Result: ==11==
 
+- Name :  Three kinds of message
+- ID : ex-kind of message-0001
+- purpose :'To say if this message is an unary, binary or keywords message'
+- Expression : ==+==
+- Result: ==Unary message==
+- Expression : ==float==
+- Result: ==Binary message==
+- Expression : ==open==
+- Result: ==Binary message==
+- Expression : ==*==
+- Result: ==Unary message==
+- Expression : ==>==
+- Result: ==Unary message==
+- Expression : ==between :==
+- Result: ==Binary message==
+- Expression : ==@==
+- Result: ==Unary message==
+- Expression : ==&==
+- Result: ==Unary message==
+- Expression : ==to :==
+- Result: ==Binary message==
+- Expression : ==cos==
+- Result: ==Binary message==
+- Expression : ==color :==
+- Result: ==Binary message==
+- Expression : ==at :==
+- Result: ==Keyword message==
