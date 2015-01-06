@@ -516,3 +516,20 @@ Old but the idea is there.
 - Result: ==Binary message==
 - Expression : ==at :==
 - Result: ==Keyword message==
+
+
+- Name : Workspace or browser
+- ID : ex-Workspace or browser-0001
+-purpose:Do you need to use a workspace or a class browser for :
+-to send a message
+-Result: ==Workspace==
+-to find a method
+-Result: ==Classe Browser==
+-to defind a class
+-Result: ==Classe Browser==
+-to use an inspector
+-Result: ==Workspace==
+-to find a protocol
+-Result: ==Classe Browser==
+-to use a transcript
+-Result: ==Workspace==
