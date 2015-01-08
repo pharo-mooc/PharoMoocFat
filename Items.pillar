@@ -533,3 +533,35 @@ Old but the idea is there.
 -Result: ==Classe Browser==
 -to use a transcript
 -Result: ==Workspace==
+
+
+- Name: Understanding message syntax : Summary
+- ID: ex-nderstanding message syntax-0001
+- Purpose: 'Choose the good sentence.'
+- Expression: ==A: A message is always sent to an object named the "receiver" which may be the result of other message sends==
+- Expression: ==B: A message is often sent to an object named the "receiver" which may be the result of other message sends==
+- Expression: ==C: A message is never sent to an object named the "receiver" which may be the result of other message sends==
+- Result: ==A==
+- Expression: ==A: Unary message are messages that do require an argument. They are of the form of recerver ""selector""==
+- Expression: ==B: Unary message are messages that do not require any argument. They are of the form of recerver ""selector""==
+- Result: ==A==
+- Expression: ==A:Unary messages are messages that involve two objects, the receiver "and" another object and whose selector is composed of one or more characters from the following list: +, −,*, /, |, &, =, >, <, ˜, and @. They are of the form: "receiver" ""selector"" "argument"==
+- Expression: ==B:Binary messages are messages that involve two objects, the receiver "and" another object and whose selector is composed of one or more characters from the following list: +, −,*, /, |, &, =, >, <, ˜, and @. They are of the form: "receiver" ""selector"" "argument"==
+- Expression: ==C:Keyword messages are messages that involve two objects, the receiver "and" another object and whose selector is composed of one or more characters from the following list: +, −,*, /, |, &, =, >, <, ˜, and @. They are of the form: "receiver" ""selector"" "argument"==
+- Result: ==B==
+- Expression: ==A:Unary messages are messages that involve more than one object and that contain at least one colon character (:). They are of the form: "receiver" ""selectorWordOne:"" argumentOne ""wordTwo:"" "argumentTwo"==
+- Expression: ==B:Binary messages are messages that involve more than one object and that contain at least one colon character (:). They are of the form: "receiver" ""selectorWordOne:"" argumentOne ""wordTwo:"" "argumentTwo"==
+- Expression: ==C:Keyword messages are messages that involve more than one object and that contain at least one colon character (:). They are of the form: "receiver" ""selectorWordOne:"" argumentOne ""wordTwo:"" "argumentTwo"==
+- Result: ==C==
+- Expression: ==A:Unary messages are sent first, then binary messages, and finally keyword messages.True.==
+- Expression: ==A:Unary messages are sent first, then binary messages, and finally keyword messages.False.==
+- Result: ==A==
+- Expression: ==Messages in parentheses are sent before any others.==
+- Expression: ==Messages in parentheses aren't sent before any others.==
+- Resut: ==A==
+- Expression: ==When the messages are of the same kind, the order of evaluation is from right to left.==
+- Expression: ==When the messages are of the same kind, the order of evaluation is from left to right.==
+- Result: ==B==
+
+
+
