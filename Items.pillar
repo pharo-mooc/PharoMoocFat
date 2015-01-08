@@ -502,19 +502,19 @@ Old but the idea is there.
 - Result: ==Unary message==
 - Expression : ==>==
 - Result: ==Unary message==
-- Expression : ==between :==
+- Expression : ==between and:==
 - Result: ==Binary message==
 - Expression : ==@==
 - Result: ==Unary message==
 - Expression : ==&==
 - Result: ==Unary message==
-- Expression : ==to :==
+- Expression : ==to:==
 - Result: ==Binary message==
 - Expression : ==cos==
 - Result: ==Binary message==
-- Expression : ==color :==
+- Expression : ==color:==
 - Result: ==Binary message==
-- Expression : ==at :==
+- Expression : ==at:==
 - Result: ==Keyword message==
 
 
