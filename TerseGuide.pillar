@@ -56,3 +56,6 @@
 	Random new next; yourself. x next.                     "random number stream (0.0 to 1.0)
 	100 atRandom.                                          "quick random number"
 ]]]
+
+!! Another topic
+

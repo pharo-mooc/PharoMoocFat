@@ -489,6 +489,11 @@ Old but the idea is there.
 - Expression: ==5 + (2 * 3)==
 - Result: ==11==
 
+- ID: ex-precedence-0002
+- Purpose: 'To show that there is no precedence and that we should use parentheses to disambiguate'
+- Expression ==3 * 5 - 15 sign==
+- Result 14
+
 - Name :  Three kinds of message
 - ID : ex-kind of message-0001
 - purpose :'To say if this message is an unary, binary or keywords message'
