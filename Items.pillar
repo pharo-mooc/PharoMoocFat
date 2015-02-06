@@ -599,3 +599,24 @@ Old but the idea is there.
 - Result : ==$ .==
 - Expression : ==a mixing of types allowed==
 - Result : ==(3 $P 3.18 'winter is coming')==
+
+
+- Name : Booleans
+- ID : ex-Booleans-0001
+- purpose : 'Please create the requester boolean with x and y as variable when x=1 and y =2'
+- Expression : ==equal==
+- Result : ==(x=y).==
+- Expression : ==not equal==
+- Result : ==(x~=y).==
+- Expression : ==identical==
+- Result : ==(x==y).==
+- Expression : ==not identical==
+- Result : ==(x~~y).==
+- Expression : ==greater than==
+- Result : ==(x>y).==
+- Expression : ==less than==
+- Result : ==(x<y).==
+- Expression : ==greater than or equal==
+- Result : ==(x>=y).==
+- Expression : ==less than or equal==
+- Result : ==(x<=y).==
