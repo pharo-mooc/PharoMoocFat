@@ -1,8 +1,58 @@
 ! Terse Guide
 
+
+!! Simple Objects
+Literal objects are objects created by the language parser: i.e, when the expression is read. 
+
+[[[language=Smalltalk | caption=Literal Objects a.k.a. Simple Objects
+	true.	"true unique Boolean object"
+	false. 	"false unique Boolean object"
+	nil.	"unique NULL value"
+	1.	"small integer"
+	3.14.	"float"
+	2e-2. 
+	16r0F.	"Number expressed in 16 basis". 
+	-1.	"negative"
+	'Hello'.	"string"
+	'I''m here'.	"string with single quote escape"
+	$A.	"character A"
+	$.	"character ."
+	#aSymbol.	"Unique string"
+	#(3 2 1).	"Literal array"
+	#('abc' 2 $a).	"Literal array with mixed literal objects"
+]]]
+
+!! Variables
+
+- variables must be declared before use
+- shared vars must begin with uppercase
+- local vars must begin with lowercase
+- reserved names: nil, true, false, self, and super
+
+!!! Local variable definition
+
+[[[language=Smalltalk|caption=Variable definition
+	| x y |
+]]]
+
+!!! Variable assignment
+
+[[[language=Smalltalk|caption=Assignment
+	| x y |
+	x := 4.
+	x := 5.
+	x := Color red.  "a color"
+	x := #( 1 2 3) "an array"
+]]]
+
+[[[language=Smalltalk|caption=Compound assignment
+	x := y := z := 6.
+	x := (y := 6) + 1.
+]]]
+
 !! Arithmetic operations
 
-[[[
+[[[language=Smalltalk|caption=Some arithmetic operations.
 	6 + 3.                                                 "addition"
 	6 - 3.                                                 "subtraction"
 	6 * 3.                                                 "multiplication"
@@ -57,5 +107,65 @@
 	100 atRandom.                                          "quick random number"
 ]]]
 
-!! Another topic
+!! Booleans
+  ==true== is the unique instance of the class ==True==, ==false== is the unique instance of the class ==False==.
+
+
+[[[language=Smalltalk|caption=Equality and inequality.
+	| x y |
+	x := 1. y := 2.
+	(x = y).	"equals"
+	(x ~= y).	"not equals"
+	(x == y).	"identical"
+	(x ~~ y).	"not identical"
+	(x > y).	"greater than"
+	(x < y).	"less than"
+	(x >= y).	"greater than or equal"
+	(x <= y).	"less than or equal"
+]]]
+
+[[[language=Smalltalk|caption=Some arithmetic operations.
+	| x y |
+	x := 1. y := 2.
+	(x < 5) & (y > 1).
+	"boolean and"
+	(x < 5) | (y > 1).
+	"boolean or"
+	(x > 5) and: [self error].
+	"lazy and (short-circuit), no error is raised since receiver is false"
+	(x < 5) or: [self error ].
+	"lazy or (short-circuit), no error is raised since receiver is true"
+	(x < 5) eqv: (y > 1).
+	"test if both true or both false"
+	(x < 5) xor: (y > 1).
+	"test if one true and other false"
+	b := (x < 5) & (y > 1).
+	b not
+	"negating the value of a boolean"
+]]]
+
+
+[[[language=Smalltalk|caption=Some common operations returning boolean.
+	5 between: 3 and: 12.	"between (inclusive)"
+	123 isKindOf: Number. 	"test if object is class or subclass of"
+	123 isMemberOf: SmallInteger.	"test if object is type of class"
+	123 respondsTo: #sqrt.	"test if object responds to message"
+]]]
+
+[[[[language=Smalltalk|caption=Some common testing messages.
+	| x |
+	x := 33.
+	x isNil.	"test if object is nil"
+	x isZero.	"test if number is zero"
+	x positive.	"test if number is positive"
+	x strictlyPositive.	"test if number is greater than zero"
+	x negative.	"test if number is negative"
+	x even.	"test if number is even"
+	x odd.	"test if number is odd"
+	x isInteger.	"test if object is integer"
+	x isFloat.	"test if object is float"
+	$A isUppercase.	"test if upper case character"
+	$A isLowercase.	"test if lower case character"
+]]]
+
 
