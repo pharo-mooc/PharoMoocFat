@@ -588,3 +588,14 @@ Old but the idea is there.
 - Expression : ==an array constant==
 - Result : ==#(3 2 1)==
 
+- Name :simple object
+- ID : ex-simple object-0002
+- purpose : Please create the requested simple object'
+- Expression : == G on hex constant==
+- Result : ==16r0G.==
+- Expression : ==this sentence : « I'm an informatician » ==
+- Result : ==I''m an informatician.==
+- Expression : ==a character constant (space)==
+- Result : ==$ .==
+- Expression : ==a mixing of types allowed==
+- Result : ==(3 $P 3.18 'winter is coming')==
