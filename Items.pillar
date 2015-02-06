@@ -568,5 +568,23 @@ Old but the idea is there.
 - Expression: ==When the messages are of the same kind, the order of evaluation is from left to right.==
 - Result: ==B==
 
-
+- Name :simple object
+- ID : ex-simple object-0001
+- purpose : Please create the requested simple object'
+- Expression : ==boolean==
+- Result : ==true. or false.==
+- Expression : ==an interger constant==
+- Result : ==42.==
+- Expression : ==afloat constant==
+- Result : ==3.14.==
+- Expression : ==a fractional constant==
+- Result : ==1e-3.==
+- Expression : ==a negative constant==
+- Result : ==-42.==
+- Expression : ==a string constant==
+- Result : =='Hello world'==
+- Expression : ==a character constant==
+- Result : ==$A.==
+- Expression : ==an array constant==
+- Result : ==#(3 2 1)==
 
