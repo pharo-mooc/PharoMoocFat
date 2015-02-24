@@ -1,4 +1,4 @@
-! Items: Fragments of Lectures and Exercises
+﻿! Items: Fragments of Lectures and Exercises
 
 Items are units of knowledge. A typical session (video) will be between 6 to 9 minutes and composed of a couple of items. Exercises will be also based on items. 
 
@@ -82,7 +82,6 @@ Comparison with ==f(x) -> x + 2, f(5) -> 7==
 value, value:, value:value:
 ]]]
 - Slides:
-
 
 
 !!! Blocks other protocols
