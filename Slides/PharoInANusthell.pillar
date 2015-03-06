@@ -1,0 +1,38 @@
+! Smalltalk in  a Nutshell
+
+Stéphane Ducasse
+
+
+!! Slide: Goals
+
+- Syntax in a Nutshell
+- Pharo Object Model in a Nutshell
+
+
+!! Complete Syntax on a Postcard
+
+[[[
+exampleWithNumber: x
+	"A method that illustrates every part of Smalltalk method syntax except primitives."
+	<aMethodAnnotation>
+	
+	|y|
+	true & false not & (nil isNil) ifFalse: [self halt]. y := self size + super size.
+	#($a #a ‘a’ 1 1.0)
+		do: [:each | Transcript
+					show: (each class name);
+					show: (each printString);
+					show:‘ ‘].
+	^ x<y
+]]]
+
+
+!! Slide: Pharo Object Model
+
+- Everything is an object
+- Only message passing
+-- Only late binding
+- Instance variables are private to the object
+- Methods are public
+- Single inheritance between classes
+
