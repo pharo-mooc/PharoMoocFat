@@ -126,7 +126,7 @@ exampleWithNumber: x
 
 - Three kinds of messages
 -- Unary: Node new
--- Binary: 1 + 2, 3@4
+-- Binary: {{{ html: 1+2, 3@4 }}}
 -- Keywords: aTomagoshi eat: #cooky furiously: true
 -Message Priority
 --(Msg) > unary > binary > keywords
