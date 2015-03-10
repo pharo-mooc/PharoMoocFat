@@ -26,6 +26,26 @@ exampleWithNumber: x
 	^ x<y
 ]]]
 
+- Weather isRaining
+[[[
+ ifTrue: [self takeMyUmbrella]
+ ifFalse: [self takeMySunglasses]
+ ]]]
+- ifTrue:ifFalse is sent to an object: a boolean!
+
+!! Yes a collection is iterating on itself
+
+[[[
+#(1 2 -4 -86)
+ do: [:each | Transcript show: each abs
+printString ;cr ]
+> 1
+> 2
+> 4
+> 86
+]]]
+- Yes we ask the collection object to perform the 
+
 
 !! Slide: Pharo Object Model
 
