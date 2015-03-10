@@ -36,3 +36,118 @@ exampleWithNumber: x
 - Methods are public
 - Single inheritance between classes
 
+!! Language Constructs
+
+- ^ return
+- " comments
+- # symbol or array
+- ' string
+- [ ] block or byte array
+- . separator and not terminator (or namespace access in VW)
+- ; cascade (sending several messages to the same instance)
+- | local or block variable
+- := assignment
+- $ character
+- : end of selector name
+- e, r number exponent or radix
+- ! file element separator
+- <primitive: ...> for VM primitive calls
+
+!! Syntax
+
+- comment: "a comment"
+- character: $c $h $a $r $a $c $t $e $r $s $# $@
+- string: 'a nice string' 'lulu' 'l'idiot'
+- symbol: #mac #+
+- array: #(1 2 3 (1 3) $a 4)
+- byte array: #[1 2 3]
+- integer: 1, 2r101
+- real: 1.5, 6.03e-34,4, 2.4e7
+- float: 1/33
+- boolean: true, false
+- point: 10@120
+- Note that @ is not an element of the syntax, but just a message sent to a
+- number. This is the same for /, bitShift, ifTrue:, do: ...
+
+!! Syntax in a Nutshell (II)
+
+- assigment: var := aValue
+- block: [:var ||tmp| expr...]
+- temporary variable: |tmp|
+- block variable: :var
+- unary message: receiver selector
+- binary message: receiver selector argument
+- keyword based: receiver keyword1: arg1 keyword2:
+- arg2...
+- cascade: message ; selector ...
+- separator: message . message
+- result: ^
+- parenthesis: (...)
+
+!! Class Definition in St-80
+
+[[[
+	NameOfSuperclass subclass: #NameOfClass
+	instanceVariableNames: 'instVarName1'
+	classVariableNames: 'classVarName1'
+	poolDictionaries: ''
+	category: 'LAN'
+]]]
+
+!! Method Definition
+
+- Normally defined in a browser or (by directly invoking the compiler)	 	
+- Methods are public
+- Always return self
+[[[
+	Node>>accept: thePacket
+		"If the packet is addressed to me, print it.
+		Else just behave like a normal node"
+		
+		thePacket isAddressedTo: self)
+			ifTrue: [self print: thePacket]
+			ifFalse: [super accept: thePacket]
+]]]
+
+!! Instance Creation: Messages Too!
+- '1', 'abc'
+- Basic class creation messages are
+[[[
+		 new, new:,
+		 basicNew, basicNew:
+		 Monster new
+]]]
+- Class specific message creation (messages sent to classes)
+[[[
+		 Tomagoshi withHunger: 10
+]]]
+
+!! Messages and their composition
+
+- Three kinds of messages
+-- Unary: Node new
+-- Binary: 1 + 2, 3@4
+-- Keywords: aTomagoshi eat: #cooky furiously: true
+-Message Priority
+--(Msg) > unary > binary > keywords
+--Same Level from left to right
+-Example:
+[[[
+(10@0 extent: 10@100) bottomRight
+s isNil ifTrue: [ self halt ]
+]]]
+
+!! Blocks
+
+- Anonymous method
+- Passed as method argument or stored
+- Functions
+[[[
+	 fct(x)= x*x+3, fct(2).
+	 fct :=[:x| x * x + 3]. fct value: 2
+ Integer>>factorial
+	| tmp |
+		tmp:= 1.
+		2 to: self do: [:i| tmp := tmp * i]
+	#(1 2 3) do: [:each | Transcript show: each printString ; cr]
+]]]
