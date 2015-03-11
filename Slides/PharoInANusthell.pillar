@@ -3,7 +3,7 @@
 Stéphane Ducasse
 
 
-!! Slide: Goals
+!! Goals
 
 - Syntax in a Nutshell
 - Pharo Object Model in a Nutshell
@@ -26,15 +26,16 @@ exampleWithNumber: x
 	^ x<y
 ]]]
 
-- Weather isRaining
+!! Conditionals are also message send
 [[[
- ifTrue: [self takeMyUmbrella]
- ifFalse: [self takeMySunglasses]
- ]]]
+Weather isRaining
+	ifTrue: [self takeMyUmbrella]
+	ifFalse: [self takeMySunglasses]
+]]]
+
 - ifTrue:ifFalse is sent to an object: a boolean!
 
 !! Yes a collection is iterating on itself
-
 [[[
 #(1 2 -4 -86)
  do: [:each | Transcript show: each abs
@@ -44,10 +45,9 @@ printString ;cr ]
 > 4
 > 86
 ]]]
-- Yes we ask the collection object to perform the 
+- Yes we ask the collection object to perform the iteration
 
-
-!! Slide: Pharo Object Model
+!! Pharo Object Model
 
 - Everything is an object
 - Only message passing
@@ -74,7 +74,6 @@ printString ;cr ]
 - <primitive: ...> for VM primitive calls
 
 !! Syntax
-
 - comment: "a comment"
 - character: $c $h $a $r $a $c $t $e $r $s $# $@
 - string: 'a nice string' 'lulu' 'l'idiot'
@@ -97,21 +96,19 @@ printString ;cr ]
 - block variable: :var
 - unary message: receiver selector
 - binary message: receiver selector argument
-- keyword based: receiver keyword1: arg1 keyword2:
-- arg2...
+- keyword based: receiver keyword1: arg1 keyword2: arg2...
 - cascade: message ; selector ...
 - separator: message . message
 - result: ^
 - parenthesis: (...)
 
-!! Class Definition in St-80
+!! Class Definition
 
 [[[
 	NameOfSuperclass subclass: #NameOfClass
-	instanceVariableNames: 'instVarName1'
-	classVariableNames: 'classVarName1'
-	poolDictionaries: ''
-	category: 'LAN'
+		instanceVariableNames: 'instVarName1'
+		classVariableNames: 'classVarName1'
+		category: 'LAN'
 ]]]
 
 !! Method Definition
@@ -119,6 +116,7 @@ printString ;cr ]
 - Normally defined in a browser or (by directly invoking the compiler)	 	
 - Methods are public
 - Always return self
+
 [[[
 	Node>>accept: thePacket
 		"If the packet is addressed to me, print it.
@@ -129,12 +127,11 @@ printString ;cr ]
 			ifFalse: [super accept: thePacket]
 ]]]
 
-!! Instance Creation: Messages Too!
+!! Instance Creation are Messages Too!
 - '1', 'abc'
 - Basic class creation messages are
 [[[
 		 new, new:,
-		 basicNew, basicNew:
 		 Monster new
 ]]]
 - Class specific message creation (messages sent to classes)
@@ -151,6 +148,7 @@ printString ;cr ]
 -Message Priority
 --(Msg) > unary > binary > keywords
 --Same Level from left to right
+
 -Example:
 [[[
 (10@0 extent: 10@100) bottomRight
@@ -164,10 +162,24 @@ s isNil ifTrue: [ self halt ]
 - Functions
 [[[
 	 fct(x)= x*x+3, fct(2).
+]]]
+
+[[[
 	 fct :=[:x| x * x + 3]. fct value: 2
+]]]
+
+!! Blocks Example: 
+
+
+[[[
+	#(1 2 3) do: [:each | Transcript show: each printString ; cr]	
+]]]
+
+[[[	 
  Integer>>factorial
 	| tmp |
-		tmp:= 1.
-		2 to: self do: [:i| tmp := tmp * i]
-	#(1 2 3) do: [:each | Transcript show: each printString ; cr]
+	tmp:= 1.
+	2 to: self do: [:i| tmp := tmp * i]
+	
 ]]]
+
