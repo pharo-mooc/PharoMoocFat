@@ -1,12 +1,15 @@
 ! Syntax and Messages
 
+
 Stéphane Ducasse
+
 stephane.ducasse@inria.fr
-http://stephane.ducasse.free.fr/
+
+*http://stephane.ducasse.free.fr/*
 
 !! Outline
 
-- Literals: numbers, strings, arrays....
+- Literals: numbers, strings, arrays
 - Variable, assignments, returns
 - Pseudo-variables
 - Message Expressions	 	
@@ -16,70 +19,70 @@ http://stephane.ducasse.free.fr/
 !! Originally Made for Kids
 
 - Read it as a non-computer-literate person:
+
 [[[		
 | bunny |
 bunny := Actor fromFile: 'bunny.vrml'.
 bunny head doEachFrame:
 	[ bunny head
 		pointAt: (camera
-			transformScreenPointToScenePoint:
-				(Sensor mousePoint)
-				using: bunny)
+					transformScreenPointToScenePoint: Sensor mousePoint
+					using: bunny)
 		duration: camera rightNow ]
 ]]]
 
 !! Numbers
-
 - SmallInteger, Integer,
--- 4, 2r100 (4 in base 2),3r11 (4 in base 3), 1232
+-- 4, 2r100 (4 in base 2), 3r11 (4 in base 3), 1232
 - Automatic coercion
--- {{{ 1 + 2.3 -> 3.3 }}}
-- 1 class -> SmallInteger
--- 1 class maxVal class -> SmallInteger
-- {{{ (1 class maxVal + 1) class -> LargeInteger }}}
+-- == 1 + 2.3 -> 3.3==
+- ==1 class== -> ==SmallInteger==
+- ==1 class maxVal class== -> ==SmallInteger==
+- ==(1 class maxVal + 1) class== -> ==LargeInteger==
 -- Fraction, Float, Double
 - 3/4, 2.4e7, 0.75d
--- {{{ (1/3) + (2/3) -> 1}}}
-- 1000 factorial / 999 factorial -> 1000
--- {{{ 2/3 + 1 -> (5/3)}}}
+-- ==(1/3) + (2/3)== -> 1 
+- ==1000 factorial / 999 factorial== -> 1000
+-- ==2/3 + 1== -> ==(5/3)==
 
 !! Characters
-
 - Characters:
 -- $F, $Q $U $E $N $T $i $N
 - Unprintable characters:
 -- Character space, Character tab, Character cr
 
 !! Strings
-
-- Strings:
--- #mac asString -> 'mac'
--- 12 printString -> '12'
--- 'This packet travelled around to the printer' 'l'idiot'
--- String with: $A
--- Collection of characters
--- 'lulu' at: 1 -> $l
+- Some ways to obtain a string
+-- ==#mac asString== -> =='mac'==
+-- ==12 printString== -> =='12'==
+-- =='This packet travelled around to the printer'==
+-- ==String with: $A==
+- Collection of characters
+-- =='lulu' at: 1== -> ==$l==
 - To introduce a single quote inside a string, just double it.
+- =='l''idiot'==
 
 !! Symbols
-
-Symbols:
-- #class #mac #at:put: {{{#+ }}} #accept:
--- Kinds of String
--- Unique in the system (see after)
+- Kinds of String
+- Unique in the system (see after)
+- start with ==#==
+-- ==#class== ==#mac== ==#at:put:== ==#+== ==#accept:==
 
 !! Symbols vs. Strings
 
 - Symbols are used as method selectors, unique keys for dictionaries
 - A symbol is a read-only object, strings are mutable objects
 - A symbol is unique, strings are not
+
 [[[
- #calvin == #calvin PrIt-> true
- 'calvin' == 'calvin' PrIt-> false
- #calvin, #zeBest PrIt-> 'calvinzeBest'
- ]]]
+#calvin == #calvin -> true
+'calvin' == 'calvin' -> false
+#calvin, #zeBest -> 'calvinzeBest'
+]]]
 - Symbols are good candidates for identity based dictionaries (IdentityDictionary)
-- Hint: Comparing strings is slower then comparing symbols by a factor of 5 to 10. However, converting a string to a symbol is more than 100 times more expensive.
+- Hint: 
+-- Comparing strings is slower then comparing symbols by a factor of 5 to 10. 
+-- However, converting a string to a symbol is more than 100 times more expensive.
 
 !! Comments and Tips
 
@@ -88,32 +91,41 @@ Symbols:
 
 !! Arrays
 
-- #(1 2 3) #('lulu' (1 2 3))
-[[[#('lulu' #(1 2 3))]]]
--  #(mac node1 pc node2 node3 lpr)
+- Syntax:  ==#(  )==
+- ==#(1 2 3)== 
+-- an array with 3 numbers
+- ==#('lulu' (1 2 3))== 
+--an array with two elements: a string and an array
+- ==#(mac node1 pc node2 node3 lpr)==
 -- an array of symbols.
 - When one prints it it shows
-[[[#(#mac #node1 #pc #node2 #node3 #lpr)]]]
-- in VW Byte Array #[1 2 255]
+[[[
+#(#mac #node1 #pc #node2 #node3 #lpr)
+]]]
 
-!! Arrays
 
+
+!! Byte Arrays 
+- ==#[1 2 255]==
+
+
+!! Arrays can contains heterogenous objects
 - Heterogenous
 [[[
  #('lulu' (1 2 3))
-	PrIt-> #('lulu' #(1 2 3))
+	-> #('lulu' #(1 2 3))
  #('lulu' 1.22 1)
-	PrIt-> #('lulu' 1.22 1)
+	-> #('lulu' 1.22 1)
 ]]]
 - An array of symbols:
 [[[
 #(calvin hobbes suzie)
-	PrIt-> #(#calvin #hobbes #suzie)
+	-> #(#calvin #hobbes #suzie)
 ]]]
 - An array of strings:
 [[[
 #('calvin' 'hobbes' 'suzie')
-	PrIt-> #('calvin' 'hobbes' 'suzie')
+	-> #('calvin' 'hobbes' 'suzie')
 ]]]
 
 !! Syntax Summary
