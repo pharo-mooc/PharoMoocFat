@@ -1,0 +1,44 @@
+Hi 
+
+when iterating over a sequenced collection (array / ordered collection) how
+can I determine the current objects index value (without explicitly storing
+a counter or looking to match each time)
+
+Typically I need it:
+1. to display a serial number when printing a report.
+2. to determine if I am on the last element.
+3. To highlight every n-th element.
+
+
+
+" it seems that in more cases than not, i find that developers use a stream  when concatenating some text strings. "
+Compare the creation cost of 
+
+'string1', 'string2', 'string3' ... , "stringN" will require the 
+creation of N intermediate String instances. 
+
+aStream 
+  nextPutAll: 'string1'; 
+  nextPutAll: 'string2'; 
+  nextPutAll: 'string3'; 
+  nextPutAll: 'stringN' 
+  
+[String streamContents: [:s | 
+     s nextPutAll: 'jlklkjkl'; 
+           nextPutAll: 'jlklkjkl' ]] bench. "'1,866,774 per second'" 
+
+
+  ['jlklkjkl' ,  'jlklkjkl'] bench "'5,433,931 per second’" 
+
+
+
+
+str:= Character alphabet. 
+[ str, str, str, str, str ] bench. 
+
+  "'1,020,043 per second'" 
+
+[ String new: str size * 5 streamContents: [ :out | 5 timesRepeat: [ out nextPutAll: str ] ] ] bench. 
+
+  "'949,738 per second'" 
+  
