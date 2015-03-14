@@ -13,20 +13,20 @@ Stéphane Ducasse
 
 [[[
 exampleWithNumber: x
-	"A method that illustrates every part of Smalltalk method syntax except primitives."
+	"This method illustrates every part of Smalltalk method syntax except primitives."
 	<aMethodAnnotation>
 	
-	|y|
+	| y |
 	true & false not & (nil isNil) ifFalse: [self halt]. y := self size + super size.
 	#($a #a ‘a’ 1 1.0)
-		do: [:each | Transcript
+		do: [ :each | Transcript
 					show: (each class name);
 					show: (each printString);
-					show:‘ ‘].
-	^ x<y
+					show: ‘ ‘ ].
+	^ x < y
 ]]]
 
-!! Conditionals are also message send
+!! Conditionals are also message sends
 [[[
 Weather isRaining
 	ifTrue: [self takeMyUmbrella]
@@ -35,11 +35,10 @@ Weather isRaining
 
 - ifTrue:ifFalse is sent to an object: a boolean!
 
-!! Yes a collection is iterating on itself
+!! Loops are also mesage sends
 [[[
 #(1 2 -4 -86)
- do: [:each | Transcript show: each abs
-printString ;cr ]
+	do: [:each | Transcript show: each abs printString ;cr ]
 > 1
 > 2
 > 4
@@ -105,10 +104,10 @@ printString ;cr ]
 !! Class Definition
 
 [[[
-	NameOfSuperclass subclass: #NameOfClass
-		instanceVariableNames: 'instVarName1'
-		classVariableNames: 'classVarName1'
-		category: 'LAN'
+Object subclass: #Point
+	instanceVariableNames: 'x y'
+	classVariableNames: ''
+	category: 'Graphics'
 ]]]
 
 !! Method Definition
@@ -118,13 +117,13 @@ printString ;cr ]
 - Always return self
 
 [[[
-	Node>>accept: thePacket
-		"If the packet is addressed to me, print it.
-		Else just behave like a normal node"
+Node>>accept: thePacket
+	"If the packet is addressed to me, print it.
+	Else just behave like a normal node"
 		
-		thePacket isAddressedTo: self)
-			ifTrue: [self print: thePacket]
-			ifFalse: [super accept: thePacket]
+	thePacket isAddressedTo: self)
+		ifTrue: [ self print: thePacket ]
+		ifFalse: [ super accept: thePacket ]
 ]]]
 
 !! Instance Creation are Messages Too!
@@ -157,18 +156,20 @@ s isNil ifTrue: [ self halt ]
 
 !! Blocks
 
-- Anonymous method
-- Passed as method argument or stored
+- A kind of anonymous method
+- Can be passed as method argument or stored in variables
 - Functions
 [[[
-	 fct(x)= x*x+3, fct(2).
+	fct(x)= x*x+3. 
+	fct(2).
 ]]]
 
 [[[
-	 fct :=[:x| x * x + 3]. fct value: 2
+	fct :=[:x| x * x + 3].
+	fct value: 2
 ]]]
 
-!! Blocks Example: 
+!! Blocks Example 
 
 
 [[[
@@ -176,10 +177,9 @@ s isNil ifTrue: [ self halt ]
 ]]]
 
 [[[	 
- Integer>>factorial
+Integer>>factorial
 	| tmp |
 	tmp:= 1.
-	2 to: self do: [:i| tmp := tmp * i]
-	
+	2 to: self do: [ :i | tmp := tmp * i ]
 ]]]
 
