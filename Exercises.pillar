@@ -1,0 +1,635 @@
+! Items: Fragments of Lectures and Exercises
+
+Items are units of knowledge. A typical session (video) will be between 6 to 9 minutes and composed of a couple of items. Exercises will be also based on items. 
+
+!! Item Description
+
+An item is composed of: 
+- Name: ''Iteration with ZnEasy''
+- Id: An id
+- A tag: environment, syntax, model, fun, tip
+- A Problem: How to iterate/manipulate collections?
+- A description about one line: students learn iterators such as ==do:==, ==collect:==, and ==select:== on 
+- Resources: 
+-- *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+- Ideas: use ZnEasy instead to select files served by a server.
+- Exercises: A list of exercises.
+- Contents: A little synopsis for the videos.
+- Slides: A list of ids of useful slides.
+
+!! Exercise Description
+
+Again we want to be able build objects that we can manipulate so exercises are described using a specific format.
+
+!!! Exercise Select
+- Name: ''Select''
+- ID: ex-select-0001
+- Purpose: Filtering a collection with select:
+- Expression: =='hello there' select: [ :each | each isVowel ]==
+- Result: =='eoee'==
+- Expression: ==#(1 3 4 5 6 11 17 12 2 3) select: [:each | each odd ]==
+- Result: ==#(1 3 5 11 17 3)==
+
+
+!! Unit of Knowledge Item: Welcome
+
+!!! Pharo in a nutshell 
+- Name: Pharo in a nutshell 
+- Tag: info
+- Problem: What is pharo
+- Description about one line: Pharo is open-source dynamically typed reflective language
+- Resources: 
+- Contents: 
+- Slides:
+
+!!! Downloading and getting started 
+- Name: Pharo in a nutshell 
+- Tag: info
+- Problem: How to get and run pharo
+- Description about one line: We will show the launcher and files.pharo.org
+- Resources: Chapter on zero-conf
+- Contents: 
+- Slides: 
+
+!!! Pharo Resources 
+- Name: Resources
+- Tag: info
+- Problem: Where are the key ressources
+- Description about one line: We will present mailing-list, web site, books
+- Resources: 
+- Contents: 
+- Slides:
+
+
+!! Unit of Knowledge Item: Messages
+
+
+
+
+
+
+!! Unit of Knowledge Item: Blocks
+
+!!! Blocks a.k.a lexical closure
+- Name: Blocks a.k.a lexical closure
+- Tag: system, syntax
+- Problem: How do we specify action to be done such as a button trigger?
+- Description: Block are anonymous methods that are really powerful. 
+- Contents: 
+Comparison with ==f(x) -> x + 2, f(5) -> 7==
+[[[
+[ :x | x + 2 ] 
+value, value:, value:value:
+]]]
+- Slides:
+
+
+
+!!! Blocks other protocols
+- Name: Blocks a.k.a lexical closure
+- Tag: system, API
+- Problem: How do we specify action to be done such as a button trigger?
+- Description: Block are anonymous methods that are really powerful. 
+- Contents: cull:, bench,....
+- Slides:
+
+
+
+
+
+
+!! Unit of Knowledge Item: loops
+
+
+
+!!! Simple loops 
+- Name: Simple loops 
+- Tag: system, syntax
+- Problem: how to loop over a collection?
+- Description about one line: students will learn simple loops such as timesRepeat:, to:do:, to:do:by: 
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+- Contents: 
+
+!!! to:do: vs. (to:)do: 
+- Name: to:do: vs. (to:)do: 
+- Tag: system, syntax, tip
+- Problem: how to loop over a collection?
+- Description about one line: students simple loops such as timesRepeat:, to:do:, to:do:by: 
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+- Contents: 
+
+
+
+!! Unit of Knowledge Item: basic objects
+
+
+!!!Characters		
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/051-BasicTypesIntroduction.mov*
+
+!!! Strings
+- Name: Strings 
+- Tag: syntax
+- Problem: how to declare and manipulate strings?
+- Description about one line: students will learn string syntax and how to manipulate them 
+- Exercises: #(ex-select-0001)
+
+
+!!! String concat
+
+!!!  Array access 
+- Name: Array access  
+- Tag: system, syntax
+- Problem: how to loop over a collection?
+- Description about one line: students will learn simple loops such as timesRepeat:, to:do:, to:do:by: 
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/007-FunWithCollection.mov*
+- Contents: 
+[[[
+#(1 2 3 4 5) at: 1
+#(1 2 3 4 5) at: 1 put: 33
+]]]
+
+
+
+
+!!! Array static vs. array dynamic
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/051-BasicTypesIntroduction.mov*
+
+
+
+!! Unit of Knowledge Item: Maths
+
+
+!!! First look at Maths 
+- Name: First look at Maths 
+- Tag: system, syntax
+- Problem: Math in Pharo in 3 min?
+- Description about one line: students will learn about direct manipulation, automatic coercion, fraction addition is exact, and Pharo can handle large numbers.
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.mov*
+- Contents: 
+
+[[[
+	1+2
+	(1/3) + (2/3) 
+	-> 1
+	1000 factorial printString size
+	1000 factorial / 999 factorial -> 1000
+]]]
+- Slides:
+
+	
+!!! Pi, sin and others
+- Name:  Pi, sin and others
+- Tag: system, syntax
+- Problem: how to express mathematical operations?
+- Description about one line: students will learn that numbers are objects too, so we just send them message.
+- Resources: 
+- Contents: 
+[[[
+Float pi
+0.5 sin
+]]]
+- Slides:
+
+
+!!! No Precedence with Mathematical 
+- Name: No Precedence with Mathematical 
+- Tag: system, syntax
+- Problem: How to express mathematical precedence?
+- Description about one line: students will learn that mathematical operators are just plain messages so to specify precedence we should use ().
+- Resources: 
+- Precondition: students should have seen syntax of messages.
+- Contents: 
+[[[
+	1/3 + 2/3
+	vs. 
+	(1/3) + (2/3)
+]]]
+- Slides:
+
+
+
+
+
+
+!!!  Loops 
+- Name: Simple loops 
+- Tag: system, syntax
+- Problem: how to loop over a collection?
+- Description about one line: students will learn simple loops such as timesRepeat:, to:do:, to:do:by: 
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/008-FunWithCollection.mov*
+- Precondition: Syntax on Blocks
+- Contents: 
+[[[
+100 timesRepeat: [ Transcript show: 'Pharo is cool' ; cr]
+
+| i |
+i := 1.
+100 timesRepeat: [ Transcript show: i printString ; cr.
+					i := i + 1].
+					
+1 to: 100 do: [ :i | Transcript show: i printString ; cr]
+
+1 to: 100 by: 2 do: [ :i | Transcript show: i printString ; cr]
+
+100 to: 1 by: -3 do: [ :i | Transcript show: i printString ; cr]
+
+]]]
+
+
+
+
+!!!  Conditionals 
+- Name: Conditionals 
+- Tag: system, syntax
+- Problem: how to write a condition?
+- Description about one line: students will learn about ifTrue:, ifFalse:, ifTrue:ifFalse:
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/009-FunWithCondition.mov*
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/010-FunWithCondition.mov*
+- Precondition: Syntax on Blocks
+- Contents: 
+
+
+!!!  [] vs. () 
+- Name: [] vs. ()  
+- Tag: system, syntax
+- Problem: When should we use ==[]== and when should we use ==()==
+- Description about one line: students will learn that expressions inside () are always executed while inside [] are conditionally executed.
+- Resources: 
+- Precondition: Syntax on Blocks
+- Contents: 
+
+
+
+!!! Loops - Iterators
+- Name: ''Iterators are your best friends''
+- Problem: how to iterate/manipulate collections
+- Description: do: collect: select: 
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+- Ideas: use ZnEasy instead to select files served by a server
+- Contents: 
+- Precondition: Syntax on Blocks
+- Exercises: #(ex-select-0001)
+[[[
+#(1 2 3 5 -1 12 0) collect: [:each | each * each]
+
+#(1 2 3 5 -1 12 0) select: [:each | each odd]
+
+#(1 2 3 5 -1 12 0) reject: [:each | each odd]
+
+#(1 2 3 5 -1 12 0) do: [:each | Transcript show: each asString; cr ]
+]]]
+
+
+
+
+
+
+
+
+
+
+
+!! Unit of Knowledge Item: Environment
+
+!!! [env] Sender/implementors
+
+!!! [env] Inspecting an object 
+- Name: Inspecting an object
+- Tag: new
+- Problem: How cna I tweek an object?
+- Description about one line: students will learn to use an inspector to interact with an object. 
+- Resources: 
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/007-FunWithCollection.mov*
+--*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/102-ChangingValueInInspector.mov*
+- Contents: 
+[[[
+#(1 2 3 4 5) at: 1
+#(1 2 3 4 5) at: 1 put: 33
+]]]
+
+!!! [env] Debugger
+
+!!! [env] Commiting a package 
+
+!!! [env] Workspace
+
+!!! [env] Code browser
+
+!!! [env] Messages finder
+Old but the idea is there.
+- Resources: 
+-- *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/015-MessageFinder.mov*
+
+!!! [env] Example driven finder
+Old but the idea is there.
+- Resources: 
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/011-FunMethodFinder.mov*
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/012-FunWithMethodFinder.mov*
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/013-FunWithMethodFinder.mov*
+	
+!!! [env] Implementors
+Old but the idea is there.	
+- Resources: 
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/016-Implementors.mov	
+	
+
+!!! [env] Loading a package with the configuration browser
+Old but the idea is there.
+- Resources: 
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/051-LoadingFromSqueakMap.mov*
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/052-LoadingBreakOutFromSqueakMap.mov*
+	
+!!! Loading a package 
+- Resources: 
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/060-LoadingPackageFromSqueakSource.mov*
+
+
+
+	
+!!! [env] SmalltalkHub package information
+Old but the idea is there.
+- Resources: 
+--	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/055-SqueakSourcePackageInformation.mov*
+	
+!!! [env] Behind a firewall
+???
+
+
+
+
+!! Unit of Knowlegde: a Simple Class (all steps)
+Old but the idea is there.
+
+!!! [Dev] Creating a class
+- Resources: 
+-- *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/100-ClassDefinition.mov*
+
+!!! [Dev] Defining an initialize method	
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/101-InitializeMethod.mov*	
+	
+!!! [Dev] Defining a Getter
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/103-AddingGetterAccessor.mov*
+	
+!!! [Dev] Defining a increment/decrement
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/104-AddingOperations.mov*	
+	
+!!! [Dev] Difference printing vs. doing it
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/105-DifferencePrintItDoIt.mov*	
+
+!!! [Dev] Adding a printOn: method
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/106-PrintingMethod.mov*
+	
+!!! [Dev] Invoking an overriden method
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/107-InvokingOverridenMethodOrNot.mov*
+	
+!!! [Dev] Writing a test
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/120-TestingSimpleCounter.mov*
+	
+!!! [Dev] Running a test
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/121-OpeningTestRunner.mov*
+
+!!! [Dev] Defining other tests
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/122-OtherTests.mov*
+	
+!!! [Dev] creating a project on SHUB
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/130-CreatingASqueakSourceProject.mov*	
+	
+!!! [Dev] Saving a package 
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/131-SavingSimpleCounterAsMCPackage2.mov*
+	
+	
+	
+!! Unit of Knowledge Item: Programming Idioms
+
+!!! Object initialization
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/101-InitializeMethod.mov*	
+	
+	
+!!! printing
+- Resources: 
+-- 	*http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/106-PrintingMethod.mov*
+	
+!! Unit of Knowledge Item: OOP Reloaded
+
+!!! [oop] Class
+
+!!! [oop] Lookup
+
+!!! [oop] what is self
+
+!!! [oop] what is really super
+
+!!! [oop] Metaclass
+
+
+
+
+
+
+
+
+
+
+
+!! Unit of Knowledge Item: Most common Errors
+
+
+
+
+
+
+
+!! Unit of Knowledge Item: Powerfull frameworls
+
+!!! Seaside intro
+
+!!! Seaside Zinc
+
+
+
+!! Exercises
+
+
+
+- Name :  Three kinds of message
+- ID : ex-kind of message-0001
+- purpose :'To say if this message is an unary, binary or keywords message'
+- Expression : ==+==
+- Result: ==Unary message==
+- Expression : ==float==
+- Result: ==Binary message==
+- Expression : ==open==
+- Result: ==Binary message==
+- Expression : ==*==
+- Result: ==Unary message==
+- Expression : ==>==
+- Result: ==Unary message==
+- Expression : ==between and:==
+- Result: ==Binary message==
+- Expression : ==@==
+- Result: ==Unary message==
+- Expression : ==&==
+- Result: ==Unary message==
+- Expression : ==to:==
+- Result: ==Binary message==
+- Expression : ==cos==
+- Result: ==Binary message==
+- Expression : ==color:==
+- Result: ==Binary message==
+- Expression : ==at:==
+- Result: ==Keyword message==
+
+
+- Name : Workspace or browser
+- ID : ex-Workspace or browser-0001
+-purpose:Do you need to use a workspace or a class browser for :
+-to send a message
+-Result: ==Workspace==
+-to find a method
+-Result: ==Classe Browser==
+-to defind a class
+-Result: ==Classe Browser==
+-to use an inspector
+-Result: ==Workspace==
+-to find a protocol
+-Result: ==Classe Browser==
+-to use a transcript
+-Result: ==Workspace==
+
+
+- Name: Understanding message syntax : Summary
+- ID: ex-nderstanding message syntax-0001
+- Purpose: 'Choose the good sentence.'
+- Expression: ==A: A message is always sent to an object named the "receiver" which may be the result of other message sends==
+- Expression: ==B: A message is often sent to an object named the "receiver" which may be the result of other message sends==
+- Expression: ==C: A message is never sent to an object named the "receiver" which may be the result of other message sends==
+- Result: ==A==
+- Expression: ==A: Unary message are messages that do require an argument. They are of the form of recerver ""selector""==
+- Expression: ==B: Unary message are messages that do not require any argument. They are of the form of recerver ""selector""==
+- Result: ==A==
+- Expression: ==A:Unary messages are messages that involve two objects, the receiver "and" another object and whose selector is composed of one or more characters from the following list: +, −,*, /, |, &, =, >, <, ˜, and @. They are of the form: "receiver" ""selector"" "argument"==
+- Expression: ==B:Binary messages are messages that involve two objects, the receiver "and" another object and whose selector is composed of one or more characters from the following list: +, −,*, /, |, &, =, >, <, ˜, and @. They are of the form: "receiver" ""selector"" "argument"==
+- Expression: ==C:Keyword messages are messages that involve two objects, the receiver "and" another object and whose selector is composed of one or more characters from the following list: +, −,*, /, |, &, =, >, <, ˜, and @. They are of the form: "receiver" ""selector"" "argument"==
+- Result: ==B==
+- Expression: ==A:Unary messages are messages that involve more than one object and that contain at least one colon character (:). They are of the form: "receiver" ""selectorWordOne:"" argumentOne ""wordTwo:"" "argumentTwo"==
+- Expression: ==B:Binary messages are messages that involve more than one object and that contain at least one colon character (:). They are of the form: "receiver" ""selectorWordOne:"" argumentOne ""wordTwo:"" "argumentTwo"==
+- Expression: ==C:Keyword messages are messages that involve more than one object and that contain at least one colon character (:). They are of the form: "receiver" ""selectorWordOne:"" argumentOne ""wordTwo:"" "argumentTwo"==
+- Result: ==C==
+- Expression: ==A:Unary messages are sent first, then binary messages, and finally keyword messages.True.==
+- Expression: ==A:Unary messages are sent first, then binary messages, and finally keyword messages.False.==
+- Result: ==A==
+- Expression: ==Messages in parentheses are sent before any others.==
+- Expression: ==Messages in parentheses aren't sent before any others.==
+- Resut: ==A==
+- Expression: ==When the messages are of the same kind, the order of evaluation is from right to left.==
+- Expression: ==When the messages are of the same kind, the order of evaluation is from left to right.==
+- Result: ==B==
+
+- Name :simple object
+- ID : ex-simple object-0001
+- purpose : Please create the requested simple object'
+- Expression : ==boolean==
+- Result : ==true. or false.==
+- Expression : ==an interger constant==
+- Result : ==42.==
+- Expression : ==afloat constant==
+- Result : ==3.14.==
+- Expression : ==a fractional constant==
+- Result : ==1e-3.==
+- Expression : ==a negative constant==
+- Result : ==-42.==
+- Expression : ==a string constant==
+- Result : =='Hello world'==
+- Expression : ==a character constant==
+- Result : ==$A.==
+- Expression : ==an array constant==
+- Result : ==#(3 2 1)==
+
+- Name :Simple objects
+- ID : ex-simple object-0002
+- purpose : Please create the requested simple object'
+- Description : == 10 on hex==
+- Result : ==16r0A.==
+- Expression : ==this sentence : « I'm an informatician » ==
+- Result : ==I''m an informatician.==
+- Expression : ==a character constant (space)==
+- Result : ==$ .==
+- Expression : ==a mixing of types allowed==
+- Result : ==(3 $P 3.18 'winter is coming')==
+
+
+
+!! Corrected Exercises
+
+
+- Name :Simple aritmetic
+- ID : ex-simple object-0003
+- Purpose : Understanding the basic object
+- Expression : == 3 + 50 ==
+- Result : ==53==
+
+- Name : Booleans
+- ID : ex-Booleans-0001
+- purpose : 'Please create the requested boolean with x and y as variable when x = 1 and y = 2'
+- Description: what is the expression which tests if x is equal to y?
+- Result : ==(x=y).==
+- Description : What is the expression which tests if x not equal to y?
+- Result : ==(x~=y).==
+- Expression : What is the expression which tests if x identical to y?
+- Result : ==(x==y).==
+- Expression : What is the expression which tests if x is not identical to y?
+- Result : ==(x~~y).==
+- Expression : What is the expression which tests if x is greater than y?
+- Result : ==(x>y).==
+- Expression : What is the expression which tests if x is less than y?
+- Result : ==(x<y).==
+- Expression : What is the expression which tests if x is greater than or equal y?
+- Result : ==(x>=y).==
+- Expression : What is the expression which tests if x is less than or equal to y?
+- Result : ==(x<=y).==
+
+
+- Name: Select 
+- ID: ex-select-0001
+- Purpose: 'Filtering a collection with select:'
+- Expression: =='hello there' select: [ :each | each isVowel ]==
+- Result: =='eoee'==
+- Expression: ==#(1 3 4 5 6 11 17 12 2 3) select: [:each | each odd ]==
+- Result: ==#(1 3 5 11 17 3)==
+
+
+- Name: Precedence
+- ID: ex-precedence-0001
+- Purpose: 'To show that there is no precedence and that we should use parentheses to disambiguate'
+- Expression: ==5 + 2 * 3==
+- Result: ==21==
+- Expression: ==5 * 2 + 3==
+- Result: ==13==
+- Expression: ==5 + (2 * 3)==
+- Result: ==11==
+
+- ID: ex-precedence-0002
+- Purpose: 'To show that there is no precedence and that we should use parentheses to disambiguate'
+- Expression ==3 * 5 - 15 sign==
+- Result 14
