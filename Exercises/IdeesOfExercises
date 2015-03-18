@@ -41,4 +41,12 @@ str:= Character alphabet.
 [ String new: str size * 5 streamContents: [ :out | 5 timesRepeat: [ out nextPutAll: str ] ] ] bench. 
 
   "'949,738 per second'" 
+
+
+
+
+-- Comparing strings is slower then comparing symbols by a factor of 5 to 10. 
+-- However, converting a string to a symbol is more than 100 times more expensive.
+Can you validate or invalidate such statements
+
   
