@@ -8,7 +8,7 @@ Stéphane Ducasse
 
 !! License
 
-
++>file://figures/CreativeCommons.png|width=50|label=figCreativeCommons+
 
 !! Goals
 
@@ -253,13 +253,11 @@ SequenceableCollection>>do: aBlock
 	1 to: self size do: [:i | aBlock value: (self at: i)]		
 ]]]
 
-
 !! Analysis
 - Iterators are really powerful because they support polymorphic code.
 - All the collections support them.
 - New ones are defined.
 - Missing controlled navigation as in the Iterator design pattern.
-
 
 !! Conclusion
 - Iterators are your best friends
