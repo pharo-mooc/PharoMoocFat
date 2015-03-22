@@ -17,6 +17,194 @@ An item is composed of:
 - Contents: A little synopsis for the videos.
 - Slides: A list of ids of useful slides.
 
+!! Ideas to assess and dispatch within the lectures
+
+And we could add some more specific ones:
+- Browse and query XML
+- Browse and query JSON
+- Query a REST API with Zinc
+- Query a Mongo DB
+
+These would require extra packages to be loaded.
+
+
+
+Inspector basic:
+- Browsing the file system: 
+http://www.humane-assessment.com/blog/browsing-files-with-gtinspector/
+http://www.humane-assessment.com/blog/searching-file-system-with-gtspotter/
+- Browsing a Postgres DB:
+http://www.humane-assessment.com/blog/dynamic-exploration-of-a-postgres-db-with-the-gtinspector/
+- Understanding morphs:
+http://www.humane-assessment.com/blog/custom-morph-screenshot-with-gtinspector/
+http://www.humane-assessment.com/blog/spotting-a-troublesome-image-morph/
+http://www.humane-assessment.com/blog/managing-morph-keybindings-with-gtinspector
+
+
+Advanced:
+- Searching for code patterns:
+http://www.humane-assessment.com/blog/searching-for-a-morph-glitch/
+- Pharo performance analysis:
+http://www.humane-assessment.com/blog/assessing-pharo-performance-with-gtinspector/
+- Searching for object patterns (this one uses Roassal):
+http://www.humane-assessment.com/blog/discover-contracts-by-visualizing-objects-in-gtinspector/
+- Extending the inspector and spotter for a simple model (like the address book)
+- Debugging the debugger with the inspector:
+http://www.humane-assessment.com/blog/debugging-the-debugger-with-the-inspector/
+- Understanding the AST with the inspector
+- Guiding custom code changes with the inspector:
+http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
+
+
+!! Overall Structure
+
+
+!!! Week 1
+- Welcome: Goal - objectives - community 		6 min
+- Live: Several Live Examples: Seaside/3D/Zinc/GT?	6 min
+
+- Live: Installation Mac						2 min
+- Live: Installation Windows					2 min
+- Live: Installation Linux						2 min
+- Live: Installation Ubuntu						2 min
+
+- Live: Getting started: Coding live example counter: test first 10 min
+
+- Basic syntax: including class/method definition (so that exercises can)
+- Object model: simple (single inheritance, public methods in 5 slides)
+- Messages
+- Blocks
+- Live: The notion of image						3 min
+	start/save
+
+!!!!Resources probably as slides
+	mailing-list, 
+	books, 
+	servers, 
+	ci,
+	videos,
+	Chapters Pharo by Example
+	
+!!!! Exos	
+- Simple Exos
+- Redoing the counter example
+
+!!! Week 2
+- Live: Debugger is your friend (idea?)			6 min
+- Live: GTInspector "simple interaction"		6 min
+- Live: Publishing Code: on smalltalkhub		6 min
+- Live: A simple REST server in Teapot			6 min
+- Conditionals + () vs []						6 min
+- First Glance at Collections (OrderedCollection, Array, Set)	6 min
+- Loops (with a do: and collect:)				6 min
+- String/symbols								6 min
+- Tools to find information: implementors, senders, finder and Spotter
+- Teaser for next week: not 
+
+!!!!Resources: 
+
+!!!! Exos	
+- one star: Simple Exos
+- 2 stars: Lamp one of noury
+- 2 stars: Coding the addressbook
+
+!! Week 3
+- Loading code use metacello browser or gofer 	3 min
+- Live: Recovering changes (epicea)				6 min
+- Iterators										6 min
+- Live: Dice Game DSL dice						6 min
+- Live: Dice Game DSL handle					6 min
+- Second glance at Collection (Dictionary)		6 min
+- One video: seaside counter					6 min
+- Object model: 								6 min
+	"static method" - only one send
+	public method 
+	no constructor
+	no operator
+- Live: Picasa meta								6 min
+-- explaining one the fly code generation and coding in the debugger
+- Design: Learning from the System -  not
+
+!!!!Resources: 
+
+!!!! Exos	
+- Simple Exos
+- Lamp two of noury
+- 2 stars: Redoing the DSL
+
+!!! Week 4
+- Did you really get this?								6 min
+- Did you really get super?								6 min
+- Extending GT:  Extending the inspector and spotter for the addressbook				6 min
+- Streams in a nutshell
+-- streamContents
+- Benchmarking? 
+-- concatenation vs
+- Class var vs instance variables
+
+-- FS?
+
+!!!!Resources: 
+
+!!!! Exos	
+- Simple Exos
+- 2 stars: redoing Picasa
+- Quinto?
+
+!!! Week 5
+- Reflection for doing what?
+-- scripting google service API? Stuff of franz Prinz
+- Double dispatch on paper (do we want that?)					6 min
+-- number and floats
+-- fraction 
+- Visitor design pattern?? or only in exo
+- Concurrency overview 
+-- forking
+
+- Teaser: next one we build a chat!
+
+!!!!Resources: 
+
+!!!! Exos	
+- Simple Exos
+- 2 stars: Expressions visitor
+- Turtle of laurent laffont? / 
+
+
+!!! Week 6
+- Zinc? Querying something?				6 min
+- 
+- Weekend exercise: Simon game to refactor??
+- Spec in a nutshell
+
+!!!! Exos	
+- Simple Exos
+- 3 stars:  tinychat
+
+
+
+!!! Week 7
+- 
+!!!! Exos	
+- Simple Exos
+
+
+
+
+!!! Week 8 (optional)
+
+!!!! Exos	
+- Simple Exos
+
+
+
+
+
+
+
+
+
+
 
 
 !! Unit of Knowledge Item: Welcome
@@ -48,6 +236,18 @@ An item is composed of:
 - Contents: 
 - Slides:
 
+
+
+
+
+
+
+
+
+
+
+
+
 !! Unit of Knowledge Item: Messages
 
 
@@ -60,17 +260,8 @@ An item is composed of:
 - Contents: 
 - Slides:
 
-!! Unit of Knowledge Item: Messages
 
 
-!!! Three Kind of Messages
-- Name: Resources
-- Tag: 
-- Problem: 
-- Description about one line: 
-- Resources: 
-- Contents: 
-- Slides:
 
 
 !!! Messages for the Java Programmer
@@ -81,8 +272,6 @@ An item is composed of:
 - Resources: 
 - Contents: 
 - Slides:
-
-
 
 
 
