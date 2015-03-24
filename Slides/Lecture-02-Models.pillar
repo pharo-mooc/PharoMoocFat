@@ -1,0 +1,32 @@
+! A Little Journey in the Pharo Object Model
+Stéphane Ducasse
+http://www.pharo.org
+
+!! A pure and minimal object model LESS IS MORE!
+
+- No constructors, no static methods, no operators
+- No type declaration, no primitive types,
+- No interfaces, no need for factory
+- No packages/private/protected modifiers
+- No parametrized types
+- No boxing/unboxing- 
+- STILL POWERFUL
+
+Everything is an object
+
+!! Objects are instances of Classes
+
+(10@200) class
+Point
+
+!! Classes are objects too
+
+- Point selectors
+
+> an IdentitySet(#eightNeighbors #+ #isZero
+#sortsBefore: #degrees #printOn: #sideOf:
+#fourNeighbors #hash #roundUpTo: #min: #min:max:
+#max #adaptToCollection:andSend: #quadrantOf:
+#crossProduct: #= #nearestPointOnLineFrom:to:
+#bitShiftPoint: #* #guarded #insideTriangle:with:with:
+#grid: #truncateTo: #y #setR:degrees: #normal

@@ -1,0 +1,322 @@
+! Pharo
+- A malleable and powerful platform
+- S. Ducasse and M. Denker
+- http://www.pharo.org
+
++>file://figures/logo.png+
+
+!! What is it?
+- language {{{+}}} Environment
+- Simple Language
+- Object-Oriented, Dynamic, Reflective
+-- Explore {{{+}}} Change running systems
+
+- The ultimate Live Programming Environment!
+
+!! Pharo
+
+- MIT licence
+- Pure object language
+- Great community of active doers
+- Powerful
+- Elegant and fun to program
+- Living system under your fingers
+- Mac, Linux, Android, iOS, Windows
+
+- Compiler, Core classes (stream, collections, unicode,...)
+- IDE (editor, inspector, debugger, code versioning,...)
+- UI frameworks (widgets, theme)
+- FFI
+- Graphics (soon opengl)
+- Hyper fast object serializer
+- Network, HTTP
+- Web frameworks: Seaside, iliad, HTTP2
+- Parsers: XML, HTML, JSON
+- Graphics frameworks: Roassal, Mondrian, EyeSee
+- Tool builders: Glamour, Moose
+- Databases: DBXTalk, Mongo, Riak, CouchDB
+- Parser generators: Petit Parser, SmaCC
+- Infrastructure: Proxy, Logging
+- Units: Aconcagua, Units
+- ...
+
+!! Pharo in numbers
+- 240 000 downloads on the Inria gforge
+- 40-50 active commiters
+- > 600 mailing-list members
+- 180 license agreements
+- 50 association members
+- 10 industrial consortium members
+- around 300 external projects
+
++>file://figures/Smalltalkhub.png+
+
+!! SqueakSource: old Forge
+- 3672 users
+- 3459 projects
+- 158 987 packages
+
++>file://figures/PowerfulIventOurFuture.png+
+
+Our goal...
+
++>file://figures/CreateEcosystemBusinessInnovation.png+
+
+We want that **you** can make
+money with Pharo. We want to invent
+solutions to actual problems.
+We want a powerful innovative
+dynamic language where we can build
+our future.
+
+!! Some Pharo's success stories
+- Seaside.st, SmalltalkHub,
+- Yesplan.be, netstyle.ch,
+- Pier, DrGeo, VBridge,
+- Cmsbox.ch, objectFusion.fr,
+- T3 Easy from beta9.be,
+- moosetechnology.org, pinesoft.co.uk,
+- Airflowing, synectique, miriamTech, 2denker...
+
++>file://figures/CMSBOX.png+
+
++>file://figures/2denker.png+
+
++>file://figures/WebDruck.png+
+
++>file://figures/Nted.png+
+
++>file://figures/iBizLog.png+
+
++>file://figures/Erathosthene.png+
+
++>file://figures/Moose.png+
+
++>file://figures/Pinesoft.png+
+
+We want more success stories!
+
+!! Daily Active Development
+
+- A massive amount of improvements
+
+!! Since may 2008
+- Pharo 2.0 - Apr 2013 (1657 closed cases)
+- Pharo 1.4 - Apr 2012 (988 closed cases)
+- Pharo 1.3 (736 closed cases)
+- Pharo 1.2 - mar 2011 (691 closed cases)
+- Pharo 1.1 - jul 2010 (918 closed cases)
+- Pharo 1.0 - oct 2009 (307 closed cases)
+
+!! 2.0 Statistics
+- Started April 2012
+- 1657 issue tracker entries
+-- since start: 7663
+-- 420 open, all have seen activity in 2012
+- 593 incremental updates
+
+!! 2.0: Overview
+- UI:
+-- New UI Builder, Widget enhancements. Layout improvements. Shout Themes
+-- Keybindings. New icons. "Growl" style notifications. Rectangle intersection improvements.
+- Tools
+-- Browser: new default browser, critics browser
+-- Spotlight (shift\+enter), unify Smartcharacters and completion
+- Compiler enhancement: new AST \+ ErrorNode
+- Improved HTTP and SSL
+- System
+
+!! Vision Document around 2.0
+
+https://gforge.inria.fr/frs/download.php/30434/PharoVision.pdf
+
+- 3.1 Towards a small kernel [we have it now we should think about migration]
+- 3.2 Towards a verified package catalog [On the way]
+- 4.1 A Robust and Extensible System Events [Beta and should be in 3.0]
+- 4.2 Rewrite of Filesystem/Streams [DONE for Files]
+- 4.3 Announcements and Ephemerons [Annoucements Done. More Enh for 3.0]
+- 4.4 UI Canvas for Zoomable Interface [Waiting for TextModel and 3.0]
+- 4.5 Bootstrap of the Core [Done should be integrated in 3.0]
+- 4.6 Fully parametrized compiler tool chain [Start with Opal in 3.0]
+- 4.7 Packages as real objects [in 2.0 and will improve in 3.0]
+- 4.8 Package Meta-Data [Done]
+- 4.9 Less Model Clutter and Duplication [Started in 2.0 will be accentuated in 3.0]
+- 4.10 Building and Reusing UI Logic[First cut in 2.0 UIPainter for 3.0]
+- 4.11 New Network Layer [Nothing]
+- 4.12 Serializers [Done]
+- 4.13 SystemChangeNotifier replacement [Done]
+- 4.14 Cleaning Morphic [To be continued in 3.0]
+- 5.2 VMs identification and regression testing [On the way]
+- 5.3 One Unified FFI framework- [before June]
+
+We want to improve the complete system!
+Not just a nice library on top of ...
+Of course not everything is perfect
+But we believe in non linear growth
+
+We are a cool community
+
+!! Companies
+- www.10pines.com
+- www.2denker.de
+- www.agilitic.com
+- www.airflowing.com
+- www.anymorphic.com
+- www.ardishealth.com
+- www.beta9.be
+- www.bombardier.com
+- www.cmsbox.com
+- www.finworks.biz
+- seaside.gemstone.com
+- www.ibizlog.com
+- www.inceptive.be
+- www.jooshr.com
+- www.majcon.de
+- www.mindclue.ch
+- www.miriamtech.com
+- www.myneat.org
+- www.netstyle.ch
+- www.objectfusion.fr
+- www.panasoft.com
+- www.pinesoft.co.uk
+- www.promedmedical.net
+- www.sharedlogic.ca
+- www.smallworks.com.ar
+- www.trantaria.com
+- www.square-i.net
+- yesplan.be
+
+!! Lectures
+
+- University of Bueno Aires
+- University of Bern scg.unibe.ch
+- University of Brussels soft.vub.ac.be/soft/
+- Ecole des Mines www.ensm-douai.fr
+- Université de Savoie www.imus.univ-savoie.fr
+- Ivan Franko National University of Ukraine
+- Czech Technical University
+- University of Life Sciences in Prague
+- Northen Michigan University www.nmu.edu
+- University Catholic of Argentina www.uca.edu.ar
+- University of Santiago www.uchile.cl
+- Universitat Policnica de Catalunya www.upc.edu
+
+!! Research Groups
+
+- Lafhis (University of Bueno Aires )
+- Software Composition Group (scg.unibe.ch)
+- CAR (Ecole des mines www.ensm-douai.fr)
+- RMOD (Inria)
+- Ummisco (IRD)
+- Reveal (University of Lugano)
+- Lysic (University of Bretagne Occidentale)
+- Pleiad (University of Santiago)
+- CEA-List
+
+!! New Dev Process
+
+- To galvanize and stabilize a long cycle
+- Chunked per month
+- Retrospective analysis
+- Continue to have a Summer release and an alpha
+
+!! Community Ongoing Work
+
+- Better widgets, UI Builder (A. Plantec, G. Chambers, B. van Ryseghem)
+- Better browsers (B. van Ryseghem, C. Bruni)
+- Proxy (M. Martinez-Peck)
+- New compiler (J. Ressia/M. Denker/C. Bera/)
+- Vectorial canvas (I. Stasenko)
+- Better FFI (I. Stasenko, E. Lorenzano)
+- Bootstrap (G. Polito/S. Ducasse/N. Bouraqadi/L. Fabresse)
+- PDF generation (O. Auverlot, G. Larcheveque)
+- Network (WebSocket, Oauth, Zinc, Zodiac S. van Caekenberghe)
+
+!! Glimpse at 3.0
+
+- OPAL visitor and IR compilation chain
+- Athens (vector graphics)
+- Integration process
+- New widgets
+- UIPainter
+- Validated packages
+
++>file://figures/PharoPlanning.png+
+
+!! Distributions: towards a certified catalog
+
+- I want to go to Mars with just a DVD,
+- and still be able to load the projects I want,
+- and get the right ones loaded.
+
++>file://figures/ApplicationDistribution.png+
+
+!! Process
+
+- You use Metacello!
+- You publish in your repo!
+- When you want you can release code to a distribution
+- All the code then is recursively copied to the distribution space
+- All the tests and quality rules are checked
+- People use your code but with a certain level of confidence :)
+
++>file://figures/ProjectDistribution.png+
+
++>file://figures/PackageLoading.png+
+
+Consortium & Association
+How to sustain Pharo?
+How to structure the community?
+Let us talk about it tomorrow :)
+
++>file://figures/Membership.png+
+
+!! Consortium Members
+
+- Managed by Inria for now
+- Who: companies, institutions, user groups
+- Privileged access to the core development team
+- Influence priorities of the next development
+- Engineering support time
+- Job posts
+- Training/Conferences special prices
+
++ Pharo User Association>file://figures/UserAssociation.png+
+
+!! Pharo User Association
+
+- Managed by the Pharo Association
+- Individuals
+-- Premium (99 Euros)
+-- Normal (40 Euros)
+- Join and participate what we do!
+
+- Pharo books
+
+- Pharo by example
+-- translated to french, merci!
+-- translated to spanish, gracias!
+-- translated to japanese, 
+-- german started
+
+!! New books are coming
+
+- Deep into Pharo
+- Pharo for the Entreprise
+-- If you want to contribute...
+- A glimpse at VM
+
+The future is what we do!
+
+Every single contribution is important
+
+!! Everybody can help
+- Reporting bugs
+- Confirming bugs
+- Writing tests
+- Writing examples
+- Writing comments
+- Simple contributing fixes
+- Discussion, feedback
+
+
