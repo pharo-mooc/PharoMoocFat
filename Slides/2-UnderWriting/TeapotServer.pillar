@@ -1,0 +1,47 @@
+! Template
+
+ Damien Cassou and Stéphane Ducasse
+
+*http://www.pharo.org*
+
+*http://stephane.ducasse.free.fr*
+
+!! License
+
++>file://figures/CreativeCommons.png|width=50|label=figCreativeCommons+
+
+!! A simple server server 
+
+[[[
+	| books teapot |
+	books := Dictionary new.
+	teapot := Teapot configure: {
+	    #defaultOutput -> #json. #port -> 8080. #debugMode -> true
+	}.
+
+	teapot
+	    GET: '/books' -> books;
+	    PUT: '/books/<id>' -> [ :request | | book |
+	        book := {'author' -> (request at: #author). 
+	                 'title'  -> (request at: #title)} asDictionary.
+	        books at: (request at: #id) put: book];     
+	    DELETE: '/books/<id>' -> [:request | books removeKey: (request at: #id)];
+	    exception: KeyNotFound -> (TeaResponse notFound body: 'No such book');
+	    start.
+]]]
+
+
+
+!! Scripting 
+
+ZnClient new
+    url: 'http://localhost:8080/books/1';
+    formAt: 'author' put: 'SquareBracketAssociates';
+    formAt: 'title'  put: 'Pharo For The Enterprise';
+    put
+
+!! Conclusion
+
+- 
+- 
+- 
