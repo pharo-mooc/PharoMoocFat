@@ -22,7 +22,7 @@ Point
 !! Classes are objects too
 
 - Point selectors
-
+[[[
 > an IdentitySet(#eightNeighbors #+ #isZero
 #sortsBefore: #degrees #printOn: #sideOf:
 #fourNeighbors #hash #roundUpTo: #min: #min:max:
@@ -30,3 +30,101 @@ Point
 #crossProduct: #= #nearestPointOnLineFrom:to:
 #bitShiftPoint: #* #guarded #insideTriangle:with:with:
 #grid: #truncateTo: #y #setR:degrees: #normal
+]]]
+!! Classes are objects too
+
+- Point instVarNames
+[[[
+> #('x''y')
+]]]
+!! Methods are public
+
+!! Methods are all late-bound
+
+!! Instance variables are protected
+
+!! Single Inheritance
+
+- Object subclass: #Point
+-- instanceVariableNames: 'x y'
+-- classVariableNames: ''
+-- category: 'Graphics-Primitives'
+
+! Messages \+ Objects
+
+!! The key to everything
+
++>file://figures/MsgLookUp.png+
+
+!! Classes are objects to
+
+- Point class
+- >Point class
+- "Point class" is an anonymous class with only one instance: Point
+
+!! Class Parallel Inheritance
+
++>file://figures/MetaclassDiagram.png+
+
+!! Lookup and Class Methods
+
++>file://figures/MetaclassLookUp.png+
+
+!! About the Buttons
+
++>file://figures/InstanceClassSwitch.png+
+
+Class methods are plain late bound methods as any methods!
+
+!! Package extensions
+- A method can be defined in a class that is packaged in another package!
+- Powerful to build layers
+
+!! 2 D20: two dice of 20 faces
+
+- Defined in the Dice package
+[[[
+Integer>>D20
+^ self D: 20
+]]]
+
+- Integer>>D: anInteger
+[[[
+| h |
+h := DiceHandle new
+self timesRepeat:
+[h addDice: (Dice faces: anInteger)].
+^ h
+]]]
+
+!! Summary
+- Everything is an object
+- Single inheritance, public methods,
+- protected attributes
+- One single model
+-- Classes are simply objects too
+-- A class is instance of another class
+-- One unique method lookup, look in the class of the receiver
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
