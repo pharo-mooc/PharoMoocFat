@@ -241,8 +241,8 @@ point:			10@120
 
 !! Keyword-based messages
 
-- arr at: 2 put: ‘loves’
-- somehow like arr.atput(2,‘loves’)
+- arr at: 2 put: 'loves'
+- somehow like arr.atput(2,'loves')
 
 !! From Java to Smalltalk
 
@@ -275,14 +275,14 @@ postman.send(mail,recipient);
 !! Shared or Global starts with Uppercase
 [[[
 Transcript cr .
-Transcript show: ‘hello world’.
+Transcript show: 'hello world'.
 Transcript cr .
 ]]]
 
 !! local or temps starts with lowercase
 [[[
 | str |
-str := ‘Tiramisu’
+str := 'Tiramisu'
 ]]]
 
 !! self, super, true, false, nil
@@ -401,114 +401,3 @@ Date today
 - Used for arithmetic, comparison and logical operations
 - One or two characters taken from:
 -- \+ \- \/ \\ \* \~ \< \> \= \@ \% \| \& \! \? \,
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
