@@ -205,7 +205,7 @@ str at: str length 			message send
 > 'hates'
 ]]]
 
-!! at: to access, at:put: to set
+!! at: to access, at: put: to set
 
 [[[
 #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
@@ -238,3 +238,277 @@ point:			10@120
 - Fun with keywords-based messages
 
 +>file://figures/LogoPharo.png+
+
+!! Keyword-based messages
+
+- arr at: 2 put: ‘loves’
+- somehow like arr.atput(2,‘loves’)
+
+!! From Java to Smalltalk
+
+- postman.send(mail,recipient);
+
+!! From Java to Smalltalk
+
+- postman.send(mail,recipient);
+
+!! Removing unnecessary
+
+- postman send mail recipient
+
+!! But without losing information
+
+- postman send mail to recipient
+
+- postman send: mail to: recipient
+[[[
+postman.send(mail,recipient);
+]]]
+- The message is send:to:
+
+!! Roadmap
+
+-  Fun with variables
+
++>file://figures/LogoPharo.png+
+
+!! Shared or Global starts with Uppercase
+[[[
+Transcript cr .
+Transcript show: ‘hello world’.
+Transcript cr .
+]]]
+
+!! local or temps starts with lowercase
+[[[
+| str |
+str := ‘Tiramisu’
+]]]
+
+!! self, super, true, false, nil
+
+- self = this
+- super
+- true, false are for Booleans
+- nil is UndefinedObject instance
+
+!! self, super, true, false, nil
+
+- self = this in Java
+- super
+- true, false are for Booleans
+- nil is UndefinedObject instance
+
+!! Roadmap
+
+-  Fun with classes
+
++>file://figures/LogoPharo.png+
+
+!! A class definition!
+[[[
+Superclass subclass: #Class
+instanceVariableNames: 'a b c'
+...
+category: 'Package name'
+]]]
+
+!! A class definition!
+
+[[[
+Object subclass: #Point
+instanceVariableNames: 'x y'
+classVariableNames: ''
+poolDictionaries: ''
+category: 'Graphics-Primitives'
+]]]
+
+!! Roadmap
+
+-  Fun with methods
+
++>file://figures/LogoPharo.png+
+
+!! On Integer
+[[[
+asComplex
+"Answer a Complex number that represents value of
+the the receiver."
+^ Complex real: self imaginary: 0
+]]]
+
+!! On Boolean
+[[[
+xor: aBoolean
+"Exclusive OR. Answer true if the receiver is not
+equivalent to aBoolean."
+^(self == aBoolean) not
+]]]
+
+!! Summary
+
+- self, super
+- can access instance variables
+- can define local variable | ... |
+- Do not need to define argument types
+- ^ to return
+
+!! Roadmap
+
+-  Fun with messages
+
++>file://figures/LogoPharo.png+
+
+[[[
+1 class
+	> SmallInteger
+]]]
+
+[[[
+false not
+> true
+]]]
+
+[[[
+Date today
+> 24 May 2009
+]]]
+
+[[[
+Time now
+> 6:50:13 pm
+]]]
+
+[[[
+Float pi
+> 3.141592653589793
+]]]
+
+- We sent messages to objects or classes!
+[[[
+1 class
+Date today
+]]]
+
+!! Roadmap
+
+-  Fun with binary messages
+
++>file://figures/LogoPharo.png+
+
+!! aReceiver aSelector anArgument
+
+- Used for arithmetic, comparison and logical operations
+- One or two characters taken from:
+-- \+ \- \/ \\ \* \~ \< \> \= \@ \% \| \& \! \? \,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
