@@ -423,8 +423,8 @@ Date today
 +>file://figures/LogoPharo.png+
 
 [[[
-#(‘Calvin’ ‘hates’ ‘Suzie’) at: 2 put: ‘loves’
-> #(‘Calvin’ ‘loves’ ‘Suzie’)
+#('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
+> #('Calvin' 'loves' 'Suzie')
 ]]]
 
 [[[
@@ -663,7 +663,7 @@ value: ...
 3 > 0
 ifTrue:['positive']
 ifFalse:['negative']
-> ‘positive’
+> 'positive'
 ]]]
 
 !!! Yes ifTrue:ifFalse: is a message!
@@ -820,15 +820,15 @@ SequenceableCollection>>do: aBlock
 
 - How do you define the method that does that?
 
-[[[#() -> ‘’
-#(a) ->’a’
-#(a b c) -> ‘a, b, c’
+[[[#() -> ''
+#(a) ->'a'
+#(a b c) -> 'a, b, c'
 ]]]
 
 [[[
 #(a b c)
 	do: [:each | Transcript show: each printString]
-	separatedBy: [Transcript show: ‘,’]
+	separatedBy: [Transcript show: ',']
 ]]]
 
 +>file://figures/LogoPharo.png+
