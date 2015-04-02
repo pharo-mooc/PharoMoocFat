@@ -1,4 +1,4 @@
-! Key Syntax Points for Java 
+! Key Syntax Points for Java Programmers
 
 Stephane Ducasse
 
@@ -82,10 +82,12 @@ postman send: mail to: recipient
 -> 1073741824
 ]]]
 
-- ==()== takes precedence
 [[[
-
+ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl 
 ]]]
+
+- ==()== takes precedence
+
 
 !! Typical message send expression
 [[[
@@ -95,10 +97,6 @@ ZnEasy client
 	response.
 ]]]
 
-!! Typical message send
-[[[
-ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl 
-]]]
 
 
 !! Typical interaction
