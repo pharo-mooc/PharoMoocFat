@@ -12,3 +12,4 @@ auto/
 *.toc
 *.pier.*
 *.pillar.*
+/book-result/*
