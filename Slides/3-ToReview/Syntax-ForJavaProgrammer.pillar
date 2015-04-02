@@ -87,7 +87,7 @@ postman send: mail to: recipient
 
 ]]]
 
-!!! Typical message send expression
+!! Typical message send expression
 [[[
 ZnEasy client
 	url: 'http://bugs.pharo.org/issues/name/', text asString;
@@ -95,18 +95,18 @@ ZnEasy client
 	response.
 ]]]
 
-!!! Typical message send
+!! Typical message send
 [[[
 ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl 
 ]]]
 
 
-!!! Typical interaction
+!! Typical interaction
 
 +Inspecting (cmd and g)>file://figures/ZnEasyInGT.png|width=100|label=ZnEasyInGT+
 
 
-!!! Typical interaction
+!! Typical interaction
 
 +Interacting with an object>file://figures/ZnEasyInGT2.png|width=100|label=ZnEasyInGT2+
 
