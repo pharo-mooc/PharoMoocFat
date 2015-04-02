@@ -378,11 +378,8 @@ http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
 - Contents: 
 
 [[[
-	1+2
-	(1/3) + (2/3) 
-	-> 1
 	1000 factorial printString size
-	1000 factorial / 999 factorial -> 1000
+	1000 factorial / 999 factorial -\> 1000
 ]]]
 - Slides:
 
