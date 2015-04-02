@@ -70,10 +70,17 @@ http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
 
 - Live: Getting started: Coding live example counter: test first 10 min
 
-- Basic syntax: including class/method definition (so that exercises can)
+- Live or may be slides? the notion of image start/save
+
 - Object model: simple (single inheritance, public methods in 5 slides)
+
+- Basic syntax: including class/method definition (so that exercises can be done)
+-- quizz
 - Messages
+-- quizz
 - Blocks
+--quizz
+
 - Live: The notion of image						3 min
 	start/save
 
@@ -95,10 +102,15 @@ http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
 - Live: Publishing Code: on smalltalkhub		6 min
 - Live: A simple REST server in Teapot			6 min
 - Conditionals + () vs []						6 min
+-- quizz
 - First Glance at Collections (OrderedCollection, Array, Set)	6 min
+-- quizz
 - Loops (with a do: and collect:)				6 min
+-- quizz
 - String/symbols								6 min
+-- quizz
 - Tools to find information: implementors, senders, finder and Spotter
+-- Navigation exercices
 - Teaser for next week: not 
 
 !!!!Resources: 
@@ -142,7 +154,7 @@ http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
 -- concatenation vs
 - Class var vs instance variables
 
--- FS?
+-- FS? FileSystem
 
 !!!!Resources: 
 
@@ -378,6 +390,9 @@ http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
 - Contents: 
 
 [[[
+	1+2
+		(1/3) + (2/3) 
+		-> 1
 	1000 factorial printString size
 	1000 factorial / 999 factorial -\> 1000
 ]]]
