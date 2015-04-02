@@ -1,0 +1,43 @@
+! Some Points on Classes
+
+- Stephane Ducasse
+- stephane.ducasse@univ-savoie.fr
+- *>http://www.listic.univ-savoie.fr/~ducasse/*
+
+!! License: CC-Attribution-ShareAlike 2.0
+
+- *>http://creativecommons.org/licenses/by-sa/2.0/*
+
++>file://figures/CreativeCommons.png+
+
+!! Outline
+- Class definition
+- Method definition
+- Basic class instantiation
+
+!! Class Defintion (VW)
+
+- A template is proposed by the browser:
+[[[
+Smalltalk defineClass: #NameOfClass
+	superclass: #{NameOfSuperclass}
+	indexedType: #none
+	private: false
+	instanceVariableNames: 'instVarName1
+instVarName2'
+	classInstanceVariableNames: ''
+	imports: ''
+	category: ''
+]]]
+
+[[[
+Smalltalk defineClass: #Packet
+	superclass: #{Object}
+	indexedType: #none
+	private: false
+	instanceVariableNames: 'contents addressee originator'
+	classInstanceVariableNames: ''
+	imports: ''
+	category: 'LAN'
+]]]
+- Automatically a class named "Packet class" is created. Packet is the unique instance of "Packet class". To see it, click on the
