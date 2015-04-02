@@ -1,0 +1,58 @@
+% -*- mode: latex; -*-
+{{=<% %>=}}
+% aspectratio = specifies a 16/9 slide ration
+% handout     = removes navigation bar
+\documentclass[aspectratio=169, handout]{beamer}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\usepackage{enumitem}
+
+\usepackage{graphicx}
+\usepackage[normalem]{ulem}
+
+\newcommand{\ct}[1]{{\sffamily\textup{#1}}}
+\usepackage{listings}
+
+\usepackage{textcomp}
+
+\lstnewenvironment{code}[1]{%
+        \lstset{%
+                % frame=lines,
+                frame=single,
+                framerule=0pt,
+                mathescape=false
+        }
+}{}
+
+\lstnewenvironment{script}[2][defaultlabel]{%
+\renewcommand{\lstlistingname}{Script}%
+        \lstset{
+                % frame=lines,
+                frame=single,
+                framerule=0pt,
+                mathescape=false,
+                name={Script},
+                caption={\emph{#2}},
+                label={scr:#1}
+        }
+}{}
+\usepackage{fixltx2e}
+
+\title{<%title%>}
+\subtitle{<%subtitle%>}
+\author{<%author%>}
+\date{<%date%>}
+
+\begin{document}
+
+<%content%>
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

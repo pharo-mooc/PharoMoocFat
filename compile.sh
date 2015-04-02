@@ -16,6 +16,7 @@ function pillar_all() {
   $PILLAR_COMMAND export --to='LaTeX whole book'
   $PILLAR_COMMAND export --to='LaTeX by chapter'
   $PILLAR_COMMAND export --to='HTML by chapter'
+  $PILLAR_COMMAND export --to='Slides'
 }
 
 function pillar_one() {
