@@ -50,3 +50,20 @@ str:= Character alphabet.
 Can you validate or invalidate such statements
 
   
+
+
+[| temp |
+temp := String new.
+(1 to: 100000)
+do: [:i | temp := temp, i asString, ' ']] timeToRun.
+
+
+The problem is with your code. String is immutable and during concatenation it creates each time new and new String objects. In the end the length of the "temp" string is 588895. What do you think, is it efficient to create thousands of Strings with half a million length just to add a few characters at the end?
+
+You have to use a stream to concatenate so many strings:
+
+| stream |
+stream := ReadWriteStream on: String new.
+(1 to: 100000)
+do: [:i | stream << (i asString, ' ')].
+stream contents "returns your temp string"
