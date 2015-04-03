@@ -48,7 +48,8 @@
 
 \begin{document}
 
-<%content%>
+<%={{ }}=%>
+{{{content}}}
 
 \end{document}
 
