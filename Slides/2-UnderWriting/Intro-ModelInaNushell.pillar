@@ -36,7 +36,7 @@ messages messages messages and messages
 
 
 !! Simple and uniform
-- Everything is an object
+- Everything is an object instance of a class
 - Classes are objects
 - Only message passing
 - Only one method lookup
