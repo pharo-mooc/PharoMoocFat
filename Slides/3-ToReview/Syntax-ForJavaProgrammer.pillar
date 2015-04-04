@@ -109,6 +109,30 @@ ZnEasy client
 +Interacting with an object>file://figures/ZnEasyInGT2.png|width=100|label=ZnEasyInGT2+
 
 
+!! Basic Objects
+
+- String: =='a string'==
+- Symbole (unique String): ==#aSymbol==
+- Character: ==$A==
+- Array: ==#(1 2 3)==
+- OrderedCollection: ==OrderedCollection new add: 35; add: 45==
+- Set: ==Set new add: 1; add: 2; yourself==
+
+!! yourself
+
+[[[
+Set new add: 1; add: 2; yourself
+]]]
+
+is equivalent to 
+
+[[[
+	| s |
+	s := Set new.
+	s add: 1; add: 2.
+	s 
+]]]
+
 !! Block: Lambda Expression
 
 [[[
@@ -116,6 +140,7 @@ ZnEasy client
 	-> 7
 ]]]
 
+- blocks are anonymous method
 - ==[]== delimits the block
 - ==:x== is block argument
 - ==x+2== is the block body
@@ -172,17 +197,9 @@ A block can be executed multiple times.
 [[[
 	self listItems 
 		ifNotEmpty: [ :aList | 
-			aList at: currentIndex  ] ] ]
+			aList at: currentIndex  ]
 ]]]
 
-!! Basic Objects
-
-- String: =='a string'==
-- Symbole (unique String): ==#aSymbol==
-- Character: ==$A==
-- Array: ==#(1 2 3)==
-- OrderedCollection: ==OrderedCollection new add: 35; add: 45==
-- Set: ==Set new add: 1; add: 2; yourself==
 
 !! Some Loops
 
@@ -202,6 +219,21 @@ A block can be executed multiple times.
 	aCol do: [:each | ... ]
 ]]]
 
+!! do:
+
+[[[
+#(15 10 19 68) do:  
+      [:i | Transcript show: i ; cr ]
+]]]
+
+!! collect:
+
+[[[
+	#(2 -3 4 -35 4) collect: [ :each| each abs]
+--> #(2 3 4 35 4)
+]]]
+
+
 
 !! One Method defined on class Point
 
@@ -217,7 +249,7 @@ A block can be executed multiple times.
 	^ x <= aPoint x and: [y <= aPoint y]
 ]]]
 
-in books
+!! Method definitions in books
 
 [[[
 Point>> <= aPoint 
