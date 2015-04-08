@@ -58,7 +58,6 @@ http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
 
 !! Overall Structure
 
-
 !!! Week 1
 - Welcome: Goal - objectives - community 		6 min
 - Live: Several Live Examples: Seaside/3D/Zinc/GT?	6 min
@@ -68,7 +67,9 @@ http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
 - Live: Installation Linux						2 min
 - Live: Installation Ubuntu						2 min
 
+- Live: Getting started: Coding live example counter: class first 10 min
 - Live: Getting started: Coding live example counter: test first 10 min
+
 
 - Live or may be slides? the notion of image start/save
 
@@ -94,7 +95,7 @@ http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
 	
 !!!! Exos	
 - Simple Exos
-- Redoing the counter example
+- Redoing the counter example in two modes.
 
 !!! Week 2
 - Live: Debugger is your friend (idea?)			6 min
