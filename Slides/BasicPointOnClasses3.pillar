@@ -133,7 +133,7 @@ of a superclass from subclass methods. This way classes
 are not strongly linked.
 
 !! Methods always return a Value
-- Message = effect + return value
+- Message = effect \+ return value
 - By default, a method returns self
 - In a method body, the ^ expression returns the value of the
 expression as the result of the method execution.
@@ -219,13 +219,13 @@ understands a limited set of messages
 !! Messages to Instances
 - Messages to Instances that create Objects
 
-1 to: 6								(an interval)
-1@2									(a point)
-(0@0) extent: (100@100)				(a rectangle)
-#lulu asString						(a string)
-1 printString						(a string)
-3 asFloat							(a float)
-#(23 2 3 4) asSortedCollection		(a sortedCollection)
+- 1 to: 6								(an interval)
+- 1@2									(a point)
+- (0@0) extent: (100@100)				(a rectangle)
+- #lulu asString						(a string)
+- 1 printString						(a string)
+- 3 asFloat							(a float)
+- #(23 2 3 4) asSortedCollection		(a sortedCollection)
 
 !! Opening the Box
 
