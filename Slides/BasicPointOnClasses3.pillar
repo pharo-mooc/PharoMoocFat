@@ -30,6 +30,8 @@ instVarName2'
 	category: ''
 ]]]
 
+!! Fill the Template
+
 [[[
 Smalltalk defineClass: #Packet
 	superclass: #{Object}
