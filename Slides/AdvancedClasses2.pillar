@@ -1,0 +1,39 @@
+! Some Advanced Points on Classes
+
+- Stephane Ducasse
+- stephane.ducasse@inria.fr
+- *>http://stephane.ducasse.free.fr/*
+
+!! Outline
+
+- Indexed Classes
+- Classes as Objects
+- Class Instance Variables and Methods
+- Class Variables
+- Pool Dictionaries
+
++>file://figures/LogoPharo.png+
+
+!! Variable size instance
+
+- How do we represent objects whose size is variable such an array
+[[[
+Array new: 10
+Array new: 15
+]]]
+
+!! Two Views on Classes
+
+- Named or indexed instance variables
+[[[
+Named: ‘addressee’ of Packet
+Indexed: Array
+]]]
+
+- Or looking at them in another way:
+[[[
+Objects with pointers to other objects
+Objects with arrays of bytes (word, long)
+]]]
+
+- Difference for efficiency reasons: arrays of bytes (like C strings) are faster than storing an array of
