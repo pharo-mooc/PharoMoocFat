@@ -226,7 +226,7 @@ Saturday Sunday ).
 
 - a classVariable is shared and directly accessible by all the instances and subclasses
 - Class instance variables, just like normal instance variables, can be accessed only via class message and accessors:
-– an instance variable of a class is private to this class.
+- an instance variable of a class is private to this class.
 - Take care: when you change the value of a classVariable the whole inheritance tree is impacted!
 
 !! Summary of Variable Visibility
