@@ -295,3 +295,9 @@ originator '
 classVariableNames: 'Domain'
 poolDictionaries: 'NetworkConstant'
 ]]]
+
+!! What you should know
+- Classes are objects too
+- Class methods are just methods on objects that are classes
+- Classes are also represented by instance variables (class instance variables)
+- (Shared Variables) ClassVariables are shared among subclasses and classes (metaclass)
