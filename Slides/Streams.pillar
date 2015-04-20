@@ -1,1 +1,19 @@
 ! Streams
+
+- Stephane Ducasse
+- stephane.ducasse@inria.fr
+- *>http://stephane.ducasse.free.fr/*
+
+!! License: CC-Attribution-ShareAlike 2.0
+
+- *>http://creativecommons.org/licenses/by-sa/2.0/*
+
++>file://figures/CrativeCOmmons.png+
+
+!! Streams
+
+- Allows the traversal of a collection
+- Associated with a collection
+-- If the collection is a Smalltalk collection: InternalStream
+-- If the collection is a file or an object that behaves like a collection: ExternalStream
+- Stores the current position
