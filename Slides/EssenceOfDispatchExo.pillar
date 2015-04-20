@@ -1,0 +1,39 @@
+! Essence of dispatch
+! Exercise one 
+
+- Stephane Ducasse
+- stephane.ducasse@inria.fr
+- *>http://stephane.ducasse.free.fr/*
+
+!! Exercises
+- Three existential and key exercises
+
+- 1- implement not
+
+- 2- implement or
+
+- 3- Why such exercises?
+
+!! Exercise 1: Implementing not
+
+[[[true not
+=> false
+!
+false not
+=> true
+]]]
+
+!! Exercise 2: | (Or)
+- true | true -> true
+- true | false -> true
+- true | anything -> true
+
+- false | true -> true
+- false | false -> false
+- false | anything -> anything
+
+!! Exercise: 3
+
+- From far the most interesting one!
+
+- Why such exercises?
