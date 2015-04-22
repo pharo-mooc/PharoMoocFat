@@ -1,0 +1,48 @@
+! Processes and Concurrency in VW
+
+- Stephane Ducasse
+- stephane.ducasse@inria.fr
+- *>http://stephane.ducasse.free.fr/*
+
+!! License: CC-Attribution-ShareAlike 2.0
+
+- *>http://creativecommons.org/licenses/by-sa/2.0/*
+
++>file://figures/CreativeCOmmons.png+
+
+!! Processes & Concurrency in VW
+
+- Processes in Smalltalk:
+-- Class Process, Process States, Process Scheduling and Priorities
+- Synchronization Mechanisms in Smalltalk:
+-- Semaphores, Mutual Exclusion Semaphores,
+- SharedQueues
+- Delays
+- Promises
+
+!! Processes in Smalltalk: Process class
+
+- Smalltalk supports multiple independent processes.
+- Each instance of class Process represents a sequence of
+actions which can be executed by the virtual machine
+concurrently with other processes.
+- Processes share a common address space (object memory)
+- Blocks are used as the basis for creating processes
+- [ Transcript cr; show: 5 factorial printString ] fork
+- The new process is added to the list of scheduled
+processes. This process is runnable (i.e., scheduled for
+execution) and will start executing as soon as the current
+process releases the control of the processor.
+
+!! Process class
+
+- We can create a new instance of class Process which
+is not scheduled by sending the #newProcess message
+to a block:
+[[[
+| aProcess |􀀁
+aProcess := [ Transcript cr; show: 5 factorial printString ]
+newProcess
+]]]
+- The actual process is not actually runnable until it
+receives the #resume message.
