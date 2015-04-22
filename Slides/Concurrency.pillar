@@ -46,3 +46,5 @@ newProcess
 ]]]
 - The actual process is not actually runnable until it
 receives the #resume message.
+
++>file://figures/CreativeCOmmons.png+
