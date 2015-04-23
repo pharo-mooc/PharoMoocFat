@@ -40,11 +40,94 @@ process releases the control of the processor.
 is not scheduled by sending the #newProcess message
 to a block:
 [[[
-| aProcess |ô€€
+| aProcess |
 aProcess := [ Transcript cr; show: 5 factorial printString ]
 newProcess
 ]]]
 - The actual process is not actually runnable until it
 receives the #resume message.
 
-+>file://figures/CreativeCOmmons.png+
+!! Process states
+
+- A process may be in one of the states:
+- suspended, waiting, runnable, running, or terminated
+
++>file://figures/ProcessStates.png+
+
+!! Process class
+
+- A process can be created with any number of arguments:
+[[[
+aProcess :=
+[ :n | Transcript cr; show: n factorial
+printString ] newProcessWithArguments: #(5).
+]]]
+-- A process can be temporarily stopped using a suspend
+message. A suspended process can be restarted later
+using the resume message.
+
+-- A process can be stopped definitely using a message terminate. Once a process has received the terminate.
+
+!! Process Scheduling and Priorities
+
+- Processes are scheduled by the unique instance of
+class ProcessorScheduler called Processor.
+
+- A runnable process can be created with an specific
+priority using the forkAt: message:
+
+[[[
+[ Transcript cr; show: 5 factorial printString ]
+	forkAt: Processor userBackgroundPriority
+]]]
+
+!! Process Scheduling and Priorities (VW)
+
+- Process scheduling is based on priorities associated to processes.
+- Processes of high priority run before lower priority.
+- Priority values go between 1 and 100.
+- Eight priority values have assigned names.
+
+
+|!Priority |Name |Purpose
+|100 |timingPriority |Used by Processes that are dependent on real time
+|98 |highIOPriority |Used by time-critical I/O
+|90 |lowIOPriority |Used by most I/O Processes
+|70 |userInterruptPriority |Used by user Processes desiring immediate service
+|50 |userSchedulingPriority |Used by processes governing normal user interaction
+|30 |userBackgroundPriority |Used by user background processes
+|10 |systemBackgroundPriority |Used by system background processes
+|1 |systemRockBottonPriority |The lowest possible priority
+
+!! In Squeak
+
+- SystemRockBottomPriority := 10.
+- SystemBackgroundPriority := 20.
+- UserBackgroundPriority := 30.
+- UserSchedulingPriority := 40.
+- UserInterruptPriority := 50.
+- LowIOPriority := 60.
+- HighIOPriority := 70.
+- TimingPriority := 80.
+
+!! In VW
+
+- The priority of a process can be changed by using a #priority: message
+[[[
+| process1 process2 |
+Transcript clear.
+process1 := [ Transcript show: ‘first’] newProcess.
+process1 priority: Processor systemBackgroundPriority.
+process2 := [ Transcript show: ‘second’ ] newProcess.
+process2 priority: Processor highIOPriority.
+process1 resume.
+process2 resume.
+]]]
+- The default process priority is userSchedulingPriority (50)
+
+!! Process Scheduling Algorithm
+
+- The active process can be identified by the expression: Processor activeProcess
+- The processor is given to the process having the highest priority.
+- A process will run until it is suspended, terminated or preempted by a higher priority process, before giving up the processor.
+- When the highest priority is held by multiple processes, the active process can give up the processor by
