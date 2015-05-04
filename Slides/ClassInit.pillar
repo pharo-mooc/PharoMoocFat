@@ -1,0 +1,43 @@
+! Elements of Design - Class initialization
+
+- Stephane Ducasse
+- stephane.ducasse@inria.fr
+- *>http://stephane.ducasse.free.fr/*
+
+!! Class Methods - Class Instance Variables
+
+- Classes (Packet class) represents class (Packet).
+- Class instance variables are instance variables of class
+- They should represent the state of class: number of created instances, number of messages sent,  superclasses, subclasses....
+- Class methods represent class behavior: instance creation, class initialization, counting the number of instances....
+- If you weaken the second point: class state and behavior can be used to define common properties
+
+!! Class Initialization
+
+- How do we know that all the class behavior has been loaded?
+- At the end !
+- Automatically called by the system at load time or explicitly by the programmer.
+- Used to initialize a classVariable, a pool dictionary or class instance variables.
+- 'Classname initialize' at the end of the saved files in Squeak
+
+!! Example of class initialization
+[[[
+Magnitude subclass: #Date
+	instanceVariableNames: 'day year'
+	classVariableNames:
+		'DaysInMonth FirstDayOfMonth MonthNames
+		SecondsInDay WeekDayNames'
+]]]
+
+!! Date class>>initialize
+
+[[[
+Date class>>initialize
+	"Initialize class variables representing the names of the months and days and the number of seconds, days in each month, and first day of each month. "
+	MonthNames := #(January February March April May
+	June July August September October November December ).
+	SecondsInDay := 24 * 60 * 60.
+	DaysInMonth := #(31 28 31 30 31 30 31 31 30 31 30 31 ).
+	FirstDayOfMonth := #(1 32 60 91 121 152 182 213 244 274 305 335 ).
+	WeekDayNames := #(Monday Tuesday Wednesday Thursday Friday Saturday Sunday )
+]]]
