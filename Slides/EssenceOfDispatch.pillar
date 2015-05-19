@@ -1,8 +1,8 @@
-! Objects to the Roots: Learning from beauty
+! To the Roots of Objects: Learning from beauty
 
-- Stephane Ducasse
+- Stéphane Ducasse
 - stephane.ducasse@inria.fr
-- *>http://stephane.ducasse.free.fr/*
+- *http://stephane.ducasse.free.fr/>http://stephane.ducasse.free.fr/*
 
 !! Really?!
 - No primitive types
@@ -16,27 +16,30 @@
 - Can't be real!
 
 !! Motto
-- Let's open our eyes, look, understand, and deeply understand the underlying design aspects of objectoriented programming...
+- Let's open our eyes, look, understand, and deeply understand the underlying design aspects of object-oriented programming.
 
 !! Booleans
-[[[
+[[[language=smalltalk 
 3 > 0
 	ifTrue: ['positive']
 	ifFalse: ['negative']
+-> 'positive'
 ]]]
-'positive'
 
 !! Yes ifTrue:ifFalse: is a message!
-[[[
+
+[[[language=smalltalk 
 Weather isRaining
 	ifTrue: [self takeMyUmbrella]
 	ifFalse: [self takeMySunglasses]
-
-ifTrue:ifFalse is sent to an object: a boolean!
 ]]]
 
-!! Booleans
+- Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
+- ==ifTrue:ifFalse:== is in fact radically optimized by the compiler but you can implement another one such ==siAlors:sinon:== and check. 
 
+
+!! Booleans
+In Pharo booleans have nothing special
 - & | not
 - or: and: (lazy)
 - xor:
@@ -46,165 +49,228 @@ ifTrue:ifFalse is sent to an object: a boolean!
 
 !! Lazy Logical Operators
 
-- false and: [1 error: 'crazy']
-- PrIt-> false and not an error
-
-- Yes! ifTrue:ifFalse: is a message send to a
-Boolean.
-
-- But optimized by the compiler :)
-
-!! Implementing not
-
-- Now you are good and you should implement it
-
-- Propose an implementation of not in a world
-where you do not have Booleans
-
-- false not -> true
-- true not -> false
-
-!! Implementing ifTrue:ifFalse:
-
-- Now you are good and you should implement it
-
-- Propose an implementation of not in a world
-- where you do not have Booleans
-
-[[[
-false ifTrue: [ 3 ] ifFalse: [ 5 ]
-true ifTrue: [ 3 ] ifFalse: [ 5 ]
+[[[language=smalltalk 
+	false and: [1 error: 'crazy']
+ -> false and not an error
 ]]]
 
-!! Boolean Objects
 
-- false and true are objects 
-- described by classes 
-- Boolean, True and False
 
-+>file://figures/BooleanObjects.png+
+!! Exercise 1: Implement not
+- Propose an implementation of not in a world where you do not have Booleans.
+- You only have objects and messages.
+[[[language=smalltalk 
+false not 
+	-> true
 
-!! Let's the receiver decide!
+true not 
+	-> false
+]]]
 
-!! Boolean>>not
+!! Exercise 2: Implement | (Or)
+- Propose an implementation of or in a world where you do not have Booleans.
+- You only have objects and messages.
 
-- "Class Boolean is an abstract class that implements
-behavior common to true and false. Its subclasses are
-True and False. Subclasses must implement methods for
-logical operations &, not, controlling and:, or:, ifTrue:,
-ifFalse:, ifTrue:ifFalse:, ifFalse:ifTrue:"
+[[[language=smalltalk 
+	true | true -> true
+	true | false -> true
+	true | anything -> true
 
-- Boolean>>not
-- "Negation. Answer true if the receiver is false, answer
-false if the receiver is true."
-[[[self subclassResponsibility]]]
+	false | true -> true
+	false | false -> false
+	false | anything -> anything
+]]]
 
-!! Not
+!! Exercise2: Variation - Implement ifTrue:ifFalse:
+- Propose an implementation of not in a world where you do not have Booleans.
+- You only have objects, messages and closures.
 
-- false not -> true
-- true not -> false
-- Boolean>>not
---  "Negation. Answer true if the receiver is false, answer false if
-the receiver is true."
--- self subclassResponsibility
+[[[language=smalltalk 
+false ifTrue: [ 3 ] ifFalse: [ 5 ]
+-> 5
+true ifTrue: [ 3 ] ifFalse: [ 5 ]
+-> 3
+]]]
 
-- False>>not
--- "Negation -- answer true since the receiver is false."
--- ^true
-- True>>not
--- "Negation--answer false since the receiver is true."
--- ^false
+
+!! Booleans Implementation Hint One
+
+- The solution does not use conditionals 
+- else we would obtain a recursive definition of ==ifTrue:ifFalse:==
+
+!! Boolean Implementation Hint Two
+
+- The solution uses three classes: ==Boolean==, ==True== and ==False==
+- ==false== and ==true== are unique instances described by their own classes 
+- ==false== is an instance of the class ==False==
+- ==true is an instance of the class ==True==
+
++Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.pdf+
+
+!! How do we express choice in OOP?
+
+- We send messages to objects
+
+[[[language=smalltalk 
+	aButton color
+	-> Color red
+	
+	aPane color
+	-> Color blue
+	
+	aWindow color
+	-> Color grey
+]]]
+
+- Let's the receiver decide
+
+- Do not ask, tell
+
+!! Boolean not implementation
+
+- Class ==Boolean== is an abstract class that implements behavior common to true and false. Its subclasses are ==True== and ==False==. Subclasses must implement methods for logical operations ==&==, ==not==, and controls ==and:==, ==or:==, ==ifTrue:==, ==ifFalse:==, ==ifTrue:ifFalse:==, ==ifFalse:ifTrue:==
+
+[[[language=smalltalk
+Boolean>>not
+	"Negation. Answer true if the receiver is false, answer false if the receiver is true."
+	self subclassResponsibility
+]]]
+
+!! Not implementation in two methods
+
+[[[language=smalltalk 
+False>>not
+	"Negation -- answer true since the receiver is false."
+	^ true
+]]]
+
+[[[language=smalltalk 
+True>>not
+	"Negation--answer false since the receiver is true."
+	^ false
+]]]
+
+!! Not implementation in two methods
++Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethods.png+
 
 !! | (Or)
-- true | true -> true
-- true | false -> true
-- true | anything -> true
+[[[language=smalltalk 
+	
+	true | true -> true
+	true | false -> true
+	true | anything -> true
 
-- false | true -> true
-- false | false -> false
-- false | anything -> anything
+	false | true -> true
+	false | false -> false
+	false | anything -> anything
+
+]]]
 
 !! Boolean>> | aBoolean
 
-- Boolean>> | aBoolean
--- "Evaluating disjunction (OR). Evaluate the argument.
-Answer true if either the receiver or the argument is
+[[[language=smalltalk 
+	Boolean>> | aBoolean
+		"Evaluating disjunction (OR). Evaluate the argument. Answer true if either the receiver or the argument is
 true."
-
--- self subclassResponsibility
+	self subclassResponsibility
+]]]
 
 !! False>> | aBoolean
 
-- false | true -> true
-- false | false -> false
-- false | anything -> anything
+[[[language=smalltalk 
+false | true -> true
+false | false -> false
+false | anything -> anything
+]]]
 
-- False>> | aBoolean
--- "Evaluating disjunction (OR) -- answer with the
-argument, aBoolean."
-
--- ^ 
+[[[language=smalltalk 
+False >> | aBoolean
+	"Evaluating disjunction (OR) -- answer with the argument, aBoolean."
+	^ aBoolean 
+]]]
 
 !! True>> | aBoolean
 
-- true | true -> true
-- true | false -> true
-- true | anything -> true
+[[[language=smalltalk 
+true | true -> true
+true | false -> true
+true | anything -> true
+]]]
 
-- True>> | aBoolean
--- "Evaluating disjunction (OR) -- answer true since the
-receiver is true."
+[[[language=smalltalk 
+True>> | aBoolean
+	"Evaluating disjunction (OR) -- answer true since the receiver is true."
+	^ self
+]]]	
 
--- ^ self
+!! Or implementation in two methods
 
-!! Boolean, True and False
++>file://figures/BooleanHiearchyAndInstancesWithOrMethods.pdf+
 
-+>file://figures/BooleanTrueFalse.png+
+!! Implementing ifTrue:ifFalse:
+
+- Do you see the pattern?
+- Remember that a closure freezes execution and that value launches the execution of a frozen code.
+
+[[[
+True>>ifTrue: aTrueBlock ifFalse: aFalseBlock
+	^ aTrueBlock value
+]]]
+
+[[[
+False>>ifTrue: aTrueBlock ifFalse: aFalseBlock
+	^ aFalseBlock value
+]]]
+
+
 
 !! Implementation Note
 
-- Note that the Virtual Machine shortcuts calls to
-boolean such as condition for speed reason.
+- Note that the Virtual Machine shortcuts calls to boolean such as condition for speed reason.
+- But you can implement your own conditional method and debug to see that sending a message is dispatching to the right object.
 
-- Virtual machines such as VisualWorks introduced a
-kind of macro expansion, an optimisation for
-essential methods and Just In Time (JIT)
-compilation. A method is executed once and
-afterwards it is compiled into native code. So the
-second time it is invoked, the native code will be
-executed.
 
 !! Ok so what?
-
-- You will probably not implement another Boolean
-classes
-
-
+- You will probably not implement another Boolean classes
 - So is it really that totally useless?
 
-!! Ternary logic
 
-- Boolean: true, false, unknown
+!! Message sends act as case statements
 
-+>file://figures/ArrayBoolean.png+
+- The execution engine will select the right method in the class of the receiver
+- The case statements is dynamic in the sense that it depends on the classes loaded and the objects to which the message is sent.
+- Each time you send a message, the system will select the method corresponding to the receiver.
 
-!! More important...
 
-- Message sends act as case statements
+!! A Class Hierarchy is a Skeleton for Dynamic Dispatch
 
-!! OOP: the art of dispatching
+- If we would have said that the ==Boolean== would be composed of only one class, we could not have use dynamic binding.
+- A class hierarchy is the exoskeleton for dynamic binding
 
-- Subclasses create your vocabulary
+- Compare the solution with one class vs. a hierarchy.
 
-!! Avoid Conditional
++One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.pdf+
 
-- Use objects and messages
+- The hierarchy provides a way to specialize behavior.
+- It is also more declarative in the sense that you only focus on one class.
+- It is more modular in the sense that you can package different classes in different packages.
 
-- VM dispatch is a conditional switch: Use it!
+!! Avoid Conditionals
 
-- AntiIfCampaign
+- Use objects and messages, when you can
+- The execution engine acts as a conditional switch: Use it!
+- Check the AntiIfCampaign.
+
+!! Follow-up: Implement ternary logic
+- Boolean: ==true==, ==false==, ==unknown==
++Ternaru Logic decision table >file://figures/ArrayBoolean.png+
+
+- Implementing in your own classes.
+
 
 !! Summary
-
-- Messages act as a dispatcher
+- Tell, do not ask
+- Let the receiver decide
+- Message sends as potential dynamic conditional
+- Class hiearchy builds a skeleton for dynamic dispatch
 - Avoid conditional
