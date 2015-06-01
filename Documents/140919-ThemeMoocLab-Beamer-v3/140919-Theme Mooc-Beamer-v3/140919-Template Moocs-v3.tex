@@ -1,0 +1,108 @@
+\documentclass[aspectratio=169, handout]{beamer} %aspectratio: définit le format 16/9 ; handout = supprime la barre de navigation
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{helvet} 
+\usepackage{enumitem} %pour personnalisation des listes numérotées (cf. beamerthemeMoocLab.sty)
+
+
+
+\usetheme{MoocLab}
+\usefonttheme{MoocLab}
+
+
+
+\title {Titre du cours}
+\subtitle{Titre de la semaine}
+\author {auteur}
+\date{}
+
+
+\begin{document}
+
+\begingroup
+
+\setbeamertemplate{footline}{} %suppression du pied de page (numéro) sur les frames du group
+
+	\begin{frame}
+
+	
+		\titlepage
+		
+
+	
+	%insertion de la zone rouge auteur et du logo	
+		\begin{textblock*}{154px}(0.8cm,8.3cm)
+			\includegraphics[width=154px,height=19.5px]{inria-auteur}
+		\end{textblock*} 
+		
+	%insertion du nom de l'auteur
+		\begin{textblock*}{80px}(1.1cm,8.5cm)
+			{\color{MoocLab-white}   \fontsize{9}{11}\selectfont Nom de l'auteur}
+ 		\end{textblock*}
+	
+	\end{frame}
+	
+
+	
+		\begin{frame}
+
+	
+		\frametitle{Titre du cours}
+		\begin{redlist} %exemple de liste numérotée
+		\item Titre de la semaine 1
+		\item Titre de la semaine 2
+		\end{redlist}
+		
+	%insertion de la zone rouge auteur
+		\begin{textblock*}{154px}(0.82cm,8.3cm)
+			\includegraphics[width=80.55px,height=19.5px]{auteur}
+		\end{textblock*} 
+		
+	%insertion du nom de l'auteur
+		\begin{textblock*}{80px}(1.1cm,8.5cm)
+			{\color{MoocLab-white}   \fontsize{9}{11}\selectfont Nom de l'auteur}
+ 		\end{textblock*}
+		
+	
+		
+	\end{frame}
+
+
+	\begin{frame}
+	
+		\frametitle{1. Titre de la semaine 1}
+		\begin{redbullet} %exemple de liste à puce
+		\item Séquence 1
+		\item Séquence 2
+		\item ...
+		\end{redbullet}
+		
+	%insertion de la zone rouge auteur
+		\begin{textblock*}{154px}(0.82cm,8.3cm)
+			\includegraphics[width=80.55px,height=19.5px]{auteur}
+		\end{textblock*} 
+		
+	%insertion du nom de l'auteur
+		\begin{textblock*}{80px}(1.1cm,8.5cm)
+			{\color{MoocLab-white}   \fontsize{9}{11}\selectfont Nom de l'auteur}
+ 		\end{textblock*}
+		
+	%insertion du titre du cours
+		\begin{textblock*}{200px}(4cm,8.6cm)
+			{\color{MoocLab-red}   \fontsize{7}{11}\selectfont TITRE DU COURS}
+ 		\end{textblock*}   
+				
+	\end{frame}
+
+	
+
+\endgroup
+
+\begin{frame}
+		\frametitle{Un exemple de titre}
+		Texte de présentation
+	\end{frame}
+
+\end{document}
