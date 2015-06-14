@@ -1,0 +1,294 @@
+{
+	"title":"Introduction to Blocks",
+	"subtitle":"",
+	"author":"Stephane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
+
+
+${toc:depthLevel=2|level=0|highlight=0|title=Summary}$
+
+%Les sections ne sont pas des titres de slide mais définnissent la structure du doucment. Il est possible de rajouter "renderStructureAsSlide":false dans pillar.conf pour ne pas créer de slide à partir d'un titre.
+
+
+
+! Blocks Explained
+
+%
+${toc:depthLevel=1|level=0|highlight=1}$
+
+${slide:title=Objectives|label=block}$
+
+- Blocks are kind of anonymous method
+- Used for loops, conditionals and iterators.
+- Used in UI development.
+- Really important and are at the heart of Pharo.
+- Called closures in other languages
+- Really powerful concept 
+- Just introduced in Java 8.0
+
+${slide:title=Block Syntax|label=block}$
+
+- a block is delimited by ==[ ]==
+
+[[[
+	[ expressions.... ] 
+]]]
+
+
+${slide:title=A Block|label=block}$
+
+- If we do not ask a block to be executed, nothing happens.
+- Executing ==(1 / 0)== raises an error.
+
+[[[
+	( 1 / 0 )
+	-> Error
+]]]
+
+- Executing ==[ 1 / 0 ]== does not raise an error because the code inside a block is not executed.
+
+[[[
+	[ 1 / 0 ]
+	-> [ 1 /0 ] 
+]]]
+
+- Any block is not executed. We can think that a block freezes execution. 
+
+[[[
+	[ 2 + 6 ] 
+	-> [ 2 + 6 ] 
+]]]
+
+
+${slide:title=Executing a Block|label=block}$
+
+To execute a block we should ask its execution explicitly using the message ==value==
+
+[[[
+[ 2 + 6 ] value
+-> 8 
+]]]
+
+[[[
+	[ 1 / 0 ] value
+	-> Error
+]]]
+
+
+${slide:title=A Block with one argument|label=simpleBlock}$
+- A bloc can take arguments (the same way a method can)
+
+[[[
+	[ :x | x + 2 ]
+]]]
+
+- ==[ ]== delimits the block.
+- ==:x== is block argument.
+- ==x+2== is the block body.
+
+[[[
+	[ :x | x + 2 ] value: 5
+	-> 7
+]]]
+
+- ==value:== is a message that executes a block passing a value, here 5 as argument. ==x== will have the value 5.
+
+
+${slide:title=Block execution value|label=simpleBlock}$
+
+- Execution returns the value of the last expression
+
+[[[
+	[ :x | 
+			x + 33. 
+			x + 2 ] value: 5
+	-> 7
+]]]
+
+${slide:title=Blocks can be stored|label=simpleBlock}$
+
+- We can store a block in variable
+- A block can be executed multiple times
+
+[[[
+	| b |
+	b := [ :x | x + 2 ].
+	
+	b value: 5
+	-> 7
+	
+	b value: 33
+	-> 35
+]]]
+
+
+${slide:title=Blocks are used to express conditions|label=expressCondition}$
+
+[[[
+	1 < 33 
+		ifTrue: [ 'positive']
+		ifFalse: [ 'negative']
+]]]
+
+Yes this is a message ==ifTrue:ifFalse:== sent to a Boolean
+
+[[[
+	1 < 33 
+		ifFalse: [ 'negative']
+		ifTrue: [ 'positive']
+]]]
+
+Yes this is a message ==ifFalse:ifTrue:== sent to a Boolean
+
+
+
+${slide:title=Blocks are used to express loops|label=expressLoop}$
+
+- Some simple loops
+- Printing 10 dots
+[[[
+	10 timesRepeat: [ File stdout << '.' ]
+	-> ............
+]]]
+
+[[[
+	1 to: 10 do: [:i | File stdout << i ]
+	-> 12345678910 
+]]]
+
+[[[
+	1 to: 100 by: 3 do: [:i | File stdout << i ]
+	-> 147101316192225283134374043464952555861646770737679828588919497100
+]]]
+
+
+
+${slide:title=Full Syntax}$
+
+
+[[[
+ 	[ :blockArg1 :blocArg2 |
+		|localVariable|
+		expression1.
+		expression2.
+		
+		expressionn]
+]]]
+
+
+
+${slide:title=A Design Advice}$
+
+- Do not use blocks with too many arguments (3 max).
+- Use object instead of bloc if you should pass more arguments.
+- a bloc is only one single computation it cannot embed more facets (printing, testing)
+
+
+${slide:title=Return in a bloc, return from the method}$
+
+- When we put a return into a bloc, when we execute it we return from the method.
+
+[[[
+factorial
+	"Answer the factorial of the receiver."
+
+	self = 0 ifTrue: [ ^ 1].
+	self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+	self error: 'Not valid for negative integers'
+]]]
+
+- ==factorial== is the method selector: the name of the message
+- =="Answer the factorial of the receiver"== is a comment
+- The rest is the method body
+
+
+${slide:title=Exercises|label=expressLoop}$
+
+- Guess how to execute a block taking two arguments
+
+[[[
+	[ :x :y | x + y ]   5  7
+	> 12
+]]]
+
+- Read the BlockClosure class
+
+- Express as a block the function xxx 
+
+
+- Propose a non recursive definition of factorial
+
+[[[
+Integer>>factorial2
+	"Answer the factorial of the receiver."
+	
+	| sum |
+	self isZero ifTrue: [ ^ self ].
+	sum := 1.
+	2 to: self do: [:i | sum := sum * i].
+	^ sum
+]]]
+
+
+${slide:title=Summary}$
+- Tell, do not ask
+- Let the receiver decide
+- Message sends as potential dynamic conditional
+- Class hiearchy builds a skeleton for dynamic dispatch
+- Avoid conditional
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
