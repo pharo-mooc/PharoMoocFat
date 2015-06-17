@@ -1,24 +1,35 @@
-! Template
+{
+	"title":"A simple HTTP Server",
+	"subtitle":"",
+	"author":"Stephane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
 
- Damien Cassou and Stéphane Ducasse
 
-*http://www.pharo.org*
 
-*http://stephane.ducasse.free.fr*
 
-!! License
+${slide:title=Configuring|label=block}$
 
-+>file://figures/CreativeCommons.png|width=50|label=figCreativeCommons+
-
-!! A simple server server 
 
 [[[
 	| books teapot |
 	books := Dictionary new.
 	teapot := Teapot configure: {
-	    #defaultOutput -> #json. #port -> 8080. #debugMode -> true
+	    #defaultOutput -> #json. 
+		#port -> 8080. 
+		#debugMode -> true
 	}.
+	
+- | | is for local variable definition
+- := is to assign a value.
+- ==#port== is a symbol (aka unique string)
+- In configure: the : means that we are expecting an argument
+- =={ . }== is an array.
+]]]
 
+${slide:title=A simple server server|label=block}$
+
+[[[
 	teapot
 	    GET: '/books' -> books;
 	    PUT: '/books/<id>' -> [ :request | | book |
@@ -31,17 +42,15 @@
 ]]]
 
 
+${slide:title=Sending a request |label=block}$
 
-!! Scripting 
-
+[[[
 ZnClient new
     url: 'http://localhost:8080/books/1';
     formAt: 'author' put: 'SquareBracketAssociates';
     formAt: 'title'  put: 'Pharo For The Enterprise';
     put
+]]]
 
-!! Conclusion
 
-- 
-- 
-- 
+

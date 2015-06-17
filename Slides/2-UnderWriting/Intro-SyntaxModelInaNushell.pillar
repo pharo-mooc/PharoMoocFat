@@ -1,57 +1,75 @@
-! Pharo Syntax and Model in  a Nutshell
-
-Damien Cassou and Stéphane Ducasse
-
-*http://www.pharo.org*
-
-*http://stephane.ducasse.free.fr*
-
-!! License
-
-+>file://../figures/CreativeCommons.png|width=50+
-
-!! Goals
-
-- Syntax in a Nutshell
-- Pharo Object Model in a Nutshell
+{
+	"title":"Pharo Syntax in a Nutshell",
+	"subtitle":"",
+	"author":"Stephane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
 
 
-!! Complete Syntax on a Postcard
-
+${slide:title=Objectives|label=block}$
 [[[
 exampleWithNumber: x
 	"This method illustrates every part of Smalltalk method syntax except primitives."
 	<aMethodAnnotation>
 	
 	| y |
-	true & false not & (nil isNil) ifFalse: [self halt]. y := self size + super size.
+	true & false not & (nil isNil) 
+		ifFalse: [self halt]. 
+	y := self size + super size.
 	#($a #a 'a' 1 1.0)
 		do: [ :each | Transcript
-					show: (each class name);
-					show: (each printString);
-					show: ' ' ].
+						show: (each class name);
+						show: (each printString);
+						show: ' ' ].
 	^ x < y
 ]]]
 
 
-!! Language Constructs
 
-- ^ return
-- " comments
+${slide:title=A real example|label=factorial}$
+
+[[[
+Integer>>factorial
+	"Answer the factorial of the receiver."
+
+	self = 0 ifTrue: [ ^ 1 ].
+	self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+	self error: 'Not valid for negative integers'
+]]]
+
+
+${slide:title=Sending a request|label=ZnClient}$
+
+[[[
+ZnClient new
+    url: 'http://localhost:8080/books/1';
+    formAt: 'author' put: 'SquareBracketAssociates';
+    formAt: 'title'  put: 'Pharo For The Enterprise';
+    put
+]]]
+
+
+${slide:title=Language Constructs|label=block}$
+
+
+
+${slide:title=Language Constructs|label=block}$
+
+- ^ expression return
+- "..."	comments
 - # symbol or array
-- ' string
+- '...'string
 - [ ] block or byte array
-- . separator and not terminator (or namespace access in VW)
-- ; cascade (sending several messages to the same instance)
-- | local or block variable
+- . separator and not terminator
+- ; cascade (sending several messages to the same object)
+- | local or block variable definition
 - := assignment
 - $ character
 - : end of selector name
 - e, r number exponent or radix
-- ! file element separator
-- <primitive: ...> for VM primitive calls
+- <annotation> method annotation
 
-!! Syntax
+${slide:title=Syntax|label=syntax}$
 - comment: "a comment"
 - character: $c $h $a $r $a $c $t $e $r $s $# $@
 - string: 'a nice string' 'lulu' 'l'idiot'
@@ -188,31 +206,6 @@ Node>>accept: thePacket
 [[[
 	 Tomagoshi withHunger: 10
 ]]]
-
-!! Less is really more :)
-- No constructors
-- No static method
-- No types declaration
-- No interfaces
-- No packages/private/protected
-- No parametrized types
-- No boxing/unboxing
-- And still really powerful :)
-
-!! Simple and uniform
-- Everything is an object.
-- Classes are object (only one method lookup)
-- Only message passing.
--- Only late binding (virtual call).
-
-
-!! Pharo Object Model
-
-- Instance variables are private to the object (instance-based).
-- Instance variables are protected.
-- Shared variables between classes.
-- Methods are public
-- Single inheritance between classes
 
 !! Conclusion
 -
