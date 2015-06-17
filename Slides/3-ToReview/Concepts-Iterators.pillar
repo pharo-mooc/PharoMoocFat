@@ -1,26 +1,33 @@
-! Iterators
+{
+	"title":"Iterators",
+	"subtitle":"",
+	"author":"Stephane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
 
-Stéphane Ducasse
+${toc:depthLevel=2|level=0|highlight=0|title=Summary}$
 
-*http://www.pharo.org*
+%Les sections ne sont pas des titres de slide mais définnissent la structure du doucment. Il est possible de rajouter "renderStructureAsSlide":false dans pillar.conf pour ne pas créer de slide à partir d'un titre.
 
-*http://stephane.ducasse.free.fr*
-
-!! License
+${slide:title=License|label=license}$
 
 +>file://figures/CreativeCommons.png|width=50|label=figCreativeCommons+
 
-!! Goals
+
+! Introduction
+
+%
+${toc:depthLevel=1|level=0|highlight=1}$
+
+${slide:title=Objectives|label=objectives}$
 
 - Understand iterators
 - Offer an overview
 
-!! Iterators in a Nutshell
+${slide:title=Pharo code is Compact!}$
 
-!! Pharo code is Compact!
 [[[
-ArrayList<String> strings
-                  = new ArrayList<String>();
+ArrayList<String> strings = new ArrayList<String>();
    for(Person person: persons)
             strings.add(person.name()); 
 ]]]
@@ -34,48 +41,50 @@ strings := persons collect [ :person | person name ]
 - Iterators are deep into the core of the language.
 
 
-!! A first iterator: ==collect:==
+${slide:title= A first iterator: ==collect:==}$
 
 [[[
-#(2 -3 4 -35 4) collect: [ :each | each abs ]
+	#(2 -3 4 -35 4) collect: [ :each | each abs ]
 ]]]
 
 [[[
--> #(2 3 4 35 4)
+	#(2 3 4 35 4)
 ]]]
 - Apply the block to each element and return a polymorphic collection with the results
 
 
-
-!! Another collect: example
+${slide:title=Another collect: example}$
 
 [[[
 	#(16 11 68 19) collect: [ :i | i odd ]
 ]]]
 
 [[[
-> #(true false true false)
+	#(true false true false)
 ]]]
 
 
-!! Choose your camp!
 
 
-
-We can also do it that way!
+${slide:title=Choose your camp!}$
 
 [[[
-#(16 11 68 19) collect: [ :i | i odd ]
-	
-| result |
-aCol :=  #(16 11 68 19).
-result := aCol species new: aCol size.
-1 to: aCollection size do: 
-	[ :each | result at: each put: (aCol at: each) odd].
-result
+	#(16 11 68 19) collect: [ :i | i odd ]
 ]]]
 
-!! Basic Iterators Overview
+We can also do it that way!	
+[[[
+	| result |
+	aCol :=  #(16 11 68 19).
+	result := aCol species new: aCol size.
+	1 to: aCollection size do: 
+		[ :each | result at: each put: (aCol at: each) odd].
+	result
+]]]
+
+
+
+${slide:title=Basic Iterators Overview}$
 
 - ==do:== (iterate)
 - ==collect:== (iterate and collect results)
@@ -87,48 +96,56 @@ result
 - and a lot more...
 
 
-!! ==do:==
+${slide:title=do:}$
+ 
 - Iterates on each elements
+- Applies an anynoumous method on each elements
 
 [[[
-#(16 11 68 19) do:  
-	[ :i | Transcript show: i ; cr ]
+	#(16 11 68 19) do:  
+		[ :i | Transcript show: i ; cr ]
 ]]]
 
 +Results of do: >file://figures/Iterators-Transcript.png|width=50|label=Iterators-Transcript+
 
-!! ==select:==
+
+${slide:title=select:}$
+
 - Select some elements
 
 [[[
-#(16 11 68 19) select: [ :i | i odd ] 
+	#(16 11 68 19) select: [ :i | i odd ] 
 ]]]
 
-!! ==select:==
+
+${slide:title=select:}$
+
 - Select some elements
 
 [[[
-#(16 11 68 19) select: [ :i | i odd ] 
+	#(16 11 68 19) select: [ :i | i odd ] 
 ]]]
 
 [[[
-#(11 19)
+	#(11 19)
 ]]]
 
-!! With unary messages no block needed
+${slide:title=With unary messages no block needed}$
+
 When a block with a single argument is expected, we can pass an unary message selector
 [[[
-#(16 11 68 19) select: [ :i | i odd ] 
+	#(16 11 68 19) select: [ :i | i odd ] 
 ]]]
 
 is equivalent to
 
 [[[
-#(16 11 68 19) select: #odd
+	#(16 11 68 19) select: #odd
 ]]]
 
 
-!! ==reject:==
+${slide:title=reject:}$
+
 - Filter some elements
 
 [[[
@@ -136,7 +153,8 @@ is equivalent to
 ]]]
 
 
-!! ==reject:==
+${slide:title=reject:}$
+
 - Filter some elements
 
 [[[
@@ -148,15 +166,16 @@ is equivalent to
 ]]]
 
 
+${slide:title=detect:}$
 
-!! ==detect:==
 - First element that matches
 
 [[[
 #(16 11 68 19) detect:  [ :i | i odd ]   
 ]]]
 
-!! ==detect:==
+${slide:title=detect:}$
+
 - First element that matches
 
 [[[
@@ -167,28 +186,32 @@ is equivalent to
 11
 ]]]
 
-!! ==detect:ifNone:==
+
+
+${slide:title=detect:ifNone:}$
+
 - First element that matches else return a value
 
 [[[
-#(16 12 68 20) detect:  [ :i | i odd ] ifNone: [ 0 ] 
+	#(16 12 68 20) detect:  [ :i | i odd ] ifNone: [ 0 ] 
 ]]]
 
 
 
+${slide:title=detect:ifNone:}$
 
-!! ==detect:ifNone:==
 - First element that matches else return a value
 
 [[[
-#(16 12 68 20) detect:  [ :i | i odd ] ifNone: [ 0 ] 
+	#(16 12 68 20) detect:  [ :i | i odd ] ifNone: [ 0 ] 
 ]]]
 
 [[[
-0
+	0
 ]]]
 
-!! Some others
+${slide:title=Some other iterators}$
+
 - ==anySatisfy:==
 - ==allSatisfy:==
 - ==reverseDo:==
@@ -198,9 +221,15 @@ is equivalent to
 - ==reduceLeft:==
 - ==reduceRight:==
 
-!! Exciting ones ==doSeparatedBy:==
+Propose some expressions to illustrate their uses
 
-- how to produce =='a, b, c'== from ==#('a' 'b' 'c')==
+
+
+${slide:title=Exciting ones}$
+
+- how to produce =='a, b, c'== from ==#('a' 'b' 'c')==?
+- Use ==doSeparatedBy:==
+
 [[[
 	String streamContents: [ :s |
 				#('a' 'b' 'c') 
@@ -209,7 +238,9 @@ is equivalent to
 				] 
 ]]]
 
-!! Exciting ones: ==with:do:==
+
+${slide:title=Iterating two structures}$
+
 [[[
 #(1 2 3) 
     with:  #(10 20 30)
@@ -218,21 +249,25 @@ is equivalent to
 
 +Results of with:do: >file://figures/Iterator-WithDo-Transcript.png|width=50|label=Iterator-WithDo-Transcript+
 
+- ==with:do:== requires two structures of the same length.
 
-!! Exciting ones ==groupedBy:==
+${slide:title=Grouping}$
+
+- ==groupedBy:==
 
 [[[
 #(1 2 3 4 5 6 7 ) groupedBy: #even 
 ]]]
 
 [[[
--> a PluggableDictionary(false->#(1 3 5 7) true->#(2 4 6) )
+a PluggableDictionary(false->#(1 3 5 7) true->#(2 4 6) )
 ]]]
 
-!! Exciting ones ==flatCollect:==
+
+${slide:title=Flattening results}$
 
 - How to remove one level of nesting in a collection?
-
+- Use ==flatCollect:==
 [[[
 #( #(1 2) #(3) #(4) #(5 #(6 7 3))) collect: [ :each | each ]  
 -> #(#(1 2) #(3) #(4) #(5 #(6 7 3)))
@@ -244,8 +279,9 @@ is equivalent to
 -> #(1 2 3 4 5 #(6 7 3))
 ]]]
 
-!! How ==do:== is implemented?
+${slide:title=Opening the box}$
 
+- How ==do:== is implemented?
 [[[
 SequenceableCollection>>do: aBlock  
 	"Evaluate aBlock with each of the receiver's elements as the argument."
@@ -253,12 +289,15 @@ SequenceableCollection>>do: aBlock
 	1 to: self size do: [:i | aBlock value: (self at: i)]		
 ]]]
 
-!! Analysis
+
+${slide:title=Analysis}$
+
 - Iterators are really powerful because they support polymorphic code.
 - All the collections support them.
 - New ones are defined.
 - Missing controlled navigation as in the Iterator design pattern.
 
-!! Conclusion
-- Iterators are your best friends
+
+${slide:title=Summary}$
+-- Iterators are your best friends
 - Simple and powerful
