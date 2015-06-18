@@ -7,50 +7,136 @@
 
 
 
-${slide:title=Characters|label=characters}$
+${slide:title=$C $h $a $r $a $c $t $e $r $s|label=characters}$
 
 - Characters:
--- $F, $Q $U $E $N $T $i $N
+-- ==$F==, ==$Q== ==$U== ==$E== ==$N== ==$T== ==$i== ==$N==
 - Unprintable characters:
--- Character space, Character tab, Character cr
+-- ==Character space==, ==Character tab==, ==Character cr==
 
-${slide:title=Strings|label=Strings}$
-- Some ways to obtain a string
+
+${slide:title='Strings'|label=strings}$
+
+[[[
+	'éclair au chocolat'	
+]]]
+
+[[[
+	'éclair au chocolat' size
+	> 18
+	
+]]]
+
+[[[
+	Character space split: 'éclair au chocolat' 
+	>  an OrderedCollection('éclair' 'au' 'chocolat')
+	
+]]]
+
+${slide:title=A string: a collection of chars|label=strings}$
+
+[[[
+''eclair au chocolat'' at: 1
+> $e
+]]]
+
+${slide:title=Quote in Strings|label=strings}$
+
+- To add a quote in a string with just type it twice.
+[[[
+	'L''éclair au chocolat' 
+]]]
+
+- Pay attention there is only one element 
+[[[
+	'L''éclair au chocolat' at: 2
+	> $'
+	
+	'L''éclair au chocolat' at: 2
+	> $é
+]]]
+
+
+
+${slide:title=Getting the last char|label=strings}$
+
+
+
+[[[
+	| str | 					local variable
+	str := 'Tiramisu'.			assignment
+	str at: str length 			message send
+	> $u
+]]]
+
+
+${slide:title=For concatenation use ,|label=concat}$
+
+[[[
+'Calvin' , ' & ', 'Hobbes'
+> 'Calvin & Hobbes'
+]]]
+
+
+${slide:title= Take care with ,|label=concat}$
+
+- ==,== copies the strings so multiple concatenations can generate spurious versions
+
+[[[
+'Calvin' , ' & ', 'Hobbes'
+> 'Calvin & Hobbes'
+]]]
+
+- Use a stream to avoid creating multiple intermediary strings
+[[[
+	String streamContents: [ :s |
+		s 
+			nextPutAll: 'Calvin';
+			nextPutAll: ' & ';
+			nextPutAll: 'Hobbes' 
+			 ]
+]]]
+
+${slide:title=Ways to obtain a string|label=Strings}$
+
 -- ==#mac asString== -> =='mac'==
 -- ==12 printString== -> =='12'==
 -- =='This packet travelled around to the printer'==
 -- ==String with: $A==
-- Collection of characters
--- =='lulu' at: 1== -> ==$l==
-- To introduce a single quote inside a string, just double it.
-- =='l''idiot'==
 
-${slide:title=Symbols|label=symbols}$
-- Kinds of String
+
+${slide:title=#Symbol|label=symbols}$
+
+- ==#calvin== is a symbol
+- A kind of string
 - Unique in the system (see after)
-- start with ==#==
+- Starts with ==#==
 -- ==#class== ==#mac== ==#at:put:== ==#+== ==#accept:==
 
 
 ${slide:title=Symbols vs. Strings|label=symbols}$
 
-
 - Symbols are used as method selectors, unique keys for dictionaries
-- A symbol is a read-only object, strings are mutable objects
-- A symbol is unique, strings are not
+- A symbol is a read-only object, a string is a mutable object
+- Two symbols with the same representation points to the same object
 
 [[[
-#calvin == #calvin -> true
-'calvin' == 'calvin' -> false
-#calvin, #zeBest -> 'calvinzeBest'
+	#calvin == #calvin
+	> true
 ]]]
+
+- Two strings with the same representation may be different objects depending on optimisations.
+
+
 - Symbols are good candidates for identity based dictionaries (IdentityDictionary)
 - Hint: 
 -- Comparing strings is slower then comparing symbols by a factor of 5 to 10. 
 -- However, converting a string to a symbol is more than 100 times more expensive.
 
 
-${slide:title=Comments and Tips|label=comment}$
+${slide:title="Comments"|label=comment}$
 
 - "This is a comment"
+- "What a fun language lecture. I really like desserts."
+
 - A comment can span several lines. Moreover, avoid putting a space between the " and the first character. When there is no space, the system helps you to select a commented expression. You just go after the " character and double click on it: the entire commented expression is selected. After that you can printIt or doIt, etc.

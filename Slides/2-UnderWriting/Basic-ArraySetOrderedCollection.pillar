@@ -5,27 +5,91 @@
 	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
+${slide:title=Collections|label=arrays}$
 
-${slide:title=Arrays|label=arrays}$
+- Pharo has a rich hierarchy of collection
+- Common API: size, do:, select:, includes, collect:...
+- Element 1 is at index 1
+- Most common ones:
+-- Set (no duplicates)
+-- OrderedCollection (dynamically growing)
+-- Array (fixed size, direct access)
+-- Dictionary (key-based)
 
-- Syntax:  ==#(  )==
-- ==#(1 2 3)== 
--- an array with 3 numbers
-- ==#('lulu' (1 2 3))== 
---an array with two elements: a string and an array
-- ==#(mac node1 pc node2 node3 lpr)==
--- an array of symbols.
-- When one prints it it shows
+
+${slide:title=Creating variable size objects|label=arrays}$
+
+- Message ==new: size== creates an object of size
+
 [[[
-#(#mac #node1 #pc #node2 #node3 #lpr)
+	Array new: 4
+	> #(nil nil nil nil)
+
+	Array new: 2
+	> #(nil nil)
 ]]]
 
 
-${slide:title=Byte Arrays |label=arrays}$
 
-- ==#[1 2 255]==
 
-${slide:title=Arrays can contains heterogenous objects |label=arrays}$
+${slide:title= #(A r r a y)|label=arrays}$
+
+- ==#( ... )== 
+- Fixed size
+
+[[[
+#('Calvin' 'hates' 'Suzie') size
+> 3
+]]]
+
+- Literal version is read by the parser
+
+[[[
+	Array with: 'Calvin' with: 'hates' with: 'Suzie'
+]]]
+
+[[[
+	| array |
+	array := Array new: 3
+	
+]]]
+
+${slide:title= First element starts at 1 |label=arrays}$
+
+[[[
+#('Calvin' 'hates' 'Suzie') at: 2
+> 'hates'
+]]]
+
+${slide:title= at: to access, at:put: to set|label=arrays}$
+
+
+[[[
+	#('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
+
+	> #('Calvin' 'loves' 'Suzie')
+]]]
+
+
+${slide:title=Varia|label=arrays}$
+
+
+- An array of symbols:
+[[[
+	#(#calvin #hobbes #suzie)	
+	> #(#calvin #hobbes #suzie)	
+	#(calvin hobbes suzie)
+	> #(#calvin #hobbes #suzie)
+]]]
+- An array of strings:
+[[[
+
+	#('calvin' 'hobbes' 'suzie')
+	> #('calvin' 'hobbes' 'suzie')
+]]]
+
+
+${slide:title=Arrays can contain heterogenous objects|label=arrays}$
 
 - Heterogenous
 [[[
@@ -34,18 +98,11 @@ ${slide:title=Arrays can contains heterogenous objects |label=arrays}$
  #('lulu' 1.22 1)
 	-> #('lulu' 1.22 1)
 ]]]
-- An array of symbols:
-[[[
-#(calvin hobbes suzie)
-	-> #(#calvin #hobbes #suzie)
-]]]
-- An array of strings:
-[[[
-#('calvin' 'hobbes' 'suzie')
-	-> #('calvin' 'hobbes' 'suzie')
-]]]
 
 
+${slide:title=Byte Arrays |label=arrays}$
+
+- ==#[1 2 255]==
 
 {slide:title=OrderedCollection|label=arrays}$
 
