@@ -1,0 +1,56 @@
+{
+	"title":"Character, String, Symbol",
+	"subtitle":"",
+	"author":"Stephane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
+
+
+
+${slide:title=Characters|label=characters}$
+
+- Characters:
+-- $F, $Q $U $E $N $T $i $N
+- Unprintable characters:
+-- Character space, Character tab, Character cr
+
+${slide:title=Strings|label=Strings}$
+- Some ways to obtain a string
+-- ==#mac asString== -> =='mac'==
+-- ==12 printString== -> =='12'==
+-- =='This packet travelled around to the printer'==
+-- ==String with: $A==
+- Collection of characters
+-- =='lulu' at: 1== -> ==$l==
+- To introduce a single quote inside a string, just double it.
+- =='l''idiot'==
+
+${slide:title=Symbols|label=symbols}$
+- Kinds of String
+- Unique in the system (see after)
+- start with ==#==
+-- ==#class== ==#mac== ==#at:put:== ==#+== ==#accept:==
+
+
+${slide:title=Symbols vs. Strings|label=symbols}$
+
+
+- Symbols are used as method selectors, unique keys for dictionaries
+- A symbol is a read-only object, strings are mutable objects
+- A symbol is unique, strings are not
+
+[[[
+#calvin == #calvin -> true
+'calvin' == 'calvin' -> false
+#calvin, #zeBest -> 'calvinzeBest'
+]]]
+- Symbols are good candidates for identity based dictionaries (IdentityDictionary)
+- Hint: 
+-- Comparing strings is slower then comparing symbols by a factor of 5 to 10. 
+-- However, converting a string to a symbol is more than 100 times more expensive.
+
+
+${slide:title=Comments and Tips|label=comment}$
+
+- "This is a comment"
+- A comment can span several lines. Moreover, avoid putting a space between the " and the first character. When there is no space, the system helps you to select a commented expression. You just go after the " character and double click on it: the entire commented expression is selected. After that you can printIt or doIt, etc.

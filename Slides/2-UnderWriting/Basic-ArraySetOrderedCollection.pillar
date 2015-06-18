@@ -1,0 +1,54 @@
+{
+	"title":"Array",
+	"subtitle":"",
+	"author":"Stephane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
+
+
+${slide:title=Arrays|label=arrays}$
+
+- Syntax:  ==#(  )==
+- ==#(1 2 3)== 
+-- an array with 3 numbers
+- ==#('lulu' (1 2 3))== 
+--an array with two elements: a string and an array
+- ==#(mac node1 pc node2 node3 lpr)==
+-- an array of symbols.
+- When one prints it it shows
+[[[
+#(#mac #node1 #pc #node2 #node3 #lpr)
+]]]
+
+
+${slide:title=Byte Arrays |label=arrays}$
+
+- ==#[1 2 255]==
+
+${slide:title=Arrays can contains heterogenous objects |label=arrays}$
+
+- Heterogenous
+[[[
+ #('lulu' (1 2 3))
+	-> #('lulu' #(1 2 3))
+ #('lulu' 1.22 1)
+	-> #('lulu' 1.22 1)
+]]]
+- An array of symbols:
+[[[
+#(calvin hobbes suzie)
+	-> #(#calvin #hobbes #suzie)
+]]]
+- An array of strings:
+[[[
+#('calvin' 'hobbes' 'suzie')
+	-> #('calvin' 'hobbes' 'suzie')
+]]]
+
+
+
+{slide:title=OrderedCollection|label=arrays}$
+
+
+{slide:title=Set|label=arrays}$
+
