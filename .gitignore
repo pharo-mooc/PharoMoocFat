@@ -16,3 +16,10 @@ auto/
 pharo
 pharo-ui
 pharo-vm
+*.tex
+*.nav
+*.pdf
+*.snm
+*.vrb
+/package-cache/
+/play-cache/

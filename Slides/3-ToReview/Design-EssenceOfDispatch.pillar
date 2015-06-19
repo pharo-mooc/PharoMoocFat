@@ -32,11 +32,6 @@ ${slide:title=Motto}$
 
 - Let's open our eyes, look, understand, and deeply understand the underlying design aspects of object-oriented programming.
 
-
-*@really*
-
-*TEST !>@really*
-
 ${slide:title=Booleans}$
 
 [[[language=smalltalk 
@@ -68,8 +63,6 @@ In Pharo booleans have nothing special
 - ...
 
 ${slide:title=Lazy Logical Operators}$
-
-	*LINK>@frm:really*
 
 [[[language=smalltalk 
 	false and: [1 error: 'crazy']
