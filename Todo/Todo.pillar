@@ -1,248 +1,41 @@
-! Pharo Mooc
-
-Welcome to the Pharo-Mooc working document. 
+! TODO
 
 
-!! Goal 
-Our goal is to build a mooc around Pharo. The objectives is that a student should be able to get fluent in Pharo.
-The prerequesites will be that people already got in touch with OOP even if we will revisit some aspects of OOP.
+!! Exos
 
-The format we plan is the following one videos of 6 to 8 min and around 1 hour in total per week of lectures.
-We expect 1000 followers per year. 
+- Chekc exo noury
+- receover LAN exo stef
+- Kata damien https://github.com/search?q=user%3Acdlm+kata
+- Pharo cheat page
 
-We will design a certification named: Pharo Level One 
-
-!! Open Questions
-
-
-- Can damien get delegation to work on the mooc
-
-- Lecture = a person who is talk showing stuff and  slides
--- exercices scenarises sous forme de videos comme *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
-
-
-!! ToDo
-
-- Stef/Damien: make sure that we can run the expression automatically as it was done in Pharo by Example.
-
-- make sure that pillar compiles this file and also on the machine of seb
+!! Once the first slides are done
 
 - Call for the community for ideas and if people want to join
 
 - Announce the mailing-list
 
+!! Admin - DONE
 
+- Check http://www.unit.eu/fr/membre/projets_unit/2014
+En fait, sur le site de UNIT, il y a accès libre le dossier de tous les projets financés : http://www.unit.eu/fr/membre/projets_unit/2014 Pour UNISCIEL, il s'agit d'un site web qu'il faudra remplir avec les données du projet.
 
 
+- 1) de répondre à l'AAP de UNIT  http://www.unit.eu/fr/membre/appel_a_projet
+-- financement à hauteur de ~30/35KE pour un MOOC de 70KE
+-- évaluation des projets par des experts scientifiques (bizarre pour des projets d'enseignements)
+-- plateforme FUN souvent imposée mais on peut proposer iversity par exemple si j'ai bien compris
+-- la langue Française aussi souvent imposée, à négocier
 
+- 2) de répondre à l'AAP UNISCIEL aussi http://www.unisciel.fr/appel-a-projets-ouvert/
+-- financement à hauteur de ~20KE pour un MOOC de 70KE
+-- évaluation des projets par un comité
+-- évaluation plus portée sur l'apprenant, la pédagogie, la qualité du MOOC final (vidéo, sous-titres, ...)
 
+les deux dossiers peuvent être proches. 
+il faut que l'on justifie que l'on a besoin d'une "chaîne éditoriale" spécifique (Pillar) pour ce MOOC... 
 
-! Items: Fragments of Lectures and Exercises
 
-Items are units of knowledge. A typical session (video) will be between 6 to 9 minutes and composed of a couple of 
-items. Exercises will be also based on items. 
 
-!! Item Description
 
-An item is composed of 
-
-- Name: Iteration with ZnEasy
-- A tag: env, syntax, model, fun, tip
-- A Problem: how to iterate/manipulate collections?
-- A description about one line: students learn iterators such as do: collect: select: on 
-- resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
-- Ideas: use ZnEasy instead to select files served by a server
-- Contents: 
-
-
-
-!! Items List
-
-!!! Pharo in a nutshell 
-- Name: Pharo in a nutshell 
-- Tag: info
-- Problem: What is pharo
-- Description about one line: Pharo is open-source dynamically typed reflective language
-- Resources: 
-- Contents: 
-
-!!! Downloading and getting started 
-- Name: Pharo in a nutshell 
-- Tag: info
-- Problem: How to get and run pharo
-- Description about one line: We will show the launcher and files.pharo.org
-- Resources: Chapter on zero-conf
-- Contents: 
-
-!!! Pharo Resources 
-- Name: Resources
-- Tag: info
-- Problem: Where are the key ressources
-- Description about one line: We will present mailing-list, web site, books
-- Resources: 
-- Contents: 
-
-
-!!! Simple loops 
-- Name: Simple loops 
-- Tag: system, syntax
-- Problem: how to loop over a collection?
-- Description about one line: students simple loops such as timesRepeat:, to:do:, to:do:by: 
-- Resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
-- Contents: 
-
-!!! to:do: vs. (to:)do: 
-- Name: to:do: vs. (to:)do: 
-- Tag: system, syntax, tip
-- Problem: how to loop over a collection?
-- Description about one line: students simple loops such as timesRepeat:, to:do:, to:do:by: 
-- Resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
-- Contents: 
-
-
-!!! Maths
-- 
-
-!!! Fun with numbers
-- direct manipulation in a workspace
-- addition the fraction exact
-- factorial
-- automatic coercion
-
-videos http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/005-FunWithWorkspace.mov
-	
-
-
-!!! Loops - Iterateurs
-- Problem: how to iterate/manipulate collections
-- Describes: do: collect: select: 
-- resources: http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov
-- Ideas: use ZnEasy instead to select files served by a server
-- Contents: 
-
-
-!!!Characters		
-	051-BasicTypesIntroduction.mov
-
-
-!!! [env] Sender/implementors
-
-!!! [env] Inspecting an object 
-
-!!! [env] Defining a Method
-
-!!! [env] Creating a class
-
-!!! Conditional
-
-!!! Block
-
-!!! Array static vs. array dynamic
-Array 	051-BasicTypesIntroduction.mov
-Dynamic Array 051-BasicTypesIntroduction.mov
-
-!!! Object initialization
-
-!!! printing
-
-!!! 
-
-!!! Seaside intro
-
-!!! [ env ] Print vs doit
-
-!!! String concat
-
-!!! 
-
-!!! [env] Debugger
-
-!!! [env] Commiting a package 
-
-!!! [env] Workspace
-
-!!! [env] Code browser
-
-!!! [oop] Class
-
-!!! [oop] Lookup
-
-!!! [oop] Metaclass
-
-!!! 
-
-!!! 
-
-!!! 
-
-
-
-! Exercises Resources
-
-There will be threee kinds of exercises: simple todo corrected by other participants and teachers, multiple choices and more challenging exercises.
-The following are the resources for the three categories.
-
-
-!! Books and Chapters
-- Pharo by example
--- *http://stephane.ducasse.free.fr/FreeBooks.html*
-
-- Kata 
--- *http://www.smalltalkhub.com/#!/~zeroflag/TDD-Kata*
-
-- LAN
-
-- Tamagashi 
--- https://ci.inria.fr/pharo-contribution/job/FunWithPharo/ws/Tamagoshi/
-
-- https://ci.inria.fr/pharo-contribution/job/FunWithPharo/ws/Captcha/
-
-- DSL
---https://ci.inria.fr/pharo-contribution/job/PharoForTheEnterprise/ws/DSL/
-
-
-! QCM
-
-- Pharo by example
-
-- 
-
-
-
-
-
-! Resources
-
-Here are various resources:
-
-
-- Updated Pharo this is the repository for the currently updated version of Pharo by Example  (*https://github.com/SquareBracketAssociates/UpdatedPharoByExample*) 
-
-- Pharo by Example (for an older version) *https://github.com/SquareBracketAssociates/PharoByExample-english* 
-
-- Pillar *https://github.com/pillar-markup/pillar-documentation*
-
-- *http://pharo.org/documentation*
-
-- *http://www.pharocasts.com*
-
-- 2008 Videos: *http://sdmeta.gforge.inria.fr/Videos/2008-SmalltalkVideos/*
-
-- 2005 Videos: *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/*
-
-- *http://stephane.ducasse.free.fr/FreeBooks.html*
-
-!! Lectures support
-
-- Stef
--- *http://sdmeta.gforge.inria.fr/Teaching/CoursAnnecy/0506-M1-OOP/*
--- *http://sdmeta.gforge.inria.fr/Teaching/0809OOP/*
--- *http://sdmeta.gforge.inria.fr/Archive/ArchivedLectures/*
-
-- Oscar
-
-- Noury
-
-- H. Verjus
 
 
