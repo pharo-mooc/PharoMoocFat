@@ -13,3 +13,6 @@ auto/
 *.pier.*
 *.pillar.*
 /book-result/*
+pharo
+pharo-ui
+pharo-vm
