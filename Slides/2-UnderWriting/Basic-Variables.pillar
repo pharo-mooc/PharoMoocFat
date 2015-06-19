@@ -1,0 +1,32 @@
+{
+	"title":"Variables",
+	"subtitle":"",
+	"author":"Stephane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
+
+
+${slide:title=Shared or Global starts with Uppercase|label=points}$
+
+[[[
+	Transcript cr .
+	Transcript show: 'hello world'.
+	Transcript cr .
+]]]
+
+${slide:title=local or temps starts with lowercase|label=points}$
+
+
+[[[
+	| str |
+	str := 'Tiramisu'
+]]]
+
+${slide:title=Special Variable|label=points}$
+
+self, super, true, false, nil
+
+- self = this
+- super
+- true, false are the Booleans
+- nil is UndefinedObject instance

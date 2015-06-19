@@ -1,0 +1,384 @@
+{
+	"title":"Understanding Messages",
+	"subtitle":"",
+	"author":"Stephane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
+
+${slide:title=Only Objects and Messages|label=objectives}$
+
+We only manipulate objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compilers, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
+
+and messages, messages, messages and messages
+
+
+
+${slide:title=Three Kinds of Messages}$
+
+- Unary
+-- ==1 class==, ==Browser open== 
+
+- Binary (operators like)
+-- ==1+2==, ==x ~~ nil==
+
+- Keyword-based: 
+-- ==2 between: 0 and: 5==
+
+
+${slide:title=Quiz}$
+
+-- ==1 log==
+-- ==Browser open== 
+-- ==2 raisedTo: 5==
+-- =='hello', 'world'==
+-- ==10@20==
+-- ==point1 x==
+-- ==point1 distanceFrom: point2==
+
+
+
+${slide:title=Unary Messages}$
+
+[[[language=Smalltalk
+	anObject aSelector
+]]]
+
+
+[[[language=Smalltalk
+	1 class
+	> SmallInteger
+]]]
+
+${slide:title=Unary Message Examples}$
+
+
+
+[[[language=Smalltalk
+	false not
+	> true
+]]]
+
+[[[language=Smalltalk
+	Date today
+	> 24 May 2009
+]]]
+
+[[[language=Smalltalk
+	Time now
+	> 6:50:13 pm
+]]]
+
+[[[language=Smalltalk
+	Float pi
+	> 3.141592653589793
+]]]
+
+${slide:title=To any objects}$
+
+- We sent messages to any objects: classes too!
+- There is no difference between sending a message to one object and to a class
+
+[[[language=Smalltalk
+	1 class
+]]]
+
+[[[language=Smalltalk
+	Date today
+]]]
+
+
++The essence of message passing>file://figures/LookupEssence.pdf|width=100|label=LookupEssence+
+
+
+
+
+${slide:title=Quiz}$
+
+We should have exercises here...
+
+
+${slide:title=Binary Messages}$
+
+[[[language=Smalltalk
+	anObject aBinarySelector anArgument
+]]]
+
+- Used for arithmetic, comparison and logical operations
+- One or two characters taken from:
+-- \+ \- \/ \\ \* \~ \< \> \= \@ \% \| \& \! \? \,
+
+
+${slide:title=Binary Message Examples}$ 
+
+[[[language=Smalltalk
+	1 + 2
+	> 3
+]]]
+
+[[[language=Smalltalk
+	2 > 3
+	> false
+]]]
+
+[[[language=Smalltalk
+	10@200 
+	> 10@200
+]]]
+
+[[[language=Smalltalk
+	'Black chocolate' , ' is good'
+	> 'Black chocolate is good'
+]]]
+
+
+${slide:title=Keyword Messages}$
+
+[[[
+	anObject keyword1: argument1 keyword2: argument2
+]]]	
+
+equivalent to
+
+[[[
+	receiver.keyword1keyword2(argument1, argument2)
+]]]
+
+${slide:title=Keyword Message Examples}$
+
+- Message ==setX:==
+[[[
+	10@20 setX: 2
+	> 2@20
+]]]
+
+- Message ==at:put:==
+[[[
+	#('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
+	> #('Calvin' 'loves' 'Suzie')
+]]]
+
+- Message ==between:and:==
+
+[[[
+	12 between: 10 and: 20
+	> true
+]]]
+
+
+
+${slide:title=Keyword Messages for Javaists}$
+
+[[[
+	postman.send(mail,recipient);
+]]]
+
+${slide:title=Keyword Messages for Javaists}$
+
+[[[
+	postman.send(mail,recipient);
+	postman . send ( mail , recipient );
+]]]
+
+
+${slide:title=Keyword Messages for Javaists}$
+
+[[[
+	postman.send(mail,recipient);
+	postman . send ( mail , recipient );
+	postman send mail recipient
+]]]
+
+${slide:title=Keyword Messages for Javaists}$
+
+[[[
+	postman.send(mail,recipient);
+	postman . send ( mail , recipient );
+	postman send mail recipient
+	postman send mail to recipient
+]]]
+
+${slide:title=Keyword Messages for Javaists}$
+
+[[[
+	postman.send(mail,recipient);
+	postman . send ( mail , recipient );
+	postman send mail recipient
+	postman send: mail to: recipient
+]]]
+
+- the message is ==send:to:== 
+- it is send to postman 
+- with two arguments: mail and recipient
+
+
+
+${slide:title=Composition: from left to right!}$
+
+[[[
+	69 class inspect
+]]]
+
+[[[
+	69 class superclass superclass inspect
+]]]
+
+
+${slide:title=Message Precedence}$
+
+Remember that we have only messages
+
+- (Msg) \> Unary \> Binary \> Keywords
+- from left to right
+- No mathematical precedence
+
+
+
+${slide:title=Precedence Example }$
+
+[[[
+	2 + 3 squared
+	> 2 + 9
+	> 11
+]]]
+
+${slide:title=Precedence Example }$
+[[[
+	2 raisedTo: 3 + 2
+	> 2 raisedTo: 5
+	> 32
+]]]
+
+${slide:title=Precedence Example }$
+[[[
+	Color gray - Color white = Color black
+	> aColor = Color black
+	> true
+]]]
+
+${slide:title=Precedence Example }$
+
+[[[
+1 class maxVal + 1 
+-> 1073741824
+]]]
+
+${slide:title=Precedence Example }$
+[[[
+ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl 
+]]]
+
+${slide:title=Parenthesized takes precedence!}$
+
+[[[
+	(0@0 extent: 100@100) bottomRight
+	> (aPoint extent: anotherPoint)
+	bottomRight
+	> aRectangle bottomRight
+	> 100@100
+]]]
+
+[[[
+	0@0 extent: 100@100 bottomRight
+	> Message not understood
+	> 100 does not understand bottomRight
+]]]
+
+
+${slide:title=No mathematical precedence}$
+
+[[[
+	3 + 2 * 10
+	> 5 * 10
+	> 50
+]]]
+
+
+[[[
+	3 + (2 * 10)
+	> 3 + 20
+	> 23
+]]]
+
+[[[
+	1/3 + 2/3
+	> 7/3 /3
+]]]
+
+[[[
+	1/3 + 2/3
+	> (7/3) /3
+	> 7/9
+]]]
+
+[[[
+	(1/3) + (2/3)
+	> 1
+]]]
+
+
+
+
+${slide:title=Quiz}$
+Describe the order in which the messages are executed
+
+-- ==(10@20 corner: 100@200) topCorner==
+-- ==10@20 distanceFrom: 200@200==
+-- ==2 + 3 raisedTo: 3 + 2==
+
+
+
+
+${slide:title=Message Sequence}$ 
+
+
+[[[
+	message1.
+	message2.
+	message3
+]]]
+- . is a separator, not a terminator
+
+[[[
+	| macNode pcNode node1 printerNode |
+	macNode := Workstation withName: #mac.
+	Transcript cr.
+	Transcript show: 1 printString.
+	Transcript cr.
+	Transcript show: 2 printString
+]]]
+
+${slide:title=Multiple messages to an object}$ 
+
+- To send multiple messages to the same object
+
+[[[
+	Transcript show: 1 printString.
+	Transcript cr
+]]]
+ is equivalent to:
+
+[[[ 
+	Transcript show: 1 printString ; cr 
+]]]
+
+
+${slide:title=yourself}$
+
+[[[
+	Set new add: 1; add: 2; yourself
+]]]
+
+is equivalent to 
+
+[[[
+	| s |
+	s := Set new.
+	s add: 1; add: 2.
+	s 
+]]]
+
+
+
+${slide:title=Summary}$
+- Three kinds of messages
+- 

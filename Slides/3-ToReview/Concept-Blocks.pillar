@@ -19,7 +19,7 @@ ${toc:depthLevel=1|level=0|highlight=1}$
 
 ${slide:title=Objectives|label=block}$
 
-- Blocks are kind of anonymous method
+- Blocks are kind of anonymous methods
 - Used for loops, conditionals and iterators.
 - Used in UI development.
 - Really important and are at the heart of Pharo.
@@ -231,12 +231,37 @@ Integer>>factorial2
 ]]]
 
 
-${slide:title=Summary}$
-- Tell, do not ask
-- Let the receiver decide
-- Message sends as potential dynamic conditional
-- Class hiearchy builds a skeleton for dynamic dispatch
-- Avoid conditional
+${slide:title=Other examples|label=expressLoop}$
+
+[[[
+	
+	[ 2 + 3 + 4 + 5 ] value
+	> 14
+	[ :x | x + 3 + 4 + 5 ] value: 2
+	> 14
+	[ :x :y | x + y + 4 + 5] value: 2 value: 3
+	> 14
+]]]
+
+${slide:title=Summary|label=expressLoop}$
+
+
+[[[
+[ :variable1 :variable2 ... |
+	| tmp |
+	expression1.
+	...variable1 ...
+	]
+	value: ...
+	]]]
+
+- Anonymous method 
+- Used in iterators, conditionals
+- Can be passed to methods, stored in instance variables
+
+
+
+
 
 
 
