@@ -1,3 +1,18 @@
+
+(Number readFrom: ('8.524.757' copyReplaceAll: '.' with: '')) asInteger
+or even nicer (and simpler)
+
+('8.524.757' reject: [:char | char == $.]) asInteger
+
+(myStringNumber copyWithoutAll: '.') asNumber
+
+==========================================================================================
+
+
+
+
+
+
 Hi 
 
 when iterating over a sequenced collection (array / ordered collection) how
