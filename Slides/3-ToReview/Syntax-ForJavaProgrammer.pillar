@@ -118,7 +118,7 @@ Describe the order in which the messages are executed
 
 -- ==(10@20 corner: 100@200) topCorner==
 -- ==10@20 distanceFrom: 200@200==
--- ==2 + 3 raisedTo: 3 + 2==
+-- ==2 \+ 3 raisedTo: 3 \+ 2==
 
 
 
