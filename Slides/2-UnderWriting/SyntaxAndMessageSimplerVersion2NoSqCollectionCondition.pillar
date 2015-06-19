@@ -1,13 +1,12 @@
-! Syntax and Messages
+{
+	"title":"Pharo Syntax",
+	"subtitle":"",
+	"author":"Stephane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
 
 
-Stéphane Ducasse
-
-stephane.ducasse@inria.fr
-
-*http://stephane.ducasse.free.fr/*
-
-!! Outline
+${slide:title=Outline|label=Outline}$
 
 - Literals: numbers, strings, arrays
 - Variable, assignments, returns
@@ -16,11 +15,12 @@ stephane.ducasse@inria.fr
 - Block expressions
 - Conditional and Loops
 
-!! Originally Made for Kids
+
+${slide:title=Originally Made for Kids|label=kids}$
 
 - Read it as a non-computer-literate person:
 
-[[[		
+[[[language=smalltalk
 | bunny |
 bunny := Actor fromFile: 'bunny.vrml'.
 bunny head doEachFrame:
@@ -31,7 +31,9 @@ bunny head doEachFrame:
 		duration: camera rightNow ]
 ]]]
 
-!! Numbers
+
+${slide:title=Numbers|label=Outline}$
+
 - SmallInteger, Integer,
 -- 4, 2r100 (4 in base 2), 3r11 (4 in base 3), 1232
 - Automatic coercion
@@ -45,13 +47,14 @@ bunny head doEachFrame:
 - ==1000 factorial / 999 factorial== -> 1000
 -- ==2/3 + 1== -> ==(5/3)==
 
-!! Characters
+${slide:title=Characters|label=characters}$
+
 - Characters:
 -- $F, $Q $U $E $N $T $i $N
 - Unprintable characters:
 -- Character space, Character tab, Character cr
 
-!! Strings
+${slide:title=Strings|label=Strings}$
 - Some ways to obtain a string
 -- ==#mac asString== -> =='mac'==
 -- ==12 printString== -> =='12'==
@@ -62,13 +65,15 @@ bunny head doEachFrame:
 - To introduce a single quote inside a string, just double it.
 - =='l''idiot'==
 
-!! Symbols
+${slide:title=Symbols|label=symbols}$
 - Kinds of String
 - Unique in the system (see after)
 - start with ==#==
 -- ==#class== ==#mac== ==#at:put:== ==#+== ==#accept:==
 
-!! Symbols vs. Strings
+
+${slide:title=Symbols vs. Strings|label=symbols}$
+
 
 - Symbols are used as method selectors, unique keys for dictionaries
 - A symbol is a read-only object, strings are mutable objects
@@ -84,12 +89,14 @@ bunny head doEachFrame:
 -- Comparing strings is slower then comparing symbols by a factor of 5 to 10. 
 -- However, converting a string to a symbol is more than 100 times more expensive.
 
-!! Comments and Tips
+
+${slide:title=Comments and Tips|label=comment}$
 
 - "This is a comment"
 - A comment can span several lines. Moreover, avoid putting a space between the " and the first character. When there is no space, the system helps you to select a commented expression. You just go after the " character and double click on it: the entire commented expression is selected. After that you can printIt or doIt, etc.
 
-!! Arrays
+
+${slide:title=Arrays|label=arrays}$
 
 - Syntax:  ==#(  )==
 - ==#(1 2 3)== 
@@ -104,12 +111,12 @@ bunny head doEachFrame:
 ]]]
 
 
+${slide:title=Byte Arrays |label=arrays}$
 
-!! Byte Arrays 
 - ==#[1 2 255]==
 
+${slide:title=Arrays can contains heterogenous objects |label=arrays}$
 
-!! Arrays can contains heterogenous objects
 - Heterogenous
 [[[
  #('lulu' (1 2 3))
@@ -128,7 +135,7 @@ bunny head doEachFrame:
 	-> #('calvin' 'hobbes' 'suzie')
 ]]]
 
-!! Syntax Summary
+${slide:title=Syntax Summary|label=arrays}$
 
 - comment: "a comment"
 - character: $c $h $a $r $a $c $t $e $r $s $# $@
@@ -143,13 +150,5 @@ bunny head doEachFrame:
 - point: 10@120
 - Note that @ is not an element of the syntax, but just a message sent to a number. This is the same for /, bitShift, ifTrue:, do: ...
 
-!! Roadmap
-
-- Literals: numbers, strings, arrays....
-- Variable, assignments, returns
-- Pseudo-variables		
-- Message Expressions	 	
-- Block expressions
-- Conditional and Loops
 
 
