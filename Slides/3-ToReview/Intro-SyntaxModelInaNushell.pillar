@@ -24,7 +24,20 @@ exampleWithNumber: x
 	^ x < y
 ]]]
 
+${slide:title=Originally Made for Kids|label=kids}$
 
+- Read it as a non-computer-literate person:
+
+[[[language=smalltalk
+| bunny |
+bunny := Actor fromFile: 'bunny.vrml'.
+bunny head doEachFrame:
+	[ bunny head
+		pointAt: (camera
+					transformScreenPointToScenePoint: Sensor mousePoint
+					using: bunny)
+		duration: camera rightNow ]
+]]]
 
 ${slide:title=A real example|label=factorial}$
 
@@ -49,9 +62,6 @@ ZnClient new
 ]]]
 
 
-${slide:title=Language Constructs|label=block}$
-
-
 
 ${slide:title=Language Constructs|label=block}$
 
@@ -69,7 +79,8 @@ ${slide:title=Language Constructs|label=block}$
 - e, r number exponent or radix
 - <annotation> method annotation
 
-${slide:title=Syntax|label=syntax}$
+${slide:title=Syntax in a Nutshell|label=syntax}$
+
 - comment: "a comment"
 - character: $c $h $a $r $a $c $t $e $r $s $# $@
 - string: 'a nice string' 'lulu' 'l'idiot'
@@ -84,7 +95,8 @@ ${slide:title=Syntax|label=syntax}$
 - Note that @ is not an element of the syntax, but just a message sent to a
 - number. This is the same for /, bitShift, ifTrue:, do: ...
 
-!! Syntax in a Nutshell (II)
+
+${slide:title=Syntax  in a Nutshell (II)|label=syntax}$
 
 - assigment: var := aValue
 - block: [:var ||tmp| expr...]
@@ -98,17 +110,33 @@ ${slide:title=Syntax|label=syntax}$
 - result: ^
 - parenthesis: (...)
 
-!! Conditionals are also message sends
-[[[
+${slide:title=Conditionals are also message sends|label=conditional}$
+
+[[[language=smalltalk
 Weather isRaining
 	ifTrue: [self takeMyUmbrella]
 	ifFalse: [self takeMySunglasses]
 ]]]
 
-- ifTrue:ifFalse is sent to an object: a boolean!
+- ==ifTrue:ifFalse== is sent to an object: a boolean!
 
-!! Loops are also mesage sends
-[[[
+
+${slide:title=Loops are also mesage sends|label=conditional}$
+
+[[[language=smalltalk
+1 to: 100 do: [: i| Transcript << i ]]
+> 1
+> 2
+> 3
+> 4
+]]]
+- ==to:do:== is a message sent to a small integer
+
+
+
+${slide:title=Loops are also mesage sends|label=conditional}$
+
+[[[language=smalltalk
 #(1 2 -4 -86)
 	do: [ :each | Transcript show: each abs printString ; cr ]
 > 1
@@ -120,30 +148,33 @@ Weather isRaining
 
 
 
-
-
-
-!! Messages and their composition
+${slide:title=Messages and their composition|label=conditional}$
 
 - Three kinds of messages
 -- Unary: ==Node new==
--- Binary: == 1+2==, ==3@4==
+-- Binary: ==1+2==, ==3@4==
 -- Keywords: ==aTamagoshi eat: #cooky furiously: true==
--Message Priority
---(Msg) > unary > binary > keywords
---Same Level from left to right
+- Message Priority
+-- (Msg) > unary > binary > keywords
+-- Same Level from left to right
 
 -Example:
 [[[
 (10@0 extent: 10@100) bottomRight
+]]]
+- Creates a rectangle and asks its bottom right corner
+
+[[[
 s isNil ifTrue: [ self halt ]
 ]]]
 
-!! Blocks
+
+${slide:title=Blocks|label=blocks}$
 
 - A kind of anonymous method
 - Can be passed as method argument or stored in variables
 - Functions
+
 [[[
 	fct(x)= x*x+3. 
 	fct(2).
@@ -154,7 +185,7 @@ s isNil ifTrue: [ self halt ]
 	fct value: 2
 ]]]
 
-!! Blocks Example 
+${slide:title=Block Usage |label=blocks}$
 
 [[[
 	#(1 2 3) do: [:each | Transcript show: each printString ; cr]	
@@ -167,7 +198,7 @@ Integer>>factorial
 	2 to: self do: [ :i | tmp := tmp * i ]
 ]]]
 
-!! Class Definition
+${slide:title=Class definition|label=class definition}$
 
 [[[
 Object subclass: #Point
@@ -176,7 +207,7 @@ Object subclass: #Point
 	category: 'Graphics'
 ]]]
 
-!! Method Definition
+${slide:title=Method definition|label=classdefinition}$
 
 - Normally defined in a browser or (by directly invoking the compiler)	 	
 - Methods are public
@@ -192,7 +223,8 @@ Node>>accept: thePacket
 		ifFalse: [ super accept: thePacket ]
 ]]]
 
-!! Instance Creation are Messages Too!
+${slide:title=Instance Creation are Messages Too!|label=methoddefinition}$
+
 - Messages sent to instance
 [[[
 	'1', 'abc'
@@ -207,5 +239,4 @@ Node>>accept: thePacket
 	 Tomagoshi withHunger: 10
 ]]]
 
-!! Conclusion
--
+${slide:title=Conclusion|label=methoddefinition}$
