@@ -1,0 +1,220 @@
+! Exercise: A Basic LAN Application
+
+The purpose of this exercise is to create a basis for writing future OO programs. We work on an application that simulates a simple Local Area Network (LAN).  We will create several classes: ==LNPacket==, ==LNNode==, ==Workstation==, and ==PrintServer==. We start with the simplest version of a LAN, then we will add new requirements and modify the proposed implementation to take them into account.
+
+
+!! Creating the Class LNNode
+
+The class ==LNNode== will be the root of all the entities that form a ==LAN==: a printer, a server, a computer. This class contains the common behavior for all LNNodes. As a network is defined as a linked list of LNNodes, a LNNode should always know its next LNNode. A LNNode should be uniquely identifiable with a name. We represent the name of a LNNode
+using a symbol (because symbols are unique in Pharo) and the next LNNode using a LNNode object. It is the LNNode responsibility to send and receive LNPackets of information.
+
+[[[
+LNNode inherits from Object
+Collaborators: LNNode and LNPacket
+Responsibility:
+	- name aSymbol - returns the name of the LNNode.
+	- hasNextLNNode - tells if a LNNode has a next LNNode.
+	- accept: aLNPacket - receives a LNPacket and process it.
+	By default it is sent to the next LNNode.
+	- send: aLNPacket - sends a LNPacket to the next LNNode.
+]]]
+
+
+!!!!exercise.  Create a new package ==LAN==, and create a subclass of ==Object== called ==LNNode==, with two instance variables: ==name== and ==nextLNNode==.
+
+!!!!exercise.   Create accessors and mutators for the two instance variables. Document the mutators to inform users that the argument passed to ==name:== should be a Symbol, and the arguments passed to ==nextLNNode== should be a LNNode. Define them in a ==private== protocol. Note that a LNNode is identifiable via its name. Its name is part of its public interface, so you should move the method name from the ==private== protocol to the ==accessing== protocol (by drag'n'drop).
+
+!!!!exercise.   Define a method called ==hasNextLNNode== that returns whether the LNNode has a next LNNode or not. \\
+
+!!!!exercise.   Create an instance method ==printOn:== that puts the class name and name variable on the argument ==aStream==. Include my next node's name ONLY if there is a next node (Hint: look at the method ==printOn:== from previous exercises or other classes in the system, and consider that the instance variable ==name== is a symbol and ==nextLNNode== is a LNNode). The expected ==printOn:== method behavior is described by the following code:
+
+[[[
+(LNNode new
+   name: \#LNNode1 ;
+   nextLNNode: (LNNode new name: \#PC1)) printString
+
+LNNode named: 'LNNode1' connected to: PC1
+]]]
+
+!!!!exercise.   Create a ==class== method ==new== and an ''instance'' method ==initialize==. Make sure that a new
+instance of ==LNNode== created with the new method uses ==initialize== (see previous exercise). Leave ==initialize== empty for now (it is difficult to give meaningful default values for the ==name== and ==nextLNNode== of ==LNNode==. However, subclasses may want to override this method to do something meaningful).
+
+!!!!exercise.   A LNNode has two basic messages to send and receive packets. When a packet is sent to a node, the node has to accept the packet, and send it on. Note that with this simple behavior the packet can loop infinitely in the LAN. We will propose some solutions to this issue later. To implement this behavior, you should add a protocol ==send-receive==, and implement the following two methods in this case, we provide some partial code that you should complete in your implementation:
+
+[[[
+Node>>accept: aPacket
+	"Having received the LNPacket, send it on. This is the default behavior My subclasses will probably override me to do something special"\\
+    
+Node>>send: aPacket
+     "Precondition: self have a nextNode"
+
+     "Display debug information in the Transcript, then
+     send a packet to my following node"
+
+     Transcript show:
+               self name printString,
+               ' sends a LNPacket to ',
+               self nextNode name printString; cr.
+]]]
+
+
++Definition of ==accept:== method.>http://files/nlesson3Fig1SQ.pdf+
+
+
+
+!! Creating the Class LNPacket
+
+A LNPacket is an object that represents a piece of information that is sent from LNNode to LNNode. So the responsibilities of this object are to allow us to define the originator of the sending, the address of the receiver and the contents.
+
+[[[
+	LNPacket inherits from Object
+	Collaborators: LNNode
+	Responsibility:
+	addressee returns the addressee of the LNNode to which
+	the LNPacket is sent.
+	contents - describes the contents of the message sent.
+	originator - references the LNNode that sent the LNPacket.
+]]]
+
+!!!!exercise.   In the ==LAN==, create a subclass of ==Object== called ==LNPacket==, with three instance variables: ==contents==, ==addressee==, and ==originator==. Create accessors and mutators for each of them in the ==accessing== protocol (in that particular case the accessors represents the public interface of the object). The addressee is represented as a symbol, the contents as a string and the originator has a reference to a LNNode.
+
+!!!!exercise.   Define the method ==printOn: aStream== that puts a textual representation of a LNPacket on its argument ==aStream==.
+
+!! Creating the Class ==LNWorkstation==
+
+A workstation is the entry point for new packets onto the LAN network. It can emit packets to other workstations, printers
+or file servers. Since it is kind of network ==LNNode==, but provides additional behavior, we will make it a subclass of ==LNNode==. Thus, it inherits the instance variables and methods defined in ==LNNode==. Moreover, a workstation has to process packets that are addressed to it.
+
+[[[
+	Workstation inherits from LNNode
+	Collaborators: LNNode, LNWorkstation and LNPacket
+	Responsibility: (the ones of LNNode)
+		- emit: aPacket - sends a LNPacket.
+		- accept: aPacket - perform an action on LNPackets sent to the workstation (printing in the transcript). For the other
+	LNPackets just send them to the following LNNodes.
+]]]
+
+!!!!exercise.  In the package ==LAN== create a subclass of ==LNNode== called ==LNWorkstation== without instance variables. 
+
+!!!!exercise.   Define the method ==accept: aLNPacket== so that if the workstation is the destination of the packet, the following message is written into the Transcript. Note that if the LNPackets are not addressed to the workstation they are sent to the next LNNode of the current one.
+
+[[[
+(LNWorkstation new
+    name: \#Mac ;
+    nextNode: (LNPrinter new name: \#PC1))
+          accept: (LNPacket new addressee: \#Mac)
+
+A LNPacket is accepted by the Workstation Mac
+]]]
+
+!!!! Hints: To implement the acceptance of a LNPacket not addressed to the workstation, you could copy and paste the code of the ==LNNode== class. However this is a bad practice, decreasing the reuse of code and the ``Say it only once'' rules. It is better to invoke the default code that is currently overriden by using ==super==.
+
+!!!!exercise.   Write the body for the method ==emit:== that is responsible for inserting LNPackets in the network in the method protocol ==send-receive==. In particular a LNPacket should be marked with its originator and then sent.
+
+[[[
+LNWorkstation>>emit: aLNPacket
+ "This is how LNPackets get inserted into the network.
+  This is a likely method to be rewritten to permit
+  LNPackets to be entered in various ways. Currently,
+  I assume that someone else creates the LNPacket and
+  passes it to me as an argument."
+ 
+
+]]]
+
+!! Creating the class ==LNPrinter==
+
+!!!!exercise.  With LNNodes and workstations, we provide only limited functionality of a real LAN. Of course, we would like to do something with the LNPackets that are travelling around the LAN. Therefore, you will now create a class ==LNPrinter==, a special LNNode that receives LNPackets addressed to it and prints them (on the Transcript). Implement the class LNPrinter.
+
+[[[
+	LNPrinter inherits from LNNode
+	Collaborators: LNNode and LNPacket
+	Responsibility:
+	accept: aLNPacket - if the LNPacket is addressed to the	printer, prints the LNPacket contents else sends the LNPacket
+	to the following LNNode.
+	print: aLNPacket - prints the contents of the LNPacket (into the Transcript for example).
+]]]
+
+
+!! Simulating the LAN
+
+Implement the following two methods on the class side of the class ==LNNode==, in a protocol called ==examples==. But take care: the code presented below has some bugs that you should find and fix!.
+
+[[[
+LNNode class>>simpleLan
+  "Create a simple lan"
+  "self simpleLan"
+
+  | mac pc LNNode1 LNNode2 igPrinter |
+
+  "create the LNNodes, workstations, printers and fileserver"
+  mac := Workstation new name: \#mac.
+  pc := Workstation new name: \#pc.
+  LNNode1 := LNNode new name: \#LNNode1.
+  LNNode2 := LNNode new name: \#LNNode2.
+  LNNode3 := LNNode new name: \#LNNode3.
+  igPrinter := Printer new name: \#IGPrinter.
+
+  "connect the different LNNodes."
+  mac nextLNNode: LNNode1.
+  LNNode1 nextLNNode: LNNode2.
+  LNNode2 nextLNNode: igPrinter.
+  igPrinter nextLNNode: LNNode3.
+  LNNode3 nextLNNode: pc.
+  pc nextLNNode: mac.
+
+  "create a LNPacket and start simulation"
+  LNPacket := LNPacket new
+            addressee: \#IGPrinter;
+            contents: 'This LNPacket travelled around
+to the printer IGPrinter.
+
+  mac originate: LNPacket.
+]]]
+
+[[[ 
+LNNode class>>anotherSimpleLan
+   "create the LNNodes, workstations and printers"
+
+   | mac pc LNNode1 LNNode2 igPrinter LNNode3 LNPacket |
+   mac:= Workstation new name: \#mac.
+   pc := Workstation new name:\#pc.
+   LNNode1 := LNNode new name: \#LNNode1.
+   LNNode2 := LNNode new name: \#LNNode2.
+   LNNode3 := LNNode new name: \#LNNode3.
+   igPrinter := LNPrinter new name: \#IGPrinter.
+
+   "connect the different LNNodes." 
+   mac nextLNNode: LNNode1.
+   LNNode1 nextLNNode: LNNode2.
+   LNNode2 nextLNNode:igPrinter.
+   igPrinter nextLNNode: LNNode3.
+   LNNode3 nextLNNode: pc.
+   pc nextLNNode: mac.
+
+   "create a LNPacket and start simulation''
+   LNPacket := LNPacket new
+             addressee: \#anotherPrinter;
+             contents: 'This LNPacket travels around
+             to the printer IGPrinter'.
+   pc originate: LNPacket.
+]]]
+
+
+As you will notice the system does not handle loops, so we will propose a solution to this problem in the future. To break the loop, use Command .
+
+!! Creating the Class ==FileServer==
+Now we can create new extensions for our LAN.  Create the class ==FileServer==, which is a special LNNode that
+saves LNPackets that are addressed to it (You should just display a message on the Transcript).
+
+
+[[[
+	FileServer inherits from LNNode
+	Collaborators: LNNode and LNPacket
+	Responsibility:
+		accept: aLNPacket - if the LNPacket is addressed to the
+			file server save it (Transcript trace) else send the
+			LNPacket to the following LNNode.
+		save: aLNPacket - save a LNPacket.
+]]]
+
