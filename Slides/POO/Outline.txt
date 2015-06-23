@@ -1,0 +1,46 @@
+Object-Oriented Modeling and Design:
+ a Practical Approach with Pharo
+
+
++ 1. Bases de l'objet (evolution, objects, identity, state, instances, inheritance) 
+	(03-MDSI-STOOP et 08-MDSI-STOOP) ==> assez gros S,D
+
+2. Pharo S,D
++  0 Success stories
++  1. Welcome.pillar
+* 2. Intro-ModelInANutshell.pillar
+* 3. Intro-Syntax-InANutshell.pillar
+  
+
+3. syntaxe		H
+* 1. Basic-*.pillar			
+* 2. Messages.pillar
+* 4. Blocs		H
+* 5. itérateurs		H
+
+	Exercises
+		Compteur -> redo the video
+	
+	Exercises du Quinto dans PBE
+
++6. lookup					H
++	 1. envoie de messages, classes, héritage 01b-MDSI-OO1
++	 2. lookup
++	 3. self/super
+
+	Exercise DSL
+
+
+8. encapsulation a voir je ne me rappelle plus 
+
+* 9. implémentation de not, or S,D
+
++ 10. messages are unit of reuse S,D
+
++ 11. introduction UML 01c-MDSI 
+
++ 13. double-dispatch S,D
+
++ 14. principles (OCP, DIP) optionel S,D
+
++ 15. tests (pourquoi c'est utile) H
