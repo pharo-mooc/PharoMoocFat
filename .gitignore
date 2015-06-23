@@ -23,3 +23,4 @@ pharo-vm
 *.vrb
 /package-cache/
 /play-cache/
+*.url
