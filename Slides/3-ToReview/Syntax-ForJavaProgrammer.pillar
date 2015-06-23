@@ -132,7 +132,7 @@ ${slide:title=Typical Interaction}$
 
 +Interacting with an object>file://figures/ZnEasyInGT2.png|width=100|label=ZnEasyInGT2+
 
-!! Some Basic Objects
+!Some Basic Objects
 
 ${slide:title=Basic Objects}$
 
@@ -159,7 +159,7 @@ is equivalent to
 	s 
 ]]]
 
-!! Block
+!Block
 
 ${slide:title=Block: Anonymour Method}$
 
@@ -191,7 +191,7 @@ A block can be stored into a variable, here ==b==.
 
 - A block can be executed multiple times.
 
-!! Conditionals
+!Conditionals
 
 ${slide:title=Conditionals: ==ifTrue:ifFalse:==}$
 - Booleans are objects
@@ -235,7 +235,7 @@ ${slide:title=Conditionals: ifEmpty: ifNotEmpty:}$
 When the receiver is not empty we get it as argument. 
 
 
-!! Some Loops
+!Some Loops
 
 ${slide:title=Loops: timesRepeat:}$
 [[[
