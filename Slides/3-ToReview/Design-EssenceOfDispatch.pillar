@@ -181,7 +181,6 @@ True>>not
 
 ${slide:title=Not implementation in two methods}$
 
-+Boolean Hierarchy.>file://figures/BooleanHiearchyAndInstances.png|width=50+
 +Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethods.png|width=80+
 
 ${slide:title=\| (Or)}$
@@ -236,7 +235,7 @@ True>> | aBoolean
 
 ${slide:title=Or implementation in two methods}$
 
-+Boolean hierarchy and instances.>file:/figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=80+
++Boolean hierarchy and instances.>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=80+
 
 ${slide:title=Implementing ifTrue\:ifFalse\:}$
 
@@ -297,7 +296,7 @@ ${slide:title=Avoid Conditionals}$
 ${slide:title=Follow-up: Implement ternary logic}$
 
 - Boolean: ==true==, ==false==, ==unknown==
-+Ternary logic decision table >file://figures/ArrayBoolean.png|width=30|label=fig:ternLogic+
++Ternary logic decision table.>file://figures/ArrayBoolean.png|width=30|label=fig:ternLogic+
 
 - Implementing in your own classes.
 
