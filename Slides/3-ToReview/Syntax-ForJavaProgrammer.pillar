@@ -30,23 +30,17 @@ ${slide:title=Three Kinds of Messages}$
 
 ${slide:title=Quiz}$
 
--- ==1 log==
--- ==Browser open== 
--- ==2 raisedTo: 5==
--- =='hello', 'world'==
--- ==10@20==
--- ==point1 x==
--- ==point1 distanceFrom: point2==
-
-
-
-
+- ==1 log==
+- ==Browser open== 
+- ==2 raisedTo: 5==
+- =='hello', 'world'==
+- ==10@20==
+- ==point1 x==
+- ==point1 distanceFrom: point2==
 
 ${slide:title=Quiz}$
 
 We should have exercises here...
-
-
 
 ${slide:title=Keyword Messages for Javaists}$
 
@@ -116,7 +110,6 @@ Describe the order in which the messages are executed
 ${slide:title=Typical Interaction}$
 
 +Inspecting (cmd and g)>file://figures/ZnEasyInGT.png|width=100|label=ZnEasyInGT+
-
 
 ${slide:title=Typical Interaction}$
 
