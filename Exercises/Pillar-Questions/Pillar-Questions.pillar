@@ -1,0 +1,25 @@
+!Understanding Existing Code
+
+!!Setup
+
+Download Pharo with Pillar from ...
+
+
+!!High-Level Structure
+
+- List all Pillar non-test packages
+- Draw a package diagram explaining which package depends on which one and why
+- For the main packages, draw a class diagram with the main entities (classes, instance variables and methods)
+- How does test packages depend on other packages?
+
+!!Studying Patterns
+
+-Find at least one instance of these design patterns:
+-#template method  % PRObjectTest>>testSanity et #actualClass
+-#visitor          % PRVisitor
+-#composite        % PRSection et PRList
+-#Interpreter      % Reading of the Pillar configuration file (e.g., translation from file names to files)
+
+!!Visiting Behavior
+
+-
