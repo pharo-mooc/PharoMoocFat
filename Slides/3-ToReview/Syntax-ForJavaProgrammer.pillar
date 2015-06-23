@@ -144,7 +144,7 @@ is equivalent to
 
 !Block
 
-${slide:title=Block: Anonymour Method}$
+${slide:title=Block: Anonymous Method}$
 
 [[[
 	[ :x | x + 2 ] value: 5
