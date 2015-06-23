@@ -1,24 +1,21 @@
 {
-	"title":"A simple HTTP Server",
+	"title":"A Simple HTTP Server",
 	"subtitle":"",
-	"author":"Stephane Ducasse",
+	"author":"Stéphane Ducasse",
 	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
 
-
-
 ${slide:title=Configuring|label=block}$
-
 
 [[[
 	| books teapot |
 	books := Dictionary new.
 	teapot := Teapot configure: {
-	    #defaultOutput -> #json. 
-		#port -> 8080. 
-		#debugMode -> true
-	}.
+				#defaultOutput -> #json. 
+				#port -> 8080. 
+				#debugMode -> true
+				}.
 ]]]
 - | | is for local variable definition
 - := is to assign a value.
@@ -30,14 +27,17 @@ ${slide:title=A simple server server|label=block}$
 
 [[[
 	teapot
-	    GET: '/books' -> books;
-	    PUT: '/books/<id>' -> [ :request | | book |
-	        book := {'author' -> (request at: #author). 
-	                 'title'  -> (request at: #title)} asDictionary.
-	        books at: (request at: #id) put: book];     
-	    DELETE: '/books/<id>' -> [:request | books removeKey: (request at: #id)];
-	    exception: KeyNotFound -> (TeaResponse notFound body: 'No such book');
-	    start.
+		GET: '/books' -> books;
+		PUT: '/books/<id>' 
+			-> [ :request | | book |
+				book := { 'author' -> (request at: #author). 
+				 		'title'  -> (request at: #title) } asDictionary.
+				books at: (request at: #id) put: book ];     
+		DELETE: '/books/<id>' 
+			->  [ :request | books removeKey: (request at: #id) ];
+		exception: KeyNotFound 
+			-> (TeaResponse notFound body: 'No such book');
+		start.
 ]]]
 
 
@@ -52,4 +52,9 @@ ZnClient new
 ]]]
 
 
+
+${slide:title=Conclusion |label=block}$
+- Teapot is a cool package ==http://smalltalkhub.com/#!/~zeroflag/Teapot==
+- A web server in one page
+- Based on Zinc is a really strong and well designed HTTP client/server
 
