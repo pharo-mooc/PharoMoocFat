@@ -19,13 +19,12 @@ ${slide:title=Configuring|label=block}$
 		#port -> 8080. 
 		#debugMode -> true
 	}.
-	
+]]]
 - | | is for local variable definition
 - := is to assign a value.
 - ==#port== is a symbol (aka unique string)
 - In configure: the : means that we are expecting an argument
 - =={ . }== is an array.
-]]]
 
 ${slide:title=A simple server server|label=block}$
 

@@ -1,8 +1,8 @@
 {
 	"title":"Key Syntax Points for Java Programmers",
 	"subtitle":"",
-	"author":"Stephane Ducasse",
-	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+	"author":"Stéphane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
 }
 
 ${toc:depthLevel=2|level=0|highlight=0|title=Summary}$
@@ -14,9 +14,6 @@ ${slide:title=Only Objects and Messages|label=objectives}$
 We only manipulate objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compilers, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
 
 and messages, messages, messages and messages
-
-
-
 
 
 ${slide:title=Three Kinds of Messages}$

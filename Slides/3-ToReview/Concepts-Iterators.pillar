@@ -24,7 +24,7 @@ ${slide:title=Pharo code is Compact!}$
 [[[
 ArrayList<String> strings = new ArrayList<String>();
    for(Person person: persons)
-            strings.add(person.name()); 
+            strings.add(person.name());
 ]]]
 
 [[[
@@ -67,12 +67,12 @@ ${slide:title=Choose your camp!}$
 	#(16 11 68 19) collect: [ :i | i odd ]
 ]]]
 
-We can also do it that way!	
+We can also do it that way!
 [[[
 	| result |
 	aCol :=  #(16 11 68 19).
 	result := aCol species new: aCol size.
-	1 to: aCollection size do: 
+	1 to: aCollection size do:
 		[ :each | result at: each put: (aCol at: each) odd].
 	result
 ]]]
@@ -92,12 +92,12 @@ ${slide:title=Basic Iterators Overview}$
 
 
 ${slide:title=do:}$
- 
+
 - Iterates on each elements
 - Applies an anynoumous method on each elements
 
 [[[
-	#(16 11 68 19) do:  
+	#(16 11 68 19) do:
 		[ :i | Transcript show: i ; cr ]
 ]]]
 
@@ -109,7 +109,7 @@ ${slide:title=select:}$
 - Select some elements
 
 [[[
-	#(16 11 68 19) select: [ :i | i odd ] 
+	#(16 11 68 19) select: [ :i | i odd ]
 ]]]
 
 
@@ -118,7 +118,7 @@ ${slide:title=select:}$
 - Select some elements
 
 [[[
-	#(16 11 68 19) select: [ :i | i odd ] 
+	#(16 11 68 19) select: [ :i | i odd ]
 ]]]
 
 [[[
@@ -129,7 +129,7 @@ ${slide:title=With unary messages no block needed}$
 
 When a block with a single argument is expected, we can pass an unary message selector
 [[[
-	#(16 11 68 19) select: [ :i | i odd ] 
+	#(16 11 68 19) select: [ :i | i odd ]
 ]]]
 
 is equivalent to
@@ -166,7 +166,7 @@ ${slide:title=detect:}$
 - First element that matches
 
 [[[
-#(16 11 68 19) detect:  [ :i | i odd ]   
+#(16 11 68 19) detect:  [ :i | i odd ]
 ]]]
 
 ${slide:title=detect:}$
@@ -174,7 +174,7 @@ ${slide:title=detect:}$
 - First element that matches
 
 [[[
-#(16 11 68 19) detect:  [ :i | i odd ]   
+#(16 11 68 19) detect:  [ :i | i odd ]
 ]]]
 
 [[[
@@ -188,7 +188,7 @@ ${slide:title=detect:ifNone:}$
 - First element that matches else return a value
 
 [[[
-	#(16 12 68 20) detect:  [ :i | i odd ] ifNone: [ 0 ] 
+	#(16 12 68 20) detect:  [ :i | i odd ] ifNone: [ 0 ]
 ]]]
 
 
@@ -198,7 +198,7 @@ ${slide:title=detect:ifNone:}$
 - First element that matches else return a value
 
 [[[
-	#(16 12 68 20) detect:  [ :i | i odd ] ifNone: [ 0 ] 
+	#(16 12 68 20) detect:  [ :i | i odd ] ifNone: [ 0 ]
 ]]]
 
 [[[
@@ -227,17 +227,17 @@ ${slide:title=Exciting ones}$
 
 [[[
 	String streamContents: [ :s |
-				#('a' 'b' 'c') 
+				#('a' 'b' 'c')
 					do: [ :each | s << each ]
 					separatedBy: [ s << ', ']
-				] 
+				]
 ]]]
 
 
 ${slide:title=Iterating two structures}$
 
 [[[
-#(1 2 3) 
+#(1 2 3)
     with:  #(10 20 30)
     do: [ :x :y | Transcript show: (y * x) ; cr ]
 ]]]
@@ -251,7 +251,7 @@ ${slide:title=Grouping}$
 - ==groupedBy:==
 
 [[[
-#(1 2 3 4 5 6 7 ) groupedBy: #even 
+#(1 2 3 4 5 6 7 ) groupedBy: #even
 ]]]
 
 [[[
@@ -264,12 +264,12 @@ ${slide:title=Flattening results}$
 - How to remove one level of nesting in a collection?
 - Use ==flatCollect:==
 [[[
-#( #(1 2) #(3) #(4) #(5 #(6 7 3))) collect: [ :each | each ]  
+#( #(1 2) #(3) #(4) #(5 #(6 7 3))) collect: [ :each | each ]
 -> #(#(1 2) #(3) #(4) #(5 #(6 7 3)))
 ]]]
 
 [[[
-#( #(1 2) #(3) #(4) #(5 #(6 7 3))) flatCollect: [ :each | each ] 
+#( #(1 2) #(3) #(4) #(5 #(6 7 3))) flatCollect: [ :each | each ]
 
 -> #(1 2 3 4 5 #(6 7 3))
 ]]]
@@ -278,10 +278,10 @@ ${slide:title=Opening the box}$
 
 - How ==do:== is implemented?
 [[[
-SequenceableCollection>>do: aBlock  
+SequenceableCollection>>do: aBlock
 	"Evaluate aBlock with each of the receiver's elements as the argument."
 
-	1 to: self size do: [:i | aBlock value: (self at: i)]		
+	1 to: self size do: [:i | aBlock value: (self at: i)]
 ]]]
 
 

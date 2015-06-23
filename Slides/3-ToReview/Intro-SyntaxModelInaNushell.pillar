@@ -33,7 +33,7 @@ ${slide:title=Originally Made for Kids|label=kids}$
 bunny := Actor fromFile: 'bunny.vrml'.
 bunny head doEachFrame:
 	[ bunny head
-		pointAt: (camera
+		pointAt: (camera 
 					transformScreenPointToScenePoint: Sensor mousePoint
 					using: bunny)
 		duration: camera rightNow ]
