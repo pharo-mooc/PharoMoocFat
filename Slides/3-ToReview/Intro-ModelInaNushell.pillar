@@ -10,10 +10,6 @@ ${toc:depthLevel=2|level=0|highlight=0|title=Summary}$
 %Les sections ne sont pas des titres de slide mais définnissent la structure du doucment. Il est possible de rajouter "renderStructureAsSlide":false dans pillar.conf pour ne pas créer de slide à partir d'un titre.
 
 
-${slide:title=License|label=license}$
-
-+>file://figures/CreativeCommons.png|width=50|label=figCreativeCommons+
-
 ${slide:title=Less is really more :)|label=less}$
 
 - No constructors
