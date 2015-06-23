@@ -68,13 +68,22 @@ function latex_enabled() {
   hash pdflatex 2>/dev/null
 }
 
-for file in $SLIDES_DIRECTORY/*.pillar; do
+function generate_slide() {
+    file="$1"
     echo "Generating slides for "$file
     pillar_one $file
     pillar_file=$(basename "$file") # e.g., Zinc.pillar
     if latex_enabled; then
         produce_pdf "$SLIDES_DIRECTORY" "${pillar_file}"
     fi
-done
+}
+
+if [[ $# -eq 1 ]]; then
+    generate_slide "$1"
+else
+    for file in $SLIDES_DIRECTORY/*.pillar; do
+        generate_slide $file
+    done
+fi
 
 echo 'Done'

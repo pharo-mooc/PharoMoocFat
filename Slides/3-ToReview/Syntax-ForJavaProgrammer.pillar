@@ -9,7 +9,6 @@ ${toc:depthLevel=2|level=0|highlight=0|title=Summary}$
 
 %Les sections ne sont pas des titres de slide mais définnissent la structure du doucment. Il est possible de rajouter "renderStructureAsSlide":false dans pillar.conf pour ne pas créer de slide à partir d'un titre.
 
-
 ${slide:title=Only Objects and Messages|label=objectives}$
 
 We only manipulate objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compilers, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
@@ -104,6 +103,7 @@ ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl
 
 
 ${slide:title=Quiz}$
+
 Describe the order in which the messages are executed
 
 -- ==(10@20 corner: 100@200) topCorner==
@@ -184,6 +184,7 @@ A block can be stored into a variable, here ==b==.
 !Conditionals
 
 ${slide:title=Conditionals: ==ifTrue:ifFalse:==}$
+
 - Booleans are objects
 - Conditionals are messages sent to booleans or block
 - ==ifFalse:== and ==ifFalse:ifTrue:== 
@@ -228,6 +229,7 @@ When the receiver is not empty we get it as argument.
 !Some Loops
 
 ${slide:title=Loops: timesRepeat:}$
+
 [[[
 	4 timesRepeat: [ self doSomething ]
 ]]]
@@ -306,6 +308,7 @@ Object subclass: #Point
 
 
 ${slide:title=Summary}$
+
 - Compact syntax
 - Messages and closures
 - Iterators
