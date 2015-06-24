@@ -1,0 +1,200 @@
+! A Simple Counter 
+
+We want you to implement a simple counter that follows the small example given
+below. Please note that we will ask you to define a test for this example.
+
+
+!! A Potential Use Case
+
+Here is a potential use case: 
+
+[[[language=smalltalk
+    | counter | 
+    counter := Counter new.
+    counter increment; increment.
+    counter decrement.
+    counter count = 1
+]]]
+
+
+!! Create your own class
+
+In this part you will create your first class. In Pharo a class is defined in a package. 
+
+The steps we will do are the same ones every time you create a class, so memorize them well. We are going to create a class ==Counter== in a
+package called ==DemoCounter==. Figure \ref{fig:packageCreated} shows the result of creating such a package.
+
+!!! Create a Package
+In the Browser create a package. The system will ask you a name. You should write ==DemoCounter==. 
+This new package will be created and added to the list.
+
+
+!! Create a Class
+Creating a class requires five steps. They consist basically of editing the class definition template to specify the class you
+want to create. 
+
+
+-  Superclass Specification. First, you should replace the word ==NameOfSuperclass== with the word ==Object}==. Thus, you specify the superclass of the class you are creating. Note that this is not always the case that ==Object== is the superclass, since you may to inherit behavior from a class specializing already ==Object==.
+
+- Class Name. Next, you should fill in the name of your class by replacing the word ==NameOfClass== with the word ==Counter==. Take care that the name of the class starts with a capital letter and that you do not remove the \#sign in front of ==NameOfClass==
+
+- Instance Variable Specification. Then, you should fill in the names of the instance variables of this class. We need one instance variable called ==value==. Take care that you leave the string quotes!
+
+- Class Variable Specification. As we do not need any class variable make sure that the argument  for the class instance variables is an empty string ==classInstanceVariableNames: ''==.
+
+- Compile. That's it! We now have a filled-in class definition for the class ==Counter==. To define it, we still have to ''compile'' it. Therefore, select the accept menu. The class ==Counter== is now compiled and immediately added to the system.
+
+
+As we are disciplined developers, we provide a comment to ==Counter== class by clicking Comment button. You can write the following
+comment:
+
+[[[language=smalltalk
+Counter is a concrete class which supports incrementing
+and decrementing a counter.
+]]]
+
+Select accept to store this class comment in the class.
+
+
+!! Define protocols and methods
+In this part you will use the browser to learn how to add protocols and methods.
+
+
+!!! Create and Test Methods
+The class we have defined has one instance variable ==value==. You should remember that in Pharo, everything is an object, that instance variables are private to the object and  that the only way to interact with an object is by sending messages to it.
+
+Therefore, there is no other mechanism to access the instance variables from outside an object than sending a message to the object. What you can do is to define messages that return the value of the instance variable of a class. Such methods are called ''accessors'', and it is a common practice to always define and use them. We start to create an accessor method for our instance variable ==value==.
+
+Remember that every method belongs to a protocol. These protocols are just a group of methods without any language semantics, but convey important navigation information for the reader of your class. Although protocols can have any name, Smalltalk programmers follow certain conventions for naming these protocols. If you define a method and are not sure what protocol it should be in, first go through existing code and try to find a fitting name.
+
+
+!!!! Remarks. 
+
+Accessors can be defined in protocols accessing or private.  Use the accessing protocol when a client object (like an interface) really needs to access your data. Use private to clearly state that no client should use the accessor. This is purely a convention. There is no way in Pharo to enforce access rights like private in C++ or Java.  private} protocol. Note that this discussion does not seem to be very important in the context of this specific simple example. However, this question is central to the notion of object and encapsulation of the data. An important side effect of this discussion is that you should always ask yourself when you, as a client of an object, are using an accessor if the object is really well defined and if it does not need extra functionality.
+
+
+
+Now let us create the accessor method for the instance variable ==value==. Start by selecting the class ==Counter== in a browser, and make sure the you are editing the instance side of the class (i.e., that we define methods that will be sent to instances) by deselecting the Class side. 
+ 
+Create a new protocol by bringing the menu of methods protocol list. Select the newly created protocol. Then in the bottom pane, the edit field displays a method template laying out the default structure of a method. Replace the template with the following method definition:
+
+[[[language=smalltalk
+count
+    "return the current value of the value instance variable"
+
+    ^ count
+]]]
+
+This defines a method called ==count==, taking no arguments, having a method comment and returning the instance variable ==count==. Then choose ==accept== in the operate menu to compile the method. You can now test your new method by typing and evaluating the next expression in a Playground, or any text editor 
+
+
+[[[language=smalltalk
+    Counter new count
+]]]
+
+This expression first creates a new instance of ==Counter==, and then sends the message ==count== to it and retrieves the current value of the counter. This should return ==nil== (the default value for noninitialised instance variables; afterwards we will create instances with a reasonable default initialisation value.
+
+
+!!!!Exercise.
+Another method that is normally used besides the accessor method is a so-called setter method. Such a method is used to change the value of an instance variable from a client. For example, the next expression first creates a new ==Counter== instance and then sets its value to 7:
+
+[[[language=smalltalk
+    Counter new count: 7
+]]]
+
+
+This setter method does not currently exist, so as an exercise write the method ==count:== such that, when invoked on an instance of ==Counter==,  instance variable is set to the argument given to the message. Test your method by typing and evaluating the expression above.
+
+!!!!Exercise.
+Implement the following methods in the protocol ==operation==.
+
+[[[language=smalltalk
+increment
+    self count: self count + 1
+decrement
+    self count: self count - 1
+]]]
+
+!!!! Exercise.
+Implement the following methods in the protocol ==printing==
+
+[[[language=smalltalk
+printOn: aStream
+    super printOn: aStream.
+    aStream nextPutAll: ' with value: ',
+    self count printString.
+    aStream cr.
+]]]
+
+Now test the methods ==increment== and ==decrement== but pay attention that the counter value is not initialized. Try:
+
+[[[language=smalltalk
+    Counter new count: 0; increment ; count.
+]]]
+
+Note that the method ==printOn:== is used when you print an object or click on ==self== in an inspector.
+
+
+!! Add an instance initialization method
+
+Now we have to write an initialization method that sets a default value of the ==count== instance variable. However, as we mentioned the ==initialize== message is sent to the newly created instance. This means that the ==initialize== method should be defined at the instance side as any method that is sent to an instance of ==Counter== (like ==increment==) and ==decrement==. The ==initialize== method is responsible to set up the instance variable default values.
+
+Therefore at the instance side, you should create a protocol ==initialize-release==, and create the following method (the body of this method is left blank. Fill it in!).
+
+[[[[[[language=smalltalk
+initialize
+    "set the initial value of the value to 0"
+]]]
+
+
+Now create a new instance of class ==Counter==. Is it initialized by default? The following code should now work without
+problem:
+
+[[[language=smalltalk
+    Counter new increment
+]]]
+
+!! Define another instance creation method
+If you want to be sure that you have really understood the distinction between instance and class methods, you should now define a different instance creation method named ==withValue:==.
+This method receives an integer as argument and returns an instance of ==Counter== with the specified value. The following expression should return 20.
+
+[[[
+    (Counter withValue: 19) increment ; count
+]]]
+
+\hidden{
+\paragraph{A Difficult Point}
+Let us just think a bit! To create a new instance we said that we
+should send messages (like \ct{new} and \ct{basicNew}) to
+a class. For example to create an instance of
+\ct{Counter} we sent \ct{new} to
+\ct{Counter}. As the classes are also objects in
+Smalltalk, they are instances of other classes that define the
+structure and the behavior of classes. One of the classes that
+represents classes as objects is \ct{Behavior}. Browse the
+class \ct{Behavior}. In particular, \ct{Behavior} defines
+the methods \ct{new} and \ct{basicNew} that are
+responsible of creating new instances. If you did not redefine the
+new message locally to the class of \ct{Counter}, when
+you send the message \ct{new} to the class
+==Counter}, the new method executed is the one defined
+in \ct{Behavior}. Try to understand why the methods \emph{new} and \emph{basicNew} are on the instance side on class \ct{Behavior} while they are on the class side of your class.}
+
+
+!! Saving your Work
+
+Several ways to save your work exist: You can
+
+- Save the class by clicking on it and selecting the fileout menu item.
+- Use the Monticello browser to save a package.
+
+
+You will use SmalltalkHub to save your work. Go to *http://www.smalltalkhub.com/* and create a member account then register a new project. You get then an HTTP entry that refer to your project. Enter it as an HTTP repository in Monticello.
+
+To save your work, simply publish your package. This will open a dialog where you can give a comment, version numbers and blessing. From then on, other people can load it from there, in the same way that you would use cvs or other multi-user versioning systems. Saving the image is also a way to save your working environment, but publishing
+it is better. 
+
+You can of course both publish your package (so that other people can load it, and that you can compare it with other versions, etc.) and save your image (so that next time that you start your image you are in the same working environment).
+
+!! Conclusion
+
