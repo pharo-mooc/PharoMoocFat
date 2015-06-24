@@ -4,23 +4,59 @@
 % handout     = removes navigation bar
 \documentclass[aspectratio=169, handout]{beamer}
 
-\usetheme{Berkeley}
-\usecolortheme{seagull}
+\definecolor{mydarkred}{HTML}{a41313}
+
+\mode<presentation>{
+  \usetheme{CambridgeUS}
+
+\usecolortheme{beaver}
+\setbeamercovered{transparent}
+
+\setbeamerfont{block title}{size={}}
+\setbeamercolor{titlelike}{parent=structure,bg=gray!5!white}
+\setbeamercolor{section number projected}{bg=darkred}
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+\setbeamercolor{structure}{fg=darkred}
+}
+
+\setbeamercolor{block title}{bg=darkred!15,fg=darkred}
+\setbeamercolor{frametitle}{bg=white}
+\setbeamercolor{itemize item}{fg=darkred}
+\setbeamercolor{itemize subitem}{fg=darkred}
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{bibliography item}{}
+
+
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.05\paperwidth,ht=2.25ex,dp=1ex,left]
+      {bg=white,author in head/foot}%
+      \usebeamerfont{author in head/foot}
+  \end{beamercolorbox}%
+
+  \begin{beamercolorbox}[wd=.85\paperwidth,ht=2.25ex,dp=1ex,left]
+      {bg=white,author in head/foot}%
+      \tiny
+      \insertsectionhead~\insertsubsectionhead~\insertsubsubsectionhead
+  \end{beamercolorbox}%
+
+  \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,right]
+    {bg=white,author in head/foot}%
+    \insertframenumber~~%/ \inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}}
+  \vskip1pt
+}
 
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{helvet}
-
-\setbeamertemplate{footline}
-{
-  \hbox{%
-  \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,right]
-    {bg=white,author in head/foot}%
-    \insertframenumber~~
-  \end{beamercolorbox}}
-  \vskip1pt
-}
 
 \usepackage{graphicx}
 
