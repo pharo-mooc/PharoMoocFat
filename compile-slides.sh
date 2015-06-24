@@ -13,7 +13,7 @@ fi
 function pillar_one() {
   input="$1"
   $PILLAR_COMMAND export --to='Beamer' "$input"
-  $PILLAR_COMMAND export --to='deckJS' "$input"
+  $PILLAR_COMMAND export --to='DeckJS' "$input"
 }
 
 function mypdflatex() {
