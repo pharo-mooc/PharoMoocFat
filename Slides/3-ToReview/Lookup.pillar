@@ -1,0 +1,91 @@
+{
+    "title":"Method Lookup",
+    "subtitle":"",
+    "author":"Stephane Ducasse",
+    "complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
+
+${slide:title=Goal}$
+
+- Method lookup
+- Self/super difference
+
++ >file://figures/LogoPharo.png|width=30+
+
+${slide:title=Message Sending}$
+
+-receiver selector args
+-Sending a message = ''looking up'' the method to execute and executing it
+
+${slide:title=Method Lookup}$
+
+Two-step process:
+
+#The lookup starts in the CLASS of the RECEIVER.
+#If the method is defined in the method dictionary of CLASS, it is returned.
+#Otherwise the search continues in the superclasses of RECEIVER's class
+#- when there is no more superclass, raise an ERROR
+
+${slide:title=self/this}$
+
+- self represents the receiver of the message, the method lookup starts in the class of the receiver
+
+${slide:title=Lookup: Class and Inheritance}$
+
++>file://figures/ClassAndInheritance.png|width=70+
+
+${slide:title=Some Cases}$
+
++>file://figures/LookupExemple.png|width=80+
+
+${slide:title=Method Lookup Starts in Receiver Class}$
+
++>file://figures/MethodLookup.png|width=85+
+
+${slide:title=Method Lookup Starts in Receiver Class}$
+
++>file://figures/MethodLookup1.png|width=80+
+
+${slide:title=Method Lookup Starts in Receiver Class}$
+
++>file://figures/MethodLookup1-1.png|width=50+
+
+${slide:title=self ''Always'' Represents the Receiver}$
+
++>file://figures/Representreceveir.png|width=75+
+
+${slide:title=self ''Always'' Represents the Receiver}$
+
++>file://figures/Representreceveir1.png|width=75+
+
+${slide:title=When method is not found}$
+
+If no method is found in the hierarchy, a message ==#doesNotUnderstand:== is sent to the receiver, with the initial message as parameter.
+
+${slide:title=When method is not found}$
+
++>file://figures/MessageLokupNotFound.png|width=55+
+
+${slide:title=When method is not found}$
+
+node1 print: aPacket
+
+-node is an instance of ==Node==
+-==print:== is looked up in the class ==Node==
+-==print:== is not defined in ==Node== => lookup continues in ==Object==
+-==print:== is not defined in ==Object== => lookup stops \+ exception
+-==node1 doesNotUnderstand: #(#print aPacket)== is executed
+-==node1== is an instance of ==Node== so ==doesNotUnderstand:== is looked up in the class ==Node==
+-==doesNotUnderstand:== is not defined in ==Node== => lookup continues in ==Object==
+-==doesNotUnderstand:== is defined in ==Object== => lookup stops \+ method executed (open a debugger)
+
+${slide:title=When method is not found}$
+
++>file://figures/StepToDNU.png|width=69+
+
+${slide:title=What you should know}$
+
+- ==self== ''always'' represents the receiver
+- the method lookup maps a message to a method
+- the method lookup starts in the class of the receiver...
+- ...and goes up in the hierarchy
