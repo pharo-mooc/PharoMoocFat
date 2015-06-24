@@ -1,0 +1,33 @@
+! Self
+
+- When the following message is evaluated:
+[[[aWorkstation originate: aPacket]]]
+- The system starts to look up the method originate: starts in the class of the message receiver: Workstation.
+Since this class defines a method originate:, the method lookup stops and this method is executed.
+- Following is the code for this method:
+[[[
+Workstation>>originate: aPacket
+aPacket originator: self.
+self send: aPacket
+]]]
+- 1. It first sends the message originator: to an instance of class Packet with as argument self which
+is a pseudo-variable that represents the receiver of originate: method. The same process occurs.
+The method originator: is looked up into the class Packet. As Packet defines a method named
+originator:, the method lookup stops and the method is executed. As shown below the body of
+this method is to assign the value of the first argument (aNode) to the instance variable originator.
+Assignment is one of the few constructs of Smalltalk. It is not realized by a message sent but handle
+by the compiler. So no more message sends are performed for this part of originator:.
+[[[
+Packet>>originator: aNode
+originator := aNode
+]]]
+- 2. In the second line of the method originate:, the message send: thePacket is sent to self. self
+represents the instance that receives the originate: message. The semantics of self specifies that
+the method lookup should start in the class of the message receiver. Here Workstation. Since
+there is no method send: defined on the class Workstation, the method lookup continues in the
+superclass of Workstation: Node. Node implements send:, so the method lookup stops and send:
+is invoked
+[[[
+Node>>send: thePacket
+self nextNode accept: thePacket
+]]]
