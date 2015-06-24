@@ -24,3 +24,4 @@ pharo-vm
 /package-cache/
 /play-cache/
 *.url
+/Slides/others/
