@@ -5,6 +5,11 @@ Object-Oriented Modeling and Design:
 + 1. Bases de l'objet (evolution, objects, identity, state, instances, inheritance) 
 	(03-MDSI-STOOP et 08-MDSI-STOOP) ==> assez gros S,D
 
+
+>> Show an interaction
+>> how to build counter
+
+
 2. Pharo S,D
 +  0 Success stories
 +  1. Welcome.pillar
