@@ -129,8 +129,8 @@ ${slide:title=Object Encapsulation}$
 
 ${slide:title=Encapsulation at Work}$
 
-+>file://figures/EncapsulationWithMessages-method.png|width=70+
-+>file://figures/EncapsulationWithMessages-methodV2.png|width=70+
++>file://figures/EncapsulationWithMessages-method.png|width=90+
++>file://figures/EncapsulationWithMessages-methodV2.png|width=90+
 
 ${slide:title=Objects}$
 
