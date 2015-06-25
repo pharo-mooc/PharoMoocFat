@@ -1,27 +1,27 @@
 {
-	"title":"Pharo Syntax in a Nutshell",
-	"subtitle":"",
-	"author":"Stephane Ducasse",
-	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+    "title":"Pharo Syntax in a Nutshell",
+    "subtitle":"",
+    "author":"Stephane Ducasse",
+    "complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
 
 ${slide:title=Objectives|label=block}$
 [[[
 exampleWithNumber: x
-	"This method illustrates every part of Smalltalk method syntax except primitives."
-	<aMethodAnnotation>
-	
-	| y |
-	true & false not & (nil isNil) 
-		ifFalse: [self halt]. 
-	y := self size + super size.
-	#($a #a 'a' 1 1.0)
-		do: [ :each | Transcript
-						show: (each class name);
-						show: (each printString);
-						show: ' ' ].
-	^ x < y
+    "This method illustrates every part of Smalltalk method syntax except primitives."
+    <aMethodAnnotation>
+    
+    | y |
+    true & false not & (nil isNil) 
+        ifFalse: [self halt]. 
+    y := self size + super size.
+    #($a #a 'a' 1 1.0)
+        do: [ :each | Transcript
+                        show: (each class name);
+                        show: (each printString);
+                        show: ' ' ].
+    ^ x < y
 ]]]
 
 ${slide:title=Originally Made for Kids|label=kids}$
@@ -32,22 +32,22 @@ ${slide:title=Originally Made for Kids|label=kids}$
 | bunny |
 bunny := Actor fromFile: 'bunny.vrml'.
 bunny head doEachFrame:
-	[ bunny head
-		pointAt: (camera 
-					transformScreenPointToScenePoint: Sensor mousePoint
-					using: bunny)
-		duration: camera rightNow ]
+    [ bunny head
+        pointAt: (camera 
+                    transformScreenPointToScenePoint: Sensor mousePoint
+                    using: bunny)
+        duration: camera rightNow ]
 ]]]
 
 ${slide:title=A real example|label=factorial}$
 
 [[[
 Integer>>factorial
-	"Answer the factorial of the receiver."
+    "Answer the factorial of the receiver."
 
-	self = 0 ifTrue: [ ^ 1 ].
-	self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-	self error: 'Not valid for negative integers'
+    self = 0 ifTrue: [ ^ 1 ].
+    self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+    self error: 'Not valid for negative integers'
 ]]]
 
 
@@ -66,7 +66,7 @@ ZnClient new
 ${slide:title=Language Constructs|label=block}$
 
 - ^ expression return
-- "..."	comments
+- "..."    comments
 - # symbol or array
 - '...'string
 - [ ] block or byte array
@@ -114,8 +114,8 @@ ${slide:title=Conditionals are also message sends|label=conditional}$
 
 [[[language=smalltalk
 Weather isRaining
-	ifTrue: [self takeMyUmbrella]
-	ifFalse: [self takeMySunglasses]
+    ifTrue: [self takeMyUmbrella]
+    ifFalse: [self takeMySunglasses]
 ]]]
 
 - ==ifTrue:ifFalse== is sent to an object: a boolean!
@@ -138,7 +138,7 @@ ${slide:title=Loops are also mesage sends|label=conditional}$
 
 [[[language=smalltalk
 #(1 2 -4 -86)
-	do: [ :each | Transcript show: each abs printString ; cr ]
+    do: [ :each | Transcript show: each abs printString ; cr ]
 > 1
 > 2
 > 4
@@ -176,67 +176,67 @@ ${slide:title=Blocks|label=blocks}$
 - Functions
 
 [[[
-	fct(x)= x*x+3. 
-	fct(2).
+    fct(x)= x*x+3. 
+    fct(2).
 ]]]
 
 [[[
-	fct :=[:x| x * x + 3].
-	fct value: 2
+    fct :=[:x| x * x + 3].
+    fct value: 2
 ]]]
 
 ${slide:title=Block Usage |label=blocks}$
 
 [[[
-	#(1 2 3) do: [:each | Transcript show: each printString ; cr]	
+    #(1 2 3) do: [:each | Transcript show: each printString ; cr]    
 ]]]
 
-[[[	 
+[[[     
 Integer>>factorial
-	| tmp |
-	tmp:= 1.
-	2 to: self do: [ :i | tmp := tmp * i ]
+    | tmp |
+    tmp:= 1.
+    2 to: self do: [ :i | tmp := tmp * i ]
 ]]]
 
 ${slide:title=Class definition|label=class definition}$
 
 [[[
 Object subclass: #Point
-	instanceVariableNames: 'x y'
-	classVariableNames: ''
-	category: 'Graphics'
+    instanceVariableNames: 'x y'
+    classVariableNames: ''
+    category: 'Graphics'
 ]]]
 
 ${slide:title=Method definition|label=classdefinition}$
 
-- Normally defined in a browser or (by directly invoking the compiler)	 	
+- Normally defined in a browser or (by directly invoking the compiler)         
 - Methods are public
 - Always return self
 
 [[[
 Node>>accept: thePacket
-	"If the packet is addressed to me, print it.
-	Else just behave like a normal node"
-		
-	thePacket isAddressedTo: self)
-		ifTrue: [ self print: thePacket ]
-		ifFalse: [ super accept: thePacket ]
+    "If the packet is addressed to me, print it.
+    Else just behave like a normal node"
+        
+    thePacket isAddressedTo: self)
+        ifTrue: [ self print: thePacket ]
+        ifFalse: [ super accept: thePacket ]
 ]]]
 
 ${slide:title=Instance Creation are Messages Too!|label=methoddefinition}$
 
 - Messages sent to instance
 [[[
-	'1', 'abc'
-	1@2
-]]]	
+    '1', 'abc'
+    1@2
+]]]    
 - Basic class creation messages are ==new== and ==new:== sent to a class
 [[[
-	 Monster new
+     Monster new
 ]]]
 - Class specific message creation (messages sent to classes)
 [[[
-	 Tomagoshi withHunger: 10
+     Tomagoshi withHunger: 10
 ]]]
 
 ${slide:title=Conclusion|label=methoddefinition}$
