@@ -1,7 +1,7 @@
 {
     "title":"Pharo Syntax in a Nutshell",
     "subtitle":"",
-    "author":"Stephane Ducasse",
+    "author":"Stéphane Ducasse",
     "complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
@@ -121,7 +121,7 @@ Weather isRaining
 - ==ifTrue:ifFalse== is sent to an object: a boolean!
 
 
-${slide:title=Loops are also mesage sends|label=conditional}$
+${slide:title=Loops are also message sends|label=conditional}$
 
 [[[language=smalltalk
 1 to: 100 do: [: i| Transcript << i ]]
@@ -134,7 +134,7 @@ ${slide:title=Loops are also mesage sends|label=conditional}$
 
 
 
-${slide:title=Loops are also mesage sends|label=conditional}$
+${slide:title=Loops are also message sends|label=conditional}$
 
 [[[language=smalltalk
 #(1 2 -4 -86)
@@ -144,6 +144,7 @@ ${slide:title=Loops are also mesage sends|label=conditional}$
 > 4
 > 86
 ]]]
+
 - Yes we ask the collection object to perform the iteration
 
 
@@ -209,9 +210,9 @@ Object subclass: #Point
 
 ${slide:title=Method definition|label=classdefinition}$
 
-- Normally defined in a browser or (by directly invoking the compiler)         
+- Normally defined in a browser or (by directly invoking the compiler)
 - Methods are public
-- Always return self
+- Always return ==self==
 
 [[[
 Node>>accept: thePacket
@@ -240,3 +241,8 @@ ${slide:title=Instance Creation are Messages Too!|label=methoddefinition}$
 ]]]
 
 ${slide:title=Conclusion|label=methoddefinition}$
+
+- Compact syntax
+- Few constructs
+- Messages
+- Lambda expressions
