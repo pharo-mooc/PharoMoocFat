@@ -25,33 +25,20 @@ ${slide:title=Booleans}$
 -> 'positive'
 ]]]
 
-${slide:title=Yes ifTrue\:ifFalse\: is a message!}$
-
-[[[language=smalltalk 
-Weather isRaining
-    ifTrue: [self takeMyUmbrella]
-    ifFalse: [self takeMySunglasses]
-]]]
-
 - Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
 - ==ifTrue:ifFalse:== is in fact radically optimized by the compiler but you can implement another one such as ==siAlors:sinon:== and try it at home. 
 
+
+
 ${slide:title=Booleans}$
 
-In Pharo booleans have nothing special
+In Pharo Booleans have nothing special, just a superb implementation!
 - & | not
 - or: and: (lazy)
 - xor:
 - ifTrue:ifFalse:
 - ifFalse:ifTrue:
 - ...
-
-${slide:title=Lazy Logical Operators}$
-
-[[[language=smalltalk 
-    false and: [1 error: 'crazy']
- -> false and not an error
-]]]
 
 !Exercices
 
@@ -253,31 +240,11 @@ ${slide:title=True>> \| aBoolean}$
 ]]]
 
 
-
-
 ${slide:title=Or implementation in two methods}$
 
 +Boolean hierarchy and instances.>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=80+
 
-${slide:title=Implementing ifTrue\:ifFalse\:}$
 
-- Do you see the pattern?
-- Remember that a closure freezes execution and that value launches the execution of a frozen code.
-
-[[[language=smalltalk 
-    True>>ifTrue: aTrueBlock ifFalse: aFalseBlock
-        ^ aTrueBlock value
-]]]
-
-[[[language=smalltalk
-    False>>ifTrue: aTrueBlock ifFalse: aFalseBlock
-        ^ aFalseBlock value
-]]]
-
-${slide:title=Implementation Note}$
-
-- Note that the Virtual Machine shortcuts calls to boolean such as condition for speed reason.
-- But you can implement your own conditional method and debug to see that sending a message is dispatching to the right object.
 
 ! So what ?
 
