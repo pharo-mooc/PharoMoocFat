@@ -2,8 +2,6 @@ Object-Oriented Modeling and Design:
  a Practical Approach with Pharo
 
 
-+ 1. Bases de l'objet (evolution, objects, identity, state, instances, inheritance) 
-	(03-MDSI-STOOP et 08-MDSI-STOOP) ==> assez gros S,D
 
 
 >> Show an interaction

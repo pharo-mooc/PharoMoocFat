@@ -1,12 +1,10 @@
 {
 	"title":"Essence of Dispatch",
 	"subtitle":"Exercise",
-	"author":"Stephane Ducasse",
+	"author":"Stéphane Ducasse",
 	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
-
-${toc:depthLevel=2|level=0|highlight=0|title=Summary}$
 
 ${slide:title=Three Questions|label=questions}$
 
@@ -20,11 +18,11 @@ ${slide:title=Exercise 1\: Implement not}$
 - Propose an implementation of not in a world where you do not have Booleans.
 - You only have objects and messages.
 [[[language=smalltalk 
-false not 
-	-> true
+    false not 
+    -> true
 
-true not 
-	-> false
+    true not 
+    -> false
 ]]]
 
 ${slide:title=Exercise 2\: Implement \| (Or)}$
@@ -33,13 +31,13 @@ ${slide:title=Exercise 2\: Implement \| (Or)}$
 - You only have objects and messages.
 
 [[[language=smalltalk 
-	true | true -> true
-	true | false -> true
-	true | anything -> true
+    true | true -> true
+    true | false -> true
+    true | anything -> true
 
-	false | true -> true
-	false | false -> false
-	false | anything -> anything
+    false | true -> true
+    false | false -> false
+    false | anything -> anything
 ]]]
 
 ${slide:title=Exercise 2\: Variation - Implement ifTrue\:ifFalse\:}$
@@ -48,14 +46,14 @@ ${slide:title=Exercise 2\: Variation - Implement ifTrue\:ifFalse\:}$
 - You only have objects, messages and closures.
 
 [[[language=smalltalk 
-false ifTrue: [ 3 ] ifFalse: [ 5 ]
--> 5
-true ifTrue: [ 3 ] ifFalse: [ 5 ]
--> 3
+    false ifTrue: [ 3 ] ifFalse: [ 5 ]
+    -> 5
+
+    true ifTrue: [ 3 ] ifFalse: [ 5 ]
+    -> 3
 ]]]
 
 ${slide:title=Exercise 3\: Why this exercise}$
-
 
 - From far the most interesting one!
 - Why such exercises?
