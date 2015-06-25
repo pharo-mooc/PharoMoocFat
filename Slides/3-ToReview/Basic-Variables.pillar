@@ -1,0 +1,61 @@
+{
+	"title":"Variables",
+	"subtitle":"",
+	"author":"Stéphane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ 
+	stephane.ducasse@inria.fr"
+}
+
+
+${slide:title=Lowercase for local variable|label=points}$
+
+- temporary variables
+[[[language=smalltalk
+    | str |
+    str := 'Tiramisu'
+]]]
+
+- instance variables
+[[[language=smalltalk
+    Object subclass: #Point
+       instanceVarNames: 'x y'
+]]]
+
+- method or block arguments
+
+[[[language=smalltalk
+    raisedTo: power
+
+    [ :x | ]
+]]]
+
+${slide:title=Special Variables|label=points}$
+
+ ==self==, ==super==, ==thisContext==, ==true==, ==false==, ==nil==
+
+- ==self==: the receiver of the message (this in Java).
+- ==super==: refers to the receiver but look method in the super class of the class defining the method. 
+- ==thisContext== refers to the current stack.
+- ==true==, ==false== are the Booleans
+-- ==true== is instance of ==True==
+-- ==false== is instance of the class ==False==
+- nil is UndefinedObject instance
+
+
+${slide:title=Shared or Global starts with Uppercase|label=points}$
+
+[[[language=smalltalk
+    Transcript cr .
+    Transcript show: 'hello world'.
+    Transcript cr .
+]]]
+
+[[[language=smalltalk
+    Object subclass: #Point
+]]]
+
+
+${slide:title=Summary|label=points}$
+
+- Lowercase are used local/private/temporary variable
+- Uppercase are used for shared or global variable
