@@ -1,0 +1,171 @@
+! Terse Guide
+
+
+!! Simple Objects
+Literal objects are objects created by the language parser: i.e, when the expression is read. 
+
+[[[language=Smalltalk | caption=Literal Objects a.k.a. Simple Objects
+	true.	"true unique Boolean object"
+	false. 	"false unique Boolean object"
+	nil.	"unique NULL value"
+	1.	"small integer"
+	3.14.	"float"
+	2e-2. 
+	16r0F.	"Number expressed in 16 basis". 
+	-1.	"negative"
+	'Hello'.	"string"
+	'I''m here'.	"string with single quote escape"
+	$A.	"character A"
+	$.	"character ."
+	#aSymbol.	"Unique string"
+	#(3 2 1).	"Literal array"
+	#('abc' 2 $a).	"Literal array with mixed literal objects"
+]]]
+
+!! Variables
+
+- variables must be declared before use
+- shared vars must begin with uppercase
+- local vars must begin with lowercase
+- reserved names: nil, true, false, self, and super
+
+!!! Local variable definition
+
+[[[language=Smalltalk|caption=Variable definition
+	| x y |
+]]]
+
+!!! Variable assignment
+
+[[[language=Smalltalk|caption=Assignment
+	| x y |
+	x := 4.
+	x := 5.
+	x := Color red.  "a color"
+	x := #( 1 2 3) "an array"
+]]]
+
+[[[language=Smalltalk|caption=Compound assignment
+	x := y := z := 6.
+	x := (y := 6) + 1.
+]]]
+
+!! Arithmetic operations
+
+[[[language=Smalltalk|caption=Some arithmetic operations.
+	6 + 3.                                                 "addition"
+	6 - 3.                                                 "subtraction"
+	6 * 3.                                                 "multiplication"
+	1 + 2 * 3.                                             "evaluation always left to right (1 + 2) * 3"
+	5 / 3.                                                 "division with fractional result"
+	5.0 / 3.0.                                             "division with float result"
+	5.0 // 3.0.                                            "integer divide"
+	5.0 \\ 3.0.                                            "integer remainder"
+	-5.                                                    "unary minus"
+	5 sign.                                                "numeric sign (1, -1 or 0)"
+	5 negated.                                             "negate receiver"
+	1.2 integerPart.                                       "integer part of number (1.0)"
+	1.2 fractionPart.                                      "fractional part of number (0.2)"
+	5 reciprocal.                                          "reciprocal function"
+	6 * 3.1.                                               "auto convert to float"
+	5 squared.                                             "square function"
+	25 sqrt.                                               "square root"
+	5 raisedTo: 2.                                         "power function"
+	5 raisedToInteger: 2.                                  "power function with integer"
+	5 exp.                                                 "exponential"
+	-5 abs.                                                "absolute value"
+	3.99 rounded.                                          "round"
+	3.99 truncated.                                        "truncate"
+	3.99 roundTo: 1.                                       "round to specified decimal places"
+	3.99 truncateTo: 1.                                    "truncate to specified decimal places"
+	3.99 floor.                                            "truncate"
+	3.99 ceiling.                                          "round up"
+	5 factorial.                                           "factorial"
+	-5 quo: 3.                                             "integer divide rounded toward zero"
+	-5 rem: 3.                                             "integer remainder rounded toward zero"
+	28 gcd: 12.                                            "greatest common denominator"
+	28 lcm: 12.                                            "least common multiple"
+	100 ln.                                                "natural logarithm"
+	100 log.                                               "base 10 logarithm"
+	100 log: 10.                                           "logarithm with specified base"
+	100 floorLog: 10.                                      "floor of the log"
+	180 degreesToRadians.                                  "convert degrees to radians"
+	3.14 radiansToDegrees.                                 "convert radians to degrees"
+	0.7 sin.                                               "sine"
+	0.7 cos.                                               "cosine"
+	0.7 tan.                                               "tangent"
+	0.7 arcSin.                                            "arcsine"
+	0.7 arcCos.                                            "arccosine"
+	0.7 arcTan.                                            "arctangent"
+	10 max: 20.                                            "get maximum of two numbers"
+	10 min: 20.                                            "get minimum of two numbers"
+	Float pi.                                              "pi"
+	Float e.                                               "exp constant"
+	Float infinity.                                        "infinity"
+	Float nan.                                             "not-a-number"
+	Random new next; yourself. x next.                     "random number stream (0.0 to 1.0)
+	100 atRandom.                                          "quick random number"
+]]]
+
+!! Booleans
+  ==true== is the unique instance of the class ==True==, ==false== is the unique instance of the class ==False==.
+
+
+[[[language=Smalltalk|caption=Equality and inequality.
+	| x y |
+	x := 1. y := 2.
+	(x = y).	"equals"
+	(x ~= y).	"not equals"
+	(x == y).	"identical"
+	(x ~~ y).	"not identical"
+	(x > y).	"greater than"
+	(x < y).	"less than"
+	(x >= y).	"greater than or equal"
+	(x <= y).	"less than or equal"
+]]]
+
+[[[language=Smalltalk|caption=Some arithmetic operations.
+	| x y |
+	x := 1. y := 2.
+	(x < 5) & (y > 1).
+	"boolean and"
+	(x < 5) | (y > 1).
+	"boolean or"
+	(x > 5) and: [self error].
+	"lazy and (short-circuit), no error is raised since receiver is false"
+	(x < 5) or: [self error ].
+	"lazy or (short-circuit), no error is raised since receiver is true"
+	(x < 5) eqv: (y > 1).
+	"test if both true or both false"
+	(x < 5) xor: (y > 1).
+	"test if one true and other false"
+	b := (x < 5) & (y > 1).
+	b not
+	"negating the value of a boolean"
+]]]
+
+
+[[[language=Smalltalk|caption=Some common operations returning boolean.
+	5 between: 3 and: 12.	"between (inclusive)"
+	123 isKindOf: Number. 	"test if object is class or subclass of"
+	123 isMemberOf: SmallInteger.	"test if object is type of class"
+	123 respondsTo: #sqrt.	"test if object responds to message"
+]]]
+
+[[[[language=Smalltalk|caption=Some common testing messages.
+	| x |
+	x := 33.
+	x isNil.	"test if object is nil"
+	x isZero.	"test if number is zero"
+	x positive.	"test if number is positive"
+	x strictlyPositive.	"test if number is greater than zero"
+	x negative.	"test if number is negative"
+	x even.	"test if number is even"
+	x odd.	"test if number is odd"
+	x isInteger.	"test if object is integer"
+	x isFloat.	"test if object is float"
+	$A isUppercase.	"test if upper case character"
+	$A isLowercase.	"test if lower case character"
+]]]
+
+
