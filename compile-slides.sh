@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-SLIDES_DIRECTORY="./Slides/3-ToReview"
-
 set -e
 
 PILLAR_COMMAND="./pillar"
@@ -73,15 +71,19 @@ function generate_slide() {
     echo "Generating slides for "$file
     pillar_one $file
     pillar_file=$(basename "$file") # e.g., Zinc.pillar
+    directory=$(dirname "$file") # e.g., Slides/3-ToReview
     if latex_enabled; then
-        produce_pdf "$SLIDES_DIRECTORY" "${pillar_file}"
+        produce_pdf "${directory}" "${pillar_file}"
     fi
 }
 
 if [[ $# -eq 1 ]]; then
     generate_slide "$1"
 else
-    for file in $SLIDES_DIRECTORY/*.pillar; do
+    for file in ./Slides/3-ToReview/*.pillar; do
+        generate_slide $file
+    done
+    for file in ./Slides/4-Done/*.pillar; do
         generate_slide $file
     done
 fi
