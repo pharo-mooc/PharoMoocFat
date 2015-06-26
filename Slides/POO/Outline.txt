@@ -2,48 +2,66 @@ Object-Oriented Modeling and Design:
  a Practical Approach with Pharo
 
 
-
-
->> Show an interaction
->> how to build counter
-
-
-2. Pharo S,D
-+  0 Success stories
-+  1. Welcome.pillar
-* 2. Intro-ModelInANutshell.pillar
-* 3. Intro-Syntax-InANutshell.pillar
-  
-
-3. syntaxe		H
-* 1. Basic-*.pillar			
-* 2. Messages.pillar
-* 4. Blocs		H
-* 5. itérateurs		H
-
-	Exercises
-		Compteur -> redo the video
+Jeudi (Done)
+	- Objectives
+	- counter video
+	- Why Pharo?
+	- Essence of dispatch
 	
-	Exercises du Quinto dans PBE
+Vendredi (Done)
+	- Pharo Vision
+	- Syntax In a Nutshell
+	- Messages
+	- Blocks
 
-+6. lookup					H
-+	 1. envoie de messages, classes, héritage 01b-MDSI-OO1
-+	 2. lookup
-+	 3. self/super
+Lundi 
+	- Lookup
+	- Self/Super
+	- Iterators
+	- Frameworks vs Libraries
+	
+Mardi
+	- Seaside
+	- Tests
+	- UML
+	- Self sends are plans for reuse
+	- Composition vs heritage (Strategy Pattern)
+	
+	
+Mercredi
+	- introduction to design pattern
+	- Composite
+	- Method Factory
+	- Testing the abstractions
 
-	Exercise DSL
 
 
-8. encapsulation a voir je ne me rappelle plus 
 
-* 9. implémentation de not, or S,D
+Architecture
+============================
+Lundi 6
+	Prenons l'avantage qu'hayatou soit present.
+	- ObjVlisp 
+	=> 12 h d'implementation
+	
 
-+ 10. messages are unit of reuse S,D
+Double Dispatch 
 
-+ 11. introduction UML 01c-MDSI 
+Double Dispatch
+Composite
+Visitor
 
-+ 13. double-dispatch S,D
+LOD 
 
-+ 14. principles (OCP, DIP) optionel S,D
+Subtyping vs Subclassing
 
-+ 15. tests (pourquoi c'est utile) H
+Design Patterns
+	
+	
+Design Pattern in action in Pillar
+	
+Understanding large systems
+
+Moose (Nicolas)
+
+Code Reading
