@@ -1,0 +1,101 @@
+{
+    "title":"Class and Method Definition",
+    "subtitle":"",
+    "author":"Stéphane Ducasse and Damien Cassou",
+    "complement":"http://stephane.ducasse.free.fr/  stephane.ducasse@inria.fr"
+}
+
+${slide:title=Class Definition|label=classdef}$
+
+[[[language=smalltalk
+Object subclass: #NameOfSubclass
+    instanceVariableNames: ''
+    classVariableNames: ''
+    category: 'PackageName'
+]]]
+
+${slide:title=Example|label=arrays}$
+
+[[[language=smalltalk
+Object subclass: #Point
+    instanceVariableNames: 'x y'
+    classVariableNames: ''
+    category: 'Graphics'
+]]]
+
+
+${slide:title=Methods |label=methods}$
+
+- Public.
+- Virtual (late bound): always dynamically looked up.
+- By default return the receiver (like if we add a return self at the end of any method)
+-- Ease composition
+
+[[[language=smalltalk
+yourself
+    ^ self 
+]]]
+
+is equivalent to 
+
+[[[language=smalltalk
+yourself
+    
+]]]
+
+${slide:title=Typographical convention |label=arrays}$
+
+When you edit a method, you do not type the class name
+
+[[[language=smalltalk
+    crossProduct: aPoint 
+        "Answer a number that is the cross product of the receiver and the 
+        argument, aPoint."
+
+        ^ (x * aPoint y) - (y * aPoint x)
+]]]
+
+But when we show code you do not know in which class the method is defined. 
+
+
+[[[language=smalltalk
+Point>>    crossProduct: aPoint 
+        "Answer a number that is the cross product of the receiver and the 
+        argument, aPoint."
+
+        ^ (x * aPoint y) - (y * aPoint x)
+]]]
+
+
+${slide:title=Example Method|label=arrays}$
+
+[[[language=smalltalk
+Point >> dist: aPoint 
+    "Answer the distance between aPoint and the receiver."
+    | dx dy |
+    dx := aPoint x - x.
+    dy := aPoint y - y.
+    ^ (dx * dx + (dy * dy)) sqrt
+]]]
+
+${slide:title=Class Method|label=classMethodDefinition}$
+
+To define a class method, press the class side button
+
++.>file://figures/classSideMethod.png|width=60+
+
+In books and lecture notes we add 'class'
+
+[[[
+Point class >> x: xInteger y: yInteger 
+        "Answer an instance of me with coordinates xInteger and yInteger."
+
+        ^self basicNew setX: xInteger setY: yInteger
+]]]
+
+
+${slide:title=Summary|label=summary}$
+
+- Classes are defined inside packages
+- Methods are public and virtual
+- By default return the receiver

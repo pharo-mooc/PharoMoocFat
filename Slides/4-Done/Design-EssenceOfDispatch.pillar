@@ -1,20 +1,25 @@
 {
 	"title":"To the Roots of Dispatch and Objects",
-	"subtitle":"",
+	"subtitle":"Deeply understanding the essence of method dispatch",
 	"author":"Stéphane Ducasse and Damien Cassou",
 	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
 
-${toc:depthLevel=2|level=0|highlight=0|title=Summary}$
+${toc:depthLevel=2|level=0|highlight=0|title=Roadmap}$
 
-%Les sections ne sont pas des titres de slide mais définnissent la structure du doucment. Il est possible de rajouter "renderStructureAsSlide":false dans pillar.conf pour ne pas créer de slide à partir d'un titre.
+${slide:title=A cornerstone point}$
 
-!Introduction
+Message passing, "method invocation", method dynamic selection are the heart of object-oriented programming.
+The lecture will rethink this essential and fundamental aspect of object-oriented programming using some 
+simple examples. After this lecture you will never look the same your programs.
 
 ${slide:title=Motto}$
 
 - Let's open our eyes, look, understand, and deeply understand the underlying design aspects of object-oriented programming.
+
+
+! Booleans in Pharo
 
 ${slide:title=Booleans}$
 
@@ -32,15 +37,23 @@ ${slide:title=Booleans}$
 
 ${slide:title=Booleans}$
 
-In Pharo Booleans have nothing special, just a superb implementation!
+In Pharo, Booleans have nothing special, just a superb implementation!
 - & | not
 - or: and: (lazy)
 - xor:
 - ifTrue:ifFalse:
 - ifFalse:ifTrue:
-- ...
+- =>
+- ....
 
 !Exercices
+
+${slide:title=Three Exercises|label=questions}$
+
+-1 Implement ==not==
+-2 Implement ==|== (or)
+-3 Why such exercises? What these exercises want to show us?
+
 
 !!Exercise 1: Implement not
 
@@ -152,6 +165,11 @@ ${slide:title=Not implementation in two methods}$
 +Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethods.png|width=80+
 
 
+${slide:title=Not implementation in two methods}$
+
++Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=70+
+
+
 ${slide:title=\| (Or)}$
 
 [[[language=smalltalk 
@@ -258,18 +276,24 @@ ${slide:title=Ok so what?}$
 
 ${slide:title=Message sends act as case statements}$
 
-- The execution engine will select the right method in the class of the receiver
-- The case statements is dynamic in the sense that it depends on the classes loaded and the objects to which the message is sent.
+- Message sends act as case statements
+- But with messages, the case statements is dynamic in the sense that it depends on the classes loaded and the objects to which the message is sent.
+
+${slide:title=Sending a message is making a choice}$
+
+- The execution engine will select the right method depending on the class of the receiver.
 - Each time you send a message, the system will select the method corresponding to the receiver.
+- Sending a message is a choice operator.
 
 
-${slide:title=Question}$
-
-- Could have we implemented the same implementation in only one class?
 
 ${slide:title=Question}$
 
-- Could have we implemented the same implementation in only one class?
+- Could we have been able to implement the same implementation in only one class?
+
+${slide:title=Question}$
+
+- Could we have been able to implement the same implementation in only one class?
 - NO NO NO
 
 ${slide:title=Class play case roles}$
@@ -292,10 +316,19 @@ ${slide:title=Advantages of small class hierarchy}$
 - The hierarchy provides a way to specialize behavior.
 - It is also more declarative in the sense that you only focus on one class.
 - It is more modular in the sense that you can package different classes in different packages.
+- You can also load classes separately. 
+
+
+${slide:title=Do not ask, tell}$
+
+- Sending a message let the receiver decide.
+- The client does not have to decide.
+- Client code is not fixed. Different receivers may be substitued dynamically
+
 
 ${slide:title=Avoid Conditionals}$
 
-- Use objects and messages, when you can
+- Use objects and messages, when you can.
 - The execution engine acts as a conditional switch: Use it!
 - Check the AntiIfCampaign.
 

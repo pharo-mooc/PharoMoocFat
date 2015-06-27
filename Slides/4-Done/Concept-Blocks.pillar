@@ -1,76 +1,96 @@
 {
 	"title":"Introduction to Blocks",
 	"subtitle":"",
-	"author":"Stéphane Ducasse",
-	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+	"author":"Stéphane Ducasse and Damien Cassou",
+	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
 }
 
 
 ${slide:title=Objectives|label=block}$
 
-- Blocks are kind of anonymous methods
-- Used for loops, conditionals and iterators.
-- Used in UI development.
+- Called closures or lexical closures in other languages.
+- Just introduced in Java 8.0.
 - Really important and are at the heart of Pharo.
-- Called closures in other languages
+- Used for loops, conditionals and iterators.
+- You can define your own control flow.
+- Used in UI development.
 - Really powerful concept 
-- Just introduced in Java 8.0
+
+- As a first approximation, blocks are kind of anonymous methods
+
 
 ${slide:title=Block Syntax|label=block}$
 
 - a block is delimited by ==[ ]==
 
-[[[
-     [ expressions.... ] 
+[[[language=smalltalk
+     [ expressions.... ]
 ]]]
 
 ${slide:title=A Block|label=block}$
 
-- If we do not ask a block to be executed, nothing happens.
+
 - Executing ==(1 / 0)== raises an error.
 
-[[[
+[[[language=smalltalk
     ( 1 / 0 )
-    -> Error
+   -> Error
 ]]]
 
-- Executing ==[ 1 / 0 ]== does not raise an error because the code inside a block is not executed.
+- Executing ==[ 1 / 0 ]== does not raise an error because the block body is not executed.
 
-[[[
+[[[language=smalltalk
     [ 1 / 0 ]
-    -> [ 1 /0 ] 
+    > [ 1 /0 ] 
 ]]]
+
+- If we do not ask a block to be executed, nothing happens.
 
 ${slide:title=A Block is Freezing Computation|label=block}$
 
 - A block is not executed.
-- A block freezes execution. 
+- A block blocks execution: its body is not executed.
 
-[[[
+[[[language=smalltalk
     [ 2 + 6 ] 
-    -> [ 2 + 6 ] 
+    > [ 2 + 6 ] 
+]]]
+
+${slide:title=Another view|label=block}$
+
+- Turns a program into 'data'
+
+[[[language=smalltalk
+    1
+    > 1
+	
+    'abc'
+    > 'abc'
+	
+    [ 2 + 6 ] 
+    > [ 2 + 6 ] 
 ]]]
 
 
 ${slide:title=Executing a Block|label=block}$
 
-To execute a block we should ask its execution explicitly using the message ==value==
+To execute a block we should ask ""explicitly"" its execution using the message ==value==
 
-[[[
-[ 2 + 6 ] value
--> 8 
+[[[language=smalltalk
+    [ 2 + 6 ] value
+    > 8 
 ]]]
 
-[[[
+[[[language=smalltalk
     [ 1 / 0 ] value
-    -> Error
+    > Error
 ]]]
 
 
 ${slide:title=A Block with one argument|label=simpleBlock}$
 - A bloc can take arguments (the same way a method can)
 
-[[[
+[[[language=smalltalk
     [ :x | x + 2 ]
 ]]]
 
@@ -78,9 +98,9 @@ ${slide:title=A Block with one argument|label=simpleBlock}$
 - ==:x== is block argument.
 - ==x+2== is the block body.
 
-[[[
+[[[language=smalltalk
     [ :x | x + 2 ] value: 5
-    -> 7
+    > 7
 ]]]
 
 - ==value:== is a message that executes a block passing a value, here 5 as argument. ==x== will have the value 5.
@@ -90,11 +110,11 @@ ${slide:title=Block execution value|label=simpleBlock}$
 
 - Execution returns the value of the last expression
 
-[[[
+[[[language=smalltalk
     [ :x | 
             x + 33. 
             x + 2 ] value: 5
-    -> 7
+    > 7
 ]]]
 
 ${slide:title=Blocks can be stored|label=simpleBlock}$
@@ -102,35 +122,30 @@ ${slide:title=Blocks can be stored|label=simpleBlock}$
 - We can store a block in variable
 - A block can be executed multiple times
 
-[[[
+[[[language=smalltalk
     | b |
     b := [ :x | x + 2 ].
     
     b value: 5
-    -> 7
+    > 7
     
     b value: 33
-    -> 35
+    > 35
 ]]]
 
 
 ${slide:title=Blocks are used to express conditions|label=expressCondition}$
 
-[[[
-    1 < 33 
-        ifTrue: [ 'positive']
-        ifFalse: [ 'negative']
+[[[language=smalltalk
+	max: anObject 
+		"Answer the receiver or the argument, whichever has the greater anObject."
+
+		self > anObject
+			ifTrue: [^ self ]
+			ifFalse: [^ anObject ]
 ]]]
 
 Yes this is a message ==ifTrue:ifFalse:== sent to a Boolean
-
-[[[
-    1 < 33 
-        ifFalse: [ 'negative']
-        ifTrue: [ 'positive']
-]]]
-
-Yes this is a message ==ifFalse:ifTrue:== sent to a Boolean
 
 
 
@@ -138,33 +153,48 @@ ${slide:title=Blocks are used to express loops|label=expressLoop}$
 
 - Some simple loops
 - Printing 10 dots
-[[[
+
+[[[language=smalltalk
     10 timesRepeat: [ File stdout << '.' ]
-    -> ............
+    > ............
 ]]]
 
-[[[
+
+${slide:title=Blocks are used to express loops|label=expressLoop}$
+
+[[[language=smalltalk
     1 to: 10 do: [:i | File stdout << i ]
-    -> 12345678910 
+    > 12345678910 
 ]]]
 
-[[[
+${slide:title=Blocks are used to express loops|label=expressLoop}$
+
+- a traditional ==for== loop for i=1,100, i++
+
+[[[language=smalltalk
     1 to: 100 by: 3 do: [:i | File stdout << i ]
-    -> 147101316192225283134374043464952555861646770737679828588919497100
+    > 147101316192225283134374043464952555861646770737679828588919497100
 ]]]
 
+${slide:title=Blocks are used to express loops|label=expressLoop}$
 
+- Basis for iterators
+
+[[[language=smalltalk
+    #(2 4 5 -4 3 -2) collect: [ :each | each abs ]
+    > #(2 4 5 4 3 2)
+]]]
 
 ${slide:title=Full Syntax}$
 
 
-[[[
+[[[language=smalltalk
      [ :blockArg1 :blocArg2 |
-        |localVariable|
+        | localVariable |
         expression1.
         expression2.
         
-        expressionn]
+        expressionn ]
 ]]]
 
 
@@ -178,25 +208,29 @@ ${slide:title=A Design Advice}$
 
 ${slide:title=Return in a bloc, return from the method}$
 
-- When we put a return into a block, (when we execute it) we return from the method.
+- When a block containing a return is executed, computation exits the method that defined the block.
 
-[[[
-factorial
+[[[language=smalltalk
+Integer>>factorial
     "Answer the factorial of the receiver."
 
-    self = 0 ifTrue: [ ^ 1].
+    self = 0 ifTrue: [ ^ 1 ].
     self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
     self error: 'Not valid for negative integers'
 ]]]
 
-- Do not over use this mechanim
-- Better use Exception when this is more than a simple guarding check.
+${slide:title=More precisely}$
+
+- When a block containing a return is executed, computation returns from the method that defined the block.
+- Since blocks can be passed around, from methods to methods, blocks behaves as an exception mechanism.
+- Do not overuse this mechanim, better use Exception
+- Always think twice when you put a return in a block
 
 ${slide:title=Exercises|label=expressLoop}$
 
 - Guess how to execute a block taking two arguments
 
-[[[
+[[[language=smalltalk
     [ :x :y | x + y ]   5  7
     > 12
 ]]]
@@ -218,7 +252,7 @@ ${slide:title=Exercises|label=expressLoop}$
 
 ${slide:title=Other examples|label=expressLoop}$
 
-[[[
+[[[language=smalltalk 
     
     [ 2 + 3 + 4 + 5 ] value
     > 14
@@ -234,30 +268,31 @@ ${slide:title=Yes ifTrue\:ifFalse\: is a message!}$
 
 [[[language=smalltalk 
 Weather isRaining
-    ifTrue: [self takeMyUmbrella]
-    ifFalse: [self takeMySunglasses]
+    ifTrue: [ self takeMyUmbrella ]
+    ifFalse: [ self takeMySunglasses ]
 ]]]
 
 - Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
-- ==ifTrue:ifFalse:== is in fact radically optimized by the compiler but you can implement another one such as ==siAlors:sinon:== and try it at home. 
+- ==ifTrue:ifFalse:== is in fact radically optimized by the compiler.
+- Implement another one such as ==siAlors:sinon:== and try it at home. 
 
 
 ${slide:title=Implementing ifTrue\:ifFalse\:}$
 
 - Do you see the pattern?
-- Remember that a closure freezes execution and that value launches the execution of a frozen code.
+- Remember that a closure blocks execution and that the message ==value== launches the execution of a frozen code.
 - Propose an implementation
 
 ${slide:title=Implementing ifTrue\:ifFalse\:}$
 
 - Let us the receiver decides!
 [[[language=smalltalk 
-    True>>ifTrue: aTrueBlock ifFalse: aFalseBlock
+    True>> ifTrue: aTrueBlock ifFalse: aFalseBlock
         ^ aTrueBlock value
 ]]]
 
 [[[language=smalltalk
-    False>>ifTrue: aTrueBlock ifFalse: aFalseBlock
+    False>> ifTrue: aTrueBlock ifFalse: aFalseBlock
         ^ aFalseBlock value
 ]]]
 
@@ -280,9 +315,12 @@ ${slide:title=Summary|label=expressLoop}$
         value: ...
     ]]]
 
-- Anonymous method 
-- Used in iterators (See following lecture), conditionals
-- Can be passed to methods, stored in instance variables
+- Approximately similar to anonymous method 
+- Technically lexical closures
+- Can be passed as arguments to methods, stored in instance variables
+- Basis of conditionals 
+- Basis of iterators (See following lecture)
+
 
 
 

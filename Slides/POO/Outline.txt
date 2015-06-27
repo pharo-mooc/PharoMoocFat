@@ -9,10 +9,12 @@ Jeudi (Done)
 	- Essence of dispatch
 	
 Vendredi (Done)
+	- Essence of dispatch (revisited)
 	- Pharo Vision
 	- Syntax In a Nutshell
 	- Messages
 	- Blocks
+
 
 Lundi 
 	- Lookup
@@ -36,6 +38,7 @@ Mercredi
 
 
 
+	ifAbsent: [self k;lk;lk;: y]
 
 Architecture
 ============================

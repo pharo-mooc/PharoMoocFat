@@ -1,13 +1,13 @@
 {
-	"title":"Variables",
-	"subtitle":"",
-	"author":"Stéphane Ducasse",
-	"complement":"http://stephane.ducasse.free.fr/ 
-	stephane.ducasse@inria.fr"
+    "title":"Variables",
+    "subtitle":"",
+    "author":"Stéphane Ducasse and Damien Cassou",
+    "complement":"http://stephane.ducasse.free.fr/ 
+    stephane.ducasse@inria.fr"
 }
 
 
-${slide:title=Lowercase for local variable|label=points}$
+${slide:title=Lowercase for local variables|label=points}$
 
 - temporary variables
 [[[language=smalltalk
@@ -39,23 +39,39 @@ ${slide:title=Special Variables|label=points}$
 - ==true==, ==false== are the Booleans
 -- ==true== is instance of ==True==
 -- ==false== is instance of the class ==False==
-- nil is UndefinedObject instance
+- ==nil== is ==UndefinedObject== instance
 
 
 ${slide:title=Shared or Global starts with Uppercase|label=points}$
 
+- Transcript is an object that is globally accessible a kind of stdout
 [[[language=smalltalk
     Transcript cr .
     Transcript show: 'hello world'.
     Transcript cr .
 ]]]
 
+- Class ==Object== is global
 [[[language=smalltalk
     Object subclass: #Point
 ]]]
 
 
+${slide:title=ClassVariables are Shared Variables|label=points}$
+
+- How to share information between all the instances of a class and subclasses
+- Use a classVariable
+[[[
+    Object subclass: #CombinedChar
+        instanceVariableNames: 'codes combined'
+        classVariableNames: 'Compositions Decompositions Diacriticals'
+        category: 'Kernel-BasicObjects'
+]]]
+
+- Here ==Compositions== is shared between all the CombinedChar instances and instances of subclasses
+
+
 ${slide:title=Summary|label=points}$
 
-- Lowercase are used local/private/temporary variable
-- Uppercase are used for shared or global variable
+- Lowercase are used for local/private/temporary variables
+- Uppercase are used for shared or global variables
