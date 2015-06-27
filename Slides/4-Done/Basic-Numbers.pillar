@@ -166,9 +166,16 @@ ${slide:title=Exercise|label=points}$
 
 ${slide:title=Rectangle|label=rectangle}$
 
+[[[
+	Rectangle left: 0 right: 2 top: 1 bottom: 1
+
+	Rectangle origin: 20@20	corner: 100@200
+]]]
+
+${slide:title=Summary|label=points}$
+- Automatic coercion
+- Large positive or negative number
+- Float or scaled decimal
 
 
 
-${slide:title=Quiz|label=points}$
-
-- 
