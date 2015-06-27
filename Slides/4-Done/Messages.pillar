@@ -133,7 +133,7 @@ ${slide:title=A little query}$
 
 - Let us query the system... and only filter the unary messages :)
 
-[[[
+[[[language=Smalltalk
     Point selectors select: #isUnary  
     > #(#x #theta #asIntegerPoint #r #negated #normalized #sign #degrees #isIntegerPoint #guarded #fourNeighbors #eightNeighbors #min #max #ceiling #normal #asPoint #y #abs #isPoint #angle #transposed #reciprocal #asFloatPoint #asNonFractionalPoint #rounded #leftRotated #floor #truncated #hash #deepCopy #fourDirections #rightRotated #isSelfEvaluating #asMargin #isZero)
 ]]]
@@ -178,26 +178,26 @@ ${slide:title=Binary Message Examples}$
 
 ${slide:title=Keyword Messages}$
 
-[[[
+[[[language=Smalltalk
     anObject keyword1: argument1 keyword2: argument2
 ]]]    
 
 equivalent to
 
-[[[
+[[[language=Smalltalk
     receiver.keyword1keyword2(argument1, argument2)
 ]]]
 
 
 ${slide:title=Keyword Messages for Javaists}$
 
-[[[
+[[[language=Smalltalk
     postman.send(mail,recipient);
 ]]]
 
 ${slide:title=Keyword Messages for Javaists}$
 
-[[[
+[[[language=Smalltalk
     postman.send(mail,recipient);
     postman . send ( mail , recipient );
 ]]]
@@ -205,7 +205,7 @@ ${slide:title=Keyword Messages for Javaists}$
 
 ${slide:title=Keyword Messages for Javaists}$
 
-[[[
+[[[language=Smalltalk
     postman.send(mail,recipient);
     postman . send ( mail , recipient );
     postman send mail recipient
@@ -213,7 +213,7 @@ ${slide:title=Keyword Messages for Javaists}$
 
 ${slide:title=Keyword Messages for Javaists}$
 
-[[[
+[[[language=Smalltalk
     postman.send(mail,recipient);
     postman . send ( mail , recipient );
     postman send mail recipient
@@ -222,7 +222,7 @@ ${slide:title=Keyword Messages for Javaists}$
 
 ${slide:title=Keyword Messages for Javaists}$
 
-[[[
+[[[language=Smalltalk
     postman.send(mail,recipient);
     postman . send ( mail , recipient );
     postman send mail recipient
@@ -233,7 +233,7 @@ ${slide:title=Keyword Messages for Javaists}$
 
 ${slide:title=Keyword Messages for Javaists}$
 
-[[[
+[[[language=Smalltalk
     postman.send(mail,recipient);
     
     postman send: mail to: recipient
@@ -246,7 +246,7 @@ ${slide:title=Keyword Messages for Javaists}$
 
 ${slide:title=Message setX:}$
 
-[[[
+[[[language=Smalltalk
     10@20 setX: 2
     > 2@20
 ]]]
@@ -256,7 +256,7 @@ ${slide:title=Message setX:}$
 ${slide:title=Message at:put:}$
 
 
-[[[
+[[[language=Smalltalk
     #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
     > #('Calvin' 'loves' 'Suzie')
 ]]]
@@ -268,7 +268,7 @@ ${slide:title=Message at:put:}$
 
 ${slide:title=Message between:and:}$
 
-[[[
+[[[language=Smalltalk
     12 between: 10 and: 20
     > true
 ]]]
@@ -293,12 +293,12 @@ ${slide:title=Composition: from left to right!}$
 - Remember: (Msg) \> Unary \> Binary \> Keywords
 - What happens when we have two messages of the same kind?
 - From left to right
-[[[
+[[[language=Smalltalk
     1000 factorial class name  
-	> #LargePositiveInteger
+    > LargePositiveInteger
 ]]]
 is equivalent to 
-[[[
+[[[language=Smalltalk
     (((1000 factorial) class) name) 
 ]]]
 
@@ -315,67 +315,85 @@ Remember that we have only messages
 
 ${slide:title=Precedence Example}$
 
-[[[
+[[[language=Smalltalk
     2 + 3 squared
     > 2 + 9
     > 11
 ]]]
 
-- unary first then binary
+- unary (squared) first then binary (==+==)
 
 ${slide:title=Precedence Example}$
 
-[[[
+[[[language=Smalltalk
     2 raisedTo: 3 + 2
     > 2 raisedTo: 5
     > 32
 ]]]
 
-- binary first then keyword-based
+- binary (==+==) first then keyword-based (==raisedTo:==)
 
 ${slide:title=Precedence Example}$
 
-[[[
+[[[language=Smalltalk
     Color gray - Color white = Color black
     > aGray - aWhite = aBlack
     > aBlack = aBlack
     > true
 ]]]
 
+- Unary then binary from left to right
+
 ${slide:title=Precedence Example}$
 
-[[[
-1 class maxVal + 1 
--> 1073741824
+[[[language=Smalltalk
+    1 class maxVal + 1 
+    > 1073741824
 ]]]
 
 - unary, unary and binary
 
+[[[language=Smalltalk
+    1 class
+    > SmallInteger
+
+    1 class maxVal
+    > 1073741823
+	
+    1 class maxVal + 1
+    > 1073741824
+	
+    (1 class maxVal + 1) class
+    > LargePositiveInteger
+]]]
+
+
 ${slide:title=Precedence Example}$
 
-[[[
-    ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl 
+[[[language=Smalltalk
+    (ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl) asMorph openInWorld
 ]]]
 
 - unary (==asZnUrl==), keyword (==getPng:==)
+- then unary, unary
 
 
 ${slide:title=Parentheses take precedence!}$
 
-[[[
+[[[language=Smalltalk
     (0@0 extent: 100@100) bottomRight
     > (aPoint extent: anotherPoint) bottomRight
     > aRectangle bottomRight
     > 100@100
 ]]]
 
-[[[
+[[[language=Smalltalk
     0@0 extent: 100@100 bottomRight
     > Message not understood
     > 100 does not understand bottomRight
 ]]]
 
-${slide:title=Price of simplicity}$
+${slide:title=The price for simplicity}$
 
 - Only messages: ==+== 
 -- is a message, no precedence
@@ -385,31 +403,26 @@ ${slide:title=Price of simplicity}$
 
 ${slide:title=No mathematical precedence}$
 
-[[[
+[[[language=Smalltalk
     3 + 2 * 10
     > 5 * 10
     > 50
 ]]]
 
-
-[[[
+- should be rewritten using parentheses
+[[[language=Smalltalk
     3 + (2 * 10)
     > 3 + 20
     > 23
 ]]]
 
-[[[
+[[[language=Smalltalk
     1/3 + 2/3
     > 7/3 /3
-]]]
-
-[[[
-    1/3 + 2/3
-    > (7/3) /3
     > 7/9
 ]]]
-
-[[[
+- should be rewritten using parentheses
+[[[language=Smalltalk
     (1/3) + (2/3)
     > 1
 ]]]
@@ -426,7 +439,7 @@ Describe the order in which the messages are executed
 
 ${slide:title=Message Sequence}$
 
-[[[
+[[[language=Smalltalk
     message1.
     message2.
     message3
@@ -435,7 +448,7 @@ ${slide:title=Message Sequence}$
 - . is a separator, not a terminator,
 - No need to put one at the end.
 
-[[[
+[[[language=Smalltalk
     | macNode pcNode node1 printerNode |
     macNode := Workstation withName: #mac.
     Transcript cr.
@@ -448,39 +461,90 @@ ${slide:title=Multiple messages to an object}$
 
 - To send multiple messages to the same object
 
-[[[
+[[[language=Smalltalk
     Transcript show: 1 printString.
     Transcript cr
 ]]]
 
 is equivalent to:
 
-[[[ 
+[[[language=Smalltalk
     Transcript
         show: 1 printString ;
-	cr 
+        cr 
 ]]]
 
-${slide:title=yourself}$
 
-[[[
-    Set new add: 1; add: 2; yourself
+${slide:title=A puzzle}$
+Imagine we want to add 2 to a new set.
+[[[language=Smalltalk
+    Set new add: 2
+    > 2
 ]]]
 
-is equivalent to 
-
-[[[
+- The message ==add:== returns its argument and not the receiver.
+- We have to use a temporary variable.
+[[[language=Smalltalk
     | s |
     s := Set new.
     s add: 1; add: 2.
     s 
 ]]]
 
+- What could be another solution?
+
+
+${slide:title=A puzzle}$
+
+[[[language=Smalltalk
+    Set new add: 2
+    > 2
+]]]
+
+- The message ==add:== returns its argument and not the receiver.
+- We have to use a temporary variable.
+[[[language=Smalltalk
+    | s |
+    s := Set new.
+    s add: 1; add: 2.
+    s 
+]]]
+
+- What could be another solution?
+
+
+${slide:title=One Hint}$
+
+- What if we get a message that returns the receiver?
+
+${slide:title=yourself}$
+
+[[[language=Smalltalk
+Object>>yourself
+    ^ self
+]]]
+
+
+${slide:title=Solution}$
+
+[[[language=Smalltalk
+    | s |
+    s := Set new.
+    s add: 1; add: 2.
+    s 
+]]]
+is equivalent to 
+
+[[[language=Smalltalk
+    Set new add: 1; add: 2; yourself
+    > aSet 
+]]]
 
 ${slide:title=Summary}$
 
-- Three kinds of messages: unary, binary and keyword
-- Arguments are placed inside message structure: 2 between: 0 and: 5 (message is ==between:and:==)
-- ==()== takes precedence
+- Three kinds of messages: unary, binary and keywords
+- Arguments are placed inside message structure: 
+-- 2 between: 0 and: 5 (the message is ==between:and:==)
+- ==()== takes precedence over messages
 - . is a separator
-
+- ; is useful to avoid to repeat receiver
