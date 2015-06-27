@@ -1,206 +1,117 @@
 {
-	"title":"Inheritance Semantics and Method Lookup",
+	"title":"Inheritance In Pharo in A Nushell",
 	"subtitle":"",
-	"author":"Stephane Ducasse",
-	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+	"author":"Stéphane Ducasse and Damien Cassou",
+	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
 }
 
 
-${slide:title=Objectives|label=Outline}$
+${slide:title=In A Nutshell|label=Outline}$
 
-- Inheritance
-- Method lookup
-- Self/super difference
-
-
-${slide:title=Inheritance Reminder|label=Inheritance}$
-
-- Do not want to rewrite everything!
-- Often we want small changes
-- We would like to reuse and extend existing behavior
-
-- Solution: class inheritance
-
-- Each class defines or refines the definition of its ancestors
-
-+>file://figures/InheritanceDiagram.png+
-
-- New classes
---Can add state and behavior:
----color, borderColor, borderWidth,
----totalArea
-
--Can specialize ancestor behavior
---intersect:
-
-- Can use ancestor's behavior and state
-- Can redefine ancestor's behavior
---area to return totalArea
+- Single inheritance
+-- Inheritance of instance variables is made at class definition time.
+-- Inheritance of behavior is dynamic and done at runtime.
+- Only virtual calls
+- Method lookup starts in the class of the receiver
+- ==self== represents the receiver, ==super== too. 
+- Class methods are virtual too
+- Messages not understood is a message and a hook of the metaobject protocol.
 
 
-${slide:title=Single inheritance|label=Inheritance}$
+${slide:title=Root of Inheritance|label=Outline}$
 
-- Static for the instance variables
--- At class creation time the instance variables are collected from the superclasses and the class. No repetition of instance variables.
-
-- Dynamic for the methods
--- Late binding (all virtual) methods are looked up at runtime depending on the dynamic type of the receiver.
-
-${slide:title=Message Sending|label=Inheritance}$
-
-- receiver selector args
-
-- Sending a message = looking up the method that should be executed and executing it
-
-- Looking up a method: When a message (receiver selector args) is sent, the method corresponding to the message selector is looked up through the inheritance chain.
-
-${slide:title=Method Lookup|label=Inheritance}$
-
-- Two steps process
-
--- 1: The lookup starts in the CLASS of the RECEIVER.
-
--- 2: If the method is defined in the method dictionary, it is returned.
-
--- 3: Otherwise the search continues in the superclasses of the receiver's class. If no method is found and there is no superclass to explore (class Object), this is an ERROR
-
-${slide:title= self/this|label=Inheritance}$
-
-- ==self== represents the receiver of the message 
-- The method lookup starts in the class of the receiver
+- ==Object== is the root of normal classes.
+- ==ProtoObject== the superclass of ==Object== is for special purposes:
+-- ==ProtoObject=='s goal in life is to raise errors to most of the messages.
+-- This is important to build proxies 
 
 
-${slide:title=Lookup: class and inheritance|label=Inheritance}$
+${slide:title=Inheritance of Instance Variables|label=Outline}$
+
+- Inheritance of instance variables is made at class definition time.
+-- The instance variables of a new class is computed based on its variables and the ones of its superclass.
+-- This happens at class definition time.
 
 
-+>file://figures/ClassAndInheritance.png+
+${slide:title=Inheritance of Behavior|label=Outline}$
 
-${slide:title=Some Case|label=Inheritance}$
+- Inheritance of behavior is dynamic and done at runtime.
+- At runtime, the method corresponding to the message is looked up starting from the class of the receiver and follow the inheritance chain.
 
-+>file://figures/LookupExemple.png+
-
-${slide:title=Method Lookup starts in Receiver Class|label=Inheritance}$
-
-+>file://figures/MethodLookup.png+
-
-+>file://figures/MethodLookup1.png+
-
-+>file://figures/MethodLookup1.1.png+
++>file://figures/LookupEssence.png|width=50+
 
 
-${slide:title=self **always** represents the receiver|label=Inheritance}$
+${slide:title=self and super|label=Outline}$
 
-+>file://figures/Representreceveir.png+
+- self and super represents the receiver of the message (as Java, C#....)
+- super is used to access overriden methods. 
 
-+>file://figures/Representreceveir1.png+
+
+${slide:title=Lookup of class methods is no different}$
+
+- Sending a message to a class is also late-bound (dynamically resolved)
+-- contrary to Java/C#
+-- no static, only methods of the class.
+
+- Only one rule: when we send a message to an object, we look in the class of the object and follow the inheritance chain.
+
++>file://figures/LookupEssenceAny.png|width=40+
+
+
+${slide:title=Lookup of class methods is no different}$
+
++>file://figures/MetaclassLookUp.png|width=70+
+
+
+
+
 
 
 ${slide:title=When message is not found|label=Inheritance}$
 
 If no method is found and there is no superclass to explore (class Object), a new message called #doesNotUnderstand: is sent to the receiver, with a representation of the initial message.
 
-${slide:title=Graphically...|label=Inheritance}$
++>file://figures/StepToDNU.png|width=50+
 
-+>file://figures/MessageLokupNotFound.png+
-
-${slide:title=Graphically...in Pharo|label=Inheritance}$
+${slide:title=Step by Step...|label=Inheritance}$
 
 - node1 print: aPacket
 -- node is an instance of Node
--- print: is looked up in the class Node
--- print: is not defined in Node > lookup continues in Object
--- print: is not defined in Object => lookup stops \+ exception
--- message: node1 doesNotUnderstand: #(#print aPacket) is executed
--- node1 is an instance of Node so doesNotUnderstand: is looked up in the class Node
--- doesNotUnderstand: is not defined in Node => lookup continues in Object
--- doesNotUnderstand: is defined in Object => lookup stops \+ method executed (open a dialog box)
+-- ==print:== is looked up in the class Node
+-- ==print:== is not defined in ==Node== > lookup continues in ==Object==
+-- ==print:== is not defined in ==Object== => lookup stops.
+-- system sends message: ==doesNotUnderstand: #(#print aPacket)== to ==node1==
+-- ==node1== is an instance of ==Node== so ==doesNotUnderstand:== is looked up in the class ==Node==
+-- ==doesNotUnderstand:== is not defined in ==Node== => lookup continues in ==Object==
+-- ==doesNotUnderstand:== is defined in ==Object== => lookup stops \+ Exception -> Debugger
 
-${slide:title=Graphically...in Pharo|label=Inheritance}$
+${slide:title=doesNotUnderstand: is a message|label=Inheritance}$
 
-+>file://figures/StepToDNU.png+
+- ==doesNotUnderstand:== is a message
+- Every class can customised error handling
+- Important hook for
+-- Proxies (a proxy raises error to most messages by being in subclass of ==ProtoObject== and doesNotUnderstand: get the control)
 
-${slide:title=How to Invoke Overridden Methods?|label=super}$
+${slide:title=doesNotUnderstand: and the debugger|label=Inheritance}$
 
-- Solution: Send messages to super
-[[[
-	Workstation>>accept: aPacket
-		(aPacket isAddressedTo: self)
-			ifTrue: [ Transcript show: 'Accepted by the Workstation ', self name asString ]
-			ifFalse: [ super accept: aPacket ]
-]]]
+When you get an error, you get the debugger. But this is just a convenience when developing.
+In fact:
 
-- Design Hint: Do not send messages to super with different selectors than the original one. It introduces implicit dependency between methods with different names.
-
-${slide:title=The semantics of super|label=super}$
-
-- Like ==self==, ==super== is a pseudo-variable that refers to the receiver of the message.
-- ==super== is used to invoke overridden methods.
-
-- Using ==self==, the lookup of the method begins in the class of the receiver.
-
-- Using ==super==, the lookup of the method begins in the superclass of the class of the method containing the super expression
-
-${slide:title=Little Exercises|label=super}$
+- the message ==doesNotUnderstand:== is looked up,
+- when no class redefines the message ==doesNotUnderstand:==
+-- an exception (==MessageNotUnderstood==) is raised
+-- if there is no handler of that exception 
+-- the default behavior is to open a debugger
+- This behavior can be customized at different points to hide/control/log errors.
 
 
-- A new foo
 
-- A new bar
 
-- B new foo
-
-- B new bar
-
-- C new foo
-
-- C new bar
-
-- A new bar
-
-- -> 10
-
-- B new bar
-
-- -> 10 \+ 10
-
-- C new bar
-
-- -> 50 \+ 50
-
-+>file://figures/SuperChangesLookup.png+
-
-${slide:title=self is dynamic|label=super}$
-
-+>file://figures/SelfIsDynamic.png+
-
-${slide:title=Super is static|label=super}$
-
-+>file://figures/SuperIsStatic.png+
-
-${slide:title=Even some books got it wrong|label=super}$
-
-- super is NOT the superclass of the receiver
-
-- Suppose the WRONG hypothesis: "The semantics of super is to start the lookup of a method in the superclass of the receiver class"
-- mac is instance of ColoredWorkStation
-- Lookup starts in ColoredWorkStation
-- Not found so goes up...
-
-- accept: is defined in Workstation
--- lookup stops
--- method accept: is executed
-- Workstation>>accept: does a super send
-- Our hypothesis: start in the super of the class of the receiver
-- => superclass of class of a ColoredWorkstation
-is ... Workstation !
-- 
-
-+>file://figures/ExplenationSuper.png+
 
 ${slide:title=What you should know|label=super}$
 
 - Inheritance of instance variables is made at class definition time.
-- Inheritance of behavior is dynamic.
+- Inheritance of behavior is dynamic and done at runtime.
 - self **always** represents the receiver, the method lookup starts in the class of the receiver.
 - super represents the receiver but method lookup starts in the superclass of the class using it.
-- Self is dynamic vs. super is static.
+- message not understood is a message and a hook of the metaobject protocol.
