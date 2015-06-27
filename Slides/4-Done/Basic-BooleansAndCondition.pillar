@@ -1,8 +1,8 @@
 {
 	"title":"Booleans and Conditions",
 	"subtitle":"",
-	"author":"Stephane Ducasse",
-	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+	"author":"Stephane Ducasse and Damien Cassou",
+	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
 }
 
 
@@ -44,6 +44,18 @@ Weather isRaining
 
 - Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
 - ==ifTrue:ifFalse:== is in fact radically optimized by the compiler but you can implement another one such as ==siAlors:sinon:== and try it at home. 
+
+
+${slide:title=Boolean Implementation}$
+
+- ==true== is the unique instance of the class ==True==
+- ==false== is the unique instance of the class ==False==
+
++Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.png|width=30+
+
+
+To see more have a look at the Essence of Dispatch Lecture.
+
 
 
 !Conditionals
@@ -91,3 +103,8 @@ ${slide:title=Conditionals: ifEmpty: ifNotEmpty:}$
 
 - Notice that when the receiver is not empty we get it as argument. 
 - No need to ask it again.
+
+${slide:title=Summary}$
+
+- Booleans are real objects.
+- Some conditionals are messages sent to Booleans
