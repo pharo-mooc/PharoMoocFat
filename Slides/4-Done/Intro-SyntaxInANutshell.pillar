@@ -99,7 +99,7 @@ ${slide:title=Syntax in a Nutshell|label=syntax}$
 ${slide:title=Syntax  in a Nutshell (II)|label=syntax}$
 
 - assigment: var := aValue
-- block: [:var ||tmp| expr...]
+- block (lexical closure): [:var ||tmp| expr...]
 - temporary variable: |tmp|
 - block variable: :var
 - unary message: receiver selector
@@ -245,4 +245,4 @@ ${slide:title=Conclusion|label=methoddefinition}$
 - Compact syntax
 - Few constructs
 - Messages
-- Lambda expressions
+- Closures
