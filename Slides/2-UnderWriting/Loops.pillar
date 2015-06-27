@@ -1,0 +1,45 @@
+{
+	"title":"Array",
+	"subtitle":"",
+	"author":"Stephane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
+
+!Some Loops
+
+${slide:title=Loops: timesRepeat:}$
+
+[[[
+	4 timesRepeat: [ self doSomething ]
+]]]
+
+[[[
+	0 to: 100 [ :i | ... ]
+]]]
+
+[[[
+	0 to: 100 by: 3 [ :i | ... ]
+]]]
+
+[[[
+	aCol do: [:each | ... ]
+]]]
+
+${slide:title=Loops: do:}$
+
+[[[
+#(15 10 19 68) do:  
+      [:i | Transcript show: i ; cr ]
+]]]
+
+${slide:title=Loops: collect:}$
+
+[[[
+	#(2 -3 4 -35 4) collect: [ :each| each abs]
+
+]]]
+
+[[[
+	> #(2 3 4 35 4)	
+]]]
+
