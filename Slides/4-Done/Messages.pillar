@@ -368,10 +368,11 @@ ${slide:title=Precedence Example}$
 ]]]
 
 
-${slide:title=Precedence Example}$
+${slide:title=Getting the Pharo Logo|label=kids}$
 
-[[[language=Smalltalk
-    (ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl) asMorph openInWorld
+[[[language=smalltalk
+    (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
+        asMorph openInWindow.
 ]]]
 
 - unary (==asZnUrl==), keyword (==getPng:==)

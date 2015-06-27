@@ -39,6 +39,13 @@ bunny head doEachFrame:
         duration: camera rightNow ]
 ]]]
 
+${slide:title=Getting the Pharo Logo|label=kids}$
+
+[[[language=smalltalk
+    (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
+        asMorph openInWindow.
+]]]
+
 ${slide:title=A real example|label=factorial}$
 
 [[[
