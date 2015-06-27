@@ -320,6 +320,7 @@ ${slide:title=Summary|label=expressLoop}$
 - Can be passed as arguments to methods, stored in instance variables
 - Basis of conditionals 
 - Basis of iterators (See following lecture)
+- Further readings: *http://deepintopharo.org*
 
 
 
