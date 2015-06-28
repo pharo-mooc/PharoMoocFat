@@ -1,12 +1,18 @@
 {
-	"title":"Pharo Syntax in a Nutshell",
+	"title":"Why Pharo?",
 	"subtitle":"",
 	"author":"Stephane Ducasse",
 	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
 
-${slide:title=Objectives|label=block}$
+
+${slide:title=Less is More|label=block}$
+
+${slide:title=Fun view|label=block}$
+
++>file://figures/GaryLarson.jpg+
+${slide:title=Syntax on a Postcard|label=block}$
 [[[
 exampleWithNumber: x
 	"This method illustrates every part of Smalltalk method syntax except primitives."
@@ -239,4 +245,7 @@ ${slide:title=Instance Creation are Messages Too!|label=methoddefinition}$
 	 Tomagoshi withHunger: 10
 ]]]
 
+
 ${slide:title=Conclusion|label=methoddefinition}$
+
++>file://figures/VarietyBD.png+
