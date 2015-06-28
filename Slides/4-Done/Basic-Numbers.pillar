@@ -1,8 +1,8 @@
 {
 	"title":"Numbers",
 	"subtitle":"",
-	"author":"Stephane Ducasse",
-	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+	"author":"Stéphane Ducasse and Damien",
+	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
 }
 
 
@@ -14,9 +14,9 @@ ${slide:title=Numbers|label=Outline}$
 -- == 1 + 2.3 -> 3.3==
 - ==1 class== -> ==SmallInteger==
 - ==1 class maxVal class== -> ==SmallInteger==
-- ==(1 class maxVal + 1) class== -> ==LargeInteger==
--- Fraction, Float, Double
-- 3/4, 2.4e7, 0.75d
+- ==(1 class maxVal + 1) class== -> ==LargePositiveInteger==
+-- Fraction, Float
+- 3/4, 2.4e7 
 -- ==(1/3) + (2/3)== -> 1 
 - ==1000 factorial / 999 factorial== -> 1000
 -- ==2/3 + 1== -> ==(5/3)==
@@ -24,31 +24,37 @@ ${slide:title=Numbers|label=Outline}$
 
 ${slide:title=Numbers|label=Outline}$
 
-- SmallInteger, Integer,
--- 4, 2r100 (4 in base 2), 3r11 (4 in base 3), 1232
-- Automatic coercion
--- == 1 + 2.3 -> 3.3==
-- ==1 class== -> ==SmallInteger==
-- ==1 class maxVal class== -> ==SmallInteger==
-- ==(1 class maxVal + 1) class== -> ==LargeInteger==
--- Fraction, Float, Double
-- 3/4, 2.4e7, 0.75d
--- ==(1/3) + (2/3)== -> 1 
-- ==1000 factorial / 999 factorial== -> 1000
--- ==2/3 + 1== -> ==(5/3)==
++.>file://figures/NumberHierarchy.png|width=60+
 
 
 
+${slide:title=Small ints are real objects|label=funsmallint}$
 
-${slide:title=Fun with SmallInteger|label=funsmallint}$
+- Small ints are real objects: instance of class ==SmallInteger==
+- No need for boxing or unboxing
 
 [[[
 	1 class
 	> SmallInteger
 ]]]
 
-${slide:title=Fun with SmallInteger|label=funsmallint}$
-what is the largest small integer?
+- Operations on small insts are plain messages (no exception to the rule)
+- But small ints are heavily optimised 
+-- Small Tagged-bit integers encoded on 30 bits
+-- The pointer itself is the object
+
+[[[
+    2 raisedTo: 30  
+    > 1073741823
+	
+    SmallInteger maxVal
+    > 1073741823
+]]]
+
+
+${slide:title=Automatic Coercion|label=funsmallint}$
+
+What is the largest small integer?
 
 [[[
 	1 class maxVal
@@ -64,10 +70,7 @@ what is the largest small integer?
 ]]]
 
 
-
-
-
-
+${slide:title=Fun With Numbers|label=funsmallint}$
 
 [[[
 1000 factorial
@@ -100,15 +103,29 @@ what is the largest small integer?
 
 ${slide:title=Fraction|label=Fraction}$
 
-
+- Can handle large numbers
 [[[
 1000 factorial / 999 factorial
 > 1000
 ]]]
 
+${slide:title=Fun With Large Numbers|label=funsmallint}$
+
+[[[[
+    1000 factorial numberOfDigits
+    > 2568 
+]]]
+
+[[[[
+    100000 factorial numberOfDigits
+    > 456574 
+]]]
+
+- Takes some seconds :)
+
+
 
 ${slide:title=Messages sent to objects|label=}$
-
 
 [[[
 	(1 / 3) + (2 / 3)
@@ -125,7 +142,6 @@ ${slide:title=Messages sent to objects|label=}$
 
 
 ${slide:title=Number limits|label=Outline}$
-
 
 - There is no notion of precedence
 
@@ -160,6 +176,9 @@ ${slide:title=Points|label=points}$
 	>100
 ]]]
 
+- Written in functional way: Most of points methods are returning new points
+
+
 ${slide:title=Exercise|label=points}$
 
 - Browse the implementation of ==@==
@@ -172,10 +191,19 @@ ${slide:title=Rectangle|label=rectangle}$
 	Rectangle origin: 20@20	corner: 100@200
 ]]]
 
+${slide:title=Margin|label=rectangle}$
+
+- Margin represents a delta to be applied to a rectangle
+- Useful for UI
+- Margin encodes 4 numbers
+- Expressed in 3 different ways
+-- a number
+-- two numbers
+-- four numbers
+
 ${slide:title=Summary|label=points}$
 - Automatic coercion
-- Large positive or negative number
-- Float or scaled decimal
-
+- Small ints are real objects
+- Large positive or negative number can be infinite
 
 
