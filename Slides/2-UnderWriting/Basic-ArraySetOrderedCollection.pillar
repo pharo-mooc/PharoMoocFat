@@ -16,6 +16,8 @@ ${slide:title=Collections|label=arrays}$
 -- Array (fixed size, direct access)
 -- Dictionary (key-based)
 
++>files://figures/CollectionHierarchyForIntroChapter.png+
+
 
 ${slide:title=Creating variable size objects|label=arrays}$
 
