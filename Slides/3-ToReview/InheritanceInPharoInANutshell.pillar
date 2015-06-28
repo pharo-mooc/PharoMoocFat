@@ -58,9 +58,17 @@ ${slide:title=Lookup of class methods is no different}$
 +>file://figures/LookupEssenceAny.png|width=40+
 
 
+${slide:title=A class is an instance of another class}$
+
+- A class X is always the unique instance of another class named ''X class''
+- The class of the class Point is named ''Point class''
+
++>file://figures/WorkstationMetaclassesWithInheritance.png|width=70+
+
+
 ${slide:title=Lookup of class methods is no different}$
 
-+>file://figures/MetaclassLookUp.png|width=70+
++>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=70+
 
 
 
@@ -71,16 +79,16 @@ ${slide:title=When message is not found|label=Inheritance}$
 
 If no method is found and there is no superclass to explore (class Object), a new message called #doesNotUnderstand: is sent to the receiver, with a representation of the initial message.
 
-+>file://figures/StepToDNU.png|width=50+
++>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=70+
 
 ${slide:title=Step by Step...|label=Inheritance}$
 
 - node1 print: aPacket
 -- node is an instance of Node
--- ==print:== is looked up in the class Node
--- ==print:== is not defined in ==Node== > lookup continues in ==Object==
--- ==print:== is not defined in ==Object== => lookup stops.
--- system sends message: ==doesNotUnderstand: #(#print aPacket)== to ==node1==
+-- ==coucou== is looked up in the class Node
+-- ==coucou== is not defined in ==Node== > lookup continues in ==Object==
+-- ==coucou== is not defined in ==Object== => lookup stops.
+-- system sends message: ==doesNotUnderstand: #(coucou)== to ==node1==
 -- ==node1== is an instance of ==Node== so ==doesNotUnderstand:== is looked up in the class ==Node==
 -- ==doesNotUnderstand:== is not defined in ==Node== => lookup continues in ==Object==
 -- ==doesNotUnderstand:== is defined in ==Object== => lookup stops \+ Exception -> Debugger
