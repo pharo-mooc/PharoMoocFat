@@ -83,12 +83,12 @@ If no method is found and there is no superclass to explore (class Object), a ne
 
 ${slide:title=Step by Step...|label=Inheritance}$
 
-- node1 print: aPacket
+- node1 coucou: #stef
 -- node is an instance of Node
 -- ==coucou== is looked up in the class Node
 -- ==coucou== is not defined in ==Node== > lookup continues in ==Object==
 -- ==coucou== is not defined in ==Object== => lookup stops.
--- system sends message: ==doesNotUnderstand: #(coucou)== to ==node1==
+-- system sends message: ==doesNotUnderstand: #(coucou: stef)== to ==node1==
 -- ==node1== is an instance of ==Node== so ==doesNotUnderstand:== is looked up in the class ==Node==
 -- ==doesNotUnderstand:== is not defined in ==Node== => lookup continues in ==Object==
 -- ==doesNotUnderstand:== is defined in ==Object== => lookup stops \+ Exception -> Debugger
@@ -97,8 +97,8 @@ ${slide:title=doesNotUnderstand: is a message|label=Inheritance}$
 
 - ==doesNotUnderstand:== is a message
 - Every class can customised error handling
-- Important hook for
--- Proxies (a proxy raises error to most messages by being in subclass of ==ProtoObject== and doesNotUnderstand: get the control)
+- Important hook for Proxies (a proxy raises error to any messages by being a subclass of ==ProtoObject== and ==doesNotUnderstand:== gets invoked)
+
 
 ${slide:title=doesNotUnderstand: and the debugger|label=Inheritance}$
 
