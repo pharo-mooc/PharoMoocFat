@@ -11,7 +11,7 @@ ${toc:depthLevel=2|level=0|highlight=0|title=Summary}$
 %Les sections ne sont pas des titres de slide mais définnissent la structure du doucment. Il est possible de rajouter "renderStructureAsSlide":false dans pillar.conf pour ne pas créer de slide à partir d'un titre.
 
 
-${slide:License}$
+${slide:title=License}$
 
 +>file://figures/CreativeCommons.png|width=50|label=figCreativeCommons+
 
@@ -24,15 +24,25 @@ ${toc:depthLevel=1|level=0|highlight=1}$
 
 ${slide:title=Really?!|label=really}$
 
+${columns}$
+
+${column:width=50}$
+
+%the width parameter take an Int between 1 and 100
+%For now we have to pass a line before and after an annotation, I'll correct that soon in Pillar.
 - No primitive types
 - No hardcoded constructs for conditional
 - Only messages
 - Only objects
 
+${column:width=50}$
+
 - and this works?
 - I mean really?
 - Not even slow?
 - Can't be real!
+
+${endColumns}$
 
 ${slide:title=Motto}$
 
