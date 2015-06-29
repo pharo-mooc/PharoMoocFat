@@ -5,6 +5,7 @@
 \documentclass[aspectratio=169, handout]{beamer}
 
 \definecolor{mydarkred}{HTML}{a41313}
+\definecolor{codebox}{HTML}{e4e4e4}
 
 \mode<presentation>{
   \usetheme{CambridgeUS}
@@ -66,7 +67,7 @@
 
 \usepackage[normalem]{ulem}
 
-\newcommand{\ct}[1]{{\sffamily\textup{#1}}}
+\newcommand{\ct}[1]{{\sffamily\textup{\colorbox{codebox}{#1}}}}
 \usepackage{listings}
 \usepackage{textcomp}
 % Source Code
