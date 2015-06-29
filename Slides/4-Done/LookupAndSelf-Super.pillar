@@ -7,16 +7,15 @@
 
 ${slide:title=Goal}$
 
-- Dynamic binding: method lookup
 - Sending a message
+- Dynamic binding/method lookup
 - self/super semantics
-
 
 ${slide:title=Message Sending}$
 
 Sending a message means ''looking up'' the method to execute in the class of the receiver and ''executing'' it on the receiver with the arguments.
 
-Sending a message
+Sending a message:
 # step one: look for the method whose name matches the message selector
 # step two: apply the found method to the receiver with the arguments.
 
@@ -27,13 +26,13 @@ ${slide:title=Method Lookup}$
 Two-step process:
 #The lookup starts in the CLASS of the RECEIVER.
 #If the method is defined in the method dictionary of CLASS, it is returned.
-#Otherwise the search continues in the superclasses of RECEIVER's class
+#- Otherwise the search continues in the superclasses of RECEIVER's class
 #- when there is no more superclass, raise an ERROR
 
 
 ${slide:title=Method Lookup}$
 
-+>file://figures/ClassAndInheritance.png|width=65+
++>file://figures/LookupEssence.png|width=65+
 
 ${slide:title=Some Lookup Cases}$
 
@@ -101,6 +100,27 @@ ${slide:title=self represents the receiver}$
     > 50
 ]]]
 
+
+${slide:title=self represents the receiver}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=20+
+[[[
+    B new bar 
+    > 50
+]]]
+- ==aB bar==:  start to look in class B - no method ==bar== defined 
+- look in class A - the method ==bar== is found 
+- the method ==bar== is applied on the receiver 
+- ==self== refers to aB (the receiver of the message)
+- ==foo== is sent to ==self==
+- ==foo== is looked in the class of the receiver: class ==B==
+- ==foo== is found there. It is applied to ==aB==. It returns 50.
+
+
+
+
+
+
 ${slide:title=self always represents the receiver}$
 
 +>file://figures/LookupWithSelfInSuperclassMethodThreeClasses.png|width=30+
@@ -131,7 +151,13 @@ ${slide:title=When message is not found|label=Inheritance}$
 
 If no method is found and there is no superclass to explore (class Object), a new message called #doesNotUnderstand: is sent to the receiver, with a representation of the initial message.
 
-+>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=70+
++>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=30+
+
+${slide:title=When message is not found|label=Inheritance}$
+
+If no method is found and there is no superclass to explore (class Object), a new message called #doesNotUnderstand: is sent to the receiver, with a representation of the initial message.
++>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=70+
+
 
 ${slide:title=Step by Step...|label=Inheritance}$
 
@@ -143,13 +169,15 @@ ${slide:title=Step by Step...|label=Inheritance}$
 -- system sends message: ==doesNotUnderstand: #(coucou: stef)== to ==node1==
 -- ==node1== is an instance of ==Node== so ==doesNotUnderstand:== is looked up in the class ==Node==
 -- ==doesNotUnderstand:== is not defined in ==Node== => lookup continues in ==Object==
--- ==doesNotUnderstand:== is defined in ==Object== => lookup stops \+ Exception -> Debugger
+-- ==doesNotUnderstand:== is defined in ==Object== => method is found \+ Exception -> Debugger
 
-${slide:title=doesNotUnderstand: is a message|label=Inheritance}$
+${slide:title=doesNotUnderstand:|label=Inheritance}$
 
-- ==doesNotUnderstand:== is a message
-- Every class can customised error handling
-- Important hook for Proxies (a proxy raises error to any messages by being a subclass of ==ProtoObject== and ==doesNotUnderstand:== gets invoked)
+- ==doesNotUnderstand:== is a message and it is sent to the receiver
+- Every class can customised error handling linked to method not found
+- Metaprogramming entry point:
+-- Scaffolding patterns
+-- Proxies (a proxy raises error to any messages by being a subclass of ==ProtoObject== and ==doesNotUnderstand:== gets invoked)
 
 ${slide:title=doesNotUnderstand: and the debugger|label=Inheritance}$
 
@@ -157,11 +185,18 @@ When you get an error, you get the debugger. But this is just a convenience when
 In fact:
 
 - the message ==doesNotUnderstand:== is looked up,
-- when no class redefines the message ==doesNotUnderstand:==
+- when no class redefines the message ==doesNotUnderstand:==, ==Object== implementation is executed.
 -- an exception (==MessageNotUnderstood==) is raised
 -- if there is no handler of that exception 
 -- the default behavior is to open a debugger
 - This behavior can be customized at different points to hide/control/log errors.
+
+[[[
+ProtoObject>>doesNotUnderstand: aMessage
+    ^ MessageNotUnderstood new 
+        message: aMessage; receiver: self; signal
+]]]
+
 
 ${slide:title=What is super?}$
 
@@ -179,14 +214,14 @@ ${slide:title=How do we access to an overriden method?}$
 - Use ==super== instead of ==self==
 
 [[[language=Smalltalk
-	Workstation>>accept: aPacket
-		(aPacket isAddressedTo: self)
-			ifTrue: [ Transcript show: 'Accepted by the Workstation ', self name asString ]
-			ifFalse: [ super accept: aPacket ]
+    Workstation>>accept: aPacket
+        (aPacket isAddressedTo: self)
+            ifTrue: [ Transcript show: 'Accepted by the Workstation ', self name asString ]
+            ifFalse: [ super accept: aPacket ]
 ]]]
 
 
-${slide:title=Do you really understand super}$
+${slide:title=Challenge yourself with super!}$
 
 +>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=30+
 
@@ -199,7 +234,7 @@ ${slide:title=Do you really understand super}$
     > ...
 ]]]
 
-${slide:title=Super changes the lookup starting class}$
+${slide:title=Challenge yourself with super!}$
 
 +>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=30+
 
@@ -212,37 +247,62 @@ ${slide:title=Super changes the lookup starting class}$
     > 100
 ]]]
 
+${slide:title=Super changes the class where the lookup starts}$
+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=20+
+
+[[[
+    C new bar
+    > 100
+]]]
+
+- ==bar== is sent to aC (an instance of C): ==bar== is looked up in C, not found, so looked in ==B==
+- ==bar== is found in class B, and applied to the receiver ==aC==. 
+- ==bar== is sent to ==super==, ==super== is the receiver (aC), but look up starts above class ==B==
+- ==bar== is found in class ==A== and it is applied to the receiver ==aC==.
+- ==foo== is sent to ==self==: ==self== represents the receiver: ==aC==
+- ==foo== is found in class ==C== and applied to ==aC==, it returns 50.
+
 
 ${slide:title=Super?}$
 
 - ==super== refers to the receiver of the message (like ==self==. Yes!)
+- The method lookup starts in the superclass of ...?
+
+
+
+${slide:title=Super starts lookup in superclass of the class using it}$
+
+- ==super== refers to the receiver of the message (like ==self==. Yes!)
 - The method lookup starts in the superclass of the class containing the super expression.
-- Remark:
--- There is no need of the receiver in the method lookup of ==super==
+
+${slide:title=Super is static / self is dynamic}$
+
+- There is no reference to the receiver in the method lookup of a ==super== invocation!
 
 ${slide:title=self is dynamic|label=selfdynamic}$
 
-- When we read the body of a method, there is no way that we know the method that will be executed.
-- Because new code can be loaded and new instances of different classes can be created.
-- ==self== acts as a hook. Code of subclass can be injected into ==self== sends.
-+>file://figures/SelfIsDynamic.png|width=15+
+- When we read the body of a method, there is no way that we know which method that will be executed: new instances of different classes can be created and the message bar sent to them.
+- ==self== acts as a hook. Code of subclasses can be injected into ==self== sends.
++>file://figures/SelfIsDynamic1.png|width=20+
 
 
-${slide:title=Super is static|label=super}$
+${slide:title=super is static|label=super}$
 
-+>file://figures/SuperIsStatic.png|width=20+
++>file://figures/SuperIsStatic.png|width=15+
 
-- At compilation-time, just reading the code we know that we should look above the class of the ""method""
+- At compilation-time, just reading the code we know that we should look above the class containing the ""method"" using ==super==.
 
 
 
 ${slide:title=Yes even some books got it wrong}$
 
-- If lookup of message sent to ==super== would be looked up in the superclass of the class of the ""receiver"".
+- Wrong definition: super looks for the method in the superclass of the class of the ""receiver"".
+- Wrong!
 - It would loop forever!
-- ==aC foo== loops :)
+- ==aC foo== loops, because ==super== points to ==aC== and the superclass of the class of the receiver is B.
 
-+>file://figures/LookupWithWrongDefinition.png|width=50+
++>file://figures/LookupWithWrongDefinition.png|width=45+
 
 
 
@@ -253,7 +313,8 @@ ${slide:title=What you should know}$
 - the method lookup maps a message to a method
 - the method lookup starts in the class of the receiver...
 - ...and goes up in the hierarchy
-- ==super== is the receiver, lookup starts is superclass of the method.
+- ==super== is the receiver, lookup starts is superclass of the method using the expression.
+- self sends act as a hook. Code of subclasses may be invoked.
 
 
 
