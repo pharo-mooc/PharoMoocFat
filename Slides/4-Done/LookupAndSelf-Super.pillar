@@ -1,0 +1,263 @@
+{
+    "title":"Late Binding",
+    "subtitle":"Understanding method lookup - and self/super",
+    "author":"Stéphane Ducasse and Damien Cassou",
+    "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
+}
+
+${slide:title=Goal}$
+
+- Dynamic binding: method lookup
+- Sending a message
+- self/super semantics
+
+
+${slide:title=Message Sending}$
+
+Sending a message means ''looking up'' the method to execute in the class of the receiver and ''executing'' it on the receiver with the arguments.
+
+Sending a message
+# step one: look for the method whose name matches the message selector
+# step two: apply the found method to the receiver with the arguments.
+
+
+
+${slide:title=Method Lookup}$
+
+Two-step process:
+#The lookup starts in the CLASS of the RECEIVER.
+#If the method is defined in the method dictionary of CLASS, it is returned.
+#Otherwise the search continues in the superclasses of RECEIVER's class
+#- when there is no more superclass, raise an ERROR
+
+
+${slide:title=Method Lookup}$
+
++>file://figures/ClassAndInheritance.png|width=65+
+
+${slide:title=Some Lookup Cases}$
+
++>file://figures/LookupExemple.png|width=70+
+
+
+
+${slide:title=Method Lookup Starts in Receiver Class}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=50+
+
+[[[
+    A new foo
+    > ...
+    B new foo 
+    > ...
+]]]
+
+${slide:title=Method Lookup Starts in Receiver Class}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=50+
+
+[[[
+    A new foo
+    > 10
+    B new foo 
+    > 50
+]]]
+
+${slide:title=What is self/this?}$
+
+Take 5 min and write the definition of self/this?
+
+- Your definition should have two points:
+-- What does it represent?
+-- How the method are looked up when a message is sent to ==self==?
+
+${slide:title=self/this}$
+
+- ==self== represents the receiver of the message
+- ==self== in Pharo, ==this== in Java, C\#
+- the method lookup starts in the class of the receiver
+
+
+
+${slide:title=self represents the receiver}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=50+
+
+[[[
+    A new bar
+    > ...
+    B new bar 
+    > ...
+]]]
+
+${slide:title=self represents the receiver}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=50+
+
+[[[
+    A new bar
+    > 10
+    B new bar 
+    > 50
+]]]
+
+${slide:title=self always represents the receiver}$
+
++>file://figures/LookupWithSelfInSuperclassMethodThreeClasses.png|width=30+
+
+[[[
+    A new bar
+    > ...
+    B new bar 
+    > ...
+    C new bar
+    > ... 
+]]]
+
+${slide:title=self always represents the receiver}$
+
++>file://figures/LookupWithSelfInSuperclassMethodThreeClasses.png|width=30+
+
+[[[
+    A new bar
+    > 10
+    B new bar 
+    > 10
+    C new bar
+    > 50
+]]]
+
+${slide:title=When message is not found|label=Inheritance}$
+
+If no method is found and there is no superclass to explore (class Object), a new message called #doesNotUnderstand: is sent to the receiver, with a representation of the initial message.
+
++>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=70+
+
+${slide:title=Step by Step...|label=Inheritance}$
+
+- node1 coucou: #stef
+-- node is an instance of Node
+-- ==coucou== is looked up in the class Node
+-- ==coucou== is not defined in ==Node== > lookup continues in ==Object==
+-- ==coucou== is not defined in ==Object== => lookup stops.
+-- system sends message: ==doesNotUnderstand: #(coucou: stef)== to ==node1==
+-- ==node1== is an instance of ==Node== so ==doesNotUnderstand:== is looked up in the class ==Node==
+-- ==doesNotUnderstand:== is not defined in ==Node== => lookup continues in ==Object==
+-- ==doesNotUnderstand:== is defined in ==Object== => lookup stops \+ Exception -> Debugger
+
+${slide:title=doesNotUnderstand: is a message|label=Inheritance}$
+
+- ==doesNotUnderstand:== is a message
+- Every class can customised error handling
+- Important hook for Proxies (a proxy raises error to any messages by being a subclass of ==ProtoObject== and ==doesNotUnderstand:== gets invoked)
+
+${slide:title=doesNotUnderstand: and the debugger|label=Inheritance}$
+
+When you get an error, you get the debugger. But this is just a convenience when developing.
+In fact:
+
+- the message ==doesNotUnderstand:== is looked up,
+- when no class redefines the message ==doesNotUnderstand:==
+-- an exception (==MessageNotUnderstood==) is raised
+-- if there is no handler of that exception 
+-- the default behavior is to open a debugger
+- This behavior can be customized at different points to hide/control/log errors.
+
+${slide:title=What is super?}$
+
+Take 5 min and write the definition of super?
+
+- Your definition should have two points:
+-- What does it represent?
+-- How the method are looked up when a message is sent to ==super==?
+
+
+${slide:title=How do we access to an overriden method?}$
+
+- You define a method with the same name that one in an upper class.
+- You want to execute it in your subclass?
+- Use ==super== instead of ==self==
+
+[[[language=Smalltalk
+	Workstation>>accept: aPacket
+		(aPacket isAddressedTo: self)
+			ifTrue: [ Transcript show: 'Accepted by the Workstation ', self name asString ]
+			ifFalse: [ super accept: aPacket ]
+]]]
+
+
+${slide:title=Do you really understand super}$
+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=30+
+
+[[[
+   	A new bar
+    > ...
+    B new bar 
+    > ...
+    C new bar
+    > ...
+]]]
+
+${slide:title=Super changes the lookup starting class}$
+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=30+
+
+[[[
+   	A new bar
+    > 10
+    B new bar 
+    > 20
+    C new bar
+    > 100
+]]]
+
+
+${slide:title=Super?}$
+
+- ==super== refers to the receiver of the message (like ==self==. Yes!)
+- The method lookup starts in the superclass of the class containing the super expression.
+- Remark:
+-- There is no need of the receiver in the method lookup of ==super==
+
+${slide:title=self is dynamic|label=selfdynamic}$
+
+- When we read the body of a method, there is no way that we know the method that will be executed.
+- Because new code can be loaded and new instances of different classes can be created.
+- ==self== acts as a hook. Code of subclass can be injected into ==self== sends.
++>file://figures/SelfIsDynamic.png|width=15+
+
+
+${slide:title=Super is static|label=super}$
+
++>file://figures/SuperIsStatic.png|width=20+
+
+- At compilation-time, just reading the code we know that we should look above the class of the ""method""
+
+
+
+${slide:title=Yes even some books got it wrong}$
+
+- If lookup of message sent to ==super== would be looked up in the superclass of the class of the ""receiver"".
+- It would loop forever!
+- ==aC foo== loops :)
+
++>file://figures/LookupWithWrongDefinition.png|width=50+
+
+
+
+
+${slide:title=What you should know}$
+
+- ==self== ''always'' represents the receiver
+- the method lookup maps a message to a method
+- the method lookup starts in the class of the receiver...
+- ...and goes up in the hierarchy
+- ==super== is the receiver, lookup starts is superclass of the method.
+
+
+
+
+
+
+
