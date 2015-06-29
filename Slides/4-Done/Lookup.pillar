@@ -225,12 +225,12 @@ ${slide:title=self is dynamic|label=selfdynamic}$
 - When we read the body of a method, there is no way that we know the method that will be executed.
 - Because new code can be loaded and new instances of different classes can be created.
 - ==self== acts as a hook. Code of subclass can be injected into ==self== sends.
-+>file://figures/selfIsDynamic.png|width=15+
++>file://figures/SelfIsDynamic.png|width=15+
 
 
 ${slide:title=Super is static|label=super}$
 
-+>file://figures/superIsStatic.png|width=20+
++>file://figures/SuperIsStatic.png|width=20+
 
 - At compilation-time, just reading the code we know that we should look above the class of the ""method""
 

@@ -85,7 +85,7 @@ ${slide:title=Method Lookup starts in Receiver Class|label=Inheritance}$
 
 +>file://figures/MethodLookup1.png+
 
-+>file://figures/MethodLookup1.1.png+
++>file://figures/MethodLookup1-1.png+
 
 
 ${slide:title=self **always** represents the receiver|label=Inheritance}$
