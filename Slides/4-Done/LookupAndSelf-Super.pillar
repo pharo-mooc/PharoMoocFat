@@ -103,21 +103,27 @@ ${slide:title=self represents the receiver}$
 
 ${slide:title=self represents the receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=20+
+${columns}$
+
+${column:width=35}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=100+
+
+${column:width=65}$
+
 [[[
     B new bar 
     > 50
 ]]]
 - ==aB bar==:  start to look in class B - no method ==bar== defined 
 - look in class A - the method ==bar== is found 
-- the method ==bar== is applied on the receiver 
+- method ==bar== is applied on the receiver 
 - ==self== refers to aB (the receiver of the message)
 - ==foo== is sent to ==self==
-- ==foo== is looked in the class of the receiver: class ==B==
+- look ==foo== in receiver class: class ==B==
 - ==foo== is found there. It is applied to ==aB==. It returns 50.
 
-
-
+${endColumns}$
 
 
 
@@ -153,9 +159,11 @@ If no method is found and there is no superclass to explore (class Object), a ne
 
 +>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=30+
 
+
 ${slide:title=When message is not found|label=Inheritance}$
 
-If no method is found and there is no superclass to explore (class Object), a new message called #doesNotUnderstand: is sent to the receiver, with a representation of the initial message.
+A new message called #doesNotUnderstand: is sent to the receiver, with a representation of the initial message. ==doesNotUnderstand:== is looked up as a normal message.
+
 +>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=70+
 
 
@@ -223,7 +231,13 @@ ${slide:title=How do we access to an overriden method?}$
 
 ${slide:title=Challenge yourself with super!}$
 
-+>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=30+
+${columns}$
+
+${column:width=50}$
+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=90+
+
+${column:width=50}$
 
 [[[
    	A new bar
@@ -234,9 +248,17 @@ ${slide:title=Challenge yourself with super!}$
     > ...
 ]]]
 
+${endColumns}$
+
 ${slide:title=Challenge yourself with super!}$
 
-+>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=30+
+${columns}$
+
+${column:width=50}$
+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=90+
+
+${column:width=50}$
 
 [[[
    	A new bar
@@ -247,22 +269,33 @@ ${slide:title=Challenge yourself with super!}$
     > 100
 ]]]
 
+${endColumns}$
+
+
 ${slide:title=Super changes the class where the lookup starts}$
 
-+>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=20+
+${columns}$
+
+${column:width=30}$
+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=100+
 
 [[[
     C new bar
     > 100
 ]]]
 
-- ==bar== is sent to aC (an instance of C): ==bar== is looked up in C, not found, so looked in ==B==
+${column:width=70}$
+
+- ==bar== is sent to ==aC== (an instance of C): ==bar== is looked up in C, not found, look in ==B==
 - ==bar== is found in class B, and applied to the receiver ==aC==. 
-- ==bar== is sent to ==super==, ==super== is the receiver (aC), but look up starts above class ==B==
+- ==bar== is sent to ==super==, 
+- ==super== is the receiver (aC), but lookup starts above class ==B==
 - ==bar== is found in class ==A== and it is applied to the receiver ==aC==.
 - ==foo== is sent to ==self==: ==self== represents the receiver: ==aC==
 - ==foo== is found in class ==C== and applied to ==aC==, it returns 50.
 
+${endColumns}$
 
 ${slide:title=Super?}$
 
@@ -282,18 +315,33 @@ ${slide:title=Super is static / self is dynamic}$
 
 ${slide:title=self is dynamic|label=selfdynamic}$
 
-- When we read the body of a method, there is no way that we know which method that will be executed: new instances of different classes can be created and the message bar sent to them.
-- ==self== acts as a hook. Code of subclasses can be injected into ==self== sends.
-+>file://figures/SelfIsDynamic1.png|width=20+
+${columns}$
 
+${column:width=50}$
+
+- When we read the body of method ==bar==, there is no way that we know which method ==foo== will be executed.
+- New instances of different classes can be created and the message ==bar== sent to them.
+- ==self== acts as a hook. Code of subclasses can be injected into ==self== sends.
+
+${column:width=50}$
+
++>file://figures/SelfIsDynamic1.png|width=60+
+
+${endColumns}$
 
 ${slide:title=super is static|label=super}$
 
-+>file://figures/SuperIsStatic.png|width=15+
+${columns}$
+
+${column:width=50}$
+
++>file://figures/SuperIsStatic.png|width=50+
+
+${column:width=50}$
 
 - At compilation-time, just reading the code we know that we should look above the class containing the ""method"" using ==super==.
 
-
+${endColumns}$
 
 ${slide:title=Yes even some books got it wrong}$
 
