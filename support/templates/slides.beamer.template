@@ -69,6 +69,7 @@
 
 \newcommand{\ct}[1]{{\sffamily\textup{\colorbox{codebox}{#1}}}}
 \usepackage{listings}
+\usepackage{booktabs}
 \usepackage{textcomp}
 % Source Code
 \usepackage{color}
