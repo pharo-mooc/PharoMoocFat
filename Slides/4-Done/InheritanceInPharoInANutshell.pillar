@@ -2,124 +2,139 @@
 	"title":"Inheritance In Pharo in A Nushell",
 	"subtitle":"",
 	"author":"Stéphane Ducasse and Damien Cassou",
-	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
+	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr damien.cassou@inria.fr"
 }
 
 
-${slide:title=In A Nutshell|label=Outline}$
+${slide:title=In A Nutshell}$
 
 - Single inheritance
--- Inheritance of instance variables is made at class definition time.
--- Inheritance of behavior is dynamic and done at runtime.
+-- Inheritance of instance variables -> class definition time
+-- Inheritance of behavior -> runtime
 - Only virtual calls
 - Method lookup starts in the class of the receiver
-- ==self== represents the receiver, ==super== too. 
+- ==self== represents the receiver, ==super== too
 - Class methods are virtual too
-- Messages not understood is a message and a hook of the metaobject protocol.
+- Messages not understood is a message and a hook of the metaobject protocol
 
 
-${slide:title=Root of Inheritance|label=Outline}$
+${slide:title=Root of Inheritance}$
 
-- ==Object== is the root of normal classes.
-- ==ProtoObject== the superclass of ==Object== is for special purposes:
--- ==ProtoObject=='s goal in life is to raise errors to most of the messages.
--- This is important to build proxies 
-
-
-${slide:title=Inheritance of Instance Variables|label=Outline}$
-
-- Inheritance of instance variables is made at class definition time.
--- The instance variables of a new class is computed based on its variables and the ones of its superclass.
--- This happens at class definition time.
+- ==Object== is the root of most classes
+- ==ProtoObject== (the superclass of ==Object==) is for special purposes
+-- ==ProtoObject=='s goal in life is to raise errors to most of the messages
+-- This is important to build proxies
 
 
-${slide:title=Inheritance of Behavior|label=Outline}$
+${slide:title=Inheritance of Instance Variables}$
 
-- Inheritance of behavior is dynamic and done at runtime.
-- At runtime, the method corresponding to the message is looked up starting from the class of the receiver and follow the inheritance chain.
+- Inheritance of instance variables is made at class definition time
+-- The instance variables of a new class are computed based on its own instance variables and the ones of its superclass
+-- This happens at class definition time
+
+
+${slide:title=Inheritance of Behavior and the Lookup}$
+
+- Inheritance of behavior is dynamic and done at runtime
+- The ''method'' corresponding to the ''message'' is ''looked up''
+-- starting from the class of the receiver
+-- if not found there, the ""lookup"" follows the inheritance chain
 
 +>file://figures/LookupEssence.png|width=50+
 
 
-${slide:title=self and super|label=Outline}$
+${slide:title=self and super}$
 
-- self and super represents the receiver of the message (as Java, C#....)
-- super is used to access overriden methods. 
+- ==self== and ==super== represents the receiver of the message (as in Java, C#...)
+- ==super== is used to access overriden methods
 
 
-${slide:title=Lookup of class methods is no different}$
+${slide:title=Lookup of Class Methods is No Different}$
 
 - Sending a message to a class is also late-bound (dynamically resolved)
 -- contrary to Java/C#
--- no static, only methods of the class.
+-- no ==static==, only methods of another object (a class)
 
-- Only one rule: when we send a message to an object, we look in the class of the object and follow the inheritance chain.
+- Only one rule:
+--when a message is sent to an object, a method is searched starting from the class of the object and following the inheritance chain
 
 +>file://figures/LookupEssenceAny.png|width=40+
 
+${slide:title=A Class is an Instance of Another Class}$
 
-${slide:title=A class is an instance of another class}$
-
-- A class X is always the unique instance of another class named ''X class''
-- The class of the class Point is named ''Point class''
+- A class ==X== is always the unique instance of another class ==X class==
+-- The class of ==Node== is ==Node class==
 
 +>file://figures/WorkstationMetaclassesWithInheritance.png|width=70+
 
 
-${slide:title=Lookup of class methods is no different}$
+${slide:title=Lookup of Class Methods is No Different}$
 
-+>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=70+
++>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=100+
 
+${slide:title=When Message is Not Found}$
 
-
-
-
-
-${slide:title=When message is not found|label=Inheritance}$
-
-If no method is found and there is no superclass to explore (class Object), a new message called #doesNotUnderstand: is sent to the receiver, with a representation of the initial message.
+-If no method is found in the topmost superclass (==Object== class):
+--a message ==#doesNotUnderstand:== is sent to the original receiver
+--this message includes the original one
 
 +>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=70+
 
-${slide:title=Step by Step...|label=Inheritance}$
+${slide:title=Step by Step...}$
 
-- node1 coucou: #stef
--- node is an instance of Node
--- ==coucou== is looked up in the class Node
--- ==coucou== is not defined in ==Node== > lookup continues in ==Object==
--- ==coucou== is not defined in ==Object== => lookup stops.
--- system sends message: ==doesNotUnderstand: #(coucou: stef)== to ==node1==
--- ==node1== is an instance of ==Node== so ==doesNotUnderstand:== is looked up in the class ==Node==
--- ==doesNotUnderstand:== is not defined in ==Node== => lookup continues in ==Object==
--- ==doesNotUnderstand:== is defined in ==Object== => lookup stops \+ Exception -> Debugger
+${columns}$
 
-${slide:title=doesNotUnderstand: is a message|label=Inheritance}$
+${column:width=50}$
+
+- ==node1 coucou: #stef==
+-# ==coucou:== is looked up in ==Node==
+-# not defined in ==Node== -> lookup continues in ==Object==
+-# not defined in ==Object== => system sends ==doesNotUnderstand:== to ==node1==
+-# ==doesNotUnderstand:== is looked up in ==Node==
+-# not defined in ==Node== -> lookup continues in ==Object==
+-# ==Object>>doesNotUnderstand:== is found and executed
+
+${column:width=50}$
+
++>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=100+
+
+${endColumns}$
+
+${slide:title=doesNotUnderstand: is a Message}$
 
 - ==doesNotUnderstand:== is a message
-- Every class can customised error handling
-- Important hook for Proxies (a proxy raises error to any messages by being a subclass of ==ProtoObject== and ==doesNotUnderstand:== gets invoked)
+- Every class can customize error handling
+- Important hook for automatic delegation
+--when an object behaves the same way as its target
+
+[[[language=smalltalk
+Proxy>>doesNotUnderstand: aMessage
+  "Delegate aMessage to my target"
+  ^ aMessage sendTo: target
+]]]
 
 
-${slide:title=doesNotUnderstand: and the debugger|label=Inheritance}$
+${slide:title=doesNotUnderstand: and the Debugger}$
 
-When you get an error, you get the debugger. But this is just a convenience when developing.
-In fact:
+What happens when a message is not understood can be customized:
 
-- the message ==doesNotUnderstand:== is looked up,
+- the message ==doesNotUnderstand:== is looked up
 - when no class redefines the message ==doesNotUnderstand:==
--- an exception (==MessageNotUnderstood==) is raised
--- if there is no handler of that exception 
--- the default behavior is to open a debugger
-- This behavior can be customized at different points to hide/control/log errors.
+-- a ==MessageNotUnderstood== exception is raised
+-- when there is no handler of that exception, the default is to open a debugger
+- this behavior can be customized to hide/control/log errors
 
+[[[language=smalltalk
+SomeClass>>doSomething
+  [ ... ]
+  on: MessageNotUnderstood
+  do: [ Transcript show: 'Something went wrong with a message' ]
+]]]
 
+${slide:title=What you should Know}$
 
-
-
-${slide:title=What you should know|label=super}$
-
-- Inheritance of instance variables is made at class definition time.
-- Inheritance of behavior is dynamic and done at runtime.
-- self **always** represents the receiver, the method lookup starts in the class of the receiver.
-- super represents the receiver but method lookup starts in the superclass of the class using it.
-- message not understood is a message and a hook of the metaobject protocol.
+- Inheritance of instance variables -> class definition time
+- Inheritance of behavior -> at runtime.
+- ==self== ''always'' represents the receiver, the method lookup starts in the class of the receiver
+- ==super== ''always'' represents the receiver but method lookup starts in the superclass of the class using it
+- ==doesNotUnderstand:== is a message and a hook of the metaobject protocol.
