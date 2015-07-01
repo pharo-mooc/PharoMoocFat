@@ -19,12 +19,25 @@ ${slide:title=Collections In a Nutshell|label=arrays}$
 
 ${slide:title=Collections In a Nutshell|label=arrays}$
 
-+>file://figures/CollectionHierarchyForIntroChapter.png|width=50+
++>file://figures/CollectionHierarchyForIntroChapter.png|width=80+
 
+
+${slide:title=Common API|label=arrays}$
+
+- Most iterators works on all collections
+
+#creation ==with: anElement==, ==with:with:==, ==withAll: aCollection==
+#accessing: ==size==, ==capacity==, ==at: anIndex==, ==at: anIndex put: anElement==
+#testing ==isEmpty==, ==includes: anElement==, ==contains: aBlock==, ==occurrencesOf: anElement==
+#adding ==add: anElement==, ==addAll: aCollection==
+#removing ==remove: anElement==, ==remove: anElement ifAbsent: aBlock==, ==removeAll: aCollection==
+#enumerating ==do: aBlock==, ==collect: aBlock==, ==select: aBlock==, ==reject: aBlock==, ==detect: aBlock==, ...
+#converting ==asBag==, ==asSet==, ==asOrderedCollection==, ==asSortedCollection==, ==asArray==
 
 ${slide:title=Creating variable size objects|label=arrays}$
 
-- Message ==new: size== creates an object of size
+- Message ==new== instantiates one object
+- Message ==new: size== creates an object specifying a size
 
 [[[language=smalltalk
     Array new: 4
@@ -35,26 +48,33 @@ ${slide:title=Creating variable size objects|label=arrays}$
 	
     (OrderedCollection new: 1000) capacity
     > 1000
+	
+    OrderedCollection withAll: #(7 3 13)
+    > an OrderedCollection(7 3 13)
+	
+    Set withAll: #(7 3 13)
+    a Set( 7 3 13)
 ]]]
 
--Variants with value
+-Variants with default value
 
 [[[language=smalltalk
     OrderedCollection new: 5 withAll: 'a' 
-    > "an OrderedCollection('a' 'a' 'a' 'a' 'a')"
+    > an OrderedCollection('a' 'a' 'a' 'a' 'a')
 ]]]
 
 ${slide:title=Array|label=arrays}$
 
-- ==#( ... )== 
 - Fixed size
+- Direct access: ==at:==/==at:put:==
+- Has literal syntax: ==#( ... )== 
 
 [[[language=smalltalk
     #('Calvin' 'hates' 'Suzie') size
     > 3
 
-    #(45 38 1300 8) size
-    > 4
+    #('Calvin' 'hates' 'Suzie') at: 2
+    > 'hates'
 ]]]
 
 
@@ -73,8 +93,6 @@ ${slide:title=Literals Arrays|label=arrays}$
 ]]]
 
 
-${slide:title=Dynamic Array Syntactic Sugar|label=arrays}$
-
 ${slide:title=Literals Arrays|label=arrays}$
 
 [[[language=smalltalk
@@ -84,7 +102,7 @@ ${slide:title=Literals Arrays|label=arrays}$
     > #(45 38 1300 8) 
 ]]]
 
-- =={}== is syntactic sugar to create dynamic arrays
+- =={  .  .  .}== is syntactic sugar to create dynamic arrays
 
 [[[language=smalltalk
     Array with: 45 with: 38 with: 1300 with: 8
@@ -104,23 +122,23 @@ ${slide:title=Literals vs. Dynamic Arrays|label=arrays}$
 
 [[[language=smalltalk
     Array with: 45 with: 38 with: 1300 with: 8
-	
+    > #( 45 . 38 . 1300 . 8)
+
     { 45 + 38 . 1300 . 8 }
     > #( 83 . 1300 . 8)
 ]]]
-
-
 
 ${slide:title=First element starts at 1 |label=arrays}$
 
 [[[language=smalltalk
     #('Calvin' 'hates' 'Suzie') at: 2
     > 'hates'
+	
+    #('Calvin' 'hates' 'Suzie') asOrderedCollection  at: 2 
+    > 'hates'
 ]]]
 
-
 ${slide:title= at: to access, at:put: to set|label=arrays}$
-
 
 [[[language=smalltalk
     #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
@@ -138,30 +156,59 @@ ${slide:title=Variants|label=arrays}$
 ]]]
 
 - An array of strings:
-
 [[[language=smalltalk
     #('calvin' 'hobbes' 'suzie')
     > #('calvin' 'hobbes' 'suzie')
 ]]]
 
-
 ${slide:title=Collection can contain heterogenous objects|label=arrays}$
 
 - Heterogenous
-[[[
- #('lulu' (1 2 3))
-	-> #('lulu' #(1 2 3))
- #('lulu' 1.22 1)
-	-> #('lulu' 1.22 1)
+[[[language=smalltalk
+    #('calvin' (1 2 3))
+    > #('calvin' #(1 2 3))
+	
+    #('lulu' 1.22 1)
+    > #('lulu' 1.22 1)
 ]]]
 
-
 ${slide:title=Byte Arrays |label=arrays}$
+- Fixed size arrays.
+- Elements are integers between 0 and 255.
+- Has a special syntax: ==#[ 1 2 255 ]==
 
-- ==#[1 2 255]==
+${slide:title=OrderedCollection|label=arrays}$
 
-{slide:title=OrderedCollection|label=arrays}$
+- Growing size
+- ==add:==, ==remove:==
 
+[[[language=smalltalk
+    | ordCol |
+    ordCol := OrderedCollection new.
+    ordCol add: 'Reef'; add: 'Pharo'; addFirst: 'Pharo'.
+    ordCol 
+    > an OrderedCollection('Pharo' 'Reef' 'Pharo')
+]]]
 
-{slide:title=Set|label=arrays}$
+[[[language=smalltalk
+    #('Pharo' 'Reef' 'Pharo' 'Pharo') asOrderedCollection
+    > an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Pharo')
+]]]
+
+${slide:title=Set|label=set}$
+
+- No duplicates
+- Growing size
+- ==add:==, ==remove:==
+
+[[[language=smalltalk
+    #('Pharo' 'Reef' 'Pharo' 'Pharo') asSet
+    >  a Set('Pharo' 'Reef')
+]]]
+
+${slide:title=Summary|label=set}$
+
+- Easy to use collections.
+- Common vocabulary.
+- Simple conversion between them
 
