@@ -1,0 +1,1 @@
+'From Pharo3.0 of 18 March 2013 [Latest update: #30862] on 4 March 2015 at 12:11:07.996638 pm'!Simulation subclass: #SimulationBalleSimple	instanceVariableNames: ''	classVariableNames: ''	poolDictionaries: ''	category: 'SimulationBalle'!!SimulationBalleSimple methodsFor: 'initailize-release' stamp: 'NouryBouraqadi 3/13/2014 10:12'!classeBalle	^BalleSimple! !
