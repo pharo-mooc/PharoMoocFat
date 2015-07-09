@@ -1,0 +1,39 @@
+{
+    "title":"Inheritance and Lookup",
+    "subtitle":"5: Lookup in metaclasses",
+    "author":"Stéphane Ducasse and Damien Cassou",
+    "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr damien.cassou@inria.fr"
+}
+
+${slide:title=Goal}$
+
+-Messages can be sent to classes too
+-The mechanism is ""exactly"" the same
+
+${slide:title=Lookup of Class Methods is No Different}$
+
+- Sending a message to a class is also late-bound (dynamically resolved)
+-- contrary to Java/C#
+-- no ==static==, only methods of another object (a class)
+
+- Only one rule:
+--when a message is sent to an object, a method is searched starting from the class of the object and following the inheritance chain
+
++>file://figures/LookupEssenceAny.png|width=40+
+
+${slide:title=A Class is an Instance of Another Class}$
+
+- A class ==X== is always the unique instance of another class ==X class==
+-- The class of ==Node== is ==Node class==
+
++>file://figures/WorkstationMetaclassesWithInheritance.png|width=70+
+
+
+${slide:title=Lookup of Class Methods is No Different}$
+
++>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=100+
+
+${slide:What you should Know}
+
+-classes are objects and can be sent messages
+-the process is ""exactly"" the same as for other objects

@@ -1,0 +1,170 @@
+{
+    "title":"Inheritance and Lookup",
+    "subtitle":"3: Super",
+    "author":"Stéphane Ducasse and Damien Cassou",
+    "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr damien.cassou@inria.fr"
+}
+
+${slide:title=Goal}$
+
+- Sending a message
+- Dynamic binding/method lookup
+- ==super== semantics and the differences with ==self==
+
+${slide:title=What is super?}$
+
+Take 5 min and write the definition of super?
+
+- Your definition should have two points:
+-- What does it represent?
+-- How the method are looked up when a message is sent to ==super==?
+
+
+${slide:title=How do we access to an overriden method?}$
+
+- You define a method with the same name that one in an upper class.
+- You want to execute it in your subclass?
+- Use ==super== instead of ==self==
+
+[[[language=Smalltalk
+    Workstation>>accept: aPacket
+        (aPacket isAddressedTo: self)
+            ifTrue: [ Transcript show: 'Accepted by the Workstation ', self name asString ]
+            ifFalse: [ super accept: aPacket ]
+]]]
+
+
+${slide:title=Challenge yourself with super!}$
+
+${columns}$
+
+${column:width=50}$
+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=90+
+
+${column:width=50}$
+
+[[[
+    A new bar
+    > ...
+    B new bar
+    > ...
+    C new bar
+    > ...
+]]]
+
+${endColumns}$
+
+${slide:title=Challenge yourself with super!}$
+
+${columns}$
+
+${column:width=50}$
+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=90+
+
+${column:width=50}$
+
+[[[
+    A new bar
+    > 10
+    B new bar
+    > 20
+    C new bar
+    > 100
+]]]
+
+${endColumns}$
+
+
+${slide:title=Super changes the class where the lookup starts}$
+
+${columns}$
+
+${column:width=30}$
+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=100+
+
+[[[
+    C new bar
+    > 100
+]]]
+
+${column:width=70}$
+
+- ==bar== is sent to ==aC== (an instance of C): ==bar== is looked up in C, not found, look in ==B==
+- ==bar== is found in class B, and applied to the receiver ==aC==.
+- ==bar== is sent to ==super==,
+- ==super== is the receiver (aC), but lookup starts above class ==B==
+- ==bar== is found in class ==A== and it is applied to the receiver ==aC==.
+- ==foo== is sent to ==self==: ==self== represents the receiver: ==aC==
+- ==foo== is found in class ==C== and applied to ==aC==, it returns 50.
+
+${endColumns}$
+
+${slide:title=Super?}$
+
+- ==super== refers to the receiver of the message (like ==self==. Yes!)
+- The method lookup starts in the superclass of ...?
+
+
+
+${slide:title=Super starts lookup in superclass of the class using it}$
+
+- ==super== refers to the receiver of the message (like ==self==. Yes!)
+- The method lookup starts in the superclass of the class containing the super expression.
+
+${slide:title=Super is static / self is dynamic}$
+
+- There is no reference to the receiver in the method lookup of a ==super== invocation!
+
+${slide:title=self is dynamic|label=selfdynamic}$
+
+${columns}$
+
+${column:width=50}$
+
+- When we read the body of method ==bar==, there is no way that we know which method ==foo== will be executed.
+- New instances of different classes can be created and the message ==bar== sent to them.
+- ==self== acts as a hook. Code of subclasses can be injected into ==self== sends.
+
+${column:width=50}$
+
++>file://figures/SelfIsDynamic1.png|width=60+
+
+${endColumns}$
+
+${slide:title=super is static|label=super}$
+
+${columns}$
+
+${column:width=50}$
+
++>file://figures/SuperIsStatic.png|width=50+
+
+${column:width=50}$
+
+- At compilation-time, just reading the code we know that we should look above the class containing the ""method"" using ==super==.
+
+${endColumns}$
+
+${slide:title=Yes even some books got it wrong}$
+
+- Wrong definition: super looks for the method in the superclass of the class of the ""receiver"".
+- Wrong!
+- It would loop forever!
+- ==aC foo== loops, because ==super== points to ==aC== and the superclass of the class of the receiver is B.
+
++>file://figures/LookupWithWrongDefinition.png|width=45+
+
+
+
+
+${slide:title=What you should know}$
+
+- ==self== ''always'' represents the receiver
+- the method lookup maps a message to a method
+- the method lookup starts in the class of the receiver...
+- ...and goes up in the hierarchy
+- ==super== is the receiver, lookup starts is superclass of the method using the expression.
+- self sends act as a hook. Code of subclasses may be invoked.

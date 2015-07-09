@@ -6,47 +6,8 @@
 }
 
 
-${slide:title=Objectives|label=Outline}$
 
-- Inheritance
-- Method lookup
-- Self/super difference
-
-
-${slide:title=Inheritance Reminder|label=Inheritance}$
-
-- Do not want to rewrite everything!
-- Often we want small changes
-- We would like to reuse and extend existing behavior
-
-- Solution: class inheritance
-
-- Each class defines or refines the definition of its ancestors
-
-+>file://figures/InheritanceDiagram.png+
-
-- New classes
---Can add state and behavior:
----color, borderColor, borderWidth,
----totalArea
-
--Can specialize ancestor behavior
---intersect:
-
-- Can use ancestor's behavior and state
-- Can redefine ancestor's behavior
---area to return totalArea
-
-
-${slide:title=Single inheritance|label=Inheritance}$
-
-- Static for the instance variables
--- At class creation time the instance variables are collected from the superclasses and the class. No repetition of instance variables.
-
-- Dynamic for the methods
--- Late binding (all virtual) methods are looked up at runtime depending on the dynamic type of the receiver.
-
-${slide:title=Message Sending|label=Inheritance}$
+${slide:title=Message Sending}$
 
 - receiver selector args
 
@@ -54,7 +15,7 @@ ${slide:title=Message Sending|label=Inheritance}$
 
 - Looking up a method: When a message (receiver selector args) is sent, the method corresponding to the message selector is looked up through the inheritance chain.
 
-${slide:title=Method Lookup|label=Inheritance}$
+${slide:title=Method Lookup}$
 
 - Two steps process
 
@@ -64,22 +25,22 @@ ${slide:title=Method Lookup|label=Inheritance}$
 
 -- 3: Otherwise the search continues in the superclasses of the receiver's class. If no method is found and there is no superclass to explore (class Object), this is an ERROR
 
-${slide:title= self/this|label=Inheritance}$
+${slide:title= self/this}$
 
 - ==self== represents the receiver of the message 
 - The method lookup starts in the class of the receiver
 
 
-${slide:title=Lookup: class and inheritance|label=Inheritance}$
+${slide:title=Lookup: class and inheritance}$
 
 
 +>file://figures/ClassAndInheritance.png+
 
-${slide:title=Some Case|label=Inheritance}$
+${slide:title=Some Case}$
 
 +>file://figures/LookupExemple.png+
 
-${slide:title=Method Lookup starts in Receiver Class|label=Inheritance}$
+${slide:title=Method Lookup starts in Receiver Class}$
 
 +>file://figures/MethodLookup.png+
 
@@ -88,22 +49,22 @@ ${slide:title=Method Lookup starts in Receiver Class|label=Inheritance}$
 +>file://figures/MethodLookup1-1.png+
 
 
-${slide:title=self **always** represents the receiver|label=Inheritance}$
+${slide:title=self **always** represents the receiver}$
 
 +>file://figures/Representreceveir.png+
 
 +>file://figures/Representreceveir1.png+
 
 
-${slide:title=When message is not found|label=Inheritance}$
+${slide:title=When message is not found}$
 
 If no method is found and there is no superclass to explore (class Object), a new message called #doesNotUnderstand: is sent to the receiver, with a representation of the initial message.
 
-${slide:title=Graphically...|label=Inheritance}$
+${slide:title=Graphically...}$
 
 +>file://figures/MessageLokupNotFound.png+
 
-${slide:title=Graphically...in Pharo|label=Inheritance}$
+${slide:title=Graphically...in Pharo}$
 
 - node1 print: aPacket
 -- node is an instance of Node
@@ -115,7 +76,7 @@ ${slide:title=Graphically...in Pharo|label=Inheritance}$
 -- doesNotUnderstand: is not defined in Node => lookup continues in Object
 -- doesNotUnderstand: is defined in Object => lookup stops \+ method executed (open a dialog box)
 
-${slide:title=Graphically...in Pharo|label=Inheritance}$
+${slide:title=Graphically...in Pharo}$
 
 +>file://figures/StepToDNU.png+
 
