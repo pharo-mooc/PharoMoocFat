@@ -13,7 +13,7 @@ ${slide:title=In A Nutshell}$
 -- Inheritance of behavior -> runtime
 - Only virtual calls
 - Method lookup starts in the class of the receiver
-- ==self== represents the receiver, ==super== too
+- ==self== represents the receiver
 - Class methods are virtual too
 - Messages not understood is a message and a hook of the metaobject protocol
 
@@ -21,9 +21,8 @@ ${slide:title=In A Nutshell}$
 ${slide:title=Root of Inheritance}$
 
 - ==Object== is the root of most classes
-- ==ProtoObject== (the superclass of ==Object==) is for special purposes
--- ==ProtoObject=='s goal in life is to raise errors to most of the messages
--- This is important to build proxies
+- ==ProtoObject== (the superclass of ==Object==) is for special purposes...
+-- ...but we will ignore it in the following slides
 
 
 ${slide:title=Inheritance of Instance Variables}$
@@ -41,13 +40,6 @@ ${slide:title=Inheritance of Behavior and the Lookup}$
 -- if not found there, the ""lookup"" follows the inheritance chain
 
 +>file://figures/LookupEssence.png|width=50+
-
-
-${slide:title=self and super}$
-
-- ==self== and ==super== represents the receiver of the message (as in Java, C#...)
-- ==super== is used to access overriden methods
-
 
 ${slide:title=Lookup of Class Methods is No Different}$
 
@@ -78,7 +70,7 @@ ${slide:title=When Message is Not Found}$
 --a message ==#doesNotUnderstand:== is sent to the original receiver
 --this message includes the original one
 
-+>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=70+
++>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=30+
 
 ${slide:title=Step by Step...}$
 
@@ -96,7 +88,7 @@ ${column:width=50}$
 
 ${column:width=50}$
 
-+>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=100+
++>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=80+
 
 ${endColumns}$
 
@@ -126,7 +118,7 @@ What happens when a message is not understood can be customized:
 
 [[[language=smalltalk
 SomeClass>>doSomething
-  [ ... ]
+  [ anObject nonExistingMethod ]
   on: MessageNotUnderstood
   do: [ Transcript show: 'Something went wrong with a message' ]
 ]]]
@@ -136,5 +128,4 @@ ${slide:title=What you should Know}$
 - Inheritance of instance variables -> class definition time
 - Inheritance of behavior -> at runtime.
 - ==self== ''always'' represents the receiver, the method lookup starts in the class of the receiver
-- ==super== ''always'' represents the receiver but method lookup starts in the superclass of the class using it
 - ==doesNotUnderstand:== is a message and a hook of the metaobject protocol.
