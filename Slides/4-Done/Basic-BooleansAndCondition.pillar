@@ -68,20 +68,20 @@ ${slide:title=Conditionals: ==ifTrue:ifFalse:==}$
 - ==ifTrue:== and ==ifTrue:ifFalse:==
 
 [[[
-....forceItalicOrOblique
-........self slantValue = 0 ifTrue: [ slantValue := 1 ]
+    forceItalicOrOblique
+        self slantValue = 0 ifTrue: [ slantValue := 1 ]
 ]]]
 
 [[[
-....initialAnswer := fullName isEmptyOrNil
-.........ifTrue: [ 'FirstnameLastname' translated ]
-.........ifFalse: [ fullName ].
+    initialAnswer := fullName isEmptyOrNil
+        ifTrue: [ 'FirstnameLastname' translated ]
+        ifFalse: [ fullName ].
 ]]]
 
 ${slide:title=ifTrue:ifFalse: other examples}$
 
 [[[
-    ^ index = 0 
+    index = 0 
         ifFalse: [ values at: index ]
         ifTrue: [ self privateAt: key put: aBlock value ]
 ]]]
