@@ -1,10 +1,9 @@
 {
 	"title":"Booleans and Conditions",
 	"subtitle":"",
-	"author":"Stephane Ducasse and Damien Cassou",
+	"author":"Stéphane Ducasse and Damien Cassou",
 	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
 }
-
 
 ${slide:title=Booleans}$
 
@@ -25,14 +24,14 @@ ${slide:title=Lazy Logical Operators}$
     false & (1 error: 'crazy')
     -> an error
 ]]]
-- the argument is executed because this is a non lazy operator.
+- the argument ==(1 error: 'crazy')== is executed because this is a non lazy operator.
 
 [[[language=smalltalk 
     false and: [1 error: 'crazy']
     -> false and not an error 
 ]]]
 
-- the argument is not executed because it is not necessary
+- the argument ==[1 error: 'crazy']== is not executed because it is not necessary
 
 ${slide:title=Yes ifTrue\:ifFalse\: is a message!}$
 
@@ -44,7 +43,6 @@ Weather isRaining
 
 - Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
 - ==ifTrue:ifFalse:== is in fact radically optimized by the compiler but you can implement another one such as ==siAlors:sinon:== and try it at home. 
-
 
 ${slide:title=Boolean Implementation}$
 
@@ -60,7 +58,7 @@ To see more have a look at the Essence of Dispatch Lecture.
 
 !Conditionals
 
-${slide:title=Conditionals: ==ifTrue:ifFalse:==}$
+${slide:title=Conditionals: ifTrue:ifFalse:}$
 
 - Booleans are objects
 - Conditionals are messages sent to booleans or block
@@ -81,12 +79,12 @@ ${slide:title=Conditionals: ==ifTrue:ifFalse:==}$
 ${slide:title=ifTrue:ifFalse: other examples}$
 
 [[[
-    index = 0 
+    index isZero 
         ifFalse: [ values at: index ]
         ifTrue: [ self privateAt: key put: aBlock value ]
 ]]]
 
-! Condtionals expressed on collections
+! Conditionals expressed on collections
 
 ${slide:title=Conditionals: ifEmpty: ifNotEmpty:}$
 
@@ -107,4 +105,4 @@ ${slide:title=Conditionals: ifEmpty: ifNotEmpty:}$
 ${slide:title=Summary}$
 
 - Booleans are real objects.
-- Some conditionals are messages sent to Booleans
+- Some conditionals are messages sent to Booleans.
