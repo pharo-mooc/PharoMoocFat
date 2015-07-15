@@ -29,19 +29,42 @@ ${slide:title=Methods |label=methods}$
 - Public.
 - Virtual (late bound): always dynamically looked up.
 - By default return the receiver (like if we add a return self at the end of any method)
--- Ease composition
+- This ease composition
+
+[[[language=smalltalk
+    initializePlayers
+        super initializePlayers.
+        self players
+            at: 'tileAction'
+            put: ( MITileAction director: self )
+]]]
+
+is equivalent to 
+
+[[[language=smalltalk
+    initializePlayers
+        super initializePlayers.
+        self players
+            at: 'tileAction'
+            put: ( MITileAction director: self )
+    ^ self 
+]]]
+
+${slide:title=Methods |label=methods}$
 
 [[[language=smalltalk
 yourself
-    ^ self 
+    
 ]]]
 
 is equivalent to 
 
 [[[language=smalltalk
 yourself
-    
+    ^ self 
 ]]]
+
+
 
 ${slide:title=Typographical convention |label=arrays}$
 
@@ -59,7 +82,7 @@ But when we show code you do not know in which class the method is defined.
 
 
 [[[language=smalltalk
-Point>>    crossProduct: aPoint 
+Point >> crossProduct: aPoint 
         "Answer a number that is the cross product of the receiver and the 
         argument, aPoint."
 
@@ -67,7 +90,7 @@ Point>>    crossProduct: aPoint
 ]]]
 
 
-${slide:title=Example Method|label=arrays}$
+${slide:title=An Example of Method|label=arrays}$
 
 [[[language=smalltalk
 Point >> dist: aPoint 
@@ -80,9 +103,17 @@ Point >> dist: aPoint
 
 ${slide:title=Class Method|label=classMethodDefinition}$
 
+
+
 To define a class method, press the class side button
 
-+.>file://figures/classSideMethod.png|width=60+
+${columns}$
+
+${column:width=50}$
+
++.>file://figures/classSideMethod.png|width=80+
+
+${column:width=50}$
 
 In books and lecture notes we add 'class'
 
@@ -93,9 +124,15 @@ Point class >> x: xInteger y: yInteger
         ^self basicNew setX: xInteger setY: yInteger
 ]]]
 
+${endColumns}$
+
+
+
+
 
 ${slide:title=Summary|label=summary}$
 
-- Classes are defined inside packages
-- Methods are public and virtual
-- By default return the receiver
+- Classes are defined inside packages.
+- Methods are public and virtual.
+- Class methods are just methods of the class.
+- By default a method returns the receiver.
