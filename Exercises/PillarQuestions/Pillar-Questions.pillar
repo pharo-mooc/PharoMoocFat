@@ -1,9 +1,12 @@
 !Understanding Existing Code
 
+In this exercise session, you will practice how to approach a system and understand it. 
 !!Setup
 
 Download Pharo with Pillar from the Pillar website on Smalltalkhub *http://www.smalltalkhub.com/#!/~Pier/Pillar*.
 
+To answer the following questions. We sugget that you  use the different navigation tools of Pharo looking
+for class references (references), method implementations (implementers) and message sent (senders).
 
 !!High-Level Structure
 
