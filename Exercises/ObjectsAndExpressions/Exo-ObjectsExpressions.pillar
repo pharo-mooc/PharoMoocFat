@@ -1,17 +1,15 @@
-!! Expressions and Messages
+!Expressions and Messages
 
 
 This exercise is about reading and understanding Pharo expressions, and differentiating between different
 types of messages and receivers. Note that in the expressions you will be asked to read and executed, you
 can assume that the implementation of methods generally corresponds to what their message names imply
 (i.e., ==2 + 2 = 4==).
+Note that most of the expressions we use in the exercises are expressions that you can execute in Pharo, so do not hesitate.
+Some of the expressions explained in *https://medium.com/concerning-pharo/elegant-pharo-code-bb590f0856d0*
 
-!!!Exercises
-For each of the Smalltalk expressions below, fill in the answers:
-
-[[[
-3 + 4
-]]]
+!!Exercises
+For each of the k expressions below, fill in the answers:
 
 - What is the receiver object?
 - What is the message selector?
@@ -19,108 +17,240 @@ For each of the Smalltalk expressions below, fill in the answers:
 - What is the message?
 - What is the result returned by evaluating this expression?
 
-[[[
-Date today
+[[[language=smalltalk
+    3 + 4
 ]]]
 
--- What is the receiver object?
--- What is the message selector?
--- What is/are the argument (s)?
--- What is the message?
--- What is the result returned by evaluating this expression?
-
-[[[
-anArray at: 1 put: ’hello’
+[[[language=smalltalk
+    Date today
 ]]]
 
--- What is the receiver object?
--- What is the message selector?
--- What is/are the argument (s)?
--- What is the message?
--- What is the result returned by evaluating this expression?
-
-- Exercise 16 What kind of object does the literal expression ’Hello, Dave’ describe?
-- Exercise 17 What kind of object does the literal expression #Node1 describe?
-- Exercise 18 What kind of object does the literal expression #(1 2 3) describe?
-- Exercise 19 What can one assume about a variable named Transcript?
-- Exercise 20 What can one assume about a variable named rectangle?
-- Exercise 21 Examine the following expression:
-
-[[[
-| anArray |
-anArray := #(’first’ ’second’ ’third’ ’fourth’).
-anArray at: 2
+[[[language=smalltalk
+    anArray at: 1 put: ’hello’
 ]]]
 
-- What is the resulting value when it is evaluated (ˆ means return)? What happens if you remove the ˆ.
-Explain
-
-- Exercise 22 Which sets of parentheses are redundant with regard to evaluation of the following expressions:
-
-[[[
-((3 + 4) + (2 * 2) + (2 * 3))
-(x isZero)
-ifTrue: [....]
-(x includes: y)
-ifTrue: [....]
+[[[language=smalltalk
+    anArray at: i 
 ]]]
 
-- Exercise 23 Guess what are the results of the following expressions
-
-[[[
-6 + 4 / 2
-1 + 3 negated
-1 + (3 negated)
-2 raisedTo: 3 + 2
-2 negated raisedTo: 3 + 2
+[[[language=smalltalk
+    #(2 33 -4 67) collect: [ :each | each abs ]
 ]]]
 
-- Exercise 24 Examine the following expression:
-
-[[[
-25@50
+[[[language=smalltalk
+   25 @ 50
 ]]]
 
--- What is the receiver object?
--- What is the message selector?
--- What is/are the argument (s)?
--- What is the message?
--- What is the result returned by evaluating this expression?
-
-- Exercise 25 Examine the following expression and write down the sequence of steps that the Smalltalk
-system would take to execute the following expression:
-
-[[[
-Date today daysInMonth
+[[[language=smalltalk
+    SmallInteger maxVal
 ]]]
 
-- Exercise 26 Examine the following expression and write down the sequence of steps that the Smalltalk
-system would take to execute the following expression:
-
-[[[
-Transcript show: (45 + 9) printString
+[[[language=smalltalk
+    #(a b c d e f) includesAll: #(f d b)
 ]]]
 
-- Exercise 27 Examine the following expression and write down the sequence of steps that the Smalltalk
-system would take to execute the following expression:
+!!! Exercise: Literal objects
 
-[[[
-5@5 extent: 6.0 truncated @ 7
+What kind of object does the following literal expressions refer to?
+
+
+[[[language=smalltalk
+    'Hello, Dave'
 ]]]
 
-- Exercise 28 During lecture, we saw how to write strings to the Transcript, and how the message printString
-could be sent to any non-string object to obtain a string representation. Now write a Smalltalk expression
-to print the result of 34 + 89 on the Transcript. Test your code !
-
-- Exercise 29 Examine the block expression:
-
-[[[
-| anArray sum |
-sum := 0.
-anArray := #(21 23 53 66 87).
-anArray do: [:item | sum := sum + item].
-sum
+[[[language=smalltalk
+    #Node1
 ]]]
 
-- What is the final result of sum ? How could this piece of code be rewritten to use explicit array indexing
-(with the method at: ) to access the array elements1? Test your version. Rewrite this code using inject:into:
+[[[language=smalltalk
+    #(2 33 4)
+]]]
+
+[[[language=smalltalk
+    [ :each | each scale: 1.5 ]
+]]]
+
+!!! Exercise: Scope
+
+- What can one assume about a variable named ==Transcript==?
+
+- What can one assume about a variable named ==rectangle==?
+
+
+!!! Exercise: 
+
+Examine the following expressions. What is the value returned by the execution of the snippet?
+
+[[[language=smalltalk
+    | anArray |
+    anArray := #(’first’ ’second’ ’third’ ’fourth’).
+    anArray at: 2.
+]]]
+
+
+
+!!! Exercise:  unneeded parentheses 
+Putting more  parentheses than necessary is  a good way  to get started. Such  practice however leads to  less read
+
+[[[language=smalltalk
+    ((3 + 4) + (2 * 2) + (2 * 3))
+]]]
+
+[[[language=smalltalk
+    x between: (pt1 x) and: (pt2 y)
+]]]
+
+[[[language=smalltalk
+    (x isZero)
+        ifTrue: [....]
+    (x includes: y)
+        ifTrue: [....]
+]]]
+
+[[[language=smalltalk
+    (OrderedCollection new)
+       add: 56; 
+       add: 33; 
+       yourself
+]]]
+
+[[[language=smalltalk
+    (Integer primesUpTo: 64) sum
+]]]
+
+[[[language=smalltalk
+    ('http://www.pharo.org' asUrl) retrieveContents
+]]]
+
+[[[language=smalltalk
+    ('2014-07-01' asDate — '2013/2/1' asDate) days
+]]]
+
+[[[language=smalltalk
+    (((ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
+      asMorph) openInWindow)
+]]]
+
+[[[language=smalltalk
+    ((#(a b c d e f) asSet) intersection: (#(f d b) asSet))
+]]]
+
+!! Exercise: Results
+Guess what are the results of the following expressions:
+
+[[[language=smalltalk
+    6 + 4 / 2
+]]]
+
+[[[language=smalltalk
+   1 + 3 negated
+]]]
+
+[[[language=smalltalk
+    1 + (3 negated)
+]]]
+
+[[[language=smalltalk
+    2 raisedTo: 3 + 2
+]]]
+
+[[[language=smalltalk
+    2 negated raisedTo: 3 + 2
+]]]
+
+[[[language=smalltalk
+    #(a b c d e f) includesAll: #(f d b)
+]]]
+
+
+!!! Exercise: Execution sequence
+Examine each of the following expression and write down the sequence of steps of their execution (which message is executed first and so on)
+
+[[[
+    Date today daysInMonth
+]]]
+
+[[[
+    5@5 extent: 6.2 truncated @ 7
+]]]
+
+[[[
+    Transcript show: (45 + 9) printString
+]]]
+
+[[[language=smalltalk
+    ('2014-07-01' asDate — '2013/2/1' asDate) days
+]]]
+
+[[[language=smalltalk
+   42 factorial decimalDigitLength
+]]]
+
+[[[language=smalltalk
+    (ZnServer startDefaultOn: 8080) 
+        onRequestRespond: [ :request | ZnResponse ok: (ZnEntity with: DateAndTime now printString) ]
+]]]
+
+[[[language=smalltalk
+    (1914 to: 1945) count: [ :each | Year isLeapYear: each ].
+]]]
+
+[[[language=smalltalk
+    $/ join: ($- split: '1969-07-20') reverse
+]]]
+
+[[[language=smalltalk
+    DateAndTime fromUnixTime:
+        ((ByteArray readHexFrom: 'CAFEBABE4422334400FF') 
+           copyFrom: 5 to: 8) asInteger
+]]]
+
+[[[language=smalltalk
+    (String new: 32) collect: [ :each | 'abcdef' atRandom ]
+]]]
+
+
+[[[language=smalltalk
+    'http://www.pharo.org' asUrl saveContentsToFile: 'page.html'
+]]]
+
+[[[language=smalltalk
+'^.*.jpg' asRegex in: [ :regex |
+  '/tmp/foo.txt' asFileReference contents lines 
+    select: [ :line | regex matches: line ] ]
+]]]
+
+!!! Exercise: Examine the block expressions
+
+[[[
+    | sum |
+    sum := 0.
+    #(21 23 53 66 87)do: [:item | sum := sum + item].
+    sum
+]]]
+
+What is the final result of sum? How could this piece of code be rewritten to use explicit array indexing
+(with the method at: ) to access the array elements1? Test your version. Rewrite this code using ==inject:into:==
+
+!!! Exercise: Comparing expressions
+
+[[[
+    | array |
+    array := #(2 4 4 4 5 5 7 9).
+    ((array - array average) squared sum / (array size - 1)) sqrt 
+
+]]]
+
+[[[
+    [ :input | ((input - input average) squared sum / (input size - 1)) sqrt ] 
+        value: #(2 4 4 4 5 5 7 9) 
+]]]
+
+[[[
+    #(2 4 4 4 5 5 7 9) in: [ :input |
+      ((input — input average) squared sum / (input size — 1)) sqrt ]
+]]]
+
+[[[
+    #(2 4 4 4 5 5 7 9) stddev
+]]]
