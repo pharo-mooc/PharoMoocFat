@@ -15,6 +15,7 @@
 \graphicspath{
         {../figures/}
         {../Exercises/}
+		{../Exercises/figures/}
 }
 %=================================================================
 \let\wholebook=\relax
