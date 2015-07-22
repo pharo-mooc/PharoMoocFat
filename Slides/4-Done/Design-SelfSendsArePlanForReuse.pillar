@@ -1,0 +1,97 @@
+{
+	"title":"Plans for Reuse",
+	"subtitle":"",
+	"author":"Stéphane Ducasse and Damien Cassou",
+	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
+}
+
+${slide:title=Remember...}$
+
+- Message passing is a choice operator
+- Class hierarchies define choices
+
+
+${slide:title=Pitch}$
+
+- Superclass code can be reused by subclasses 
+- Sending messages in a superclass define places where 
+
+
+
+
+
+${slide:title=A first example}$
+
+
+[[[language=smalltalk
+    Node>>setWindowWithRatioForDisplay
+        | averageRatio defaultNodeSize |
+        averageRatio := 55.
+        defaultNodeSize := mainCoordinate /maximiseViewRatio.
+        self window add:
+            (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
+        previousNodeSize := defaultNodeSize.
+]]]
+
+- What if we want to change the ==defaultNodeSize== definition in our subclass?
+
+
+${slide:title=A not that good solution}$
+- What if we cannot modify the code of ==Node== (developed by another company)?
+
+- Duplicate the code in our subclass
+
+[[[language=smalltalk
+    OurSpecificNode>>setWindowWithRatioForDisplay
+        | averageRatio defaultNodeSize |
+        averageRatio := 55.
+        defaultNodeSize := (mainCoordinate /maximiseViewRatio) + 10.
+        self window add:
+            (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
+        previousNodeSize := defaultNodeSize.
+]]]
+
+- Note that if ==setWindowWithRatioForDisplay== uses private attributes, copying in subclass will not work.
+- Duplication
+-- copying bugs,
+-- fragile when original code will change,
+-- burden on us to keep the system running. 
+
+${slide:title=Good design in the first place}$
+
+
+[[[language=smalltalk
+    Node>>setWindowWithRatioForDisplay
+        | averageRatio defaultNodeSize |
+        averageRatio := 55.
+        defaultNodeSize := self ratio.
+        self window add:
+            (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
+        previousNodeSize := defaultNodeSize.
+]]]
+[[[language=smalltalk		
+    Node>>ratio
+        ^ mainCoordinate /maximiseViewRatio	
+]]]
+
+
+${slide:title=Subclass reuse superclass logic}$
+
+[[[language=smalltalk	
+    OurSpecificNode>>ratio
+         ^ super ratio + 10
+]]]
+
+${slide:title=Sending a message...}$
+
++>file://figures/SelfIsDynamic.png|width=80+
+
+
+
+
+
+${slide:title=Conclusion}$
+
+- Each time you send a message you create a hook where the code of a subclass may be executed instead of yours.
+- Prefer small methods over long ones because it forces you to create more methods, hence more hooks
+
