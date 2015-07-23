@@ -1,0 +1,51 @@
+{
+	"title":"Hooks and Templates",
+	"subtitle":"An application of Self-sends are plans for reuse",
+	"author":"Stéphane Ducasse ",
+	"complement":"http://stephane.ducasse.free.fr/  stephane.ducasse@inria.fr"
+}
+
+
+${slide:title=Remember...}$
+
+- Message passing is a choice operator
+- Class hierarchies define choices
+- Superclass code can be reused by subclasses 
+- Sending messages in a superclass define places where subclass code can be injected.
+
+
+${slide:title=Hooks/Template}$
+
+
+- Template is the context that
+-- defined hooks
+-- and is reused
+- Hooks are places to be customized. Hook methods do not have to be abstract, they may define default behavior or no behavior at all.
+
++>file://figures/hookAndTemplate.png|width=60+
+
+
+${slide:title=printString/printOn:}$
+[[[language=smalltalk
+Object >> printString
+    "Answer a String whose characters are a description of the receiver. 
+    If you want to print without a character limit, use fullPrintString."
+
+    ^ self printStringLimitedTo: 50000
+]]]
+
+[[[language=smalltalk
+Object >> printStringLimitedTo: limit
+    "Answer a String whose characters are a description of the receiver.
+    If you want to print without a character limit, use fullPrintString."
+    | limitedString |
+    limitedString := String streamContents: [:s | self printOn: s] limitedTo: limit.
+    limitedString size < limit ifTrue: [^ limitedString].
+    ^ limitedString , '...etc...'
+]]]
+
+
+${slide:title=Conclusion}$
+
+- Common pattern
+- Based on essential aspects of OOP
