@@ -53,6 +53,33 @@
 	<array>
 		<dict>
 			<key>Class</key>
+			<string>LineGraphic</string>
+			<key>ID</key>
+			<integer>75</integer>
+			<key>Points</key>
+			<array>
+				<string>{220.5, 92}</string>
+				<string>{221.5, 339}</string>
+			</array>
+			<key>Style</key>
+			<dict>
+				<key>stroke</key>
+				<dict>
+					<key>HeadArrow</key>
+					<string>0</string>
+					<key>Legacy</key>
+					<true/>
+					<key>LineType</key>
+					<integer>1</integer>
+					<key>TailArrow</key>
+					<string>0</string>
+					<key>Width</key>
+					<real>2</real>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Class</key>
 			<string>TableGroup</string>
 			<key>Graphics</key>
 			<array>
@@ -939,7 +966,7 @@
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{6, 134}, {134, 14}}</string>
+					<string>{{55, 180.5}, {134, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -980,7 +1007,7 @@
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{6, 148}, {134, 28}}</string>
+					<string>{{55, 194.5}, {134, 28}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -1024,7 +1051,7 @@ Attribute}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{6, 176}, {134, 28}}</string>
+					<string>{{55, 222.5}, {134, 28}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -1125,7 +1152,7 @@ Operation2}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-05-19 17:28:55 +0000</string>
+	<string>2015-07-22 16:54:10 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -1206,7 +1233,7 @@ Operation2}</string>
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{141, -0}, {820, 778}}</string>
+		<string>{{234, 0}, {820, 778}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -1220,7 +1247,7 @@ Operation2}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{-56, 0}, {671, 623}}</string>
+		<string>{{-63, 0}, {685, 623}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
