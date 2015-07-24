@@ -1,0 +1,122 @@
+{
+    "title":"Avoid Null Checks",
+    "subtitle":"",
+    "author":"Stéphane Ducasse and Damien Cassou",
+    "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
+}
+
+
+${slide:title=Pitch}$
+
+- Avoid null checks
+- This goes against "Tell, do not ask"
+- Less checks, simpler logic, just send messages
+
++.>file://figures/antifIfCampaign.png|width=60+
+
+
+
+${slide:title=First, avoid to return nil}$
+
+- Do not force your clients to have to check
+- Do not return nil AND another value
+
+- Return polymorphic objects!
+-- collections and empty collections
+- not a collection and may be nil
+- not a number and may be nil
+
+- If you should specify a exceptional behavior use an exception.
+
+${slide:title=Example}$
+
+[[[language=smalltalk
+Inferencer >> computeRulesFor: aFact ifAbsent: aBlock.
+    self noRule ifTrue: [^ aBlock value]
+    ^ OrderedCollection with: self rules.
+]]]
+
+[[[language=smalltalk
+Inferencer >> getRulesFor: aFact
+    ^ self computeRulesFor: aFact ifAbsent: [nil].
+]]]
+
+- ==getRulesFor:== return either a collection or nil! 
+- Here you force all the clients of ==getRulesFor:== to check for nil values!
+
+${slide:title=Solution: return polymorphic objects}$
+
+[[[language=smalltalk
+Inferencer >> getRulesFor: aFact
+    ^ self computeRulesFor: aFact ifAbsent: [#()].
+]]]
+
+- Your clients can just iterate and manipulate the returned value:
+-- ==(self getRulesForFact: 'a') do: [:each | ...]==
+
+
+${slide:title=Second, initialize your state}$
+
+
+[[[language=smalltalk
+
+]]]
+
+
+${slide:title=Sometimes you have to check ….}$
+
+Sometimes you have to check before doing some actions.
+If you can, turn the default case into an object (NullObject)
+
+[[[language=smalltalk
+    ToolPalette >> nextAction
+        self selectedTool ifNotNil: [:t | t attachHandles]
+
+    ToolPalette >> previousAction
+        self selectedTool ifNotNil: [:t | t dettachHandles]
+]]]
+
+
+${slide:title=Third, use NullObject}$
+
+A null object proposes a polymorphic API and embeds default actions/values
+
+Woolf, Bobby (1998). "Null Object". In Martin, Robert; Riehle, Dirk; Buschmann, Frank. Pattern Languages of Program Design 3. Addison-Wesley.
+
+
+${slide:title=Third, use NullObject}$
+
+[[[language=smalltalk
+    NoTool >> attachHandles
+        ^ self
+]]]
+
+${slide:title=Third, use NullObject}$
+
+[[[language=smalltalk
+    NoTool >> detachHandles
+        ^ self
+]]]
+
+[[[language=smalltalk
+    ToolPalette >> initialize
+        self selectedTool: NoTool new
+]]]
+
+[[[language=smalltalk
+    ToolPalette >> nextAction
+        self selectedTool attachHandles
+]]]
+
+[[[language=smalltalk
+    ToolPalette >> previousAction
+        self selectedTool detachHandles
+]]]
+
+
+${slide:title=Conclusion}$
+
+- Do not return nil, when you can avoid it.
+- Initialize your variables
+- If you can define polymorphic default objects
+
