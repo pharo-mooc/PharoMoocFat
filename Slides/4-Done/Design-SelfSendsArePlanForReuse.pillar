@@ -1,8 +1,8 @@
 {
-	"title":"Message sends are plans for reuse",
-	"subtitle":"",
-	"author":"Stéphane Ducasse and Damien Cassou",
-	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
+    "title":"Message sends are plans for reuse",
+    "subtitle":"",
+    "author":"Stéphane Ducasse and Damien Cassou",
+    "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
 }
 
 ${slide:title=Remember...}$
@@ -67,7 +67,7 @@ ${slide:title=Solution}$
 ${slide:title=Good design in the first place}$
 
 [[[language=smalltalk
-    Node>>setWindowWithRatioForDisplay
+    Node >> setWindowWithRatioForDisplay
         | averageRatio defaultNodeSize |
         averageRatio := 55.
         defaultNodeSize := self ratio.
@@ -75,17 +75,17 @@ ${slide:title=Good design in the first place}$
             (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
         previousNodeSize := defaultNodeSize.
 ]]]
-[[[language=smalltalk		
-    Node>>ratio
-        ^ mainCoordinate /maximiseViewRatio	
+[[[language=smalltalk        
+    Node >> ratio
+        ^ mainCoordinate /maximiseViewRatio    
 ]]]
 
 
 ${slide:title=Subclass reuse superclass logic}$
 
 Now the subclass can only express the delta and reuse the superclass logic
-[[[language=smalltalk	
-    OurSpecificNode>>ratio
+[[[language=smalltalk    
+    OurSpecificNode >> ratio
          ^ super ratio + 10
 ]]]
 
@@ -97,7 +97,7 @@ ${slide:title=Avoid magic numbers}$
 - Either define instance variables with setter and getter, and/or set default value via message semd
 
 [[[language=smalltalk
-    Node>>setWindowWithRatioForDisplay
+    Node >> setWindowWithRatioForDisplay
         | averageRatio defaultNodeSize |
         averageRatio := 55.
         defaultNodeSize := self ratio.
@@ -109,16 +109,18 @@ ${slide:title=Avoid magic numbers}$
 ${slide:title=Use Setter and Default}$
 
 [[[language=smalltalk
-    Node>>....
+    Node >> ....
         self averageRatio: self defaultAverageRatio.
+]]]
 
-    Node>>defaultAverageRatio
+[[[language=smalltalk
+    Node >> defaultAverageRatio
         ^ 55
 ]]]
 
 - With setter, clients may change the value without subclassing
 [[[language=smalltalk
-	aNode averageRatio: 55
+    aNode averageRatio: 55
 ]]]
 
 ${slide:title=Many small messages}$
@@ -127,9 +129,11 @@ ${slide:title=Many small messages}$
 - This is a good properties
 
 [[[language=smalltalk
-	Node >> uiNode
-		^ (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
-		
+    Node >> uiNode
+        ^ (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
+]]]
+
+[[[language=smalltalk
     Node >> setWindowWithRatioForDisplay
         | defaultNodeSize |
         self averageRatio: 55.
@@ -140,7 +144,7 @@ ${slide:title=Many small messages}$
 ${slide:title=Do not hardcode class use}$
 
 [[[language=smalltalk
-    Node>>setWindowWithRatioForDisplay
+    Node >> setWindowWithRatioForDisplay
         | defaultNodeSize |
         ...
         defaultNodeSize := self ratio.
@@ -160,7 +164,7 @@ ${slide:title=Define method returning classes}$
             (self uiNodeClass new with: (bandWidth * averageRatio / defaultWindowSize)
         ...
      Node >> uiNodeClass
-	 ^ UINodeClass
+        ^ UINodeClass
 ]]]
 
 
