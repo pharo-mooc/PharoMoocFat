@@ -59,9 +59,22 @@ ${slide:title=Second, initialize your state}$
 
 
 [[[language=smalltalk
-
+    Archive >> initialize
+         super initialize.
+         members := OrderedCollection new.
 ]]]
 
+${slide:title=Second, initialize your state}$
+
+Lazy initialization if necessary
+
+[[[language=smalltalk
+    FreeTypeFont >> descent
+        ^ cachedDescent ifNil:[ 
+              cachedDescent := ((self face descender * self pixelSize // self face unitsPerEm) negated) ]
+]]]
+
+- Do not forget to systematically use accessors.
 
 ${slide:title=Sometimes you have to check ….}$
 
@@ -75,6 +88,8 @@ If you can, turn the default case into an object (NullObject)
     ToolPalette >> previousAction
         self selectedTool ifNotNil: [:t | t dettachHandles]
 ]]]
+
+
 
 
 ${slide:title=Third, use NullObject}$
@@ -115,8 +130,11 @@ ${slide:title=Third, use NullObject}$
 
 
 ${slide:title=Conclusion}$
-
+- Messages act as a dispatcher
+- Avoid conditionals
+- Return polymorphic results
+- If you can define, create objects that represent default
 - Do not return nil, when you can avoid it.
 - Initialize your variables
-- If you can define polymorphic default objects
+
 
