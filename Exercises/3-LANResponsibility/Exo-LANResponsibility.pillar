@@ -1,11 +1,13 @@
-! Reducing the coupling between classes
+! Improving the design
 
-To be a good citizen you as an object should follow as much as possible the following rules:
-- Be private. Never let somebody else play with your data.
-- Be lazy. Let do other objects your job.
+Often seasoned object-oriented programmers use the following description to convey good design principles: 
+
+To be a good citizen an object should follow as much as possible the following rules:
+- Be private. Never let somebody else play with its data.
+- Be lazy. Let do other objects its job.
 - Be focused. Do only one main task.
 
-While these guidelines are not really formal, one of the main consequences is that this is the responsibility
+While these guidelines are generic, one of the main consequences is that this is the responsibility
 of an object to provide a well defined interface protecting itself from its clients. The other consequence
 is that by delegating to other objects, an object concentrates on a single task and responsibility. We now
 look how such guidelines can help us to provide better objects in our example.
@@ -13,8 +15,8 @@ look how such guidelines can help us to provide better objects in our example.
 !! Current situation
 
 The interface of the packet class is weak. It just provides free access to its data. The main impact of
-this weakness is the fact that the clients of the class ==Packet== like Workstation relies on the internal coding
-of the ==Packet== as shown in the first line of the following method. A workstation gets to know the internal structure of Packet.
+this weakness is the fact that the clients of the class ==Packet== like the class ==Workstation== rely on the internal coding
+of the ==Packet== class as shown in the first line of the following method. A workstation gets to know the internal structure of Packet.
 
 [[[
 Workstation>>accept: aPacket
@@ -27,13 +29,73 @@ As a consequence, if the structure of the class ==Packet== changes, the code of 
 to change too. Generalizing such a bad practice leads to systems that are badly coupled and being
 really difficult to change to meet new requirements.
 
-!! Solution
+One of the solution to these problems is to give the responsibility to the objects to create well-formed instances.
+Several ways are possible:
 
-This is the responsibility of a packet to say if the packet is addressed to a particular node or if it was sent
+- When possible, providing default values for instance variable is a good way to provide well-defined instances.
+- It is also a good solution to propose a consistent and well-defined creation interface. For example one can only provide an instance creation method that requires the mandatory value for the instance and forbid the creation of other instances.
+
+
+!! Enhancing the Packet API
+Let us start with the class ==Packet==.  This is the responsibility of a packet to say if the packet is addressed to a particular node or if it was sent
 by a particular node.
 - Define a method named ==isAddressedTo: aNode== in 'testing' protocol that answers if a given packet is addressed to the specified node.
 - Define a method named ==isOriginatedFrom: aNode== in 'testing' protocol that answers if a given packet is originated from the specified node.
 - Once these methods are defined, change the code of all the clients of the class ==Packet== to use them.
+
+
+!! Instance Initialization
+
+Let us see how we can initialize instances. We investigate the two solutions for the ==Packet== class.
+
+Just remember that new is sent to classes (a class method) and that the message ==initialize== is sent to 
+instances (instance method). 
+
+[[[language=smalltalk
+    Packet>>initialize
+        ....
+]]]
+
+In the ==Packet== class, the only instance variable that can have a default value is contents. We can define it as follows: 
+
+[[[language=smalltalk
+    contents := 'no contents’
+]]]
+
+Ideally if a LAN should contain a default trash node, the default address and originator should point
+to it. We will implement this functionality in a future lesson. Implement first your own solution.
+
+Note that with this solution it would be convenient to know if a packet contents
+is the default one or not. For this purpose you can  provide the method ==hasDefaultContents== that tests
+that. You can implement it as :
+
+[[[language=smalltalk
+Packet >> hasDefaultContents
+    ˆ contents = 'no contents’
+
+Packet >> initialize
+    
+    contents := 'no contents’
+]]]
+
+But you should apply the rule: 'Say only once' and define a new method that returns the default content
+and use it as shown below:
+
+[[[language=smalltalk
+Packet >> defaultContents
+    ˆ 'no contents’
+	
+Packet >> initialize
+    ...
+    contents := self defaultContent
+    ...
+	
+Packet >> hasDefaultContent
+    ˆcontents = self defaultContents
+]]]
+
+With this solution, we limit the knowledge to the internal coding of the default contents value to only
+one method. This way changing it does not affect the clients nor the other part of the class.
 
 !! A Question of Creation Responsibility
 
@@ -47,55 +109,25 @@ We will find a solution to these problems.
 
 Define a ''class'' method named ==withName:== in the class ==Node== (protocol 'instance creation') that creates a new node and assign its name.
 
-[[[
-withName: aSymbol
-....
+[[[language=smalltalk
+Node class>>withName: aSymbol
+    ....
 ]]]
 
-Define a class method named ==withName:nextNode:== in the class ==Node== (protocol 'instance creation')
-that creates a new node and assign its name and the next node in the LAN
+Define a class method named ==withName:connectedTo:== in the class Node (protocol 'instance creation’) that creates a new node and assign its name and the next node in the LAN.
 
-[[[
-withName: aSymbol nextNode: aNode
-....
+[[[language=smalltalk
+Node class>>withName: aSymbol connectedTo: aNode
+    ....
 ]]]
-
- Note that the first method can simply invoke the second one.
-
-
-Note that you already implemented
- a similar schema that the default value in the previous lessons. Indeed by default instance variable value is
- nil and you already implemented the method hasNextNode that to provide a good interface.
- Define a class method named withName: in the class Node (protocol 'instance creation’) that creates a
- new node and assign its name.
-
- [[[
- Node class>>withName: aSymbol
-    ....
- ]]]
-
- - Define a class method named withName:connectedTo: in the class Node (protocol 'instance creation’)
- that creates a new node and assign its name and the next node in the LAN.
-
- [[[
- Node class>>withName: aSymbol connectedTo: aNode
-    ....
- ]]]
 
 Note that if to avoid to duplicate information, the first method can simply invoke the second one.
 
 
- - In Smalltalk there is a convention that all the methods starting with 'basic’ should not be overridden.
- basicNew is the method responsible for always providing an newly created instance. You can for example
- browse all the methods starting with 'basic*’ and limit yourself to Object and Behavior.
- - You can do the same for the instance creation methods in class Packet.
 
 
 
-
-
-
-!!Exercise: Strengthening packet creation
+!!! Exercise: Strengthening packet creation
 
 We now apply the second approach by providing a better interface for creating packet. For this
 purpose we define a new creation method that requires a contents and an address.
@@ -104,14 +136,12 @@ purpose we define a new creation method that requires a contents and an address.
 
 Define a class methods named ==send:to:== and ==to:== in the class Packet (protocol 'instance creation') that creates a new Packet with a contents and an address.
 
-[[[
-Packet class>>send: aString to: aSymbol
+[[[language=smalltalk
+Packet class >> send: aString to: aSymbol
 	....
-Packet class>>to: aSymbol
+Packet class >> to: aSymbol
 	....
 ]]]
-
-
 
 
 !! Disabling default object creation
@@ -131,6 +161,8 @@ Node >> new
 However, you have just introduced a problem: the instance creation methods you just wrote in previous exercise
 will not work anymore, because they call ==new==, and that calling results in an error! The solution is to
 rewrite them using ==basicNew==. This is for this reason that we should never override ==basicNew==. In fact none of the methods starting with ==basic== should be overriden.
+
+In Pharo, there is a convention that all the methods starting with 'basic’ should not be overridden. ==basicNew== is the method responsible for always providing a newly created instance. 
 
 [[[
 Node class>>withName: aSymbol nextNode: aNode
@@ -153,11 +185,7 @@ In such a case, it is better to favor a, so called, fluid interface based on the
 ]]]
 
 
-
-
-
-
-!!! Exercise: strenghtening ==withName:==
+!! Better ==withName:== definition
 
 Note that the previous definition of ==withName: aSymbol nextNode: aNode== may break if a subclass specializes the ==nextNode:== method and that it does not return (==self==) the instance anymore. To protect ourself from possible unexpected extension we add ==yourself== that returns the receiver the first cascaded message (here name:), here the newly created instance.
 
@@ -179,116 +207,11 @@ Node class>>withName: aSymbol nextNode: aNode
 
 
 
+!! Conclusion
 
-
-
-
-
-- One of the problems with the first approach for creating the nodes and the packets is the following: it is the
-responsibility of the client of the objects to create them well-formed. For example, it is possible to create a
-node without specifying a name! This is a disaster for our LAN system, the node would never reachable,
-and worse the system would breaks because the assumptions that the name of a node is specified would not
-hold anymore (insert an anonymous node in Lan and try it out). The same problem occurs with the packet:
-it is possible to create a packet without address nor contents.
-
-- The solution to these problems is to give the responsibility to the objects to create well-formed instances.
-Several variations are possible:
-
--- When possible, providing default values for instance variable is a good way to provide well-defined
-instances.
--- It is also a good solution to propose a consistent and well-defined creation interface. For example one can only provide an instance creation method that requires the mandatory value for the instance
-and forbid the creation of other instances.
-
-- The class Packet. We investigate the two solutions for the Packet class. For the first solution, the
-principle is that the creation method (new) should invoke an initialize method. Implement this solution.
-Just remember that new is sent to classes (a class method) and that initialize is sent to instances (instance
-method). Implement the method new in a 'instance creation’ protocol and initialize in a 'initialize-release’
-protocol.
-
-[[[
-Packet class>>new
-. . .
-Packet>>initialize
-. . .
-]]]
-
-- The only default value that can have a default value is contents, choose
-
-[[[
-contents = 'no contents’
-]]]
-
-- Ideally if each LAN would contain a default trash node, the default address and originator would point
-to it. We will implement this functionality in a future lesson. Implement first your own solution.
-
-- Remarks and Analysis. Note that with this solution it would be convenient to know if a packet contents
-is the default one or not. For this purpose you could provide the method hasDefaultContents that tests
-that. You can implement it in a clever way as shown below:
-- Instead of writing:
-
-[[[
-Packet>>hasDefaultContents
-ˆ contents = 'no contents’
-Packet>>initialize
-. . .
-contents := 'no contents’
-. . .
-]]]
-
-- You should apply the rule: 'Say only once’ and define a new method that returns the default content
-and use it as shown below:
-
-[[[
-Packet>>defaultContents
-ˆ 'no contents’
-Packet>>initialize
-. . .
-contents := self defaultContent
-. . .
-Packet>>hasDefaultContent
-ˆcontents = self defaultContents
-]]]
-
-- With this solution, we limit the knowledge to the internal coding of the default contents value to only
-one method. This way changing it does not affect the clients nor the other part of the class.
-
-
-
-
-
-
-! Protecting yourself from your children
-
-- The following code is a possible way to define an instance creation method for the class Node.
-
-[[[
-Node class>>withName: aSymbol
-ˆ self new name: aSymbol
-]]]
-
-- We create a new instance by invoking new, we assign the name of the node and then we return it. One
-possible problem with such a code is that a subclass of the class Node may redefine the method name:
-(for example to have a persistent object) and return another value than the receiver (here the newly created
-instance). In such a case invoking the method withName: on such a class would not return the new instance.
-One way to solve this problem is the following:
-
-[[[
-Node class>>withName: aSymbol 
-| newInstance |
-newInstance := self new.
-NewInstance name: aSymbol.
-ˆ newInstance
-]]]
-
-- This is a good solution but it is a bit too much verbose. It introduces extra complexity by the the extra
-temporary variable definition and assignment. A good Smalltalk solution for this problem is illustrated by
-the following code and relies on the use of the yourself message.
-
-[[[
-Node class>>withName: aSymbol
-ˆ self new name: aSymbol ; yourself
-]]]
-
-- yourself specifies that the receiver of the first message involved into the cascade (name: here and not
-new) is return. Guess what is the code of the yourself method is and check by looking in the library if your
-guess is right.
+Object-oriented design cannot be systematically and automatically done. However, there are guidelines that help handling various pitfalls. 
+Among such guidelines the following ones are worth applying:
+- Create well initialize objects.
+- Offer adequate creation API.
+- Expose APIs that protect the internal representation of objects.
+- Avoid duplication logic.
