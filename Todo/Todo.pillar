@@ -5,11 +5,22 @@ Use some examples of Sven
  into the message lectures
 
 
+
+
 !! Exos
 
 - Chekc exo noury
-- receover LAN exo stef
+- receover LAN exo stef (underway)
 - Kata damien https://github.com/search?q=user%3Acdlm+kata
+- extensions: add link object, add a network object
+- add a hub (composite pattern?)
+- add a router	
+-- trash default node
+-- add pay load to packet - no idea what is pay load (should ask damien)
+-- add TTL
+Normalement les paquets expirent au bout d’un certain temps : c’est le TTL ou time to live. Pour modéliser cela, vous allez définir un nouveau type de paquet, qui expirera après avoir traversé un certain nombre de liens, ce nombre étant spécifié à la construction du paquet.
+
+
 - Pharo cheat page
 !! Once the first slides are done
 
