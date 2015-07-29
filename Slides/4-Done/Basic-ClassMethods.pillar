@@ -1,45 +1,98 @@
 {
-	"title":"Array",
+	"title":"Class methods",
 	"subtitle":"",
-	"author":"Stephane Ducasse",
-	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+	"author":"Stéphane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
 }
 
-!Some Loops
+${slide:title=In a nutshell}$
 
-${slide:title=Loops: timesRepeat:}$
+- There is no difference between instance and class methods.
+-- public
+-- virtual / late-bound
+-- return self by default
+- Classes are just objects too.
+- Class methods are resolved ''exactly'' the same way than instances methods.
 
-[[[
-	4 timesRepeat: [ self doSomething ]
+${slide:title=Remember}$
+
+${columns}$
+
+${column:width=40}$
+
+Sending a message to an object
+- go to the class of the object
+- follow the inheritance chain
+- apply the found method to the receiver
+
+${column:width=40}$
+
++>file://figures/LookupEssence.png|width=100+
+
+${endColumns}$
+
+${slide:title=Sending a message to a class}$
+
+${columns}$
+
+${column:width=40}$
+
+Sending a message to an class (object)
+- go to the class of the class
+- follow the inheritance chain
+- apply the found method to the receiver (the class)
+
+${column:width=40}$
+
++>file://figures/LookupEssence.png|width=100+
+
+${endColumns}$
+
+
+${slide:title=Common mistake}$
+
+
+[[[language=smalltalk
+    MyObject>>createWithName: aString
+         self new name: aString
 ]]]
 
-[[[
-	0 to: 100 [ :i | ... ]
+- ==MyObject createWithName: 'pilou'== returns the class itself ==MyObject==
+
+${slide:title=Why?}$
+
+[[[language=smalltalk
+    MyObject>>createWithName: aString
+         self new name: aString
 ]]]
 
-[[[
-	0 to: 100 by: 3 [ :i | ... ]
+Since there is no explicit return the method return ==^ self==
+
+[[[language=smalltalk
+    MyObject>>createWithName: aString
+         self new name: aString
+         ^ self
 ]]]
 
-[[[
-	aCol do: [:each | ... ]
+- ==self== here is the class ==MyObject==
+
+${slide:title=Correct way}$
+
+We should just return the instance
+
+[[[language=smalltalk
+    MyObject>>createWithName: aString
+         ^ self new name: aString
 ]]]
 
-${slide:title=Loops: do:}$
 
-[[[
-#(15 10 19 68) do:  
-      [:i | Transcript show: i ; cr ]
-]]]
+${slide:title=Sending a message to a class}$
 
-${slide:title=Loops: collect:}$
 
-[[[
-	#(2 -3 4 -35 4) collect: [ :each| each abs]
 
-]]]
 
-[[[
-	> #(2 3 4 35 4)	
-]]]
+
+
+
+
 
