@@ -14,11 +14,52 @@ ${slide:title=In a nutshell}$
 - Classes are just objects too.
 - Class methods are resolved ''exactly'' the same way than instances methods.
 
+${slide:title=Some examples}$
+
+[[[language=smalltalk
+    Time now 
+    > 10:44:16.10794 am
+]]]
+
+[[[language=smalltalk
+    Date today
+    > 29 July 2015
+]]]
+
+${slide:title=Some more}$
+
+[[[language=smalltalk
+(FileLocator workingDirectory filesMatching: '*.jpg')
+]]]
+
+[[[language=smalltalk
+DateAndTime fromUnixTime:
+  ((ByteArray readHexFrom: 'CAFEBABE4422334400FF') 
+      copyFrom: 5 to: 8) asInteger
+]]]
+
+[[[language=smalltalk
+(ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
+	    asMorph openInWindow
+]]]
+
+[[[language=smalltalk
+(ZnServer startDefaultOn: 8080) 
+  onRequestRespond: [ :request | 
+    ZnResponse ok: (ZnEntity with: DateAndTime now printString) ]
+]]]
+
+${slide:title=Isn't simply natural?}$
+
+- We just send messages to classes and they perform some actions
+- Most of the time they create instances
+
+
 ${slide:title=Remember}$
 
 ${columns}$
 
-${column:width=40}$
+${column:width=60}$
 
 Sending a message to an object
 - go to the class of the object
@@ -37,14 +78,48 @@ ${columns}$
 
 ${column:width=40}$
 
-Sending a message to an class (object)
-- go to the class of the class
-- follow the inheritance chain
-- apply the found method to the receiver (the class)
+Sending a message to a class (==Node==)
+- go to the class of the class (==Node class==)
+- follow the inheritance chain (up to ==Object class== and upper)
+- apply the found method to the receiver (the class ==Node==)
 
 ${column:width=40}$
 
-+>file://figures/LookupEssence.png|width=100+
++>file://figures/LookupEssenceWithClass.png|width=100+
+
+${endColumns}$
+
+
+${slide:title=Stepping back}$
+
+${columns}$
+
+${column:width=40}$
+
+- There is only one way to execute messages!
+- instance/class and class/superclass relations are systematically followed.
+
+${column:width=60}$
+
++>file://figures/LookupEssenceWithGeneric.png|width=100+
+
+${endColumns}$
+
+${slide:title=Class as objects}$
+
+${columns}$
+
+${column:width=40}$
+
+A class is an object instance of another class (called a metaclass)
+- A metaclass is just one class whose instances are classes! 
+- ==Point== is the unique instance of the class ==Point class==
+- THe ==Point class== is automatically created when you create the class ==Point==
+- The class of class ==XXX== is named ==XXX class==
+
+${column:width=40}$
+
++>file://figures/LookupEssenceWithClass.png|width=100+
 
 ${endColumns}$
 
@@ -86,9 +161,13 @@ We should just return the instance
 ]]]
 
 
-${slide:title=Sending a message to a class}$
+${slide:title=Conclusion}$
 
-
+- Messages sent to classes are resolved the same way as messages sent to instances.
+- Class methods are
+-- public
+-- late-bound
+- Classes are instance of other classes (called metaclasses).
 
 
 
