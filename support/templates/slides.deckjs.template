@@ -34,13 +34,13 @@
 
     <!-- Begin slides. Just make elements with a class of slide. -->
 
-	<div class="slide">
-		<h1> {{{title}}} </h1>
-		<h2> {{{subtitle}}} </h2>
-		<span id="author"> {{{author}}} </span>
-		<span id="complement"> {{{complement}}} </span>
-		<span id="date"> {{{date}}} </span>
-	</div>
+    <div class="slide">
+        <h1> {{{title}}} </h1>
+        <h2> {{{subtitle}}} </h2>
+        <span id="author"> {{{author}}} </span>
+        <span id="complement"> {{{complement}}} </span>
+        <span id="date"> {{{date}}} </span>
+    </div>
 	{{{content}}}
     <!-- End slides. -->
 
