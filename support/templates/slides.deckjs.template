@@ -41,7 +41,7 @@
         <span id="complement"> {{{complement}}} </span>
         <span id="date"> {{{date}}} </span>
     </div>
-	{{{content}}}
+    {{{content}}}
     <!-- End slides. -->
 
     <!-- Begin extension snippets. Add or remove as needed. -->
