@@ -34,14 +34,14 @@
 
     <!-- Begin slides. Just make elements with a class of slide. -->
 
-        <div class="slide">
-                <h1> {{{title}}} </h1>
-                <h2> {{{subtitle}}} </h2>
-                <span id="author"> {{{author}}} </span>
-                <span id="complement"> {{{complement}}} </span>
-                <span id="date"> {{{date}}} </span>
-        </div>
-        {{{content}}}
+	<div class="slide">
+		<h1> {{{title}}} </h1>
+		<h2> {{{subtitle}}} </h2>
+		<span id="author"> {{{author}}} </span>
+		<span id="complement"> {{{complement}}} </span>
+		<span id="date"> {{{date}}} </span>
+	</div>
+	{{{content}}}
     <!-- End slides. -->
 
     <!-- Begin extension snippets. Add or remove as needed. -->
@@ -72,7 +72,7 @@
 
 <!-- Required JS files. -->
 <script src="../../support/html/deckjs/jquery.min.js"></script>
-<script src="../../support/html/deckjs/core/deck.core.js"></script>
+<script src="../../support/html/deckjs/deck.core.js"></script>
 
 <!-- Extension JS files. Add or remove as needed. -->
 <script src="../../support/html/deckjs/deck.menu.js"></script>
