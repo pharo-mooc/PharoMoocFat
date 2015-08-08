@@ -250,6 +250,6 @@ ${slide:title=Instance Creation are Messages Too!|label=methoddefinition}$
 ${slide:title=Conclusion|label=methoddefinition}$
 
 - Compact syntax
-- Few constructs
-- Messages
-- Closures
+- Few constructs but really expressive
+- Support for Domain Specific Languages
+- Mainly Messages and Closures
