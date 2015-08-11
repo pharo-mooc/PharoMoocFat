@@ -59,7 +59,7 @@ ${slide:title=Adding elements|label=api}$
 
 
 
-${slide:title=Nice creation|label=api}$
+${slide:title=Nicer creation API|label=api}$
 
 [[[language=smalltalk
     | s |
@@ -74,7 +74,17 @@ is equivalent to
     String streamContents: [:s | self printOn: s]
 ]]]
 
+${slide:title=Nicer adding API|label=api}$
 
+Some people prefer ==<<== to ==nextPutAll:==
+
+[[[language=smalltalk
+printOn: aStream
+	aStream
+		print: self label;
+		<< '->';
+		<< (self value printStringLimitedTo: 50)
+]]]
 
 
 ${slide:title=printOn|label=api}$

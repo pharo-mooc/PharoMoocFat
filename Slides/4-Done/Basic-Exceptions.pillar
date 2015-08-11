@@ -1,0 +1,163 @@
+{
+	"title":"Exception Overview",
+	"subtitle":"",
+	"author":"Stéphane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
+}
+
+${slide:title=Exception|label=exception}$
+
+- Two important classes:
+-- ==Error== and ==Notification==
+- Really powerful
+- Can be resumed, restarted, and signaled as new exception
+- For more complete reference, read Deep into Pharo 
+
++>file://figures/StreamsTraversal.png+
+
+
+
+
+
+
+${slide:title=API overview|label=api}$
+
+- Setting: ==on: Exception do: [ :ex| something ]==
+- Raising: ==signal==
+- ==defaultAction== is executed when an exception occurs
+
+Convenient messages:
+
+- ==ensure:==, ==writeStream==
+
+${slide:title=Signaling an Exception}$
+
+- To raise an exception: 
+-- create an instance of exception
+-- send it the messages ==signal== or ==signal: aMessage==
+
+[[[language=smalltalk
+    (AuthorNameRequest new initialAnswer: 'Stef') signal
+    (Warning new messageText: 'Pay attention') signal
+]]]
+
+Usually classes propose a shortcut
+[[[language=smalltalk
+    OutOfMemory signal.
+    Warning signal: ‘description of the exception’	
+
+]]]
+
+${slide:title=Catching an Example}$
+
+[[[language=smalltalk
+    |x y|
+    x := 7.
+    y := 0.
+    [ x / y ] 
+        on: ZeroDivide
+        do: [ :exception| Transcript show: exception description, cr.
+             0 ]
+]]]
+
+
+${slide:title=Testing that an exception happens}$
+
+- SUnit offers ==should:raise:== and ==shouldnt:raise:== to check occurrence of exceptions.
+
+[[[language=smalltalk
+    testNameOfMonth
+
+        self assert: (Date nameOfMonth: 1) equals: #January.	
+        self assert: (Date nameOfMonth: 12) equals: #December.
+
+        self should: [ Date nameOfMonth: 0 ] raise: SubscriptOutOfBounds.
+        self should: [ Date nameOfMonth: 13 ] raise: SubscriptOutOfBounds.
+]]]
+
+
+${slide:title=Kinds of Exceptions}$
+
+- Error: all the Errors (subscript, message not understood, division by zero
+- Halt 
+- Notification: non fatal exceptions (deprecation, warning, timedout)
+- UnhandledError: when an error occurs and that it is not trapped.
+
+
+${slide:title=Exception are real object}$
+
+[[[language=smalltalk
+ProtoObject >> doesNotUnderstand: aMessage
+
+   ^ MessageNotUnderstood new 
+        message: aMessage;
+        receiver: self;
+        signal
+]]]	
+
+[[[
+deprecated: anExplanationString on: date in: version
+    "Warn that the sending method has been deprecated"
+    (Deprecation
+        method: thisContext sender method
+        explanation: anExplanationString
+        on: date
+        in: version) signal
+]]]
+
+${slide:title=ExceptionSet}$
+
+Exception Sets
+[[[language=smalltalk
+    [ do some work ]
+            on: ZeroDivide, Warning
+            do: [ :ex | what you want ]
+]]]
+
+Or
+[[[language=smalltalk
+    | exceptionSets |
+    exceptionSets := ExceptionSet with: ZeroDivide with: Warning.
+    [do some work]
+        on: exceptionSets
+        do: [ :ex | what you want ]
+]]]
+
+
+${slide:title=A nice helper: ensure:}$
+
+- How to ensure that an expression is executed is always executed (even if the program fails before)?
+- Use ==ensure:==
+
+[[[language=smalltalk
+    | writer |
+    writer := GIFReadWriter on: (FileStream newFileNamed: 'Pharo.gif'). 
+    [ writer nextPutImage: (Form fromUser) ]
+         ensure: [ writer close ]
+]]]
+
+${slide:title=Another nice helper ifCurtailed:}$
+
+- How to ensure that an expression is executed is only if the program fails or returns?
+- Use ==ifCurtailed:==
+
+[[[language=smalltalk
+    | writer |
+    writer := GIFReadWriter on: (FileStream newFileNamed: 'Pharo.gif'). 
+    [ writer nextPutImage: (Form fromUser) ]
+         ensure: [ writer close ]
+]]]
+
+
+
+
+
+
+${slide:title=Summary}$
+
+- Streams offers a simple API. 
+- Basis for many manipulation of collection of objects
+
+
+
+
