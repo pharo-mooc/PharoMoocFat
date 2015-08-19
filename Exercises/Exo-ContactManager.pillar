@@ -1,0 +1,376 @@
+{
+  "title": 'Contact Book'
+}
+
+!Contact Book
+
+In this tutorial, we develop a simple contact book with a web interface. The resulting application can be seen in Figure *@fig:final*.
+
++Screenshot of the finished contact book application>file://figures/contact-book-final.png|width=80|label=fig:final+
+
+The web interface will be realized on top of the *Seaside web framework>http://www.seaside.st*.
+
+!!The Model
+
+The contact book is composed of 2 model classes: ==Contact== and ==ContactBook==.
+
+!!!The Contact
+
+A contact has a ==fullname== and ==email== instance variables, both strings. Create the ==Contact== class with its instance variables:
+
+[[[
+Object subclass: #Contact
+    instanceVariableNames: 'fullname email'
+    classVariableNames: ''
+    category: 'ContactBook'
+]]]
+
+It should be possible to create a new contact by evaluating this code:
+
+[[[
+contact := Contact newNamed: 'Marcus Denker' email: 'marcus.denker@inria.fr'.
+]]]
+
+Add the ==newNamed:email:== method in ==Contact class== (the ''class side'' of the ==Contact== class) and necessary mutator in ==Contact==:
+
+[[[
+Contact class>>newNamed: aString email: aString2
+  ^ self new
+    setFullname: aString email: aString2;
+    yourself
+
+Contact>>setFullname: aString email: aString2
+  fullname := aString.
+  email := aString2
+]]]
+
+If you inspect or print the ==contact== variable created above, you will see that the string representation of ==Contact== instances is =="a Contact"== which says nothing about the contact itself. This is problematic when debugging and developers typically appreciate nicer string representations. You can change that by overriding ==Object>>printOn:== in the ==Contact== class and sending several ==nextPutAll:== messages to the stream argument:
+
+[[[
+Contact>>printOn: aStream
+  aStream
+    nextPutAll: self fullname;
+    nextPutAll: ' <';
+    nextPutAll: self email;
+    nextPutAll: '>'
+]]]
+
+The string representation of the above ==contact== variable should be:
+
+[[[
+'Marcus Denker <marcus.denker@inria.fr>'
+]]]
+
+Don't forget to categorize the methods in dedicated protocols and to comment the class.
+
+!!!The Contact Book
+
+A contact book contains a collection of ==contacts==. Create the ==ContactBook== class with its instance variable:
+
+[[[
+Object subclass: #ContactBook
+  instanceVariableNames: 'contacts'
+  classVariableNames: ''
+  category: 'ContactBook'
+]]]
+
+It should be possible to add and remove contacts from the collection. Add the necessary methods:
+
+[[[
+ContactBook>>addContact: aContact
+  self contacts add: aContact
+
+ContactBook>>removeContact: aContact
+  self contacts remove: aContact
+
+ContactBook>>contacts
+  ^ contacts ifNil: [ contacts := OrderedCollection new ]
+]]]
+
+To simplify further development, we can specify a default contact book with existing contacts inside. We do this by adding a ==createDefault== method to the ==default instance== protocol of ==ContactBook class==:
+
+[[[
+ContactBook class>>createDefault
+  ^ self new
+    addContact: (Contact newNamed: 'Damien Cassou' email: 'damien@cassou.me');
+    addContact: (Contact newNamed: 'Marcus Denker' email: 'marcus.denker@inria.fr');
+    addContact: (Contact newNamed: 'Jorge Luis Ressia' email: 'ressia@iam.unibe.ch');
+    addContact: (Contact newNamed: 'Clara Allende' email: 'clari.allende@gmail.com');
+    yourself
+]]]
+
+Don't forget to categorize the methods in dedicated protocols and to comment the class.
+
+!!A First Web View
+
+Now that we have the model, we need a web view. In this tutorial, we will use the Seaside web framework to render our application.
+
+Seaside must be loaded in the image to start using it. Open the ==Configuration browser== tool and search for Seaside. Install the stable version.
+
+Seaside is a component framework: Seaside web applications are realized by aggregating components. Typically, an application consists of a top-level component delegating part of its rendering to sub-components. Our simple application will only consist of a top-level component represented by the ==WAContactBook== class, subclass of ==WAComponent==. Create the ==WAContactBook== class with a ==contactBook== instance variable:
+
+[[[
+WAComponent subclass: #WAContactBook
+  instanceVariableNames: 'contactBook'
+  classVariableNames: ''
+  category: 'ContactBook'
+]]]
+
+!!!Rendering a Title
+
+Every Seaside component class must override the ==renderContentOn:== method to specify how the component will be rendered. Add this method to the ==rendering== protocol:
+
+[[[
+WAContactBook>>renderContentOn: html
+    "Main entry point of the view. Render a title."
+
+    html heading
+        level: 1;
+        with: 'My Contact Book'.
+]]]
+
+The next step is to register the ==WAContactBook== class to the ==/contacts== URL path. Do this by implementing an ==initialize== method in ==WAContactBook class==:
+
+[[[
+WAContactBook class>>initialize
+  WAAdmin register: self asApplicationAt: 'contacts'.
+]]]
+
+This method must be executed once manually:
+
+[[[
+WAContactBook initialize
+]]]
+
+The last step before getting something in the web browser is to start the web server. Open the ==Seaside control panel== tool, add a ==ZnZincServerAdaptor== on port 8080 and start it.
+
+Open your favorite web browser on *http://localhost:8080/contacts* and you should see something similar to Figure *@fig:title*. Currently, the title of the web page is "Seaside", as can been seen in the web browser window title and the tab title. This can be changed by overriding ==updateRoot:== as follows.
+
++Screenshot of the contact book application title>file://figures/contact-book-title.png|width=80|label=fig:title+
+
+[[[
+WAContactBook>>updateRoot: anHtmlRoot
+  super updateRoot: anHtmlRoot.
+  anHtmlRoot title: 'Contact Book'
+]]]
+
+You can refresh the page in the web browser to see the result.
+
+!!!Rendering a Table of Contacts
+
+Below the title, we now want a table containing the contacts of the contact book. For this, we need to change the ==renderContentOn:== method and add a few new methods:
+
+[[[
+WAContactBook>>renderContentOn: html
+    "Main entry point of the view. Render both a title and the list of contacts."
+
+    html heading
+        level: 1;
+        with: 'My Contact Book'.
+    self renderContactsOn: html
+
+WAContactBook>>renderContactsOn: html
+    html
+        table: [
+            html
+                tableHead: [
+                    html
+                        tableHeading: 'Name';
+                        tableHeading: 'Email' ].
+            self contactBook contactsDo: [ :contact | self renderContact: contact on: html ] ]
+
+WAContactBook>>renderContact: aContact on: html
+  html
+    tableRow: [
+      html
+        tableData: aContact name;
+        tableData: aContact email ]
+]]]
+
+The ==renderContentOn:== method delegates the table rendering to the ==renderContactsOn:== method. The latter creates a table with a heading row and delegates the contact rendering to the ==renderContact:on:== method. This method renders a table row with the contact's details.
+
+Some methods are used above but not yet defined. The ==WAContactBook>>contactBook== method is an accessor to the ==contactBook== instance variable. If the variable is not yet set, we can set it to a default contact book like this:
+
+[[[
+WAContactBook>>contactBook
+  ^ contactBook ifNil: [ contactBook := ContactBook createDefault ]
+]]]
+
+The ==contactsDo:== method is implemented in the ==ContactBook== class like this:
+
+[[[
+ContactBook>>contactsDo: aBlock
+  self contacts do: aBlock
+]]]
+
+This ==contactsDo:== method is not as useless as it might seem. This method hides the existence of a ==contactBook== collection in ==ContactBook==. It could be useful later to replace the collection by a database.
+
++Screenshot of a contact book contacts>file://figures/contact-book-first-contacts.png|width=100|label=fig:first-contacts+
+
+Refreshing the web browser should now show a list of contacts as can be seen in Figure *@fig:first-contacts*.
+
+!!Improving the View with Bootstrap
+
+The rendering can be visually improved by adding some Cascading Style Sheets (CSS). In the following, we use the *Bootstrap framework>http://getbootstrap.com/* that must be loaded in the image. Open the ==Configuration browser== tool and search for Bootstrap. Install the stable version.
+
+The contact book application must declare its dependency on Bootstrap. This is done by modifying the ==initialize== method:
+
+[[[
+WAContactBook class>>initialize
+  (WAAdmin register: self asApplicationAt: 'contacts')
+    addLibrary: JQDeploymentLibrary;
+    addLibrary: TBSDeploymentLibrary
+]]]
+
+This method must be executed manually again:
+
+[[[
+WAContactBook initialize
+]]]
+
+The Bootstrap framework defines some special method to improve the application rendering. We now adapt our existing code to use these methods:
+
+[[[
+WAContactBook>>renderContentOn: html
+  "Main entry point of the view. Render both a title and the list of contacts."
+
+  html
+    tbsContainer: [
+      html heading
+        level: 1;
+        with: 'My Contact Book'.
+      self renderContactsOn: html ]
+WAContactBook>>renderContactsOn: html
+  html
+    tbsTable: [
+      html
+        tableHead: [
+          html
+            tableHeading: 'Name';
+            tableHeading: 'Email' ].
+      self contactBook contactsDo: [ :contact | self renderContact: contact on: html ] ]
+]]]
+
+As you can see, the adaptation consisted in adding a container with ==tbsContainer:== and replacing a ==table:== by a ==tbsTable:== message.
+
++Screenshot of the  contact book application with bootstrap>file://figures/contact-book-with-bootstrap.png|width=100|label=fig:with-bootstrap+
+
+The result in Figure *@fig:with-bootstrap* already looks much nicer. In a real application, it is recommended to *avoid using Bootstrapspecific methods>http://ruby.bvision.com/blog/please-stop-embedding-bootstrap-classes-in-your-html* such as ==tbsContainer:== and ==tbsTable:== to use Bootstrap mixins instead. We will not cover that in our tutorial though.
+
+!!Finishing the Details
+
+We will now add photos and buttons to our contact list to obtain the result in Figure *@fig:final*.
+
+!!!Adding Photos
+
+The contact book application can be improved by displaying photos next to each contact. These photos can be automatically fetched from the web using *Gravatar>http://gravatar.com/* or equivalent. Gravatar provides a *web API>http://en.gravatar.com/site/implement/* to retrieve a photo from an email address:
+
+[[[
+Contact>>gravatarUrl
+  ^ 'http://www.gravatar.com/avatar/', (MD5 hashMessage: email trimBoth asLowercase) hex, '.jpg'
+]]]
+
+For example, for *marcus.denker@inria.fr*, the Gravatar URL is:
+
+[[[
+'http://www.gravatar.com/avatar/c147c32f94baa71afa9d7be0a289766d.jpg'
+]]]
+
+The web application must be adapted with a new column for the photos:
+
+[[[
+WAContactBook>>renderContactsOn: html
+  html
+    tbsTable: [
+      html
+        tableHead: [
+          html
+            tableHeading: 'Name';
+            tableHeading: 'Email';
+            tableHeading: 'Photo' ].
+      self contactBook contactsDo: [ :contact | self renderContact: contact on: html ] ]
+
+WAContactBook>>renderContact: aContact on: html
+  html
+    tableRow: [
+      html
+        tableData: aContact name;
+        tableData: aContact email;
+        tableData: [ self renderPhotoOf: aContact on: html ] ]
+
+WAContactBook>>renderPhotoOf: aContact on: html
+  html image url: aContact gravatarUrl
+]]]
+
+!!!Adding Buttons
+
+Finally, we will add buttons to remove contacts one by one and to reset the contact book to the default one.
+
+We first add a remove button on each contact line in the table:
+
+[[[
+WAContactBook>>renderContact: aContact on: html
+    html
+        tableRow: [
+            html
+                tableData: aContact name;
+                tableData: aContact email;
+                tableData: [ self renderPhotoOf: aContact on: html ];
+                tableData: [ self renderRemoveButtonForContact: aContact on: html ] ]
+
+WAContactBook>>renderRemoveButtonForContact: aContact on: html
+    html tbsButton
+        beDanger;
+        callback: [ self contactBook removeContact: aContact ];
+        with: 'Remove'
+]]]
+
+You can refresh the page in the web browser and you will see the remove buttons. However, none of them will work because an HTML form must wrap the buttons. This can be done by modifying the ==renderContentOn:== method again:
+
+[[[
+WAContactBook>>renderContentOn: html
+  "Main entry point of the view. Render both a title and the list of contacts."
+
+  html
+    tbsContainer: [
+      html heading
+        level: 1;
+        with: 'My Contact Book'.
+      html tbsForm: [ self renderContactsOn: html ] ]
+]]]
+
+The remove buttons should now work fine. To let the contact book user reset the contact book to its default state, we now add a reset button below the contact table:
+
+[[[
+WAContactBook>>renderContentOn: html
+  "Main entry point of the view. Render both a title and the list of contacts."
+
+  html
+    tbsContainer: [
+      html heading
+        level: 1;
+        with: 'My Contact Book'.
+      html
+        tbsForm: [
+          self renderContactsOn: html.
+          self renderButtonsOn: html ] ]
+
+WAContactBook>>renderButtonsOn: html
+  html
+    tbsButtonGroup: [
+      html tbsButton
+        beDanger;
+        callback: [ self resetContactBook ];
+        with: 'Reset' ]
+
+WAContactBook>>resetContactBook
+  contactBook := nil
+]]]
+
+You should now get the same result as in Figure *@fig:final*.
+
+% Local Variables:
+% compile-command: "cd .. && ./compile.sh Exercises/Exo-ContactManager.pillar"
+% End:
+
+%  LocalWords:  Gravatar
