@@ -2,49 +2,87 @@
   "title": 'Contact Book'
 }
 
-!Contact Book
+! Building A Simple Contact Book Application
 
-In this tutorial, we develop a simple contact book with a web interface. The resulting application can be seen in Figure *@fig:final*.
+In this tutorial, you will develop a simple contact book application with a web interface. It consists of a couple of classes for the model and the UI of the application). 
+Figure *@fig:final* shows the resulting application. You will develop the web interface using Seaside (*http://ww.seaside.st>http://www.seaside.st*). Seaside is a powerful web framework
+for developing highly dynamic and complex web application. For more information you can read the book: 'Dynamic Web Development with Seaside' which 
+is freely available at *http://book.seaside.st>http://book.seaside.st*. Now in this little tutorial we will only use some simple server side Seaside behavior. 
 
-+Screenshot of the finished contact book application>file://figures/contact-book-final.png|width=80|label=fig:final+
-
-The web interface will be realized on top of the *Seaside web framework>http://www.seaside.st*.
++Screenshot of the finished contact book application.>file://figures/contact-book-final.png|width=80|label=fig:final+
 
 !!The Model
 
-The contact book is composed of 2 model classes: ==Contact== and ==ContactBook==.
+The contact book is composed of 2 model classes: ==Contact== and ==ContactBook==. Let us start with the ==Contact== class.
 
 !!!The Contact
 
-A contact has a ==fullname== and ==email== instance variables, both strings. Create the ==Contact== class with its instance variables:
+A contact has two instance variables ==fullname== and ==email==, both strings. Create the ==Contact== class with its instance variables:
 
-[[[
+[[[language=smalltalk
 Object subclass: #Contact
     instanceVariableNames: 'fullname email'
     classVariableNames: ''
     category: 'ContactBook'
 ]]]
 
-It should be possible to create a new contact by evaluating this code:
 
-[[[
+It should be possible to create a new contact by executing the following code:
+
+[[[language=smalltalk
 contact := Contact newNamed: 'Marcus Denker' email: 'marcus.denker@inria.fr'.
 ]]]
 
-Add the ==newNamed:email:== method in ==Contact class== (the ''class side'' of the ==Contact== class) and necessary mutator in ==Contact==:
+It means that we want to send a message (==newNamed:email:==) to the class ==Contact== itself and that it will should return a ==Contact== instance.
 
-[[[
+Add the class ==newNamed:email:== method in ==Contact== class. To define a class method, pay attention that you should browse the ''class side'' 
+of the ==Contact== class.  and necessary mutator in ==Contact==:
+
+[[[language=smalltalk
 Contact class>>newNamed: aString email: aString2
-  ^ self new
-    setFullname: aString email: aString2;
-    yourself
-
-Contact>>setFullname: aString email: aString2
-  fullname := aString.
-  email := aString2
+    ^ self new
+       setFullname: aString email: aString2;
+       yourself
 ]]]
 
-If you inspect or print the ==contact== variable created above, you will see that the string representation of ==Contact== instances is =="a Contact"== which says nothing about the contact itself. This is problematic when debugging and developers typically appreciate nicer string representations. You can change that by overriding ==Object>>printOn:== in the ==Contact== class and sending several ==nextPutAll:== messages to the stream argument:
+You will need to define a instance method (==setFullname:email:==) to set all the information to the receiver. 
+
+[[[language=smalltalk
+Contact>>setFullname: aString email: aString2
+    fullname := aString.
+    email := aString2
+]]]
+
+Note that this is just one way to do it. Another way is to use simple setter messsages. We need to define setter, because in Pharo the only way to modify the state of an instance from the outside is by sending it messages. 
+
+
+You can define a test to make sure that you can create an instance without error and that it contains the right information. 
+
+[[[language=smalltalk
+	TestCase subclass: #ContactText
+	    instanceVariableNames: ''
+	    classVariableNames: ''
+	    category: 'ContactBook'
+]]]
+
+[[[language=smalltalk
+    ContactText>>testCreation
+        | contact |
+        contact := Contact newNamed: 'Marcus Denker' email: 'marcus.denker@inria.fr'.
+        self assert: contact fullname = 'Marcus Denker'.
+        self assert: contact email = 'marcus.denker@inria.fr'.
+]]]
+
+For this test to work you need to define the following accessors.
+[[[language=smalltalk
+    Contact>>fullname
+       ^ fullname
+
+    Contact>>email
+       ^ email
+]]]
+
+If you inspect or print the ==contact== variable created above, you will see that the string representation of ==Contact== instances is =="a Contact"== which says nothing about the contact itself. This is problematic when debugging and developers typically appreciate nicer string representations. You can change that by overriding the method ==Object>>printOn:== in the ==Contact== class and sending several ==nextPutAll:== messages to the stream argument:
 
 [[[
 Contact>>printOn: aStream
@@ -55,13 +93,15 @@ Contact>>printOn: aStream
     nextPutAll: '>'
 ]]]
 
-The string representation of the above ==contact== variable should be:
+The string representation of the above ==contact== variable will then be:
 
 [[[
 'Marcus Denker <marcus.denker@inria.fr>'
 ]]]
 
 Don't forget to categorize the methods in dedicated protocols and to comment the class.
+
+Note that in future extensions you could 
 
 !!!The Contact Book
 
