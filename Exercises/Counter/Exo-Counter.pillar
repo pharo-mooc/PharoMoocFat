@@ -175,9 +175,9 @@ Counter>>decrement
     self count: self count - 1
 ]]]
 
-+Class with green tests.>file://figures/CounterClassCreated.png|label=figclassCreated+
++Class with green tests.>file://figures/CounterClassCreated.png|label=figclassTestCreated+
 
-Run your tests they should pass. 
+Run your tests they should pass (as shown in Figure *figclassTestCreated*). 
 
 !!! Better object description
 
