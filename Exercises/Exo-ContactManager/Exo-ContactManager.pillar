@@ -4,7 +4,7 @@
 
 ! Building A Simple Contact Book Application
 
-In this tutorial, you will develop a simple contact book application with a web interface. It consists of a couple of classes for the model and the UI of the application). 
+In this tutorial, you will develop a simple contact book application with a web interface. It consists of a couple of classes for the model and the UI of the application. 
 Figure *@fig:final* shows the resulting application. You will develop the web interface using Seaside (*http://ww.seaside.st>http://www.seaside.st*). Seaside is a powerful web framework
 for developing highly dynamic and complex web application. For more information you can read the book: 'Dynamic Web Development with Seaside' which 
 is freely available at *http://book.seaside.st>http://book.seaside.st*. Now in this little tutorial we will only use some simple server side Seaside behavior. 
@@ -77,14 +77,16 @@ For this test to work you need to define the following accessors.
 [[[language=smalltalk
     Contact>>fullname
        ^ fullname
-
+]]]
+	   
+[[[language=smalltalk
     Contact>>email
        ^ email
 ]]]
 
-If you inspect or print the ==contact== variable created above, you will see that the string representation of ==Contact== instances is =="a Contact"== which says nothing about the contact itself. This is problematic when debugging and developers typically appreciate nicer string representations. You can change that by overriding the method ==Object>>printOn:== in the ==Contact== class and sending several ==nextPutAll:== messages to the stream argument:
+If you inspect or print the ==contact== variable created above, you will see that the string representation of ==Contact== instances is =="a Contact"== which says nothing about the contact itself. This is problematic when debugging and developers typically appreciate nicer string representations. You can change that by overriding the method ==Object>>printOn:== in the ==Contact== class and sending several ==nextPutAll:== messages to the stream argument as follows:
 
-[[[
+[[[language=smalltalk
 Contact>>printOn: aStream
   aStream
     nextPutAll: self fullname;
@@ -95,61 +97,70 @@ Contact>>printOn: aStream
 
 The string representation of the above ==contact== variable will then be:
 
-[[[
+[[[language=smalltalk
 'Marcus Denker <marcus.denker@inria.fr>'
 ]]]
 
 Don't forget to categorize the methods in dedicated protocols and to comment the class.
 
-Note that in future extensions you could 
+Note that in future extensions you could use a real object to represent an email.
 
 !!!The Contact Book
 
-A contact book contains a collection of ==contacts==. Create the ==ContactBook== class with its instance variable:
+A contact book contains a collection of ==contacts==. Let us create the ==ContactBook== class with its instance variable ==contacts==:
 
-[[[
-Object subclass: #ContactBook
-  instanceVariableNames: 'contacts'
-  classVariableNames: ''
-  category: 'ContactBook'
+[[[language=smalltalk
+    Object subclass: #ContactBook
+        instanceVariableNames: 'contacts'
+        classVariableNames: ''
+        category: 'ContactBook'
 ]]]
 
 It should be possible to add and remove contacts from the collection. Add the necessary methods:
 
-[[[
+[[[language=smalltalk
 ContactBook>>addContact: aContact
-  self contacts add: aContact
-
-ContactBook>>removeContact: aContact
-  self contacts remove: aContact
-
-ContactBook>>contacts
-  ^ contacts ifNil: [ contacts := OrderedCollection new ]
+    self contacts add: aContact
 ]]]
 
-To simplify further development, we can specify a default contact book with existing contacts inside. We do this by adding a ==createDefault== method to the ==default instance== protocol of ==ContactBook class==:
+[[[language=smalltalk
+ContactBook>>removeContact: aContact
+    self contacts remove: aContact
+]]]
 
-[[[
+You can either define an ==initialize== method (that is automatically invoked at instance creation time) or use lazy initialization.
+The following method uses lazy initialization. 
+
+[[[language=smalltalk
+ContactBook>>contacts
+    ^ contacts ifNil: [ contacts := OrderedCollection new ]
+]]]
+
+To simplify further development, we define a default contact book with predefined contacts inside. We do this by adding ==createDefault== as a class method to the ==default instance== protocol of ==ContactBook class==:
+
+[[[language=smalltalk
 ContactBook class>>createDefault
-  ^ self new
-    addContact: (Contact newNamed: 'Damien Cassou' email: 'damien@cassou.me');
-    addContact: (Contact newNamed: 'Marcus Denker' email: 'marcus.denker@inria.fr');
-    addContact: (Contact newNamed: 'Jorge Luis Ressia' email: 'ressia@iam.unibe.ch');
-    addContact: (Contact newNamed: 'Clara Allende' email: 'clari.allende@gmail.com');
-    yourself
+    ^ self new
+        addContact: (Contact newNamed: 'Damien Cassou' email: 'damien@cassou.me');
+        addContact: (Contact newNamed: 'Marcus Denker' email: 'marcus.denker@inria.fr');
+        addContact: (Contact newNamed: 'Jorge Luis Ressia' email: 'ressia@iam.unibe.ch');
+        addContact: (Contact newNamed: 'Clara Allende' email: 'clari.allende@gmail.com');
+        yourself
 ]]]
 
 Don't forget to categorize the methods in dedicated protocols and to comment the class.
 
 !!A First Web View
 
-Now that we have the model, we need a web view. In this tutorial, we will use the Seaside web framework to render our application.
+Now that we have the model, we need a web view. In this tutorial, we use the Seaside web framework to define the views of our application.
 
-Seaside must be loaded in the image to start using it. Open the ==Configuration browser== tool and search for Seaside. Install the stable version.
+Seaside must be loaded in the image to start using it. Open the ''Catalog browser'' tool and search for Seaside. Install the stable version. As it can take a while you can also download a pre-installed version of Seaside available at *https://ci.inria.fr/pharo-contribution/job/Seaside/*.
 
-Seaside is a component framework: Seaside web applications are realized by aggregating components. Typically, an application consists of a top-level component delegating part of its rendering to sub-components. Our simple application will only consist of a top-level component represented by the ==WAContactBook== class, subclass of ==WAComponent==. Create the ==WAContactBook== class with a ==contactBook== instance variable:
+Seaside is a component framework: Seaside web applications are built by aggregating components. Typically, an application consists of a top-level component delegating part of its rendering to sub-components. Our simple application will only consist of a top-level component represented by the ==WAContactBook== class, subclass of ==WAComponent==. 
 
-[[[
+Create the ==WAContactBook== class with a ==contactBook== instance variable:
+
+[[[language=smalltalk
 WAComponent subclass: #WAContactBook
   instanceVariableNames: 'contactBook'
   classVariableNames: ''
@@ -158,9 +169,9 @@ WAComponent subclass: #WAContactBook
 
 !!!Rendering a Title
 
-Every Seaside component class must override the ==renderContentOn:== method to specify how the component will be rendered. Add this method to the ==rendering== protocol:
+Every Seaside component class must override the ==renderContentOn:== method to specify how a component is rendered. Define this method to the ==rendering== protocol:
 
-[[[
+[[[language=smalltalk
 WAContactBook>>renderContentOn: html
     "Main entry point of the view. Render a title."
 
@@ -169,26 +180,29 @@ WAContactBook>>renderContentOn: html
         with: 'My Contact Book'.
 ]]]
 
-The next step is to register the ==WAContactBook== class to the ==/contacts== URL path. Do this by implementing an ==initialize== method in ==WAContactBook class==:
+The method argument ==html== acts as a brush that can be parametrized to emit adequate XHTML. Here we request the heading brush and set it to level one. 
+Then we specify the contents of the corresponding section. 
 
-[[[
+The next step is to register the ==WAContactBook== class to the ==/contacts== URL path. This way you will be able to reach the application as on *http://localhost:8080/contacts*. Do this by implementing a class ==initialize== method in ==WAContactBook class==:
+
+[[[language=smalltalk
 WAContactBook class>>initialize
-  WAAdmin register: self asApplicationAt: 'contacts'.
+    WAAdmin register: self asApplicationAt: 'contacts'.
 ]]]
 
-This method must be executed once manually:
+Class initialize method are executed when the code is loaded in memory, now since the class is already loaded, we should executed it once manually:
 
-[[[
+[[[language=smalltalk
 WAContactBook initialize
 ]]]
 
 The last step before getting something in the web browser is to start the web server. Open the ==Seaside control panel== tool, add a ==ZnZincServerAdaptor== on port 8080 and start it.
 
-Open your favorite web browser on *http://localhost:8080/contacts* and you should see something similar to Figure *@fig:title*. Currently, the title of the web page is "Seaside", as can been seen in the web browser window title and the tab title. This can be changed by overriding ==updateRoot:== as follows.
-
 +Screenshot of the contact book application title>file://figures/contact-book-title.png|width=80|label=fig:title+
 
-[[[
+Open your favorite web browser on *http://localhost:8080/contacts* and you should see something similar to Figure *@fig:title*. Currently, the title of the web page is "Seaside", as we can see it in the web browser window title and the tab title. This can be changed by overriding ==updateRoot:== as follows.
+
+[[[language=smalltalk
 WAContactBook>>updateRoot: anHtmlRoot
   super updateRoot: anHtmlRoot.
   anHtmlRoot title: 'Contact Book'
@@ -198,9 +212,11 @@ You can refresh the page in the web browser to see the result.
 
 !!!Rendering a Table of Contacts
 
-Below the title, we now want a table containing the contacts of the contact book. For this, we need to change the ==renderContentOn:== method and add a few new methods:
+Below the title, we now want a table containing the contacts of the contact book. For this, we need to change the ==renderContentOn:== method and add a few new methods.
+We will decompose the behavior we want to be able to reuse it if necessary.
+First we introduce a new method named ==renderContactsOn:==.
 
-[[[
+[[[language=smalltalk
 WAContactBook>>renderContentOn: html
     "Main entry point of the view. Render both a title and the list of contacts."
 
@@ -208,7 +224,10 @@ WAContactBook>>renderContentOn: html
         level: 1;
         with: 'My Contact Book'.
     self renderContactsOn: html
+]]]
 
+The method ==renderContactsOn:== defines a table with a table header and delegates to the the method ==renderContact:on:==. 
+[[[language=smalltalk
 WAContactBook>>renderContactsOn: html
     html
         table: [
@@ -218,7 +237,11 @@ WAContactBook>>renderContactsOn: html
                         tableHeading: 'Name';
                         tableHeading: 'Email' ].
             self contactBook contactsDo: [ :contact | self renderContact: contact on: html ] ]
+]]]
 
+The method ==renderContact:on:== defines the rendering of a single contact as table row.
+
+[[[language=smalltalk
 WAContactBook>>renderContact: aContact on: html
   html
     tableRow: [
@@ -227,20 +250,20 @@ WAContactBook>>renderContact: aContact on: html
         tableData: aContact email ]
 ]]]
 
-The ==renderContentOn:== method delegates the table rendering to the ==renderContactsOn:== method. The latter creates a table with a heading row and delegates the contact rendering to the ==renderContact:on:== method. This method renders a table row with the contact's details.
+As we saw, the ==renderContentOn:== method delegates the table rendering to the ==renderContactsOn:== method. The latter creates a table with a heading row and delegates the contact rendering to the ==renderContact:on:== method. This method renders a table row with the contact's details.
 
 Some methods are used above but not yet defined. The ==WAContactBook>>contactBook== method is an accessor to the ==contactBook== instance variable. If the variable is not yet set, we can set it to a default contact book like this:
 
-[[[
+[[[language=smalltalk
 WAContactBook>>contactBook
-  ^ contactBook ifNil: [ contactBook := ContactBook createDefault ]
+    ^ contactBook ifNil: [ contactBook := ContactBook createDefault ]
 ]]]
 
 The ==contactsDo:== method is implemented in the ==ContactBook== class like this:
 
-[[[
+[[[language=smalltalk
 ContactBook>>contactsDo: aBlock
-  self contacts do: aBlock
+    self contacts do: aBlock
 ]]]
 
 This ==contactsDo:== method is not as useless as it might seem. This method hides the existence of a ==contactBook== collection in ==ContactBook==. It could be useful later to replace the collection by a database.
@@ -251,26 +274,26 @@ Refreshing the web browser should now show a list of contacts as can be seen in 
 
 !!Improving the View with Bootstrap
 
-The rendering can be visually improved by adding some Cascading Style Sheets (CSS). In the following, we use the *Bootstrap framework>http://getbootstrap.com/* that must be loaded in the image. Open the ==Configuration browser== tool and search for Bootstrap. Install the stable version.
+The rendering can be visually improved by adding some Cascading Style Sheets (CSS). In the following, we use the *Bootstrap framework>http://getbootstrap.com/* that must be loaded in the image. Open the ''Catalog browser'' tool and search for Bootstrap. Install the stable version.
 
-The contact book application must declare its dependency on Bootstrap. This is done by modifying the ==initialize== method:
+The contact book application must declare its dependency on Bootstrap. This is done by modifying the class  ==initialize== method:
 
-[[[
+[[[language=smalltalk
 WAContactBook class>>initialize
   (WAAdmin register: self asApplicationAt: 'contacts')
     addLibrary: JQDeploymentLibrary;
     addLibrary: TBSDeploymentLibrary
 ]]]
 
-This method must be executed manually again:
+Do not forget to reinitialize it manually again:
 
-[[[
+[[[language=smalltalk
 WAContactBook initialize
 ]]]
 
-The Bootstrap framework defines some special method to improve the application rendering. We now adapt our existing code to use these methods:
+The Bootstrap framework defines some special methods (such as ==tbsContainer:==, ==tbsTable==) to improve the application rendering. We now adapt our existing code to use these methods:
 
-[[[
+[[[language=smalltalk
 WAContactBook>>renderContentOn: html
   "Main entry point of the view. Render both a title and the list of contacts."
 
@@ -280,6 +303,9 @@ WAContactBook>>renderContentOn: html
         level: 1;
         with: 'My Contact Book'.
       self renderContactsOn: html ]
+]]]
+
+[[[language=smalltalk
 WAContactBook>>renderContactsOn: html
   html
     tbsTable: [
@@ -303,22 +329,22 @@ We will now add photos and buttons to our contact list to obtain the result in F
 
 !!!Adding Photos
 
-The contact book application can be improved by displaying photos next to each contact. These photos can be automatically fetched from the web using *Gravatar>http://gravatar.com/* or equivalent. Gravatar provides a *web API>http://en.gravatar.com/site/implement/* to retrieve a photo from an email address:
+We will improve the contact book application by displaying photos next to each contact. We fetch these photos automatically fetched from the web using *Gravatar>http://gravatar.com/* or equivalent. Gravatar provides a *web API>http://en.gravatar.com/site/implement/* to retrieve a photo from an email address:
 
-[[[
+[[[language=smalltalk
 Contact>>gravatarUrl
-  ^ 'http://www.gravatar.com/avatar/', (MD5 hashMessage: email trimBoth asLowercase) hex, '.jpg'
+    ^ 'http://www.gravatar.com/avatar/', (MD5 hashMessage: email trimBoth asLowercase) hex, '.jpg'
 ]]]
 
 For example, for *marcus.denker@inria.fr*, the Gravatar URL is:
 
-[[[
-'http://www.gravatar.com/avatar/c147c32f94baa71afa9d7be0a289766d.jpg'
+[[[language=smalltalk
+    'http://www.gravatar.com/avatar/c147c32f94baa71afa9d7be0a289766d.jpg'
 ]]]
 
 The web application must be adapted with a new column for the photos:
 
-[[[
+[[[language=smalltalk
 WAContactBook>>renderContactsOn: html
   html
     tbsTable: [
@@ -329,7 +355,11 @@ WAContactBook>>renderContactsOn: html
             tableHeading: 'Email';
             tableHeading: 'Photo' ].
       self contactBook contactsDo: [ :contact | self renderContact: contact on: html ] ]
+]]]
 
+Then we display the photo on the third column.
+
+[[[language=smalltalk
 WAContactBook>>renderContact: aContact on: html
   html
     tableRow: [
@@ -337,18 +367,20 @@ WAContactBook>>renderContact: aContact on: html
         tableData: aContact name;
         tableData: aContact email;
         tableData: [ self renderPhotoOf: aContact on: html ] ]
+]]]
 
+[[[language=smalltalk
 WAContactBook>>renderPhotoOf: aContact on: html
   html image url: aContact gravatarUrl
 ]]]
 
 !!!Adding Buttons
 
-Finally, we will add buttons to remove contacts one by one and to reset the contact book to the default one.
+Finally, we add buttons to remove contacts one by one and to reset the contact book to the default one.
 
 We first add a remove button on each contact line in the table:
 
-[[[
+[[[language=smalltalk
 WAContactBook>>renderContact: aContact on: html
     html
         tableRow: [
@@ -357,7 +389,9 @@ WAContactBook>>renderContact: aContact on: html
                 tableData: aContact email;
                 tableData: [ self renderPhotoOf: aContact on: html ];
                 tableData: [ self renderRemoveButtonForContact: aContact on: html ] ]
+]]]
 
+[[[language=smalltalk
 WAContactBook>>renderRemoveButtonForContact: aContact on: html
     html tbsButton
         beDanger;
@@ -367,7 +401,7 @@ WAContactBook>>renderRemoveButtonForContact: aContact on: html
 
 You can refresh the page in the web browser and you will see the remove buttons. However, none of them will work because an HTML form must wrap the buttons. This can be done by modifying the ==renderContentOn:== method again:
 
-[[[
+[[[language=smalltalk
 WAContactBook>>renderContentOn: html
   "Main entry point of the view. Render both a title and the list of contacts."
 
@@ -381,20 +415,22 @@ WAContactBook>>renderContentOn: html
 
 The remove buttons should now work fine. To let the contact book user reset the contact book to its default state, we now add a reset button below the contact table:
 
-[[[
+[[[language=smalltalk
 WAContactBook>>renderContentOn: html
-  "Main entry point of the view. Render both a title and the list of contacts."
+    "Main entry point of the view. Render both a title and the list of contacts."
 
-  html
-    tbsContainer: [
-      html heading
-        level: 1;
-        with: 'My Contact Book'.
-      html
-        tbsForm: [
-          self renderContactsOn: html.
-          self renderButtonsOn: html ] ]
+    html
+      tbsContainer: [
+        html heading
+          level: 1;
+          with: 'My Contact Book'.
+        html
+          tbsForm: [
+            self renderContactsOn: html.
+            self renderButtonsOn: html ] ]
+]]]
 
+[[[language=smalltalk
 WAContactBook>>renderButtonsOn: html
   html
     tbsButtonGroup: [
@@ -402,12 +438,32 @@ WAContactBook>>renderButtonsOn: html
         beDanger;
         callback: [ self resetContactBook ];
         with: 'Reset' ]
-
+]]]
+		
+[[[language=smalltalk
 WAContactBook>>resetContactBook
   contactBook := nil
 ]]]
 
 You should now get the same result as in Figure *@fig:final*.
+
+
+!!! Further Development
+
+As you see the current functionality are rather limited, here is a list of possible extensions
+
+- Define a new component to add a new contact.
+- This component could also support the edition of contacts information.
+- Add more information to describe a contact. For this we suggest that you use Magritte (Magritte is a framework to describe data and its Seaside extension defines automatically Seaside component). You can read the Magritte chapter in the book as well as the Magritte tutorial available at *https://github.com/SquareBracketAssociates/PharoInProgress*.
+- Save and load contacts in an external format such as JSON or STON (STON is a Pharo object notation format. It is by default in Pharo 50).
+
+
+
+!! Summary
+
+During this tutorial we defined a simple model and one simple web view. We follow a traditional development style where we define methods upfront. 
+We could also have written tests are while they get executed define method directly in the debugger. Pharo developer often prefer this way because they go faster and the tests define more precise context. 
+
 
 % Local Variables:
 % compile-command: "cd .. && ./compile.sh Exercises/Exo-ContactManager.pillar"
