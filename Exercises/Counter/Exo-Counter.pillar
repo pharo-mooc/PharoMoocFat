@@ -1,14 +1,14 @@
-! A Simple Counter 
+! Developing a simple counter
 
+We want you to implement a simple counter by following the steps given below. In this exercise you will learn how to create classes, method, instances. You will learn how to define tests and many more. 
 
-We want you to implement a simple counter that follows the small example given
-below. In this exercise you will leanr how to create classes, method, instances. 
-You will learn how to define test and many more. 
+Note that the development flow promoted by this little tutorial is traditional in the sense that you will define a package, a class, then define its instance variable then define its methods and finally execute it. The companion video follows also such programming development flow. 
 
+Now in Pharo, developers often follows a totally different style (that we call more live coding) where they execute an expression that will raise errors and they will code in the debugger or let the system define some instance variables and methods on the fly for them. Once you will have finish this tutorial we will ask you to try the other style by following a video showing such different development practice.
 
-!! A Potential Use Case
+!! Our use case
 
-Here is a potential use case: We create a counter, increment and check its value. 
+Here is our use case: We want to be able to create a counter, increment it twice, decrement it and check that its value is correct.
 
 [[[language=smalltalk
     | counter | 
@@ -18,19 +18,21 @@ Here is a potential use case: We create a counter, increment and check its value
     counter count = 1
 ]]]
 
+Now we will develop all the mandatory class and methods to support this scenario.
+
++Package created.>file://figures/CounterPackageCreated.png|label=figpackageCreated+
 
 !! Create your own class
 
 In this part you will create your first class. In Pharo a class is defined in a package. The steps we will do are the same ones every time you create a class, so memorize them well. We are going to create a class ==Counter== in a package called ==Counter==. Figure *@figpackageCreated* shows the result of creating such a package.
 
-+Package created.>file://figures/CounterPackageCreated.png|label=figpackageCreated+
 
-!!! Create a Package
+
+!!! Create a package
 In the Browser create a package. The system will ask you a name, write ==Counter==. open This new package will be created and added to the list.
 
-!!! Create a Class
-Creating a class requires five steps. They consist basically of editing the class definition template to specify the class you
-want to create. 
+!!! Create a class
+Creating a class requires five steps. They consist basically of editing the class definition template to specify the class you want to create. 
 
 
 -  Superclass Specification. First, you should replace the word ==NameOfSuperclass== with the word ==Object==. Thus, you specify the superclass of the class you are creating. Note that this is not always the case that ==Object== is the superclass, since you may to inherit behavior from a class specializing already ==Object==.
@@ -43,6 +45,17 @@ want to create.
 
 - Compile. That's it! We now have a filled-in class definition for the class ==Counter==. To define it, we still have to ''compile'' it. Therefore, select the accept menu. The class ==Counter== is now compiled and immediately added to the system.
 
+You should get the following class definition.
+
+[[[language=smalltalk
+    Object subclass: #Counter
+        instanceVariableNames: 'count'
+        classVariableNames: ''
+        category: 'MyCounter'
+]]]
+
+Figure *figclassCreated* illustrates the resulting situation that the browser should show.
++Class created.>file://figures/CounterClassCreated.png|label=figclassCreated+
 
 As we are disciplined developers, we provide a comment to ==Counter== class by clicking Comment button. You can write the following
 comment:
@@ -58,15 +71,13 @@ Select accept to store this class comment in the class.
 !! Define protocols and methods
 In this part you will use the browser to learn how to add protocols and methods.
 
-
-!!! Create and Test your Methods
 The class we have defined has one instance variable named ==count==. You should remember that in Pharo, everything is an object, that instance variables are private to the object and that the only way to interact with an object is by sending messages to it.
 
 Therefore, there is no other mechanism to access the instance variables from outside an object than sending a message to the object. What you can do is to define messages that return the value of the instance variable of a class. Such methods are called ''accessors'', and it is a common practice to always define and use them. We start to create an accessor method for our instance variable ==count==.
 
 Remember that every method belongs to a protocol. These protocols are just a group of methods without any language semantics, but convey important navigation information for the reader of your class. Although protocols can have any name, Pharo programmers follow certain conventions for naming these protocols. If you define a method and are not sure what protocol it should be in, first go through existing code and try to find a fitting name.
 
-
+!!! Create a method
 
 Now let us create the accessor methods for the instance variable ==value==. Start by selecting the class ==Counter== in a browser, and make sure the you are editing the instance side of the class (i.e., we define methods that will be sent to instances) by deselecting the Class side radiobutton. 
  
@@ -83,25 +94,29 @@ This defines a method called ==count==, taking no arguments, having a method com
 
 [[[language=smalltalk
     Counter new count
+    > nil
 ]]]
 
 This expression first creates a new instance of ==Counter==, and then sends the message ==count== to it and retrieves the current value of the counter. This should return ==nil== (the default value for noninitialised instance variables; afterwards we will create instances with a reasonable default initialisation value.
 
-!!!! Remarks. 
-	Accessors can be defined in protocols accessing or private.  Use the accessing protocol when a client object (like an interface) really needs to access your data. Use private to clearly state that no client should use the accessor. This is purely a convention. There is no way in Pharo (as in many dynamically-typed languages) to enforce access rights like private in C\+\+ or Java. Note that this discussion does not seem to be very important in the context of this specific simple example. However, this question is central to the notion of object and encapsulation of the data. An important side effect of this discussion is that you should always ask yourself when you, as a client of an object, are using an accessor if the object is really well defined and if it does not need extra functionality.
+!!! Remarks
+Accessors can be defined in protocols accessing or private.  Use the accessing protocol when a client object (like an interface) really needs to access your data. Use private to clearly state that no client should use the accessor. This is purely a convention. There is no simple way in Pharo (as in many dynamically-typed languages) to enforce access rights like private in C\+\+ or Java. Note that this discussion does not seem to be very important in the context of this specific simple example. However, this question is central to the notion of object and encapsulation of the data. An important side effect of this discussion is that you should always ask yourself when you, as a client of an object, are using an accessor if the object is really well defined and if it does not need extra functionality.
 
 
-!!!Exercise.
-Another method that is normally used besides the accessor method is a so-called setter method. Such a method is used to change the value of an instance variable from a client. For example, the next expression first creates a new ==Counter== instance and then sets its value to 7:
+!!! Adding a setter method
+Another method that is normally used besides the accessor method is a so-called setter method. Such a method is used to change the value of an instance variable from a client. For example, the expression ==Counter new count: 7== first creates a new ==Counter== instance and then sets its value to 7:
+
+The snippets shows that the counter effectively contains its value. 
 
 [[[language=smalltalk
-    Counter new count: 7
+    | c |
+    c := Counter new count: 7.
+    c count
+    > 7
 ]]]
 
 
 This setter method does not currently exist, so as an exercise write the method ==count:== such that, when invoked on an instance of ==Counter==,  instance variable is set to the argument given to the message. Test your method by typing and evaluating the expression above.
-
-
 
 !! Define a Test Class
 
@@ -114,7 +129,6 @@ To define a test case we will define a class that inherits from ==TestCase==. Th
         classVariableNames: ''
         category: 'Counter'
 ]]]
-
 
 Now we can write a first test by defining one method. Test methods should start with ''text'' to be automatically executed by the test runner or when you press on the icon
 of the method. Now to make sure that you understand in which class we define the method we prefix the method body with the class name and ==>>==.
@@ -134,9 +148,9 @@ Verify that the test passes by executing either pressing the icon in front of th
 
 
 
-!! Adding More Messages
-
-First we will define one test for the method ==increment== as follows: 
+!! Adding more messages
+Before implementing the following messages we will define first a test. 
+We define one test for the method ==increment== as follows: 
 
 [[[language=smalltalk
 CounterTest>>testIncrement
@@ -147,28 +161,27 @@ CounterTest>>testIncrement
 ]]]
 
 
-
-
-!!!Exercise.
-Propose a definition for the method ==increment==.
-
-!!!Exercise. 
-Define a test and method for the method ==decrement==. 
-
-!!!Exercise.
-Implement the following methods in the protocol ==operation==.
+- Propose a definition for the method ==increment==.
+- Define a test and method for the method ==decrement==. 
+- Implement the following methods ==increment== and ==decrement== in the protocol ==operation==.
 
 [[[language=smalltalk
 Counter>>increment
     self count: self count + 1
 ]]]
+
 [[[language=smalltalk
 Counter>>decrement
     self count: self count - 1
 ]]]
 
-!!! Exercise.
-When you open an inspect (putting a ==self halt== inside a method definition) you obtain an inspector or when you select the expression ==Counter new== and print its result (using the menu of the editor) you obtain a string ==a Counter==.
++Class with green tests.>file://figures/CounterClassCreated.png|label=figclassCreated+
+
+Run your tests they should pass. 
+
+!!! Better object description
+
+When you open an inspect (putting a ==self halt== inside a method definition) you obtain an inspector or when you select the expression ==Counter new== and print its result (using the Print it menu of the editor) you obtain a simple string =='a Counter'==.
 
 [[[
     Counter new
@@ -187,6 +200,8 @@ Counter>>printOn: aStream
 
 Note that the method ==printOn:== is used when you print an object using print it or click on ==self== in an inspector.
 
++Better description.>file://figures/CounterClassCreated.png|label=figclassCreated+
+
 
 !! Instance initialization method
 Right now the initial value of our counter is not set. 
@@ -204,14 +219,13 @@ Counter>>testValueAtCreationTimeIsZero
     self assert: Counter new count = 0
 ]]]
 
-!!!! Exercise.
-Define the new test method.
+- Define the new test method.
 
 !!! Define initialize method
 
 Now we have to write an initialization method that sets a default value of the ==count== instance variable. However, as we mentioned the ==initialize== message is sent to the newly created instance. This means that the ==initialize== method should be defined at the instance side as any method that is sent to an instance of ==Counter== (like ==increment==) and ==decrement==. The ==initialize== method is responsible to set up the instance variable default values.
 
-Therefore at the instance side, you should create a protocol ==initialize-release==, and create the following method (the body of this method is left blank. Fill it in!).
+Therefore at the instance side, you should create a protocol ==initialization==, and create the following method (the body of this method is left blank. Fill it in!).
 
 [[[language=smalltalk
 Counter>>initialize
@@ -219,11 +233,17 @@ Counter>>initialize
 ]]]
 
 
-Now create a new instance of class ==Counter==. Is it initialized by default? The following code should now work without
-problem:
+Now create a new instance of class ==Counter==. Is it initialized by default? The following code should now work without problem:
 
 [[[language=smalltalk
     Counter new increment
+]]]
+
+and the following one should return 2
+
+[[[language=smalltalk
+    Counter new increment; increment; count
+    > 2
 ]]]
 
 !! Define a new instance creation method
@@ -243,7 +263,7 @@ Here the message ==withValue:== is sent to the class ==Counter== itself.
 
 Several ways to save your work exist: You can
 
-- Save the class by clicking on it and selecting the fileout menu item. You will get a file containing the source code.
+- Save the class by clicking on it and selecting the fileout menu item. You will get a file containing the source code on your harddisc - This is not the favorite way to save your code.
 - Use the Monticello browser to save a package.
 
 Use SmalltalkHub to save your work. Go to *http://www.smalltalkhub.com/* and create a member account then register a new project. You get then an HTTP entry that refer to your project. Enter it as an HTTP repository in Monticello.
@@ -255,6 +275,5 @@ You can of course both publish your package (so that other people can load it, a
 !! Conclusion
 
 In this exercise you learned how to define classes, methods, and define tests. 
-The flow of programming that we chose for this first exercise is similar to most of programming language.
-In Pharo you can use a different flow that is based on defining a test first, executing it and when the execution raises error to 
-define the corresponding classes, methods, and instance variable often from inside the debugger. 
+The flow of programming that we chose for this first exercise is similar to most of programming languages.
+In Pharo you can use a different flow that is based on defining a test first, executing it and when the execution raises error to define the corresponding classes, methods, and instance variable often from inside the debugger. We suggest you now to redo the exercise following the second companion video.
