@@ -54,7 +54,7 @@ You should get the following class definition.
         category: 'MyCounter'
 ]]]
 
-Figure *figclassCreated* illustrates the resulting situation that the browser should show.
+Figure *@figclassCreated* illustrates the resulting situation that the browser should show.
 +Class created.>file://figures/CounterClassCreated.png|label=figclassCreated+
 
 As we are disciplined developers, we provide a comment to ==Counter== class by clicking Comment button. You can write the following
@@ -175,9 +175,9 @@ Counter>>decrement
     self count: self count - 1
 ]]]
 
-+Class with green tests.>file://figures/CounterClassCreated.png|label=figclassTestCreated+
++Class with green tests.>file://figures/CounterClassTestCreated.png|label=figclassTestCreated+
 
-Run your tests they should pass (as shown in Figure *figclassTestCreated*). 
+Run your tests they should pass (as shown in Figure *@figclassTestCreated*). 
 
 !!! Better object description
 
@@ -198,9 +198,9 @@ Counter>>printOn: aStream
     aStream cr.
 ]]]
 
-Note that the method ==printOn:== is used when you print an object using print it or click on ==self== in an inspector.
+Note that the method ==printOn:== is used when you print an object using print it (See Figure *@figBetterDescription*) or click on ==self== in an inspector.
 
-+Better description.>file://figures/CounterClassCreated.png|label=figclassCreated+
++Better description.>file://figures/CounterBetterDescription.png|label=figBetterDescription+
 
 
 !! Instance initialization method
