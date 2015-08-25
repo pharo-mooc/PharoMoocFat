@@ -24,7 +24,7 @@ Now we will develop all the mandatory class and methods to support this scenario
 
 !! Create your own class
 
-In this part you will create your first class. In Pharo a class is defined in a package. The steps we will do are the same ones every time you create a class, so memorize them well. We are going to create a class ==Counter== in a package called ==Counter==. Figure *@figpackageCreated* shows the result of creating such a package.
+In this part you will create your first class. In Pharo a class is defined in a package. The steps we will do are the same ones every time you create a class, so memorize them well. We are going to create a class ==Counter== in a package called ==MyCounter==. Figure *@figpackageCreated* shows the result of creating such a package.
 
 
 
