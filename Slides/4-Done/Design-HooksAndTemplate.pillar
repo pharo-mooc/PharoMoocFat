@@ -1,8 +1,8 @@
 {
-	"title":"Hooks and Templates",
-	"subtitle":"An application of Self-sends are plans for reuse",
-	"author":"Stéphane Ducasse ",
-	"complement":"http://stephane.ducasse.free.fr/  stephane.ducasse@inria.fr"
+    "title":"Hooks and Templates",
+    "subtitle":"An application of Self-sends are plans for reuse",
+    "author":"Stéphane Ducasse ",
+    "complement":"http://stephane.ducasse.free.fr/  stephane.ducasse@inria.fr"
 }
 
 
@@ -48,14 +48,14 @@ ${slide:title=Default hook}$
 
 [[[language=smalltalk
 Object >> printOn: aStream
-	"Append to the argument, aStream, a sequence of characters that  
-	identifies the receiver."
+    "Append to the argument, aStream, a sequence of characters that  
+    identifies the receiver."
 
-	| title |
-	title := self class name.
-	aStream
-		nextPutAll: (title first isVowel ifTrue: ['an '] ifFalse: ['a ']);
-		nextPutAll: title
+    | title |
+    title := self class name.
+    aStream
+        nextPutAll: (title first isVowel ifTrue: ['an '] ifFalse: ['a ']);
+        nextPutAll: title
 ]]]
 
 ${slide:title=printOn: Hook Example}$
@@ -64,7 +64,7 @@ A simple redefinition
 [[[language=smalltalk
 False >> printOn: aStream 
 
-	aStream nextPutAll: 'false'
+    aStream nextPutAll: 'false'
 ]]]
 
 
@@ -75,12 +75,12 @@ ${slide:title=printOn: Hook Example}$
  
 [[[language=smalltalk
 Interval >> printOn: aStream
-	aStream nextPut: $(;
-	 print: start;
-	 nextPutAll: ' to: ';
-	 print: stop.
-	step ~= 1 ifTrue: [aStream nextPutAll: ' by: '; print: step].
-	aStream nextPut: $)
+    aStream nextPut: $(;
+     print: start;
+     nextPutAll: ' to: ';
+     print: stop.
+    step ~= 1 ifTrue: [aStream nextPutAll: ' by: '; print: step].
+    aStream nextPut: $)
 ]]]
 
 ${slide:title=printOn: Hook Example}$
@@ -90,9 +90,9 @@ Nice extension of default behavior
 [[[language=smalltalk
 Association >> printOn: aStream
 
-	super printOn: aStream.
-	aStream nextPutAll: '->'.
-	value printOn: aStream
+    super printOn: aStream.
+    aStream nextPutAll: '->'.
+    value printOn: aStream
 ]]]
 
 ${slide:title=Copy as another Hook/Template}$
@@ -111,35 +111,35 @@ Copy is the smallest template method
 [[[language=smalltalk
 Object >> copy
     "Answer another instance just like the receiver. Subclasses typically override postCopy; they typically do not override 
-	shallowCopy. Copy is a template method in the sense of Design Patterns. So do not override it. 
-	Override postCopy instead. Pay attention that normally you should call postCopy of your superclass too."
+    shallowCopy. Copy is a template method in the sense of Design Patterns. So do not override it. 
+    Override postCopy instead. Pay attention that normally you should call postCopy of your superclass too."
 
-	^ self shallowCopy postCopy
+    ^ self shallowCopy postCopy
 ]]]
 
 [[[language=smalltalk
 Object >> shallowCopy
-	"Answer a copy of the receiver which shares the receiver's instance variables. 
-	I should never be overridden. I'm invoked from the copy template method. 
-	Subclasses that need to specialize the copy should specialize the postCopy hook method."
+    "Answer a copy of the receiver which shares the receiver's instance variables. 
+    I should never be overridden. I'm invoked from the copy template method. 
+    Subclasses that need to specialize the copy should specialize the postCopy hook method."
 ]]]
 
 ${slide:title=Default hook}$
 
 [[[language=smalltalk
 Object >> postCopy
-	"I'm a hook method in the sense of Design Patterns TemplateHook/Methods. I'm called by copy. 
-	self is a shallow copy, subclasses should copy fields as necessary to complete the full copy"
+    "I'm a hook method in the sense of Design Patterns TemplateHook/Methods. I'm called by copy. 
+    self is a shallow copy, subclasses should copy fields as necessary to complete the full copy"
 
-	^ self 
+    ^ self 
 ]]]
 
 ${slide:title=postCopy: Hook Example}$
 
 [[[language=smalltalk
 Bag >> postCopy
-	super postCopy.
-	contents := contents copy
+    super postCopy.
+    contents := contents copy
 ]]]
 
 
@@ -147,13 +147,12 @@ ${slide:title=postCopy: Hook Example}$
 
 [[[language=smalltalk
 Dictionary >> postCopy
-	"Must copy the associations, or later store will affect both the
-original and the copy"
+    "Must copy the associations, or later store will affect both the original and the copy"
 
-	array := array collect: [ :association |
-		association ifNotNil: [ association copy ] ]
-]]]		
-		
+    array := array collect: [ :association |
+        association ifNotNil: [ association copy ] ]
+]]]        
+        
 ${slide:title=Conclusion}$
 
 - Common pattern

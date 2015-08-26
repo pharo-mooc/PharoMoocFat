@@ -2,13 +2,13 @@ Object-Oriented Modeling and Design:
  a Practical Approach with Pharo
 
 
-Jeudi (Done)
+Jeudi (Done) - 2h30
 	- Objectives
 	- counter video
 	- Why Pharo?
 	- Essence of dispatch
 	
-Vendredi (Done)
+Vendredi (Done) - 2h30
 	- Essence of dispatch (revisited)
 	- Pharo Vision
 	- Syntax In a Nutshell
@@ -16,21 +16,21 @@ Vendredi (Done)
 	- Blocks
 
 
-Lundi 
+Lundi (done) - 2h00
 	- Lookup
 	- Self/Super
 	- Iterators
-	- Frameworks vs Libraries
-	
+		
 Mardi
 	- Seaside
 	- Tests
 	- UML
+	- Frameworks vs Libraries
 	- Self sends are plans for reuse
 	- Composition vs heritage (Strategy Pattern)
 	
 	
-Mercredi
+Vendredi
 	- introduction to design pattern
 	- Composite
 	- Method Factory
@@ -42,7 +42,7 @@ Mercredi
 
 Architecture
 ============================
-Lundi 6
+Lundi 6 (au mois d’aout)
 	Prenons l'avantage qu'hayatou soit present.
 	- ObjVlisp 
 	=> 12 h d'implementation

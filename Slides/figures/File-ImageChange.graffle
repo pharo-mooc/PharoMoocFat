@@ -115,7 +115,7 @@ Object subclass: #Packet}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{362.5, 84}, {61, 18}}</string>
+			<string>{{359.75, 87}, {61, 18}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -571,7 +571,7 @@ classes and methods }</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-07-27 16:35:16 +0000</string>
+	<string>2015-07-27 20:29:04 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>

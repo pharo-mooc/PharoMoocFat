@@ -8,7 +8,7 @@
 ${slide:title=Collections In a Nutshell|label=arrays}$
 
 - Pharo has a rich hierarchy of collection
-- Common API: size, do:, select:, includes, collect:...
+- Common API: ==size==, ==do:==, ==select:==, ==includes:==, ==collect:==...
 - Element 1 is at index 1
 - Can contain any objects
 - Most common ones:
@@ -17,7 +17,7 @@ ${slide:title=Collections In a Nutshell|label=arrays}$
 -- ==Array== (fixed size, direct access)
 -- ==Dictionary== (key-based)
 
-${slide:title=Collections In a Nutshell|label=arrays}$
+${slide:title=Essential Collection Inheritance Hierarchy In a Nutshell|label=arrays}$
 
 +>file://figures/CollectionHierarchyForIntroChapter.png|width=80+
 
@@ -37,7 +37,7 @@ ${slide:title=Common API|label=arrays}$
 ${slide:title=Creating variable size objects|label=arrays}$
 
 - Message ==new== instantiates one object
-- Message ==new: size== creates an object specifying a size
+- Message ==new: size== creates an object specifying its size
 
 [[[language=smalltalk
     Array new: 4
@@ -56,7 +56,7 @@ ${slide:title=Creating variable size objects|label=arrays}$
     a Set( 7 3 13)
 ]]]
 
--Variants with default value
+${slide:title=Creation variants with default value|label=arrays}$
 
 [[[language=smalltalk
     OrderedCollection new: 5 withAll: 'a' 
@@ -65,53 +65,63 @@ ${slide:title=Creating variable size objects|label=arrays}$
 
 ${slide:title=Array|label=arrays}$
 
-- Fixed size
+- Fixed size collection
 - Direct access: ==at:==/==at:put:==
 - Has literal syntax: ==#( ... )== 
 
+Returning the size of the collection
 [[[language=smalltalk
     #('Calvin' 'hates' 'Suzie') size
     > 3
+]]]
 
+Accessing the second element of the receiver
+[[[language=smalltalk
     #('Calvin' 'hates' 'Suzie') at: 2
     > 'hates'
 ]]]
 
-
-${slide:title=Literals Arrays|label=arrays}$
-
 [[[language=smalltalk
-    #(45 38 1300 8) size
-    > 4
-]]]
-
-- Literal version is read by the parser: elements are read when the array is created (the method is compiled)
-
-- Equivalent to a dynamic version: elements are created at runtime. 
-[[[language=smalltalk
-    Array with: 45 with: 38 with: 1300 with: 8
+    #('Calvin' 'hates' 'Suzie') at: 55
+    > Error
 ]]]
 
 
+${slide:title=Literal Arrays|label=arrays}$
+
+[[[language=smalltalk
+    #(45 38 1300 8) class
+    > Array
+]]]
+
+- Literal arrays are created by the parser: when the expression is read, i.e. when the method is compiled, not the method is executed.
+
 ${slide:title=Literals Arrays|label=arrays}$
 
+Literal arrays are equivalent to a dynamic version.
+
+- A literal array
 [[[language=smalltalk
     #(45 38 1300 8) 
     > #(45 38 1300 8) 
+]]]
+- A dynamic array
+[[[language=smalltalk
     Array with: 45 with: 38 with: 1300 with: 8
     > #(45 38 1300 8) 
 ]]]
 
-- =={  .  .  .}== is syntactic sugar to create dynamic arrays
+- =={  .  . }== is syntactic sugar to create dynamic arrays
 
 [[[language=smalltalk
-    Array with: 45 with: 38 with: 1300 with: 8
+    > Array with: 45 with: 38 with: 1300 with: 8
     > #(45 38 1300 8)
-    { 45 . 38 . 1300 . 8 } 
+    > { 45 . 38 . 1300 . 8 } 
 ]]]
 
 ${slide:title=Literals vs. Dynamic Arrays|label=arrays}$
 
+There is no message executed when a literal array is created. 
 [[[language=smalltalk
     #(45 + 38 1300 8) 
     > #( 45 #+ 38 1300 8)
@@ -120,9 +130,10 @@ ${slide:title=Literals vs. Dynamic Arrays|label=arrays}$
     > 5
 ]]]
 
+Dynamic arrays are created during the program execution.
 [[[language=smalltalk
-    Array with: 45 with: 38 with: 1300 with: 8
-    > #( 45 . 38 . 1300 . 8)
+    Array with: 45 + 38 with: 1300 with: 8
+    > #( 83 . 1300 . 8)
 
     { 45 + 38 . 1300 . 8 }
     > #( 83 . 1300 . 8)
@@ -188,6 +199,9 @@ ${slide:title=OrderedCollection|label=arrays}$
     ordCol add: 'Reef'; add: 'Pharo'; addFirst: 'Pharo'.
     ordCol 
     > an OrderedCollection('Pharo' 'Reef' 'Pharo')
+	ordCol add: 'Seaside'.
+	ordCol
+	> an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Seaside')
 ]]]
 
 [[[language=smalltalk
@@ -210,5 +224,5 @@ ${slide:title=Summary|label=set}$
 
 - Easy to use collections.
 - Common vocabulary.
-- Simple conversion between them
+- Simple conversion between them.
 

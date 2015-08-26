@@ -1,10 +1,11 @@
-! Unit Testing
+{
+	"title":"Unit Testing",
+	"subtitle":"",
+	"author":"Stéphane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
+}
 
-- Stephane Ducasse
-- stephane.ducasse@inria.fr
-- *>http://stephane.ducasse.free.fr/*
-
-!! Goal
+${slide:title=Motivation|label=}$
 
 - How can I trust that the changes did not destroy something?
 - What is my confidence in the system?
@@ -12,9 +13,7 @@
 - What is unit testing?
 - What is SUnit?
 
-+>file://figures/LogoPharo.png+
-
-!! Tests
+${slide:title=Tests|label=}$
 - Tests represent your trust in the system
 - Build them incrementally
 -- Do not need to focus on everything
@@ -23,28 +22,24 @@
 -- Act as your first client, better interface
 - Active documentation always in sync
 
-!! Testing Style
+${slide:title=Testing Style}$
 
-- "The style here is to write a few lines of code, then a test that
-should run, or even better, to write a test that won't run, then
-write the code that will make it run."
+- "The style here is to write a few lines of code, then a test that should run, or even better, to write a test that won't run, then write the code that will make it run."
 -- write unit tests that thoroughly test a single class
 -- write tests as you develop (even before you implement)
 -- write tests for every new piece of functionality
 - "Developers should spend 25-50% of their time developing
 tests."
 
-!! But I can't cover everything!
+${slide:title=But I can't cover everything!}$
 
 - Sure! Nobody can but
-- When someone discovers a defect in your code, first write
-a test that demonstrates the defect.
+- When someone discovers a defect in your code, first write a test that demonstrates the defect.
 -- Then debug until the test succeeds.
-- "Whenever you are tempted to type something into a print
-statement or a debugger expression, write it as a test
-instead." Martin Fowler
+- "Whenever you are tempted to type something into a print statement or a debugger expression, write it as a test instead." Martin Fowler
 
-!! Unit Testing
+
+${slide:title=Unit Testin}$
 
 - Ensure that you get the specified behavior of the public
 interface of a class
