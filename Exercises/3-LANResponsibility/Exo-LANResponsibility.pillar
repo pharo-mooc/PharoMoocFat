@@ -21,7 +21,7 @@ of the ==Packet== class as shown in the first line of the following method. A wo
 [[[
 Workstation>>accept: aPacket
     aPacket addressee = self name
-        ifTrue: [ Transcript show: ’A packet is accepted by the Workstation ’, self name asString ]
+        ifTrue: [ Transcript show: 'A packet is accepted by the Workstation ', self name asString ]
         ifFalse: [ super accept: aPacket ]
 ]]]
 
@@ -59,7 +59,7 @@ instances (instance method).
 In the ==Packet== class, the only instance variable that can have a default value is contents. We can define it as follows: 
 
 [[[language=smalltalk
-    contents := 'no contents’
+    contents := 'no contents'
 ]]]
 
 Ideally if a LAN should contain a default trash node, the default address and originator should point
@@ -71,11 +71,11 @@ that. You can implement it as :
 
 [[[language=smalltalk
 Packet >> hasDefaultContents
-    ˆ contents = 'no contents’
+    ^ contents = 'no contents'
 
 Packet >> initialize
     
-    contents := 'no contents’
+    contents := 'no contents'
 ]]]
 
 But you should apply the rule: 'Say only once' and define a new method that returns the default content
@@ -83,7 +83,7 @@ and use it as shown below:
 
 [[[language=smalltalk
 Packet >> defaultContents
-    ˆ 'no contents’
+    ^ 'no contents'
 	
 Packet >> initialize
     ...
@@ -91,7 +91,7 @@ Packet >> initialize
     ...
 	
 Packet >> hasDefaultContent
-    ˆcontents = self defaultContents
+    ^ contents = self defaultContents
 ]]]
 
 With this solution, we limit the knowledge to the internal coding of the default contents value to only
@@ -114,7 +114,7 @@ Node class>>withName: aSymbol
     ....
 ]]]
 
-Define a class method named ==withName:connectedTo:== in the class Node (protocol 'instance creation’) that creates a new node and assign its name and the next node in the LAN.
+Define a class method named ==withName:connectedTo:== in the class Node (protocol 'instance creation') that creates a new node and assign its name and the next node in the LAN.
 
 [[[language=smalltalk
 Node class>>withName: aSymbol connectedTo: aNode
@@ -155,18 +155,18 @@ Rewrite the new method of the class ==Node== and ==Packet== as the following:
 
 [[[
 Node >> new
-    self error: 'you should invoke the method... to create a...’
+    self error: 'you should invoke the method... to create a...'
 ]]]
 
 However, you have just introduced a problem: the instance creation methods you just wrote in previous exercise
 will not work anymore, because they call ==new==, and that calling results in an error! The solution is to
 rewrite them using ==basicNew==. This is for this reason that we should never override ==basicNew==. In fact none of the methods starting with ==basic== should be overriden.
 
-In Pharo, there is a convention that all the methods starting with 'basic’ should not be overridden. ==basicNew== is the method responsible for always providing a newly created instance. 
+In Pharo, there is a convention that all the methods starting with 'basic' should not be overridden. ==basicNew== is the method responsible for always providing a newly created instance. 
 
 [[[
 Node class>>withName: aSymbol nextNode: aNode
-    ˆ self basicNew initialize name: aSymbol ; nextNode: aNode
+    ^ self basicNew initialize name: aSymbol ; nextNode: aNode
 ]]]
 
 !! About forbidding ==new==
@@ -191,7 +191,7 @@ Note that the previous definition of ==withName: aSymbol nextNode: aNode== may b
 
 [[[
 Node class>>withName: aSymbol nextNode: aNode
-    ˆ self basicNew initialize name: aSymbol ; nextNode: aNode ; yourself
+    ^ self basicNew initialize name: aSymbol ; nextNode: aNode ; yourself
 ]]]
 
 This definition is equivalent to that one:

@@ -59,7 +59,7 @@ method being defined into this class, the method lookup stops, the method is ret
 [[[language=smalltalk
 Workstation >> accept: aPacket
     (aPacket addressee = self name)
-       ifTrue: [ Transcript show: ’Packet accepted’, self name asString ]
+       ifTrue: [ Transcript show: 'Packet accepted', self name asString ]
        ifFalse: [ super accept: aPacket ]
 ]]]
 
