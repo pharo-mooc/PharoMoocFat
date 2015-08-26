@@ -37,31 +37,6 @@ function produce_pdf() {
   cd -
 }
 
-function compile_chapters() {
-  chapters=$($PILLAR_COMMAND show inputFiles 2>/dev/null)
-
-  for chapter in $chapters; do
-    echo =========================================================
-    echo COMPILING $chapter
-    echo =========================================================
-
-    # e.g., chapter = Zinc/Zinc.pillar
-
-    pillar_file=$(basename $chapter) # e.g., Zinc.pillar
-    dir=$(dirname $chapter) # e.g., Zinc
-
-    produce_pdf "${dir}" "${pillar_file}"
-  done
-}
-
-function compile_latex_book() {
-  echo =========================================================
-  echo COMPILING Book
-  echo =========================================================
-  cd book-result
-  produce_pdf . *.tex
-}
-
 function latex_enabled() {
   hash pdflatex 2>/dev/null
 }
