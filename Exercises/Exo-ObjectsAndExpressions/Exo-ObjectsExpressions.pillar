@@ -26,7 +26,7 @@ For each of the k expressions below, fill in the answers:
 ]]]
 
 [[[language=smalltalk
-    anArray at: 1 put: ’hello’
+    anArray at: 1 put: 'hello'
 ]]]
 
 [[[language=smalltalk
@@ -83,7 +83,7 @@ Examine the following expressions. What is the value returned by the execution o
 
 [[[language=smalltalk
     | anArray |
-    anArray := #(’first’ ’second’ ’third’ ’fourth’).
+    anArray := #('first' 'second' 'third' 'fourth').
     anArray at: 2.
 ]]]
 
@@ -123,7 +123,7 @@ Putting more  parentheses than necessary is  a good way  to get started. Such  p
 ]]]
 
 [[[language=smalltalk
-    ('2014-07-01' asDate — '2013/2/1' asDate) days
+    ('2014-07-01' asDate - '2013/2/1' asDate) days
 ]]]
 
 [[[language=smalltalk
@@ -179,7 +179,7 @@ Examine each of the following expression and write down the sequence of steps of
 ]]]
 
 [[[language=smalltalk
-    ('2014-07-01' asDate — '2013/2/1' asDate) days
+    ('2014-07-01' asDate - '2013/2/1' asDate) days
 ]]]
 
 [[[language=smalltalk
