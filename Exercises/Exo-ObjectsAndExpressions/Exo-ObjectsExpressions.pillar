@@ -123,7 +123,7 @@ Putting more  parentheses than necessary is  a good way  to get started. Such  p
 ]]]
 
 [[[language=smalltalk
-    ('2014-07-01' asDate - '2013/2/1' asDate) days
+    ('2014-07-01' asDate - '2013/2/1' asDate) days
 ]]]
 
 [[[language=smalltalk
@@ -247,7 +247,7 @@ What is the final result of sum? How could this piece of code be rewritten to us
 
 [[[
     #(2 4 4 4 5 5 7 9) in: [ :input |
-      ((input — input average) squared sum / (input size — 1)) sqrt ]
+      ((input - input average) squared sum / (input size - 1)) sqrt ]
 ]]]
 
 [[[
