@@ -238,7 +238,6 @@ What is the final result of sum? How could this piece of code be rewritten to us
     | array |
     array := #(2 4 4 4 5 5 7 9).
     ((array - array average) squared sum / (array size - 1)) sqrt 
-
 ]]]
 
 [[[
