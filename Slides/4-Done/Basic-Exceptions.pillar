@@ -44,7 +44,7 @@ ${slide:title=Signaling an Exception}$
 Usually classes propose a shortcut
 [[[language=smalltalk
     OutOfMemory signal.
-    Warning signal: ‘description of the exception’	
+    Warning signal: 'description of the exception'
 
 ]]]
 
@@ -142,7 +142,7 @@ ${slide:title=Resuming from Resumable Exception}$
 		on: Notification
 		do: [:ex|ex resume: 'Value from handler']
 
-> ‘Value from protected Block’. 
+> 'Value from protected Block'.
 ]]]
 
 [[[language=smalltalk
