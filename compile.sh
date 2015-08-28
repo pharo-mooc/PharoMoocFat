@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-rm -f pillarPostExport.sh 2>&1
+set -e
+
 ./pillar export
-test -f pillarPostExport.sh && bash pillarPostExport.sh
-echo Done
+bash pillarPostExport.sh
