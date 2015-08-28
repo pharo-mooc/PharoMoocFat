@@ -13,6 +13,8 @@
 \usecolortheme{beaver}
 \setbeamercovered{transparent}
 
+\setbeamerfont{title}{family=\rmfamily,shape=\itshape,size=\Huge}
+\setbeamerfont{frametitle}{size=\LARGE}
 \setbeamerfont{block title}{size={}}
 \setbeamercolor{titlelike}{parent=structure,bg=gray!5!white}
 \setbeamercolor{section number projected}{bg=darkred}
