@@ -10,29 +10,27 @@
 \mode<presentation>{
   \usetheme{CambridgeUS}
 
-\usecolortheme{beaver}
 \setbeamercovered{transparent}
 
-\setbeamerfont{title}{family=\rmfamily,shape=\itshape,size=\Huge}
-\setbeamerfont{frametitle}{size=\LARGE}
-\setbeamerfont{block title}{size={}}
-\setbeamercolor{titlelike}{parent=structure,bg=gray!5!white}
-\setbeamercolor{section number projected}{bg=darkred}
-\setbeamercolor*{separation line}{}
-\setbeamercolor*{fine separation line}{}
+% Common to all structuring elements
 \setbeamercolor{structure}{fg=darkred}
-}
 
-\setbeamercolor{block title}{bg=darkred!15,fg=darkred}
-\setbeamercolor{frametitle}{bg=white}
-\setbeamercolor{itemize item}{fg=darkred}
-\setbeamercolor{itemize subitem}{fg=darkred}
-\setbeamertemplate{sections/subsections in toc}[square]
-\setbeamertemplate{navigation symbols}{}
+% Common to all titles (inherits from structure)
+\setbeamercolor{titlelike}{parent=structure,bg=gray!5!white}
+
+% Presentation title (inherits from titlelike)
+\setbeamerfont{title}{family=\rmfamily,shape=\itshape,size=\Huge}
+
+% Frame titles (inherits from titlelike)
+\setbeamerfont{frametitle}{size=\LARGE}
+
+% Top-level itemize items are prefixed with a square
 \setbeamertemplate{itemize item}[square]
+% Top-level enumerate items are *not* in a shape
+\setbeamertemplate{enumerate items}[default]
+% Subitems are prefixed with a triangle
 \setbeamertemplate{itemize subitem}[triangle]
-\setbeamertemplate{bibliography item}{}
-
+}
 
 \setbeamertemplate{headline}{}
 \setbeamertemplate{footline}
@@ -46,7 +44,6 @@
   \begin{beamercolorbox}[wd=.85\paperwidth,ht=2.25ex,dp=1ex,left]
       {bg=white,author in head/foot}%
       \tiny
-      \insertsectionhead~\insertsubsectionhead~\insertsubsubsectionhead
   \end{beamercolorbox}%
 
   \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,right]
