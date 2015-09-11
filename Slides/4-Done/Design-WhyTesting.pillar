@@ -74,19 +74,19 @@ testConvert2
 
     table do: [ :each |
         aColorString := '#', each, each, '0000'.
-        self assert: ((Color fromString: aColorString) asHTMLColor sameAs: aColorString)].
+        self assert: ((Color fromString: aColorString) convert sameAs: aColorString)].
 
     table do: [ :each |
         aColorString := '#', '00', each, each, '00'.
-        self assert: ((Color fromString: aColorString) asHTMLColor sameAs: aColorString)].
+        self assert: ((Color fromString: aColorString) convert sameAs: aColorString)].
 
     table do: [ :each |
         aColorString := '#', '0000', each, each.
-        self assert: ((Color fromString: aColorString) asHTMLColor sameAs: aColorString)].
+        self assert: ((Color fromString: aColorString) convert sameAs: aColorString)].
 
     table do: [ :each |
         aColorString := '#', each, each, each, each, each, each.
-        self assert: ((Color fromString: aColorString) asHTMLColor sameAs: aColorString)].
+        self assert: ((Color fromString: aColorString) convert sameAs: aColorString)].
 ]]]
 
 ${slide:title=Understanding Code}$
