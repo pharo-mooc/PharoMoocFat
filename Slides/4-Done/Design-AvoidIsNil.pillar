@@ -5,8 +5,7 @@
     "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
 }
 
-
-${slide:title=Pitch}$
+${slide:title=The Pitch}$
 
 - Avoid null checks
 - This goes against "Tell, do not ask"
@@ -14,35 +13,47 @@ ${slide:title=Pitch}$
 
 +.>file://figures/antifIfCampaign.png|width=60+
 
-
-
 ${slide:title=First, avoid to return nil}$
 
 - Do not force your clients to have to check
 - Do not return nil AND another value
+- Not a collection and may be nil
+
+${slide:title=First, avoid to return nil}$
 
 - Return polymorphic objects!
--- collections and empty collections
-- not a collection and may be nil
-- not a number and may be nil
+- Return collections and empty "collections"
+- Not a collection and may be nil
 
-- If you should specify a exceptional behavior use an exception.
+${slide:title=First, avoid to return nil}$
+
+- Avoid error codes :)
+- If you should specify an exceptional behavior use an exception.
+
+[[[
+    [...] on: Error do:[...] or
+    [ ... ] on: FileStreamException do: [ ... ] or
+    [ ... ] on: FileDoesNotExistException do: [ ... ]
+]]]
+
 
 ${slide:title=Example}$
 
 [[[language=smalltalk
-Inferencer >> computeRulesFor: aFact ifAbsent: aBlock.
-    self noRule ifTrue: [^ aBlock value]
+Inferencer >> getRulesFor: aFact
+    ^ self computeRulesFor: aFact ifAbsent: [ nil ].
+]]]
+
+- It looks really suspicious! We may return ==nil==
+
+[[[language=smalltalk
+Inferencer >> computeRulesFor: aFact ifAbsent: aBlock
+    self noRule ifTrue: [ ^ aBlock value ]
     ^ OrderedCollection with: self rules.
 ]]]
 
-[[[language=smalltalk
-Inferencer >> getRulesFor: aFact
-    ^ self computeRulesFor: aFact ifAbsent: [nil].
-]]]
-
 - ==getRulesFor:== return either a collection or nil! 
-- Here you force all the clients of ==getRulesFor:== to check for nil values!
+- Here you force "all" the clients of ==getRulesFor:== to check for ==nil== values!
 
 ${slide:title=Solution: return polymorphic objects}$
 
@@ -52,10 +63,11 @@ Inferencer >> getRulesFor: aFact
 ]]]
 
 - Your clients can just iterate and manipulate the returned value:
+
 -- ==(self getRulesForFact: 'a') do: [:each | ...]==
 
 
-${slide:title=Second, initialize your state}$
+${slide:title=Second, initialize your object state}$
 
 
 [[[language=smalltalk
@@ -64,22 +76,23 @@ ${slide:title=Second, initialize your state}$
          members := OrderedCollection new.
 ]]]
 
-${slide:title=Second, initialize your state}$
+${slide:title=Second, initialize your object state}$
 
-Lazy initialization if necessary
+You can also use lazy initialization if necessary
 
 [[[language=smalltalk
     FreeTypeFont >> descent
-        ^ cachedDescent ifNil:[ 
-              cachedDescent := ((self face descender * self pixelSize // self face unitsPerEm) negated) ]
+        ^ cachedDescent ifNil: [ 
+              cachedDescent := (self face descender * self pixelSize // 
+                                                          self face unitsPerEm) negated ]
 ]]]
 
 - Do not forget to systematically use accessors.
 
-${slide:title=Sometimes you have to check ….}$
+${slide:title=Sometimes you have to check ...}$
 
-Sometimes you have to check before doing some actions.
-If you can, turn the default case into an object (NullObject)
+- Sometimes you have to check before doing some action.
+- If you can, turn the default case into an object (NullObject)
 
 [[[language=smalltalk
     ToolPalette >> nextAction
@@ -89,14 +102,11 @@ If you can, turn the default case into an object (NullObject)
         self selectedTool ifNotNil: [:t | t dettachHandles]
 ]]]
 
-
-
-
 ${slide:title=Third, use NullObject}$
 
-A null object proposes a polymorphic API and embeds default actions/values
+- A null object proposes a polymorphic API and embeds default actions/values
 
-Woolf, Bobby (1998). "Null Object". In Martin, Robert; Riehle, Dirk; Buschmann, Frank. Pattern Languages of Program Design 3. Addison-Wesley.
+- Woolf, Bobby (1998). "Null Object". In Pattern Languages of Program Design 3. Addison-Wesley.
 
 
 ${slide:title=Third, use NullObject}$
@@ -105,8 +115,6 @@ ${slide:title=Third, use NullObject}$
     NoTool >> attachHandles
         ^ self
 ]]]
-
-${slide:title=Third, use NullObject}$
 
 [[[language=smalltalk
     NoTool >> detachHandles
@@ -132,9 +140,9 @@ ${slide:title=Third, use NullObject}$
 ${slide:title=Conclusion}$
 - Messages act as a dispatcher
 - Avoid conditionals
-- Return polymorphic results
-- If you can define, create objects that represent default
-- Do not return nil, when you can avoid it.
+- Return polymorphic objects
+- If you can define, create objects that represent default behavior
+- When you can avoid it, avoid returning ==nil==
 - Initialize your variables
 
 
