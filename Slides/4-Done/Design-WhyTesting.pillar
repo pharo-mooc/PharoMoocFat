@@ -27,12 +27,12 @@ ${slide:title=Finding Problems: Pros}$
 -improve customer trust
 -reproduce complex scenari
 -check contracts of super types
--guarantee old bugs won't be back
+-guarantee old bugs won't come back
 -isolate the problem
 
 ${slide:title=Finding Problems: Characteristics of a Good ''Test Suite''}$
 
--check extreme cases (e.g., ==null==, 0 and empty)
+-check extreme cases (e.g., null, 0 and empty)
 -check complex cases (e.g., exceptions, network pbs)
 -1 test for each bug (at least)
 -good coverage
@@ -112,11 +112,11 @@ ${slide:title=Understanding Code: Pros}$
 
 ${slide:title=Understanding Code: Characteristics of a Good Test Suite}$
 
--Deterministic
--Automatic
--Self-explained
--Simple
--Unit
+-deterministic
+-automatic
+-self-explained
+-simple
+-unit
 
 !Increasing Trust
 
@@ -179,7 +179,7 @@ testOnlyOneValidStateAtEachMoment
 ${slide:title=Testing Abstractions}$
 
 -parallel hierarchies
--test must put in the highest abstraction
+-test must be in the highest abstraction
 -factory method
 
 +file://figures/tests-actions-parallel-hierarchies.png|width=80+
