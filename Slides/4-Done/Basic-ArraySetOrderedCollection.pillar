@@ -9,13 +9,13 @@ ${slide:title=Collections In a Nutshell|label=arrays}$
 
 - Pharo has a rich hierarchy of collection
 - Common API: ==size==, ==do:==, ==select:==, ==includes:==, ==collect:==...
-- Element 1 is at index 1
-- Can contain any objects
-- Most common ones:
--- ==Set== (no duplicates)
+- First element is at index ==1==
+- Can contain any object
+- Most common collections:
 -- ==OrderedCollection== (dynamically growing)
 -- ==Array== (fixed size, direct access)
--- ==Dictionary== (key-based)
+-- ==Set== (no duplicates)
+-- ==Dictionary== (key-based, ''aka.'' maps)
 
 ${slide:title=Essential Collection Inheritance Hierarchy In a Nutshell|label=arrays}$
 
@@ -24,15 +24,15 @@ ${slide:title=Essential Collection Inheritance Hierarchy In a Nutshell|label=arr
 
 ${slide:title=Common API|label=arrays}$
 
-- Most iterators works on all collections
+- Most iterators work on all collections
 
-#creation ==with: anElement==, ==with:with:==, ==withAll: aCollection==
+#creation: ==with: anElement==, ==with:with:==, ==withAll: aCollection==
 #accessing: ==size==, ==capacity==, ==at: anIndex==, ==at: anIndex put: anElement==
-#testing ==isEmpty==, ==includes: anElement==, ==contains: aBlock==, ==occurrencesOf: anElement==
-#adding ==add: anElement==, ==addAll: aCollection==
-#removing ==remove: anElement==, ==remove: anElement ifAbsent: aBlock==, ==removeAll: aCollection==
-#enumerating ==do: aBlock==, ==collect: aBlock==, ==select: aBlock==, ==reject: aBlock==, ==detect: aBlock==, ...
-#converting ==asBag==, ==asSet==, ==asOrderedCollection==, ==asSortedCollection==, ==asArray==
+#testing: ==isEmpty==, ==includes: anElement==, ==contains: aBlock==, ==occurrencesOf: anElement==
+#adding: ==add: anElement==, ==addAll: aCollection==
+#removing: ==remove: anElement==, ==remove: anElement ifAbsent: aBlock==, ==removeAll: aCollection==
+#enumerating: ==do: aBlock==, ==collect: aBlock==, ==select: aBlock==, ==reject: aBlock==, ==detect: aBlock==, ...
+#converting: ==asBag==, ==asSet==, ==asOrderedCollection==, ==asSortedCollection==, ==asArray==
 
 ${slide:title=Creating variable size objects|label=arrays}$
 
