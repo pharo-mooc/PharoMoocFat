@@ -105,8 +105,8 @@
 - purpose : Please create the requested simple object'
 - Description : == 10 on hex==
 - Result : ==16r0A.==
-- Expression : ==this sentence : « I'm an informatician » ==
-- Result : ==I''m an informatician.==
+- Expression : ==this sentence : "I'm an informatician" ==
+- Result : =='I'\'m an informatician'==
 - Expression : ==a character constant (space)==
 - Result : ==$ .==
 - Expression : ==a mixing of types allowed==
