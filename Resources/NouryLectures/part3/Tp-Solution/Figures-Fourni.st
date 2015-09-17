@@ -1,1 +1,0 @@
-Object subclass: #Demo	instanceVariableNames: ''	classVariableNames: ''	poolDictionaries: ''	category: 'Figures-Fourni'!!Demo commentStamp: '<historical>' prior: 0!!
