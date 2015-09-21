@@ -5,16 +5,22 @@
     "complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
+${slide:title=Outline}$
 
-${slide:title=Objectives|label=block}$
+In this lecture we want to give you the general feel to get started
+- Overview of simple syntactical elements
+- Message composition
+- Overview of closure syntax
+
+${slide:title=The complete syntax}$
 [[[
 exampleWithNumber: x
-    "This method illustrates every part of Smalltalk method syntax except primitives."
+    "This method illustrates every part of Pharo syntax except primitive invocation."
     <aMethodAnnotation>
     
     | y |
     true & false not & (nil isNil) 
-        ifFalse: [self halt]. 
+        ifFalse: [ self halt ]. 
     y := self size + super size.
     #($a #a 'a' 1 1.0)
         do: [ :each | Transcript
@@ -46,10 +52,10 @@ ${slide:title=Getting the Pharo Logo|label=kids}$
         asMorph openInWindow.
 ]]]
 
-${slide:title=A real example|label=factorial}$
+${slide:title=A Simple Method|label=factorial}$
 
 [[[
-Integer>>factorial
+Integer >> factorial
     "Answer the factorial of the receiver."
 
     self = 0 ifTrue: [ ^ 1 ].
@@ -57,6 +63,7 @@ Integer>>factorial
     self error: 'Not valid for negative integers'
 ]]]
 
+- ==Integer >> == is not part of the syntax
 
 ${slide:title=Sending a request|label=ZnClient}$
 
@@ -67,7 +74,6 @@ ZnClient new
     formAt: 'title'  put: 'Pharo For The Enterprise';
     put
 ]]]
-
 
 
 ${slide:title=Language Constructs|label=block}$
@@ -121,8 +127,8 @@ ${slide:title=Conditionals are also message sends|label=conditional}$
 
 [[[language=smalltalk
 Weather isRaining
-    ifTrue: [self takeMyUmbrella]
-    ifFalse: [self takeMySunglasses]
+    ifTrue: [ self takeMyUmbrella ]
+    ifFalse: [ self takeMySunglasses ]
 ]]]
 
 - ==ifTrue:ifFalse== is sent to an object: a boolean!
@@ -131,13 +137,13 @@ Weather isRaining
 ${slide:title=Loops are also message sends|label=conditional}$
 
 [[[language=smalltalk
-1 to: 100 do: [: i| Transcript << i ]]
+1 to: 100 do: [ :i| Transcript << i ]
 > 1
 > 2
 > 3
 > 4
 ]]]
-- ==to:do:== is a message sent to a small integer
+- ==to:do:== is a message sent to an integer (here a small integer)
 
 
 
@@ -184,23 +190,23 @@ ${slide:title=Blocks|label=blocks}$
 - Functions
 
 [[[
-    fct(x)= x*x+3. 
+    fct(x)= x*x+3.
     fct(2).
 ]]]
 
 [[[
-    fct :=[:x| x * x + 3].
+    fct := [ :x | x * x + 3 ].
     fct value: 2
 ]]]
 
 ${slide:title=Block Usage |label=blocks}$
 
 [[[
-    #(1 2 3) do: [:each | Transcript show: each printString ; cr]    
+    #(1 2 3) do: [ :each | Transcript show: each printString ; cr ]
 ]]]
 
 [[[     
-Integer>>factorial
+Integer >> factorial
     | tmp |
     tmp:= 1.
     2 to: self do: [ :i | tmp := tmp * i ]
@@ -222,13 +228,26 @@ ${slide:title=Method definition|label=classdefinition}$
 - Always return ==self==
 
 [[[
-Node>>accept: thePacket
-    "If the packet is addressed to me, print it.
-    Else just behave like a normal node"
-        
+Node >> accept: thePacket
+    "If the packet is addressed to me, print it. Else just behave like a normal node"
+
     thePacket isAddressedTo: self)
         ifTrue: [ self print: thePacket ]
-        ifFalse: [ super accept: thePacket ]
+        ifFalse: [ super accept: thePacket ].
+]]]
+
+${slide:title=Method definition always return self|label=classdefinition}$
+
+- Always return ==self==
+- Added by the compiler if not explictly specified by the compiler.
+[[[
+Node >> accept: thePacket
+    "If the packet is addressed to me, print it. Else just behave like a normal node"
+
+    thePacket isAddressedTo: self)
+        ifTrue: [ self print: thePacket ]
+        ifFalse: [ super accept: thePacket ].
+    ^ self
 ]]]
 
 ${slide:title=Instance Creation are Messages Too!|label=methoddefinition}$
@@ -237,7 +256,8 @@ ${slide:title=Instance Creation are Messages Too!|label=methoddefinition}$
 [[[
     '1', 'abc'
     1@2
-]]]    
+]]] 
+   
 - Basic class creation messages are ==new== and ==new:== sent to a class
 [[[
      Monster new
