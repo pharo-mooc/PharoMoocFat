@@ -1,21 +1,22 @@
 {
     "title":"Pharo Syntax in a Nutshell",
-    "subtitle":"",
     "author":"Stéphane Ducasse",
     "complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
-${slide:title=Outline}$
+${slide:title=Getting a feel about the syntax}$
 
 In this lecture we want to give you the general feel to get started
 - Overview of simple syntactical elements
 - Message composition
 - Overview of closure syntax
 
+
 ${slide:title=The complete syntax}$
+
 [[[
 exampleWithNumber: x
-    "This method illustrates every part of Pharo syntax except primitive invocation."
+    "This method illustrates the complete syntax except primitive invocation."
     <aMethodAnnotation>
     
     | y |
@@ -52,18 +53,28 @@ ${slide:title=Getting the Pharo Logo|label=kids}$
         asMorph openInWindow.
 ]]]
 
+- Class names start with an uppercase
+- keyword message ==getPng:==
+- unary messages ==asMorph== and ==openInWorld==
+
 ${slide:title=A Simple Method|label=factorial}$
 
 [[[
 Integer >> factorial
     "Answer the factorial of the receiver."
-
     self = 0 ifTrue: [ ^ 1 ].
     self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
     self error: 'Not valid for negative integers'
 ]]]
 
-- ==Integer >> == is not part of the syntax
+- ==Integer >> == is not part of the syntax.
+- It is to tell you in the slides in which class the method is defined.
+- ==factorial== is the method name
+- ==\===, ==>==, ==*==, ==-== are binary messages.
+- ==^== is for returning a value.
+- ==factorial== is an unary message.
+- ==ifTrue:== is a message
+
 
 ${slide:title=Sending a request|label=ZnClient}$
 
@@ -75,6 +86,10 @@ ZnClient new
     put
 ]]]
 
+- ==new== is a message sent to a class
+- ==formAt:put:== is a keyword message
+- ==put== is a unary message
+- ==;== is to send all the messages to the same receiver
 
 ${slide:title=Language Constructs|label=block}$
 

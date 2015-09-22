@@ -5,8 +5,6 @@
 	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
-%Les sections ne sont pas des titres de slide mais définnissent la structure du doucment. Il est possible de rajouter "renderStructureAsSlide":false dans pillar.conf pour ne pas créer de slide à partir d'un titre.
-
 ${slide:title=Less is really more :)|label=less}$
 
 - No constructors
@@ -19,27 +17,27 @@ ${slide:title=Less is really more :)|label=less}$
 - And still really powerful :)
 
 
-${slide:title=Only Objects and Messages|label=less}$
+${slide:title=Only Objects, Messages and Closures|label=less}$
 
 - Only objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compilers, sound, url, socket, fonts, text, collections, stack, shortcut, streams,...
 
 - and messages sent to these objects.
+- Closures are like anonymous methods.
 
 ${slide:title=Simple and uniform|label=uniform}$
 
 - Everything is an object instance of a class
 - Classes are objects too
-- Only message passing
-- Only one method lookup
+- All computation between objects is done via message passing
+- There is only one method lookup
 -- Only late binding (virtual call)
 
 ${slide:title=Pharo Object Model|label=uniform}$
 
 - Instance variables are private to the object (instance-based).
 - Instance variables are protected.
-- Shared variables between classes.
-- Methods are public
-- Single inheritance between classes
+- Methods are public.
+- Single inheritance between classes.
 
 
 ${slide:title=Class Definition|label=classdefinition}$
@@ -50,6 +48,8 @@ Object subclass: #Point
 	classVariableNames: ''
 	category: 'Graphics'
 ]]]
+
+- The class ==Object== is asked to create the class ==Point== with the instance variables ==x y== in the package ==Graphics==
 
 ${slide:title=Method Definition|label=methoddefinition}$
 
@@ -91,3 +91,4 @@ ${slide:title=Summary|label=instanceCreation}$
 - Everything is an object.
 - We send messages to objects.
 - Method selection is late bound.
+- Instances are created by sending message to other objects, or classes.
