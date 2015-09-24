@@ -1,6 +1,5 @@
 {
 	"title":"Exception Overview",
-	"subtitle":"",
 	"author":"Stéphane Ducasse",
 	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
 }
@@ -13,12 +12,6 @@ ${slide:title=Exception|label=exception}$
 - Can be resumed, restarted, and signaled as new exception
 - For more complete reference, read Deep into Pharo 
 
-+>file://figures/StreamsTraversal.png+
-
-
-
-
-
 
 ${slide:title=API overview|label=api}$
 
@@ -28,7 +21,7 @@ ${slide:title=API overview|label=api}$
 
 Convenient messages:
 
-- ==ensure:==, ==writeStream==
+- ==ensure:==, ==ifCurtailed:==
 
 ${slide:title=Signaling an Exception}$
 
@@ -45,10 +38,9 @@ Usually classes propose a shortcut
 [[[language=smalltalk
     OutOfMemory signal.
     Warning signal: 'description of the exception'
-
 ]]]
 
-${slide:title=Catching an Example}$
+${slide:title=Catching Example}$
 
 [[[language=smalltalk
     |x y|
@@ -60,7 +52,6 @@ ${slide:title=Catching an Example}$
              0 ]
 ]]]
 
-
 ${slide:title=Testing that an exception happens}$
 
 - SUnit offers ==should:raise:== and ==shouldnt:raise:== to check occurrence of exceptions.
@@ -71,20 +62,19 @@ ${slide:title=Testing that an exception happens}$
         self assert: (Date nameOfMonth: 1) equals: #January.	
         self assert: (Date nameOfMonth: 12) equals: #December.
 
+        self shouldnt: [ Date nameOfMonth: 2 ] raise: SubscriptOutOfBounds.
         self should: [ Date nameOfMonth: 0 ] raise: SubscriptOutOfBounds.
         self should: [ Date nameOfMonth: 13 ] raise: SubscriptOutOfBounds.
 ]]]
-
 
 ${slide:title=Kinds of Exceptions}$
 
 - Error: all the Errors (subscript, message not understood, division by zero
 - Halt 
 - Notification: non fatal exceptions (deprecation, warning, timedout)
-- UnhandledError: when an error occurs and that it is not trapped.
+- UnhandledError: when an error occurs and that it is ''not'' trapped.
 
-
-${slide:title=Exception are real object}$
+${slide:title=Exception are real objects}$
 
 [[[language=smalltalk
 ProtoObject >> doesNotUnderstand: aMessage
@@ -95,7 +85,19 @@ ProtoObject >> doesNotUnderstand: aMessage
         signal
 ]]]	
 
-[[[
+${slide:title=Deprecation}$
+
+To support API migration, Pharo uses deprecation.
+When the deprecation setting is on, a warning is raised when a deprecated method is executed
+
+[[[language=smalltalk
+MenuItem >> title: aString
+	"Add a title line at the top of this menu."
+	self deprecated: 'Use method addTitle: instead' on: '29 september' in: #Pharo40. 
+	self addTitle: aString
+]]]
+
+[[[language=smalltalk
 deprecated: anExplanationString on: date in: version
     "Warn that the sending method has been deprecated"
     (Deprecation
@@ -104,53 +106,6 @@ deprecated: anExplanationString on: date in: version
         on: date
         in: version) signal
 ]]]
-
-${slide:title=Exception Lookup}$
-
-- Each process has its own exception environment: an ordered list of active handlers.
-- Process starts with an empty list.
-- ==[aaaa] on: Error do: [bbb]== adds ==Error,bbb== to the beginning of the list.
-- When an exception is signaled, the system sends a message to the first handler. 
--- If the handler cannot handle the exception, the next one is asked.
--- If no handler can handle the exception, then the default action is performed.
-
-
-${slide:title=Handling Exception}$
-
-Within an handler ==[aaa] on: anExceptionClass do: anHandler==, we can:
-- return an alternative result for the protected block by sending ==return:== aValue to the exception object;
-- retry the protected block, by sending retry, or try a different block by sending ==retryUsing:==;
-- resume the protected block at the failure point by sending ==resume== or ==resume:==;
-- pass the caught exception to the enclosing handler by sending ==pass== or
-- resignal a different exception by sending ==resignalAs:== to the exception.
-
-${slide:title=Returning from an Exception}$
-
-[[[language=smalltalk
-[Notification signal. 'Value from protected block']
-		on: Notification
-		do: [:ex|ex return: 'Value from handler']
-]]]
-
-${slide:title=Resuming from Resumable Exception}$
-
-- Resumable: Warning, Notification
-- Notification signal raises an exception, then the context is restored and the value returned normally
-
-[[[language=smalltalk
-[Notification signal. 'Value from protected block']
-		on: Notification
-		do: [:ex|ex resume: 'Value from handler']
-
-> 'Value from protected Block'.
-]]]
-
-[[[language=smalltalk
-[Notification signal. 'Value from protected block']
-		on: Notification
-		do: [:ex|ex return: 'Value from handler']
-]]]
-
 
 
 
@@ -179,10 +134,10 @@ ${slide:title=A nice helper: ensure:}$
 - Use ==ensure:==
 
 [[[language=smalltalk
-    | writer |
-    writer := GIFReadWriter on: (FileStream newFileNamed: 'Pharo.gif'). 
-    [ writer nextPutImage: (Form fromUser) ]
-         ensure: [ writer close ]
+	spyOn: aBlock
+		"Profile system activity during execution of aBlock."
+		self startProfiling.
+		aBlock ensure: [ self stopProfiling ]
 ]]]
 
 ${slide:title=Another nice helper ifCurtailed:}$
@@ -191,18 +146,69 @@ ${slide:title=Another nice helper ifCurtailed:}$
 - Use ==ifCurtailed:==
 
 [[[language=smalltalk
-    | writer |
-    writer := GIFReadWriter on: (FileStream newFileNamed: 'Pharo.gif'). 
-    [ writer nextPutImage: (Form fromUser) ]
-         ensure: [ writer close ]
+	wait
+		"Schedule this Delay, then wait on its semaphore. The current process will be suspended for the amount of time specified when this Delay was created."
+
+		self schedule.
+		[delaySemaphore wait] ifCurtailed:[self unschedule].
 ]]]
+
+
+${slide:title=Exception Lookup}$
+
+- Each process has its own exception environment: an ordered list of active handlers.
+- Process starts with an empty list.
+- ==[aaaa] on: Error do: [bbb]== adds ==Error,bbb== to the beginning of the list.
+- When an exception is signaled, the system sends a message to the first handler. 
+-- If the handler cannot handle the exception, the next one is asked.
+-- If no handler can handle the exception, then the default action is performed.
+
+
+${slide:title=Handling Exception}$
+
+Within an handler ==[aaa] on: anExceptionClass do: anHandler==, we can:
+- return an alternative result for the protected block by sending ==return:== aValue to the exception object;
+- retry the protected block, by sending retry, or try a different block by sending ==retryUsing:==;
+- resume the protected block at the failure point by sending ==resume== or ==resume:==;
+- pass the caught exception to the enclosing handler by sending ==pass== or
+- resignal a different exception by sending ==resignalAs:== to the exception.
+
+${slide:title=Returning from an Exception}$
+
+[[[language=smalltalk
+[Notification signal. 'Value from protected block']
+		on: Notification
+		do: [:ex|ex return: 'Value from handler']
+]]]
+
+- We return a different string on normal or notification 
+
+
+${slide:title=Resuming from Resumable Exception}$
+
+- Warning, Notification and subclasses are resumable.
+
+
+[[[language=smalltalk
+[Notification signal. 'Value from protected block']
+		on: Notification
+		do: [:ex|ex resume: 'Value from handler']
+
+> 'Value from protected Block'.
+]]]
+
+- ==Notification signal== raises an exception, 
+- the exception is trapped
+- then ==resume:== restores the context and the value returned normally as if the notification did not occur.
 
 
 ${slide:title=Summary}$
 
-- Streams offers a simple API. 
-- Basis for many manipulation of collection of objects
-
+- Exceptions are powerful in Pharo. 
+- Offer a simple API
+-- raising: ==signal==
+-- catching: ==on:do:==
+-- ==ensure:== and ==ifCurtailed:==
 
 
 
