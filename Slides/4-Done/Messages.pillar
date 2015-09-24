@@ -1,13 +1,12 @@
 {
     "title":"Understanding Messages",
-    "subtitle":"",
     "author":"Stéphane Ducasse and Damien Cassou",
     "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
 }
 
 ${slide:title=Only Objects and Messages|label=objectives}$
 
-We ""only"" manipulate objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compilers, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
+Remember we ""only"" manipulate objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compiler, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
 
 
 and we send messages, messages, messages and messages (and closures)
@@ -16,13 +15,13 @@ ${slide:title=Syntax}$
 
 - Remember it was originally invented for kids 
 - Programs look like little sentences
-- Minimizing the number of parenthesis
+- Minimizing the number of parentheses
 
 ${slide:title=Example}$
 
 [[[language=smalltalk
-    (ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl) 
-        asMorph openInWorld
+(ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl) 
+    asMorph openInWorld
 ]]]
 
 ${slide:title=Three Kinds of Messages}$
@@ -38,14 +37,13 @@ ${slide:title=Three Kinds of Messages}$
 
 ${slide:title=A Glimpse at Message Precedence}$
 
-
 - (Msg) \> Unary \> Binary \> Keywords
-
 
 - First we execute ==()==
 - Then unary, then binary and finally keyword messages
 - Minimize ==()== needs
-- But let us start with messages
+
+But let us start with messages
 
 
 ${slide:title=Guess!}$
@@ -83,8 +81,6 @@ ${slide:title=Unary Messages}$
 
 ${slide:title=Unary Message Examples}$
 
-
-
 [[[language=Smalltalk
     false not
     > true
@@ -108,7 +104,7 @@ ${slide:title=Unary Message Examples}$
 ${slide:title=Did you notice? To any objects}$
 
 - We sent messages to any objects!
-- We sent messages classes too!
+- We sent messages to classes too!
 - There is no difference between sending a message to one object or to a class
 
 [[[language=Smalltalk
@@ -138,8 +134,8 @@ ${slide:title=A little query}$
     > #(#x #theta #asIntegerPoint #r #negated #normalized #sign #degrees #isIntegerPoint #guarded #fourNeighbors #eightNeighbors #min #max #ceiling #normal #asPoint #y #abs #isPoint #angle #transposed #reciprocal #asFloatPoint #asNonFractionalPoint #rounded #leftRotated #floor #truncated #hash #deepCopy #fourDirections #rightRotated #isSelfEvaluating #asMargin #isZero)
 ]]]
 
+- ==select:== is an iterator (see following lecture)
 - Easy :)
-
 
 
 ${slide:title=Binary Messages}$
@@ -277,7 +273,7 @@ ${slide:title=Message between:and:}$
 - Takes two arguments ==10== and ==20==
 
 
-${slide:title=Quizz}$
+${slide:title=New Quizz}$
 
 - ==1 log==
 - ==Browser open== 
@@ -371,8 +367,8 @@ ${slide:title=Precedence Example}$
 ${slide:title=Getting the Pharo Logo|label=kids}$
 
 [[[language=smalltalk
-    (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
-        asMorph openInWindow.
+(ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
+    asMorph openInWindow.
 ]]]
 
 - unary (==asZnUrl==), keyword (==getPng:==)
@@ -417,6 +413,8 @@ ${slide:title=No mathematical precedence}$
     > 23
 ]]]
 
+${slide:title=No mathematical precedence}$
+
 [[[language=Smalltalk
     1/3 + 2/3
     > 7/3 /3
@@ -453,38 +451,64 @@ ${slide:title=Message Sequence}$
     | macNode pcNode node1 printerNode |
     macNode := Workstation withName: #mac.
     Transcript cr.
-    Transcript show: 1 printString.
-    Transcript cr.
-    Transcript show: 2 printString
+    Transcript show: 1.
+    Transcript show: 2
 ]]]
+
+- No point after temporaries declaration
 
 ${slide:title=Multiple messages to an object}$
 
 - To send multiple messages to the same object
 
 [[[language=Smalltalk
-    Transcript show: 1 printString.
-    Transcript cr
+    Transcript cr.
+    Transcript show: 1.
+    Transcript show: 2.
 ]]]
 
 is equivalent to:
 
 [[[language=Smalltalk
     Transcript
-        show: 1 printString ;
-        cr 
+        cr ;
+        show: 1 ;
+        show: 2
 ]]]
+
+- Using ; is called a cascade
+- ==show: 1==, ==show: 2== are sent to the receiver of the ==cr== message
 
 
 ${slide:title=A puzzle}$
-Imagine we want to add 2 to a new set.
+
+We add 2 to a set.
 [[[language=Smalltalk
     Set new add: 2
     > 2
 ]]]
 
+But we get 2 and not the set.
+
+
+
+${slide:title=A puzzle (2)}$
+
+[[[
+Collection >> add: newObject 
+	"Include newObject as one of the receiver's elements. Answer newObject. 
+	ArrayedCollections cannot respond to this message."
+
+	self subclassResponsibility
+]]]
+
 - The message ==add:== returns its argument and not the receiver.
-- We have to use a temporary variable.
+
+${slide:title=A puzzle (3)}$
+
+
+We have to use a temporary variable.
+
 [[[language=Smalltalk
     | s |
     s := Set new.
@@ -495,28 +519,14 @@ Imagine we want to add 2 to a new set.
 - What could be another solution?
 
 
-${slide:title=A puzzle}$
+${slide:title=A puzzle (4)}$
 
-[[[language=Smalltalk
-    Set new add: 2
-    > 2
-]]]
-
-- The message ==add:== returns its argument and not the receiver.
-- We have to use a temporary variable.
-[[[language=Smalltalk
-    | s |
-    s := Set new.
-    s add: 1; add: 2.
-    s 
-]]]
-
-- What could be another solution?
+What could be another solution?
 
 
 ${slide:title=One Hint}$
 
-- What if we get a message that returns the receiver?
+What if we get a message that returns the receiver?
 
 ${slide:title=yourself}$
 
@@ -526,7 +536,7 @@ Object>>yourself
 ]]]
 
 
-${slide:title=Solution}$
+${slide:title=A Puzzle: Solution}$
 
 [[[language=Smalltalk
     | s |
@@ -534,6 +544,7 @@ ${slide:title=Solution}$
     s add: 1; add: 2.
     s 
 ]]]
+
 is equivalent to 
 
 [[[language=Smalltalk
@@ -541,9 +552,14 @@ is equivalent to
     > aSet 
 ]]]
 
+- ==add: 2== and ==yourself== are sent to the receiver of ==add: 1==, hence a new set
+- 
+
 ${slide:title=Summary}$
 
 - Three kinds of messages: unary, binary and keywords
+- () > unary > binary > keywords
+- There is no mathematical precedence because operation are plain messages
 - Arguments are placed inside message structure: 
 -- 2 between: 0 and: 5 (the message is ==between:and:==)
 - ==()== takes precedence over messages
