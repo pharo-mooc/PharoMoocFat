@@ -1,5 +1,5 @@
 {
-	"title":"A glimpse at essential collections",
+	"title":"An overview of essential collections",
 	"subtitle":"",
 	"author":"Stéphane Ducasse",
 	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
@@ -17,7 +17,7 @@ ${slide:title=Collections In a Nutshell|label=arrays}$
 -- ==Set== (no duplicates)
 -- ==Dictionary== (key-based, ''aka.'' maps)
 
-${slide:title=Essential Collection Inheritance Hierarchy In a Nutshell|label=arrays}$
+${slide:title=Essential Collection Inheritance Hierarchy In a Nutshell}$
 
 +>file://figures/CollectionHierarchyForIntroChapter.png|width=80+
 
@@ -34,7 +34,7 @@ ${slide:title=Common API|label=arrays}$
 #enumerating: ==do: aBlock==, ==collect: aBlock==, ==select: aBlock==, ==reject: aBlock==, ==detect: aBlock==, ...
 #converting: ==asBag==, ==asSet==, ==asOrderedCollection==, ==asSortedCollection==, ==asArray==
 
-${slide:title=Creating variable size objects|label=arrays}$
+${slide:title=Creating variable size objects}$
 
 - Message ==new== instantiates one object
 - Message ==new: size== creates an object specifying its size
@@ -63,11 +63,29 @@ ${slide:title=Creation variants with default value|label=arrays}$
     > an OrderedCollection('a' 'a' 'a' 'a' 'a')
 ]]]
 
-${slide:title=Array|label=arrays}$
+${slide:title=Arrays}$
 
 - Fixed size collection
-- Direct access: ==at:==/==at:put:==
+- Direct access: ==at:== and ==at:put:==
 - Has literal syntax: ==#( ... )== 
+- Can also be created using ==new:== 
+
+[[[language=smalltalk
+    #('Calvin' 'hates' 'Suzie') size
+    > 3
+]]]
+
+is equivalent to 
+
+[[[language=smalltalk
+    (Array new 
+       at: 1 put: 'Calvin'; 
+       at: 2 put: 'hates'; 
+	   at: 3 put: 'Suzie') size
+    > 3
+]]]
+
+${slide:title=Accessing elements}$
 
 Returning the size of the collection
 [[[language=smalltalk
@@ -75,7 +93,7 @@ Returning the size of the collection
     > 3
 ]]]
 
-Accessing the second element of the receiver
+Accessing the second element of the receiver using ==at: anIndex==
 [[[language=smalltalk
     #('Calvin' 'hates' 'Suzie') at: 2
     > 'hates'
@@ -86,8 +104,17 @@ Accessing the second element of the receiver
     > Error
 ]]]
 
+${slide:title=Changing elements}$
 
-${slide:title=Literal Arrays|label=arrays}$
+Use the message ==at: anIndex put: anObject== 
+
+Accessing the second element of the receiver
+[[[language=smalltalk
+    #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
+]]]
+
+
+${slide:title=Literal Arrays}$
 
 [[[language=smalltalk
     #(45 38 1300 8) class
@@ -96,30 +123,74 @@ ${slide:title=Literal Arrays|label=arrays}$
 
 - Literal arrays are created by the parser: when the expression is read, i.e. when the method is compiled, not the method is executed.
 
-${slide:title=Literals Arrays|label=arrays}$
+
+[[[language=smalltalk
+    #(45 'milou' 1300 true #tintin)
+    > #(45 'milou' 1300 true #tintin)
+]]]
+
+- Literal arrays contains objects that have a textual (literal) representation: numbers, strings, nil, symbols
+
+
+${slide:title=Literals Arrays are Array instances}$
 
 Literal arrays are equivalent to a dynamic version.
 
 - A literal array
 [[[language=smalltalk
     #(45 38 1300 8) 
-    > #(45 38 1300 8) 
+    > #(45 38 'milou' 8) 
 ]]]
-- A dynamic array
+- An array
 [[[language=smalltalk
-    Array with: 45 with: 38 with: 1300 with: 8
-    > #(45 38 1300 8) 
+    Array with: 45 with: 38 with: 'milou' with: 8
+    > #(45 38 'milou' 8) 
 ]]]
 
-- =={  .  . }== is syntactic sugar to create dynamic arrays
+
+${slide:title=Array short syntax}$
+
+Defining array is tedious 
+[[[language=smalltalk
+    | array | 
+    array := (Array new: 2). 
+    array 
+         at: 1 put: (Point x: 10 y: 20); 
+         at: 2 put: (Point x: 10 y: 20).
+     array
+]]]
+
+- =={ element . element  . element }== is syntactic sugar to create arrays
 
 [[[language=smalltalk
-    > Array with: 45 with: 38 with: 1300 with: 8
-    > #(45 38 1300 8)
-    > { 45 . 38 . 1300 . 8 } 
+    {(10@20) . (10@20)}
+    {Point x: 10 y: 20 . Point x: 10 y: 20}
 ]]]
 
-${slide:title=Literals vs. Dynamic Arrays|label=arrays}$
+${slide:title= Slide title help}$
+
+\{\} vs \#()
+
+Pay attention: =={}== executes expressions while #() not.
+[[[
+    {(10@20) . (10@20)} size 
+    > 2
+    {(10@20) . (10@20)}
+    > {(10@20) . (10@20)}
+
+    #((10@20) . (10@20)) size 
+    > 3
+    #((10@20) . (10@20))
+    > #(#(10 #@ 20) #'.' #(10 #@ 20))
+    #((10@20) . (10@20)) first class
+	> Array
+]]]
+
+
+
+${slide:title= Slide title help please}$
+
+\{\} vs \#()
 
 There is no message executed when a literal array is created. 
 [[[language=smalltalk
@@ -130,7 +201,7 @@ There is no message executed when a literal array is created.
     > 5
 ]]]
 
-Dynamic arrays are created during the program execution.
+Arrays created with message sends are created during program execution.
 [[[language=smalltalk
     Array with: 45 + 38 with: 1300 with: 8
     > #( 83 . 1300 . 8)
@@ -149,12 +220,7 @@ ${slide:title=First element starts at 1 |label=arrays}$
     > 'hates'
 ]]]
 
-${slide:title= at: to access, at:put: to set|label=arrays}$
 
-[[[language=smalltalk
-    #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
-    > #('Calvin' 'loves' 'Suzie')
-]]]
 
 ${slide:title=Variants|label=arrays}$
 

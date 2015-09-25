@@ -1,6 +1,5 @@
 {
     "title":"Message sends are plans for reuse",
-    "subtitle":"",
     "author":"Stéphane Ducasse and Damien Cassou",
     "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
 }
@@ -9,6 +8,7 @@ ${slide:title=Remember...}$
 
 - Message passing is a choice operator
 - Class hierarchies define choices
+- ==self== always represents the receiver and method lookup starts in the class of the receiver
 
 +One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=60+
 

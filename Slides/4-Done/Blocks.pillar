@@ -137,12 +137,12 @@ ${slide:title=Blocks can be stored|label=simpleBlock}$
 ${slide:title=Blocks are used to express conditions|label=expressCondition}$
 
 [[[language=smalltalk
-	max: anObject 
-		"Answer the receiver or the argument, whichever has the greater anObject."
+max: anObject 
+	"Answer the receiver or the argument, whichever has the greater anObject."
 
-		self > anObject
-			ifTrue: [^ self ]
-			ifFalse: [^ anObject ]
+	^ self > anObject
+		ifTrue: [ self ]
+		ifFalse: [ anObject ]
 ]]]
 
 Yes this is a message ==ifTrue:ifFalse:== sent to a Boolean
@@ -176,6 +176,10 @@ ${slide:title=Blocks are used to express loops|label=expressLoop}$
     > 147101316192225283134374043464952555861646770737679828588919497100
 ]]]
 
+- The message ==to:by:do:== is sent to an integer
+- ==i== will get all the computed values one by one
+
+
 ${slide:title=Blocks are used to express loops|label=expressLoop}$
 
 - Basis for iterators
@@ -184,6 +188,8 @@ ${slide:title=Blocks are used to express loops|label=expressLoop}$
     #(2 4 5 -4 3 -2) collect: [ :each | each abs ]
     > #(2 4 5 4 3 2)
 ]]]
+
+- Here the message is sent to the collection itself
 
 ${slide:title=Full Syntax}$
 
@@ -201,14 +207,14 @@ ${slide:title=Full Syntax}$
 
 ${slide:title=A Design Advice}$
 
-- Do not use blocks with too many arguments (3 max).
-- Use object instead of block if you should pass more arguments.
-- A block is only one single computation it cannot embed more facets (printing, testing)
+- Do not use blocks with too many arguments (2 or 3 max).
+- Define a class instead of block if you should pass more arguments.
+- A block is only one single computation it cannot define more facets (printing, testing)
 
 
 ${slide:title=Return in a bloc, return from the method}$
 
-- When a block containing a return is executed, computation exits the method that defined the block.
+-  When a return is executed in block, computation exits the method that defined the block.
 
 [[[language=smalltalk
 Integer>>factorial
@@ -302,9 +308,7 @@ ${slide:title=Implementation Note}$
 - But you can implement your own conditional methods and debug to see that sending a message is dispatching to the right object.
 
 
-
 ${slide:title=Summary|label=expressLoop}$
-
 
 [[[
     [ :variable1 :variable2 ... |
