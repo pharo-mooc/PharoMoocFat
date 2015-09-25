@@ -552,8 +552,8 @@ is equivalent to
     > aSet 
 ]]]
 
-- ==add: 2== and ==yourself== are sent to the receiver of ==add: 1==, hence a new set
-- 
+- ==add: 2== and ==yourself== are sent to the receiver of ==add: 1==
+- to the newly created set
 
 ${slide:title=Summary}$
 
