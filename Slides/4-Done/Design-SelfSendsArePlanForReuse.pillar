@@ -17,9 +17,7 @@ ${slide:title=Pitch}$
 - Superclass code can be reused by subclasses 
 - Sending messages in a superclass define places where subclass code can be injected.
 
-
 ${slide:title=A first example}$
-
 
 [[[language=smalltalk
     Node >> setWindowWithRatioForDisplay
@@ -57,11 +55,20 @@ ${slide:title=A not that good solution}$
 
 ${slide:title=Solution}$
 
-- Define methods
+${columns}$
+
+${column:width=50}$
+
+- Define small methods
 - Send messages to invoke such methods
 - Let subclasses customize such methods
 
-+>file://figures/SelfIsDynamic.png|width=80+
+${column:width=50}$
+
++>file://figures/SelfIsDynamic.png|width=50+
+
+${endColumns}$
+
 
 
 ${slide:title=Good design in the first place}$
@@ -81,52 +88,24 @@ ${slide:title=Good design in the first place}$
 ]]]
 
 
-${slide:title=Subclass reuse superclass logic}$
+${slide:title=Subclasses reuse superclass logic}$
 
-Now the subclass can only express the delta and reuse the superclass logic
+Now a subclass can only express the delta and reuse the superclass logic
+[[[language=smalltalk    
+    Node subclass: OurSpecificNode 
+       ...
+]]]
+
+
 [[[language=smalltalk    
     OurSpecificNode >> ratio
          ^ super ratio + 10
 ]]]
 
-
-
-${slide:title=Avoid magic numbers}$
-
-- Do not hardcode magic numbers (55)
-- Either define instance variables with setter and getter, and/or set default value via message semd
-
-[[[language=smalltalk
-    Node >> setWindowWithRatioForDisplay
-        | averageRatio defaultNodeSize |
-        averageRatio := 55.
-        defaultNodeSize := self ratio.
-        self window add:
-            (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
-        previousNodeSize := defaultNodeSize.
-]]]
-
-${slide:title=Use Setter and Default}$
-
-[[[language=smalltalk
-    Node >> ....
-        self averageRatio: self defaultAverageRatio.
-]]]
-
-[[[language=smalltalk
-    Node >> defaultAverageRatio
-        ^ 55
-]]]
-
-- With setter, clients may change the value without subclassing
-[[[language=smalltalk
-    aNode averageRatio: 55
-]]]
-
 ${slide:title=Many small messages}$
 
-- Newbies in Pharo complain that methods are too small
-- This is a good properties
+- Newbies often complain that there are too many small methods
+- This is a good property
 
 [[[language=smalltalk
     Node >> uiNode
@@ -144,30 +123,100 @@ ${slide:title=Many small messages}$
 ${slide:title=Do not hardcode class use}$
 
 [[[language=smalltalk
-    Node >> setWindowWithRatioForDisplay
-        | defaultNodeSize |
-        ...
-        defaultNodeSize := self ratio.
-        self window add:
-            (UINode new with: (bandWidth * averageRatio / defaultWindowSize)
-        ...
+    Node >> uiNode
+        ^ (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
 ]]]
 
 ${slide:title=Define method returning classes}$
 
 [[[language=smalltalk
-    Node >> setWindowWithRatioForDisplay
-        | defaultNodeSize |
-        ...
-        defaultNodeSize := self ratio.
-        self window add:
-            (self uiNodeClass new with: (bandWidth * averageRatio / defaultWindowSize)
-        ...
+    Node >> uiNode
+        ^ (self uiNodeClass new with: (bandWidth * averageRatio / defaultWindowSize).
+]]]
+
+[[[language=smalltalk		
      Node >> uiNodeClass
         ^ UINodeClass
 ]]]
 
+${slide:title=From the exercise}$
 
+To support 
+[[[
+	2 D20 + 3 D10
+]]]
+
+We define ==\+== as 
+
+[[[smalltalk=language
+DiceHandle>>+ aDiceHandle
+	| handle |
+	handle := self class new.
+	self dice do: [ :each | handle addDice: each ]. 
+	aDiceHandle dice do: [ :each | handle addDice: each ]. 
+	^ handle
+]]]
+
+What is the difference with the following definition?
+
+[[[smalltalk=language
+DiceHandle>>+ aDiceHandle
+	| handle |
+	handle := DiceHandle new.
+	self dice do: [ :each | handle addDice: each ]. 
+	aDiceHandle dice do: [ :each | handle addDice: each ]. 
+	^ handle
+]]]
+
+${slide:title=Hint}$
+
+- If we define a subclass of ==DiceHandle==, 
+- and send the message ==\+== to an instance
+
+Are the result the same than with ==DiceHandle==
+
+${slide:title=Solution}$
+
+If we define a subclass of ==DiceHandle==, 
+and send the message ==\+== to an instance
+
+With ==handle := DiceHandle new==, ==\+== does not return an instance of the subclass but of ==DiceHandle==
+
+With ==handle := self classe new==, ==\+== returns an instance of the receiver (an instance of the subclass)
+
+
+
+
+${slide:title=Avoid magic numbers}$
+
+- Do not hardcode magic numbers (55)
+- Either define instance variables with setter and getter, and/or set default value via message semd
+
+[[[language=smalltalk
+    Node >> setWindowWithRatioForDisplay
+        | averageRatio defaultNodeSize |
+        averageRatio := 55.
+        ...
+]]]
+
+${slide:title=Use Setter and Default}$
+
+[[[language=smalltalk
+    Node >> setWindowWithRatioForDisplay
+        | averageRatio defaultNodeSize |
+        averageRatio := self defaultAverageRatio.
+        ...
+]]]
+
+[[[language=smalltalk
+    Node >> defaultAverageRatio
+        ^ 55
+]]]
+
+- With setter, clients may change the value without subclassing
+[[[language=smalltalk
+    aNode averageRatio: 55
+]]]
 
 ${slide:title=Conclusion}$
 
