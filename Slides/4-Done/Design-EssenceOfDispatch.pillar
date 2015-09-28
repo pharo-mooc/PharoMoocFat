@@ -19,8 +19,6 @@ ${slide:title=Motto}$
 - Let's open our eyes, look, understand, and deeply understand the underlying design aspects of object-oriented programming.
 
 
-! Booleans in Pharo
-
 ${slide:title=Booleans}$
 
 [[[language=smalltalk 
@@ -46,16 +44,12 @@ In Pharo, Booleans have nothing special, just a superb implementation!
 - =>
 - ....
 
-!Exercices
-
 ${slide:title=Three Exercises|label=questions}$
 
 -1 Implement ==not==
 -2 Implement ==|== (or)
 -3 Why such exercises? What these exercises want to show us?
 
-
-!!Exercise 1: Implement not
 
 ${slide:title=Exercise 1\: Implement not}$
 
@@ -68,8 +62,6 @@ ${slide:title=Exercise 1\: Implement not}$
     true not 
     -> false
 ]]]
-
-!!Exercise 2: Implement | (Or) ifTrue: ifFalse:
 
 ${slide:title=Exercise 2\: Implement \| (Or)}$
 
@@ -98,8 +90,6 @@ ${slide:title=Exercise 2\: Variation - Implement ifTrue\:ifFalse\:}$
     true ifTrue: [ 3 ] ifFalse: [ 5 ]
     -> 3
 ]]]
-
-! Boolean Implementation
 
 ${slide:title=Booleans Implementation Hint One}$
 
@@ -264,8 +254,6 @@ ${slide:title=Or implementation in two methods}$
 
 
 
-! So what ?
-
 ${slide:title=Ok so what?}$
 
 - You will probably not implement ==Booleans== in the future
@@ -338,8 +326,6 @@ ${slide:title=Follow-up: Implement ternary logic}$
 +Ternary logic decision table.>file://figures/ArrayBoolean.png|width=30|label=fig:ternLogic+
 
 - Implementing in your own classes.
-
-! Summary
 
 ${slide:title=Summary}$
 - Tell, do not ask
