@@ -19,8 +19,6 @@ ${slide:title=Pros}$
 
 -Collateral pros
 
-!Finding Problems
-
 ${slide:title=Finding Problems: Pros}$
 
 -find bugs when they appear
@@ -38,8 +36,6 @@ ${slide:title=Finding Problems: Characteristics of a Good ''Test Suite''}$
 -good coverage
 -check abstractions
 -check units independently
-
-!Understanding Code
 
 ${slide:title=Understanding Code}$
 
@@ -118,8 +114,6 @@ ${slide:title=Understanding Code: Characteristics of a Good Test Suite}$
 -simple
 -unit
 
-!Increasing Trust
-
 ${slide:title=Increasing Trust: Pros}$
 
 -accelerate bug detection
@@ -133,18 +127,12 @@ ${slide:title=Increasing Trust: Characteristics of a Good Test Suite}$
 -good code coverage
 -deterministic
 
-!Collateral Pros
-
 ${slide:title=Collateral Pros}$
 
 -improve feeling of customers who care
 -allow for automatic bug fixing
 -improve type inference
 -provide examples to variable values
-
-!Test Writing Techniques
-
-!!Testing Abstractions
 
 ${slide:title=Testing Abstractions}$
 
@@ -184,8 +172,6 @@ ${slide:title=Testing Abstractions}$
 
 +file://figures/tests-actions-parallel-hierarchies.png|width=80+
 
-!!Unit Testing through Mocking
-
 ${slide:title=Mocking}$
 
 How do you test that a questionnaire only accepts compatible answers from the user?
@@ -221,8 +207,6 @@ ${slide:title=Mocking}$
 
 -mocks are reusable across tests
 -mocks can be generated with mocking frameworks
-
-!Different Testing Levels
 
 ${slide:title=Different Testing Levels}$
 

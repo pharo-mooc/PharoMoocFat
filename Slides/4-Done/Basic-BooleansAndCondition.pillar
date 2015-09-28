@@ -56,8 +56,6 @@ To see more have a look at the Essence of Dispatch Lecture.
 
 
 
-!Conditionals
-
 ${slide:title=Conditionals: ifTrue:ifFalse:}$
 
 - Booleans are objects
@@ -84,7 +82,6 @@ ${slide:title=ifTrue:ifFalse: other examples}$
         ifTrue: [ self privateAt: key put: aBlock value ]
 ]]]
 
-! Conditionals expressed on collections
 
 ${slide:title=Conditionals: ifEmpty: ifNotEmpty:}$
 
