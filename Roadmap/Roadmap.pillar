@@ -68,8 +68,6 @@ http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
 - Semaine 8 : Quelques patrons de conception - Première base de données
 
 
-
-
 !!! Week 1: prise en main – premier éléments syntaxiques
 
 - Welcome: Goal - objectives - community 		6 min
@@ -77,28 +75,24 @@ http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
 
 - Live: Several Live Examples: Seaside/3D/Zinc/GT?	6 min
 
-Resources?
-- Live: Installation Mac (not to be shown by use) 	2 min
-- Live: Installation Windows					3 min
-- Live: Installation Linux						3 min
-- Live: Installation Ubuntu						3 min
+- Live coding counter			6 min
 
+- Object model: simple (single inheritance, public methods in 5 slides)
+
+- Basic syntax: including class/method definition (so that exercises can be done)	
+
+
+- Live: The notion of image						3 min
+	start/save
+
+Resources
+- Installation sur Pharo 
 - Live: Getting started: Coding live example counter: class first 10 min
 - Live: Getting started: Coding live example counter: test first 10 min
 
 - Live or may be slides? the notion of image start/save
 
-- Object model: simple (single inheritance, public methods in 5 slides)
 
-- Basic syntax: including class/method definition (so that exercises can be done)
--- quizz
-- Messages
--- quizz
-- Blocks
---quizz
-
-- Live: The notion of image						3 min
-	start/save
 
 !!!!Resources probably as slides
 	mailing-list, 
@@ -114,20 +108,33 @@ Resources?
 - Videos sympaes de la communauté
 
 !!! Week 2: Syntaxe complète - IDE
+
+- Seaside Component + html + bootstrap	6 min
+- Live: seaside counter							6 min
+- Seaside call:/answer:					6 min
+- Seaside tips and tricks
+	10 + 20 + error + debugger			6 min
+	counter back button
+
+- Messages
+
+
+
+
 - Live: Debugger is your friend (idea?)			6 min
 - Live: GTInspector "simple interaction"		6 min
 - Live: Publishing Code: on smalltalkhub		6 min
 - Live: A simple REST server in Teapot			6 min
+
 - Conditionals \+ () vs []						6 min
--- quizz
+
 - First Glance at Collections (OrderedCollection, Array, Set)	6 min
--- quizz
 - Loops (with a do: and collect:)				6 min
--- quizz
-- String/symbols								6 min
--- quizz
-- Tools to find information: implementors, senders, finder and Spotter
--- Navigation exercices
+
+
+
+
+
 - Teaser for next week: not 
 
 !!!!Resources: 
@@ -145,7 +152,8 @@ Resources?
 - Live: Dice Game DSL dice						6 min
 - Live: Dice Game DSL handle					6 min
 - Second glance at Collection (Dictionary)		6 min
-- One video: seaside counter					6 min
+
+
 - Object model: 								6 min
 	"static method" - only one send
 	public method 
@@ -155,6 +163,12 @@ Resources?
 - Live: Picasa meta								6 min
 -- explaining one the fly code generation and coding in the debugger
 - Design: Learning from the System -  not
+
+
+- Tools to find information: implementors, senders, finder and Spotter
+-- Navigation exercices
+
+
 
 !!!!Resources: 
 
@@ -167,13 +181,20 @@ Resources?
 - Did you really get this?								6 min
 - Did you really get super?								6 min
 - Extending GT:  Extending the inspector and spotter for the addressbook				6 min
+
+- Blocks
+
 - Streams in a nutshell
 -- streamContents
 - Benchmarking? 
 -- concatenation vs preallocation
 - Class var vs instance variables
 
--- FS? FileSystem
+
+
+
+- Class methods
+
 
 !!!!Resources: 
 
@@ -185,11 +206,9 @@ Resources?
 !!! Week 5: Dispatch – Developpement web
 - Reflection for doing what?
 -- scripting google service API? Stuff of franz Prinz
-- Double dispatch on paper (do we want that?)					6 min
--- number and floats
--- fraction 
-- Visitor design pattern?? or only in exo
 
+
+- Exception 
 
 - Teaser: next one we build a chat!
 
@@ -215,7 +234,7 @@ Resources?
 
 
 !!! Week 7: Points de conception avancees
-- messages are unit of reuse
+- messages are plan of reuse
 - 
 !!!! Exos	
 - Simple Exos
@@ -230,6 +249,10 @@ Resources?
 
 
 
+- Double dispatch on paper (do we want that?)					6 min
+-- number and floats
+-- fraction 
+- Visitor design pattern?? or only in exo
 
 
 
