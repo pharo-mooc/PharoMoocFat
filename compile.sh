@@ -2,5 +2,5 @@
 
 set -e
 
-./pillar export
+./pillar export "$@"
 bash pillarPostExport.sh
