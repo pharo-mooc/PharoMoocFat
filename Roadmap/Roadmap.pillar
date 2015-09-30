@@ -1,62 +1,8 @@
-! Items: Fragments of Lectures and Exercises
-
-Items are units of knowledge. A typical session (video) will be between 6 to 9 minutes and composed of a couple of items. Exercises will be also based on items. 
-
-!! Item Description
-
-An item is composed of: 
-- Name: ''Iteration with ZnEasy''
-- Id: An id
-- A tag: environment, syntax, model, fun, tip
-- A Problem: How to iterate/manipulate collections?
-- A description about one line: students learn iterators such as ==do:==, ==collect:==, and ==select:== on 
-- Resources: 
--- *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
-- Ideas: use ZnEasy instead to select files served by a server.
-- Exercises: A list of exercises.
-- Contents: A little synopsis for the videos.
-- Slides: A list of ids of useful slides.
-
-!! Ideas to assess and dispatch within the lectures
-
-And we could add some more specific ones:
-- Browse and query XML
-- Browse and query JSON
-- Query a REST API with Zinc
-- Query a Mongo DB
-
-These would require extra packages to be loaded.
-
-
-
-Inspector basic:
-- Browsing the file system: 
-http://www.humane-assessment.com/blog/browsing-files-with-gtinspector/
-http://www.humane-assessment.com/blog/searching-file-system-with-gtspotter/
-- Browsing a Postgres DB:
-http://www.humane-assessment.com/blog/dynamic-exploration-of-a-postgres-db-with-the-gtinspector/
-- Understanding morphs:
-http://www.humane-assessment.com/blog/custom-morph-screenshot-with-gtinspector/
-http://www.humane-assessment.com/blog/spotting-a-troublesome-image-morph/
-http://www.humane-assessment.com/blog/managing-morph-keybindings-with-gtinspector
-
-
-Advanced:
-- Searching for code patterns:
-http://www.humane-assessment.com/blog/searching-for-a-morph-glitch/
-- Pharo performance analysis:
-http://www.humane-assessment.com/blog/assessing-pharo-performance-with-gtinspector/
-- Searching for object patterns (this one uses Roassal):
-http://www.humane-assessment.com/blog/discover-contracts-by-visualizing-objects-in-gtinspector/
-- Extending the inspector and spotter for a simple model (like the address book)
-- Debugging the debugger with the inspector:
-http://www.humane-assessment.com/blog/debugging-the-debugger-with-the-inspector/
-- Understanding the AST with the inspector
-- Guiding custom code changes with the inspector:
-http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
-
+! Roadmap
 
 !! Overall Structure
+
+A revoir
 
 - Semaine 1 : Prise en main - premier éléments syntaxiques
 - Semaine 2 : Syntaxe complète - structures de données -  IDE 
@@ -68,58 +14,48 @@ http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
 - Semaine 8 : Quelques patrons de conception - Première base de données
 
 
+
 !!! Week 1: prise en main – premier éléments syntaxiques
 
-- Welcome: Goal - objectives - community 		6 min
-- Welcome: Goal - objectives - community II		6 min
+- Welcome: Goal of the mooc - objectives 						2 min
+-- Pharo Simple immersive 
+-- Deep OO thinking
 
-- Live: Several Live Examples: Seaside/3D/Zinc/GT?	6 min
-
-- Live coding counter			6 min
-
-- Object model: simple (single inheritance, public methods in 5 slides)
-
+- What is Pharo - Goal - Community - Mini success stories		6 min
+- Live: Several Live Examples: Seaside/3D/Zinc/GT?				6 min
+- Live coding counter:											6 min
+- Live coding counter: the strange way							6 min
+- Object model: simple (single inheritance, public methods in 5 slides)			
 - Basic syntax: including class/method definition (so that exercises can be done)	
+- Basic syntax: 
+- Live: The notion of image										3 min
+-- start/save
+-- smalltalkhub
 
-
-- Live: The notion of image						3 min
-	start/save
-
-Resources
-- Installation sur Pharo 
+!!!! Resources probably as slides
+- Installation on Pharo.org
 - Live: Getting started: Coding live example counter: class first 10 min
 - Live: Getting started: Coding live example counter: test first 10 min
-
-- Live or may be slides? the notion of image start/save
-
-
-
-!!!!Resources probably as slides
-	mailing-list, 
-	books, 
-	servers, 
-	ci,
-	videos,
-	Chapters Pharo by Example
+- mailing-list, books, servers, ci, videos, Chapters Pharo by Example
 	
 !!!! Exos	
 - Simple Exos
 - Redoing the counter example in two modes.
 - Videos sympaes de la communauté
 
+
+
+
 !!! Week 2: Syntaxe complète - IDE
 
-- Seaside Component + html + bootstrap	6 min
-- Live: seaside counter							6 min
-- Seaside call:/answer:					6 min
+- Seaside Component + html + bootstrap			6 min
+- Live: seaside counter / multi counter			6 min
+- Seaside call:/answer:							6 min
 - Seaside tips and tricks
 	10 + 20 + error + debugger			6 min
 	counter back button
 
 - Messages
-
-
-
 
 - Live: Debugger is your friend (idea?)			6 min
 - Live: GTInspector "simple interaction"		6 min
@@ -145,6 +81,7 @@ Resources
 - 2 stars: Coding the addressbook
 
 !! Week 3 : Modèle objet – Outils
+
 
 - Loading code use metacello browser or gofer 	3 min
 - Live: Recovering changes (epicea)				6 min
@@ -260,6 +197,118 @@ Resources
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+! Items: Fragments of Lectures and Exercises
+
+Items are units of knowledge. A typical session (video) will be between 6 to 9 minutes and composed of a couple of items. Exercises will be also based on items. 
+
+!! Item Description
+
+An item is composed of: 
+- Name: ''Iteration with ZnEasy''
+- Id: An id
+- A tag: environment, syntax, model, fun, tip
+- A Problem: How to iterate/manipulate collections?
+- A description about one line: students learn iterators such as ==do:==, ==collect:==, and ==select:== on 
+- Resources: 
+-- *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
+- Ideas: use ZnEasy instead to select files served by a server.
+- Exercises: A list of exercises.
+- Contents: A little synopsis for the videos.
+- Slides: A list of ids of useful slides.
+
+!! Ideas to assess and dispatch within the lectures
+
+And we could add some more specific ones:
+- Browse and query XML
+- Browse and query JSON
+- Query a REST API with Zinc
+- Query a Mongo DB
+
+These would require extra packages to be loaded.
+
+
+
+Inspector basic:
+- Browsing the file system: 
+http://www.humane-assessment.com/blog/browsing-files-with-gtinspector/
+http://www.humane-assessment.com/blog/searching-file-system-with-gtspotter/
+- Browsing a Postgres DB:
+http://www.humane-assessment.com/blog/dynamic-exploration-of-a-postgres-db-with-the-gtinspector/
+- Understanding morphs:
+http://www.humane-assessment.com/blog/custom-morph-screenshot-with-gtinspector/
+http://www.humane-assessment.com/blog/spotting-a-troublesome-image-morph/
+http://www.humane-assessment.com/blog/managing-morph-keybindings-with-gtinspector
+
+
+Advanced:
+- Searching for code patterns:
+http://www.humane-assessment.com/blog/searching-for-a-morph-glitch/
+- Pharo performance analysis:
+http://www.humane-assessment.com/blog/assessing-pharo-performance-with-gtinspector/
+- Searching for object patterns (this one uses Roassal):
+http://www.humane-assessment.com/blog/discover-contracts-by-visualizing-objects-in-gtinspector/
+- Extending the inspector and spotter for a simple model (like the address book)
+- Debugging the debugger with the inspector:
+http://www.humane-assessment.com/blog/debugging-the-debugger-with-the-inspector/
+- Understanding the AST with the inspector
+- Guiding custom code changes with the inspector:
+http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 !! Unit of Knowledge Item: Welcome
 
 !!! Pharo in a nutshell 
@@ -288,6 +337,8 @@ Resources
 - Resources: 
 - Contents: 
 - Slides:
+
+
 
 
 
