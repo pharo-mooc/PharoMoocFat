@@ -1,60 +1,119 @@
 {
-	"title":"A Simple HTTP Server",
-	"subtitle":"",
-	"author":"Stéphane Ducasse",
-	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+    "title":"A Simple HTTP Server",
+    "author":"Stéphane Ducasse",
+    "complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
+${slide:title=A little book server}$
 
-${slide:title=Configuring|label=block}$
+Here I want a screen shot
 
-[[[
-	| books teapot |
-	books := Dictionary new.
-	teapot := Teapot configure: {
-				#defaultOutput -> #json. 
-				#port -> 8080. 
-				#debugMode -> true
-				}.
-]]]
-- | | is for local variable definition
-- := is to assign a value.
-- ==#port== is a symbol (aka unique string)
-- In configure: the : means that we are expecting an argument
-- =={ . }== is an array.
-
-${slide:title=A simple server server|label=block}$
-
-[[[
-	teapot
-		GET: '/books' -> books;
-		PUT: '/books/<id>' 
-			-> [ :request | | book |
-				book := { 'author' -> (request at: #author). 
-				 		'title'  -> (request at: #title) } asDictionary.
-				books at: (request at: #id) put: book ];     
-		DELETE: '/books/<id>' 
-			->  [ :request | books removeKey: (request at: #id) ];
-		exception: KeyNotFound 
-			-> (TeaResponse notFound body: 'No such book');
-		start.
-]]]
-
-
-${slide:title=Sending a request |label=block}$
+${slide:title=Getting a book}$
 
 [[[
 ZnClient new
     url: 'http://localhost:8080/books/1';
-    formAt: 'author' put: 'SquareBracketAssociates';
-    formAt: 'title'  put: 'Pharo For The Enterprise';
+    get
+]]]
+
+${slide:title=Adding a book}$
+
+[[[
+ZnClient new
+    url: 'http://localhost:8080/books/1';
+    formAt: 'publisher' put: 'SquareBracketAssociates';
+    formAt: 'title'  put: 'Entreprise Pharo';
+    put
+]]]
+
+${slide:title=Configuring a Server}$
+
+[[[
+    | books teapot |
+    books := Dictionary new.
+    teapot := Teapot configure: {  #defaultOutput -> #json.   #port -> 8080 }.
+]]]
+
+${slide:title=Configuring a Server}$
+
+[[[
+    | books teapot |
+    books := Dictionary new.
+    teapot := Teapot configure: {  #defaultOutput -> #json.   #port -> 8080 }.
+]]]
+- | | is for local variable definition
+- := is to assign a value.
+- ==#port== is a symbol (aka unique string)
+- ==configure:== is a message sent to the class ==Teapot==
+- In ==configure:==, ==:== means that the message is expecting an argument
+- =={ .  }== is an array of two elements
+- ==->== creates a key-value pair
+
+${slide:title=Defining the server routes}$
+
+[[[
+    ...
+    teapot
+        GET: '/books' -> books;
+        PUT: '/books/<id>' 
+            -> [ :request | | book |
+                book := { 'author' -> (request at: #author). 
+                         'title'  -> (request at: #title) } asDictionary.
+                books at: (request at: #id) put: book ];     
+        DELETE: '/books/<id>' 
+            ->  [ :request | books removeKey: (request at: #id) ];
+        start.
+]]]
+
+${slide:title=Defining the server routes}$
+
+[[[language=smalltalk
+    teapot 
+        DELETE: '/books/<id>' 
+            ->  [ :request | books removeKey: (request at: #id) ];
+]]]
+
+- ==[ :request | books removeKey: (request at: #id) ]== is an anonymous function
+-- ==:request== is an argument
+-- ==removeKey:== and ==at:== are messages excepting one argument
+
+${slide:title=Adding exception}$
+
+[[[
+    ...
+    teapot
+        GET: '/books' -> books;
+        PUT: '/books/<id>' 
+            -> [ :request | | book |
+                book := { 'author' -> (request at: #author). 
+                         'title'  -> (request at: #title) } asDictionary.
+                books at: (request at: #id) put: book ];     
+        DELETE: '/books/<id>' 
+            ->  [ :request | books removeKey: (request at: #id) ];
+        exception: KeyNotFound 
+            -> (TeaResponse notFound body: 'No such book');
+        start.
+]]]
+
+- ==notFound== is a message sent to a class.
+- SD: Do we keep exception: is it working?
+
+${slide:title=Sending a request}$
+
+[[[
+ZnClient new
+    url: 'http://localhost:8080/books/1';
+    formAt: 'publisher' put: 'SquareBracketAssociates';
+    formAt: 'title'  put: 'Entreprise Pharo';
     put
 ]]]
 
 
 
 ${slide:title=Conclusion |label=block}$
+
 - Teapot is a cool package ==http://smalltalkhub.com/#!/~zeroflag/Teapot==
 - A web server in one page
+- Glimpse at syntax
 - Based on Zinc is a really strong and well designed HTTP client/server
 
