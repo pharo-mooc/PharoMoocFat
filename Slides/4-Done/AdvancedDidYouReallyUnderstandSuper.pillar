@@ -1,0 +1,102 @@
+{
+    "title":"Did you really understand super?",
+    "author":"Stéphane Ducasse",
+    "complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
+
+${slide:title=Puzzle}$
+
+[[[
+    Dice class >> new
+
+        | inst |
+        inst := super new. 
+        inst initialize.
+        ^ inst
+]]]
+
+We execute ==Dice new==
+
+${slide:title=Puzzle}$
+
+[[[
+    Dice class >> new
+
+        | inst |
+        inst := super new. 
+        inst initialize.
+        ^ inst
+]]]
+
+- What is ==super==?
+- What is ==inst==
+
+
+${slide:title=Hint}$
+
+[[[
+    Dice class >> new
+
+        | inst |
+        inst := super new. 
+        inst initialize.
+        ^ inst
+]]]
+
+- What is ==super==?
+- No ==super== is not the superclass
+- No ==inst== is not an instance of the superclass
+
+
+${slide:title=Solution}$
+
+[[[
+    Dice class >> new
+
+        | inst |
+        inst := super new. 
+        inst initialize.
+        ^ inst
+]]]
+
+- What is ==super==?
+- No ==super== is not the superclass
+- No ==inst== is not an instance of the superclass
+
+
+${slide:title=Hint 2}$
+
+[[[language=smalltalk
+    Dice class >> new
+
+        | inst |
+        inst := super new. 
+        inst initialize.
+        ^ inst
+]]]
+
+Remember: 
+- ==super== is the receiver of the message
+- the message is ==Dice new==
+- So the receiver is the class ==Dice==
+
+${slide:title=Remember}$
+
++>file://figures/LookupEssence.png|width=55+
+
+
+${slide:title=Solution}$
+
+[[[language=smalltalk
+    Dice class >> new
+
+        | inst |
+        inst := super new. 
+        inst initialize.
+        ^ inst
+]]]
+
+- ==super== is the receiver: the class ==Dice==
+- We look for ==new== in the super class of the class ==Dice==
+- Once found we apply to the receiver ==Dice==
+- We get an instance of the class ==Dice== and send it initialize and return
