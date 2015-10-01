@@ -61,7 +61,7 @@ A revoir
 - Live: GTInspector "simple interaction"		6 min
 - Live: Publishing Code: on smalltalkhub		6 min
 
-- Conditionals \+ () vs []						6 min
+- Conditionals \+ () vs []						3 min
 
 - First Glance at Collections (OrderedCollection, Array, Set)	6 min
 - Conditional 													6 min
@@ -81,6 +81,7 @@ A revoir
 
 - Not solution										6 min (does it fit in 6 min)
 - Messages send are a dynamic case					6 min
+
 - Blocks											6 min
 - Live: Dice Game DSL dice							6 min
 - Live: Dice Game DSL handle						6 min
@@ -121,8 +122,10 @@ A revoir
 - Extending GT:  Extending the inspector and spotter for the addressbook				6 min
 
 - Iterators												6 min
+-- to split in two
 
 - Magritte
+	MAAddress
 
 - Streams in a nutshell									6 min
 -- streamContents
@@ -175,12 +178,11 @@ A ce moment la on pourrait bouger le reste dans une autre semaine Week 4 par exe
 !!! Week 6: Reflection – Repenser la liaison tardive
 
 
-- Save object in Mongo with Voyage
+- Save object in Mongo with Voyage					6 min
 
-- Did you read understand super method
+- Did you read understand super method				6 min
 
-
-
+- Copy as a hook and template						6 min
 
 
 
@@ -192,29 +194,23 @@ A ce moment la on pourrait bouger le reste dans une autre semaine Week 4 par exe
 
 !!! Week 7: Points de conception avancees
 
-- messages are plan of reuse
-- 
-
-
-
-
-!!!! Exos	
-- Simple Exos
-
-
-!!! Week 8: Quelques patrons de conceptions
-
-!!!! Exos	
-- Simple Exos
-
-
-
-
-
+- messages are plan of reuse 
 - Double dispatch on paper (do we want that?)					6 min
 -- number and floats
 -- fraction 
-- Visitor design pattern?? or only in exo
+- Visitor design pattern or only in exo
+
+
+
+
+!!!! Exos	
+- Simple Exos
+
+
+
+
+
+
 
 
 
