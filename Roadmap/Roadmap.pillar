@@ -23,14 +23,17 @@ A revoir
 
 - What is Pharo - Goal - Community - Mini success stories		6 min
 - Live: Several Live Examples: Seaside/3D/Zinc/GT?				6 min
+
 - Live coding counter:											6 min
 - Live coding counter: the strange way							6 min
-- Object model: simple (single inheritance, public methods in 5 slides)			
-- Basic syntax: including class/method definition (so that exercises can be done)	
-- Basic syntax: 
-- Live: The notion of image										3 min
+
+- Basic Object model: simple (single inheritance, public methods in 5 slides)		6 min
+- Basic syntax: including class/method definition (so that exercises can be done)	6 min
+
+- Live: Runtime The notion of image save the code				3 min
 -- start/save
 -- smalltalkhub
+
 
 !!!! Resources probably as slides
 - Installation on Pharo.org
@@ -45,35 +48,29 @@ A revoir
 
 
 
-
 !!! Week 2: Syntaxe complète - IDE
 
-- Seaside Component + html + bootstrap			6 min
-- Live: seaside counter / multi counter			6 min
-- Seaside call:/answer:							6 min
-- Seaside tips and tricks
-	10 + 20 + error + debugger			6 min
-	counter back button
+- Suggestion luc sur Zinc						6 min
+- An example avec Teapot						6 min
+- Live: A simple REST server in Teapot			6 min
 
-- Messages
+- Messages (part one)							6 min
+- Mesages (part two)							6 min
 
 - Live: Debugger is your friend (idea?)			6 min
 - Live: GTInspector "simple interaction"		6 min
 - Live: Publishing Code: on smalltalkhub		6 min
-- Live: A simple REST server in Teapot			6 min
 
 - Conditionals \+ () vs []						6 min
 
 - First Glance at Collections (OrderedCollection, Array, Set)	6 min
-- Loops (with a do: and collect:)				6 min
+- Conditional 													6 min
+- Loops (with a do: and collect:)								6 min
+- Teaser for next week: not 							(may be en premier semaine)
 
-
-
-
-
-- Teaser for next week: not 
 
 !!!!Resources: 
+- Chapitre Pharo by exemple 
 
 !!!! Exos	
 - one star: Simple Exos
@@ -82,56 +79,65 @@ A revoir
 
 !! Week 3 : Modèle objet – Outils
 
+- Not solution										6 min (does it fit in 6 min)
+- Messages send are a dynamic case					6 min
+- Blocks											6 min
+- Live: Dice Game DSL dice							6 min
+- Live: Dice Game DSL handle						6 min
 
-- Loading code use metacello browser or gofer 	3 min
-- Live: Recovering changes (epicea)				6 min
-- Iterators										6 min
-- Live: Dice Game DSL dice						6 min
-- Live: Dice Game DSL handle					6 min
-- Second glance at Collection (Dictionary)		6 min
+- Live: trouver de l'information (click inpsect)	6 min
+- Live: Recovering changes (epicea???)				6 min
 
+- Second glance at Collection (Dictionary)??	6 min
 
 - Object model: 								6 min
 	"static method" - only one send
 	public method 
 	no constructor
 	no operator
-- Boolean implementation 
 - Live: Picasa meta								6 min
 -- explaining one the fly code generation and coding in the debugger
 - Design: Learning from the System -  not
 
-
 - Tools to find information: implementors, senders, finder and Spotter
 -- Navigation exercices
+- Live: seaside counter / multi counter			6 min
+
 
 
 
 !!!!Resources: 
 
 !!!! Exos	
+- Find how to 
 - Simple Exos
 - Lamp two of noury
 - 2 stars: Redoing the DSL
 
 !!! Week 4: Héritage revisité - Qq Structures de donneé
+- Inheritance											6 min
 - Did you really get this?								6 min
 - Did you really get super?								6 min
 - Extending GT:  Extending the inspector and spotter for the addressbook				6 min
 
-- Blocks
+- Iterators												6 min
 
-- Streams in a nutshell
+- Magritte
+
+- Streams in a nutshell									6 min
 -- streamContents
+
 - Benchmarking? 
 -- concatenation vs preallocation
 - Class var vs instance variables
 
+A ce moment la on pourrait bouger le reste dans une autre semaine Week 4 par exemple
+- Seaside Component + html + bootstrap			6 min
 
-
-
-- Class methods
-
+- Seaside call:/answer:							6 min
+- Seaside tips and tricks
+	10 + 20 + error + debugger			6 min
+	counter back button
 
 !!!!Resources: 
 
@@ -142,10 +148,18 @@ A revoir
 
 !!! Week 5: Dispatch – Developpement web
 - Reflection for doing what?
+-- basic
+-- HaltIf: 
 -- scripting google service API? Stuff of franz Prinz
+-- 
 
+- Understanding Class methods							6 min
 
-- Exception 
+- Managing project using versionner				 		6 min
+
+- Magritte												6 min
+
+- Exception 											6 min
 
 - Teaser: next one we build a chat!
 
@@ -156,14 +170,20 @@ A revoir
 - 2 stars: Expressions visitor
 - Turtle of laurent laffont? / 
 
+- 
 
 !!! Week 6: Reflection – Repenser la liaison tardive
-- Zinc? Querying something?				6 min
-- 
-- Weekend exercise: Simon game to refactor??
-- Spec in a nutshell
-- Concurrency overview 
--- forking
+
+
+- Save object in Mongo with Voyage
+
+- Did you read understand super method
+
+
+
+
+
+
 !!!! Exos	
 - Simple Exos
 - 3 stars:  tinychat
@@ -171,8 +191,13 @@ A revoir
 
 
 !!! Week 7: Points de conception avancees
+
 - messages are plan of reuse
 - 
+
+
+
+
 !!!! Exos	
 - Simple Exos
 
