@@ -15,7 +15,7 @@ ${slide:title=Three Questions|label=questions}$
 
 ${slide:title=Exercise 1\: Implement not}$
 
-- Propose an implementation of not in a world where you do not have Booleans.
+- Propose an implementation of not in a world where you have Booleans but not operations.
 - You only have objects and messages.
 [[[language=smalltalk 
     false not 
