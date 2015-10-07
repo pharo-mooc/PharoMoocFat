@@ -20,213 +20,225 @@
 
 !!! Week 1: prise en main – premier éléments syntaxiques
 
-- Welcome: Goal of the mooc - objectives 						2 min
+2 - Welcome: Goal of the mooc - objectives 								2 min			Objectives.pillar			a revoir
 -- Pharo Simple immersive 
 -- Deep OO thinking
 
-- What is Pharo - Goal - Community - Mini success stories		6 min
-- Elegant Immersive Learning									6 min
+6 - What is Pharo - Goal - Community - Mini success stories	Intro-ImmersionInObjectLand.key to be spli      6 min 
+6 - Elegant Immersive Learning								Intro-ImmersionInObjectLand.key to be split		6 min 
 
-- Live: Several Live Examples: Seaside/3D/Zinc/GT?				6 min ??
+- Teaser live: Several Live Examples: Seaside/3D/Zinc/GT?				6 min ????
 		- Teaser GT Plus une autre videos.
 
-- Live: coding counter:											6 min
-- Live: coding counter: the strange way							6 min (ailleurs semaine 2)
+6 - Live: coding counter:													6 min							<< a refaire avec bonne fonte
+6 - Live: coding counter: the strange way									6 min (ailleurs semaine 2)		<< a refaire avec bonne fonte
 
-- Basic Object model: simple (single inheritance, public methods in 5 slides)		6 min
-- Basic syntax: including class/method definition (so that exercises can be done)	6 min
+6 - Intro-ModelInaNushell: simple (single inheritance, public methods in 5 slides)				6 min
+8 - Intro-SyntaxInaNushell: including class/method definition (so that exercises can be done)		6 min
 
-- Basic runtime architecture 					6 min (may be elsewhere Week 3)
+6 - Basic-runtime-architecture 					6 min (may be elsewhere Week 3)
 
-- Live: Runtime The notion of image save the code				3 min
+6 - Live: Runtime The notion of image save the code				3 min							<< a faire
 -- start/save
 
 !!!! Exos	
 
 - Redo: Redoing the counter example in two modes.
-- Redo: Coding a REST interface to a counter (REST). <<<
-- Exo: Lamp et FeuTricolor
+- Redo: Coding a REST interface to a counter (REST). 											<<< A faire
+- Exo: Lamp et FeuTricolor																		<<< A Faire
 
 
 !!! Week 2: Syntaxe complète - IDE
 
-- Messages (unary binary mot clef + )				6 min
-- Messages for java programmer						3 min
-- Mesages (precedence )								6 min
-- Mesages (Sequence et cascade)						6 min (may be we can put it in )
+6 - Messages (unary binary mot clef + )					6 min					>> a splitter
+3 - Messages for java programmer						3 min
+6 - Mesages (precedence )								6 min
+6 - Mesages (Sequence et cascade)						6 min (may be we can put it in )
 
-- Live: Inspector / message sending (We interact with the object + inspect anything)		6 min
-- Live: Publishing Code: on smalltalkhub				6 min
+6 - Live: Inspector / message sending (We interact with the counter + inspect anything)	 6 min	<<< a faire
+4 - Live: Publishing Code: on smalltalkhub				6 min
 
-- Blocks											6 min   (cut out the loops?)
-- Basic Loops (with a do: and collect:)								6 min
-- Conditional 													6 min
-- () vs []
+6 - Blocks												6 min   (cut out the loops?)
+6 - Basic Loops (with a do: and collect:)								6 min
+6 - Conditional 													6 min
+3 - () vs []
 
-- TeaserExos: for next week -> not 							(may be en premier semaine)
+2 - TeaserExos: for next week -> not 	Design-EssenceOfDispatchExo.pillar		
 
 
 !!!! Exos	
 - Simple Exos Syntax
 - Exos sur les boucles
-- Redo: Turtle de Laurent Laffont : programming_with_live_objects.mpeg
+- Redo: Turtle de Laurent Laffont : programming_with_live_objects.mpeg				<< A faire
 
 
 !! Week 3 : Modèle objet – Outils
 
-- Not: solution											6 min 
-- Not Solution: Messages sends are a dynamic case		6 min
+6 - Design-EssenceOfDispatch: solution											6 min 
+6 - Design-EssenceOfDispatch: Not Solution: Messages sends are a dynamic case		6 min
 
-- As a revision of syntax: An example avec Teapot	6 min  Live: A simple REST server in Teapot 6 min
+- 6 As a revision of syntax: An example avec Teapot	6 min  Live: A simple REST server in Teapot 6 min
 
-- Variables											6 min
-- Class and methods									6 min
+- 6 Variables											6 min
+- 6 Class and methods									6 min
 		- Object model: 								
 			"static method" - only one send
 			public method 
 			no constructor
 			no operator
-- CLass methods											6 min <<< manque un slide avec le bouton
+- 6 CLass methods											6 min <<< manque un slide avec le bouton
 
-- Tools to find information: implementors, senders		6 min
-- Live: trouver de l'information Finder					6 min (ailleurs)
+- 4 Live: trouver de l'information Finder					6 min (ailleurs)		<< A faire
+-- method
+-- class
+-- examples
+-- scan all code About...
+- 6 Live: Tools to find information: implementors, senders		6 min					<< A faire
+		-- comment on peut lire un fichier png
 
 - Live: Dice Game DSL dice								6 min
 - Live: Dice Game DSL handle							6 min
 
-- Live: seaside counter / multi counter			6 min
+
 
 !!!! Exos	
 - Find how to 
-
-- Simple Exos
-- Lamp two of noury
-- 2 stars: Redoing the DSL
-- Developper 
-- 2 stars: Coding the addressbook
-
+- Redo: Refaire le dice 
+- Tortillar: Lamps two of noury (need collection)
+- Coding the address book model
 
 
 !!! Week 4: Héritage revisité - Qq Structures de donnée
 
-- Inheritance											6 min
-- Did you really get this?								6 min
-- Did you really get super?								6 min
+- 6 Inheritance																6 min
+- 6 InheritanceAndLookup-2-Lookup Did you really get this?					6 min
+- 6 InheritanceAndLookup-3-Super Did you really get super?					6 min
+- 6 InheritanceAndLookup-5-LookupMetaclass									6 min
 
-- InheritanceAndLookup-5-LookupMetaclass				6 min
-- Extending GT:  Extending the inspector and spotter for the addressbook				6 min
-
-
-- First Glance at Collections (OrderedCollection, Array, Set)	6 min
+- Basic-ArraySetOrderedCollection - First Glance at Collections (OrderedCollection, Array, Set)			6 min
 - Iterators														6 min
-
-- Live: Picasa meta								6 min
--- explaining one the fly code generation and coding in the debugger
-
-- Live: Debugger is your friend (idea?)			6 min
-
-- Magritte
-	MAAddress
-
-- Streams in a nutshell									6 min
+- Streams in a nutshell											6 min			<< a revoir
 -- streamContents
 
-- Benchmarking? 
--- concatenation vs preallocation
-- Class var vs instance variables
-
-A ce moment la on pourrait bouger le reste dans une autre semaine Week 4 par exemple
-- Seaside Component + html + bootstrap			6 min
-
-- Seaside call:/answer:							6 min
-- Seaside tips and tricks
-	10 + 20 + error + debugger			6 min
-	counter back button
-
-!!!!Resources: 
+- 3 min PharoWebStack: 4/5 slides
+	Voyage Mongo
+	Magritte
+	Zinc
+	WebSocket
+	
+- Live: seaside counter / multi counter							6 min   
+-- counter back button
+	
+- Seaside Component + html + bootstrap							6 min
+- Seaside call:/answer:											6 min
+- Live debugging the web Seaside tips and tricks
+	10 + 20 + error + debugger									6 min
+	
 
 !!!! Exos	
 - Find how to 
 	- 
+- Redo: TinyChat (pour extension futures)	
+- Exo: 
+-- should give the correct of the address book model.
+-- Coding the addressbook view part in Seaside (address book)  Call/Answer in Seaside for the address book
 
-- Simple Exos
-- 2 stars: redoing Picasa
-- Quinto?
+!!! Week 5: Exception – Debugging
 
-!!! Week 5: Dispatch – Developpement web
-- Reflection for doing what?
--- basic
--- HaltIf: 
+- 6 Live: Picasa											6 min					<< a faire
+	-- explaining one the fly code generation and coding in the debugger
+- 6 Live: Debugger is your friend (idea?)					6 min					<< a faire
+	test first create on the fly
+	self halt 
+	self haltOnce
+	self haltIf: 
+
+- 6 Exception 												6 min
+- 6 InheritanceAndLookup-4-DoesNotUnderstand 				6 min
+
+- 6 Extending GT:  Extending the inspector and spotter for the addressbook	6 min	<< a faire
+
+- 6 Reflection 																		<< a faire
+	- Basic structural
+	- Window allInstances first close
+	Close all debugger windows
+	- this context implementation of HaltIf
+
+- 6 A bit more Reflection 								<< a faire
+-- compile:
 -- scripting google service API? Stuff of franz Prinz
--- 
 
-
-
-- Managing project using versionner				 		6 min
-
-- Magritte												6 min
-
-- Exception 											6 min
-
-
-- Teaser: next one we build a chat!
-
-
-
+- 6 Magritte												6 min			<< a faire stef
 
 !!!! Exos	
-- 2 stars: Expressions visitor
 
 -  Find how to 
 	- 
+- Exo: TinyChat extension un et deux a faire
+- Exo: Magritte version of address book.						<< a faire
+- Exo: Discovering google services ?? We should check: https://www.min.at/prinz/?x=entry:entry150318-104537
 
-!!! Week 6: Reflection – Repenser la liaison tardive
+
+!!! Week 6: Reflection
+
+- 6 All the literal objects we did not talk about			 a mesurer
+-- Numbers
+--6  Strings, characters, symbols
+-- Booleans
+
+- 6 Did you read understand super method? 				6 min
+
+- 6 Advanced Classes
+-- class instance variables/ class var
+-- variableSubclass: 
+
+- 6 Design-SelfSendsArePlanForReuse.pillar messages are plan of reuse 		6 min
+
+- 6 self class vs. AClass new												6 min
+
+- 6 Hook and Template / Copy as a hook and template							6 min
+
+- 6 Save object in Mongo with Voyage							6 min		<< a faire stef and esteban
 
 
-
-- Save object in Mongo with Voyage					6 min
-
-- Did you read understand super method				6 min
-
-- Copy as a hook and template						6 min
-
-- Live: Recovering changes (epicea???)				6 min   out 
 
 !!!! Exos	
 - Find how to 
 	- 
-- 3 stars:  tinychat
+
+- 2 stars: Expressions visitor
+
 
 
 
 !!! Week 7: Points de conception avancees
 
 
-- Understanding metaclass architecture				6 min	<<< slides a faire
-- Understanding metaclass architecture	(two)			6 min <<< slides a faire
+- 6 Understanding metaclass architecture					6 min	<<< slides a faire
+- 6 Understanding metaclass architecture	(two)			6 min <<< slides a faire
 
+- 6 Design-ClassAsObjects Class as objects					
+-- no need for factory = static methods are ....
+-- check the commandLineHandler in the image
 
-- messages are plan of reuse 
-- Double dispatch on paper (do we want that?)					6 min
--- number and floats
--- fraction 
-- Visitor design pattern or only in exo
+- 6 Double dispatch on paper 					6 min	
+-- do we have an example that is not numbers						<<< slides a faire
+-- luc a un exemple 
 
+- 6 Visitor design pattern or only in exo
 
-
-
-!!!! Exos	
-- Simple Exos
-
-
-
-
+- 6 Deploying an application 
+-- pharo cloud 
+-- cloud9
 
 
 
+!! Potential Exos
 
-
-
+- Redo: Picasa (plus complique)
+- Quinto?
+- Tinychat
+- LAN 
 
 
 !!! 
@@ -238,11 +250,13 @@ Immersive Videos
 - coder n'import ou
 - Publier du code
 - Code search
-- sender/implementot
+- sender/implementor
 
 
 
 
+- Benchmarking? 
+-- concatenation vs preallocation
 
 
 
