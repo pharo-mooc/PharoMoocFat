@@ -143,10 +143,93 @@ ${slide:title=From the exercise}$
 
 To support 
 [[[
-	2 D20 + 3 D10
+	(DiceHandle new add: (Dice faces: 4); add: (Dice faces: 4); yourself) + (DiceHandle new add: (Dice faces: 6); yourself)
 ]]]
 
 We define ==\+== as 
+
+[[[smalltalk=language
+DiceHandle>>+ aDiceHandle
+    | handle |
+    handle := DiceHandle new.
+    self dice do: [ :each | handle addDice: each ]. 
+    aDiceHandle dice do: [ :each | handle addDice: each ]. 
+    ^ handle
+]]]
+
+${slide:title=Now we create a new subclass}$
+[[[smalltalk=language
+DiceHandle subclass: MyDiceHandle
+    ....
+]]]
+
+[[[smalltalk=language
+	(MyDiceHandle new add: (Dice faces: 4); add: (Dice faces: 4); yourself) + (MyDiceHandle new add: (Dice faces: 6); yourself)
+]]]
+
+- We get a ==DiceHandle== instance back and not a ==MyDiceHandle== instance!!!
+
+${slide:title=Solution 1: Creating a Hook}$
+
+[[[smalltalk=language
+DiceHandle >> + aDiceHandle
+	| handle |
+	handle := self handleClass new.
+	self dice do: [ :each | handle addDice: each ]. 
+	aDiceHandle dice do: [ :each | handle addDice: each ]. 
+	^ handle
+]]]
+
+[[[smalltalk=language
+DiceHandle >> handleClass
+	^ DiceHandle
+]]] 
+
+
+A subclass may redefine ==handleClass== 
+
+[[[smalltalk=language
+MyDiceHandle >> handleClass
+	^ MyDiceHandle
+]]] 
+
+
+
+${slide:title=Solution 1: Creating a Hook}$
+
+[[[smalltalk=language
+DiceHandle >> + aDiceHandle
+	| handle |
+	handle := self handleClass new.
+	self dice do: [ :each | handle addDice: each ]. 
+	aDiceHandle dice do: [ :each | handle addDice: each ]. 
+	^ handle
+]]]
+
+[[[smalltalk=language
+DiceHandle >> handleClass
+	^ DiceHandle
+]]] 
+
+A subclass may redefine ==handleClass== 
+
+[[[smalltalk=language
+MyDiceHandle >> handleClass
+	^ MyDiceHandle
+]]] 
+
+[[[smalltalk=language
+	(MyDiceHandle new add: (Dice faces: 4); add: (Dice faces: 4); yourself) + (MyDiceHandle new add: (Dice faces: 6); yourself)
+]]]
+
+We will get an instance of the subclass.
+
+${slide:title=But we can do better!}$
+
+In each subclass  we should redefine the hook method  ==handleClass==
+
+
+${slide:title=Solution 2}$
 
 [[[smalltalk=language
 DiceHandle>>+ aDiceHandle
@@ -157,23 +240,8 @@ DiceHandle>>+ aDiceHandle
 	^ handle
 ]]]
 
-What is the difference with the following definition?
-
-[[[smalltalk=language
-DiceHandle>>+ aDiceHandle
-	| handle |
-	handle := DiceHandle new.
-	self dice do: [ :each | handle addDice: each ]. 
-	aDiceHandle dice do: [ :each | handle addDice: each ]. 
-	^ handle
-]]]
-
-${slide:title=Hint}$
-
-- If we define a subclass of ==DiceHandle==, 
-- and send the message ==\+== to an instance
-
-Are the result the same than with ==DiceHandle==
+-  ==self class== always returns the class of the receiver
+- We get instances of the same kind of the receiver 
 
 ${slide:title=Solution}$
 
@@ -182,7 +250,7 @@ and send the message ==\+== to an instance
 
 With ==handle := DiceHandle new==, ==\+== does not return an instance of the subclass but of ==DiceHandle==
 
-With ==handle := self classe new==, ==\+== returns an instance of the receiver (an instance of the subclass)
+With ==handle := self class new==, ==\+== returns an instance of the receiver: an instance of a potential subclass
 
 
 
