@@ -4,80 +4,131 @@
 	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
-${slide:title=Goal of the lectyre|label=less}$
 
-- How can you trust that the changes did not destroy something?
-- What is my confidence in the system?
-- How do I write tests?
-- What is unit testing?
-- What is SUnit?
+${slide:title=SUnit}$
 
+- Got copied all over the places
+- Extremely simple
+- Originally developed by K. Beck (agile programming father)
 
-${slide:title=Tests in a nutshell|label=uniform}$
-
-- Tests represent your trust in the system
-- Build them incrementally
--- Do not need to focus on everything
--- When a new bug shows up, write a test
-- Even better write them before the code
--- Act as your first client, better interface
-- Active documentation always in sync
-- It has a cost, but pay off is big
--- writing them, maintain them
-
-${slide:title=Testing Style}$
-
-"
-The style here is to write a few lines of code, then a test that should run, or even better, to write a test that won't run, then write the code that will make it run.
-"
-
-- write unit tests that thoroughly test a single class
-- write tests as you develop (even before you implement)
-- write tests for every new piece of functionality
-
-''Developers should spend 25-50\% of their time developing tests.''
-
-${slide:title=But I can’t cover everything!}$
-
-- Sure! Nobody can but
-- When someone discovers a defect in your code, first write a test that demonstrates the defect.
-- Then debug until the test succeeds.
-
-	
-''Whenever you are tempted to type something into a print statement or a debugger expression, write it as a test instead.'' Martin Fowler
-
-
-${slide:title=Unit Tests}$
-
-- Unit tests ensure that you get the specified behavior of the public interface of a class
-- Normally tests a single class
+${slide:title=A Test}$
 
 A test
-- Create a context, 
-- Send a stimulus, 
-- Check the results
+- Create a context: Create an empty set
+- Send a stimulus: Add twice the same element
+- Check the results: Check that the set contains only one element
 
 ${slide:title=Set TestCase}$
 
 [[[
 TestCase subclass: # SetTestCase
-   superclass: TestCase 
+    ...
 ]]]
 
 [[[
-SetTestCase>>testAdd 
+SetTestCase >> testAdd 
   | empty |
   empty := Set new.                      “Context”
   empty add: 5.                                  “Stimulus”
-  self assert: (empty includes: 5).         “Check”
+  empty add: 5. 
+  self assert: empty size = 1.         “Check”
 
 SetTestCase run: #testAdd
 ]]]
-``````````
 
-${slide:title=Summary|label=instanceCreation}$
+${slide:title=In a subclass of TestCase}$
 
-- Everything is an object.
-- We send messages to objects.
-- Method selection is late bound.
-- Instances are created by sending message to other objects, or classes.
+Each method starting with test*
+- Represents a test
+- Is automatically executed
+The results of the test are collected in a TestResult object
+
+${slide:title=Another example}$
+
+[[[testAdjacentRunsWithEqualsAttributesAreMerged
+    "this demonstrates that adjancent runs with equal attributes are merged. "
+    | runArray |
+    runArray := RunArray new.
+    runArray
+        addLast: TextEmphasis normal times: 5;
+        addLast: TextEmphasis bold times: 5;
+        addLast: TextEmphasis bold times: 5.
+     self assert: (runArray runs size = 2).
+]]]
+
+
+${slide:title=Failures and Errors}$
+
+- A failure is a failed assertion, i.e., an anticipated problem that you test.
+- An error is a condition you didn't check for.
+
+[[[
+SetTestCase >> removeElementNotInSet
+    self should: [Set new remove: 1] raise: Error
+]]]
+
+
+${slide:title=Duplicating the Context}$
+
+[[[
+SetTestCase >> testOccurrences
+    | empty |
+    empty := Set new.
+    self assert: (empty occurrencesOf: 0) = 0.
+    empty add: 5; add:5.
+    self assert: (empty occurrencesOf: 5) = 1
+]]]
+
+== empty := Set new.== is repeated
+
+
+${slide:setUp and TearDown}$
+- Executed before and after each test
+- setUp allows us to specify and reuse the context
+- tearDown to clean after.
+
++>file://figures/SetUpTearDown.png+
+
+${slide:title=Definiting a setUp}$
+
+[[[
+SetTestCase >> setUp
+    empty := Set new.   
+]]]
+
+[[[
+SetTestCase >> testOccurrences
+    self assert: (empty occurrencesOf: 0) = 0.
+    empty add: 5; add:5.
+    self assert: (empty occurrencesOf: 5) = 1
+]]]
+
+
+${slide:title=SUnit Core}$
+
++>file://figures/SUnitCore.png+
+
+${slide:title=TestSuite, TestCase and TestResult}$
+
+- a ==TestCase== represents one test
+-- ==SetTestCase >> testOccurenceOf==
+- A ==TestSuite== is a group of tests
+-- SUnit automatically builds a suite from the methods starting with 'test*'
+- ==TestResult== represents a test execution results
+
+${slide:title=Test Ressources}$
+
+A ==TestResource== is an object which is needed by a number
+of Test Cases, and whose instantiation is so costly in terms
+of time or resources that it becomes advantageous to only
+initialize it once for a Test Suite run.
+
+A ==TestResources== is invoked once before any test is run.
+
+
+
+${slide:title=Summary}$
+
+- Unit tests are easy to create and run.
+- Use them as your life insurance.
+- There exist other libraries for Mock (BabyMock) or different styles of testing.

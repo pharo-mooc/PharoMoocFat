@@ -1,21 +1,19 @@
 Intro - Immersion in Object Land
-Objectives
+Objectives du Mooc
 
 Intro-SyntaxInANutshell
 Intro-ModelInaNushell
-
 Basic-RuntimeArchitecture
 
 Basic-ClassAndMethodDefinition
 Messages
 Blocks
+Iterators
 
 Design-EssenceOfDispatch
 Basic-BooleansAndCondition
 
-Iterators
 Basic-ArraySetOrderedCollection
-
 Basic-ClassMethods
 
 InheritanceAndLookup
@@ -27,9 +25,10 @@ InheritanceAndLookup
 - Basic-Streams
 
 À faire :
-- while/to:by:do:
-- seaside
 - regarder le lien entre Basic-ClassMethods et InheritanceAndLookup
+
+
+
 
 Design :
 - Design-AvoidIsNil
@@ -39,3 +38,10 @@ Design :
 - Design-LibrariesVsFrameworks
 - Design-SelfSendsArePlanForReuse
 - Design-WhyTesting
+
+A faire:
+	- reflective
+	- Design?
+	- Mongo
+	- Magritte
+	- Voyage

@@ -1,17 +1,15 @@
 {
-	"title":"SUnit",
+	"title":"Why Testing in a Nutshell",
 	"author":"Stéphane Ducasse and Damien Cassou",
 	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
 }
 
-${slide:title=Goal of the lectyre|label=less}$
+${slide:title=Goal of the lecture|label=less}$
 
 - How can you trust that the changes did not destroy something?
 - What is my confidence in the system?
 - How do I write tests?
 - What is unit testing?
-- What is SUnit?
-
 
 ${slide:title=Tests in a nutshell|label=uniform}$
 
@@ -52,32 +50,26 @@ ${slide:title=Unit Tests}$
 - Unit tests ensure that you get the specified behavior of the public interface of a class
 - Normally tests a single class
 
+
+${slide:title=A Test}$
+
 A test
 - Create a context, 
 - Send a stimulus, 
 - Check the results
 
-${slide:title=Set TestCase}$
+${slide:title=A Test}$
 
-[[[
-TestCase subclass: # SetTestCase
-   superclass: TestCase 
-]]]
+A test
+- Create a context: Create an empty set
+- Send a stimulus: Add twice the same element
+- Check the results: Check that the set contains only one element
 
-[[[
-SetTestCase>>testAdd 
-  | empty |
-  empty := Set new.                      “Context”
-  empty add: 5.                                  “Stimulus”
-  self assert: (empty includes: 5).         “Check”
+${slide:title=Good Tests}$
+- Repeatable
+- No human intervention
+- "self-described"
+- Change less often than the system
+- Tells a story
 
-SetTestCase run: #testAdd
-]]]
-``````````
 
-${slide:title=Summary|label=instanceCreation}$
-
-- Everything is an object.
-- We send messages to objects.
-- Method selection is late bound.
-- Instances are created by sending message to other objects, or classes.
