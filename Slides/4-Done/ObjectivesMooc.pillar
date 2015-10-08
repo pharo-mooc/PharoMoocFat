@@ -1,32 +1,21 @@
 {
-	"title":"Objectives",
-	"subtitle":"A Pratical Approach in Pharo",
-	"author":"Stéphane Ducasse and Damien Cassou",
-	"complement":"http://stephane.ducasse.free.fr/
-	 stephane.ducasse@inria.fr and damien.cassou@inria.fr"
+	"title":"Pharo: an immersive object-oriented system",
+	"author":"Damien Cassou, Stéphane Ducasse and Luc Fabresse",
 }
-
 
 ${slide:title=Objectives|label=objectives}$
 
-- Deeply understand Object-Oriented Design 
-- Deeply understand fundamental mechanisms
 - Be immersed into a live object world
+- Deeply understand Object-Oriented Design and fundamental mechanisms
 - Learn a set of design heuristics
 - Work with real examples
-
-
-${slide:title=Practical by all means|label=objectives}$
-
-+>file://figures/Swimming-Ads.png|width=100+
-
+- Develop and deploy a web app from start to end
 
 ${slide:title=Immersive!|label=immersive}$
 
-- Only think objects
+- Only think about objects
 - Only manipulate objects
 - Interact with living objects constantly
-
 
 ${slide:title=About Us|label=immersive}$
 
@@ -39,7 +28,7 @@ ${slide:title=About Us|label=immersive}$
 -- Object-oriented reengineering patterns
 -- Pharo by example, Deep into Pharo
 -- Dynamic Web Development in Seaside
--- Entreprise Pharo
+-- Entreprise Pharo: a web perspective
 
 ${slide:title=Resources! |label=immersive}$
 
