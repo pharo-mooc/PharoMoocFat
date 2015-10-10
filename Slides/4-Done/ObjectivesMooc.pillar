@@ -1,7 +1,7 @@
 {
 	"title":"Pharo: an immersive object-oriented system",
-	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
-	"author":"Damien Cassou, Stéphane Ducasse and Luc Fabresse",
+	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr",
+	"author":"Damien Cassou, Stéphane Ducasse and Luc Fabresse"
 }
 
 ${slide:title=Objectives|label=objectives}$
