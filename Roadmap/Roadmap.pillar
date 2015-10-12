@@ -20,26 +20,31 @@
 
 !!! Week 1: prise en main – premier éléments syntaxiques
 
-2 - Welcome: Goal of the mooc - objectives 								2 min			Objectives.pillar			a revoir
--- Pharo Simple immersive 
--- Deep OO thinking
+2 - Welcome: Goal of the mooc - objectives [toreview] 2 min
+-- Intro-objectives.key
 
-6 - What is Pharo - Goal - Community - Mini success stories	Intro-ImmersionInObjectLand.key to be spli      6 min 
-6 - Elegant Immersive Learning								Intro-ImmersionInObjectLand.key to be split		6 min 
+6 - What is Pharo  [toreview] 6 min
+-- Intro-WhatIs.key.zip
 
-- Teaser live: Several Live Examples: Seaside/3D/Zinc/GT?				6 min ????
-		- Teaser GT Plus une autre videos.
+6 - Pharo Vision	[toreview]	6 min 
+-- Intro-Vision.key
 
-6 - Live: coding counter:													6 min							<< a refaire avec bonne fonte
-6 - Live: coding counter: the strange way									6 min (ailleurs semaine 2)		<< a refaire avec bonne fonte
+- Teaser live: Several Live Examples: Seaside/3D/Zinc/GT?				6 min 
+-- Teaser GT ? Other videos?
 
-6 - Intro-ModelInaNushell: simple (single inheritance, public methods in 5 slides)				6 min
+6 - Live: coding counter:	6 min									<< a refaire avec bonne fonte
+-- To redo 
+6 - Live: coding counter: the strange way 6 min							<< a refaire avec bonne fonte
+-- To redo 
+
+6 - Intro-ModelInaNushell: simple (single inheritance, public methods in 5 slides) [toreview]	6 min
+
 8 - Intro-SyntaxInaNushell: including class/method definition (so that exercises can be done)		6 min
 
-6 - Basic-runtime-architecture 					6 min (may be elsewhere Week 3)
-
-6 - Live: Runtime The notion of image save the code				3 min							<< a faire
+6 - Basic-runtime-architecture 			6 min
+6 - Live: Runtime The notion of image save the code				3 min		<< a faire
 -- start/save
+-- Todo
 
 !!!! Exos	
 

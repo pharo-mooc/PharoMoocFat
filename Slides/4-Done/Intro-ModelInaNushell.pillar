@@ -1,8 +1,8 @@
 {
 	"title":"Pharo Object Model in a Nutshell",
 	"subtitle":"Elegance and Simplicity",
-	"author":"Stéphane Ducasse and Damien Cassou",
-	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+	"author":"Stéphane Ducasse Damien Cassou Luc Fabresse",
+	"complement":"http://www.pharo.org/"
 }
 
 ${slide:title=Less is really more :)|label=less}$
@@ -26,11 +26,12 @@ ${slide:title=Only Objects, Messages and Closures|label=less}$
 
 ${slide:title=Simple and uniform|label=uniform}$
 
-- Everything is an object instance of a class
-- Classes are objects too
-- All computation between objects is done via message passing
-- There is only one method lookup
--- Only late binding (virtual call)
+- **EVERYTHING** is an object instance of a class.
+- Classes are objects too!
+- All computation between objects is done via message passing.
+- There is only ONE method lookup for all objects:
+-- Only late binding, only virtual calls
+-- We use the term: ''sending a message''
 
 ${slide:title=Pharo Object Model|label=uniform}$
 
@@ -39,10 +40,9 @@ ${slide:title=Pharo Object Model|label=uniform}$
 - Methods are public.
 - Single inheritance between classes.
 
-
 ${slide:title=Class Definition|label=classdefinition}$
 
-[[[
+[[[language=smalltalk
 Object subclass: #Point
 	instanceVariableNames: 'x y'
 	classVariableNames: ''
@@ -51,38 +51,54 @@ Object subclass: #Point
 
 - The class ==Object== is asked to create the class ==Point== with the instance variables ==x y== in the package ==Graphics==
 
-${slide:title=Method Definition|label=methoddefinition}$
+${slide:title=Messages|label=methoddefinition}$
 
-- Normally defined in a browser or (by directly invoking the compiler)	 	
-- Methods are public
-- Always return self
+Computation between objects is done via message sends
 
 [[[
-Node >> accept: thePacket
-    "If the packet is addressed to me, print it. Else just behave like a normal node"
+Margin>>expandRectangle: aRectangle
+	"Answer a rectangle whose size has been expanded by the receiver which represents each rectangle corner."
+	
+	|  l r t b |
+	l := aRectangle left - self left.
+	r :=aRectangle right + self right.
+	t := aRectangle top - self top.
+	b := aRectangle bottom + self bottom.
+	^ Rectangle origin:  l @t extent: ((r - l ) @ (b - t )) 
+]]]
 
-    thePacket isAddressedTo: self)
-        ifTrue: [ self print: thePacket ]
-        ifFalse: [ super accept: thePacket ]
-    ^ self	
+${slide:title=Method Definition|label=methoddefinition}$
+
+- Often defined using a browser or (by directly invoking the compiler)	 	
+- Methods are public 
+- Methods are always virtual (conceptually looked up at runtime)
+- By default return self
+
+[[[language=smalltalk
+Node >> dist: aPoint 
+	"Answer the distance between aPoint and the receiver."
+	| dx dy |
+	dx := aPoint x - x.
+	dy := aPoint y - y.
+	^ (dx * dx + (dy * dy)) sqrt
 ]]]
 
 ${slide:title=Instance Creation are Messages Too!|label=instanceCreation}$
 
 - Messages sent to instance
-[[[
+[[[language=smalltalk
     '1', 'abc'
     1@2
 ]]]	
 
 - Basic class creation messages are ==new== and ==new:== sent to a class
-[[[
+[[[language=smalltalk
     Monster new
     Array new: 6
 ]]]
 
 - Class specific message creation (messages sent to classes)
-[[[
+[[[language=smalltalk
     Tomagoshi withHunger: 10
 ]]]
 
@@ -90,5 +106,5 @@ ${slide:title=Summary|label=instanceCreation}$
 
 - Everything is an object.
 - We send messages to objects.
-- Method selection is late bound.
-- Instances are created by sending message to other objects, or classes.
+- Methods are late bound.
+- Instances are created by sending messages to other objects, or classes.
