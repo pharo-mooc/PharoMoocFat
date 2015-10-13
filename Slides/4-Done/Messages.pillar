@@ -185,61 +185,6 @@ equivalent to
 ]]]
 
 
-${slide:title=Keyword Messages for Javaists}$
-
-[[[language=Smalltalk
-    postman.send(mail,recipient);
-]]]
-
-${slide:title=Keyword Messages for Javaists}$
-
-[[[language=Smalltalk
-    postman.send(mail,recipient);
-    postman . send ( mail , recipient );
-]]]
-
-
-${slide:title=Keyword Messages for Javaists}$
-
-[[[language=Smalltalk
-    postman.send(mail,recipient);
-    postman . send ( mail , recipient );
-    postman send mail recipient
-]]]
-
-${slide:title=Keyword Messages for Javaists}$
-
-[[[language=Smalltalk
-    postman.send(mail,recipient);
-    postman . send ( mail , recipient );
-    postman send mail recipient
-    postman send mail to recipient
-]]]
-
-${slide:title=Keyword Messages for Javaists}$
-
-[[[language=Smalltalk
-    postman.send(mail,recipient);
-    postman . send ( mail , recipient );
-    postman send mail recipient
-    postman send mail to recipient
-    postman send: mail to: recipient
-]]]
-
-
-${slide:title=Keyword Messages for Javaists}$
-
-[[[language=Smalltalk
-    postman.send(mail,recipient);
-    
-    postman send: mail to: recipient
-]]]
-
-- The message is named ==send:to:== 
-- It is sent to ==postman==
-- With two arguments: ==mail== and ==recipient==
-
-
 ${slide:title=Message setX:}$
 
 [[[language=Smalltalk
@@ -299,7 +244,6 @@ is equivalent to
 ]]]
 
 - Ease the composition of messages.
-
 
 
 ${slide:title=Back to Message Precedence}$
@@ -490,16 +434,14 @@ We add 2 to a set.
 
 But we get 2 and not the set.
 
-
-
 ${slide:title=A puzzle (2)}$
 
 [[[
 Collection >> add: newObject 
-	"Include newObject as one of the receiver's elements. Answer newObject. 
-	ArrayedCollections cannot respond to this message."
+    "Include newObject as one of the receiver's elements. Answer newObject. 
+    ArrayedCollections cannot respond to this message."
 
-	self subclassResponsibility
+    self subclassResponsibility
 ]]]
 
 - The message ==add:== returns its argument and not the receiver.
@@ -518,11 +460,9 @@ We have to use a temporary variable.
 
 - What could be another solution?
 
-
 ${slide:title=A puzzle (4)}$
 
 What could be another solution?
-
 
 ${slide:title=One Hint}$
 
@@ -534,7 +474,6 @@ ${slide:title=yourself}$
 Object>>yourself
     ^ self
 ]]]
-
 
 ${slide:title=A Puzzle: Solution}$
 

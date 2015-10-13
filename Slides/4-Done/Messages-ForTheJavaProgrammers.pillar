@@ -1,5 +1,5 @@
 {
-    "title":"Keyword-based Messages for Java Programmers",
+    "title":"Messages for Java Programmers",
     "author":"Stéphane Ducasse and Damien Cassou",
     "complement":"http://www.pharo.org"
 }
@@ -9,6 +9,54 @@ ${slide:title=Only Objects and Messages|label=objectives}$
 Remember we ""only"" manipulate objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compiler, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
 
 and we send messages, messages, messages and messages (and closures)
+
+
+${slide:title=Equivalence|label=objectives}$
+[[[
+	ArrayList<String> strings = new ArrayList<String>();
+]]]
+
+[[[language=smalltalk
+strings := ArrayList new.
+]]]
+
+
+${slide:title=Equivalence|label=objectives}$
+
+[[[
+Thread regThread = new Thread(
+       new Runnable() {
+         public void run() {
+                this.doSomething();} });
+ regThread.start();
+]]]
+
+[[[language=smalltalk
+[self doSomething] fork.
+]]]
+
+
+${slide:title=Three kind of messages|label=objectives}$
+
+- Unary
+[[[language=smalltalk
+5 factorial
+Transcript cr
+]]]
+
+- Binary
+[[[language=smalltalk
+3 + 4
+]]]
+
+- Keyword-based messages
+[[[language=smalltalk
+2 between: 0 and: 5
+
+Transcript show: 'hello world' ; cr
+]]]
+
+
 
 ${slide:title=Keyword Messages}$
 
@@ -77,3 +125,18 @@ ${slide:title=Keyword Messages for Javaists}$
 - It is sent to ==postman==
 - With two arguments: ==mail== and ==recipient==
 
+${slide:title=Conditional are just messages}$
+
+Booleans are objects
+Conditional are messages sent to booleans or block
+
+[[[language=smalltalk
+	initialAnswer := fullName isEmptyOrNil
+		ifTrue: [ 'FirstnameLastname' translated ]
+		ifFalse: [ fullName ]
+]]]
+
+${slide:title=Summary}$
+
+- Three kinds of messages: unary, binary and keywords
+- () > unary > binary > keywords
