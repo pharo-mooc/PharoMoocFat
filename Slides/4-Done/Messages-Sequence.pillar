@@ -1,0 +1,125 @@
+{
+    "title":"Understanding Messages: Sequence et Cascade",
+    "author":"Stéphane Ducasse and Damien Cassou and Luc Fabresse",
+    "complement":"http://www.pharo.org"
+}
+
+
+${slide:title=Message Sequence}$
+
+[[[language=Smalltalk
+    message1.
+    message2.
+    message3
+]]]
+
+- . is a separator, not a terminator,
+- No need to put one at the end.
+
+[[[language=Smalltalk
+    | macNode pcNode node1 printerNode |
+    macNode := Workstation withName: #mac.
+    Transcript cr.
+    Transcript show: 1.
+    Transcript show: 2
+]]]
+
+- No point after temporaries declaration
+
+${slide:title=Multiple messages to an object}$
+
+- To send multiple messages to the same object
+
+[[[language=Smalltalk
+    Transcript cr.
+    Transcript show: 1.
+    Transcript show: 2.
+]]]
+
+is equivalent to:
+
+[[[language=Smalltalk
+    Transcript
+        cr ;
+        show: 1 ;
+        show: 2
+]]]
+
+- Using ; is called a cascade
+- ==show: 1==, ==show: 2== are sent to the receiver of the ==cr== message
+
+
+${slide:title=A puzzle}$
+
+We add 2 to a set.
+[[[language=Smalltalk
+    Set new add: 2
+    > 2
+]]]
+
+But we get 2 and not the set.
+
+${slide:title=A puzzle (2)}$
+
+[[[
+Collection >> add: newObject 
+    "Include newObject as one of the receiver's elements. Answer newObject. 
+    ArrayedCollections cannot respond to this message."
+
+    self subclassResponsibility
+]]]
+
+- The message ==add:== returns its argument and not the receiver.
+
+${slide:title=A puzzle (3)}$
+
+
+We have to use a temporary variable.
+
+[[[language=Smalltalk
+    | s |
+    s := Set new.
+    s add: 1; add: 2.
+    s 
+]]]
+
+- What could be another solution?
+
+${slide:title=A puzzle (4)}$
+
+What could be another solution?
+
+${slide:title=One Hint}$
+
+What if we get a message that returns the receiver?
+
+${slide:title=yourself}$
+
+[[[language=Smalltalk
+Object>>yourself
+    ^ self
+]]]
+
+${slide:title=A Puzzle: Solution}$
+
+[[[language=Smalltalk
+    | s |
+    s := Set new.
+    s add: 1; add: 2.
+    s 
+]]]
+
+is equivalent to 
+
+[[[language=Smalltalk
+    Set new add: 1; add: 2; yourself
+    > aSet 
+]]]
+
+- ==add: 2== and ==yourself== are sent to the receiver of ==add: 1==
+- to the newly created set
+
+${slide:title=Summary}$
+
+- . is a separator
+- ; is useful to avoid to repeat receiver

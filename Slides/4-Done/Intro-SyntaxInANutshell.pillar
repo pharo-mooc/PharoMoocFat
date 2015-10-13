@@ -122,13 +122,13 @@ ${slide:title=Common elements|label=syntax}$
 
 ${slide:title=Language Construct Overview|label=block}$
 
-- "..."    comments
-- # symbol or array
-- '...' string
-- $ character
-- [ ] block or byte array
+- =="..."==    comments
+- ==\#== symbol or array
+- =='...'== string
+- ==$== character
+- ==[ ]== block or byte array
 - e, r number exponent or radix
-- <annotation> method annotation
+- ==<annotation>== method annotation
 - parenthesis: (...)
 - . separator and not terminator
 - ; cascade (sending several messages to the same object)
