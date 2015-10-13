@@ -96,7 +96,7 @@ What if we get a message that returns the receiver?
 ${slide:title=yourself}$
 
 [[[language=Smalltalk
-Object>>yourself
+Object >> yourself
     ^ self
 ]]]
 
