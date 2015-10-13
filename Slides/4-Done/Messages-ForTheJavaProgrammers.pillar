@@ -1,0 +1,79 @@
+{
+    "title":"Keyword-based Messages for Java Programmers",
+    "author":"Stéphane Ducasse and Damien Cassou",
+    "complement":"http://www.pharo.org"
+}
+
+${slide:title=Only Objects and Messages|label=objectives}$
+
+Remember we ""only"" manipulate objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compiler, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
+
+and we send messages, messages, messages and messages (and closures)
+
+${slide:title=Keyword Messages}$
+
+[[[language=Smalltalk
+    anObject keyword1: argument1 keyword2: argument2
+]]]    
+
+equivalent to
+
+[[[language=Smalltalk
+    receiver.keyword1keyword2(argument1, argument2)
+]]]
+
+
+${slide:title=Keyword Messages for Javaists}$
+
+[[[language=Smalltalk
+    postman.send(mail,recipient);
+]]]
+
+${slide:title=Keyword Messages for Javaists}$
+
+[[[language=Smalltalk
+    postman.send(mail,recipient);
+    postman . send ( mail , recipient );
+]]]
+
+
+${slide:title=Keyword Messages for Javaists}$
+
+[[[language=Smalltalk
+    postman.send(mail,recipient);
+    postman . send ( mail , recipient );
+    postman send mail recipient
+]]]
+
+${slide:title=Keyword Messages for Javaists}$
+
+[[[language=Smalltalk
+    postman.send(mail,recipient);
+    postman . send ( mail , recipient );
+    postman send mail recipient
+    postman send mail to recipient
+]]]
+
+${slide:title=Keyword Messages for Javaists}$
+
+[[[language=Smalltalk
+    postman.send(mail,recipient);
+    postman . send ( mail , recipient );
+    postman send mail recipient
+    postman send mail to recipient
+    postman send: mail to: recipient
+]]]
+
+
+${slide:title=Keyword Messages for Javaists}$
+
+[[[language=Smalltalk
+    postman.send(mail,recipient);
+    
+    postman send: mail to: recipient
+]]]
+
+- The message is named ==send:to:== 
+- It is sent to ==postman==
+- With two arguments: ==mail== and ==recipient==
+

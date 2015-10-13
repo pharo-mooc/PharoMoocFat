@@ -1,46 +1,48 @@
 {
 	"title":"Runtime Architecture",
 	"author":"Stéphane Ducasse",
-	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
+	"complement":"http://www.pharo.org"
 }
 
 ${slide:title=Execution Model}$
 
-The Pharo virtual machine (VM) executes compiled code.
+The Pharo virtual machine (VM) executes compiled code
 - The virtual machine and its plugins are platform specific
-- VMs exist for MacOS, Windows, Linux, iOS, ARM, Android
+-- you need different versions for different OSes
+- VMs exist for MacOS, Windows, Linux (different versions), iOS, ARM, Android
 
 Pharo code is compiled to bytecodes
 - Bytecodes are platform neutral instructions
 
 The virtual machine performs dynamically bytecodes to assembly generation
 
+
 ${slide:title=Virtual Machine}$
 
-- Pharo.exe is the virtual machine.
-- Can be run from command-line or in interactive (UI) mode.
+- Pharo.exe, Pharo.app... is the virtual machine.
+- There are two modes:
+-- from command-line or in interactive (UI) mode.
 - It executes compiled code.
-- Compiled code is packaged in an ''image''.
+- Compiled code is packaged/stored in an ''image''.
 - The virtual machine only needs the ''image'' to execute programs.
-
 
 ${slide:title=About Image Files}$
 
 ${columns}$
 
-${column:width=40}$
+${column:width=50}$
 
-- ''.image'' files act as cache of objects
+- ''.image'' files act as cache of objects:
 -- simple objects (points, strings, arrays)
--- but also compiled classes and compiled methods
+-- but also ""compiled"" classes and ""compiled"" methods
 
 - Each time we save the image, all objects are saved to disc.
-- At startup we get all the objects we saved
+- At startup we get back all the objects we saved.
 - In particular the PC (program counter) is also saved and restored so frozen execution is restarted at launch time
 
-${column:width=60}$
+${column:width=50}$
 
-+>file://figures/File-VirtualMachineAndImages.png|width=80+
++>file://figures/File-VirtualMachineAndImages.png|width=100+
 
 ${endColumns}$
 
@@ -51,23 +53,23 @@ ${slide:title=About Change Files}$
 - It is used to browse versions.
 - It can replay/undo actions.
 
-A change is associated to an image.
-- when the browsers want to display class/method definition they look in the change file associate with the current image.
+""A change is associated to an image.""
+- when the browsers want to display class/method definition they look in the changes file associated to the current image.
 
 ${slide:title=About Change Files}$
 
 - A change is associated to an image. 
-- The image can be executed without the change.
-- The change file contains the textual representation of the changes made to the image.
+- The image contains all the objects in binary form. It can be executed without the changes file.
+- The changes file simply contains the textual representation of the changes made to the image.
 
 +>file://figures/File-VirtualMachineAndImageChange.png|width=70+
 
 ${slide:title=Save your code using a package and version control system}$
-- Change and image are handy to develop.
-- But they are not softare engineering artefact
-- Always have a loading script that takes an image, load your code, run the test, build your application
-- Usually we 
--- save code using a CVS (monticello, git)
+- Change and image are handy to develop
+- But ""they are not a software engineering artefact""
+- Always have a loading script that takes an image, load your code, run the tests, build your application
+- Usually we: 
+-- save code using a Version Control System (monticello, git)
 -- use an integration server to build automatically applications.
 
 ${slide:title=About the Source/Changes File}$
@@ -77,9 +79,9 @@ ${columns}$
 ${column:width=40}$
 
 ''PharoXX.sources'' 
-- Contains the textual definition of system classes and predefined objects
-- Is read-only.
-- Created during release of a new Pharo version.
+- Contains the ''textual'' definition of ""system"" classes and predefined objects
+- Is read-only
+- Created during release of new Pharo versions.
 - Shared by all the users (images)
 
 ${column:width=60}$
@@ -107,15 +109,18 @@ ${endColumns}$
 
 ${slide:title=New change management is coming}$
 
-Old change management
-- Inherited from Smalltalk
-- Predates version control systems
-- Will change in the future
+Pharo change system
+- Getting improved
+-- new recording mechanism
+-- better replay
+-- new tooling
+- Will integrate better with Git and other modern distributed version control systems
+- Offering new ways to produce images 
 
 ${slide:title=Conclusion}$
 
 - Powerful deployment
 - Capture of living system
-- Fast boot time
+- Fast boot-time
 - Support micro commits
 - Will use modern version control
