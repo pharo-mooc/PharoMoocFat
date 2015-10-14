@@ -39,9 +39,10 @@
 
 6 - Intro-ModelInaNushell: simple (single inheritance, public methods in 5 slides) [toreview]	6 min
 
-8 - Intro-SyntaxInaNushell: including class/method definition (so that exercises can be done)		6 min
+8 - Intro-SyntaxInaNushell: including class/method definition (so that exercises can be done) [to review]	6 min
 
-6 - Basic-runtime-architecture 			6 min
+6 - Basic-runtime-architecture 			[Toreview] 6 min
+
 6 - Live: Runtime The notion of image save the code				3 min		<< a faire
 -- start/save
 -- Todo
@@ -55,18 +56,31 @@
 
 !!! Week 2: Syntaxe complète - IDE
 
-6 - Messages (unary binary mot clef + )					6 min					>> a splitter
-3 - Messages for java programmer						3 min
-6 - Mesages (precedence )								6 min
-6 - Mesages (Sequence et cascade)						6 min (may be we can put it in )
+6 - Messages (unary binary mot clef + )					6 min					
+
+3 - Messages for java programmer	[toreview]					3 min
+-- Messages-ForTheJavaProgrammers.pillar
+
+6 - Messages-Precedence		[toreview]							6 min
+-- Messages-Precedence.pillar
+
+6 - Mesages-Sequence (et cascade)	[toreview]					6 min 
+-- Messages-Sequence.pillar
 
 6 - Live: Inspector / message sending (We interact with the counter + inspect anything)	 6 min	<<< a faire
+-- to do 
 4 - Live: Publishing Code: on smalltalkhub				6 min
+-- todo
 
-6 - Blocks												6 min   (cut out the loops?)
+6 - Blocks										[toreview]	6 min   
+-- Blocks.pillar
+
+
 6 - Basic Loops (with a do: and collect:)								6 min
+
 6 - Conditional 													6 min
 3 - () vs []
+
 
 2 - TeaserExos: for next week -> not 	Design-EssenceOfDispatchExo.pillar		
 
