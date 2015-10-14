@@ -64,8 +64,8 @@ ${slide:title=Configuring a Server}$
     books := Dictionary new.
     teapot := Teapot configure: {  #defaultOutput -> #json.   #port -> 8181 . #debugMode -> true }.
 ]]]
-- | | delimits local variable definition.
-- := assignment.
+- ==| |== delimits local variable definition.
+- ==:\=== assignment.
 - ==#port== is a symbol (aka unique string).
 - ==configure:== is a message sent to the class ==Teapot==
 - In ==configure:==, ==:== means that the message is expecting an argument
