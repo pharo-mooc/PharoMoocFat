@@ -30,7 +30,7 @@ ${slide:title=Three Kinds of Messages}$
 -- ==1 class==, ==Browser open== 
 
 - Binary (operators like)
--- ==1+2==, ==x ~~ nil==
+-- ==1\+2==, ==x ~~ nil==
 
 - Keyword-based: 
 -- ==2 between: 0 and: 5==
@@ -202,7 +202,7 @@ ${slide:title=Message at:put:}$
     > #('Calvin' 'loves' 'Suzie')
 ]]]
 
-- #(...) creates an array
+- ==#(...)== creates an array
 - ==at:put:== changes the value of the array element.
 - arrays start at 1 in Pharo (i.e., first element is at index 1)
 
