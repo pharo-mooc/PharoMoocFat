@@ -1,110 +1,111 @@
 {
-	"title":"Pharo Object Model in a Nutshell",
-	"subtitle":"Elegance and Simplicity",
-	"author":"Stéphane Ducasse Damien Cassou Luc Fabresse",
-	"complement":"http://www.pharo.org/"
+    "title":"Pharo Object Model in a Nutshell",
+    "subtitle":"Elegance and Simplicity",
+    "author":"Stéphane Ducasse, Damien Cassou, and Luc Fabresse",
+    "complement":"http://www.pharo.org/"
 }
 
-${slide:title=Less is really more :)|label=less}$
+${slide:title=Less is really more :)}$
 
 - No constructors
-- No static method
-- No type declaration
+- No static methods
+- No type declarations
 - No interfaces
 - No packages/private/protected modifiers
 - No parametrized types
 - No boxing/unboxing
-- And still really powerful :)
+- still ''really'' powerful :)
 
+${slide:title=Only Objects, Messages and Closures}$
 
-${slide:title=Only Objects, Messages and Closures|label=less}$
+- Only ''objects'': mouse pointer, booleans, arrays, numbers, strings, windows, scrollbars, canvas, files, trees, compilers, sound, url, socket, fonts, text, collections, stack, shortcut, streams...
+- and ''messages'' sent to these objects.
+- ''Closures'' are like anonymous methods.
 
-- Only objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compilers, sound, url, socket, fonts, text, collections, stack, shortcut, streams,...
+${slide:title=Simple and Uniform}$
 
-- and messages sent to these objects.
-- Closures are like anonymous methods.
-
-${slide:title=Simple and uniform|label=uniform}$
-
-- **EVERYTHING** is an object instance of a class.
+- ''everything'' is an object, instance of a class.
 - Classes are objects too!
-- All computation between objects is done via message passing.
+- All computation between objects is done via ''message passing''.
 - There is only ONE method lookup for all objects:
 -- Only late binding, only virtual calls
 -- We use the term: ''sending a message''
 
-${slide:title=Pharo Object Model|label=uniform}$
+${slide:title=Pharo Object Model}$
 
-- Instance variables are private to the object (instance-based).
-- Instance variables are protected.
+- Instance variables are private to the object (instance-based) but accessible from subclasses.
 - Methods are public.
 - Single inheritance between classes.
 
-${slide:title=Class Definition|label=classdefinition}$
+${slide:title=Class Definition}$
 
-[[[language=smalltalk
+[[[
 Object subclass: #Point
-	instanceVariableNames: 'x y'
-	classVariableNames: ''
-	category: 'Graphics'
+  instanceVariableNames: 'x y'
+  classVariableNames: ''
+  category: 'Graphics'
 ]]]
 
-- The class ==Object== is asked to create the class ==Point== with the instance variables ==x y== in the package ==Graphics==
+- The class ==Object== is asked to create the class ==Point== with the instance variables ==x== and ==y== in the  ==Graphics== package.
 
-${slide:title=Messages|label=methoddefinition}$
+${slide:title=Messages}$
 
-Computation between objects is done via message sends
+Computation between objects is done via message sends:
 
 [[[
 Margin>>expandRectangle: aRectangle
-	"Answer a rectangle whose size has been expanded by the receiver which represents each rectangle corner."
-	
-	|  l r t b |
-	l := aRectangle left - self left.
-	r :=aRectangle right + self right.
-	t := aRectangle top - self top.
-	b := aRectangle bottom + self bottom.
-	^ Rectangle origin:  l @t extent: ((r - l ) @ (b - t )) 
+  "Answer a rectangle whose size has been expanded by the receiver which represents each rectangle corner."
+
+  |  l r t b |
+  l := aRectangle left - self left.
+  r :=aRectangle right + self right.
+  t := aRectangle top - self top.
+  b := aRectangle bottom + self bottom.
+  ^ Rectangle origin:  l @t extent: ((r - l ) @ (b - t ))
 ]]]
 
-${slide:title=Method Definition|label=methoddefinition}$
+${slide:title=Method Definition}$
 
-- Often defined using a browser or (by directly invoking the compiler)	 	
-- Methods are public 
+- Often defined using a browser or (by directly invoking the compiler)
+- Methods are public
 - Methods are always virtual (conceptually looked up at runtime)
 - By default return self
 
-[[[language=smalltalk
-Node >> dist: aPoint 
-	"Answer the distance between aPoint and the receiver."
-	| dx dy |
-	dx := aPoint x - x.
-	dy := aPoint y - y.
-	^ (dx * dx + (dy * dy)) sqrt
+[[[
+Node >> dist: aPoint
+  "Answer the distance between aPoint and the receiver."
+  | dx dy |
+  dx := aPoint x - x.
+  dy := aPoint y - y.
+  ^ (dx * dx + (dy * dy)) sqrt
 ]]]
 
-${slide:title=Instance Creation are Messages Too!|label=instanceCreation}$
+${slide:title=Instance Creation are Messages Too!}$
 
 - Messages sent to instance
-[[[language=smalltalk
-    '1', 'abc'
-    1@2
-]]]	
+[[[
+  '1', 'abc'
+  1@2
+]]]
 
 - Basic class creation messages are ==new== and ==new:== sent to a class
-[[[language=smalltalk
-    Monster new
-    Array new: 6
+[[[
+  Monster new
+  Array new: 6
 ]]]
 
 - Class specific message creation (messages sent to classes)
-[[[language=smalltalk
-    Tomagoshi withHunger: 10
+[[[
+  Tomagoshi withHunger: 10
 ]]]
 
-${slide:title=Summary|label=instanceCreation}$
+${slide:title=Summary}$
 
 - Everything is an object.
 - We send messages to objects.
 - Methods are late bound.
 - Instances are created by sending messages to other objects, or classes.
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/4-Done/Intro-ModelInaNushell.pillar"
+% End:
