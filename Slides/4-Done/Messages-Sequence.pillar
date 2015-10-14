@@ -121,5 +121,5 @@ is equivalent to
 
 ${slide:title=Summary}$
 
-- . is a separator
-- ; is useful to avoid to repeat receiver
+- ==.== is a separator
+- ==;== is useful to avoid to repeat receiver
