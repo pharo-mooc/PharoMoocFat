@@ -1,128 +1,129 @@
 {
-    "title":"Pharo Syntax in a Nutshell",
-    "author":"Stéphane Ducasse",
-    "complement":"http://www.pharo.org/"
+  "title":"Pharo Syntax in a Nutshell",
+  "author":"Stéphane Ducasse",
+  "complement":"http://www.pharo.org/"
 }
 
-${slide:title=Getting a feel about the syntax}$
+${slide:title=Getting a Feel About the Syntax}$
 
 In this lecture we want to give you the general feel to get started
+
 - Overview of simple syntactical elements
 - Message composition
 - Overview of closure syntax
 
-${slide:title=The complete syntax}$
+${slide:title=The Complete Syntax}$
 
-[[[language=smalltalk
+[[[
 exampleWithNumber: x
-    "This method illustrates the complete syntax except primitive invocation."
-    <aMethodAnnotation>
-    
-    | y |
-    true & false not & (nil isNil) 
-        ifFalse: [ self halt ]. 
-    y := self size + super size.
-    #($a #a 'a' 1 1.0)
-        do: [ :each | Transcript
-                        show: (each class name);
-                        show: (each printString);
-                        show: ' ' ].
-    ^ x < y
+  "This method illustrates the complete syntax except primitive invocation."
+  <aMethodAnnotation>
+
+  | y |
+  true & false not & (nil isNil)
+    ifFalse: [ self halt ].
+  y := self size + super size.
+  #($a #a 'a' 1 1.0)
+    do: [ :each | Transcript
+            show: (each class name);
+            show: (each printString);
+            show: ' ' ].
+  ^ x < y
 ]]]
 
-method definition, argument, comment, annotation, variable declaration, true, false, nil, condition, message sequence, assignment, self, super, array, character, symobol, string, number, loops, block closure, keyword-based messages, return.
-
-${slide:title=Originally Made for Kids|label=kids}$
+${slide:title=Originally Made for Kids}$
 
 - Read it as a non-computer-literate person:
 
-[[[language=smalltalk
+[[[
 | bunny |
 bunny := Actor fromFile: 'bunny.vrml'.
 bunny head doEachFrame:
-    [ bunny head
-        pointAt: (camera 
-                    transformScreenPointToScenePoint: Sensor mousePoint
-                    using: bunny)
-        duration: camera rightNow ]
+  [ bunny head
+      pointAt: (camera
+        transformScreenPointToScenePoint: Sensor mousePoint
+        using: bunny)
+      duration: camera rightNow ]
 ]]]
 
-${slide:title=Getting the Pharo Logo|label=kids}$
+${slide:title=Getting the Pharo Logo}$
 
-[[[language=smalltalk
-    (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
-        asMorph openInWindow.
+[[[
+  (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
+    asMorph openInWindow.
 ]]]
 
-- Send the message ==getPng:== to the class ==ZnEasy==, then send message ==asMorph== and ==openInWorld==.
-- Class names start with an uppercase
-- keyword message ==getPng:==
-- unary messages ==asMorph== and ==openInWorld==
+- Message ==getPng:== sent to the ==ZnEasy== class
+- Messages ==asMorph== and ==openInWorld==
+- Class names start with an uppercase character
+- Keyword message ==getPng:==
+- Unary messages ==asMorph== and ==openInWorld==
 
 
-${slide:title=A Simple Method|label=factorial}$
+${slide:title=A Simple Method}$
 
 [[[
 Integer >> factorial
-    "Answer the factorial of the receiver."
-    self = 0 ifTrue: [ ^ 1 ].
-    self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-    self error: 'Not valid for negative integers'
+  "Answer the factorial of the receiver."
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
 ]]]
 
-${slide:title=A Simple Method|label=factorial}$
+${slide:title=A Simple Method}$
 
 [[[
 Integer >> factorial
-    "Answer the factorial of the receiver."
-    self = 0 ifTrue: [ ^ 1 ].
-    self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-    self error: 'Not valid for negative integers'
+  "Answer the factorial of the receiver."
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
 ]]]
 
-- ==Integer >> == is not part of the syntax.
-- It is to tell you in the slides in which class the method is defined.
+- ==Integer >> == is not part of the syntax:
+-- it tells you the method's class
 - ==factorial== is the method name
-- ==\===, ==>==, ==*==, ==-== are binary messages.
-- ==^== is for returning a value.
-- ==factorial== is an unary message.
+- ==\===, ==>==, ==\*== and ==-== are binary messages
+- ==^== is for returning a value
+- ==factorial== is an unary message
 - ==ifTrue:== is a message sent to a boolean expression
 
 
-${slide:title=Sending a request|label=ZnClient}$
+${slide:title=Sending an HTTP Request}$
 
 [[[
 ZnClient new
-    url: 'http://localhost:8080/books/1';
-    formAt: 'author' put: 'SquareBracketAssociates';
-    formAt: 'title'  put: 'Pharo For The Enterprise';
-    put
+  url: 'https://en.wikipedia.org/w/index.php';
+  queryAt: 'title' put: 'Pharo';
+  queryAt: 'action'  put: 'edit';
+  get
 ]]]
 
 - ==new== is a message sent to a class
-- ==formAt:put:== is a keyword message
-- ==put== is a unary message
-- ==;== is to send all the messages to the same receiver: an instance of ==ZnClient==
+- ==queryAt:put:== is a keyword message
+- ==get== is a unary message
+- ==;== sends all messages to the same receiver
 
 
-${slide:title=Common elements|label=syntax}$
+${slide:title=Common Elements}$
 
-- comment: "a comment"
-- character: $c $h $a $r $a $c $t $e $r $s $# $@
+- comment: =="a comment"==
+- character: ==$c== ==$h== ==$a== ==$r== ==$a== ==$c== ==$t== ==$e== ==$r== ==$s== ==$#== ==$@==
 - string: =='a nice string'== ==\'l\'\'idiot\'==
-- symbol: #mac #+
-- array: #(1 2 3 4) #('b' 'c')
-- integer: 1, 2r101
-- real: 1.5, 6.03e-34,4, 2.4e7
-- float: 1/33
-- boolean: true, false
-- point: 10@120
--- Note that @ is not an element of the syntax, but just a message sent to a number. This is the same for /, bitShift, ifTrue:, do: ...
+- symbol: ==#mac== ==#+==
+- array: ==#(1 2 3 4)== ==#('b' 'c')==
+- integer: ==1==, ==2r101==
+- real: ==1.5==, ==6.03e-34==, ==4==, ==2.4e7==
+- fraction: ==1/33==
+- boolean: ==true==, ==false==
+- point: ==10@120==
+
+- Note that ==@== is not an element of the syntax, but just a message sent to a number. This is the same for ==/==, ==bitShift:==, ==ifTrue:==, ==do:== ...
 
 
-${slide:title=Language Construct Overview|label=block}$
+${slide:title=Language Construct Overview}$
 
-- =="..."==    comments
+- =="..."==  comments
 - ==\#== symbol or array
 - =='...'== string
 - ==$== character
@@ -133,7 +134,7 @@ ${slide:title=Language Construct Overview|label=block}$
 - ==.== separator and not terminator
 - ==;== cascade (sending several messages to the same object)
 
-${slide:title=Essential constructs|label=syntax}$
+${slide:title=Essential Constructs}$
 
 Elementary constructs
 - temporary variable declaration: ==| tmp |==
@@ -141,7 +142,7 @@ Elementary constructs
 - block (lexical closure): ==[:var ||tmp| expr...]==
 - block argument: ==[ :var |==
 
-${slide:title=Messages |label=syntax}$
+${slide:title=Messages}$
 
 Messages
 - unary message: ==receiver selector==
@@ -154,21 +155,21 @@ Others
 - return: ==\^ expresion==
 
 
-${slide:title=Conditionals are also message sends|label=conditional}$
+${slide:title=Conditionals are also Message Sends}$
 
-[[[language=smalltalk
+[[[
 Weather isRaining
-    ifTrue: [ self takeMyUmbrella ]
-    ifFalse: [ self takeMySunglasses ]
+  ifTrue: [ self takeMyUmbrella ]
+  ifFalse: [ self takeMySunglasses ]
 ]]]
 
 - ==ifTrue:ifFalse:== is sent to an object: a boolean!
 - ==ifFalse:ifTrue:== also exists and also ==ifTrue:== and ==ifFalse:==
 
 
-${slide:title=Loops are also message sends|label=conditional}$
+${slide:title=Loops are also Message Sends}$
 
-[[[language=smalltalk
+[[[
 1 to: 100 do: [ :i| Transcript << i ]
 > 1
 > 2
@@ -179,11 +180,11 @@ ${slide:title=Loops are also message sends|label=conditional}$
 
 
 
-${slide:title=With iterators|label=conditional}$
+${slide:title=With Iterators}$
 
-[[[language=smalltalk
+[[[
 #(1 2 -4 -86)
-    do: [ :each | Transcript show: each abs printString ; cr ]
+  do: [ :each | Transcript show: each abs printString ; cr ]
 > 1
 > 2
 > 4
@@ -193,7 +194,7 @@ ${slide:title=With iterators|label=conditional}$
 - Yes we ask the collection object to perform the iteration
 - There are many other messages implementing loops! (==timesRepeat:==, ==do:==, ==to:by:do:==, ==whileTrue:==, ==whileFalse:==)
 
-${slide:title=Messages and their composition|label=conditional}$
+${slide:title=Messages and Their Composition}$
 
 - Three kinds of messages
 -- Unary: ==Node new==
@@ -203,93 +204,98 @@ ${slide:title=Messages and their composition|label=conditional}$
 -- (Msg) > unary > binary > keywords
 -- Same Level from left to right
 
-${slide:title=Message Examples|label=conditional}$
+${slide:title=Message Examples}$
 
-[[[language=smalltalk
+[[[
 (10@0 extent: 10@100) bottomRight
 ]]]
 - Creates a rectangle and asks its bottom right corner
 
-[[[language=smalltalk
-    (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
-        asMorph openInWindow.
+[[[
+  (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
+    asMorph openInWindow.
 ]]]
 - Fetches and open a figure
 
-${slide:title=Blocks|label=blocks}$
+${slide:title=Blocks}$
 
 - A kind of anonymous method
 - Can be passed as method argument or stored in variables
 - Functions
 
-[[[language=smalltalk
-    fct(x)= x*x+3.
-    fct(2).
+[[[
+  fct(x)= x*x+3.
+  fct(2).
 ]]]
 
-[[[language=smalltalk
-    fct := [ :x | x * x + 3 ].
-    fct value: 2
+[[[
+  fct := [ :x | x * x + 3 ].
+  fct value: 2
 ]]]
 
-${slide:title=Block Usage |label=blocks}$
+${slide:title=Block Usage}$
 
-[[[language=smalltalk
-    #(1 2 3) do: [ :each | Transcript show: each printString ; cr ]
+[[[
+  #(1 2 3) do: [ :each | Transcript show: each printString ; cr ]
 ]]]
 
-[[[language=smalltalk  
+[[[
 Integer >> factorial
-    | tmp |
-    tmp:= 1.
-    2 to: self do: [ :i | tmp := tmp * i ]
+  | tmp |
+  tmp:= 1.
+  2 to: self do: [ :i | tmp := tmp * i ]
 ]]]
 
-${slide:title=Class definition|label=class definition}$
+${slide:title=Class Definition}$
 
 [[[
 Object subclass: #Point
-    instanceVariableNames: 'x y'
-    classVariableNames: ''
-    category: 'Graphics'
+  instanceVariableNames: 'x y'
+  classVariableNames: ''
+  category: 'Graphics'
 ]]]
 
-${slide:title=Method definition|label=classdefinition}$
+${slide:title=Method Definition}$
 
 - Normally defined in a browser or (by directly invoking the compiler)
 - Methods are public
 - By default return ==self==
 
-[[[language=smalltalk
-Node >> dist: aPoint 
-	"Answer the distance between aPoint and the receiver."
-	| dx dy |
-	dx := aPoint x - x.
-	dy := aPoint y - y.
-	^ (dx * dx + (dy * dy)) sqrt
+[[[
+Node >> dist: aPoint
+  "Answer the distance between aPoint and the receiver."
+  | dx dy |
+  dx := aPoint x - x.
+  dy := aPoint y - y.
+  ^ (dx * dx + (dy * dy)) sqrt
 ]]]
 
+${slide:title=Instance-Creation with Messages}$
 
-${slide:title=Instance Creation are Messages Too!|label=methoddefinition}$
-
-- Messages sent to instance
-[[[language=smalltalk
-    '1', 'abc'
-    1@2
-]]] 
-   
-- Basic class creation messages are ==new== and ==new:== sent to a class
-[[[language=smalltalk
-     Monster new
-]]]
-- Class specific message creation (messages sent to classes)
-[[[language=smalltalk
-     Tomagoshi withHunger: 10
+- Messages sent to an instance
+[[[
+  '1', 'abc'
+  1@2
 ]]]
 
-${slide:title=Conclusion|label=methoddefinition}$
+- Basic instance-creation messages are ==new== and ==new:== sent to a class
+[[[
+  Monster new
+  Array new: 6
+]]]
+
+- Specific instance-creation message (sent to a class)
+[[[
+  Tomagoshi withHunger: 10
+]]]
+
+${slide:title=Conclusion}$
 
 - Compact syntax
 - Few constructs but really expressive
 - Support for Domain Specific Languages
 - Mainly messages and closures
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/4-Done/Intro-SyntaxInANutshell.pillar"
+% End:
