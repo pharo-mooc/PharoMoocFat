@@ -108,12 +108,12 @@ ZnClient new
 ${slide:title=Common Elements}$
 
 - comment: =="a comment"==
-- character: ==$c== ==$h== ==$a== ==$r== ==$a== ==$c== ==$t== ==$e== ==$r== ==$s== ==$#== ==$@==
+- character: ==$c==, ==$@==
 - string: =='a nice string'== ==\'l\'\'idiot\'==
-- symbol: ==#mac== ==#+==
+- symbol: ==#linux== ==#+==
 - array: ==#(1 2 3 4)== ==#('b' 'c')==
 - integer: ==1==, ==2r101==
-- real: ==1.5==, ==6.03e-34==, ==4==, ==2.4e7==
+- real: ==1.5==, ==6.03e-34==, ==2.4e7==
 - fraction: ==1/33==
 - boolean: ==true==, ==false==
 - point: ==10@120==
@@ -124,33 +124,33 @@ ${slide:title=Common Elements}$
 ${slide:title=Language Construct Overview}$
 
 - =="..."==  comments
-- ==\#== symbol or array
+- ==\$== character
 - =='...'== string
-- ==$== character
+- ==\#== symbol or array
 - ==[ ]== block or byte array
 - e, r number exponent or radix
 - ==<annotation>== method annotation
-- parenthesis: ==(...)==
-- ==.== separator and not terminator
-- ==;== cascade (sending several messages to the same object)
+- ==(...)== parenthesis
+- ==.== separator (not terminator)
+- ==;== cascade (several messages sent to the 1 object)
 
 ${slide:title=Essential Constructs}$
 
-Elementary constructs
 - temporary variable declaration: ==| tmp |==
 - variable assigment: ==var \:= aValue==
-- block (lexical closure): ==[:var ||tmp| expr...]==
-- block argument: ==[ :var |==
+- block (lexical closure): ==[ expr... ]==
+- block argument: ==[ :var | ... ]==
+- block temp. variable: ==[ | var | ... ]==
 
 ${slide:title=Messages}$
 
-Messages
+3 kinds of messages
 - unary message: ==receiver selector==
 - binary message: ==receiver selector argument==
-- keyword-based message: ==receiver keyword1: arg1 keyword2: arg2...==
-- cascade: == receiver selector ; selector ...==
+- keyword message: ==receiver key1: arg1 key2: arg2==
 
 Others
+- cascade: == receiver selector ; selector ...==
 - separator: ==message . message==
 - return: ==\^ expresion==
 
@@ -166,6 +166,7 @@ Weather isRaining
 - ==ifTrue:ifFalse:== is sent to an object: a boolean!
 - ==ifFalse:ifTrue:== also exists and also ==ifTrue:== and ==ifFalse:==
 
+Read their implementation, this is not magic!
 
 ${slide:title=Loops are also Message Sends}$
 
@@ -176,7 +177,7 @@ ${slide:title=Loops are also Message Sends}$
 > 3
 > 4
 ]]]
-- ==to:do:== is a message sent to an integer (here a small integer)
+- ==to:do:== is a message sent to an integer
 
 
 
@@ -184,54 +185,50 @@ ${slide:title=With Iterators}$
 
 [[[
 #(1 2 -4 -86)
-  do: [ :each | Transcript show: each abs printString ; cr ]
+    do: [ :each | Transcript show: each abs printString ; cr ]
 > 1
 > 2
 > 4
 > 86
 ]]]
 
-- Yes we ask the collection object to perform the iteration
-- There are many other messages implementing loops! (==timesRepeat:==, ==do:==, ==to:by:do:==, ==whileTrue:==, ==whileFalse:==)
+- The collection object is asked to do the iteration
+- Many other messages implements loops: ==timesRepeat:==, ==do:==, ==to:by:do:==, ==whileTrue:==, ==whileFalse:==, ...
 
 ${slide:title=Messages and Their Composition}$
 
-- Three kinds of messages
--- Unary: ==Node new==
--- Binary: ==1+2==, ==3@4==
--- Keywords: ==aTamagoshi eat: #cooky furiously: true==
-- Message Priority
--- (Msg) > unary > binary > keywords
--- Same Level from left to right
+3 kinds of messages
+- Unary: ==Node new==
+- Binary: ==1\+2==, ==3@4==
+- Keywords: ==aTamagoshi eat: #cooky furiously: true==
+
+Message Priority
+- (Msg) > unary > binary > keyword
+- Same-Level messages: from left to right
 
 ${slide:title=Message Examples}$
 
+- Creates a rectangle and asks a corner:
 [[[
 (10@0 extent: 10@100) bottomRight
 ]]]
-- Creates a rectangle and asks its bottom right corner
-
+- Fetches and opens a picture:
 [[[
   (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
     asMorph openInWindow.
 ]]]
-- Fetches and open a figure
+
 
 ${slide:title=Blocks}$
 
 - A kind of anonymous method
-- Can be passed as method argument or stored in variables
-- Functions
-
-[[[
-  fct(x)= x*x+3.
-  fct(2).
-]]]
-
-[[[
-  fct := [ :x | x * x + 3 ].
-  fct value: 2
-]]]
+- Are plain objects:
+-- can be passed as method arguments
+-- can be stored in variables
+-- can be returned
+- Look like maths functions:
+-- ==fct(x) = x*x+3== can be written ==fct := [ :x | x * x + 3 ]==
+-- ==fct(2)== can be written ==fct value: 2==
 
 ${slide:title=Block Usage}$
 
@@ -242,7 +239,7 @@ ${slide:title=Block Usage}$
 [[[
 Integer >> factorial
   | tmp |
-  tmp:= 1.
+  tmp := 1.
   2 to: self do: [ :i | tmp := tmp * i ]
 ]]]
 
@@ -257,8 +254,9 @@ Object subclass: #Point
 
 ${slide:title=Method Definition}$
 
-- Normally defined in a browser or (by directly invoking the compiler)
+- Defined in a browser (or by invoking the compiler)
 - Methods are public
+- Methods are virtual (''i.e.,'' looked up at runtime)
 - By default return ==self==
 
 [[[
@@ -270,7 +268,7 @@ Node >> dist: aPoint
   ^ (dx * dx + (dy * dy)) sqrt
 ]]]
 
-${slide:title=Instance-Creation with Messages}$
+    ${slide:title=Instance-Creation with Messages}$
 
 - Messages sent to an instance
 [[[
