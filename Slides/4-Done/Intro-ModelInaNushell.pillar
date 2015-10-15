@@ -46,7 +46,9 @@ Object subclass: #Point
   category: 'Graphics'
 ]]]
 
-- The class ==Object== is asked to create the class ==Point== with the instance variables ==x== and ==y== in the  ==Graphics== package.
+- The class ==Object== is asked to create the class ==Point==,
+- with the instance variables ==x== and ==y==,
+- in the  ==Graphics== package.
 
 ${slide:title=Messages}$
 
@@ -66,10 +68,10 @@ Margin>>expandRectangle: aRectangle
 
 ${slide:title=Method Definition}$
 
-- Often defined using a browser or (by directly invoking the compiler)
+- Defined in a browser (or by invoking the compiler)
 - Methods are public
-- Methods are always virtual (conceptually looked up at runtime)
-- By default return self
+- Methods are virtual (''i.e.,'' looked up at runtime)
+- By default return ==self==
 
 [[[
 Node >> dist: aPoint
@@ -80,21 +82,21 @@ Node >> dist: aPoint
   ^ (dx * dx + (dy * dy)) sqrt
 ]]]
 
-${slide:title=Instance Creation are Messages Too!}$
+${slide:title=Instance-Creation with Messages}$
 
-- Messages sent to instance
+- Messages sent to an instance
 [[[
   '1', 'abc'
   1@2
 ]]]
 
-- Basic class creation messages are ==new== and ==new:== sent to a class
+- Basic instance-creation messages are ==new== and ==new:== sent to a class
 [[[
   Monster new
   Array new: 6
 ]]]
 
-- Class specific message creation (messages sent to classes)
+- Specific instance-creation message (sent to a class)
 [[[
   Tomagoshi withHunger: 10
 ]]]
@@ -102,7 +104,7 @@ ${slide:title=Instance Creation are Messages Too!}$
 ${slide:title=Summary}$
 
 - Everything is an object.
-- We send messages to objects.
+- Messages are sent to objects.
 - Methods are late bound.
 - Instances are created by sending messages to other objects, or classes.
 
