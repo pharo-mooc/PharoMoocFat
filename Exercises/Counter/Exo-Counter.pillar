@@ -214,12 +214,10 @@ Right now the initial value of our counter is not set.
 Let us write a test checking that a newly created instance has 0 as a default value.
 
 [[[language=smalltalk
-Counter>>testValueAtCreationTimeIsZero
+CounterTest>>testValueAtCreationTimeIsZero
 
     self assert: Counter new count = 0
 ]]]
-
-- Define the new test method.
 
 !!! Define initialize method
 
