@@ -1,7 +1,7 @@
 {
     "title":"Inheritance and Lookup",
     "subtitle":"1: Inheritance",
-    "author":"Stéphane Ducasse and Damien Cassou",
+    "author":" Damien Cassou, Stéphane Ducasse and Luc Fabresse",
     "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr damien.cassou@inria.fr"
 }
 
@@ -10,77 +10,125 @@ ${slide:title=Goal}$
 -what is inheritance?
 -when to use it?
 
-${slide:title=Inheritance Reminder}$
+${slide:title=The Basics}$
 
 ${columns}$
 
-${column:width=50}$
+${column:width=60}$
 
-- do not want to rewrite everything!
 - often we want small adaptations
-- we would like to reuse and extend existing behavior
+- we want to reuse/extend existing behavior and state
 
-- Solution: class inheritance
+- Solution: ''class inheritance''
 
-- Each class refines the definition of its superclasses
+- Each class refines the definition of its superclass
 
-${column:width=50}$
+${column:width=40}$
 
-+>file://figures/InheritanceDiagram.png|width=50+
++>file://figures/InheritanceDiagram.png|width=80+
 
 ${endColumns}$
 
-${slide:title=Inheritance Reminder}$
+${slide:title=The Basics}$
 
 ${columns}$
 
-${column:width=50}$
+${column:width=60}$
 
-New classes
+A subclass
 -can add state and behavior:
 --==color==, ==borderColor==, ...
--can specialize superclass behavior
 -can use superclass behavior and state
--can redefine superclass behavior
+-can specialize and redefine superclass behavior
 
-${column:width=50}$
+${column:width=40}$
 
-+>file://figures/InheritanceDiagram.png|width=50+
++>file://figures/InheritanceDiagram.png|width=80+
 
 ${endColumns}$
-
-${slide:title=Single inheritance}$
-
-- Static for the instance variables
--- At class creation time the instance variables are collected from the superclasses and the class. No repetition of instance variables.
-
-- Dynamic for the methods
--- Late binding (all virtual) methods are looked up at runtime depending on the dynamic type of the receiver.
-
 
 ${slide:title=Root of Inheritance}$
 
+${columns}$
+
+${column:width=70}$
+
 - ==Object== is the root of most classes
-- ==ProtoObject== (the superclass of ==Object==) is for special purposes...
+- ==ProtoObject== (==Object=='s superclass) is for special purposes...
 -- ...but we will ignore it as it is not important
+
+${column:width=30}$
+
++>file://figures/InheritanceDiagram-from-Object.png|width=100+
+
+${endColumns}$
+
+${slide:title=The Basics}$
+
+Inheritance is
+- static for state (i.e., during class creation)
+- dynamic for behavior (i.e., during execution)
 
 ${slide:title=Inheritance of Instance Variables}$
 
-- Inheritance of instance variables is made at class definition time
--- The instance variables of a new class are computed based on its own instance variables and the ones of its superclass
--- This happens at class definition time
+${columns}$
+
+${column:width=65}$
+
+- happens during class definition
+- computed from
+-- the class own instance variables
+-- the ones of its superclasses
+
+${column:width=35}$
+
++>file://figures/InheritanceDiagram.png|width=80+
+
+${endColumns}$
+
+${slide:title=Inheritance of Behavior}$
+
+${columns}$
+
+${column:width=50}$
+
+- happens at runtime
+- the method is searched
+-- starting from the receiver's class
+-- then going to the superclass
+
+${column:width=50}$
+
++>file://figures/InheritanceDiagram-lookup.png|width=100+
+
+${endColumns}$
 
 
-${slide:title=Inheritance of Behavior and the Lookup}$
+${slide:title=Inheritance of Behavior}$
 
-- Inheritance of behavior is dynamic and done at runtime
-- The ''method'' corresponding to the ''message'' is ''looked up''
--- starting from the class of the receiver
--- if not found there, the ""lookup"" follows the inheritance chain
+${columns}$
 
-+>file://figures/LookupEssence.png|width=50+
+${column:width=50}$
+
+- happens at runtime
+- the method is searched
+-- starting from the receiver's class
+-- then going to the superclass
+
+${column:width=50}$
+
++>file://figures/InheritanceDiagram-lookup-superclass.png|width=100+
+
+${endColumns}$
 
 ${slide:title=What you should Know}$
 
--inheritance of instance variables is made at class-definition time;
--inheritance of behavior is dynamic
+- inheritance allows to refine state and behavior
+- each class has 1 and only 1 superclass
+- classes inherits from ==Object==
+- inheritance of state is static
+- inheritance of behavior is dynamic
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/4-Done/InheritanceAndLookup-1-Inheritance.pillar"
+% End:
