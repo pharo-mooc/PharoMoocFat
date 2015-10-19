@@ -66,7 +66,14 @@ ${slide:title=Getting the Pharo Logo}$
 - Unary messages ==asMorph== and ==openInWorld==
 
 
-${slide:title=Factorial}$
+${slide:title=Sending an unary message}$
+
+
+[[[
+	receiver selector
+]]]
+
+Example
 
 [[[
 	10000 factorial
@@ -74,9 +81,6 @@ ${slide:title=Factorial}$
 
 We send the message ==factorial== to the object ==10000==
 
-[[[
-	receiver selector
-]]]
 
 ${slide:title=A Simple Method}$
 
@@ -135,7 +139,14 @@ Integer >> factorial
 -- it tells you the method's class
 
 
-${slide:title=Sending an HTTP Request}$
+${slide:title=Sending a keyword message}$
+
+[[[
+	receiver keyword1: arg1 keyword2: arg2
+]]]
+
+
+${slide:title=Example: Sending an HTTP Request}$
 
 [[[
 ZnClient new
@@ -151,48 +162,40 @@ ZnClient new
 - ==;== sends all messages to the same receiver
 
 
-${slide:title=Common Elements}$
-
-- comment: =="a comment"==
-- character: ==$c==, ==$@==
-- string: =='a nice string'== ==\'l\'\'idiot\'==
-- symbol: ==#linux== ==#+==
-- array: ==#(1 2 3 4)== ==#('b' 'c')==
-- integer: ==1==, ==2r101==
-- real: ==1.5==, ==6.03e-34==, ==2.4e7==
-- fraction: ==1/33==
-- boolean: ==true==, ==false==
-- point: ==10@120==
-
-Note that ==@== is not an element of the syntax, but just a message sent to a number. This is the same for ==/==, ==bitShift:==, ==ifTrue:==, ==do:== ...
-
-
 ${slide:title=Essential Constructs}$
 
 - temporary variable declaration: ==| var |==
 - variable assigment: ==var \:= aValue==
+
+
+To be explained later:
 - block 
 [[[
   [ :x | x + 2 ] value: 5
   > 7 
 ]]]
-
-Others
 - cascade: == receiver selector ; selector ...==
 - separator: ==message . message==
-- return: ==\^ expresion==
-
+- return: ==\^ expression==
 
 ${slide:title=Messages}$
 
-To minimize the use of parentheses 
-3 kinds of messages
+To minimize the use of parentheses, Pharo distinguishes 3 kinds of messages
 
 - unary message: ==receiver selector==
+-- ==Node new==
 - binary message: ==receiver selector argument==
+-- ==1\+2==, ==3@4==
 - keyword message: ==receiver key1: arg1 key2: arg2==
+-- ==2 between: 10 and: 20==
 
+${slide:title=Messages}$
 
+Messages are everywhere:
+- conditional 
+- loops
+- iterators
+- concurrency
 
 ${slide:title=Conditionals are also Message Sends}$
 
@@ -205,7 +208,7 @@ factorial
 ]]]
 
 - ==ifTrue:== is sent to an object: a boolean!
-- ==ifFalse:ifTrue:==, ==ifTrue:ifFalse:== also exists and also ==ifTrue:== and ==ifFalse:==
+- ==ifFalse:ifTrue:==, ==ifTrue:ifFalse:== and ==ifFalse:== also exists
 
 Read their implementation, this is not magic!
 
@@ -219,20 +222,22 @@ ${slide:title=Loops are also Message Sends}$
 > 4
 ]]]
 - ==to:do:== is a message sent to an integer
-- Many other messages implements loops: ==timesRepeat:==, ==do:==, ==to:by:do:==, ==whileTrue:==, ==whileFalse:==, ...
+- Many other messages implements loops: ==timesRepeat:==, ==to:by:do:==, ==whileTrue:==, ==whileFalse:==, ...
 
 ${slide:title=With Iterators}$
 
+We ask the  collection object to perform the iteration
+
 [[[
 #(1 2 -4 -86)
-    do: [ :each | Transcript show: each abs printString ; cr ]
+  do: [ :each | Transcript show: each abs printString ; cr ]
 > 1
 > 2
 > 4
 > 86
 ]]]
 
-- We ask the  collection object to do the iteration
+
 
 
 ${slide:title=Messages and Their Composition}$
@@ -240,7 +245,7 @@ ${slide:title=Messages and Their Composition}$
 3 kinds of messages
 - Unary: ==Node new==
 - Binary: ==1\+2==, ==3@4==
-- Keywords: ==aTamagoshi eat: #cooky furiously: true==
+- Keywords: ==2 between: 10 and: 20==
 
 Message Priority
 - (Msg) > unary > binary > keyword
@@ -248,15 +253,14 @@ Message Priority
 
 ${slide:title=Message Examples}$
 
-- Creates a rectangle and asks a corner:
-[[[
-(10@0 extent: 10@100) bottomRight
-]]]
-- Fetches and opens a picture:
 [[[
   (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
     asMorph openInWindow.
 ]]]
+
+- first ==getPng:== returns a Form object (internal graphics)
+- then ==asMorph== transforms it into a Morph (interactive graphics)
+- then ==openInWindow== 
 
 
 ${slide:title=Blocks}$
@@ -273,17 +277,28 @@ ${slide:title=Blocks}$
 ${slide:title=Block Usage}$
 
 [[[
-  #(1 2 3) do: [ :each | Transcript show: each printString ; cr ]
+  #(1 2 -4 -86) 
+    do: [ :each | Transcript show: each abs printString ; cr ]
+  > 1
+  > 2
+  > 4
+  > 86
 ]]]
 
-[[[
-Integer >> factorial
-  | tmp |
-  tmp := 1.
-  2 to: self do: [ :i | tmp := tmp * i ]
-]]]
+- ==:each== is the block argument
+- It will take the value of each elements of the array
+
 
 ${slide:title=Class Definition}$
+
++>file://figures/ClassTemplate.png|width=100+
+
+
+${slide:title=Class Definition with the IDE}$
+
++>file://figures/PointClass.png|width=100+
+
+${slide:title=Class Definition with the IDE}$
 
 [[[
 Object subclass: #Point
@@ -291,6 +306,8 @@ Object subclass: #Point
   classVariableNames: ''
   category: 'Graphics'
 ]]]
+
+- We ask the superclass to create the class.
 
 ${slide:title=Method Definition}$
 
@@ -300,13 +317,17 @@ ${slide:title=Method Definition}$
 - By default return ==self==
 
 [[[
-Point >> dist: aPoint
-  "Answer the distance between aPoint and the receiver."
-  | dx dy |
-  dx := aPoint x - x.
-  dy := aPoint y - y.
-  ^ (dx * dx + (dy * dy)) sqrt
+factorial
+  "Answer the factorial of the receiver."
+
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
 ]]]
+
+${slide:title=Method Definition}$
+
++>file://figures/FactorialInBrowser.png|width=100+
 
 
 ${slide:title=Conclusion}$
