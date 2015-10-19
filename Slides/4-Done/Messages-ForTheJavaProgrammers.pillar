@@ -1,7 +1,5 @@
 {
-    "title":"Messages for Java Programmers",
-    "author":"Stéphane Ducasse and Damien Cassou",
-    "complement":"http://www.pharo.org"
+    "title":"Messages for Java Programmers"
 }
 
 ${slide:title=Only Objects and Messages|label=objectives}$

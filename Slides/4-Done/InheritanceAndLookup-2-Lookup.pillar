@@ -1,52 +1,66 @@
 {
     "title":"Inheritance and Lookup",
-    "subtitle":"2: Lookup",
-    "author":"Stéphane Ducasse and Damien Cassou",
-    "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr damien.cassou@inria.fr"
+    "subtitle":"2: Lookup"
 }
 
 ${slide:title=Goal}$
 
--The algorithm mapping a message to a method
--==self== represents the receiver
+-mapping a message to a method
+-==self== always represents the receiver
 
-${slide:title=Single Inheritance}$
+${slide:title=Inheritance}$
 
-- Static for the instance variables
---at class-definition time, the instance variables are collected from the superclasses and the class. No duplication of instance variables.
--Dynamic for the methods
---late binding (all virtual) methods are looked up at runtime depending on the dynamic type of the receiver.
+- inheritance of state is static
+- inheritance of behavior is dynamic
 
 ${slide:title=Message Sending}$
 
-Sending a message means ''looking up'' the method to execute in the class of the receiver and ''executing'' it on the receiver with the arguments.
+${columns}$
 
-Sending a message is a two-step process:
-# look up the method whose name matches the message selector;
-# execute this method on the receiver with the arguments.
+${column:width=50}$
 
-Let's present step 1 now.
+""Sending"" a ""message"" is a two-step process:
+# ""look up"" the ""method"" matching the message
+# execute this method on the ""receiver""
+
+${column:width=50}$
+
++>file://figures/InheritanceDiagram-lookup-superclass.png|width=100+
+
+${endColumns}$
+
 
 ${slide:title=Method Lookup}$
 
-The lookup starts in the ''class'' of the ''receiver'' then:
--if the method is defined in the class, it is returned;
--otherwise the search continues in the superclasses;
--when there is no more superclass... (explained later :-))
+${columns}$
 
+${column:width=50}$
 
-${slide:title=Method Lookup}$
+The lookup starts in the ""class"" of the ""receiver"" then:
+-if the method is defined in the class, it is returned
+-otherwise the search continues in the superclass
 
-+>file://figures/LookupEssence.png|width=55+
+${column:width=50}$
+
++>file://figures/InheritanceDiagram-lookup-superclass.png|width=100+
+
+${endColumns}$
 
 ${slide:title=Some Lookup Cases}$
 
-+>file://figures/LookupExemple.png|width=70+
+Sending the message ==color== to ==a ColoredRectangle==
 
++>file://figures/InheritanceDiagram-lookup-superclass.png|width=50+
 
-${slide:title=Method Lookup Starts in the Receiver Class}$
+${slide:title=Some Lookup Cases}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=50+
+Sending the message ==area== to ==a ColoredRectangle==
+
++>file://figures/InheritanceDiagram-lookup-superclass.png|width=50+
+
+${slide:title=self Always Represents the Receiver}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=80+
 
 [[[
     A new foo
@@ -55,9 +69,9 @@ ${slide:title=Method Lookup Starts in the Receiver Class}$
     > ...
 ]]]
 
-${slide:title=Method Lookup Starts in the Receiver Class}$
+${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=50+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=80+
 
 [[[
     A new foo
@@ -77,12 +91,12 @@ Take 5 min and write the definition of ==self== (==this== in Java).
 ${slide:title=self/this}$
 
 - ==self== represents the receiver of the message
-- ==self== in Pharo, ==this== in Java, C\#
+- ==self== in Pharo, ==this== in Java
 - the method lookup starts in the class of the receiver
 
-${slide:title=self represents the receiver}$
+${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=50+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=80+
 
 [[[
     A new bar
@@ -91,19 +105,18 @@ ${slide:title=self represents the receiver}$
     > ...
 ]]]
 
-${slide:title=self represents the receiver}$
+${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=50+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=80+
 
 [[[
     A new bar
     > 10
     B new bar
-    > 50             <-- discussed on the next slide
+    > 50
 ]]]
 
-
-${slide:title=self represents the receiver}$
+${slide:title=self Always Represents the Receiver}$
 
 ${columns}$
 
@@ -111,25 +124,32 @@ ${column:width=35}$
 
 +>file://figures/LookupWithSelfInSuperclassMethod.png|width=100+
 
-${column:width=65}$
-
 [[[
     B new bar
     > 50
 ]]]
-#==aB bar==: no method ==bar== defined in ==B==
+
+${column:width=65}$
+
+#==B new bar==: no method ==bar== defined in ==B==
 #look up in ==A== - the method ==bar== is found
-#method ==bar== is executed on the receiver (==aB = B new==)
-#==self== refers to ==aB==
+#method ==bar== is executed
+#==self== refers to the object
 #==foo== is sent to ==self==
 #look up ==foo== in the receiver's class: ==B==!
-#==foo== is found there and executed on ==aB==
+#==foo== is found there and executed
 
 ${endColumns}$
 
 ${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethodThreeClasses.png|width=30+
+${columns}$
+
+${column:width=60}$
+
++>file://figures/LookupWithSelfInSuperclassMethodThreeClasses.png|width=100+
+
+${column:width=40}$
 
 [[[
     A new bar
@@ -140,9 +160,17 @@ ${slide:title=self Always Represents the Receiver}$
     > ...
 ]]]
 
+${endColumns}$
+
 ${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethodThreeClasses.png|width=30+
+${columns}$
+
+${column:width=60}$
+
++>file://figures/LookupWithSelfInSuperclassMethodThreeClasses.png|width=100+
+
+${column:width=40}$
 
 [[[
     A new bar
@@ -153,10 +181,16 @@ ${slide:title=self Always Represents the Receiver}$
     > 50
 ]]]
 
+${endColumns}$
+
 ${slide:title=What you should Know}$
 
 
--==self== represents the receiver
--Sending a message is a two-step process:
--#look up the method whose name matches the message selector;
--#execute this method on the receiver with the arguments.
+-==self== always represents the receiver
+-sending a message is a two-step process:
+-#look up the method matching the message
+-#execute this method on the receiver
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/4-Done/InheritanceAndLookup-2-Lookup.pillar"
+% End:

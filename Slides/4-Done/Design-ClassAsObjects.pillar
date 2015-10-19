@@ -1,7 +1,5 @@
 {
-    "title":"Class are Objects too",
-    "author":"Stéphane Ducasse and Damien Cassou",
-    "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
+    "title":"Class are Objects too"
 }
 
 ${slide:title=Example}$

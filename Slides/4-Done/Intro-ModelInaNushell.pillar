@@ -1,8 +1,6 @@
 {
     "title":"Pharo Object Model in a Nutshell",
-    "subtitle":"Elegance and Simplicity",
-    "author":"Stéphane Ducasse, Damien Cassou, and Luc Fabresse",
-    "complement":"http://www.pharo.org/"
+    "subtitle":"Elegance and Simplicity"
 }
 
 ${slide:title=Less is really more :)}$
