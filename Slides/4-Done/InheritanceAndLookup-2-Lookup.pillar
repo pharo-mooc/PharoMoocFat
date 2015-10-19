@@ -158,3 +158,7 @@ ${slide:title=What you should Know}$
 -Sending a message is a two-step process:
 -#look up the method whose name matches the message selector;
 -#execute this method on the receiver with the arguments.
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/4-Done/InheritanceAndLookup-2-Lookup.pillar"
+% End:
