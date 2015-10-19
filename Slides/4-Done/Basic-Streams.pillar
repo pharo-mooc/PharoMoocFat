@@ -1,8 +1,5 @@
 {
-	"title":"Stream Overview",
-	"subtitle":"",
-	"author":"Stéphane Ducasse",
-	"complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
+	"title":"Stream Overview"
 }
 
 ${slide:title=Stream|label=arrays}$

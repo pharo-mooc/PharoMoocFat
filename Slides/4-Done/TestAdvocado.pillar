@@ -1,7 +1,5 @@
 {
-	"title":"Why Testing in a Nutshell",
-	"author":"Stéphane Ducasse and Damien Cassou",
-	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+	"title":"Why Testing in a Nutshell"
 }
 
 ${slide:title=Goal of the lecture|label=less}$

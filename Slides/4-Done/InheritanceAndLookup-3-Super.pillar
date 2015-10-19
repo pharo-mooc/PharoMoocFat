@@ -1,8 +1,6 @@
 {
     "title":"Inheritance and Lookup",
-    "subtitle":"3: Super",
-    "author":"Stéphane Ducasse and Damien Cassou",
-    "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr damien.cassou@inria.fr"
+    "subtitle":"3: Super"
 }
 
 ${slide:title=Goal}$

@@ -1,7 +1,5 @@
 {
-	"title":"Runtime Architecture",
-	"author":"Stéphane Ducasse",
-	"complement":"http://www.pharo.org"
+	"title":"Runtime Architecture"
 }
 
 ${slide:title=Execution Model}$

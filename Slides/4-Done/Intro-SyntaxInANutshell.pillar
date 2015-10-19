@@ -1,7 +1,5 @@
 {
-  "title":"Pharo Syntax in a Nutshell",
-  "author":"Stéphane Ducasse",
-  "complement":"http://www.pharo.org/"
+  "title":"Pharo Syntax in a Nutshell"
 }
 
 ${slide:title=Getting a Feel About the Syntax}$

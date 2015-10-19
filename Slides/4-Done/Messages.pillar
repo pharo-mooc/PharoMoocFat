@@ -1,7 +1,5 @@
 {
-    "title":"Understanding Messages",
-    "author":"Stéphane Ducasse and Damien Cassou and Luc Fabresse",
-    "complement":"http://www.pharo.org"
+    "title":"Understanding Messages"
 }
 
 ${slide:title=Only Objects and Messages|label=objectives}$

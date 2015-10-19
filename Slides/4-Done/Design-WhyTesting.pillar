@@ -1,8 +1,6 @@
 {
     "title":"Tests",
-    "subtitle":"Why Testing is Important",
-    "author":"Stéphane Ducasse and Damien Cassou",
-    "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr damien.cassou@inria.fr"
+    "subtitle":"Why Testing is Important"
 }
 
 ${slide:title=Goal}$

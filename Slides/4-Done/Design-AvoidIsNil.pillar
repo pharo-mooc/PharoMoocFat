@@ -1,8 +1,5 @@
 {
-    "title":"Avoid Null Checks",
-    "subtitle":"",
-    "author":"Stéphane Ducasse and Damien Cassou",
-    "complement":"http://stephane.ducasse.free.fr/ stephane.ducasse@inria.fr"
+    "title":"Avoid Null Checks"
 }
 
 ${slide:title=The Pitch}$
