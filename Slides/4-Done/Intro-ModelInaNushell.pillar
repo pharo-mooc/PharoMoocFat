@@ -16,11 +16,17 @@ ${slide:title=Less is really more :)}$
 - No boxing/unboxing
 - still ''really'' powerful :)
 
-${slide:title=Only Objects, Messages and Closures}$
+${slide:title=Only Objects, Messages}$
 
 - Only ''objects'': mouse pointer, booleans, arrays, numbers, strings, windows, scrollbars, canvas, files, trees, compilers, sound, url, socket, fonts, text, collections, stack, shortcut, streams...
-- and ''messages'' sent to these objects.
-- ''Closures'' are like anonymous methods.
+- and ''messages'' sent to these objects (==#size==, ==#\+==, ==#at:put:==, ==#do:==)
+
+${slide:title=and Block Closures}$
+
+- Messages are what (intent)
+- Methods are how to do it
+- Closures are kind of anonymous methods
+- Closures are called ""block"" (closures) in Pharo
 
 ${slide:title=Simple and Uniform}$
 
