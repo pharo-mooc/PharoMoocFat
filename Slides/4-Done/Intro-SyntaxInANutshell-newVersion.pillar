@@ -1,0 +1,323 @@
+{
+  "title":"Pharo Syntax in a Nutshell"
+}
+
+${slide:title=Getting a Feel About Syntax}$
+
+In this lecture we want to give you the general feel to get started
+
+- Overview of simple syntactical elements
+- Message composition
+- Overview of block syntax
+
+No stress if you do not get it right now!
+
+${slide:title=The Complete Syntax on a Postcard}$
+
+[[[
+exampleWithNumber: x
+  "This method illustrates the complete syntax except primitive invocation."
+  <aMethodAnnotation>
+
+  | y |
+  true & false not & (nil isNil)
+    ifFalse: [ self halt ].
+  y := self size + super size.
+  #($a #a 'a' 1 1.0)
+    do: [ :each | Transcript
+            show: (each class name);
+            show: (each printString);
+            show: ' ' ].
+  ^ x < y
+]]]
+
+No need to understand everything! 
+But everything is on this screen :)
+
+
+
+${slide:title=Hello World}$
+
+[[[
+	'Hello World' asMorph openInWindow
+]]]
+
+
+We send the message ==asMorph== to a string and get a graphical element that we open in a window
+
+${slide:title=Getting the Pharo Logo}$
+
+[[[
+  (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
+    asMorph openInWindow.
+]]]
+
+${slide:title=Getting the Pharo Logo}$
+
+[[[
+  (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
+    asMorph openInWindow.
+]]]
+
+- Class names start with an uppercase character
+- Message ==getPng:== is sent to the ==ZnEasy== class
+- Messages ==asMorph== and ==openInWorld==
+- Keyword message ==getPng:==
+- Unary messages ==asMorph== and ==openInWorld==
+
+
+${slide:title=Factorial}$
+
+[[[
+	10000 factorial
+]]]
+
+We send the message ==factorial== to the object ==10000==
+
+[[[
+	receiver selector
+]]]
+
+${slide:title=A Simple Method}$
+
+[[[
+factorial
+  "Answer the factorial of the receiver."
+
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
+]]]
+
+${slide:title=Within the IDE}$
+
++>file://figures/FactorialInBrowser.png|width=100+
+
+${slide:title=A Simple Method}$
+
+[[[
+factorial
+  "Answer the factorial of the receiver."
+
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
+]]]
+
+- ==factorial== is the method name
+- ==\===, ==>==, ==\*== and ==-== are binary messages
+- ==^== is for returning a value
+- ==factorial== is an unary message
+- ==ifTrue:== is a message sent to a boolean expression
+
+
+${slide:title=Presentation Convention}$
+
+[[[
+factorial
+  "Answer the factorial of the receiver."
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
+]]]
+
+is displayed in this lecture as: 
+
+[[[
+Integer >> factorial
+  "Answer the factorial of the receiver."
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
+]]]
+
+- ""Integer >>"" is not part of the syntax:
+-- it tells you the method's class
+
+
+${slide:title=Sending an HTTP Request}$
+
+[[[
+ZnClient new
+  url: 'https://en.wikipedia.org/w/index.php';
+  queryAt: 'title' put: 'Pharo';
+  queryAt: 'action'  put: 'edit';
+  get
+]]]
+
+- ==new== is a message sent to a class
+- ==queryAt:put:== is a keyword message
+- ==get== is a unary message
+- ==;== sends all messages to the same receiver
+
+
+${slide:title=Common Elements}$
+
+- comment: =="a comment"==
+- character: ==$c==, ==$@==
+- string: =='a nice string'== ==\'l\'\'idiot\'==
+- symbol: ==#linux== ==#+==
+- array: ==#(1 2 3 4)== ==#('b' 'c')==
+- integer: ==1==, ==2r101==
+- real: ==1.5==, ==6.03e-34==, ==2.4e7==
+- fraction: ==1/33==
+- boolean: ==true==, ==false==
+- point: ==10@120==
+
+Note that ==@== is not an element of the syntax, but just a message sent to a number. This is the same for ==/==, ==bitShift:==, ==ifTrue:==, ==do:== ...
+
+
+${slide:title=Essential Constructs}$
+
+- temporary variable declaration: ==| var |==
+- variable assigment: ==var \:= aValue==
+- block 
+[[[
+  [ :x | x + 2 ] value: 5
+  > 7 
+]]]
+
+Others
+- cascade: == receiver selector ; selector ...==
+- separator: ==message . message==
+- return: ==\^ expresion==
+
+
+${slide:title=Messages}$
+
+To minimize the use of parentheses 
+3 kinds of messages
+
+- unary message: ==receiver selector==
+- binary message: ==receiver selector argument==
+- keyword message: ==receiver key1: arg1 key2: arg2==
+
+
+
+${slide:title=Conditionals are also Message Sends}$
+
+[[[
+factorial
+  "Answer the factorial of the receiver."
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
+]]]
+
+- ==ifTrue:== is sent to an object: a boolean!
+- ==ifFalse:ifTrue:==, ==ifTrue:ifFalse:== also exists and also ==ifTrue:== and ==ifFalse:==
+
+Read their implementation, this is not magic!
+
+${slide:title=Loops are also Message Sends}$
+
+[[[
+1 to: 4 do: [ :i| Transcript << i ]
+> 1
+> 2
+> 3
+> 4
+]]]
+- ==to:do:== is a message sent to an integer
+- Many other messages implements loops: ==timesRepeat:==, ==do:==, ==to:by:do:==, ==whileTrue:==, ==whileFalse:==, ...
+
+${slide:title=With Iterators}$
+
+[[[
+#(1 2 -4 -86)
+    do: [ :each | Transcript show: each abs printString ; cr ]
+> 1
+> 2
+> 4
+> 86
+]]]
+
+- We ask the  collection object to do the iteration
+
+
+${slide:title=Messages and Their Composition}$
+
+3 kinds of messages
+- Unary: ==Node new==
+- Binary: ==1\+2==, ==3@4==
+- Keywords: ==aTamagoshi eat: #cooky furiously: true==
+
+Message Priority
+- (Msg) > unary > binary > keyword
+- Same-Level messages: from left to right
+
+${slide:title=Message Examples}$
+
+- Creates a rectangle and asks a corner:
+[[[
+(10@0 extent: 10@100) bottomRight
+]]]
+- Fetches and opens a picture:
+[[[
+  (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
+    asMorph openInWindow.
+]]]
+
+
+${slide:title=Blocks}$
+
+- A kind of anonymous method
+- Are plain objects:
+-- can be passed as method arguments
+-- can be stored in variables
+-- can be returned
+- Look like maths functions:
+-- ==fct(x) = x*x+3== can be written ==fct := [ :x | x * x + 3 ]==
+-- ==fct(2)== can be written ==fct value: 2==
+
+${slide:title=Block Usage}$
+
+[[[
+  #(1 2 3) do: [ :each | Transcript show: each printString ; cr ]
+]]]
+
+[[[
+Integer >> factorial
+  | tmp |
+  tmp := 1.
+  2 to: self do: [ :i | tmp := tmp * i ]
+]]]
+
+${slide:title=Class Definition}$
+
+[[[
+Object subclass: #Point
+  instanceVariableNames: 'x y'
+  classVariableNames: ''
+  category: 'Graphics'
+]]]
+
+${slide:title=Method Definition}$
+
+- Defined in a browser (or by invoking the compiler)
+- Methods are public
+- Methods are virtual (''i.e.,'' looked up at runtime)
+- By default return ==self==
+
+[[[
+Point >> dist: aPoint
+  "Answer the distance between aPoint and the receiver."
+  | dx dy |
+  dx := aPoint x - x.
+  dy := aPoint y - y.
+  ^ (dx * dx + (dy * dy)) sqrt
+]]]
+
+
+${slide:title=Conclusion}$
+
+- Compact syntax
+- Few constructs but really expressive
+- Mainly messages and closures
+- 3 kinds of messages
+- Support for Domain Specific Languages
+
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/4-Done/Intro-SyntaxInANutshell.pillar"
+% End:
