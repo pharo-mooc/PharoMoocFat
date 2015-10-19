@@ -19,7 +19,7 @@ ${column:width=60}$
 - often we want small adaptations
 - we want to reuse/extend existing behavior and state
 
-- Solution: ''class inheritance''
+- Solution: ""class inheritance""
 
 - Each class refines the definition of its superclass
 
