@@ -122,8 +122,8 @@ ${endColumns}$
 ${slide:title=What you should Know}$
 
 - inheritance allows to refine state and behavior
-- each class has 1 and only 1 superclass
-- classes inherits from ==Object==
+- every class has 1 and only 1 superclass
+- every class inherits from ==Object==
 - inheritance of state is static
 - inheritance of behavior is dynamic
 
