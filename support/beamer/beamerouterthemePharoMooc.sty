@@ -28,7 +28,7 @@
 % \includegraphics[height=\paperheight]{pharoPhoto2}
 % \end{textblock*}%
 
-\begin{textblock*}{0px}(\paperwidth-2.1cm,0cm)%
+\begin{textblock*}{0px}(\paperwidth-\pharoPhotoWidth,0cm)%
 \includegraphics[height=\paperheight]{pharoPhoto}
 \end{textblock*}%
 
@@ -101,8 +101,7 @@
 	color(0pt)=(white!50!Pharo-blue);%
 	color(1.52cm)=(white)}%
 	  	
-	% \hskip 0.2mm
-	\pgfuseshading{leftfootshade}%
+	\insertSpaceBeforeBottomLeftFotHandout\pgfuseshading{leftfootshade}%
 	
 	\vspace*{-5.5mm}
 	
@@ -114,13 +113,9 @@
 % =========================
 
 \defbeamertemplate*{background canvas}{MoocLab}
-{%
-  \ifbeamercolorempty[bg]{background canvas}{}{\color{bg}\vrule width\paperwidth height\paperheight}%
-
- \begin{beamercolorbox}[wd=0.13\paperwidth,ht=8ex,dp=3ex,center]{author in head/foot}
-   %Affichage zone réservée
+{
    \insertSpaceForVideo
-  \end{beamercolorbox}
+ 	\insertBorderForHandout
 }
 
 % =========================

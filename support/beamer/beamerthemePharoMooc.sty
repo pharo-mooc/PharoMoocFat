@@ -4,26 +4,55 @@
 % Default values if no video
 \newlength{\videowidth}
 \setlength{\videowidth}{0px}			% video width
-\newcommand{\insertSpaceForVideo}{} % space for video
+\newcommand{\insertSpaceForVideo}{} 
+
+\newcommand{\insertBorderForHandout}{} 
+\newcommand{\insertSpaceBeforeBottomLeftFotHandout}{} 
 
 \newlength{\originaltextwidth}
 \setlength{\originaltextwidth}{\textwidth}
 
+\newlength{\pharoPhotoWidth}
+\setlength{\pharoPhotoWidth}{2.295cm}
 
 % ====== Package option to reserve space for the video
 \DeclareOptionBeamer{spaceforvideo}[false]{%
 \setlength{\videowidth}{128px}%
-%
-%Affichage zone réservée pour la video
+\setlength{\pharoPhotoWidth}{2.1cm}
+
+% Commande pour afficher une zone réservée pour la video
 \renewcommand{\insertSpaceForVideo}{%
+\begin{beamercolorbox}[wd=0.13\paperwidth,ht=8ex,dp=3ex,center]{author in head/foot}%
 \begin{textblock*}{10px}(11.48cm,5.76cm)%
 \includegraphics[width=\videowidth,height=91.7px]{espace-res-transparent}%
 \end{textblock*}%
+\end{beamercolorbox}%
 }%
-%
+
 \setlength{\textwidth}{\originaltextwidth - \videowidth}%
 }
 % \ExecuteOptionsBeamer{spaceforvideo=false}
+
+% ====== Package option for handout
+\DeclareOptionBeamer{handout}[false]{%
+
+	\renewcommand{\insertSpaceBeforeBottomLeftFotHandout}{\hskip 0.2mm} 
+
+	% to print the handout version
+	\mode<handout>{
+	  \usepackage{pgfpages}
+	  \pgfpagesuselayout{8 on 1}[a4paper,border shrink=3mm]
+	  % \pgfpagesuselayout{16 on 1}[a4paper,border shrink=2mm,landscape]
+
+	  % Make a border around frames
+	  \renewcommand{\insertBorderForHandout}{ \tikz \draw[semithick,draw=Pharo-blue!90!black]
+	      (current page.north west)
+	      rectangle
+	      (current page.south east); }
+	}
+}
+
+% ===============
 \ProcessOptionsBeamer
 % ===============
 
@@ -63,20 +92,3 @@
 \end{frame} 
 } 
 
-%-------------------------------------------------------------------------------
-%                Handout
-%-------------------------------------------------------------------------------
-
-% to print the handout version
-% \mode<handout>{
-%   \usepackage{pgfpages}
-%   \pgfpagesuselayout{8 on 1}[a4paper,border shrink=2mm]
-%   % \pgfpagesuselayout{16 on 1}[a4paper,border shrink=2mm,landscape]
-%
-%   % \setbeamercolor{background canvas}{bg=white}
-%   % Make a border around frames
-%   \setbeamertemplate{background canvas}{ \tikz \draw[semithick,draw=Pharo-blue!90!black]
-%       (current page.north west)
-%       rectangle
-%       (current page.south east); }
-% }
