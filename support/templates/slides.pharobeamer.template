@@ -18,6 +18,7 @@
 \author{<%author%>}
 \institute{<%complement%>}
 \date{<%date%>}
+\slidesid{<%slidesid%>}
 
 \begin{document}
 <%={{ }}=%>

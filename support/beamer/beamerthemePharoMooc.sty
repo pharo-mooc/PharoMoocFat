@@ -30,17 +30,18 @@
 \usecolortheme{PharoMooc}
 \useoutertheme{PharoMooc}
 
-\setlist[itemize]{label=\textbullet,font=\color{Pharo-blue}}
+\setlist[itemize,1]{topsep=0em,partopsep=0.5em,label=\raisebox{0.4ex}{\tiny$\CIRCLE$},font=\color{Pharo-blue}}
+\setlist[itemize,2]{label=\raisebox{0.1ex}{$\circ$},font=\color{Pharo-blue}}
+
 
 \setlist[enumerate]{label*=\arabic*.,font=\color{Pharo-blue}}
+
+\setlength{\leftmargini}{1.5em}
 
 \usefonttheme{PharoMooc}
 
 \RequirePackage{PharoSourceCode}
 
-\beamertemplateballitem 
-% \beamersetleftmargin{0.3em} % réduit énormément les marges. 
-% \beamersetrightmargin{0.3em} % Les blocks dépassent meme dans les marges
 
 %-------------------------------------------------------------------------------
 %                Section slides

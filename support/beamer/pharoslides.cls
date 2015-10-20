@@ -12,8 +12,13 @@
 
 \newcommand{\usepharobeamertheme}{\usetheme{PharoMooc}}
 
-\newcommand\@bottomlefttext{Pharo MOOC}
-\newcommand\bottomlefttext[1]{\renewcommand\@bottomlefttext{#1}}
+\newcommand\@slidesid{{\color{red}WXSYY}}
+\newcommand\slidesid[1]{
+\def\temp{#1}\ifx\temp\empty
+\else
+\renewcommand\@slidesid{#1}
+\fi
+}
 
 
 %-------------------------------------------------------------------------------
@@ -43,11 +48,22 @@
 \RequirePackage[english]{babel}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage{helvet} 
-\RequirePackage{enumitem} %pour personnalisation des listes numérotées (cf. beamerthemeMoocLab.sty)
 
-\RequirePackage[absolute,showboxes,overlay]{textpos}     % déclaration du package
-\textblockorigin{0mm}{0mm}                               % origine des positions
+
+% \RequirePackage{avant}
+% \newcommand{\codefont}[1]{{\usefont{T1}{pag}{m}{n}#1}}
+
+\RequirePackage{DejaVuSansCondensed}
+\newcommand{\codefont}[1]{{\usefont{T1}{DejaVuSansCondensed-TLF}{m}{it}#1}}
+
+% \RequirePackage{DejaVuSans}
+% \newcommand{\codefont}[1]{{\usefont{T1}{DejaVuSans-TLF}{el}{n}#1}}
+
+% \RequirePackage[scaled=0.92]{helvet}
+\RequirePackage{helvet}
+ 
+\RequirePackage[absolute,showboxes,overlay]{textpos} 
+\textblockorigin{0mm}{0mm} % origine des positions
 \TPshowboxesfalse                                    
 
 % \RequirePackage{tikz}
@@ -58,8 +74,11 @@
 % \RequirePackage{relsize}
 % \RequirePackage{mathptmx}
 
+\RequirePackage{enumitem} %pour personnalisation des listes numérotées (cf. beamerthemeMoocLab.sty)
+
 \RequirePackage{booktabs}
 \RequirePackage{textcomp}
+\RequirePackage{wasysym} % \CIRCLE \Circle
 
 \RequirePackage{calc}
 \RequirePackage{ifthen}

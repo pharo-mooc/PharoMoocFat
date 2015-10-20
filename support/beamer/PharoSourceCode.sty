@@ -3,21 +3,22 @@
 
 \RequirePackage[most]{tcolorbox}
 
-% \newcommand{\codesourcesize}{\scriptsize}
 \newcommand{\codesourcesize}{\footnotesize}
 
+\newcommand{\codesourcefont}{\codesourcesize\sffamily}
+
 % Source Code
-\newcommand{\myCommentStyle}[1]{{\codesourcesize\sffamily\color{gray!100!white} #1}}
+\newcommand{\myCommentStyle}[1]{{\codesourcefont\color{gray!100!white} #1}}
 % my string style
-\newcommand{\myStringStyle}[1]{{\codesourcesize\sffamily\color{violet!100!black} #1}}
+\newcommand{\myStringStyle}[1]{{\codesourcefont\color{violet!100!black} #1}}
 % my symbol style
-\newcommand{\mySymbolStyle}[1]{{\codesourcesize\sffamily\color{violet!100!black} #1}}
+\newcommand{\mySymbolStyle}[1]{{\codesourcefont\color{violet!100!black} #1}}
 % my keyword style
-\newcommand{\myKeywordStyle}[1]{{\codesourcesize\sffamily\color{green!70!black} #1}}
+\newcommand{\myKeywordStyle}[1]{{\codesourcefont\color{green!70!black} #1}}
 % my global style
-\newcommand{\myGlobalStyle}[1]{{\codesourcesize\sffamily\color{blue!100!black} #1}}
+\newcommand{\myGlobalStyle}[1]{{\codesourcefont\color{blue!100!black} #1}}
 % my number style
-\newcommand{\myNumberStyle}[1]{{\codesourcesize\sffamily\color{brown!100!black} #1}}
+\newcommand{\myNumberStyle}[1]{{\codesourcefont\color{brown!100!black} #1}}
 
 \lstset{
 language={},
@@ -37,8 +38,8 @@ frame=single,
 aboveskip=0em, 
 belowskip=-1em,
 framerule=0pt,
-basicstyle=\codesourcesize\sffamily\color{black},
-% basicstyle=\codesourcesize\sffamily\color{black},
+basicstyle=\codesourcefont\color{black},
+% basicstyle=\codesourcefont\color{black},
 keywordstyle=\myKeywordStyle,% keyword style
 commentstyle=\myCommentStyle,% comment style
 frame=single,%
@@ -90,18 +91,18 @@ identifierstyle=\idstyle,
 
 \newtcblisting{code}[1]{
 enhanced,%nobeforeafter,
-boxrule=0.6pt,%leftrule=4pt,
+boxrule=1pt,%leftrule=4pt,
 colback=white!95!Pharo-blue,colframe=white!50!Pharo-blue,listing only, listing options={}}
 
 \newtcblisting{numcode}[1]{
 enhanced,%nobeforeafter,
-boxrule=0.6pt,%leftrule=10pt,
+boxrule=1pt,%leftrule=10pt,
 colback=white!95!Pharo-blue,colframe=white!50!Pharo-blue,listing only, listing options={numbers=left}}
 
-\newtcbox{\codeinline}{enhanced,nobeforeafter,
-fontupper=\codesourcesize\sffamily,tcbox raise base,boxrule=0pt,top=0mm,bottom=0mm,
-  right=0mm,left=0mm,arc=1pt,boxsep=2pt,
-  colback=white!95!Pharo-blue,colframe=white!50!Pharo-blue}
+% \newtcbox{\codeinline}{enhanced,nobeforeafter,
+% fontupper=\codesourcefont,tcbox raise base,boxrule=0pt,top=0mm,bottom=0mm,
+%   right=0mm,left=0mm,arc=1pt,boxsep=2pt,
+%   colback=white!95!Pharo-blue,colframe=white!50!Pharo-blue}
+% \robustify{\codeinline}
 
-\robustify{\codeinline}
-\newcommand{\ct}[1]{\codeinline{#1}}
+\newcommand{\ct}[1]{{\codefont{#1}}}

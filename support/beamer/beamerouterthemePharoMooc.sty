@@ -2,12 +2,33 @@
 % fork of MoocLab Inria beamer style
 \mode<presentation>
 
+
+\definecolor{PharoPhoto-blue}{RGB}{36,53,73}
+
 % Title page
 \defbeamertemplate*{title page}{MoocLab}[1][]
 {
-\begin{textblock*}{0px}(\paperwidth-4cm,0.5cm)%
-\includegraphics[width=3.5cm]{pharoMOOCLogo}
+
+% version: logos on the right
+% \begin{textblock*}{0px}(\paperwidth-4.5cm,0.6cm)%
+% \begin{minipage}{5cm}
+% \centering
+% \includegraphics[height=28px]{pharoLogo}\\
+% \includegraphics[height=32px]{inriaLogo}\\
+% \includegraphics[height=30px]{univLilleLogo}\\
+% \includegraphics[height=45px]{minesDouaiLogo}
+% \end{minipage}
+% \end{textblock*}%
+
+% larger version
+% \begin{textblock*}{0px}(\paperwidth-3.6cm,0cm)%
+% \includegraphics[height=\paperheight]{pharoPhoto2}
+% \end{textblock*}%
+
+\begin{textblock*}{0px}(\paperwidth-2.1cm,0cm)%
+\includegraphics[height=\paperheight]{pharoPhoto}
 \end{textblock*}%
+
 
     \bigskip
 	 \bigskip
@@ -21,8 +42,19 @@
   \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par
   \bigskip
   
-  \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par
+ % \usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par
+  % \bigskip
+
+ {\scriptsize\color{Pharo-blue}\@slidesid, \the\year}\par  
   \bigskip
+	
+  % \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par
+  \bigskip
+ 
+\includegraphics[height=23px]{pharoLogo}\hskip 5px%
+\includegraphics[height=27px]{inriaLogo}\hskip 5px%
+\includegraphics[height=25px]{univLilleLogo}\hskip 5px%
+\raisebox{-9px}{\includegraphics[height=38px]{minesDouaiLogo}}
 }
 
 \setbeamertemplate{blocks}[rounded][shadow=false]              % pour des blocks arrondis
@@ -64,148 +96,33 @@
 \defbeamertemplate*{subsubsection in head/foot shaded}{MoocLab}[1][50]
 {\color{fg!#1!bg}\usebeamertemplate{subsubsection in head/foot}}
 
+% =========================
+% Footline
+% =========================
 
+\setbeamertemplate{footline}{
+	\tiny
 
-
-
-% Headline and footline
-
-% \defbeamertemplate*{headline}{MoocLab}
-% {}
-
-% \setbeamertemplate{headline}{%
-% % \leavevmode%
-% \usebeamerfont{author in head/foot}
-% \footnotesize
-% \vspace{2ex}
-% \hfill\insertframenumber{}\hspace{2ex}
-% \vspace{-4ex}
-% }
-
-\setbeamertemplate{headline}{%
-	\vspace*{5px}
-	\hfill\begin{minipage}{45px}
-\raggedright
-\hspace{3px}\includegraphics[height=14px]{pharoLogo}\\
-\includegraphics[height=16px]{inria}
-	\end{minipage}
-	\vspace*{-38px}
-}
-
-\newcounter{pagecount}
-\addtocounter{pagecount}{1}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{A counter that contains the number of pages}
-% \DescribeMacro{\bs@savelastpage}
-% Write number of pages into aux file
-% We need two runs for this to work
-%    \begin{MacroCode}
-\newcommand{\bs@savelastpage}{%
-  \immediate\write\@auxout{%
-    \string\message{bstransp: Loading lastpage from aux file}%
-    \string\setcounter{pagecount}{\thepage}}}
-%    \end{MacroCode}
-%
-% At the end of the document start the save procedure
-% and utter a message.
-%    \begin{MacroCode}
-\AtEndDocument{%
-  \message{bstransp: Saving set lastpage into aux file}%
-  \bs@savelastpage}
-%    \end{MacroCode}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\RequirePackage{fp}               % FLoating point calc
-\edef\midpoint{0.5}%
-
-\newlength{\footrest}
-\newlength{\leftfoot}
-\newlength{\rightfoot}
-\newlength{\minleftfoot}
-\newlength{\minrightfoot}
-\newlength{\pharowidth}
-\newlength{\mingradientfoot}
-
-\setlength{\mingradientfoot}{0px}
-\setlength{\pharowidth}{0.48cm}
-\setlength{\minleftfoot}{1.6cm}% taille à laisser à gauche
-\setlength{\minrightfoot}{0.5cm}% taille à laisser à droite
-
-\newlength{\mypaperwidth}
-\setlength{\mypaperwidth}{\paperwidth}
-\addtolength{\mypaperwidth}{-\videowidth}%
-
-\usefoottemplate{%
-% \setbeamertemplate{footline}{
-  % \settowidth{\minleftfoot}{\tiny\@bottomlefttext} % taille à laisser à gauche
-  \setlength{\footrest}{\mypaperwidth}%
-  \addtolength{\footrest}{-\pharowidth}%
-  \addtolength{\footrest}{-\minleftfoot}%
-  \addtolength{\footrest}{-\minrightfoot}%
-  \addtolength{\footrest}{-2\mingradientfoot}%
-  \ifthenelse{\equal{\thepagecount}{1}}{}{%
-    \FPeval{\midpoint}{trunc(((thepage-1) / (thepagecount-2)):4)}%
-  }%
-  \setlength{\leftfoot}{0cm}%
-  \setlength{\rightfoot}{\footrest}%
-  \addtolength{\leftfoot}{\midpoint\footrest}%
-  \addtolength{\rightfoot}{-\leftfoot}%
-  \addtolength{\leftfoot}{\mingradientfoot}%
-  \addtolength{\rightfoot}{\mingradientfoot}%
-  \vbox{\tiny%
-    \hbox{%
-	 
-      \setbox\beamer@linebox=\hbox to \mypaperwidth {%
-        {\hskip 0.5em\tiny\color{white}\textbf{\@bottomlefttext}\hfill\hskip 1em{\textbf\insertframenumber}\hskip 0.7em}}%
-		  
-      \ht\beamer@linebox=2.125ex%
-      \dp\beamer@linebox=0pt%
-      \setbox\beamer@linebox=\vbox{\box\beamer@linebox\vskip0.9ex}%
-      \hskip-\Gm@lmargin%
-
-      \pgfdeclarehorizontalshading{leftfootshade}{\paperheight}{%
-        color(0pt)=(white!50!Pharo-blue);%
-        color(\leftfoot)=(white)}%
-		  
-      \pgfdeclarehorizontalshading{rightfootshade}{\paperheight}{%
-        color(0pt)=(white);%
-        color(\rightfoot)=(white!50!Pharo-blue)}%
-		   
-		% background color text on the left
-      \color{white!50!Pharo-blue}\vrule width \minleftfoot height\ht\beamer@linebox%
-		
-		% background color before logo
-      \begin{pgfpicture}{0pt}{0pt}{\leftfoot}{\ht\beamer@linebox}%
-        \pgfrect[clip]{\pgforigin}{\pgfpoint{\leftfoot}{\ht\beamer@linebox}}%
-        \pgfbox[left,base]{\pgfuseshading{leftfootshade}}%
-      \end{pgfpicture}%
-
-		% logo		
-      \includegraphics[width=\pharowidth]{icon-pharo} % le curseur de page 
-      
-		% background color after logo
-		\begin{pgfpicture}{0pt}{0pt}{\rightfoot}{\ht\beamer@linebox}%
-        \pgfrect[clip]{\pgforigin}{\pgfpoint{\rightfoot}{\ht\beamer@linebox}}%
-        \pgfbox[left,base]{\pgfuseshading{rightfootshade}}%
-      \end{pgfpicture}%
-      
-		\color{white!50!Pharo-blue}\vrule width \minrightfoot height\ht\beamer@linebox%
-		
-      \hskip-\mypaperwidth%
-      
-		\hbox{\box\beamer@linebox\hfill}\hfill\hskip-\Gm@rmargin%
-    }%
-  }%
+	\pgfdeclarehorizontalshading{leftfootshade}{3.2mm}{%
+	color(0pt)=(white!50!Pharo-blue);%
+	color(1.52cm)=(white)}%
+	  	
+	\pgfuseshading{leftfootshade}%
+	
+	\vspace*{-5.5mm}
+	
+\includegraphics[width=5.5mm]{icon-pharo}\hskip -0.1mm\vbox{\color{Pharo-blue}{\textbf\@slidesid}\hskip 1em\color{Pharo-blue}\insertframenumber\hskip 0.6ex/\hskip 0.6ex\inserttotalframenumber\vspace*{0.7mm}}
+	
+	
 }
 
 
 % background
 
-\defbeamertemplate*{background}{MoocLab}
-{
-
-}
+% \defbeamertemplate*{background}{MoocLab}
+% {
+%
+% }
 
 
 \defbeamertemplate*{background canvas}{MoocLab}
