@@ -5,7 +5,10 @@
 
 \definecolor{PharoPhoto-blue}{RGB}{36,53,73}
 
+% =========================
 % Title page
+% =========================
+
 \defbeamertemplate*{title page}{MoocLab}[1][]
 {
 
@@ -47,13 +50,8 @@
   \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par
   \bigskip
   
- % \usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par
-  % \bigskip
-
  {\scriptsize\color{Pharo-blue}\@slidesid, \the\year}\par  
   \bigskip
-	
-  % \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par
   \bigskip
  
 \includegraphics[height=23px]{pharoLogo}\hskip 5px%
@@ -62,25 +60,16 @@
 \raisebox{-9px}{\includegraphics[height=38px]{minesDouaiLogo}}
 }
 
+% =========================
+% Blocks 
+% =========================
+
 \setbeamertemplate{blocks}[rounded][shadow=false]              % pour des blocks arrondis
 \setbeamercolor{block body alerted}{fg=white,bg=MoocLab-red} 
 
-% Navigation symbols
-\defbeamertemplate*{navigation symbols}{MoocLab}
-{%
-  \hbox{%
-    \hbox{\insertslidenavigationsymbol}
-    \hbox{\insertframenavigationsymbol}
-    \hbox{\insertsubsectionnavigationsymbol}
-    \hbox{\insertsectionnavigationsymbol}
-    \hbox{\insertdocnavigationsymbol}
-    \hbox{\insertbackfindforwardnavigationsymbol}%
-  }%
-}
-
-% No navigation symbols in handout or trans mode:
-\only<handout| trans>{\setbeamertemplate{navigation symbols}{}}
-
+% =========================
+% (sub-)(sub-)Section 
+% =========================
 
 % Section and subsections in head/foot
 \defbeamertemplate*{section in head/foot}{MoocLab}
@@ -112,65 +101,31 @@
 	color(0pt)=(white!50!Pharo-blue);%
 	color(1.52cm)=(white)}%
 	  	
+	% \hskip 0.2mm
 	\pgfuseshading{leftfootshade}%
 	
 	\vspace*{-5.5mm}
 	
 \includegraphics[width=5.5mm]{icon-pharo}\hskip -0.1mm\vbox{\color{Pharo-blue}{\textbf\@slidesid}\hskip 1em\color{Pharo-blue}\insertframenumber\hskip 0.6ex/\hskip 0.6ex\inserttotalframenumber\vspace*{0.7mm}}
-	
-	
 }
 
-
-% background
-
-% \defbeamertemplate*{background}{MoocLab}
-% {
-%
-% }
-
+% =========================
+% Background
+% =========================
 
 \defbeamertemplate*{background canvas}{MoocLab}
 {%
   \ifbeamercolorempty[bg]{background canvas}{}{\color{bg}\vrule width\paperwidth height\paperheight}%
 
  \begin{beamercolorbox}[wd=0.13\paperwidth,ht=8ex,dp=3ex,center]{author in head/foot}
-
    %Affichage zone réservée
    \insertSpaceForVideo
   \end{beamercolorbox}
 }
 
-
-% Sidebar
-
-\defbeamertemplate*{sidebar left}{MoocLab}
-{}
-
-\defbeamertemplate*{sidebar right}{MoocLab}
-{
-  \vfill%
-  \llap{\insertlogo\hskip0.1cm}%
-  \vskip2pt%
-  \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
-  \vskip2pt%
-}
-
-\defbeamertemplate*{sidebar canvas left}{MoocLab}
-{%
-  \ifbeamercolorempty[bg]{sidebar left}{}
-  {\color{bg}\vrule height\sidebarheight width\beamer@leftsidebar}%
-}
-
-\defbeamertemplate*{sidebar canvas right}{MoocLab}
-{%
-  \ifbeamercolorempty[bg]{sidebar right}{}
-  {\color{bg}\vrule height\sidebarheight width\beamer@rightsidebar}%
-}
-
-
-
+% =========================
 % Frame title: MoocLab
+% =========================
 
 \defbeamertemplate*{frametitle}{MoocLab}[1][left]
 {
@@ -196,63 +151,108 @@
 
 \def\beamer@fteright{\vskip0.35cm\advance\leftskip by 1.7cm\advance\rightskip by1.7cm}
 
-
 % Frame title continuations, MoocLab
-
 \defbeamertemplate*{frametitle continuation}{MoocLab}{\insertcontinuationcountroman}
 
+% =========================
+% Navigation symbols
+% =========================
 
+% \defbeamertemplate*{navigation symbols}{MoocLab}
+% {%
+%   \hbox{%
+%     \hbox{\insertslidenavigationsymbol}
+%     \hbox{\insertframenavigationsymbol}
+%     \hbox{\insertsubsectionnavigationsymbol}
+%     \hbox{\insertsectionnavigationsymbol}
+%     \hbox{\insertdocnavigationsymbol}
+%     \hbox{\insertbackfindforwardnavigationsymbol}%
+%   }%
+% }
+%
+% % No navigation symbols in handout or trans mode:
+% \only<handout| trans>{\setbeamertemplate{navigation symbols}{}}
 
+% =========================
+% Sidebar
+% =========================
+
+% \defbeamertemplate*{sidebar left}{MoocLab}
+% {}
+%
+% \defbeamertemplate*{sidebar right}{MoocLab}
+% {
+%   \vfill%
+%   \llap{\insertlogo\hskip0.1cm}%
+%   \vskip2pt%
+%   \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+%   \vskip2pt%
+% }
+%
+% \defbeamertemplate*{sidebar canvas left}{MoocLab}
+% {%
+%   \ifbeamercolorempty[bg]{sidebar left}{}
+%   {\color{bg}\vrule height\sidebarheight width\beamer@leftsidebar}%
+% }
+%
+% \defbeamertemplate*{sidebar canvas right}{MoocLab}
+% {%
+%   \ifbeamercolorempty[bg]{sidebar right}{}
+%   {\color{bg}\vrule height\sidebarheight width\beamer@rightsidebar}%
+% }
+
+% =========================
 % Notes
+% =========================
 
-\defbeamertemplate*{note page}{MoocLab}
-{%
-  {%
-    \scriptsize
-    \usebeamerfont{note title}\usebeamercolor[fg]{note title}%
-    \ifbeamercolorempty[bg]{note title}{}{%
-      \insertvrule{.25\paperheight}{note title.bg}%
-      \vskip-.25\paperheight%
-      \nointerlineskip%
-    }%
-    \vbox{
-      \hfill\insertslideintonotes{0.25}\hskip-\Gm@rmargin\hskip0pt%
-      \vskip-0.25\paperheight%
-      \nointerlineskip
-      \begin{pgfpicture}{0cm}{0cm}{0cm}{0cm}
-        \begin{pgflowlevelscope}{\pgftransformrotate{90}}
-          {\pgftransformshift{\pgfpoint{-2cm}{0.2cm}}%
-          \pgftext[base,left]{\usebeamerfont{note date}\usebeamercolor[fg]{note date}\the\year-\ifnum\month<10\relax0\fi\the\month-\ifnum\day<10\relax0\fi\the\day}}
-        \end{pgflowlevelscope}
-      \end{pgfpicture}}
-    \nointerlineskip
-    \vbox to .25\paperheight{\vskip0.5em
-      \hbox{\insertshorttitle[width=8cm]}%
-      \setbox\beamer@tempbox=\hbox{\insertsection}%
-      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip4pt\raise3pt\hbox{\vrule
-            width0.4pt height7pt\vrule width 9pt
-            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsection\end{minipage}}\fi%
-      }%
-      \setbox\beamer@tempbox=\hbox{\insertsubsection}%
-      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip17.4pt\raise3pt\hbox{\vrule
-            width0.4pt height7pt\vrule width 9pt
-            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsubsection\end{minipage}}\fi%
-      }%
-      \setbox\beamer@tempbox=\hbox{\insertshortframetitle}%
-      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip30.8pt\raise3pt\hbox{\vrule
-            width0.4pt height7pt\vrule width 9pt
-            height0.4pt}}\hskip1pt\hbox{\insertshortframetitle[width=7cm]}\fi%
-      }%
-      \vfil}%
-  }%
-  \ifbeamercolorempty[bg]{note page}{}{%
-    \nointerlineskip%
-    \insertvrule{.75\paperheight}{note page.bg}%
-    \vskip-.75\paperheight%
-  }%
-  \vskip.25em
-  \nointerlineskip
-  \insertnote
-}
+% \defbeamertemplate*{note page}{MoocLab}
+% {%
+%   {%
+%     \scriptsize
+%     \usebeamerfont{note title}\usebeamercolor[fg]{note title}%
+%     \ifbeamercolorempty[bg]{note title}{}{%
+%       \insertvrule{.25\paperheight}{note title.bg}%
+%       \vskip-.25\paperheight%
+%       \nointerlineskip%
+%     }%
+%     \vbox{
+%       \hfill\insertslideintonotes{0.25}\hskip-\Gm@rmargin\hskip0pt%
+%       \vskip-0.25\paperheight%
+%       \nointerlineskip
+%       \begin{pgfpicture}{0cm}{0cm}{0cm}{0cm}
+%         \begin{pgflowlevelscope}{\pgftransformrotate{90}}
+%           {\pgftransformshift{\pgfpoint{-2cm}{0.2cm}}%
+%           \pgftext[base,left]{\usebeamerfont{note date}\usebeamercolor[fg]{note date}\the\year-\ifnum\month<10\relax0\fi\the\month-\ifnum\day<10\relax0\fi\the\day}}
+%         \end{pgflowlevelscope}
+%       \end{pgfpicture}}
+%     \nointerlineskip
+%     \vbox to .25\paperheight{\vskip0.5em
+%       \hbox{\insertshorttitle[width=8cm]}%
+%       \setbox\beamer@tempbox=\hbox{\insertsection}%
+%       \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip4pt\raise3pt\hbox{\vrule
+%             width0.4pt height7pt\vrule width 9pt
+%             height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsection\end{minipage}}\fi%
+%       }%
+%       \setbox\beamer@tempbox=\hbox{\insertsubsection}%
+%       \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip17.4pt\raise3pt\hbox{\vrule
+%             width0.4pt height7pt\vrule width 9pt
+%             height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsubsection\end{minipage}}\fi%
+%       }%
+%       \setbox\beamer@tempbox=\hbox{\insertshortframetitle}%
+%       \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip30.8pt\raise3pt\hbox{\vrule
+%             width0.4pt height7pt\vrule width 9pt
+%             height0.4pt}}\hskip1pt\hbox{\insertshortframetitle[width=7cm]}\fi%
+%       }%
+%       \vfil}%
+%   }%
+%   \ifbeamercolorempty[bg]{note page}{}{%
+%     \nointerlineskip%
+%     \insertvrule{.75\paperheight}{note page.bg}%
+%     \vskip-.75\paperheight%
+%   }%
+%   \vskip.25em
+%   \nointerlineskip
+%   \insertnote
+% }
 
 \mode<all>
