@@ -29,19 +29,16 @@
 6 - Pharo Vision	[toreview]	6 min 
 -- Intro-Vision.key
 
-- Teaser live: Several Live Examples: Seaside/3D/Zinc/GT?				6 min 
--- Teaser GT ? Other videos?
-
-6 - Live: coding counter:	6 min									<< a refaire avec bonne fonte
--- To redo 
-6 - Live: coding counter: the strange way 6 min							<< a refaire avec bonne fonte
--- To redo 
+6 - Live: Installing, running Pharo + Hello world  6 min
 
 6 - Intro-ModelInaNushell: simple (single inheritance, public methods in 5 slides) [toreview]	6 min
 
 8 - Intro-SyntaxInaNushell: including class/method definition (so that exercises can be done) [to review]	6 min
 
-6 - Basic-runtime-architecture 			[Toreview] 6 min
+6 - Live: coding counter:	6 min									<< a refaire avec bonne fonte
+-- To redo 
+6 - Live: coding counter: the strange way 6 min							<< a refaire avec bonne fonte
+-- To redo 
 
 6 - Live: Runtime The notion of image save the code				3 min		<< a faire
 -- start/save

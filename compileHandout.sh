@@ -1,38 +1,74 @@
 #!/usr/bin/env bash
 
+# this version relies on \documentclass[handout]beamer
 
-PILLAR_FILES=Slides/4-Done/*.pillar
+function clean() {
+	rm -fr Slides/Handout
+}
+
+function cleanAndExitIfError() {
+	if [[ $1 -ne 0 ]]; then
+	  echo $2
+	  clean
+	  exit 1
+	fi
+}
+
+#----------------------------------------------
+# cleaning
+#----------------------------------------------
+
+clean
+rm -fr book-result/Slides/Handout
+
+# duplicate source files because Pillar would overwrite real slides in book-result
+mkdir Slides/Handout
+cp -f Slides/4-Done/*.pillar Slides/Handout/
+
+#----------------------------------------------
+# copying .pillar with -Handout suffix
+#----------------------------------------------
+
+cd Slides/Handout/
+for f in *; do
+  mv "$f" "${f%.*}-Handout.${f##*.}"
+done
+cd ../..
+
+#----------------------------------------------
+# compiling pillar files to handout pdfs
+#----------------------------------------------
+
+PILLAR_FILES=Slides/Handout/*.pillar
+# PILLAR_FILES="Slides/Handout/Basic-ArraySetOrderedCollection*.pillar \
+	# Slides/Handout/Basic-BooleansAndCondition*.pillar"
 
 for file in $PILLAR_FILES
 do
-	./compile.sh --to='Beamer43' $file
+	# ./compile.sh --to='Beamer43' $file
+	./compile.sh --to='BeamerHandout' $file
 done
 
-rm -fr book-result/Handout
-mkdir book-result/Handout
-cp -f Handout/handout.tex book-result/Handout/
+#----------------------------------------------
+# special processing for .key or .ppt slides
+#----------------------------------------------
 
-PDF_FILES=book-result/Slides/4-Done/*.pdf
+OTHER_PDFs="Slides/4-Done/Intro-ObjectivesMooc.pdf \
+	Slides/4-Done/Intro-WhatIs.pdf \
+	Slides/4-Done/Intro-Vision.pdf"
 
-for file in $PDF_FILES
-do
-	pdfnup --a4paper --keepinfo --nup 2x4 --delta "2mm 12mm" --frame true --scale 0.92 --no-landscape --suffix 2x4 -o book-result/Handout $file
-done
+pdfnup --batch --a4paper --keepinfo --nup 2x4 --delta "6mm 6mm" --scale 0.98 --frame true  --no-landscape --suffix Handout -o book-result/Slides/Handout $OTHER_PDFs 2>&1 1>/dev/null
 
-cd book-result/Handout
+#----------------------------------------------
+# Generating Handout.pdf
+#----------------------------------------------
 
-pdflatex -halt-on-error -file-line-error -interaction batchmode handout.tex 2>&1 1>/dev/null
-ret=$?
-if [[ $ret -ne 0 ]]; then
-  cat handout.log
-  echo "Can't generate the PDF!"
-  exit 1
-fi
+cp -f Handout/handout.tex book-result/Slides/Handout/
 
-pdflatex -halt-on-error -file-line-error -interaction batchmode handout.tex 2>&1 1>/dev/null
-ret=$?
-if [[ $ret -ne 0 ]]; then
-  cat handout.log
-  echo "Can't generate the PDF!"
-  exit 1
-fi
+texfot latexmk -pdf -cd book-result/Slides/Handout/handout.tex
+# cleanAndExitIfError $? "Compilation of handout.tex FAILED"
+
+latexmk -c -cd book-result/Slides/Handout/handout.tex
+
+clean
+
