@@ -26,10 +26,10 @@ TestCase subclass: # SetTestCase
 [[[
 SetTestCase >> testAdd 
   | empty |
-  empty := Set new.                      “Context”
-  empty add: 5.                                  “Stimulus”
+  empty := Set new.                      "Context"
+  empty add: 5.                             "Stimulus"
   empty add: 5. 
-  self assert: empty size = 1.         “Check”
+  self assert: empty size = 1.        "Check"
 
 SetTestCase run: #testAdd
 ]]]
@@ -44,14 +44,14 @@ The results of the test are collected in a TestResult object
 ${slide:title=Another example}$
 
 [[[testAdjacentRunsWithEqualsAttributesAreMerged
-    "this demonstrates that adjancent runs with equal attributes are merged. "
-    | runArray |
-    runArray := RunArray new.
-    runArray
-        addLast: TextEmphasis normal times: 5;
-        addLast: TextEmphasis bold times: 5;
-        addLast: TextEmphasis bold times: 5.
-     self assert: (runArray runs size = 2).
+  "this demonstrates that adjancent runs with equal attributes are merged. "
+  | runArray |
+  runArray := RunArray new.
+  runArray
+    addLast: TextEmphasis normal times: 5;
+    addLast: TextEmphasis bold times: 5;
+    addLast: TextEmphasis bold times: 5.
+  self assert: (runArray runs size = 2).
 ]]]
 
 
@@ -62,7 +62,7 @@ ${slide:title=Failures and Errors}$
 
 [[[
 SetTestCase >> removeElementNotInSet
-    self should: [Set new remove: 1] raise: Error
+  self should: [Set new remove: 1] raise: Error
 ]]]
 
 
@@ -70,11 +70,11 @@ ${slide:title=Duplicating the Context}$
 
 [[[
 SetTestCase >> testOccurrences
-    | empty |
-    empty := Set new.
-    self assert: (empty occurrencesOf: 0) = 0.
-    empty add: 5; add:5.
-    self assert: (empty occurrencesOf: 5) = 1
+  | empty |
+  empty := Set new.
+  self assert: (empty occurrencesOf: 0) = 0.
+  empty add: 5; add:5.
+  self assert: (empty occurrencesOf: 5) = 1
 ]]]
 
 == empty := Set new.== is repeated
@@ -91,14 +91,14 @@ ${slide:title=Definiting a setUp}$
 
 [[[
 SetTestCase >> setUp
-    empty := Set new.   
+  empty := Set new.   
 ]]]
 
 [[[
 SetTestCase >> testOccurrences
-    self assert: (empty occurrencesOf: 0) = 0.
-    empty add: 5; add:5.
-    self assert: (empty occurrencesOf: 5) = 1
+  self assert: (empty occurrencesOf: 0) = 0.
+  empty add: 5; add:5.
+  self assert: (empty occurrencesOf: 5) = 1
 ]]]
 
 
