@@ -157,8 +157,6 @@
 	
 - Seaside Component + html + bootstrap							6 min
 - Seaside call:/answer:											6 min
-- Live debugging the web Seaside tips and tricks
-	10 + 20 + error + debugger									6 min
 	
 
 !!!! Exos	
@@ -173,13 +171,17 @@
 
 !!! Week 5: Exception – Debugging
 
-- 6 Live: Picasa											6 min					<< a faire
-	-- explaining one the fly code generation and coding in the debugger
-- 6 Live: Debugger is your friend (idea?)					6 min					<< a faire
+
+- 6 Live Debugging of Seaside Web Applications 
+	10 + 20 + error + debugger									6 min
 	test first create on the fly
 	self halt 
 	self haltOnce
 	self haltIf: 
+
+- 6 Live: Picasa											6 min					<< a faire
+	-- explaining one the fly code generation and coding in the debugger
+
 
 - 6 Exception 												6 min
 - 6 InheritanceAndLookup-4-DoesNotUnderstand 				6 min
@@ -201,13 +203,12 @@
 !!!! Exos	
 
 -  Find how to 
-	- 
 - Exo: TinyChat extension un et deux a faire
 - Exo: Magritte version of ticket.						<< a faire
 - Exo: ?? Discovering google services ?? We should check: https://www.min.at/prinz/?x=entry:entry150318-104537
 
 
-!!! Week 6: Reflection
+!!! Week 6: 
 
 - 6 All the literal objects we did not talk about			 a mesurer
 -- Numbers

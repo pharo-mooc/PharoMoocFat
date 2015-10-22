@@ -71,6 +71,9 @@ Presented by \color{red}\large{#1}
 % 
 }
 
+\newcommand{\todofile}[4]{%
+\color{orange}\includehandoutfile[?]{#2}{#3}{#4}}
+
 % e.g. \externalresource{W1S01}{Implementing a Counter}{Live 5min}
 \newcommand{\externalresource}[3]{%
 % \markboth{#2}{#3}
@@ -162,7 +165,11 @@ We invite you to always watch videos while taking notes on the slides.
 \includehandoutfile{W1S03}{Intro-Vision}{Video 6min}
 \externalresource  {W1S04}{Pharo install and Hello World example}{Live 6min}
 \includehandoutfile{W1S05}{Intro-ModelInaNushell}{Video 6min}
-\includehandoutfile{W1S06}{Intro-SyntaxInANutshell}{Video 6min}
+
+% \includehandoutfile{W1S06}{Intro-SyntaxInANutshell}{Video 6min}
+\includehandoutfile{W1S06}{Intro-SyntaxInANutshell-newVersion}{Video 6min}
+
+% \includehandoutfile{W1S07}{Basic-RuntimeArchitecture}{Video 6min}
 \externalresource  {W1S07}{Runtime: The notion of image, saving code}{Live 6min}
 
 \externalresource  {W1S08}{Coding a Counter}{Redo 6min}
@@ -203,73 +210,124 @@ We invite you to always watch videos while taking notes on the slides.
 \includehandoutfile{W3S03}{Basic-Variables}{Video 6min}
 \includehandoutfile{W3S04}{Basic-ClassAndMethodDefinition}{Video 6min}
 \includehandoutfile{W3S05}{Basic-ClassMethods}{Video 6min}
+\includehandoutfile{W3S06}{Basic-ClassMethodsAtWork}{Video 6min}
 
-\externalresource  {W3S06}{The Finder Tool in Pharo}{Live 6min}
-\externalresource  {W3S07}{Other Tools to find information: implementors, senders}{Live 6min} 
+\externalresource  {W3S07}{The Finder Tool in Pharo}{Live 6min}
+\externalresource  {W3S08}{Other Tools to find information: implementors, senders}{Live 6min} 
 
-% Exo
-\externalresource  {W3S10}{Find how to...}{Todo} 
-\externalresource  {W3S08}{Live: Dice Game DSL dice}{Redo 6min} 
-\externalresource  {W3S09}{Live: Dice Game DSL handle}{Redo 6min} 
-\externalresource  {W3S09}{Extend the Ticket Model: send mail, coupons, ...}{Redo 6min} 
-% participation gratuite / payante
+% Exos
+\externalresource  {W3S09}{Find how to...}{Todo} 
+\externalresource  {W3S10}{Live: Dice Game DSL dice}{Redo 6min} 
+\externalresource  {W3S11}{Live: Dice Game DSL handle}{Redo 6min} 
+\externalresource  {W3S12}{Extend the Ticket Model: send mail, paying/free entrance, coupons, ...}{Redo 6min} 
 
-
-\end{document}
-
-\includehandoutfile{W1S02}{Basic-ArraySetOrderedCollection}{Video 6min}
-\includehandoutfile{W1S01}{AdvancedDidYouReallyUnderstandSuper}{Video 6min}
-\includehandoutfile{W1S01}{Basic-ArraySetOrderedCollection}{Video 6min}
-
-\includehandoutfile{W1S01}{Basic-ClassMethodsAtWork}{Video 6min}
-\includehandoutfile{W1S01}{Basic-Exceptions}{Video 6min}
-
-\includehandoutfile{W1S01}{Basic-Numbers}{Video 6min}
-\includehandoutfile{W1S01}{Basic-RuntimeArchitecture}{Video 6min}
-\includehandoutfile{W1S01}{Basic-Streams}{Video 6min}
-
-
-\includehandoutfile{W1S01}{Design-AboutFinalAndOthers}{Video 6min}
-\includehandoutfile{W1S01}{Design-AvoidIsNil}{Video 6min}
-\includehandoutfile{W1S01}{Design-ClassAsObjects}{Video 6min}
-
-
-\includehandoutfile{W1S01}{Design-HookAndTemplate}{Video 6min}
-
-% =======================
-\week{4}
+% ========== 4 =============
+\week{Inheritance, Lookup and Collections}
 % =======================
 
-\includehandoutfile{W1S01}{Design-HooksAndTemplate}{Video 6min}
-\includehandoutfile{W1S01}{Design-LibrariesVsFrameworks}{Video 6min}
-\includehandoutfile{W1S01}{Design-SelfSendsArePlanForReuse}{Video 6min}
-\includehandoutfile{W1S01}{Design-WhyTesting}{Video 6min}
-\includehandoutfile{W1S01}{InheritanceAndLookup-1-Inheritance}{Video 6min}
+\includehandoutfile{W4S01}{InheritanceAndLookup-1-Inheritance}{Video 6min}
+\includehandoutfile{W4S02}{InheritanceAndLookup-2-Lookup}{Video 6min}
+\includehandoutfile{W4S03}{InheritanceAndLookup-3-Super}{Video 6min}
+\includehandoutfile{W4S04}{InheritanceAndLookup-5-LookupMetaclasses}{Video 6min}
+\includehandoutfile{W4S05}{Basic-ArraySetOrderedCollection}{Video 6min}
+\includehandoutfile{W4S06}{Iterators}{Video 6min}
+\includehandoutfile{W4S07}{Basic-Streams}{Video 6min}
 
+\todofile  {W4S08}{Overview of the Pharo Web Stack}{Video 6min} 
+% Voyage Mongo / Magritte / Zinc / WebSocket / Seaside
+\externalresource  {W4S09}{Coding Counter(s) with Seaside}{Live 6min} 
+% counter back button
+\todofile  {W4S10}{Seaside: Component, brushes, bootstrap}{Video 6min} 
+\todofile  {W4S11}{Seaside: the call:/answer: Mechanism}{Video 6min} 
+
+% Exos
+\externalresource  {W4S12}{TinyChat (save the code for future extensions)}{Redo 6min} 
+\externalresource  {W4S13}{Correction of the Ticket model)}{Live 6min} 
+\externalresource  {W4S14}{Coding a Seaside frontend for the Ticket model (login mechanism, ...)}{Redo/Todo} 
+
+
+% ========== 5 =============
+\week{Exception, Debugging and Reflection}
 % =======================
-\week{5}
-% =======================
 
-\includehandoutfile{W1S01}{InheritanceAndLookup-2-Lookup}{Video 6min}
-\includehandoutfile{W1S01}{InheritanceAndLookup-3-Super}{Video 6min}
-\includehandoutfile{W1S01}{InheritanceAndLookup-4-DoesNotUnderstand}{Video 6min}
-\includehandoutfile{W1S01}{InheritanceAndLookup-5-LookupMetaclasses}{Video 6min}
+\externalresource  {W4S12}{Live Debugging of Seaside Web Applications}{Live 6min} 
+   % 10 + 20 + error + debugger
+   % test first create on the fly
+   % self halt
+   % self haltOnce
+   % self haltIf:
+
+\externalresource  {W5S01}{Dynamically Coding a Picasa Client}{Live 6min} 
+
+\includehandoutfile{W5S02}{Basic-Exceptions}{Video 6min}
+\includehandoutfile{W5S03}{InheritanceAndLookup-4-DoesNotUnderstand}{Video 6min}
+
+\externalresource  {W5S04}{Extending the inspector and spotter for the addressbook}{Live 6min} 
+
+\todofile          {W5S05}{Reflection}{Video 6min} 
+   % - Basic structural
+   % - Window allInstances first close
+   % Close all debugger windows
+   % - this context implementation of HaltIf
+
+\todofile          {W5S06}{More on Reflection}{Video 6min} 
+% -- compile:
+% -- scripting google service API? Stuff of franz Prinz
+
+\todofile          {W5S07}{Magritte}{Video 6min} 
+
+% Exos
+\externalresource  {W5S08}{Find how to...}{Todo} 
+\externalresource  {W5S09}{2 extensions for TinyChat}{Todo} 
+\externalresource  {W5S10}{Extending the Ticket App with Magritte}{Todo} 
+
+% - Exo: ?? Discovering google services ?? We should check: https://www.min.at/prinz/?x=entry:entry150318-104537
 
 
-% =======================
+% =========== 6 ============
 \week{6}
 % =======================
 
-\includehandoutfile{W1S01}{Intro-SyntaxInANutshell-newVersion}{Video 6min}
-\includehandoutfile{W1S01}{Iterators}{Video 6min}
+ % Numbers, Strings, characters, symbols, Booleans
+\todofile          {W5S07}{All the literal objects we did not talk about}{Video 6min}
+\includehandoutfile{W1S01}{Basic-Numbers}{Video 6min}
+
+\includehandoutfile{W1S01}{AdvancedDidYouReallyUnderstandSuper}{Video 6min}
 
 
-% =======================
+\todofile          {W5S07}{Advanced Classes (iv, class vars), variableSubclass:}{Video 6min}
+
+\includehandoutfile{W1S01}{Design-SelfSendsArePlanForReuse}{Video 6min}
+
+\includehandoutfile{W1S01}{Design-ClassAsObjects}{Video 6min}
+% self class vs. AClass new
+
+\includehandoutfile{W1S01}{Design-HookAndTemplate}{Video 6min}
+\includehandoutfile{W1S01}{Design-HooksAndTemplate}{Video 6min}
+
+\todofile          {W5S07}{Save objects in Mongo with Voyage}{Video 6min} 
+	
+
+
+% Exos
+\externalresource  {W5S08}{Persistency for the Ticket App with Voyage and Mongo}{Todo} 
+\externalresource  {W5S08}{Coding Ticket PDF Generation with Artefact}{Todo} 
+
+
+% =========== 7 ============
 \week{7}
 % =======================
 
+\includehandoutfile{W1S01}{Design-AboutFinalAndOthers}{Video 6min}
+\includehandoutfile{W1S01}{Design-AvoidIsNil}{Video 6min}
+
+\includehandoutfile{W1S01}{Design-LibrariesVsFrameworks}{Video 6min}
+
+\includehandoutfile{W1S01}{Design-WhyTesting}{Video 6min}
+
 \includehandoutfile{W1S01}{TeapotServer}{Video 6min}
 \includehandoutfile{W1S01}{TestAdvocado}{Video 6min}
+
 
 
 \end{document}
