@@ -33,8 +33,6 @@
 \setlength{\pdfpageheight}{297mm}
 \usepackage[a4paper,pdftex,twoside,nomarginpar,inner=20mm,outer=20mm,top=20mm,bottom=20mm]{geometry}
 
-
-
 \usepackage{minitoc}
 
 \usepackage{tocloft}
@@ -45,66 +43,37 @@
 \renewcommand{\cftchapaftersnum}{:}
 \renewcommand{\cftchapnumwidth}{5em}
 
-
-
 \usepackage[final]{pdfpages}
 
-%
-% Boxed environment with semi-transparent shadow.
-% http://www.texample.net/tikz/examples/transparent-shadows/
-\newlength{\boxw}
-\newlength{\boxh}
-\newlength{\shadowsize}
-\newlength{\boxroundness}
-\newlength{\tmpa}
-\newsavebox{\shadowblockbox}
-
-\setlength{\shadowsize}{6pt}
-\setlength{\boxroundness}{3pt}
+\usepackage{tcolorbox}
 
 \newenvironment{shadowblock}[1]%
-{\begin{lrbox}{\shadowblockbox}\begin{minipage}{#1}}%
-{\end{minipage}\end{lrbox}%
-\settowidth{\boxw}{\usebox{\shadowblockbox}}%
-\settodepth{\tmpa}{\usebox{\shadowblockbox}}%
-\settoheight{\boxh}{\usebox{\shadowblockbox}}%
-\addtolength{\boxh}{\tmpa}%
-\begin{tikzpicture}
-    \addtolength{\boxw}{\boxroundness * 2}
-    \addtolength{\boxh}{\boxroundness * 2}
+{\begin{tcolorbox}[width=#1]}
+{\end{tcolorbox}}
 
-    \foreach \x in {0,.05,...,1}
-    {
-        \setlength{\tmpa}{\shadowsize * \real{\x}}
-        \fill[xshift=\shadowsize - 1pt,yshift=-\shadowsize + 1pt,
-                black,opacity=.04,rounded corners=\boxroundness]
-            (\tmpa, \tmpa) rectangle +(\boxw - \tmpa - \tmpa,
-                \boxh - \tmpa - \tmpa);
-    }
+\usepackage[absolute,overlay]{textpos}
 
-    \filldraw[fill=black!08, draw=black!60, rounded corners=\boxroundness]
-        (0, 0) rectangle (\boxw, \boxh);
-    \draw node[xshift=\boxroundness,yshift=\boxroundness,
-        inner sep=0pt,outer sep=0pt,anchor=south west]
-             (0,0) {\usebox{\shadowblockbox}};
-\end{tikzpicture}}
-
-
+\newcommand{\presentedby}[1]{
+\begin{textblock}{2}(6.7,0.1)
+\tcbox[tikznode]{
+Presented by \color{red}\large{#1}
+}
+\end{textblock}
+}
 
 % C019SD-W1S01-blabla
-% e.g. \includehandoutfile{W1S01}{Basic-ArraySetOrderedCollection}{Video 5min}
-\newcommand{\includehandoutfile}[3]{%
-% \section*{[#3] #2}
-\addcontentsline{toc}{section}{[#3] #2}
+% e.g. \includehandoutfile[Luc]{W1S01}{Basic-ArraySetOrderedCollection}{Video 5min}
+\newcommand{\includehandoutfile}[4][?]{%
+% \section*{[#4] #3}
+\addcontentsline{toc}{section}{[#4] #3}
 \phantomsection%
-\includepdf[pages={-},pagecommand={\markboth{#1-#2}{#1-#2}},link,templatesize={19cm}{24.5cm}]{#2-Handout}
+\includepdf[pages={-},pagecommand={\presentedby{#1}\markboth{#2-#3}{#2-#3}},link,templatesize={19cm}{24.5cm}]{#3-Handout}
 % 
 }
 
-
 % e.g. \externalresource{W1S01}{Implementing a Counter}{Live 5min}
 \newcommand{\externalresource}[3]{%
-\markboth{#2}{#3}
+% \markboth{#2}{#3}
 % \phantomsection%
 \addcontentsline{toc}{section}{[#3] #2}
 % \section*{[#3] #2}
@@ -118,7 +87,10 @@
 \minitoc
 }
 
+
+% =====================================
 \begin{document}
+% =====================================
 
 \thispagestyle{empty}
 \begin{center}
