@@ -5,20 +5,20 @@
 
 
 
-${slide:title=Only Objects, Messages ...}$
+${slide:title=Only Objects and Messages}$
 
 - Only ""objects"": mouse pointer, booleans, arrays, numbers, strings, windows, scrollbars, canvas, files, trees, compilers, sound, url, socket, fonts, text, collections, stack, shortcut, streams...
 - and ""messages"" sent to these objects (==size==, ==\+==, ==at:put:==, ==do:==)
 
-${slide:title=and Block Closures}$
+${slide:title=... and Block Closures}$
 
 - Messages are ""what"" (intent)
 - Methods are ""how"" to do it
 - Closures are kind of anonymous methods
-- Closures are called ""block""-closures in Pharo
+- Closures are called ""blocks"" in Pharo
 
 [[[
-	4 timesRepeat: [ Transcript show: 'Hello World'] 
+   4 timesRepeat: [ Transcript show: 'Hello World']
 ]]]
 
 - ""[ ... ]"" delimits a block
@@ -26,7 +26,7 @@ ${slide:title=and Block Closures}$
 ${slide:title=A Simple and Uniform Model}$
 
 - ""Everything"" is an object, instance of a class
-- Classes are objects too!
+- Classes and messages are objects too!
 - All computation between objects is done via ""message passing""
 - There is only ONE method lookup for all objects:
 -- Only late binding, only virtual calls
@@ -34,10 +34,10 @@ ${slide:title=A Simple and Uniform Model}$
 
 ${slide:title=Pharo Object Model}$
 
-- Instance variables are protected: 
+- Instance variables are protected:
 -- private to the object
 -- accessible from subclasses
-- Methods are public and virtual bound
+- Methods are public and virtually bound
 - Single inheritance between classes
 
 
@@ -45,9 +45,9 @@ ${slide:title=Messages}$
 
 Computation between objects is done via message sends:
 
-The cross product of two points: 
+The cross product of two points:
 [[[
-    (pt1 x * pt2 y) - (pt1 y * pt2 x)
+  (pt1 x * pt2 y) - (pt1 y * pt2 x)
 ]]]
 
 
@@ -60,13 +60,16 @@ Using messages sent to another object
 > 'Pharo is Cool'
 ]]]
 
-We concatenate two strings by sending the message ==,== to the string =='Pharo'== with the string ==' is Cool'== as argument
+We concatenate two strings by:
+- sending the message ==,==
+- to the string =='Pharo'==
+- with the string ==' is Cool'== as argument
 
 [[[
   10@20
 ]]]
 
-The point ''p(10,20)'' is created by sending a message ==@== to the object 10 with the argument 20
+The point ''p(10,20)'' is created by sending the message ==@== to the object ==10== with the argument ==20==
 
 
 ${slide:title=Object Creation}$
@@ -75,25 +78,25 @@ Sending the messages ==new== and ==new:== to a class
 
 [[[
   Monster new
-  > aMonster
+> aMonster
 ]]]
 
 [[[
   Array new: 6
-  > #( nil nil nil nil nil nil)
+> #(nil nil nil nil nil nil)
 ]]]
 
 Here we get an array of size 6
 
 ${slide:title=Object Creation}$
 
-Using specific instance-creation message sent to a class
-and executing a class method (see later)
+Sending instance-creation messages to a class
 
 [[[
   Tomagoshi withHunger: 10
 ]]]
 
+This executes a class method (see later)
 
 
 ${slide:title=Less is More :)}$
