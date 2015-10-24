@@ -232,6 +232,7 @@ ${slide:title=Or implementation in two methods}$
 
 
 ${slide:title=Stepping back}$
+- We did use condition, we did not ask anything
 - Let's the receiver decide
 - Do not ask, tell
 
