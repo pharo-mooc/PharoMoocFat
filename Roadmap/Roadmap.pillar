@@ -85,8 +85,8 @@
 3 - () vs []
 
 
-2 - TeaserExos: for next week -> not 	Design-EssenceOfDispatchExo.pillar		
-
+3 - W2-Design-EssenceOfDispatchExo  [ toreview ]
+-- Done
 
 !!!! Exos	
 - Simple Exos Syntax
@@ -99,10 +99,15 @@
 
 !! Week 3 : Modèle objet – Outils
 
-6 - Design-EssenceOfDispatch: solution											6 min 
-6 - Design-EssenceOfDispatch: Not Solution: Messages sends are a dynamic case		6 min
+6 - W3S1-Design-EssenceOfDispatchNot	[toreview]
+-- fully revisited
 
-- 6 As a revision of syntax: An example avec Teapot	6 min  Live: A simple REST server in Teapot 6 min
+6 - W3S2-Design-EssenceOfDispatc	[toreview] 
+-- fully revisited
+
+
+- 6 As a revision of syntax: An example avec Teapot	6 min  
+Live: A simple REST server in Teapot 6 min
 
 - 6 Variables											6 min
 - 6 Class and methods									6 min

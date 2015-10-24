@@ -1,32 +1,42 @@
 {
-    "title":"A Simple HTTP Server"
+  "title":"A Simple HTTP Server",
+	"subtitle":"As a Pretext to revisit Pharo Syntax"
 }
 
-${slide:title=A little book server}$
+
+
+${slide:title=A Little Book Server}$
 
 +>file://figures/TeapotWelcome.png|width=80+
 
-${slide:title=Getting a book}$
+${slide:title=Getting a Book}$
 
 [[[
 ZnClient new
-    url: 'http://localhost:8181/books/1';
-    get
+  url: 'http://localhost:8181/books/1';
+  get
 ]]]
+- Class name starts with an uppercase
+- ==new== is a message sent to the class ==ZnClient==
+- ==url:== and ==get== are both sent to the instance of ==ZnClient==
 
 +>file://figures/TeapotOneBook.png|width=80+
-
 
 ${slide:title=Adding a book}$
 
 [[[
-	ZnClient new
-	    url: 'http://localhost:8181/books/1';
-	    formAt: 'author' put: 'van Caekenberghe et al';
-	    formAt: 'title'  put: 'Entreprise Pharo';
-	    post.
+ZnClient new
+  url: 'http://localhost:8181/books/1';
+  formAt: 'author' put: 'van Caekenberghe et al';
+  formAt: 'title'  put: 'Entreprise Pharo';
+  post.
 ]]]
 
+==formAt: 'author' put: 'van Caekenberghe et al'==
+
+is equivalent to 
+
+==formAtput('author','van Caekenberghe et al')==
 
 ${slide:title=The full server}$
 
@@ -39,10 +49,10 @@ teapot
    GET: '/books' -> books;
    GET: '/books/<id:IsInteger>' -> [ :request | books at: (request at: #id) asString];
    POST: '/books/<id>' 
-            -> [ :request | | book |
-                book := { 'author' -> (request at: #author). 
-                         'title'  -> (request at: #title) } asDictionary.
-                books at: (request at: #id) put: book ];     
+      -> [ :request | | book |
+          book := { 'author' -> (request at: #author). 
+             'title'  -> (request at: #title) } asDictionary.
+          books at: (request at: #id) put: book ];   
    start.
 ]]]
 
@@ -50,17 +60,17 @@ teapot
 ${slide:title=Configuring a Server}$
 
 [[[
-    | books teapot |
-    books := Dictionary new.
-    teapot := Teapot configure: {  #defaultOutput -> #json.   #port -> 8181 . #debugMode -> true }.
+  | books teapot |
+  books := Dictionary new.
+  teapot := Teapot configure: {  #defaultOutput -> #json.   #port -> 8181 . #debugMode -> true }.
 ]]]
 
 ${slide:title=Configuring a Server}$
 
 [[[
-    | books teapot |
-    books := Dictionary new.
-    teapot := Teapot configure: {  #defaultOutput -> #json.   #port -> 8181 . #debugMode -> true }.
+  | books teapot |
+  books := Dictionary new.
+  teapot := Teapot configure: {  #defaultOutput -> #json.   #port -> 8181 . #debugMode -> true }.
 ]]]
 - ==| |== delimits local variable definition.
 - ==:\=== assignment.
@@ -74,28 +84,29 @@ ${slide:title=Defining the server routes}$
 
 [[[
 ...
-teapot := Teapot configure: {  #defaultOutput -> #json.   #port -> 8181 . #debugMode -> true}.
 teapot
    GET: '/' -> '<h1>A simple book library server</h1>'; output: #html;
    GET: '/books' -> books;
    GET: '/books/<id:IsInteger>' -> [ :request | books at: (request at: #id) asString];
    POST: '/books/<id>' 
-            -> [ :request | | book |
-                book := { 'author' -> (request at: #author). 
-                         'title'  -> (request at: #title) } asDictionary.
-                books at: (request at: #id) put: book ];     
+      -> [ :request | | book |
+        book := { 'author' -> (request at: #author). 
+             'title'  -> (request at: #title) } asDictionary.
+        books at: (request at: #id) put: book ];   
    start.
 ]]]
+- ==->== returns a pair string x block
 
 ${slide:title=More about syntax}$
 
 [[[language=smalltalk
-    teapot 
-         GET: '/books/<id:IsInteger>'
-                  -> [ :request | books at: (request at: #id) asString];
+  teapot 
+     GET: '/books/<id:IsInteger>'
+          -> [ :request | books at: (request at: #id) asString];
 ]]]
 
-- ==[ :request | books at: (request at: #id) asString ]== is an anonymous function
+- ==[ :request | books at: (request at: #id) asString ]== is a block 
+- acts as an anonymous method
 -- ==:request== is an argument
 -- ==at:== is a message accepting one argument
 
