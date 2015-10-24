@@ -101,67 +101,50 @@ How do we express choice in OOP?
 ${slide:title=Not implementation in two methods}$
 
 [[[
-  False>>not
+  False >> not
     "Negation -- answer true since the receiver is false."
     ^ true
 ]]]
 
 [[[ 
-  True>>not
-    "Negation--answer false since the receiver is true."
+  True >> not
+    "Negation -- answer false since the receiver is true."
     ^ false
 ]]]
 
 ${slide:title=Not implementation in two methods}$
 
-+Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethods.png|width=80+
++Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethods.png|width=90+
+
+
+${slide:title=Not implementation in two methods}$
+
++Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=90+
 
 
 ${slide:title=Boolean not implementation}$
 
-- Class ==Boolean== is an abstract class that implements behavior common to true and false. Its subclasses are ==True== and ==False==. 
-- Subclasses must implement methods for logical operations ==&==, ==not==, and controls ==and:==, ==or:==, ==ifTrue:==, ==ifFalse:==, ==ifTrue:ifFalse:==, ==ifFalse:ifTrue:==
+- Class ==Boolean== is an abstract class that implements behavior common to true and false. 
+- Its subclasses are ==True== and ==False==. 
+- Subclasses just implement methods for logical operations ==&==, ==not==, and controls ==and:==, ==or:==, ==ifTrue:==, ==ifFalse:==, ==ifTrue:ifFalse:==, ==ifFalse:ifTrue:==
 
-[[[language=smalltalk
-  Boolean>>not
+[[[
+  Boolean >> not
     "Abstract method. Negation: Answer true if the receiver is false, answer false if the receiver is true."
     self subclassResponsibility
 ]]]
 
 
 
-${slide:title=Not implementation in two methods}$
-
-+Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=70+
-
-
-
-
-
 ${slide:title=\| (Or)}$
 
-[[[language=smalltalk 
-	
+[[[
   true | true -> true
   true | false -> true
   true | anything -> true
-
-  false | true -> true
-  false | false -> false
-  false | anything -> anything
 ]]]
 
-${slide:title=Boolean>> \| aBoolean}$
-
-[[[language=smalltalk 
-  Boolean>> | aBoolean
-    "Abstract method. Evaluating disjunction (OR): Evaluate the argument. Answer true if either the receiver or the argument is true."
-    self subclassResponsibility
-]]]
-
-${slide:title=False>> \| aBoolean}$
-
-[[[language=smalltalk 
+[[[
   false | true -> true
   false | false -> false
   false | anything -> anything
@@ -169,21 +152,30 @@ ${slide:title=False>> \| aBoolean}$
 
 ${slide:title=False>> \| aBoolean}$
 
-[[[language=smalltalk 
+[[[
   false | true -> true
   false | false -> false
   false | anything -> anything
 ]]]
 
-[[[language=smalltalk 
+${slide:title=False >> \| aBoolean}$
+
+[[[
+  false | true -> true
+  false | false -> false
+  false | anything -> anything
+]]]
+
+[[[
   False >> | aBoolean
-    "Evaluating disjunction (OR) -- answer with the argument, aBoolean."
+    "Evaluating OR -- answer with the argument, aBoolean."
     ^ aBoolean 
 ]]]
 
-${slide:title=True>> \| aBoolean}$
 
-[[[language=smalltalk 
+${slide:title=True >> \| aBoolean}$
+
+[[[
   true | true -> true
   true | false -> true
   true | anything -> true
@@ -191,36 +183,44 @@ ${slide:title=True>> \| aBoolean}$
 
 ${slide:title=True>> \| aBoolean}$
 
-[[[language=smalltalk 
+[[[
   true | true -> true
   true | false -> true
   true | anything -> true
 ]]]
 
-[[[language=smalltalk 
+[[[
   True>> | aBoolean
+    "Evaluating OR -- answer true since the receiver is true."
+    ^ true
+]]]
+
+
+${slide:title=Boolean>> \| aBoolean}$
+
+[[[
+  Boolean >> | aBoolean
+    "Abstract method. Evaluating OR: Evaluate the argument. 
+	Answer true if either the receiver or the argument is true."
+    self subclassResponsibility
+]]]
+
+
+
+
+${slide:title=Real implementation of True>> \| aBoolean}$
+
+
+[[[
+  True >> | aBoolean
     "Evaluating disjunction (OR) -- answer true since the receiver is true."
     ^ true
 ]]]
 
-${slide:title=True>> \| aBoolean}$
+The object ==true== is indeed the receiver of the message!
 
-[[[language=smalltalk 
-  true | true -> true
-  true | false -> true
-  true | anything -> true
-]]]
-
-[[[language=smalltalk 
-  True>> | aBoolean
-    "Evaluating disjunction (OR) -- answer true since the receiver is true."
-    ^ true
-]]]
-
-- The object ==true== is indeed the receiver of the message!
-
-[[[language=smalltalk 
-  True>> | aBoolean
+[[[
+  True >> | aBoolean
     "Evaluating disjunction (OR) -- answer true since the receiver is true."
     ^ self
 ]]]
@@ -228,89 +228,10 @@ ${slide:title=True>> \| aBoolean}$
 
 ${slide:title=Or implementation in two methods}$
 
-+Boolean hierarchy and instances.>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=80+
++Boolean hierarchy and instances.>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=90+
 
 
 ${slide:title=Stepping back}$
 - Let's the receiver decide
 - Do not ask, tell
 
-${slide:title=Ok so what?}$
-
-- You will probably not implement ==Booleans== in the future
-- So is it really that totally useless?
-- What is the lesson to learn?
-
-
-
-${slide:title=Message sends act as case statements}$
-
-- Message sends act as case statements
-- But with messages, the case statements is dynamic in the sense that it depends on the classes loaded and the objects to which the message is sent.
-
-${slide:title=Sending a message is making a choice}$
-
-- The execution engine will select the right method depending on the class of the receiver.
-- Each time you send a message, the system will select the method corresponding to the receiver.
-- Sending a message is a choice operator.
-
-
-
-${slide:title=Question}$
-
-- Could we have been able to implement the same implementation in only one class?
-
-${slide:title=Question}$
-
-- Could we have been able to implement the same implementation in only one class?
-- NO NO NO
-
-${slide:title=Class play case roles}$
-
-- To have the possibility to activate the choice operator you must have choices = classes
-- If we would have said that the ==Boolean== would be composed of only one class, we could not have use dynamic binding.
-
-${slide:title=A Class Hierarchy is a Skeleton for Dynamic Dispatch}$
-
-- A class hierarchy is the exoskeleton for dynamic binding. 
-- Compare the solution with one class vs. a hierarchy.
-
-+One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=60+
-
-
-${slide:title=Advantages of small class hierarchy}$
-
-+One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=60+
-
-- The hierarchy provides a way to specialize behavior.
-- It is also more declarative in the sense that you only focus on one class.
-- It is more modular in the sense that you can package different classes in different packages.
-- You can also load classes separately. 
-
-
-${slide:title=Do not ask, tell}$
-
-- Sending a message let the receiver decide.
-- The client does not have to decide.
-- Client code is not fixed. Different receivers may be substitued dynamically
-
-
-${slide:title=Avoid Conditionals}$
-
-- Use objects and messages, when you can.
-- The execution engine acts as a conditional switch: Use it!
-- Check the AntiIfCampaign.
-
-${slide:title=Follow-up: Implement ternary logic}$
-
-- Boolean: ==true==, ==false==, ==unknown==
-+Ternary logic decision table.>file://figures/ArrayBoolean.png|width=30|label=fig:ternLogic+
-
-- Implementing in your own classes.
-
-${slide:title=Summary}$
-- Tell, do not ask
-- Let the receiver decide
-- Message sends as potential dynamic conditional
-- Class hiearchy builds a skeleton for dynamic dispatch
-- Avoid conditional
