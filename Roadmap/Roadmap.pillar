@@ -105,31 +105,33 @@
 6 - W3S2-Design-EssenceOfDispatc	[toreview] 
 -- fully revisited
 
+6 W3S3-TeapotAsAPretext [toreview]
+-- fully revisited 
 
-- 6 As a revision of syntax: An example avec Teapot	6 min  
-Live: A simple REST server in Teapot 6 min
+- 4 Live: trouver de l'information avec le Finder			6 min << A faire
+	-- method
+	-- class
+	-- examples
+	-- scan all code About...
 
-- 6 Variables											6 min
-- 6 Class and methods									6 min
+- 6 Variables		[toreview]				6 min
+
+- 6 Live: Tools to find information: implementors, senders		6 min					<< A faire
+	-- comment on peut lire un fichier png
+
+- 6 Class and methods									6 min   (Luc may move it elsewhere)
 		- Object model: 								
 			"static method" - only one send
 			public method 
 			no constructor
 			no operator
-- 6 CLass methods											6 min <<< manque un slide avec le bouton
+			
+- 6 W3S7-ClassMethods											6 min <<< manque un slide avec le bouton
 
-- 4 Live: trouver de l'information Finder					6 min (ailleurs)		<< A faire
--- method
--- class
--- examples
--- scan all code About...
-- 6 Live: Tools to find information: implementors, senders		6 min					<< A faire
-		-- comment on peut lire un fichier png
+
 
 - Live: Dice Game DSL dice								6 min
 - Live: Dice Game DSL handle							6 min
-
-
 
 !!!! Exos	
 - Find how to 
