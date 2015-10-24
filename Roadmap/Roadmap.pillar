@@ -1,103 +1,162 @@
-! Roadmap
+!Roadmap of the Pharo MOOC
 
-!! Resources probably as slides
-- Installation on Pharo.org
-- Live: Getting started: Coding live example counter: class first 10 min
-- Live: Getting started: Coding live example counter: test first 10 min
-- mailing-list, books, servers, ci, videos, Chapters Pharo by Example
+!!About this MOOC
 
-!! Overall Structure
+This document summarizes the whole MOOC planning week by week.
+It is best to do do the activities exactly in the order they are presented.
+You will also see that 4 kind of activities are distinguished:
 
-- Semaine 1 : Prise en main - premier éléments syntaxiques
-- Semaine 2 : Syntaxe complète - structures de données -  IDE 
-- Semaine 3 : Modèle objet - Outils
-- Semaine 4 : Héritage revisité - Structures de données avancées
-- Semaine 5 : Liaison tardive et ses implications en conception objet - Développement web
-- Semaine 6 : Programmation Réflexive - Repenser la liaison tardive
-- Semaine 7 : Points de conception avancée - Développement web (REST)
-- Semaine 8 : Quelques patrons de conception - Première base de données
+- [""Video""] means that you should watch a video explaining some notions described in slides. You will find a handout version of all slides in this document. We invite you to always watch videos while taking notes on the slides.
+- [""Live""] means that should watch a video demonstrating a coding session in Pharo. 
+- [""Redo""] means that you should watch a Live video and redo by yourself what is demonstrated in your Pharo installation.
+- [""Todo""] means that you shall do an exercise in your Pharo installation. The exercise may be described by a document and/or a video.
 
+!!Overall Structure
 
-!!! Week 1: prise en main – premier éléments syntaxiques
+- Week 1: Welcome on Board and Syntax Discovery
+- Week 2: Pharo Syntax, Blocks and Inspector 
+- Week 3: Object Model and Tools
+- Week 4: Inheritance&Lookup, Collections and Web Development
+- Week 5: Exception, Debugging and Reflection
+- Week 6: Rethink lookup and Advanced OO Design
+- Week 7: More on OO Design and Testing
 
-2 - Welcome: Goal of the mooc - objectives [toreview] 2 min
--- Intro-objectives.key
+!!Week 1: Welcome on Board and Syntax Discovery
 
-6 - What is Pharo  [toreview] 6 min
--- Intro-WhatIs.key.zip
+- [Video 2min] Objectives of this Mooc 
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S01-ObjectivesMooc.pdf* *SlidesHandout>../Slides/Week1/C019SD-W1S01-ObjectivesMooc-Handout.pdf*
 
-6 - Pharo Vision	[toreview]	6 min 
--- Intro-Vision.key
+- [Video 6min] What is Pharo?
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S02-WhatIsPharo.pdf* *SlidesHandout>../Slides/Week1/C019SD-W1S02-WhatIsPharo-Handout.pdf*
 
-6 - Live: Installing, running Pharo + Hello world  6 min
+- [Video 6min] Pharo's Vision
+-- Presenter: Stef
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S03-PharoVision.pdf* *SlidesHandout>../Slides/Week1/C019SD-W1S03-PharoVision-Handout.pdf*
 
-6 - Intro-ModelInaNushell: simple (single inheritance, public methods in 5 slides) [toreview]	6 min
+- [Live 6min] Pharo installation and Hello World Example 
+-- Presenter: ?
+-- Status: To be done
+-- Files: Video(TBD) 
 
-8 - Intro-SyntaxInaNushell: including class/method definition (so that exercises can be done) [to review]	6 min
+- [Video 6min] Pharo's Model in a Nushell
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHandout>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell-Handout.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.html*
 
-6 - Live: coding counter:	6 min									<< a refaire avec bonne fonte
--- To redo 
-6 - Live: coding counter: the strange way 6 min							<< a refaire avec bonne fonte
--- To redo 
+- [Video 6min] Pharo's Syntax in a Nutshell
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell-Handout.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.html*
 
-6 - Live: Runtime The notion of image save the code				3 min		<< a faire
--- start/save
--- Todo
+- [Live 6min] The notion of Pharo image and Saving code
+-- Presenter: ?
+-- Status: To be done
+-- Files: Video(TBD) 
 
-!!!! Exos	
+- [Redo 6min] Coding a Counter
+-- Presenter: ?
+-- Status: To be done
+-- Files: Video(TBD) 
 
-- Redo: Redoing the counter example in two modes.
+- [Redo 6min] Coding a Counter: the Pharo Way
+-- Presenter: ?
+-- Status: To be done
+-- Files: Video(TBD) 
 
+- [Todo] Coding XXXXX 
+-- Presenter: ?
+-- Status: To be done
+-- Files: ExercicesSubject(TBD) 
+-- Luc: something related to the model of THE Web App we will use throughout this MOOC
 
-- Redo: Coding a REST interface to a counter (REST). 								<<< A faire
-- Exo: Lamp et FeuTricolor																		<<< A Faire
+% - Redo: Coding a REST interface to a counter (REST). 
+% - Exo: Lamp et FeuTricolor
 
+!!Week 2: Pharo Syntax, Blocks and Inspector 
 
-!!! Week 2: Syntaxe complète - IDE
+- [Video 6min] Messages
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S01-Messages.pdf* *SlidesHandout>../Slides/Week2/C019SD-W2S01-Messages-Handout.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S01-Messages.html*
 
-6 - Messages (unary binary mot clef + )					6 min					
+- [Video 3min] Messages for Java programmer
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHandout>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers-Handout.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.html*
 
-3 - Messages for java programmer	[toreview]					3 min
--- Messages-ForTheJavaProgrammers.pillar
+- [Video 3min] Messages Precedence
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHandout>../Slides/Week2/C019SD-W2S03-Messages-Precedence-Handout.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S03-Messages-Precedence.html*
 
-6 - Messages-Precedence		[toreview]							6 min
--- Messages-Precedence.pillar
+- [Video 6min] Messages Sequence
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHandout>../Slides/Week2/C019SD-W2S04-Messages-Sequence-Handout.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S04-Messages-Sequence.html*
 
-6 - Mesages-Sequence (et cascade)	[toreview]					6 min 
--- Messages-Sequence.pillar
+- [Live 6min] Inspector: Inspecting a Counter 
+-- Presenter: ?
+-- Status: To be done
+-- Files: Video(TBD) 
 
-6 - Live: Inspector / message sending (We interact with the counter + inspect anything)	 6 min	<<< a faire
--- to do 
-4 - Live: Publishing Code: on smalltalkhub				6 min
--- todo
+- [Live 6min] Publishing Code on smalltalkhub.com
+-- Presenter: ?
+-- Status: To be done
+-- Files: Video(TBD) 
 
-6 - Blocks										[toreview]	6 min   
--- Blocks.pillar
+- [Video 6min] Blocks
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S07-Blocks.pdf* *SlidesHandout>../Slides/Week2/C019SD-W2S07-Blocks-Handout.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S07-Blocks.html*
 
-6 - Blocks and Conditional and Loops			[toreview]	6 min   
--- Blocks-loops.pillar
--- we have a glitch because I show the implementation of iftrue:
+- [Video 6min] Blocks for Loops
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S08-Blocks-Loops.pdf* *SlidesHandout>../Slides/Week2/C019SD-W2S08-Blocks-Loops-Handout.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S08-Blocks-Loops.html*
 
+- [Video 6min] Loops
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S09-Loops.pdf* *SlidesHandout>../Slides/Week2/C019SD-W2S09-Loops-Handout.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S09-Loops.html*
 
-6 - Basic Loops (with a do: and collect:)								6 min
+- [Video 6min] Booleans and Conditions
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S10-BooleansAndCondition.pdf* *SlidesHandout>../Slides/Week2/C019SD-W2S10-BooleansAndCondition-Handout.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S10-BooleansAndCondition.html*
 
-6 - Conditional 													6 min
-3 - () vs []
+- [Video 6min] Parenthesis vs Square Brackets
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets-Handout.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.html*
 
+- [Video/Todo 6min] The Essence Of Dispatch through an Exercice
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S12-Design-EssenceOfDispatchExo.pdf* *SlidesHandout>../Slides/Week2/C019SD-W2S12-Design-EssenceOfDispatchExo-Handout.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S12-Design-EssenceOfDispatchExo.html*
 
-2 - TeaserExos: for next week -> not 	Design-EssenceOfDispatchExo.pillar		
+- [Todo] Some Simple Exercices on the Syntax
+-- Status: To be done
+-- Files: ExercicesSubject(TBD) 
 
+- [Todo] Some Simple Exercices on Loops
+-- Status: To be done
+-- Files: ExercicesSubject(TBD) 
 
-!!!! Exos	
-- Simple Exos Syntax
-- Exos sur les boucles
-- Redo: Turtle de Laurent Laffont : programming_with_live_objects.mpeg				<< A faire
-- Ticket Model
--- User
--- Evenement (participants lieu)
--- EventParticipant = User?
+- [Redo 6min] Live Programming a Turtle in the Inspector
+-- Presenter: ?
+-- Status: To be done
+-- Files: Video(TBD) 
 
-!! Week 3 : Modèle objet – Outils
+- [Todo] Ticket Model (User/EventParticipant/Event)
+-- Status: To be done
+-- Files: ExercicesSubject(TBD) 
+
+!!Week 3: Object Model and Tools
 
 6 - Design-EssenceOfDispatch: solution											6 min 
 6 - Design-EssenceOfDispatch: Not Solution: Messages sends are a dynamic case		6 min
@@ -118,32 +177,36 @@
 -- class
 -- examples
 -- scan all code About...
+
 - 6 Live: Tools to find information: implementors, senders		6 min					<< A faire
-		-- comment on peut lire un fichier png
+-- comment on peut lire un fichier png
 
 - Live: Dice Game DSL dice								6 min
+
 - Live: Dice Game DSL handle							6 min
 
 
 
 !!!! Exos	
+
 - Find how to 
 - Redo: Refaire le dice 
-- Ticket Model + 
+- Ticket Model 
 -- send mail
 -- participation gratuite / payante
 - Tortillar: Lamps two of noury (need collection)  not needed
 
-!!! Week 4: Héritage revisité - Qq Structures de donnée
+!!Week 4: Inheritance&Lookup, Collections and Web Development
 
-- 6 Inheritance																6 min
-- 6 InheritanceAndLookup-2-Lookup Did you really get this?					6 min
-- 6 InheritanceAndLookup-3-Super Did you really get super?					6 min
-- 6 InheritanceAndLookup-5-LookupMetaclass									6 min
+- 6 Inheritance
+- 6 InheritanceAndLookup-2-Lookup Did you really get this?
+- 6 InheritanceAndLookup-3-Super Did you really get super?
+- 6 InheritanceAndLookup-5-LookupMetaclass
 
-- Basic-ArraySetOrderedCollection - First Glance at Collections (OrderedCollection, Array, Set)			6 min
-- Iterators														6 min
-- Streams in a nutshell											6 min			<< a revoir
+- Basic-ArraySetOrderedCollection - First Glance at Collections (OrderedCollection, Array, Set)
+- Iterators	
+
+- Streams in a nutshell
 -- streamContents
 
 - 3 min PharoWebStack: 4/5 slides
@@ -152,16 +215,16 @@
 	Zinc
 	WebSocket
 	
-- Live: seaside counter / multi counter							6 min   
+- Live: seaside counter / multi counter
 -- counter back button
 	
-- Seaside Component + html + bootstrap							6 min
-- Seaside call:/answer:											6 min
+- Seaside Component, html, bootstrap
+
+- Seaside call:/answer:
 	
 
 !!!! Exos	
-- Find how to 
-	- 
+- Find how to ...
 - Redo: TinyChat (pour extension futures)	
 - Exo: 
 -- Should give the correct of the event model.
@@ -169,65 +232,67 @@
 -- Call/Answer in Seaside for view
 -- Login 
 
-!!! Week 5: Exception – Debugging
+!!Week 5: Exception, Debugging and Reflection
 
 
 - 6 Live Debugging of Seaside Web Applications 
-	10 + 20 + error + debugger									6 min
-	test first create on the fly
-	self halt 
-	self haltOnce
-	self haltIf: 
+--	 ==10 + 20 + error +== debugger
+--	test first create on the fly
+--	self halt 
+--	self haltOnce
+--	self haltIf: 
 
-- 6 Live: Picasa											6 min					<< a faire
-	-- explaining one the fly code generation and coding in the debugger
+- 6 Live: Picasa
+-- explaining one the fly code generation and coding in the debugger
 
+- 6 Exception
 
-- 6 Exception 												6 min
-- 6 InheritanceAndLookup-4-DoesNotUnderstand 				6 min
+- 6 InheritanceAndLookup-4-DoesNotUnderstand
 
-- 6 Extending GT:  Extending the inspector and spotter for the addressbook	6 min	<< a faire
+- 6 Extending GT:  Extending the inspector and spotter for the addressbook
 
-- 6 Reflection 																		<< a faire
-	- Basic structural
-	- Window allInstances first close
-	Close all debugger windows
-	- this context implementation of HaltIf
+- 6 Reflection
+-- Basic structural
+-- Window allInstances first close / Close all debugger windows
+-- this context implementation of HaltIf
 
-- 6 A bit more Reflection 								<< a faire
+- 6 A bit more Reflection
 -- compile:
 -- scripting google service API? Stuff of franz Prinz
 
-- 6 Magritte												6 min			<< a faire stef
+- 6 Magritte
 
 !!!! Exos	
 
--  Find how to 
+- Find how to 
 - Exo: TinyChat extension un et deux a faire
-- Exo: Magritte version of ticket.						<< a faire
+- Exo: Magritte version of ticket.
 - Exo: ?? Discovering google services ?? We should check: https://www.min.at/prinz/?x=entry:entry150318-104537
 
 
-!!! Week 6: 
+!!Week 6: Rethink lookup and Advanced OO Design
 
-- 6 All the literal objects we did not talk about			 a mesurer
+- 6 All the literal objects we did not talk about
+-- really 6min?
 -- Numbers
---6  Strings, characters, symbols
+
+- 6  Strings, characters, symbols
 -- Booleans
 
-- 6 Did you read understand super method? 				6 min
+- 6 Did you read understand super method?
 
 - 6 Advanced Classes
 -- class instance variables/ class var
 -- variableSubclass: 
 
-- 6 Design-SelfSendsArePlanForReuse.pillar messages are plan of reuse 		6 min
+- 6 Design-SelfSendsArePlanForReuse.pillar messages are plan of reuse
 
-- 6 self class vs. AClass new												6 min
+- 6 self class vs. AClass new
 
-- 6 Hook and Template / Copy as a hook and template							6 min
+- 6 Hook and Template / Copy as a hook and template
 
-- 6 Save objects in Mongo with Voyage										6 min		<< a faire stef and esteban
+- 6 Save objects in Mongo with Voyage
+-- stef and esteban 
 
 !!!! Exos	
 
@@ -237,17 +302,21 @@
 
 
 
-!!! Week 7: Points de conception avancees
+!!Week 7: More on OO Design and Testing
 
-- 6 Understanding metaclass architecture					6 min	<<< slides a faire
-- 6 Understanding metaclass architecture	(two)			6 min <<< slides a faire
+- 6 Understanding metaclass architecture
+-- Slides to be done
+
+- 6 Understanding metaclass architecture	(two)
+-- Slides to be done
 
 - 6 Design-ClassAsObjects Class as objects					
 -- no need for factory = static methods are ....
 -- check the commandLineHandler in the image
 
-- 6 Double dispatch on paper 					6 min	
--- do we have an example that is not numbers						<<< slides a faire
+- 6 Double dispatch on paper	
+-- Slides to be done
+-- do we have an example that is not numbers
 -- luc a un exemple 
 
 - 6 Visitor design pattern or only in exo
@@ -258,9 +327,14 @@
 
 - 6 Conclusion
 	
+	
+!OLD Stuff
 
-
-
+!!Resources probably as slides
+- Installation on Pharo.org
+- Live: Getting started: Coding live example counter: class first 10 min
+- Live: Getting started: Coding live example counter: test first 10 min
+- mailing-list, books, servers, ci, videos, Chapters Pharo by Example
 
 !! Potential Exos
 
@@ -278,22 +352,12 @@ Immersive Videos
 - Code search
 - sender/implementor
 
-
-
-
-
-
 !! Find how to 
 
 - ouvrir et afficher un fichier jpeg
 - lister le contenu d'un repertoire sur le disc
 - requete http recuperer la meteo sur le net
 - service google qui fait un calcul
-
-
-
-
-
 
 !! Random Stuff
 An item is composed of: 
