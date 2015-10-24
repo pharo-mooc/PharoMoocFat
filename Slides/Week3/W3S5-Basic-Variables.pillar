@@ -1,0 +1,103 @@
+{
+  "title":"Variables"
+}
+
+${slide:title=Lowercase for local variables}$
+
+Temporary variable: ==c==
+
+[[[
+  | c |
+  c := Counter
+]]]
+
+${slide:title=Lowercase for local variables}$
+
+Instance variables: ==x==, ==y==, ==count==
+
+[[[
+  Object subclass: #Point
+     instanceVarNames: 'x y'
+]]]
+
+[[[
+  Object subclass: #Counter
+     instanceVarNames: 'count'
+]]]
+
+${slide:title=Lowercase for local variables}$
+
+Method arguments: ==aPoint==
+
+[[[
+crossProduct: aPoint 
+  "Answer a number that is the cross product of the receiver and the 
+  argument, aPoint."
+
+  ^ (x * aPoint y) - (y * aPoint x)
+]]]
+
+Block arguments: ==:x==
+
+[[[
+	[ :x | x + 2 ]
+]]]
+
+${slide:title=Special Variables}$
+
+Special variables cannot be changed
+-  ==true==, ==false==, ==nil==
+-  ==self==, ==super==, ==thisContext==
+
+${slide:title=Special Variables}$
+
+- ==true==, ==false== are the Booleans
+-- ==true== is instance of ==True==
+-- ==false== is instance of the class ==False==
+- ==nil== is ==UndefinedObject== instance
+
+
+${slide:title=Special Variables}$
+
+- ==self==: the receiver of the message (==this== in Java).
+- ==super==: refers to the receiver but looks method in the superclass of the class defining the method. 
+- ==thisContext== refers to the current execution stack (advanced).
+
+
+${slide:title=Shared or Global Variable starts with Uppercase}$
+
+- Transcript is an object that is globally accessible (a kind of stdout)
+
+[[[
+  Transcript cr .
+  Transcript show: 'hello world'.
+  Transcript cr .
+]]]
+
+- The class ==Object== is globally accessible
+
+[[[
+  Object subclass: #Point
+]]]
+
+
+${slide:title=ClassVariables are Shared Variables}$
+
+- To share information between all the instances of a class and subclasses
+- Use a classVariable
+
+
+[[[
+  Object subclass: #CombinedChar
+    instanceVariableNames: 'codes combined'
+    classVariableNames: 'Compositions Decompositions Diacriticals'
+    category: 'Kernel-BasicObjects'
+]]]
+
+- Here ==Compositions== is shared between all the CombinedChar instances and instances of subclasses
+
+
+${slide:title=Summary}$
+
+- Lowercase are used for local/private/temporary variables
+- Uppercase are used for shared or global variables
