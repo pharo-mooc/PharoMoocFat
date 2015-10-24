@@ -77,7 +77,7 @@ pdfnup --batch --a4paper --keepinfo --nup 2x4 --delta "6mm 6mm" --scale 0.98 --f
 
 for file in $OTHER_PDFs
 do	
-	mv -f book-result/Slides/Handout/`basename -s '.pdf' $file`-nup.pdf book-result/Slides/Handout/`basename $file` 
+	mv -f book-result/Slides/Handout/`basename $file .pdf`-nup.pdf book-result/Slides/Handout/`basename $file` 
 done
 
 #----------------------------------------------
