@@ -158,67 +158,68 @@ You will also see that 4 kind of activities are distinguished:
 
 !UNDER Construction after this point
 
-6 - W3S1-Design-EssenceOfDispatchNot	[toreview]
--- fully revisited
 
-6 - W3S2-Design-EssenceOfDispatc	[toreview] 
--- fully revisited
+!!Week 3: Design, Class Methods
 
-6 W3S3-TeapotAsAPretext [toreview]
--- fully revisited 
+- [Video 6min] Messages
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) W3S1-Design-EssenceOfDispatchNot
 
-- 4 Live: trouver de l'information avec le Finder			6 min << A faire
-	-- method
-	-- class
-	-- examples
-	-- scan all code About...
+- [Video 6min] Messages
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) W3S2-Design-EssenceOfDispatch
 
-- 6 Variables		[toreview]				6 min
+- [Video 6min] Messages
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) W3S3-TeapotAsAPretext 
 
-- 6 Live: Tools to find information: implementors, senders		6 min					<< A faire
-	-- comment on peut lire un fichier png
-
-- 6 Class and methods									6 min   (Luc may move it elsewhere)
-		- Object model: 								
-			"static method" - only one send
-			public method 
-			no constructor
-			no operator
-			
-- 6 W3S7-ClassMethods											6 min <<< manque un slide avec le bouton
-
-
-
-
-
-!!Week 3: Object Model and Tools
-
-6 - Design-EssenceOfDispatch: solution											6 min 
-6 - Design-EssenceOfDispatch: Not Solution: Messages sends are a dynamic case		6 min
-
-- 6 As a revision of syntax: An example avec Teapot	6 min  Live: A simple REST server in Teapot 6 min
-
-- 6 Variables											6 min
-- 6 Class and methods									6 min
-		- Object model: 								
-			"static method" - only one send
-			public method 
-			no constructor
-			no operator
-- 6 CLass methods											6 min <<< manque un slide avec le bouton
-
-- 4 Live: trouver de l'information Finder					6 min (ailleurs)		<< A faire
+- [Todo] Live: trouver de l'information avec le Finder	
 -- method
 -- class
 -- examples
 -- scan all code About...
 
-- 6 Live: Tools to find information: implementors, senders		6 min					<< A faire
+- [Video 6min] Variable
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) W3S5-Basic-Variables.pillar
+
+- [Todo] Live: Tools to find information: implementors, senders		
 -- comment on peut lire un fichier png
 
-- Live: Dice Game DSL dice								6 min
+- [Video 6min] Class and methods									6 min   (Luc may move it elsewhere)
+-- Object model: 								
+	"static method" - only one send
+	public method 
+	no constructor
+	no operator
 
-- Live: Dice Game DSL handle							6 min
+- [Video 6min] W3S7-ClassMethods
+-- Presenter: ?
+-- Status: To review
+-- Files: Video(TBD) W3S7-ClassMethods			
+
+- [Video 6min] W3S7-ClassMethodsAtWork
+-- Presenter: ?
+-- Status: Doing it 
+-- Files: Video(TBD) W3S8-ClassMethodsAtWork.pillar		
+
+- [Video 6min] W3S10-UnderstandingClassMethods.pillar
+-- Presenter: ?
+-- Status: Doing it
+-- Files: Video(TBD) W3S10-UnderstandingClassMethods.pillar			
+
+
+- [Todo] Live: Dice Game DSL dice
+-- Presenter: ?
+-- Status: To review
+
+- [Todo] Live: Dice Game DSL handle
+-- Presenter: ?
+-- Status: To review
 
 
 
