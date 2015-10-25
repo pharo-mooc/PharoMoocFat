@@ -1,0 +1,237 @@
+{
+    "title":"Understanding Messages"
+}
+
+${slide:title=Only Objects and Messages|label=objectives}$
+
+Remember we ""only"" manipulate objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compiler, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
+
+
+and we send messages, messages, messages and messages (and closures)
+
+${slide:title=Syntax}$
+
+- Remember it was originally invented for kids 
+- Programs look like little sentences
+- Minimizing the number of parentheses
+
+${slide:title=Example}$
+
+[[[language=smalltalk
+(ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl) 
+    asMorph openInWorld
+]]]
+
+${slide:title=Three Kinds of Messages}$
+
+- Unary
+-- ==1 class==, ==Browser open== 
+
+- Binary (operators like)
+-- ==1\+2==, ==x ~~ nil==
+
+- Keyword-based: 
+-- ==2 between: 0 and: 5==
+
+${slide:title=A Glimpse at Message Precedence}$
+
+- (Msg) \> Unary \> Binary \> Keywords
+
+- First we execute ==()==
+- Then unary, then binary and finally keyword messages
+- Minimize ==()== needs
+
+But let us start with messages
+
+
+${slide:title=Guess!}$
+
+- ==1 log==
+- ==Browser open== 
+- ==2 raisedTo: 5==
+- =='hello', 'world'==
+- ==10@20==
+- ==point1 x==
+- ==point1 distanceFrom: point2==
+
+${slide:title=Guess}$
+
+- ==1 log== (unary)
+- ==Browser open== (unary)
+- ==2 raisedTo: 5== (keyword)
+- =='hello', 'world'== (binary)
+- ==10@20== (binary)
+- ==point1 x== (unary)
+- ==point1 distanceFrom: point2== (keyword)
+
+
+${slide:title=Unary Messages}$
+
+[[[language=Smalltalk
+    anObject aSelector
+]]]
+
+
+[[[language=Smalltalk
+    1 class
+    > SmallInteger
+]]]
+
+${slide:title=Unary Message Examples}$
+
+[[[language=Smalltalk
+    false not
+    > true
+]]]
+
+[[[language=Smalltalk
+    Date today
+    > 24 May 2009
+]]]
+
+[[[language=Smalltalk
+    Time now
+    > 6:50:13 pm
+]]]
+
+[[[language=Smalltalk
+    Float pi
+    > 3.141592653589793
+]]]
+
+${slide:title=Did you notice? To any objects}$
+
+- We sent messages to any objects!
+- We sent messages to classes too!
+- There is no difference between sending a message to one object or to a class
+
+[[[language=Smalltalk
+    1 class
+    > SmallInteger
+]]]
+
+[[[language=Smalltalk
+    Date today
+    > 27 June 2015
+]]]
+
+[[[language=Smalltalk
+    Point selectors
+    > #(#x #theta #quadrantOf: #onLineFrom:to:within: #bitShiftPoint: #< #scaleFrom:to: #sideOf: #'\\' #scaleTo: #grid: #'//' #asIntegerPoint #directionToLineFrom:to: ...) 
+]]]
+
+- Returns all the messages the class understand
+
+
+${slide:title=A little query}$
+
+- Let us query the system... and only filter the unary messages :)
+
+[[[language=Smalltalk
+    Point selectors select: #isUnary  
+    > #(#x #theta #asIntegerPoint #r #negated #normalized #sign #degrees #isIntegerPoint #guarded #fourNeighbors #eightNeighbors #min #max #ceiling #normal #asPoint #y #abs #isPoint #angle #transposed #reciprocal #asFloatPoint #asNonFractionalPoint #rounded #leftRotated #floor #truncated #hash #deepCopy #fourDirections #rightRotated #isSelfEvaluating #asMargin #isZero)
+]]]
+
+- ==select:== is an iterator (see following lecture)
+- Easy :)
+
+
+${slide:title=Binary Messages}$
+
+[[[language=Smalltalk
+    anObject aBinarySelector anArgument
+]]]
+
+- Used for arithmetic, comparison and logical operations
+- One, two or three characters taken from:
+-- \+ \- \/ \\ \* \~ \< \> \= \@ \% \| \& \! \? \,
+
+
+${slide:title=Binary Message Examples}$
+
+[[[language=Smalltalk
+    1 + 2
+    > 3
+]]]
+
+[[[language=Smalltalk
+    2 > 3
+    > false
+]]]
+
+[[[language=Smalltalk
+    10@200 
+    > 10@200
+]]]
+
+[[[language=Smalltalk
+    'Black chocolate' , ' is good'
+    > 'Black chocolate is good'
+]]]
+
+
+${slide:title=Keyword Messages}$
+
+[[[language=Smalltalk
+    anObject keyword1: argument1 keyword2: argument2
+]]]    
+
+equivalent to
+
+[[[language=Smalltalk
+    receiver.keyword1keyword2(argument1, argument2)
+]]]
+
+
+${slide:title=Message setX:}$
+
+[[[language=Smalltalk
+    10@20 setX: 2
+    > 2@20
+]]]
+
+- We change the x value of the receiver (a point)
+
+${slide:title=Message at:put:}$
+
+
+[[[language=Smalltalk
+    #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
+    > #('Calvin' 'loves' 'Suzie')
+]]]
+
+- ==#(...)== creates an array
+- ==at:put:== changes the value of the array element.
+- arrays start at 1 in Pharo (i.e., first element is at index 1)
+
+
+${slide:title=Message between:and:}$
+
+[[[language=Smalltalk
+    12 between: 10 and: 20
+    > true
+]]]
+
+- Here the message ==between:and:== is sent to an integer
+- Takes two arguments ==10== and ==20==
+
+
+${slide:title=New Quizz}$
+
+- ==1 log==
+- ==Browser open== 
+- ==2 raisedTo: 5==
+- =='hello', 'world'==
+- ==10@20==
+- ==point1 x==
+- ==point1 distanceFrom: point2==
+
+${slide:title=Summary}$
+
+- Three kinds of messages: unary, binary and keywords
+- Unary
+-- ==5 factorial==
+- Binary
+-- ==2 + 3==
+- Keywords-based messages
+-- ==2 between: 0 and: 10==

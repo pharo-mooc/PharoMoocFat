@@ -1,0 +1,102 @@
+{
+	"title":"Booleans and Conditions"
+}
+
+${slide:title=Booleans}$
+
+- ==true== is the unique instance of class ==True==
+- ==false== is the unique instance of class ==False==
+
+In Pharo, booleans have nothing special
+- & | not
+- or: and: (lazy)
+- xor:
+- ifTrue:ifFalse:
+- ifFalse:ifTrue:
+- ...
+
+${slide:title=Lazy Logical Operators}$
+
+[[[language=smalltalk 
+    false & (1 error: 'crazy')
+    -> an error
+]]]
+- the argument ==(1 error: 'crazy')== is executed because this is a non lazy operator.
+
+[[[language=smalltalk 
+    false and: [1 error: 'crazy']
+    -> false and not an error 
+]]]
+
+- the argument ==[1 error: 'crazy']== is not executed because it is not necessary
+
+${slide:title=Yes ifTrue\:ifFalse\: is a message!}$
+
+[[[language=smalltalk 
+Weather isRaining
+    ifTrue: [self takeMyUmbrella]
+    ifFalse: [self takeMySunglasses]
+]]]
+
+- Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
+- ==ifTrue:ifFalse:== is in fact radically optimized by the compiler but you can implement another one such as ==siAlors:sinon:== and try it at home. 
+
+${slide:title=Boolean Implementation}$
+
+- ==true== is the unique instance of the class ==True==
+- ==false== is the unique instance of the class ==False==
+
++Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.png|width=30+
+
+
+To see more have a look at the Essence of Dispatch Lecture.
+
+
+
+${slide:title=Conditionals: ifTrue:ifFalse:}$
+
+- Booleans are objects
+- Conditionals are messages sent to booleans or block
+- ==ifFalse:== and ==ifFalse:ifTrue:== 
+- ==ifTrue:== and ==ifTrue:ifFalse:==
+
+[[[
+    forceItalicOrOblique
+        self slantValue = 0 ifTrue: [ slantValue := 1 ]
+]]]
+
+[[[
+    initialAnswer := fullName isEmptyOrNil
+        ifTrue: [ 'FirstnameLastname' translated ]
+        ifFalse: [ fullName ].
+]]]
+
+${slide:title=ifTrue:ifFalse: other examples}$
+
+[[[
+    index isZero 
+        ifFalse: [ values at: index ]
+        ifTrue: [ self privateAt: key put: aBlock value ]
+]]]
+
+
+${slide:title=Conditionals: ifEmpty: ifNotEmpty:}$
+
+[[[
+    myProtocol 
+         ifEmpty: [ 'As yet unclassified' ]
+]]]
+
+[[[
+    self listItems 
+        ifNotEmpty: [ :aList | 
+            aList at: currentIndex  ]
+]]]
+
+- Notice that when the receiver is not empty we get it as argument. 
+- No need to ask it again.
+
+${slide:title=Summary}$
+
+- Booleans are real objects.
+- Some conditionals are messages sent to Booleans.

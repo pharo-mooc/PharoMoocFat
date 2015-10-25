@@ -67,7 +67,7 @@ Presented by \color{red}\large{#1}
 % \section*{[#4] #3}
 \addcontentsline{toc}{section}{[#4] #3}
 \phantomsection%
-\includepdf[pages={-},pagecommand={\presentedby{#1}\markboth{#2-#3}{#2-#3}},link,templatesize={19cm}{24.5cm}]{#3-Handout}
+\includepdf[pages={-},pagecommand={\presentedby{#1}\markboth{#2-#3}{#2-#3}},link,templatesize={19cm}{24.5cm}]{C019SD-#2-#3}
 % 
 }
 
@@ -157,25 +157,20 @@ We invite you to always watch videos while taking notes on the slides.
 \week{Welcome on Board and Syntax Discovery}
 % =======================
 
-% \includehandoutfile{W1S01}{ObjectivesCourse}{Video 6min}  %OLD
-% \includehandoutfile{W1S01}{ObjectivesMooc}{Video 6min}    %OLD
-
-\includehandoutfile{W1S01}{Intro-ObjectivesMooc}{Video 2min}
-\includehandoutfile{W1S02}{Intro-WhatIs}{Video 6min}
-\includehandoutfile{W1S03}{Intro-Vision}{Video 6min}
+\includehandoutfile{W1S01}{ObjectivesMooc}{Video 2min}
+\includehandoutfile{W1S02}{WhatIsPharo}{Video 6min}
+\includehandoutfile{W1S03}{PharoVision}{Video 6min}
 \externalresource  {W1S04}{Pharo install and Hello World example}{Live 6min}
-\includehandoutfile{W1S05}{Intro-ModelInaNushell}{Video 6min}
 
-% \includehandoutfile{W1S06}{Intro-SyntaxInANutshell}{Video 6min}
-\includehandoutfile{W1S06}{Intro-SyntaxInANutshell-newVersion}{Video 6min}
+\includehandoutfile{W1S05}{PharoModelInaNushell}{Video 6min}
+\includehandoutfile{W1S06}{PharoSyntaxInANutshell}{Video 6min}
 
 % \includehandoutfile{W1S07}{Basic-RuntimeArchitecture}{Video 6min}
 \externalresource  {W1S07}{Runtime: The notion of image, saving code}{Live 6min}
 
 \externalresource  {W1S08}{Coding a Counter}{Redo 6min}
 \externalresource  {W1S09}{Coding a Counter: the Pharo way}{Redo 6min}
-\externalresource  {W1S10}{Coding a REST interface to a counter \luc{Remove here because Live in Week 3}}{Redo 6min}
-\externalresource  {W1S11}{Lamp et FeuTricolor \luc{Replace by something on the Ticket App}}{Todo}
+\externalresource  {W1S10}{A simple Model for a future Web App}{Redo 6min}
 
 % ========== 2 =============
 \week{The Complete Pharo Syntax}
@@ -185,20 +180,26 @@ We invite you to always watch videos while taking notes on the slides.
 \includehandoutfile{W2S02}{Messages-ForTheJavaProgrammers}{Video 6min}
 \includehandoutfile{W2S03}{Messages-Precedence}{Video 6min}
 \includehandoutfile{W2S04}{Messages-Sequence}{Video 6min}
+
 \externalresource  {W2S05}{Inspecting a Counter}{Live 6min}
 \externalresource  {W2S06}{Publishing Code on smalltalkhub.com}{Live 6min}
+
 \includehandoutfile{W2S07}{Blocks}{Video 6min}
 \includehandoutfile{W2S08}{Blocks-Loops}{Video 6min}
-\includehandoutfile{W2S09}{Basic-Loops}{Video 6min}
-\includehandoutfile{W2S10}{Basic-BooleansAndCondition}{Video 6min}
-\includehandoutfile{W2S11}{Message-ParenthesisVsSquareBrackets}{Video 6min}
+\includehandoutfile{W2S09}{Loops}{Video 6min}
+\includehandoutfile{W2S10}{BooleansAndCondition}{Video 6min}
+\includehandoutfile{W2S11}{ParenthesisVsSquareBrackets}{Video 6min}
+
+\includehandoutfile{W2S12}{Design-EssenceOfDispatchExo}{Todo/Video 6min} % Video
 
 % Exo 
-\externalresource  {W2S12}{Simple Exos Syntax}{Todo}
-\externalresource  {W2S13}{Exos on Loops}{Todo}
-\externalresource  {W2S14}{Coding a moving Turtle}{Redo 6min} % refaire  PharoCast de Laurent Laffont
-\externalresource  {W2S15}{Coding a Ticket Model (User, Participant, Event)}{Todo}
-\includehandoutfile{W2S16}{Design-EssenceOfDispatchExo}{Todo/Video 6min} % Video
+\externalresource  {W2S13}{Simple Exos Syntax}{Todo}
+\externalresource  {W2S14}{Exos on Loops}{Todo}
+\externalresource  {W2S15}{Coding a moving Turtle}{Redo 6min} % refaire  PharoCast de Laurent Laffont
+\externalresource  {W2S16}{Coding a Ticket Model (User, Participant, Event)}{Todo}
+
+\end{document}
+
 
 % ========== 3 =============
 \week{Object Model and Tools}
@@ -222,7 +223,7 @@ We invite you to always watch videos while taking notes on the slides.
 \externalresource  {W3S12}{Extend the Ticket Model: send mail, paying/free entrance, coupons, ...}{Redo 6min} 
 
 % ========== 4 =============
-\week{Inheritance, Lookup and Collections}
+\week{Inheritance&Lookup, Collections and Web Development}
 % =======================
 
 \includehandoutfile{W4S01}{InheritanceAndLookup-1-Inheritance}{Video 6min}
@@ -285,7 +286,7 @@ We invite you to always watch videos while taking notes on the slides.
 
 
 % =========== 6 ============
-\week{6}
+\week{Rethink lookup and Advanced Design}
 % =======================
 
  % Numbers, Strings, characters, symbols, Booleans
@@ -315,7 +316,7 @@ We invite you to always watch videos while taking notes on the slides.
 
 
 % =========== 7 ============
-\week{7}
+\week{More on OO Design and Testing}
 % =======================
 
 \includehandoutfile{W1S01}{Design-AboutFinalAndOthers}{Video 6min}
