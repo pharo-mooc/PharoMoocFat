@@ -13,7 +13,7 @@ ${slide:title=Syntax}$
 
 - Remember it was originally invented for kids 
 - Programs look like little sentences
-- Minimizing the number of parentheses
+- Try to minimize the number of parentheses
 
 ${slide:title=Example}$
 
@@ -67,12 +67,12 @@ ${slide:title=Guess}$
 
 ${slide:title=Unary Messages}$
 
-[[[language=Smalltalk
+[[[
     anObject aSelector
 ]]]
 
 
-[[[language=Smalltalk
+[[[
     1 class
     > SmallInteger
 ]]]
@@ -84,17 +84,12 @@ ${slide:title=Unary Message Examples}$
     > true
 ]]]
 
-[[[language=Smalltalk
+[[[
     Date today
     > 24 May 2009
 ]]]
 
-[[[language=Smalltalk
-    Time now
-    > 6:50:13 pm
-]]]
-
-[[[language=Smalltalk
+[[[
     Float pi
     > 3.141592653589793
 ]]]
@@ -105,17 +100,17 @@ ${slide:title=Did you notice? To any objects}$
 - We sent messages to classes too!
 - There is no difference between sending a message to one object or to a class
 
-[[[language=Smalltalk
+[[[
     1 class
     > SmallInteger
 ]]]
 
-[[[language=Smalltalk
+[[[
     Date today
     > 27 June 2015
 ]]]
 
-[[[language=Smalltalk
+[[[
     Point selectors
     > #(#x #theta #quadrantOf: #onLineFrom:to:within: #bitShiftPoint: #< #scaleFrom:to: #sideOf: #'\\' #scaleTo: #grid: #'//' #asIntegerPoint #directionToLineFrom:to: ...) 
 ]]]
@@ -138,7 +133,7 @@ ${slide:title=A little query}$
 
 ${slide:title=Binary Messages}$
 
-[[[language=Smalltalk
+[[[
     anObject aBinarySelector anArgument
 ]]]
 
