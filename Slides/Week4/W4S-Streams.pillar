@@ -1,8 +1,13 @@
 {
-	"title":"Stream Overview"
+  "title":"Stream Overview"
 }
 
-${slide:title=Stream|label=arrays}$
+${slide:title=What you will learn}$
+
+- How to create streams
+- How to add and get contents of streams
+
+${slide:title=Streams}$
 
 - Associated with a collection
 - Allows the traversal and construction of a collection
@@ -11,11 +16,11 @@ ${slide:title=Stream|label=arrays}$
 +>file://figures/StreamsTraversal.png+
 
 
-${slide:title=API overview|label=api}$
+${slide:title=API overview}$
 
-- Adding: ==nextPut:==, ==nextPutAll:== (==<<==)
+- Adding: ==nextPut: anElement==, ==nextPutAll: aCollection==
 - Accessing: ==next==
-- All contents: ==contents==
+- Get all contents: ==contents==
 - Creation: ==on:==
 
 Convenient messages:
@@ -23,35 +28,35 @@ Convenient messages:
 - ==readStream==, ==writeStream==
 - ==streamContents: [:s | ]==
 
-${slide:title=API overview|label=api}$
-[[[language=smalltalk
-    |st|
-    st := ReadWriteStream on: (Array new: 6).
-    st nextPut: 1.
-    st nextPutAll: #(4 8 2 6 7).
-    st contents. 
-    > #(1 4 8 2 6 7)
-    st reset.
-    st next.
-    > 1
-    st position: 3. 
-    st next. 
-    > 2
-	
-    st := (1 2 5 3 7) readStream.
-    st next. 
-    > 1
+${slide:title=API overview}$
+[[[
+  | st |
+  st := ReadWriteStream on: (Array new: 6).
+  st nextPut: 1.
+  st nextPutAll: #(4 8 2 6 7).
+  st contents. 
+  > #(1 4 8 2 6 7)
+  st reset.
+  st next.
+  > 1
+  st position: 3. 
+  st next. 
+  > 2
+  
+  st := (1 2 5 3 7) readStream.
+  st next. 
+  > 1
 ]]]
 
-${slide:title=Adding elements|label=api}$
+${slide:title=Adding elements}$
 
 - ==nexPut:==, ==nextPutAll:==
 
-[[[language=smalltalk
-    |st|
-    st := ReadWriteStream on: (Array new: 6).
-    st nextPut: 1.
-    st nextPutAll: #(4 8 2 6 7).
+[[[
+  | st |
+  st := ReadWriteStream on: (Array new: 6).
+  st nextPut: 1.
+  st nextPutAll: #(4 8 2 6 7).
 ]]]
 
 
@@ -59,51 +64,37 @@ ${slide:title=Adding elements|label=api}$
 ${slide:title=Nicer creation API|label=api}$
 
 [[[language=smalltalk
-    | s |
-    s := WriteStream on: (String new: 16).
-    self printOn: s.
-    s contents
+  | s |
+  s := WriteStream on: (String new: 16).
+  self printOn: s.
+  s contents
 ]]]
 
 is equivalent to
 
-[[[language=smalltalk
-    String streamContents: [:s | self printOn: s]
+[[[
+  String streamContents: [:s | self printOn: s]
 ]]]
 
-${slide:title=Nicer adding API|label=api}$
+${slide:title=Nicer adding API}$
 
 Some people prefer ==<<== to ==nextPutAll:==
 
-[[[language=smalltalk
+[[[
 printOn: aStream
-	aStream
-		print: self label;
-		<< '->';
-		<< (self value printStringLimitedTo: 50)
+  aStream
+    print: self label;
+    << '->';
+    << (self value printStringLimitedTo: 50)
 ]]]
 
-
-${slide:title=printOn|label=api}$
-
-[[[language=smalltalk
-Node>>printOn: aStream
-	super printOn: aStream.
-	aStream nextPutAll: ' with name:'; print: self name.
-	self hasNextNode 
-		ifTrue: [ aStream 
-					nextPutAll: ' and next node:'; 
-					print: self nextNode name ]
-]]]
-
-${slide:title=Summary|label=api}$
+${slide:title=What you should know}$
 
 - Streams offers a simple API. 
 - Basis for many manipulation of collection of objects
+- Basic API
 
-In the near future 
-- more composable streams
-- more generic implementation
+
 
 
 
