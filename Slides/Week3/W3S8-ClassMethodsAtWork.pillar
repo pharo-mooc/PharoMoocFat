@@ -1,0 +1,100 @@
+{
+	"title":"Class methods At Work"
+}
+
+${slide:title=What you will learn}$
+
+- Class methods are dynamically looked up
+- Act as registration mechanism
+- No need for factory as in Java
+
+
+${slide:title=Parsing Lines}$
+
+Imagine we want to parse 
+
+[[[
+  ! Section Title
+
+  - list item 1
+  -- sub-list item 1.2
+
+  Any text here
+]]]
+
+
+${slide:title=A Possible Design}$
+
++>file://figures/Items.png|width=80+
+
+- Document element classes themselves know 
+-- if they can parse the line (message ==canParse:==)
+-- to create the corresponding object (message ==newFromLine:==)
+
+
+${slide:title=Parsing Lines}$
+
+[[[
+Parser >> parse: line
+  self sortedParsers
+     detect: [ :subclass | (subclass canParse: aLine)
+                        ifTrue: [ ^ subclass newFromLine: line ] ]
+
+Parser >> sortedParsers
+  ^ DocumentItem allSubclasses
+        sorted: [ :cls1 :cls2 | cls1 priority < cls2 priority ]
+]]]
+
+
+${slide:title=What do we see}$
+
+
+- ==sortedParsers== sorts the (sub)classes themselves according to their priority
+- Different subclasses specialize ==canParse:== and ==newFromLine:==
+
+	
+${slide:title=Another Example}$
+
+Inside Pharo the way command-lines are managed use the same approach
+
+[[[
+CommandLineHandler class >> allHandlers
+  ^ self allSubclasses reject: [ :handler| handler isAbstract ]
+]]]
+
+[[[
+CommandLineHandler class >> selectHandlersFor: aCommandLine
+
+  ^ self allHandlers select: [ :handlerClass |
+      handlerClass isResponsibleFor: aCommandLine ]
+]]]
+
+${slide:title=CommandLineHandler and subclasses}$
+
+[[[
+CommandLineHandler class >>	isResponsibleFor: aCommandLineArguments
+	^ aCommandLineArguments includesSubCommand: self commandName		
+]]]
+
+[[[
+EvaluateCommandLineHandler class >>	isResponsibleFor: commandLineArguments
+  "directly handle top-level -e and --evaluate options"
+  commandLineArguments withFirstArgument: [ :arg | 
+    (#('-e' '--evaluate') includes: arg)
+        ifTrue: [ ^ true ]].
+  ^ commandLineArguments includesSubCommand: self commandName
+]]]
+
+
+${slide:title=Conclusion}$
+
+- Messages sent to classes are resolved dynamically the same way as messages sent to instances.
+- Classes can then be used as registration mechanism
+- Each subclass defines a behavior and the condition to use it
+
+
+
+
+
+
+
