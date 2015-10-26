@@ -122,7 +122,7 @@ ${slide:title=Not implementation in two methods}$
 +Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=90+
 
 
-${slide:title=Boolean not implementation}$
+${slide:title=Boolean implementation}$
 
 - Class ==Boolean== is an abstract class that implements behavior common to true and false. 
 - Its subclasses are ==True== and ==False==. 
@@ -150,7 +150,7 @@ ${slide:title=\| (Or)}$
   false | anything -> anything
 ]]]
 
-${slide:title=False>> \| aBoolean}$
+${slide:title=False >> \| aBoolean}$
 
 [[[
   false | true -> true
@@ -181,7 +181,7 @@ ${slide:title=True >> \| aBoolean}$
   true | anything -> true
 ]]]
 
-${slide:title=True>> \| aBoolean}$
+${slide:title=True >> \| aBoolean}$
 
 [[[
   true | true -> true
@@ -190,13 +190,13 @@ ${slide:title=True>> \| aBoolean}$
 ]]]
 
 [[[
-  True>> | aBoolean
+  True >> | aBoolean
     "Evaluating OR -- answer true since the receiver is true."
     ^ true
 ]]]
 
 
-${slide:title=Boolean>> \| aBoolean}$
+${slide:title=Boolean >> \| aBoolean}$
 
 [[[
   Boolean >> | aBoolean
@@ -208,7 +208,7 @@ ${slide:title=Boolean>> \| aBoolean}$
 
 
 
-${slide:title=Real implementation of True>> \| aBoolean}$
+${slide:title=Real implementation of True >> \| aBoolean}$
 
 
 [[[
@@ -232,7 +232,7 @@ ${slide:title=Or implementation in two methods}$
 
 
 ${slide:title=Stepping back}$
-- We did use condition, we did not ask anything
+- We did NOT use condition, we did not ask anything
 - Let's the receiver decide
 - Do not ask, tell
 
