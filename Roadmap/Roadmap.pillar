@@ -236,9 +236,13 @@ You will also see that 4 kind of activities are distinguished:
 - 6 InheritanceAndLookup-5-LookupMetaclass
 
 - Basic-ArraySetOrderedCollection - First Glance at Collections (OrderedCollection, Array, Set)
-- Iterators	
 
-- [Video 6min] W4S7-Streams
+- [Video 6min] W4S-Iterators
+-- Presenter: Damien
+-- Status: To Review
+-- Files: Video(TBD) Week4/C019SD-W4S-Iterators.pillar
+
+- [Video 6min] W4S-Streams
 -- Presenter: Damien
 -- Status: To Review
 -- Files: Video(TBD) W4S-Stream.pillar		
