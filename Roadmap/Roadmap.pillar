@@ -134,8 +134,8 @@ You will also see that 4 kind of activities are distinguished:
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.html*
 
-- [Video/Todo 6min] The Essence Of Dispatch through an Exercice
--- Presenter: ?
+- [Video 6min] The Essence Of Dispatch through an Exercice
+-- Presenter: Stef
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S12-Design-EssenceOfDispatchExo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S12-Design-EssenceOfDispatchExo.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S12-Design-EssenceOfDispatchExo.html*
 
@@ -156,18 +156,18 @@ You will also see that 4 kind of activities are distinguished:
 -- Status: To be done
 -- Files: ExercicesSubject(TBD) 
 
-!UNDER Construction after this point
+
 
 
 !!Week 3: Design, Class Methods
 
-- [Video 6min] Messages
--- Presenter: ?
+- [Video 6min] Design Essence of Dispatch: the case of Not
+-- Presenter: Stef
 -- Status: To review
 -- Files: Video(TBD) W3S1-Design-EssenceOfDispatchNot
 
-- [Video 6min] Messages
--- Presenter: ?
+- [Video 6min] What can we learn from the not case
+-- Presenter: Stef
 -- Status: To review
 -- Files: Video(TBD) W3S2-Design-EssenceOfDispatch
 
@@ -182,7 +182,7 @@ You will also see that 4 kind of activities are distinguished:
 -- examples
 -- scan all code About...
 
-- [Video 6min] Variable
+- [Video 6min] Variables
 -- Presenter: ?
 -- Status: To review
 -- Files: Video(TBD) W3S5-Basic-Variables.pillar
@@ -190,38 +190,34 @@ You will also see that 4 kind of activities are distinguished:
 - [Todo] Live: Tools to find information: implementors, senders		
 -- comment on peut lire un fichier png
 
-- [Video 6min] Class and methods									6 min   (Luc may move it elsewhere)
+- [Video 6min] Class and methods	6 min   (Luc may move it elsewhere)
+-- Presenter:
+-- Status: TBD
 -- Object model: 								
 	"static method" - only one send
 	public method 
 	no constructor
 	no operator
 
-- [Video 6min] W3S7-ClassMethods
+- [Video 6min] W3S7-BasicClassMethods
 -- Presenter: ?
 -- Status: To review
 -- Files: Video(TBD) W3S7-ClassMethods			
 
 - [Video 6min] W3S7-ClassMethodsAtWork
 -- Presenter: ?
--- Status: Doing it 
+-- Status: To review 
 -- Files: Video(TBD) W3S8-ClassMethodsAtWork.pillar		
 
-- [Video 6min] W3S10-UnderstandingClassMethods.pillar
+- [Redo] Live: Dice Game DSL dice
 -- Presenter: ?
--- Status: Doing it
--- Files: Video(TBD) W3S10-UnderstandingClassMethods.pillar			
+-- Status: Video(TBD)
 
-
-- [Todo] Live: Dice Game DSL dice
+- [Redo] Live: Dice Game DSL handle
 -- Presenter: ?
--- Status: To review
+-- Status: Video(TBD)
 
-- [Todo] Live: Dice Game DSL handle
--- Presenter: ?
--- Status: To review
-
-
+!UNDER Construction after this point
 
 !!!! Exos	
 
@@ -242,8 +238,11 @@ You will also see that 4 kind of activities are distinguished:
 - Basic-ArraySetOrderedCollection - First Glance at Collections (OrderedCollection, Array, Set)
 - Iterators	
 
-- Streams in a nutshell
--- streamContents
+- [Video 6min] W3S7-Streams
+-- Presenter: ?
+-- Status: To review 
+-- Files: Video(TBD) W4S-Stream.pillar		
+
 
 - 3 min PharoWebStack: 4/5 slides
 	Voyage Mongo
@@ -258,6 +257,11 @@ You will also see that 4 kind of activities are distinguished:
 
 - Seaside call:/answer:
 	
+
+- [Video 6min] W3S10-UnderstandingClassMethods.pillar
+-- Presenter: Stef
+-- Status: Doing it may be should move this one to another week (and after the lookup is done)
+-- Files: Video(TBD) W3S10-UnderstandingClassMethods.pillar			
 
 !!!! Exos	
 - Find how to ...

@@ -66,6 +66,42 @@ ${slide:title=Class Methods are defined on Class Level}$
 +>file://figures/ClassMethodCounter.png|width=90+
 
 
+${slide:title=Common mistake}$
+
+[[[
+  Counter >> withValue: anInteger
+     self new value: anInteger
+]]]
+
+- ==Counter withValue: 10== returns the class itself ==Counter==
+
+${slide:title=Why?}$
+
+[[[
+  Counter >> withValue: aString
+     self new name: aString
+]]]
+
+- Since there is no explicit return the method return the receiver
+- It is equivalent to the next one
+
+[[[
+  Counter >> withValue: anInteger
+     self new value: anInteger
+     ^ self
+]]]
+
+==self== here is the class ==Counter== (yes the receiver of the message)
+
+${slide:title=Correct way}$
+
+We should just return the instance we created
+
+[[[
+    Counter >> withValue: anInteger
+       ^ self new value: anInteger
+]]]
+
 
 ${slide:title=Summary}$
 

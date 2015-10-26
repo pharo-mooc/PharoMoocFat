@@ -1,0 +1,101 @@
+{
+	"title":"Really Understanding Class Methods"
+}
+
+
+${slide:title=What you will learn}$
+
+- Lookup of class methods are the same as instance methods
+- Class methods are not (java like) static methods
+- Class methods are plain normal methods
+
+${slide:title=There is only One Way}$
+
+When we send messages to an instance, corresponding methods are looked up in the instance class and applied to that instance
+
+
+${slide:title=Remember: Sending a message}$
+
+${columns}$
+
+${column:width=40}$
+
+Sending a message to an object
+- go to the class of the object
+- look for the method associated to the message selector
+- follow the inheritance chain
+- apply the found method to the receiver
+
+${column:width=50}$
+
++>file://figures/LookupEssenceCounter.png|width=120+
+
+${endColumns}$
+
+${slide:title=Sending a message to a class}$
+
+${columns}$
+
+${column:width=50}$
+
+Sending a message to a ==Counter== (a class)
+- go to the class of the class (==Node class==)
+- follow the inheritance chain (up to ==Object class== and upper)
+- apply the found method to the receiver: the class ==Counter==
+
+${column:width=60}$
+
++>file://figures/LookupEssenceWithClassCounter.png|width=100+
+
+${endColumns}$
+
+${slide:title=Stepping back}$
+
+${columns}$
+
+${column:width=50}$
+
+- There is only one way to find and execute messages!
+- instance/class and class/superclass relations are systematically followed
+
+${column:width=60}$
+
++>file://figures/LookupEssenceWithGeneric.png|width=100+
+
+${endColumns}$
+
+${slide:title=Class as objects}$
+
+${columns}$
+
+${column:width=50}$
+
+A class is an object instance of another class (called a metaclass)
+- A metaclass is just one class whose instances are classes! 
+- ==Point== is the unique instance of the class ==Point class==
+- THe ==Point class== is automatically created when you create the class ==Point==
+- The class of class ==XXX== is named ==XXX class==
+
+${column:width=50}$
+
++>file://figures/LookupEssenceWithClassCounter.png|width=100+
+
+${endColumns}$
+
+
+
+
+
+
+
+
+
+${slide:title=Conclusion}$
+
+- Messages sent to classes are resolved the same way as messages sent to instances.
+- Class methods are
+-- public
+-- late-bound
+- Classes are just objects too.
+- Classes are instance of other classes (called metaclasses).
+
