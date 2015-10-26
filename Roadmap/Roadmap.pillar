@@ -40,7 +40,7 @@ You will also see that 4 kind of activities are distinguished:
 
 - [Live 6min] Pharo installation and Hello World Example 
 -- Presenter: ?
--- Status: To be done
+-- Status: To be done - I would separate the install from Hello world
 -- Files: Video(TBD) 
 
 - [Video 6min] Pharo's Model in a Nushell
@@ -49,7 +49,7 @@ You will also see that 4 kind of activities are distinguished:
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.html*
 
 - [Video 6min] Pharo's Syntax in a Nutshell
--- Presenter: ?
+-- Presenter: Stef
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.html*
 
@@ -80,22 +80,22 @@ You will also see that 4 kind of activities are distinguished:
 !!Week 2: Pharo Syntax, Blocks and Inspector 
 
 - [Video 6min] Messages
--- Presenter: ?
+-- Presenter: Stef
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S01-Messages.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S01-Messages.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S01-Messages.html*
 
 - [Video 3min] Messages for Java programmer
--- Presenter: ?
+-- Presenter: Damien
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.html*
 
 - [Video 3min] Messages Precedence
--- Presenter: ?
+-- Presenter: Stef
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S03-Messages-Precedence.html*
 
 - [Video 6min] Messages Sequence
--- Presenter: ?
+-- Presenter: Stef
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S04-Messages-Sequence.html*
 
@@ -171,8 +171,8 @@ You will also see that 4 kind of activities are distinguished:
 -- Status: To review
 -- Files: Video(TBD) W3S2-Design-EssenceOfDispatch
 
-- [Video 6min] Messages
--- Presenter: ?
+- [Video 6min] Teapot
+-- Presenter: Luc
 -- Status: To review
 -- Files: Video(TBD) W3S3-TeapotAsAPretext 
 
@@ -200,12 +200,12 @@ You will also see that 4 kind of activities are distinguished:
 	no operator
 
 - [Video 6min] W3S7-BasicClassMethods
--- Presenter: ?
+-- Presenter: Stephane
 -- Status: To review
 -- Files: Video(TBD) W3S7-ClassMethods			
 
 - [Video 6min] W3S7-ClassMethodsAtWork
--- Presenter: ?
+-- Presenter: Damien
 -- Status: To review 
 -- Files: Video(TBD) W3S8-ClassMethodsAtWork.pillar		
 
@@ -238,9 +238,9 @@ You will also see that 4 kind of activities are distinguished:
 - Basic-ArraySetOrderedCollection - First Glance at Collections (OrderedCollection, Array, Set)
 - Iterators	
 
-- [Video 6min] W3S7-Streams
+- [Video 6min] W4S7-Streams
 -- Presenter: ?
--- Status: To review 
+-- Status: Doing it now
 -- Files: Video(TBD) W4S-Stream.pillar		
 
 
@@ -258,10 +258,7 @@ You will also see that 4 kind of activities are distinguished:
 - Seaside call:/answer:
 	
 
-- [Video 6min] W3S10-UnderstandingClassMethods.pillar
--- Presenter: Stef
--- Status: Doing it may be should move this one to another week (and after the lookup is done)
--- Files: Video(TBD) W3S10-UnderstandingClassMethods.pillar			
+
 
 !!!! Exos	
 - Find how to ...
@@ -274,6 +271,10 @@ You will also see that 4 kind of activities are distinguished:
 
 !!Week 5: Exception, Debugging and Reflection
 
+- [Video 6min] W3S10-UnderstandingClassMethods.pillar
+-- Presenter: Stef
+-- Status: Doing it may be should move this one to another week (and after the lookup is done)
+-- Files: Video(TBD) W3S10-UnderstandingClassMethods.pillar			
 
 - 6 Live Debugging of Seaside Web Applications 
 --	 ==10 + 20 + error +== debugger
