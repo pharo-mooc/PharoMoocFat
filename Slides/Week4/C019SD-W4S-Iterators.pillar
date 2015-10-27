@@ -185,7 +185,7 @@ Propose some expressions to illustrate the uses of
 - ==pairsDo:== 
 - ==permutationsDo:==
 
-${slide:title=Exciting ones}$
+${slide:title=Some cool iterators}$
 
  How to produce?
 [[[

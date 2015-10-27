@@ -394,8 +394,8 @@ classes}</string>
 			<integer>29</integer>
 			<key>Points</key>
 			<array>
-				<string>{251.70197894053254, 362.92300415039062}</string>
-				<string>{277.09466042374652, 300.173}</string>
+				<string>{251.70202365506742, 362.92300415039062}</string>
+				<string>{277.09493895805218, 300.173}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -601,8 +601,8 @@ send:}</string>
 			<integer>26</integer>
 			<key>Points</key>
 			<array>
-				<string>{296.52044508804363, 204.173}</string>
-				<string>{296.52189538442536, 156}</string>
+				<string>{296.51898296117884, 204.173}</string>
+				<string>{296.51898296117884, 156}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -785,7 +785,7 @@ send:}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-07-29 08:18:16 +0000</string>
+	<string>2015-10-26 14:51:38 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>

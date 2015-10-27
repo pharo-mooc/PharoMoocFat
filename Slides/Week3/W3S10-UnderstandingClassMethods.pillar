@@ -64,33 +64,27 @@ ${column:width=60}$
 
 ${endColumns}$
 
-${slide:title=Class as objects}$
++>file://figures/CounterClassMetaclassBrowsing.png|width=100+
 
-${columns}$
 
-${column:width=50}$
+
+${slide:title=Class is just an instance}$
 
 A class is an object instance of another class (called a metaclass)
 - A metaclass is just one class whose instances are classes! 
-- ==Point== is the unique instance of the class ==Point class==
-- THe ==Point class== is automatically created when you create the class ==Point==
+- ==Counter== is the unique instance of the class ==Counter class==
+- ==Counter class== is automatically created when you create the class ==Counter==
 - The class of class ==XXX== is named ==XXX class==
 
-${column:width=50}$
 
-+>file://figures/LookupEssenceWithClassCounter.png|width=100+
+${slide:title=Class as objects}$
 
-${endColumns}$
-
-
-
+Yes the browser is helping you to edit two classes: a class and its class
+ 
++>file://figures/CounterClassMetaclassBrowsing.png|width=100+
 
 
-
-
-
-
-${slide:title=Conclusion}$
+${slide:title=What you should know}$
 
 - Messages sent to classes are resolved the same way as messages sent to instances.
 - Class methods are
