@@ -38,13 +38,19 @@ You will also see that 4 kind of activities are distinguished:
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S03-PharoVision.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S03-PharoVision.pdf* NoHTML
 
-- [Live 6min] Pharo installation and Hello World Example 
+- [Live 6min] Pharo installation, the notion of Pharo image, Saving the image
 -- Presenter: ?
--- Status: To be done - I would separate the install from Hello world
+-- Status: To be done 
+-- Files: Video(TBD) 
+-- Windows, Linux and Mac?
+
+- [Live 6min] Hello World Example 
+-- Presenter: ?
+-- Status: To be done
 -- Files: Video(TBD) 
 
 - [Video 6min] Pharo's Model in a Nushell
--- Presenter: ?
+-- Presenter: Luc
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.html*
 
@@ -53,15 +59,11 @@ You will also see that 4 kind of activities are distinguished:
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.html*
 
-- [Live 6min] The notion of Pharo image and Saving code
--- Presenter: ?
--- Status: To be done
--- Files: Video(TBD) 
-
 - [Redo 6min] Coding a Counter
--- Presenter: ?
+-- Presenter: Luc
 -- Status: To be done
 -- Files: Video(TBD) 
+-- Saving the Image only
 
 - [Redo 6min] Coding a Counter: the Pharo Way
 -- Presenter: ?
@@ -100,7 +102,7 @@ You will also see that 4 kind of activities are distinguished:
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S04-Messages-Sequence.html*
 
 - [Live 6min] Inspector: Inspecting a Counter 
--- Presenter: ?
+-- Presenter: Luc
 -- Status: To be done
 -- Files: Video(TBD) 
 
@@ -110,27 +112,27 @@ You will also see that 4 kind of activities are distinguished:
 -- Files: Video(TBD) 
 
 - [Video 6min] Blocks
--- Presenter: ?
+-- Presenter: Luc
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S07-Blocks.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S07-Blocks.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S07-Blocks.html*
 
 - [Video 6min] Blocks for Loops
--- Presenter: ?
+-- Presenter: Luc
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S08-Blocks-Loops.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S08-Blocks-Loops.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S08-Blocks-Loops.html*
 
 - [Video 6min] Loops
--- Presenter: ?
+-- Presenter: Luc
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S09-Loops.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S09-Loops.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S09-Loops.html*
 
 - [Video 6min] Booleans and Conditions
--- Presenter: ?
+-- Presenter: Luc
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S10-BooleansAndCondition.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S10-BooleansAndCondition.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S10-BooleansAndCondition.html*
 
 - [Video 6min] Parenthesis vs Square Brackets
--- Presenter: ?
+-- Presenter: Luc
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.html*
 
