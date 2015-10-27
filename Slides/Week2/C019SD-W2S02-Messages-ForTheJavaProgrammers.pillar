@@ -22,29 +22,46 @@ in Pharo
 strings := ArrayList new.
 ]]]
 
+- no static typing
+- no generics
 
 ${slide:title=Equivalence}$
 
 In Java
-[[[
+[[[language=java
 Thread regThread = new Thread(
-       new Runnable() {
-         public void run() {
-                this.doSomething();} });
- regThread.start();
+  new Runnable() {
+    @Override
+    public void run() {
+      this.doSomething();
+    }
+  });
+regThread.start();
 ]]]
 
 In Pharo
 [[[
-[self doSomething] fork.
+[ self doSomething ] fork
+]]]
+
+${slide:title=Equivalence}$
+
+In Java 8
+[[[language=java
+new Thread(() -> doSomething()).start();
+]]]
+
+In Pharo
+[[[
+[ self doSomething ] fork
 ]]]
 
 
-${slide:title=Three kind of messages}$
+${slide:title=Three Kinds of Messages}$
 
 - Unary
 [[[
-5 factorial
+5 factorial.
 Transcript cr
 ]]]
 
@@ -53,10 +70,9 @@ Transcript cr
 3 + 4
 ]]]
 
-- Keyword-based messages
+- Keyword-based
 [[[
-2 between: 0 and: 5
-
+2 between: 0 and: 5.
 Transcript show: 'hello world' ; cr
 ]]]
 
@@ -64,24 +80,24 @@ Transcript show: 'hello world' ; cr
 
 ${slide:title=Keyword Messages}$
 
+In Java
+[[[language=java
+    receiver.keyword1(argument1, argument2)
+]]]
+
+In Pharo
 [[[
     anObject keyword1: argument1 keyword2: argument2
 ]]]
 
-equivalent to
+${slide:title=Keyword Messages for Java developers}$
 
-[[[
-    receiver.keyword1keyword2(argument1, argument2)
-]]]
-
-
-${slide:title=Keyword Messages for Javaists}$
-
+In Java
 [[[
     postman.send(mail,recipient);
 ]]]
 
-${slide:title=Keyword Messages for Javaists}$
+${slide:title=Keyword Messages for Java developers}$
 
 [[[
     postman.send(mail,recipient);
@@ -89,7 +105,7 @@ ${slide:title=Keyword Messages for Javaists}$
 ]]]
 
 
-${slide:title=Keyword Messages for Javaists}$
+${slide:title=Keyword Messages for Java developers}$
 
 [[[
     postman.send(mail,recipient);
@@ -97,7 +113,7 @@ ${slide:title=Keyword Messages for Javaists}$
     postman send mail recipient
 ]]]
 
-${slide:title=Keyword Messages for Javaists}$
+${slide:title=Keyword Messages for Java developers}$
 
 [[[
     postman.send(mail,recipient);
@@ -106,7 +122,7 @@ ${slide:title=Keyword Messages for Javaists}$
     postman send mail to recipient
 ]]]
 
-${slide:title=Keyword Messages for Javaists}$
+${slide:title=Keyword Messages for Java developers}$
 
 [[[
     postman.send(mail,recipient);
@@ -117,22 +133,27 @@ ${slide:title=Keyword Messages for Javaists}$
 ]]]
 
 
-${slide:title=Keyword Messages for Javaists}$
+${slide:title=Keyword Messages for Java developers}$
 
-[[[
+In Java
+[[[language=java
     postman.send(mail,recipient);
+]]]
 
+In Pharo
+[[[
     postman send: mail to: recipient
 ]]]
 
-- The message is named ==send:to:==
-- It is sent to ==postman==
-- With two arguments: ==mail== and ==recipient==
+- The message
+-- is named ==send:to:==
+-- is sent to ==postman==
+-- includes two arguments (==mail== and ==recipient==)
 
 ${slide:title=Conditionals are just messages}$
 
-Booleans are objects
-Conditional are messages sent to booleans or block
+- Booleans are objects
+- Conditional expressions are messages sent to booleans or blocks
 
 [[[
     initialAnswer := fullName isEmptyOrNil
@@ -140,7 +161,7 @@ Conditional are messages sent to booleans or block
         ifFalse: [ fullName ]
 ]]]
 
-${slide:title=Loops are just messages sent to objects}$
+${slide:title=Loops: Messages Sent to Objects}$
 
 [[[
 4 timesRepeat: [ self doSomething ]
@@ -150,21 +171,21 @@ ${slide:title=Loops are just messages sent to objects}$
 0 to: 100 do: [ :i | ... ]
 ]]]
 
-for (i=0,i<101,i=i+3)
 [[[
 0 to: 100 by: 3 do: [ :i | ... ]
 ]]]
 
-Iterator
 [[[
-aCol do: [:each | ... ]
+aCollection do: [ :each | ... ]
 ]]]
-
-
 
 ${slide:title=Summary}$
 
-- Three kinds of messages: unary, binary and keywords
+- 3 kinds of messages: unary, binary and keywords
 - () > unary > binary > keywords
 - Conditionals are messages
-- Loops too.
+- Loops too
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile1Slide.sh Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.pillar"
+% End:
