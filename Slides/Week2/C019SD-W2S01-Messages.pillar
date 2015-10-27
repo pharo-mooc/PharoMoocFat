@@ -1,25 +1,25 @@
 {
-    "title":"Understanding Messages"
+    "title":"Understanding Messages",
+	 "slidesid" : "W2S01"
 }
 
-${slide:title=Only Objects and Messages|label=objectives}$
+${slide:title=Reminder|label=objectives}$
 
-Remember we ""only"" manipulate objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compiler, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
-
-
-and we send messages, messages, messages and messages (and closures)
+- we only manipulate ""objects"" (mouse, booleans, arrays, numbers, strings, ...)
+- we only send them ""messages"" (@, \+, not, getPng:, ifTrue:ifFalse:, new, ...)
+- and we use ""closures""
 
 ${slide:title=Syntax}$
 
-- Remember it was originally invented for kids 
+- Originally invented for kids 
 - Programs look like little sentences
 - Try to minimize the number of parentheses
 
 ${slide:title=Example}$
 
-[[[language=smalltalk
+[[[
 (ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl) 
-    asMorph openInWorld
+    asMorph openInWindow
 ]]]
 
 ${slide:title=Three Kinds of Messages}$
@@ -65,7 +65,7 @@ ${slide:title=Guess}$
 - ==point1 distanceFrom: point2== (keyword)
 
 
-${slide:title=Unary Messages}$
+${slide:title=Unary Message Examples}$
 
 [[[
     anObject aSelector
@@ -77,9 +77,7 @@ ${slide:title=Unary Messages}$
     > SmallInteger
 ]]]
 
-${slide:title=Unary Message Examples}$
-
-[[[language=Smalltalk
+[[[
     false not
     > true
 ]]]
@@ -94,11 +92,10 @@ ${slide:title=Unary Message Examples}$
     > 3.141592653589793
 ]]]
 
-${slide:title=Did you notice? To any objects}$
+${slide:title=Did you notice?}$
 
-- We sent messages to any objects!
-- We sent messages to classes too!
-- There is no difference between sending a message to one object or to a class
+- We sent messages to any objects, including classes!
+- There is no difference between sending a message to an object or to a class
 
 [[[
     1 class
@@ -120,15 +117,15 @@ ${slide:title=Did you notice? To any objects}$
 
 ${slide:title=A little query}$
 
-- Let us query the system... and only filter the unary messages :)
+- Let us query the system and only filter the unary messages:
 
-[[[language=Smalltalk
+[[[
     Point selectors select: #isUnary  
     > #(#x #theta #asIntegerPoint #r #negated #normalized #sign #degrees #isIntegerPoint #guarded #fourNeighbors #eightNeighbors #min #max #ceiling #normal #asPoint #y #abs #isPoint #angle #transposed #reciprocal #asFloatPoint #asNonFractionalPoint #rounded #leftRotated #floor #truncated #hash #deepCopy #fourDirections #rightRotated #isSelfEvaluating #asMargin #isZero)
 ]]]
 
 - ==select:== is an iterator (see following lecture)
-- Easy :)
+- Easy :-)
 
 
 ${slide:title=Binary Messages}$
@@ -171,7 +168,7 @@ ${slide:title=Keyword Messages}$
     anObject keyword1: argument1 keyword2: argument2
 ]]]    
 
-equivalent to
+equivalent to:
 
 [[[language=Smalltalk
     receiver.keyword1keyword2(argument1, argument2)
@@ -186,6 +183,7 @@ ${slide:title=Message setX:}$
 ]]]
 
 - We change the x value of the receiver (a point)
+- No parentheses required
 
 ${slide:title=Message at:put:}$
 
@@ -207,7 +205,7 @@ ${slide:title=Message between:and:}$
     > true
 ]]]
 
-- Here the message ==between:and:== is sent to an integer
+- The message ==between:and:== is sent to an integer
 - Takes two arguments ==10== and ==20==
 
 
