@@ -19,7 +19,7 @@ We want to parse
 
 ${slide:title=An Example}$
 
-+>file://figures/Items.png|width=80+
++>file://figures/items.png|width=80+
 
 - Classes themselves know if they can parse
 - or if they can parse the line. 
