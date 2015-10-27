@@ -3,13 +3,13 @@
 !!About this MOOC
 
 This document summarizes the whole MOOC planning week by week.
-It is best to do do the activities exactly in the order they are presented.
-You will also see that 4 kind of activities are distinguished:
+It is best to do the activities exactly in the order they are presented.
+You will also see that 4 kinds of activities are distinguished:
 
 - [""Video""] means that you should watch a video explaining some notions described in slides. You will find a handout version of all slides in this document. We invite you to always watch videos while taking notes on the slides.
-- [""Live""] means that should watch a video demonstrating a coding session in Pharo. 
-- [""Redo""] means that you should watch a Live video and redo by yourself what is demonstrated in your Pharo installation.
-- [""Todo""] means that you shall do an exercise in your Pharo installation. The exercise may be described by a document and/or a video.
+- [""Live""] means that you should watch a video demonstrating a coding ession in Pharo. 
+- [""Redo""] means that you should watch a Live video and apply, in your Pharo installation, what is demonstrated.
+- [""Todo""] means that you should do an exercise in your Pharo installation. The exercise may be described by a document and/or a video.
 
 !!Overall Structure
 
@@ -29,7 +29,7 @@ You will also see that 4 kind of activities are distinguished:
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S01-ObjectivesMooc.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
 
 - [Video 6min] What is Pharo?
--- Presenter: ?
+-- Presenter: Damien
 -- Status: To review
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S02-WhatIsPharo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S02-WhatIsPharo.pdf* NoHTML
 
@@ -39,7 +39,7 @@ You will also see that 4 kind of activities are distinguished:
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S03-PharoVision.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S03-PharoVision.pdf* NoHTML
 
 - [Live 6min] Pharo installation, the notion of Pharo image, Saving the image
--- Presenter: ?
+-- Presenter: Damien
 -- Status: To be done 
 -- Files: Video(TBD) 
 -- Windows, Linux and Mac?
@@ -66,7 +66,7 @@ You will also see that 4 kind of activities are distinguished:
 -- Saving the Image only
 
 - [Redo 6min] Coding a Counter: the Pharo Way
--- Presenter: ?
+-- Presenter: Damien
 -- Status: To be done
 -- Files: Video(TBD) 
 
@@ -107,7 +107,7 @@ You will also see that 4 kind of activities are distinguished:
 -- Files: Video(TBD) 
 
 - [Live 6min] Publishing Code on smalltalkhub.com
--- Presenter: ?
+-- Presenter: Damien
 -- Status: To be done
 -- Files: Video(TBD) 
 
