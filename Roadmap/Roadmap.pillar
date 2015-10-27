@@ -25,12 +25,12 @@ You will also see that 4 kind of activities are distinguished:
 
 - [Video 2min] Objectives of this Mooc 
 -- Presenter: ?
--- Status: To review
+-- Status: Done
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S01-ObjectivesMooc.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
 
 - [Video 6min] What is Pharo?
 -- Presenter: ?
--- Status: To review
+-- Status: Done
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S02-WhatIsPharo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S02-WhatIsPharo.pdf* NoHTML
 
 - [Video 6min] Pharo's Vision
@@ -51,12 +51,12 @@ You will also see that 4 kind of activities are distinguished:
 
 - [Video 6min] Pharo's Model in a Nushell
 -- Presenter: Luc
--- Status: To review
+-- Status: Done
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.html*
 
 - [Video 6min] Pharo's Syntax in a Nutshell
 -- Presenter: Stef
--- Status: To review
+-- Status: Done
 -- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.html*
 
 - [Redo 6min] Coding a Counter

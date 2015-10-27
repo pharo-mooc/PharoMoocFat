@@ -1,11 +1,11 @@
 {
   "title":"Pharo Syntax in a Nutshell",
-  "slidesid":"W1S04"
+  "slidesid":"W1S06"
 }
 
 ${slide:title=Getting a Feel About Syntax}$
 
-In this lecture we want to give you the general feel to get started
+In this lecture we want to give you the general feel to get started:
 
 - Overview of simple syntactical elements
 - Message composition
@@ -14,6 +14,9 @@ In this lecture we want to give you the general feel to get started
 No stress if you do not get it right now!
 
 ${slide:title=The Complete Syntax on a Postcard}$
+
+No need to understand everything! 
+But everything is on this screen :)
 
 [[[
 exampleWithNumber: x
@@ -32,11 +35,6 @@ exampleWithNumber: x
   ^ x < y
 ]]]
 
-No need to understand everything! 
-But everything is on this screen :)
-
-
-
 ${slide:title=Hello World}$
 
 [[[
@@ -46,12 +44,6 @@ ${slide:title=Hello World}$
 
 We send the message ==asMorph== to a string and get a graphical element that we open in a window
 
-${slide:title=Getting the Pharo Logo}$
-
-[[[
-  (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
-    asMorph openInWindow.
-]]]
 
 ${slide:title=Getting the Pharo Logo}$
 
@@ -60,12 +52,12 @@ ${slide:title=Getting the Pharo Logo}$
     asMorph openInWindow.
 ]]]
 
-- Class names start with an uppercase character
+- ==ZnEasy== designates a class
+-- Class names start with an uppercase character
 - Message ==getPng:== is sent to the ==ZnEasy== class
-- Messages ==asMorph== and ==openInWorld==
-- Keyword message ==getPng:==
-- Unary messages ==asMorph== and ==openInWorld==
-
+-- ==getPng:== is a keyword message 
+- Messages ==asMorph== and ==openInWorld== are sent
+-- they are unary messages
 
 ${slide:title=Sending an unary message}$
 
@@ -94,7 +86,7 @@ factorial
   self error: 'Not valid for negative integers'
 ]]]
 
-${slide:title=Within the IDE}$
+${slide:title=Within the Browser part of the Pharo IDE}$
 
 +>file://figures/FactorialInBrowser.png|width=100+
 
@@ -157,7 +149,7 @@ ZnClient new
   get
 ]]]
 
-- ==new== is a message sent to a class
+- ==new== is a unary message sent to a class
 - ==queryAt:put:== is a keyword message
 - ==get== is a unary message
 - ==;== sends all messages to the same receiver
@@ -186,7 +178,8 @@ To minimize the use of parentheses, Pharo distinguishes 3 kinds of messages
 - unary message: ==receiver selector==
 -- ==Node new==
 - binary message: ==receiver selector argument==
--- ==1\+2==, ==3@4==
+-- ==1\+2==
+-- ==3@4==
 - keyword message: ==receiver key1: arg1 key2: arg2==
 -- ==2 between: 10 and: 20==
 
@@ -208,7 +201,7 @@ factorial
   self error: 'Not valid for negative integers'
 ]]]
 
-- ==ifTrue:== is sent to an object: a boolean!
+- ==ifTrue:== is sent to an object, a boolean!
 - ==ifFalse:ifTrue:==, ==ifTrue:ifFalse:== and ==ifFalse:== also exists
 
 Read their implementation, this is not magic!
@@ -243,12 +236,12 @@ We ask the  collection object to perform the iteration
 
 ${slide:title=Messages and Their Composition}$
 
-3 kinds of messages
+3 kinds of messages:
 - Unary: ==Node new==
 - Binary: ==1\+2==, ==3@4==
 - Keywords: ==2 between: 10 and: 20==
 
-Message Priority
+Message Priority:
 - (Msg) > unary > binary > keyword
 - Same-Level messages: from left to right
 

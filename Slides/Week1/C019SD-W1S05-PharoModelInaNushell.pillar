@@ -1,14 +1,13 @@
 {
     "title":"Pharo Object Model in a Nutshell",
-    "subtitle":"Elegance and Simplicity"
+    "subtitle":"Elegance and Simplicity",
+	 "slidesid":"W1S05"
 }
 
+${slide:title=Only Objects, Messages, ...}$
 
-
-${slide:title=Only Objects and Messages}$
-
-- Only ""objects"": mouse pointer, booleans, arrays, numbers, strings, windows, scrollbars, canvas, files, trees, compilers, sound, url, socket, fonts, text, collections, stack, shortcut, streams...
-- and ""messages"" sent to these objects (==size==, ==\+==, ==at:put:==, ==do:==)
+- ""objects"": mouse pointer, booleans, arrays, numbers, strings, windows, scrollbars, canvas, files, trees, compilers, sound, url, socket, fonts, text, collections, stack, shortcut, streams...
+- ""messages"" sent to these objects: ==size==, ==\+==, ==at:put:==, ==do:==, ...
 
 ${slide:title=... and Block Closures}$
 
@@ -26,11 +25,12 @@ ${slide:title=... and Block Closures}$
 ${slide:title=A Simple and Uniform Model}$
 
 - ""Everything"" is an object, instance of a class
-- Classes and messages are objects too!
-- All computation between objects is done via ""message passing""
-- There is only ONE method lookup for all objects:
--- Only late binding, only virtual calls
--- We use the term: ""sending a message"" to represent the fact that methods are looked up dynamically 
+-- Classes and messages are objects too!
+- All computations between objects are done via ""message passing""
+- We use the term ""sending a message"" because:
+-- methods are always looked up dynamically
+-- only late binding, only virtual calls
+- Only ""ONE"" method lookup for all objects
 
 ${slide:title=Pharo Object Model}$
 
@@ -43,34 +43,38 @@ ${slide:title=Pharo Object Model}$
 
 ${slide:title=Messages}$
 
-Computation between objects is done via message sends:
+Computation between objects is done via message sends.
 
-The cross product of two points:
+Example: The cross product of two points:
+
 [[[
-  (pt1 x * pt2 y) - (pt1 y * pt2 x)
+  (point1 x * point2 y) - (point1 y * point2 x)
 ]]]
 
+${slide:title=Object Creation: Creating a Point}$
 
-${slide:title=Object Creation}$
+A new object can be created by sending a message to another object.
 
-Using messages sent to another object
+[[[
+  10@20
+]]]
+
+A new ==Point== object is created by:
+- sending the message ==@==
+- to the object ==10== (==SmallInteger==)
+- with the argument ==20== (==SmallInteger==)
+
+${slide:title=Object Creation: Creating a String}$
 
 [[[
   'Pharo', ' is Cool'
 > 'Pharo is Cool'
 ]]]
 
-We concatenate two strings by:
-- sending the message ==,==
+A new ==String== is created as the concatenation of two strings by:
+- by sending the message ==,==
 - to the string =='Pharo'==
 - with the string ==' is Cool'== as argument
-
-[[[
-  10@20
-]]]
-
-The point ''p(10,20)'' is created by sending the message ==@== to the object ==10== with the argument ==20==
-
 
 ${slide:title=Object Creation}$
 
@@ -96,7 +100,7 @@ Sending instance-creation messages to a class
   Tomagoshi withHunger: 10
 ]]]
 
-This executes a class method (see later)
+This executes a class method
 
 
 ${slide:title=Less is More :)}$
@@ -105,10 +109,10 @@ ${slide:title=Less is More :)}$
 - No static methods
 - No type declarations
 - No interfaces
-- No packages/private/protected modifiers
+- No package/private/protected modifiers
 - No parametrized types
 - No boxing/unboxing
-- still ''really'' powerful :)
+- still ""really"" powerful :)
 
 
 ${slide:title=Summary}$

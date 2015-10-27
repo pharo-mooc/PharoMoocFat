@@ -125,7 +125,7 @@
 \defbeamertemplate*{frametitle}{MoocLab}[1][left]
 {
   \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
-  \@tempdima=\textwidth%
+  \@tempdima=\originaltextwidth%
   \advance\@tempdima by\beamer@leftmargin%
   \advance\@tempdima by\beamer@rightmargin%
   \begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
