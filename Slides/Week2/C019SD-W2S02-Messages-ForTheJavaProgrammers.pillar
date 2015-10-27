@@ -1,61 +1,78 @@
 {
-    "title":"Messages for Java Programmers"
+    "title":"Messages for Java Programmers",
+    "slidesid" : "W2S02"
 }
 
-${slide:title=Only Objects and Messages|label=objectives}$
+${slide:title=Only Objects and Messages}$
 
 Remember we ""only"" manipulate objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compiler, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
 
 and we send messages, messages, messages and messages (and closures)
 
 
-${slide:title=Equivalence|label=objectives}$
+${slide:title=Equivalence}$
 
 In Java
 [[[
-	ArrayList<String> strings = new ArrayList<String>();
+    ArrayList<String> strings = new ArrayList<String>();
 ]]]
 
 in Pharo
-[[[language=smalltalk
+[[[
 strings := ArrayList new.
 ]]]
 
+- no static typing
+- no generics
 
-${slide:title=Equivalence|label=objectives}$
+${slide:title=Equivalence}$
 
 In Java
-[[[
+[[[language=java
 Thread regThread = new Thread(
-       new Runnable() {
-         public void run() {
-                this.doSomething();} });
- regThread.start();
+  new Runnable() {
+    @Override
+    public void run() {
+      this.doSomething();
+    }
+  });
+regThread.start();
 ]]]
 
 In Pharo
-[[[language=smalltalk
-[self doSomething] fork.
+[[[
+[ self doSomething ] fork
+]]]
+
+${slide:title=Equivalence}$
+
+In Java 8
+[[[language=java
+new Thread(() -> doSomething()).start();
+]]]
+
+In Pharo
+[[[
+[ self doSomething ] fork
 ]]]
 
 
-${slide:title=Three kind of messages|label=objectives}$
+${slide:title=Three Kinds of Messages}$
 
 - Unary
-[[[language=smalltalk
-5 factorial
+[[[
+5 factorial.
 Transcript cr
 ]]]
 
 - Binary
-[[[language=smalltalk
+[[[
 3 + 4
 ]]]
 
-- Keyword-based messages
-[[[language=smalltalk
-2 between: 0 and: 5
-
+- Keyword-based
+[[[
+2 between: 0 and: 5.
 Transcript show: 'hello world' ; cr
 ]]]
 
@@ -63,51 +80,51 @@ Transcript show: 'hello world' ; cr
 
 ${slide:title=Keyword Messages}$
 
-[[[language=Smalltalk
+In Java
+[[[language=java
+    receiver.keyword1(argument1, argument2)
+]]]
+
+In Pharo
+[[[
     anObject keyword1: argument1 keyword2: argument2
-]]]    
-
-equivalent to
-
-[[[language=Smalltalk
-    receiver.keyword1keyword2(argument1, argument2)
 ]]]
 
+${slide:title=Keyword Messages for Java developers}$
 
-${slide:title=Keyword Messages for Javaists}$
-
-[[[language=Smalltalk
+In Java
+[[[
     postman.send(mail,recipient);
 ]]]
 
-${slide:title=Keyword Messages for Javaists}$
+${slide:title=Keyword Messages for Java developers}$
 
-[[[language=Smalltalk
+[[[
     postman.send(mail,recipient);
     postman . send ( mail , recipient );
 ]]]
 
 
-${slide:title=Keyword Messages for Javaists}$
+${slide:title=Keyword Messages for Java developers}$
 
-[[[language=Smalltalk
+[[[
     postman.send(mail,recipient);
     postman . send ( mail , recipient );
     postman send mail recipient
 ]]]
 
-${slide:title=Keyword Messages for Javaists}$
+${slide:title=Keyword Messages for Java developers}$
 
-[[[language=Smalltalk
+[[[
     postman.send(mail,recipient);
     postman . send ( mail , recipient );
     postman send mail recipient
     postman send mail to recipient
 ]]]
 
-${slide:title=Keyword Messages for Javaists}$
+${slide:title=Keyword Messages for Java developers}$
 
-[[[language=Smalltalk
+[[[
     postman.send(mail,recipient);
     postman . send ( mail , recipient );
     postman send mail recipient
@@ -116,54 +133,59 @@ ${slide:title=Keyword Messages for Javaists}$
 ]]]
 
 
-${slide:title=Keyword Messages for Javaists}$
+${slide:title=Keyword Messages for Java developers}$
 
-[[[language=Smalltalk
+In Java
+[[[language=java
     postman.send(mail,recipient);
-    
+]]]
+
+In Pharo
+[[[
     postman send: mail to: recipient
 ]]]
 
-- The message is named ==send:to:== 
-- It is sent to ==postman==
-- With two arguments: ==mail== and ==recipient==
+- The message
+-- is named ==send:to:==
+-- is sent to ==postman==
+-- includes two arguments (==mail== and ==recipient==)
 
 ${slide:title=Conditionals are just messages}$
 
-Booleans are objects
-Conditional are messages sent to booleans or block
+- Booleans are objects
+- Conditional expressions are messages sent to booleans or blocks
 
-[[[language=smalltalk
-	initialAnswer := fullName isEmptyOrNil
-		ifTrue: [ 'FirstnameLastname' translated ]
-		ifFalse: [ fullName ]
+[[[
+    initialAnswer := fullName isEmptyOrNil
+        ifTrue: [ 'FirstnameLastname' translated ]
+        ifFalse: [ fullName ]
 ]]]
 
-${slide:title=Loops are just messages sent to objects}$
+${slide:title=Loops: Messages Sent to Objects}$
 
-[[[language=smalltalk
+[[[
 4 timesRepeat: [ self doSomething ]
 ]]]
 
-[[[language=smalltalk
+[[[
 0 to: 100 do: [ :i | ... ]
 ]]]
 
-for (i=0,i<101,i=i+3)
-[[[language=smalltalk
+[[[
 0 to: 100 by: 3 do: [ :i | ... ]
 ]]]
 
-Iterator
-[[[language=smalltalk
-aCol do: [:each | ... ]
+[[[
+aCollection do: [ :each | ... ]
 ]]]
-
-
 
 ${slide:title=Summary}$
 
-- Three kinds of messages: unary, binary and keywords
+- 3 kinds of messages: unary, binary and keywords
 - () > unary > binary > keywords
 - Conditionals are messages
-- Loops too.
+- Loops too
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile1Slide.sh Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.pillar"
+% End:
