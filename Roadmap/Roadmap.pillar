@@ -6,7 +6,7 @@ This document summarizes the whole MOOC planning week by week.
 It is best to do the activities exactly in the order they are presented.
 You will also see that 4 kinds of activities are distinguished:
 
-- [""Video""] means that you should watch a video explaining some notions described in slides. You will find a handout version of all slides in this document. We invite you to always watch videos while taking notes on the slides.
+- [""Lecture""] means that you should watch a video explaining some notions described in slides. You will find a handout version of all slides in this document. We invite you to always watch videos while taking notes on the slides.
 - [""Live""] means that you should watch a video demonstrating a coding ession in Pharo. 
 - [""Redo""] means that you should watch a Live video and apply, in your Pharo installation, what is demonstrated.
 - [""Todo""] means that you should do an exercise in your Pharo installation. The exercise may be described by a document and/or a video.
@@ -23,52 +23,52 @@ You will also see that 4 kinds of activities are distinguished:
 
 !!Week 1: Welcome on Board and Syntax Discovery
 
-- [Video 2min] Objectives of this Mooc 
+- [Lecture 2min] Objectives of this Mooc 
 -- Presenter: ?
 -- Status: Done
--- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S01-ObjectivesMooc.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S01-ObjectivesMooc.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
 
-- [Video 6min] What is Pharo?
+- [Lecture 6min] What is Pharo?
 -- Presenter: Damien
 -- Status: Done
--- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S02-WhatIsPharo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S02-WhatIsPharo.pdf* NoHTML
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S02-WhatIsPharo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S02-WhatIsPharo.pdf* NoHTML
 
-- [Video 6min] Pharo's Vision
+- [Lecture 6min] Pharo's Vision
 -- Presenter: Stef
 -- Status: To review
--- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S03-PharoVision.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S03-PharoVision.pdf* NoHTML
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S03-PharoVision.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S03-PharoVision.pdf* NoHTML
 
 - [Live 6min] Pharo installation, the notion of Pharo image, Saving the image
 -- Presenter: Damien
 -- Status: To be done 
--- Files: Video(TBD) 
+-- Files: Lecture(TBD) 
 -- Windows, Linux and Mac?
 
 - [Live 6min] Hello World Example 
 -- Presenter: ?
 -- Status: To be done
--- Files: Video(TBD) 
+-- Files: Lecture(TBD) 
 
-- [Video 6min] Pharo's Model in a Nushell
+- [Lecture 6min] Pharo's Model in a Nushell
 -- Presenter: Luc
 -- Status: Done
--- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.html*
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.html*
 
-- [Video 6min] Pharo's Syntax in a Nutshell
+- [Lecture 6min] Pharo's Syntax in a Nutshell
 -- Presenter: Stef
 -- Status: Done
--- Files: Video(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.html*
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.html*
 
 - [Redo 6min] Coding a Counter
 -- Presenter: Luc
 -- Status: To be done
--- Files: Video(TBD) 
+-- Files: Lecture(TBD) 
 -- Saving the Image only
 
 - [Redo 6min] Coding a Counter: the Pharo Way
 -- Presenter: Damien
 -- Status: To be done
--- Files: Video(TBD) 
+-- Files: Lecture(TBD) 
 
 - [Todo] Coding XXXXX 
 -- Presenter: ?
@@ -81,65 +81,65 @@ You will also see that 4 kinds of activities are distinguished:
 
 !!Week 2: Pharo Syntax, Blocks and Inspector 
 
-- [Video 6min] Messages
+- [Lecture 6min] Messages
 -- Presenter: Stef
 -- Status: To review
--- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S01-Messages.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S01-Messages.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S01-Messages.html*
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S01-Messages.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S01-Messages.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S01-Messages.html*
 
-- [Video 3min] Messages for Java programmer
+- [Lecture 3min] Messages for Java programmer
 -- Presenter: Damien
 -- Status: To review
--- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.html*
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.html*
 
-- [Video 3min] Messages Precedence
+- [Lecture 3min] Messages Precedence
 -- Presenter: Stef
 -- Status: To review
--- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S03-Messages-Precedence.html*
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S03-Messages-Precedence.html*
 
-- [Video 6min] Messages Sequence
+- [Lecture 6min] Messages Sequence
 -- Presenter: Stef
 -- Status: To review
--- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S04-Messages-Sequence.html*
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S04-Messages-Sequence.html*
 
 - [Live 6min] Inspector: Inspecting a Counter 
 -- Presenter: Luc
 -- Status: To be done
--- Files: Video(TBD) 
+-- Files: Lecture(TBD) 
 
 - [Live 6min] Publishing Code on smalltalkhub.com
 -- Presenter: Damien
 -- Status: To be done
--- Files: Video(TBD) 
+-- Files: Lecture(TBD) 
 
-- [Video 6min] Blocks
+- [Lecture 6min] Blocks
 -- Presenter: Luc
 -- Status: To review
--- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S07-Blocks.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S07-Blocks.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S07-Blocks.html*
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S07-Blocks.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S07-Blocks.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S07-Blocks.html*
 
-- [Video 6min] Blocks for Loops
+- [Lecture 6min] Blocks for Loops
 -- Presenter: Luc
 -- Status: To review
--- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S08-Blocks-Loops.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S08-Blocks-Loops.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S08-Blocks-Loops.html*
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S08-Blocks-Loops.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S08-Blocks-Loops.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S08-Blocks-Loops.html*
 
-- [Video 6min] Loops
+- [Lecture 6min] Loops
 -- Presenter: Luc
 -- Status: To review
--- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S09-Loops.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S09-Loops.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S09-Loops.html*
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S09-Loops.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S09-Loops.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S09-Loops.html*
 
-- [Video 6min] Booleans and Conditions
+- [Lecture 6min] Booleans and Conditions
 -- Presenter: Luc
 -- Status: To review
--- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S10-BooleansAndCondition.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S10-BooleansAndCondition.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S10-BooleansAndCondition.html*
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S10-BooleansAndCondition.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S10-BooleansAndCondition.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S10-BooleansAndCondition.html*
 
-- [Video 6min] Parenthesis vs Square Brackets
+- [Lecture 6min] Parenthesis vs Square Brackets
 -- Presenter: Luc
 -- Status: To review
--- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.html*
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.html*
 
-- [Video 6min] The Essence Of Dispatch through an Exercice
+- [Lecture 6min] The Essence Of Dispatch through an Exercice
 -- Presenter: Stef
 -- Status: To review
--- Files: Video(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S12-Design-EssenceOfDispatchExo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S12-Design-EssenceOfDispatchExo.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S12-Design-EssenceOfDispatchExo.html*
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S12-Design-EssenceOfDispatchExo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S12-Design-EssenceOfDispatchExo.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S12-Design-EssenceOfDispatchExo.html*
 
 - [Todo] Some Simple Exercices on the Syntax
 -- Status: To be done
@@ -152,7 +152,7 @@ You will also see that 4 kinds of activities are distinguished:
 - [Redo 6min] Live Programming a Turtle in the Inspector
 -- Presenter: ?
 -- Status: To be done
--- Files: Video(TBD) 
+-- Files: Lecture(TBD) 
 
 - [Todo] Ticket Model (User/EventParticipant/Event)
 -- Status: To be done
@@ -163,20 +163,20 @@ You will also see that 4 kinds of activities are distinguished:
 
 !!Week 3: Design, Class Methods
 
-- [Video 6min] Design Essence of Dispatch: the case of Not
+- [Lecture 6min] Design Essence of Dispatch: the case of Not
 -- Presenter: Stef
 -- Status: To review
--- Files: Video(TBD) W3S1-Design-EssenceOfDispatchNot
+-- Files: Lecture(TBD) W3S1-Design-EssenceOfDispatchNot
 
-- [Video 6min] What can we learn from the not case
+- [Lecture 6min] What can we learn from the not case
 -- Presenter: Stef
 -- Status: To review
--- Files: Video(TBD) W3S2-Design-EssenceOfDispatch
+-- Files: Lecture(TBD) W3S2-Design-EssenceOfDispatch
 
-- [Video 6min] Teapot
+- [Lecture 6min] Teapot
 -- Presenter: Luc
 -- Status: To review
--- Files: Video(TBD) W3S3-TeapotAsAPretext 
+-- Files: Lecture(TBD) W3S3-TeapotAsAPretext 
 
 - [Todo] Live: trouver de l'information avec le Finder	
 -- method
@@ -184,15 +184,15 @@ You will also see that 4 kinds of activities are distinguished:
 -- examples
 -- scan all code About...
 
-- [Video 6min] Variables
+- [Lecture 6min] Variables
 -- Presenter: ?
 -- Status: To review
--- Files: Video(TBD) W3S5-Basic-Variables.pillar
+-- Files: Lecture(TBD) W3S5-Basic-Variables.pillar
 
 - [Todo] Live: Tools to find information: implementors, senders		
 -- comment on peut lire un fichier png
 
-- [Video 6min] Class and methods	6 min   (Luc may move it elsewhere)
+- [Lecture 6min] Class and methods	6 min   (Luc may move it elsewhere)
 -- Presenter:
 -- Status: TBD
 -- Object model: 								
@@ -201,23 +201,23 @@ You will also see that 4 kinds of activities are distinguished:
 	no constructor
 	no operator
 
-- [Video 6min] W3S7-BasicClassMethods
+- [Lecture 6min] W3S7-BasicClassMethods
 -- Presenter: Stephane
 -- Status: To review
--- Files: Video(TBD) W3S7-ClassMethods			
+-- Files: Lecture(TBD) W3S7-ClassMethods			
 
-- [Video 6min] W3S7-ClassMethodsAtWork
+- [Lecture 6min] W3S7-ClassMethodsAtWork
 -- Presenter: Damien
 -- Status: To review 
--- Files: Video(TBD) W3S8-ClassMethodsAtWork.pillar		
+-- Files: Lecture(TBD) W3S8-ClassMethodsAtWork.pillar		
 
 - [Redo] Live: Dice Game DSL dice
 -- Presenter: ?
--- Status: Video(TBD)
+-- Status: Lecture(TBD)
 
 - [Redo] Live: Dice Game DSL handle
 -- Presenter: ?
--- Status: Video(TBD)
+-- Status: Lecture(TBD)
 
 !UNDER Construction after this point
 
@@ -239,15 +239,15 @@ You will also see that 4 kinds of activities are distinguished:
 
 - Basic-ArraySetOrderedCollection - First Glance at Collections (OrderedCollection, Array, Set)
 
-- [Video 6min] W4S-Iterators
+- [Lecture 6min] W4S-Iterators
 -- Presenter: Stef
 -- Status: To Review
--- Files: Video(TBD) Week4/C019SD-W4S-Iterators.pillar
+-- Files: Lecture(TBD) Week4/C019SD-W4S-Iterators.pillar
 
-- [Video 6min] W4S-Streams
+- [Lecture 6min] W4S-Streams
 -- Presenter: Damien
 -- Status: To Review
--- Files: Video(TBD) W4S-Stream.pillar		
+-- Files: Lecture(TBD) W4S-Stream.pillar		
 
 
 - 3 min PharoWebStack: 4/5 slides
@@ -277,10 +277,10 @@ You will also see that 4 kinds of activities are distinguished:
 
 !!Week 5: Exception, Debugging and Reflection
 
-- [Video 6min] W3S10-UnderstandingClassMethods.pillar
+- [Lecture 6min] W3S10-UnderstandingClassMethods.pillar
 -- Presenter: Stef
 -- Status: Doing it may be should move this one to another week (and after the lookup is done)
--- Files: Video(TBD) W3S10-UnderstandingClassMethods.pillar			
+-- Files: Lecture(TBD) W3S10-UnderstandingClassMethods.pillar			
 
 - 6 Live Debugging of Seaside Web Applications 
 --	 ==10 + 20 + error +== debugger
