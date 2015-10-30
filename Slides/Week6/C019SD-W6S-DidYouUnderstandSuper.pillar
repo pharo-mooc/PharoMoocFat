@@ -1,76 +1,60 @@
 {
-    "title":"Did you really understand super?"
+  "title":"Did you really understand super?"
 }
 
 ${slide:title=Puzzle}$
 
 [[[
-    Dice class >> new
+Dice class >> new
 
-        | inst |
-        inst := super new. 
-        inst initialize.
-        ^ inst
+  | inst |
+  inst := super new. 
+  inst initialize.
+  ^ inst
 ]]]
 
-We execute ==Dice new==
+We execute the following expression: ==Dice new== 
 
-${slide:title=Puzzle}$
+${slide:title=Questions}$
 
 [[[
-    Dice class >> new
+Dice class >> new
 
-        | inst |
-        inst := super new. 
-        inst initialize.
-        ^ inst
+  | inst |
+  inst := super new. 
+  inst initialize.
+  ^ inst
 ]]]
 
+Explain this code
+- What is ==inst==?
 - What is ==super==?
-- What is ==inst==
 
 
 ${slide:title=Hint}$
 
 [[[
-    Dice class >> new
+Dice class >> new
 
-        | inst |
-        inst := super new. 
-        inst initialize.
-        ^ inst
+  | inst |
+  inst := super new. 
+  inst initialize.
+  ^ inst
 ]]]
 
 - What is ==super==?
 - No ==super== is not the superclass
 - No ==inst== is not an instance of the superclass
-
-
-${slide:title=Solution}$
-
-[[[
-    Dice class >> new
-
-        | inst |
-        inst := super new. 
-        inst initialize.
-        ^ inst
-]]]
-
-- What is ==super==?
-- No ==super== is not the superclass
-- No ==inst== is not an instance of the superclass
-
 
 ${slide:title=Hint 2}$
 
-[[[language=smalltalk
-    Dice class >> new
+[[[
+Dice class >> new
 
-        | inst |
-        inst := super new. 
-        inst initialize.
-        ^ inst
+  | inst |
+  inst := super new. 
+  inst initialize.
+  ^ inst
 ]]]
 
 Remember: 
@@ -86,15 +70,21 @@ ${slide:title=Remember}$
 ${slide:title=Solution}$
 
 [[[language=smalltalk
-    Dice class >> new
+Dice class >> new
 
-        | inst |
-        inst := super new. 
-        inst initialize.
-        ^ inst
+  | inst |
+  inst := super new. 
+  inst initialize.
+  ^ inst
 ]]]
 
 - ==super== is the receiver: the class ==Dice==
-- We look for ==new== in the super class of the class ==Dice==
+- We look for ==new== in the superclass of the class ==Dice==
 - Once found we apply to the receiver ==Dice==
 - We get an instance of the class ==Dice== and send it initialize and return
+
+
+${slide:title=Summary}$
+
+- Now you should really understand ==super== :)
+- ==super== is the receiver of the message and the method lookup starts in the superclass of the class  containing the expression
