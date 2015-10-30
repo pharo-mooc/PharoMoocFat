@@ -24,7 +24,7 @@ You will also see that 4 kinds of activities are distinguished:
 !!Week 1: Welcome on Board and Syntax Discovery
 
 - [Lecture 2min] Objectives of this Mooc 
--- Presenter: ?
+-- Presenter: Stef
 -- Status: Done
 -- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S01-ObjectivesMooc.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
 
@@ -38,14 +38,13 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To review
 -- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S03-PharoVision.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S03-PharoVision.pdf* NoHTML
 
-- [Live 6min] Pharo installation, the notion of Pharo image, Saving the image
--- Presenter: Damien
+- [Lecture 6min] The notion of Pharo image / Saving the image
+-- Presenter: Luc
 -- Status: To be done 
 -- Files: Lecture(TBD) 
--- Windows, Linux and Mac?
 
-- [Live 6min] Hello World Example 
--- Presenter: ?
+- [Live 3min] Hello World Example 
+-- Presenter: Luc
 -- Status: To be done
 -- Files: Lecture(TBD) 
 
@@ -157,8 +156,6 @@ You will also see that 4 kinds of activities are distinguished:
 - [Todo] Ticket Model (User/EventParticipant/Event)
 -- Status: To be done
 -- Files: ExercicesSubject(TBD) 
-
-
 
 
 !!Week 3: Design, Class Methods
