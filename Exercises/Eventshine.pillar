@@ -1,0 +1,110 @@
+!The EventShine application
+
+The ""whole"" app is committed on sthub
+
+
+!!Week 1
+
+!!!Prerequisites
+
+- doit, printit
+- inspectit
+
+!!!The ESUser class
+- Create a ==ESUser== class in the ==EventShine== package
+- Add 2 ivs on this class: email and name
+- Add a method named ==setName:email:==
+- Create an instance and use the previous method 
+- Add a method ==gravatarUrl==
+-- cf. code
+
+[[[
+bobUser := ESUser new setName: 'Bob' email: 'bob@leponge.fr' 
+]]]
+
+!!Week 2
+
+
+!!!The ESEvent class
+
+- Create a ==ESvent== class in the ==EventShine== package
+- Add 4 ivs on this class: name, date, location (a point representing gps coordinates), creator (anESUser)
+- Add a method for initialisation of all ivs
+
+[[[
+	myParty := ESVent new setName: 'Pharo Party' date: '2015/12/04' asDate gpsCoordinates: 50.6@3.14 creator: bobUser
+]]]
+
+- Create an instance and use the previous method 
+- Add a method ==openstreetmapUrl==
+-- cf. code
+
+!!!Good practice: redefine ==printOn:==
+
+- redefine ==printOn:== on ESUser and ESEvent to have a nice string rendering of these objects
+- inspecting these objects is now easier to understand
+
+!!Week 3
+
+
+!!!Extend ESEvent
+
+- We want that an ==ESEvent== knows its participants
+[[[
+	myParty := ESEvent new ....
+	myParty addParticipant: bobUser.
+	...
+	myParty participants
+	> #( 'Bob <bob@sponge.world>' )
+
+]]]
+
+% -- start by adding an iv named ==participants== on ==ESEvent==
+% -- initialize it by redefining the ==initialise== method
+% [[[
+% ESEvent >> intialize
+% 	super initialize.
+% 	participants := Set new
+% ]]]
+% -- finally add ==addParticipant:==
+% [[[
+% ESEvent >> addParticipant: aUser
+% 	self participants add: aUser
+% ]]]
+% -- add the accessor
+% [[[
+% ESEvent >> addParticipant: aUser
+% 	self participants add: aUser
+% ]]]
+
+!!!Create ESRepository
+
+- create a ==ESRepository== class with 2 ivs: ==users== and ==events==
+- add a ==addDefaultData== on  ==ESRepository== that adds 4 users and 4 events
+- add a class-side method named default which returns an instance of ESRepository containing default data
+
+[[[
+	ESRepository default
+]]]
+
+!!!Extend ESEvent
+
+- add method ==hasParticipant:== which test is the user passed in parameter is a participant or not
+
+!!!Extend ESUser
+
+We want that a User knows the events he has created and the events he registered to.
+
+- add a method named ==organizedEvents== on ==ESUser== which returns the collection of events organized by the current user
+
+[[[
+ESUser >> organizedEvents
+....
+]]]
+
+- add a method named ==attendedEvents== which returns the collection of events the current user is regiterd to.
+
+
+
+
+
