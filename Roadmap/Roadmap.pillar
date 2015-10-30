@@ -240,7 +240,7 @@ You will also see that 4 kinds of activities are distinguished:
 - [Lecture 6min] First Glance at Collections (OrderedCollection, Array, Set)
 -- Presenter: Stef
 -- Status: To Review
--- Files: Lecture(TBD) Week4/Basic-ArraySetOrderedCollection - 
+-- Files: Lecture(TBD) Week4/C019SD-W4S-Basic-ArraySetOrderedCollection - 
 
 - [Lecture 6min] W4S-Iterators
 -- Presenter: Stef
@@ -329,7 +329,11 @@ You will also see that 4 kinds of activities are distinguished:
 - 6  Strings, characters, symbols
 -- Booleans
 
-- 6 Did you read understand super method?
+
+- [Lecture 6min]  Did you read understand super method?
+-- Presenter: Stef
+-- Status: To review
+-- Files: Lecture(TBD) Slides/Week6/C019SD-W6S-DidYouUnderstandSuper.pillar
 
 - 6 Advanced Classes
 -- class instance variables/ class var
@@ -363,6 +367,7 @@ You will also see that 4 kinds of activities are distinguished:
 - 6 Design-ClassAsObjects Class as objects					
 -- no need for factory = static methods are ....
 -- check the commandLineHandler in the image
+-- Deja fait mais on peut le bouger la effectivement
 
 - 6 Double dispatch on paper	
 -- Slides to be done
