@@ -2,24 +2,32 @@
 	"title":"An overview of essential collections"
 }
 
-${slide:title=Collections In a Nutshell|label=arrays}$
+${slide:title=What you will learn}$
+
+- The basic collections
+- To program collection
+
+${slide:title=Collection common attributes}$
 
 - Pharo has a rich hierarchy of collection
 - Common API: ==size==, ==do:==, ==select:==, ==includes:==, ==collect:==...
 - First element is at index ==1==
 - Can contain any object
-- Most common collections:
--- ==OrderedCollection== (dynamically growing)
--- ==Array== (fixed size, direct access)
--- ==Set== (no duplicates)
--- ==Dictionary== (key-based, ''aka.'' maps)
-
-${slide:title=Essential Collection Inheritance Hierarchy In a Nutshell}$
-
-+>file://figures/CollectionHierarchyForIntroChapter.png|width=80+
 
 
-${slide:title=Common API|label=arrays}$
+${slide:title=Most common collections}$
+
+- ==OrderedCollection== (dynamically growing)
+- ==Array== (fixed size, direct access)
+- ==Set== (no duplicates)
+- ==Dictionary== (key-based, ''aka.'' maps)
+
+${slide:title=Essential Collection In a Nutshell}$
+
++>file://figures/CollectionHierarchyForIntroChapter.png|width=110+
+
+
+${slide:title=Common API Overview}$
 
 - Most iterators work on all collections
 
@@ -36,28 +44,40 @@ ${slide:title=Creating variable size objects}$
 - Message ==new== instantiates one object
 - Message ==new: size== creates an object specifying its size
 
-[[[language=smalltalk
-    Array new: 4
-    > #(nil nil nil nil)
-
-    Array new: 2
-    > #(nil nil)
-	
-    (OrderedCollection new: 1000) capacity
-    > 1000
-	
-    OrderedCollection withAll: #(7 3 13)
-    > an OrderedCollection(7 3 13)
-	
-    Set withAll: #(7 3 13)
-    a Set( 7 3 13)
+[[[
+  Array new: 4
+  > #(nil nil nil nil)
 ]]]
 
-${slide:title=Creation variants with default value|label=arrays}$
+[[[
+  Array new: 2
+  > #(nil nil)
+]]]
 
-[[[language=smalltalk
-    OrderedCollection new: 5 withAll: 'a' 
-    > an OrderedCollection('a' 'a' 'a' 'a' 'a')
+
+
+[[[	
+  (OrderedCollection new: 1000) capacity
+  > 1000
+]]]
+
+${slide:title=With Specific Elements}$
+
+[[[	
+  OrderedCollection withAll: #(7 3 13)
+  > an OrderedCollection(7 3 13)
+]]]
+
+[[[	
+  Set withAll: #(7 3 13)
+  a Set( 7 3 13)
+]]]
+
+${slide:title=Creation  with Default Value}$
+
+[[[
+  OrderedCollection new: 5 withAll: 'a' 
+  > an OrderedCollection('a' 'a' 'a' 'a' 'a')
 ]]]
 
 ${slide:title=Arrays}$
@@ -67,63 +87,66 @@ ${slide:title=Arrays}$
 - Has literal syntax: ==#( ... )== 
 - Can also be created using ==new:== 
 
-[[[language=smalltalk
-    #('Calvin' 'hates' 'Suzie') size
-    > 3
+[[[
+  #('Calvin' 'hates' 'Suzie') size
+  > 3
 ]]]
 
 is equivalent to 
 
-[[[language=smalltalk
-    (Array new 
-       at: 1 put: 'Calvin'; 
-       at: 2 put: 'hates'; 
-	   at: 3 put: 'Suzie') size
-    > 3
+[[[
+  ((Array new: 3) 
+    at: 1 put: 'Calvin'; 
+    at: 2 put: 'hates'; 
+    at: 3 put: 'Suzie') size
+  > 3
 ]]]
 
 ${slide:title=Accessing elements}$
 
 Returning the size of the collection
-[[[language=smalltalk
-    #('Calvin' 'hates' 'Suzie') size
-    > 3
+[[[
+  #('Calvin' 'hates' 'Suzie') size
+  > 3
 ]]]
 
-Accessing the second element of the receiver using ==at: anIndex==
-[[[language=smalltalk
-    #('Calvin' 'hates' 'Suzie') at: 2
-    > 'hates'
+Accessing the 2nd element of the receiver using ==at: anIndex==
+[[[
+  #('Calvin' 'hates' 'Suzie') at: 2
+  > 'hates'
 ]]]
 
-[[[language=smalltalk
-    #('Calvin' 'hates' 'Suzie') at: 55
-    > Error
+- Remember collection index starts at 1
+
+[[[
+  #('Calvin' 'hates' 'Suzie') at: 55
+  > Error
 ]]]
+
 
 ${slide:title=Changing elements}$
 
 Use the message ==at: anIndex put: anObject== 
 
 Accessing the second element of the receiver
-[[[language=smalltalk
-    #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
+[[[
+  #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
 ]]]
 
 
 ${slide:title=Literal Arrays}$
 
-[[[language=smalltalk
-    #(45 38 1300 8) class
-    > Array
+[[[
+  #(45 38 1300 8) class
+  > Array
 ]]]
 
 - Literal arrays are created by the parser: when the expression is read, i.e. when the method is compiled, not the method is executed.
 
 
-[[[language=smalltalk
-    #(45 'milou' 1300 true #tintin)
-    > #(45 'milou' 1300 true #tintin)
+[[[
+  #(45 'milou' 1300 true #tintin)
+  > #(45 'milou' 1300 true #tintin)
 ]]]
 
 - Literal arrays contains objects that have a textual (literal) representation: numbers, strings, nil, symbols
@@ -134,34 +157,34 @@ ${slide:title=Literals Arrays are Array instances}$
 Literal arrays are equivalent to a dynamic version.
 
 - A literal array
-[[[language=smalltalk
-    #(45 38 1300 8) 
-    > #(45 38 'milou' 8) 
+[[[
+  #(45 38 1300 8) 
+  > #(45 38 'milou' 8) 
 ]]]
 - An array
-[[[language=smalltalk
-    Array with: 45 with: 38 with: 'milou' with: 8
-    > #(45 38 'milou' 8) 
+[[[
+  Array with: 45 with: 38 with: 'milou' with: 8
+  > #(45 38 'milou' 8) 
 ]]]
 
 
 ${slide:title=Array short syntax}$
 
 Defining array is tedious 
-[[[language=smalltalk
-    | array | 
-    array := (Array new: 2). 
-    array 
-         at: 1 put: (Point x: 10 y: 20); 
-         at: 2 put: (Point x: 10 y: 20).
-     array
+[[[
+  | array | 
+  array := (Array new: 2). 
+  array 
+     at: 1 put: (Point x: 10 y: 20); 
+     at: 2 put: (Point x: 10 y: 20).
+   array
 ]]]
 
 - =={ element . element  . element }== is syntactic sugar to create arrays
 
-[[[language=smalltalk
-    {(10@20) . (10@20)}
-    {Point x: 10 y: 20 . Point x: 10 y: 20}
+[[[
+  {(10@20) . (10@20)}
+  {Point x: 10 y: 20 . Point x: 10 y: 20}
 ]]]
 
 ${slide:title= Slide title help}$
@@ -170,16 +193,16 @@ ${slide:title= Slide title help}$
 
 Pay attention: =={}== executes expressions while #() not.
 [[[
-    {(10@20) . (10@20)} size 
-    > 2
-    {(10@20) . (10@20)}
-    > {(10@20) . (10@20)}
+  {(10@20) . (10@20)} size 
+  > 2
+  {(10@20) . (10@20)}
+  > {(10@20) . (10@20)}
 
-    #((10@20) . (10@20)) size 
-    > 3
-    #((10@20) . (10@20))
-    > #(#(10 #@ 20) #'.' #(10 #@ 20))
-    #((10@20) . (10@20)) first class
+  #((10@20) . (10@20)) size 
+  > 3
+  #((10@20) . (10@20))
+  > #(#(10 #@ 20) #'.' #(10 #@ 20))
+  #((10@20) . (10@20)) first class
 	> Array
 ]]]
 
@@ -190,31 +213,31 @@ ${slide:title= Slide title help please}$
 \{\} vs \#()
 
 There is no message executed when a literal array is created. 
-[[[language=smalltalk
-    #(45 + 38 1300 8) 
-    > #( 45 #+ 38 1300 8)
+[[[
+  #(45 + 38 1300 8) 
+  > #( 45 #+ 38 1300 8)
 	
-    #(45 + 38 1300 8) size
-    > 5
+  #(45 + 38 1300 8) size
+  > 5
 ]]]
 
 Arrays created with message sends are created during program execution.
-[[[language=smalltalk
-    Array with: 45 + 38 with: 1300 with: 8
-    > #( 83 . 1300 . 8)
+[[[
+  Array with: 45 + 38 with: 1300 with: 8
+  > #( 83 . 1300 . 8)
 
-    { 45 + 38 . 1300 . 8 }
-    > #( 83 . 1300 . 8)
+  { 45 + 38 . 1300 . 8 }
+  > #( 83 . 1300 . 8)
 ]]]
 
 ${slide:title=First element starts at 1 |label=arrays}$
 
-[[[language=smalltalk
-    #('Calvin' 'hates' 'Suzie') at: 2
-    > 'hates'
+[[[
+  #('Calvin' 'hates' 'Suzie') at: 2
+  > 'hates'
 	
-    #('Calvin' 'hates' 'Suzie') asOrderedCollection  at: 2 
-    > 'hates'
+  #('Calvin' 'hates' 'Suzie') asOrderedCollection  at: 2 
+  > 'hates'
 ]]]
 
 
@@ -222,28 +245,28 @@ ${slide:title=First element starts at 1 |label=arrays}$
 ${slide:title=Variants|label=arrays}$
 
 - An array of symbols:
-[[[language=smalltalk
-    #(#calvin #hobbes #suzie)	
-    > #(#calvin #hobbes #suzie)	
-    #(calvin hobbes suzie)
-    > #(#calvin #hobbes #suzie)
+[[[
+  #(#calvin #hobbes #suzie)	
+  > #(#calvin #hobbes #suzie)	
+  #(calvin hobbes suzie)
+  > #(#calvin #hobbes #suzie)
 ]]]
 
 - An array of strings:
-[[[language=smalltalk
-    #('calvin' 'hobbes' 'suzie')
-    > #('calvin' 'hobbes' 'suzie')
+[[[
+  #('calvin' 'hobbes' 'suzie')
+  > #('calvin' 'hobbes' 'suzie')
 ]]]
 
 ${slide:title=Collection can contain heterogenous objects|label=arrays}$
 
 - Heterogenous
-[[[language=smalltalk
-    #('calvin' (1 2 3))
-    > #('calvin' #(1 2 3))
+[[[
+  #('calvin' (1 2 3))
+  > #('calvin' #(1 2 3))
 	
-    #('lulu' 1.22 1)
-    > #('lulu' 1.22 1)
+  #('lulu' 1.22 1)
+  > #('lulu' 1.22 1)
 ]]]
 
 ${slide:title=Byte Arrays |label=arrays}$
@@ -256,20 +279,20 @@ ${slide:title=OrderedCollection|label=arrays}$
 - Growing size
 - ==add:==, ==remove:==
 
-[[[language=smalltalk
-    | ordCol |
-    ordCol := OrderedCollection new.
-    ordCol add: 'Reef'; add: 'Pharo'; addFirst: 'Pharo'.
-    ordCol 
-    > an OrderedCollection('Pharo' 'Reef' 'Pharo')
+[[[
+  | ordCol |
+  ordCol := OrderedCollection new.
+  ordCol add: 'Reef'; add: 'Pharo'; addFirst: 'Pharo'.
+  ordCol 
+  > an OrderedCollection('Pharo' 'Reef' 'Pharo')
 	ordCol add: 'Seaside'.
 	ordCol
 	> an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Seaside')
 ]]]
 
-[[[language=smalltalk
-    #('Pharo' 'Reef' 'Pharo' 'Pharo') asOrderedCollection
-    > an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Pharo')
+[[[
+  #('Pharo' 'Reef' 'Pharo' 'Pharo') asOrderedCollection
+  > an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Pharo')
 ]]]
 
 ${slide:title=Set|label=set}$
@@ -278,9 +301,9 @@ ${slide:title=Set|label=set}$
 - Growing size
 - ==add:==, ==remove:==
 
-[[[language=smalltalk
-    #('Pharo' 'Reef' 'Pharo' 'Pharo') asSet
-    >  a Set('Pharo' 'Reef')
+[[[
+  #('Pharo' 'Reef' 'Pharo' 'Pharo') asSet
+  >  a Set('Pharo' 'Reef')
 ]]]
 
 
@@ -294,7 +317,7 @@ ${slide:title=Dictionary|label=set}$
 
 ${slide:title=Dictionary creation|label=set}$
 
-[[[language=smalltalk
+[[[
 	| days |
 	days := Dictionary new. 
 	days 	
@@ -303,7 +326,7 @@ ${slide:title=Dictionary creation|label=set}$
 		at: #March put: 31.	
 ]]]
 
-[[[language=smalltalk
+[[[
 	days at: #January 
 	> 31 
 
@@ -316,25 +339,25 @@ ${slide:title=Dictionary creation|label=set}$
 
 ${slide:title=Dictionary iteration}$
 
-[[[language=smalltalk
+[[[
 days do: [ :each | Transcript show: each ;cr ] 
 ]]]
 
 prints the days
 
-[[[language=smalltalk
+[[[
 Dictionary >> do: aBlock
 
 		^self valuesDo: aBlock
 ]]]
 
-[[[language=smalltalk
+[[[
 days keysAndValuesDo: 
 	[ :k :v | Transcript show: k asString, ' has ',  v printString, ' days' ; cr ] 
 ]]]
 
 shows: 
-[[[language=smalltalk
+[[[
 	January has 31 days
 	February has 28 days
 	March has 31 days
