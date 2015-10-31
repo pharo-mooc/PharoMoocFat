@@ -194,12 +194,12 @@ ${slide:title=Handling Exception}$
 
 Just for your information ;)
 
-Within an handler ==[ aaa ] on: anExceptionClass do: anHandler==, we can:
-- return an alternative result for the protected block by sending ==return:== aValue to the exception object;
-- retry the protected block, by sending retry, or try a different block by sending ==retryUsing:==;
-- resume the protected block at the failure point by sending ==resume== or ==resume:==;
-- pass the caught exception to the enclosing handler by sending ==pass== or
-- resignal a different exception by sending ==resignalAs:== to the exception.
+Within an handler ==[ aaa ] on: anExceptionClass do: [ anHandler ]==, we can:
+- return an alternative result for the protected block (==return:==)
+- retry the protected block or a different block (==retryUsing:==)
+- resume the protected block at the failure point (==resume:==)
+- pass the caught exception to the enclosing handler (==pass==)
+- resignal a different exception (==resignalAs:==)
 
 
 ${slide:title=Returning from an Exception}$
@@ -236,11 +236,18 @@ ${slide:title=What you should know}$
 
 - Exceptions are powerful in Pharo. 
 - Offer a simple API
--- raising: ==anException signal==
--- installing: ==[ doSomething ] on: ExceptionClass do: [ :ex | something ]==
+Raising
+[[[
+anException signal
+]]]
+	
+Installing: 
+[[[
+[ doSomething ] on: ExceptionClass do: [ :ex | something ]
+]]]
 - Helpers
 -- ==[ doSomething ] ensure: [ alwaysDoThis ]== 
--- ==[doSomething ] ifCurtailed: [ onProblem ]==
+-- ==[ doSomething ] ifCurtailed: [ onProblem ]==
 
 
 
