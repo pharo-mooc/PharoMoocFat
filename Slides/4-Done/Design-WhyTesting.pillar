@@ -37,7 +37,7 @@ ${slide:title=Finding Problems: Characteristics of a Good ''Test Suite''}$
 
 ${slide:title=Understanding Code}$
 
-[[[language=smalltalk
+[[[
 convert
    | s |
    s := '#000000' copy.
@@ -52,7 +52,7 @@ convert
 
 ${slide:title=Understanding Code}$
 
-[[[language=smalltalk
+[[[
 testConvert
    self assert: Color white convert = '#FFFFFF'.
    self assert: Color red convert = '#FF0000'.
@@ -61,7 +61,7 @@ testConvert
 
 ${slide:title=Understanding Code}$
 
-[[[language=smalltalk
+[[[
 testConvert2
    | table aColorString |
    table := #('0' '1' '2' '3' '4' '5' '6' '7' '8' '9' 'A' 'B' 'C' 'D' 'E' 'F').
@@ -85,7 +85,7 @@ testConvert2
 
 ${slide:title=Understanding Code}$
 
-[[[language=smalltalk
+[[[
 testBitShift
    self assert: (2r11 bitShift: 2) equals: 2r1100.
    self assert: (2r1011 bitShift: -2) equals: 2r10.
@@ -146,7 +146,7 @@ ${slide:title=Testing Abstractions}$
 
 +file://figures/tests-actions-abstract-classes.png|width=70+
 
-[[[language=smalltalk
+[[[
 testOnlyOneValidStateAtEachMoment
    | action |
    action := self createAction.
@@ -186,7 +186,7 @@ ${slide:title=Mocking}$
 
 +file://figures/tests-questionnaire-mocks.png|width=60+
 
-[[[language=smalltalk
+[[[
 readAnswerAsLongAsItIsNotCompatible
    | nbRejectsBeforeAccept question ui |
    nbRejectsBeforeAccept := 3.
