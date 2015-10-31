@@ -39,60 +39,60 @@ ${slide:title=Understanding Code}$
 
 [[[language=smalltalk
 convert
-    | s |
-    s := '#000000' copy.
-    s at: 2 put: (Character digitValue: ((rgb bitShift: -6 - RedShift) bitAnd: 15)).
-    s at: 3 put: (Character digitValue: ((rgb bitShift: -2 - RedShift) bitAnd: 15)).
-    s at: 4 put: (Character digitValue: ((rgb bitShift: -6 - GreenShift) bitAnd: 15)).
-    s at: 5 put: (Character digitValue: ((rgb bitShift: -2 - GreenShift) bitAnd: 15)).
-    s at: 6 put: (Character digitValue: ((rgb bitShift: -6 - BlueShift) bitAnd: 15)).
-    s at: 7 put: (Character digitValue: ((rgb bitShift: -2 - BlueShift) bitAnd: 15)).
-    ^ s
+   | s |
+   s := '#000000' copy.
+   s at: 2 put: (Character digitValue: ((rgb bitShift: -6 - RedShift) bitAnd: 15)).
+   s at: 3 put: (Character digitValue: ((rgb bitShift: -2 - RedShift) bitAnd: 15)).
+   s at: 4 put: (Character digitValue: ((rgb bitShift: -6 - GreenShift) bitAnd: 15)).
+   s at: 5 put: (Character digitValue: ((rgb bitShift: -2 - GreenShift) bitAnd: 15)).
+   s at: 6 put: (Character digitValue: ((rgb bitShift: -6 - BlueShift) bitAnd: 15)).
+   s at: 7 put: (Character digitValue: ((rgb bitShift: -2 - BlueShift) bitAnd: 15)).
+   ^ s
 ]]]
 
 ${slide:title=Understanding Code}$
 
 [[[language=smalltalk
 testConvert
-    self assert: Color white convert = '#FFFFFF'.
-    self assert: Color red convert = '#FF0000'.
-    self assert: Color black convert = '#000000'
+   self assert: Color white convert = '#FFFFFF'.
+   self assert: Color red convert = '#FF0000'.
+   self assert: Color black convert = '#000000'
 ]]]
 
 ${slide:title=Understanding Code}$
 
 [[[language=smalltalk
 testConvert2
-    | table aColorString |
-    table := #('0' '1' '2' '3' '4' '5' '6' '7' '8' '9' 'A' 'B' 'C' 'D' 'E' 'F').
+   | table aColorString |
+   table := #('0' '1' '2' '3' '4' '5' '6' '7' '8' '9' 'A' 'B' 'C' 'D' 'E' 'F').
 
-    table do: [ :each |
-        aColorString := '#', each, each, '0000'.
-        self assert: ((Color fromString: aColorString) convert sameAs: aColorString)].
+   table do: [ :each |
+      aColorString := '#', each, each, '0000'.
+      self assert: ((Color fromString: aColorString) convert sameAs: aColorString)].
 
-    table do: [ :each |
-        aColorString := '#', '00', each, each, '00'.
-        self assert: ((Color fromString: aColorString) convert sameAs: aColorString)].
+   table do: [ :each |
+      aColorString := '#', '00', each, each, '00'.
+      self assert: ((Color fromString: aColorString) convert sameAs: aColorString)].
 
-    table do: [ :each |
-        aColorString := '#', '0000', each, each.
-        self assert: ((Color fromString: aColorString) convert sameAs: aColorString)].
+   table do: [ :each |
+      aColorString := '#', '0000', each, each.
+      self assert: ((Color fromString: aColorString) convert sameAs: aColorString)].
 
-    table do: [ :each |
-        aColorString := '#', each, each, each, each, each, each.
-        self assert: ((Color fromString: aColorString) convert sameAs: aColorString)].
+   table do: [ :each |
+      aColorString := '#', each, each, each, each, each, each.
+      self assert: ((Color fromString: aColorString) convert sameAs: aColorString)].
 ]]]
 
 ${slide:title=Understanding Code}$
 
 [[[language=smalltalk
 testBitShift
-    self assert: (2r11 bitShift: 2) equals: 2r1100.
-    self assert: (2r1011 bitShift: -2) equals: 2r10.
+   self assert: (2r11 bitShift: 2) equals: 2r1100.
+   self assert: (2r1011 bitShift: -2) equals: 2r10.
 
 testShiftOneLeftThenRight
-    "Shift 1 bit left then right and test for 1"
-    1 to: 100 do: [:i | self assert: ((1 bitShift: i) bitShift: i negated) = 1].
+   "Shift 1 bit left then right and test for 1"
+   1 to: 100 do: [:i | self assert: ((1 bitShift: i) bitShift: i negated) = 1].
 ]]]
 
 ${slide:title=Understanding Code: Pros}$
@@ -148,18 +148,18 @@ ${slide:title=Testing Abstractions}$
 
 [[[language=smalltalk
 testOnlyOneValidStateAtEachMoment
-  | action |
-  action := self createAction.
-  self assert: action isReady.
-  self deny: action isInProgress. self deny: action isFinished.
+   | action |
+   action := self createAction.
+   self assert: action isReady.
+   self deny: action isInProgress. self deny: action isFinished.
 
-  [ action isFinished ] whileFalse: [
-    action doStep.
-    self deny: action isReady.
-    self assert: action isFinished = action isInProgress not ].
+   [ action isFinished ] whileFalse: [
+      action doStep.
+      self deny: action isReady.
+      self assert: action isFinished = action isInProgress not ].
 
-  self deny: action isReady. self deny: action isInProgress.
-  self assert: action isFinished
+   self deny: action isReady. self deny: action isInProgress.
+   self assert: action isFinished
 ]]]
 
 ${slide:title=Testing Abstractions}$
@@ -188,15 +188,15 @@ ${slide:title=Mocking}$
 
 [[[language=smalltalk
 readAnswerAsLongAsItIsNotCompatible
-  | nbRejectsBeforeAccept question ui |
-  nbRejectsBeforeAccept := 3.
-  question := MockQuestion new nbRejects: nbRejectsBeforeAccept.
-  ui := MockQuestionnaireUI new.
-  self assert: ui nbReadAnswers equals: 0.
-  self assert: question nbAcceptAnswerCalls equals: 0.
-  questionnaire runQuestion: question on: ui.
-  self assert: ui nbReadAnswers equals: nbRejectsBeforeAccept + 1.
-  self assert: question nbAcceptAnswerCalls equals: nbRejectsBeforeAccept + 1.
+   | nbRejectsBeforeAccept question ui |
+   nbRejectsBeforeAccept := 3.
+   question := MockQuestion new nbRejects: nbRejectsBeforeAccept.
+   ui := MockQuestionnaireUI new.
+   self assert: ui nbReadAnswers equals: 0.
+   self assert: question nbAcceptAnswerCalls equals: 0.
+   questionnaire runQuestion: question on: ui.
+   self assert: ui nbReadAnswers equals: nbRejectsBeforeAccept + 1.
+   self assert: question nbAcceptAnswerCalls equals: nbRejectsBeforeAccept + 1.
 ]]]
 
 ${slide:title=Mocking}$
