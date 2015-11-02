@@ -2,54 +2,70 @@
     "title":"Message sends are plans for reuse"
 }
 
+${slide:title=About this lecture}$
+
+This is another design lecture
+
+
+- Natural next step of the NOT implementation lecture
+- It applies to any object-oriented language with dynamic binding
+- It will change your view on your programs :)
+
+${slide:title=What You Will Learn}$
+
+- Message sends are places where subclass code can be injected
+- Why "I like big methods because I can see all the code" leads to bad design
+- Why writing small methods is a sign of excellent design
+
 ${slide:title=Remember...}$
 
 - Message passing is a choice operator
 - Class hierarchies define choices
 - ==self== always represents the receiver and method lookup starts in the class of the receiver
 
-+One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=60+
++One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=80+
 
 ${slide:title=Pitch}$
 
 - Superclass code can be reused by subclasses 
-- Sending messages in a superclass define places where subclass code can be injected.
+- Sending messages in a class define places where subclass' code can be injected.
 
-${slide:title=A first example}$
+${slide:title=A First Example}$
 
-[[[language=smalltalk
-    Node >> setWindowWithRatioForDisplay
-        | averageRatio defaultNodeSize |
-        averageRatio := 55.
-        defaultNodeSize := mainCoordinate /maximiseViewRatio.
-        self window add:
-            (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
-        previousNodeSize := defaultNodeSize.
+[[[
+Node >> setWindowWithRatioForDisplay
+  | averageRatio defaultNodeSize |
+  averageRatio := 55.
+  defaultNodeSize := mainCoordinate /maximiseViewRatio.
+  self window add:
+    (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
+  previousNodeSize := defaultNodeSize.
 ]]]
 
 - What if we want to change the ==defaultNodeSize== definition in our subclass?
 
 
-${slide:title=A not that good solution}$
-- What if we cannot modify the code of ==Node== (developed by another company)?
-
+${slide:title=A Not So Good Solution}$
+- What if we cannot modify the code of ==Node==?
 - Duplicate the code in our subclass
 
-[[[language=smalltalk
-    OurSpecificNode >> setWindowWithRatioForDisplay
-        | averageRatio defaultNodeSize |
-        averageRatio := 55.
-        defaultNodeSize := (mainCoordinate /maximiseViewRatio) + 10.
-        self window add:
-            (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
-        previousNodeSize := defaultNodeSize.
+[[[
+OurSpecificNode >> setWindowWithRatioForDisplay
+  | averageRatio defaultNodeSize |
+  averageRatio := 55.
+  defaultNodeSize := (mainCoordinate /maximiseViewRatio) + 10.
+  self window add:
+      (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
+  previousNodeSize := defaultNodeSize.
 ]]]
 
-- Note that if ==setWindowWithRatioForDisplay== uses private attributes (Java like languages), copying the code in subclass will not work.
+${slide:title=Avoid Duplication}$
+
+- If ==setWindowWithRatioForDisplay== uses private attributes (Java like languages), copying the code in subclass is not possible.
 - Duplication is not a good practice:
--- copy bugs,
--- fragile when original code will change,
--- burden on us to keep the system running. 
+-- copy bugs
+-- fragile when original code will change (and it will change)
+-- burden on us to keep the system running
 
 ${slide:title=Solution}$
 
@@ -63,194 +79,80 @@ ${column:width=50}$
 
 ${column:width=50}$
 
-+>file://figures/SelfIsDynamic.png|width=50+
++>file://figures/SelfIsDynamic.png|width=85+
 
 ${endColumns}$
 
 
 
-${slide:title=Good design in the first place}$
+${slide:title=Good Design In The First Place}$
 
-[[[language=smalltalk
-    Node >> setWindowWithRatioForDisplay
-        | averageRatio defaultNodeSize |
-        averageRatio := 55.
-        defaultNodeSize := self ratio.
-        self window add:
-            (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
-        previousNodeSize := defaultNodeSize.
+- Extract code into methods
+- Call such methods
+[[[
+Node >> setWindowWithRatioForDisplay
+  | averageRatio defaultNodeSize |
+  averageRatio := 55.
+  defaultNodeSize := self ratio.
+  self window add:
+        (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
+  previousNodeSize := defaultNodeSize.
 ]]]
-[[[language=smalltalk        
+[[[
     Node >> ratio
         ^ mainCoordinate /maximiseViewRatio    
 ]]]
 
 
-${slide:title=Subclasses reuse superclass logic}$
+${slide:title=Subclasses Reuse Superclass Logic}$
 
 Now a subclass can only express the delta and reuse the superclass logic
-[[[language=smalltalk    
-    Node subclass: OurSpecificNode 
-       ...
+[[[
+Node subclass: OurSpecificNode 
+  ...
 ]]]
 
-
-[[[language=smalltalk    
-    OurSpecificNode >> ratio
-         ^ super ratio + 10
+[[[
+OurSpecificNode >> ratio
+  ^ super ratio + 10
 ]]]
 
-${slide:title=Many small messages}$
+${slide:title=Many Small Messages}$
 
 - Newbies often complain that there are too many small methods
 - This is a good property
 
-[[[language=smalltalk
-    Node >> uiNode
-        ^ (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
+[[[
+Node >> uiNode
+  ^ (UINode new with: (bandWidth * averageRatio / defaultWindowSize)
 ]]]
 
-[[[language=smalltalk
-    Node >> setWindowWithRatioForDisplay
-        | defaultNodeSize |
-        self averageRatio: 55.
-        defaultNodeSize := self ratio.
-        self window add: self uiNode
+[[[
+Node >> setWindowWithRatioForDisplay
+  | defaultNodeSize |
+  self averageRatio: 55.
+  defaultNodeSize := self ratio.
+  self window add: self uiNode
 ]]]
 
-${slide:title=Do not hardcode class use}$
+${slide:title=Do Not Hardcode Class Use}$
 
-[[[language=smalltalk
-    Node >> uiNode
-        ^ (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
+[[[
+Node >> uiNode
+  ^ (UINode new with: (bandWidth * averageRatio / defaultWindowSize)
 ]]]
 
 ${slide:title=Define method returning classes}$
 
-[[[language=smalltalk
-    Node >> uiNode
-        ^ (self uiNodeClass new with: (bandWidth * averageRatio / defaultWindowSize).
-]]]
-
-[[[language=smalltalk		
-     Node >> uiNodeClass
-        ^ UINodeClass
-]]]
-
-${slide:title=From the exercise}$
-
-To support 
 [[[
-	(DiceHandle new add: (Dice faces: 4); add: (Dice faces: 4); yourself) + (DiceHandle new add: (Dice faces: 6); yourself)
+Node >> uiNode
+  ^ (self uiNodeClass new with: (bandWidth * averageRatio / defaultWindowSize).
 ]]]
 
-We define ==\+== as 
-
-[[[smalltalk=language
-DiceHandle>>+ aDiceHandle
-    | handle |
-    handle := DiceHandle new.
-    self dice do: [ :each | handle addDice: each ]. 
-    aDiceHandle dice do: [ :each | handle addDice: each ]. 
-    ^ handle
+[[[
+Node >> uiNodeClass
+  ^ UINodeClass
 ]]]
-
-${slide:title=Now we create a new subclass}$
-[[[smalltalk=language
-DiceHandle subclass: MyDiceHandle
-    ....
-]]]
-
-[[[smalltalk=language
-	(MyDiceHandle new add: (Dice faces: 4); add: (Dice faces: 4); yourself) + (MyDiceHandle new add: (Dice faces: 6); yourself)
-]]]
-
-- We get a ==DiceHandle== instance back and not a ==MyDiceHandle== instance!!!
-
-${slide:title=Solution 1: Creating a Hook}$
-
-[[[smalltalk=language
-DiceHandle >> + aDiceHandle
-	| handle |
-	handle := self handleClass new.
-	self dice do: [ :each | handle addDice: each ]. 
-	aDiceHandle dice do: [ :each | handle addDice: each ]. 
-	^ handle
-]]]
-
-[[[smalltalk=language
-DiceHandle >> handleClass
-	^ DiceHandle
-]]] 
-
-
-A subclass may redefine ==handleClass== 
-
-[[[smalltalk=language
-MyDiceHandle >> handleClass
-	^ MyDiceHandle
-]]] 
-
-
-
-${slide:title=Solution 1: Creating a Hook}$
-
-[[[smalltalk=language
-DiceHandle >> + aDiceHandle
-	| handle |
-	handle := self handleClass new.
-	self dice do: [ :each | handle addDice: each ]. 
-	aDiceHandle dice do: [ :each | handle addDice: each ]. 
-	^ handle
-]]]
-
-[[[smalltalk=language
-DiceHandle >> handleClass
-	^ DiceHandle
-]]] 
-
-A subclass may redefine ==handleClass== 
-
-[[[smalltalk=language
-MyDiceHandle >> handleClass
-	^ MyDiceHandle
-]]] 
-
-[[[smalltalk=language
-	(MyDiceHandle new add: (Dice faces: 4); add: (Dice faces: 4); yourself) + (MyDiceHandle new add: (Dice faces: 6); yourself)
-]]]
-
-We will get an instance of the subclass.
-
-${slide:title=But we can do better!}$
-
-In each subclass  we should redefine the hook method  ==handleClass==
-
-
-${slide:title=Solution 2}$
-
-[[[smalltalk=language
-DiceHandle>>+ aDiceHandle
-	| handle |
-	handle := self class new.
-	self dice do: [ :each | handle addDice: each ]. 
-	aDiceHandle dice do: [ :each | handle addDice: each ]. 
-	^ handle
-]]]
-
--  ==self class== always returns the class of the receiver
-- We get instances of the same kind of the receiver 
-
-${slide:title=Solution}$
-
-If we define a subclass of ==DiceHandle==, 
-and send the message ==\+== to an instance
-
-With ==handle := DiceHandle new==, ==\+== does not return an instance of the subclass but of ==DiceHandle==
-
-With ==handle := self class new==, ==\+== returns an instance of the receiver: an instance of a potential subclass
-
-
 
 
 ${slide:title=Avoid magic numbers}$
@@ -258,25 +160,25 @@ ${slide:title=Avoid magic numbers}$
 - Do not hardcode magic numbers (55)
 - Either define instance variables with setter and getter, and/or set default value via message semd
 
-[[[language=smalltalk
-    Node >> setWindowWithRatioForDisplay
-        | averageRatio defaultNodeSize |
-        averageRatio := 55.
-        ...
+[[[
+Node >> setWindowWithRatioForDisplay
+  | averageRatio defaultNodeSize |
+  averageRatio := 55.
+  ...
 ]]]
 
 ${slide:title=Use Setter and Default}$
 
-[[[language=smalltalk
-    Node >> setWindowWithRatioForDisplay
-        | averageRatio defaultNodeSize |
-        averageRatio := self defaultAverageRatio.
-        ...
+[[[
+Node >> setWindowWithRatioForDisplay
+  | averageRatio defaultNodeSize |
+  averageRatio := self defaultAverageRatio.
+  ...
 ]]]
 
-[[[language=smalltalk
-    Node >> defaultAverageRatio
-        ^ 55
+[[[
+Node >> defaultAverageRatio
+  ^ 55
 ]]]
 
 - With setter, clients may change the value without subclassing

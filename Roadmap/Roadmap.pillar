@@ -203,7 +203,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To review
 -- Files: Lecture(TBD) W3S7-ClassMethods			
 
-- [Lecture 6min] W3S7-ClassMethodsAtWork
+- [Lecture 6min] W3S7-ClassMethodsAtWork (on peut bouger cela semaine 6)
 -- Presenter: Damien
 -- Status: To review 
 -- Files: Lecture(TBD) W3S8-ClassMethodsAtWork.pillar		
@@ -249,7 +249,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To Review
 -- Files: Lecture(TBD) W4S-Stream.pillar		
 
-
 - 3 min PharoWebStack: 4/5 slides
 	Voyage Mongo
 	Magritte
@@ -294,11 +293,15 @@ You will also see that 4 kinds of activities are distinguished:
 
 - 6 InheritanceAndLookup-4-DoesNotUnderstand
 
+
+
+
 - [Lecture 6min] W5S-Exception.pillar
 -- Presenter: Stef
 -- Files: Lecture(TBD) Week5/C019SD-W5S-Exceptions.pillar			
 
 - 6 Extending GT:  Extending the inspector and spotter for the addressbook
+
 
 - 6 Reflection
 -- Basic structural
@@ -338,14 +341,32 @@ You will also see that 4 kinds of activities are distinguished:
 -- class instance variables/ class var
 -- variableSubclass: 
 
-- 6 Design-SelfSendsArePlanForReuse.pillar messages are plan of reuse
+- [Lecture 6min] Design-SelfSendsArePlanForReuse.pillar messages are plan of reuse
+-- Presenter: Stef
+-- Status: Doing it may be should move this one to another week (and after the lookup is done)
+-- Files: Lecture(TBD) W3S10-UnderstandingClassMethods.pillar	
 
-- 6 self class vs. AClass new
+- 6 A bit more Reflection
+-- compile:
+-- scripting google service API? Stuff of franz Prinz
+
+- [Lecture 6min] self class vs DiceHandle new
+-- Presenter: Stef ou luc
+-- Status: To be reviewed (we could move it to week 7)
+-- Slides/Week6/C019SD-W6S-SelfSendsDiceHandle.pillar
+
 
 - 6 Hook and Template / Copy as a hook and template
 
 - 6 Save objects in Mongo with Voyage
 -- stef and esteban 
+
+- [Lecture 6min] Runtime architecture
+-- Presenter: Stef
+-- Status: doing it now
+-- Files: Lecture(TBD) 
+
+
 
 !!!! Exos	
 
