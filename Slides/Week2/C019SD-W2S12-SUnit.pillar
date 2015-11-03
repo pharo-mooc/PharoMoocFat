@@ -1,17 +1,16 @@
 {
-	"title":"SUnit"
+	"title":"SUnit: Unit Tests in Pharo"
 }
-
 
 ${slide:title=SUnit}$
 
-- Got copied all over the places
 - Extremely simple
+- Got copied all over the places
 - Originally developed by K. Beck (agile programming father)
 
 ${slide:title=A Test}$
 
-A test
+In a test, we 
 - Create a context: Create an empty set
 - Send a stimulus: Add twice the same element
 - Check the results: Check that the set contains only one element
@@ -34,16 +33,17 @@ SetTestCase >> testAdd
 SetTestCase run: #testAdd
 ]]]
 
-${slide:title=In a subclass of TestCase}$
+${slide:title=In a Subclass of TestCase}$
 
-Each method starting with test*
+Each method starting with ==test*==:
 - Represents a test
 - Is automatically executed
-The results of the test are collected in a TestResult object
+The results of the test are collected in a ==TestResult== object
 
 ${slide:title=Another example}$
 
-[[[testAdjacentRunsWithEqualsAttributesAreMerged
+[[[
+testAdjacentRunsWithEqualsAttributesAreMerged
   "this demonstrates that adjancent runs with equal attributes are merged. "
   | runArray |
   runArray := RunArray new.
@@ -54,7 +54,6 @@ ${slide:title=Another example}$
   self assert: (runArray runs size = 2).
 ]]]
 
-
 ${slide:title=Failures and Errors}$
 
 - A failure is a failed assertion, i.e., an anticipated problem that you test.
@@ -62,9 +61,8 @@ ${slide:title=Failures and Errors}$
 
 [[[
 SetTestCase >> removeElementNotInSet
-  self should: [Set new remove: 1] raise: Error
+  self should: [ Set new remove: 1 ] raise: NotFound
 ]]]
-
 
 ${slide:title=Duplicating the Context}$
 
@@ -72,33 +70,36 @@ ${slide:title=Duplicating the Context}$
 SetTestCase >> testOccurrences
   | empty |
   empty := Set new.
-  self assert: (empty occurrencesOf: 0) = 0.
-  empty add: 5; add:5.
-  self assert: (empty occurrencesOf: 5) = 1
+  self assert: (empty occurrencesOf: 0) equals: 0.
+  empty add: 5; add: 5.
+  self assert: (empty occurrencesOf: 5) equals: 1
 ]]]
 
-== empty := Set new.== is repeated
+- ==empty := Set new.== is repeated between tests
+- We can factor it out
 
 
-${slide:setUp and TearDown}$
-- Executed before and after each test
+${slide: setUp and tearDown Messages}$
+- Executed systematically before and after each test run
 - setUp allows us to specify and reuse the context
 - tearDown to clean after.
 
 +>file://figures/SetUpTearDown.png+
 
-${slide:title=Definiting a setUp}$
+${slide:title=Definiting a setUp Method}$
 
 [[[
 SetTestCase >> setUp
   empty := Set new.   
 ]]]
 
+ ==setUp== is executed for you
+
 [[[
 SetTestCase >> testOccurrences
-  self assert: (empty occurrencesOf: 0) = 0.
-  empty add: 5; add:5.
-  self assert: (empty occurrencesOf: 5) = 1
+  self assert: (empty occurrencesOf: 0) equals: 0.
+  empty add: 5; add: 5.
+  self assert: (empty occurrencesOf: 5) equals: 1
 ]]]
 
 
@@ -108,13 +109,13 @@ ${slide:title=SUnit Core}$
 
 ${slide:title=TestSuite, TestCase and TestResult}$
 
-- a ==TestCase== represents one test
--- ==SetTestCase >> testOccurenceOf==
+- A ==TestCase== represents one test
+-- the method: ==SetTestCase >> testOccurenceOf==
 - A ==TestSuite== is a group of tests
--- SUnit automatically builds a suite from the methods starting with 'test*'
-- ==TestResult== represents a test execution results
+-- SUnit automatically builds a suite from the methods starting with =='test*'==
+- A ==TestResult== represents a test execution results
 
-${slide:title=Test Ressources}$
+${slide:title=Test Resources}$
 
 A ==TestResource== is an object which is needed by a number
 of Test Cases, and whose instantiation is so costly in terms
@@ -122,11 +123,15 @@ of time or resources that it becomes advantageous to only
 initialize it once for a Test Suite run.
 
 A ==TestResources== is invoked once before any test is run.
+(read Pharo by Example SUnit Chapter)
 
+${slide:title=What you should know}$
 
+- How to write simple tests
+- Reuse a bit the context by defining ==setUp== methodss
 
 ${slide:title=Summary}$
 
 - Unit tests are easy to create and run.
 - Use them as your life insurance.
-- There exist other libraries for Mock (BabyMock) or different styles of testing.
+- There exists other libraries for Mock (BabyMock) or different styles of testing.
