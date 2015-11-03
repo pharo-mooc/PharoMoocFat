@@ -40,7 +40,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] The notion of Pharo image / Saving the image
 -- Presenter: Luc
--- Status: To be done 
+-- Status: To be done : better as videos 
 -- Files: Lecture(TBD) 
 
 - [Live 3min] Hello World Example 
@@ -215,8 +215,6 @@ You will also see that 4 kinds of activities are distinguished:
 - [Redo] Live: Dice Game DSL handle
 -- Presenter: ?
 -- Status: Lecture(TBD)
-
-!UNDER Construction after this point
 
 !!!! Exos	
 
@@ -405,21 +403,40 @@ You will also see that 4 kinds of activities are distinguished:
 - 6 Conclusion
 	
 	
-!OLD Stuff
+	
+! Missing points
 
-!!Resources probably as slides
+- how to debug
+
+- most common mistakes
+
+- instVar
+- doesNotUnderstand	
+
+- reflection instance specific methods
+- thisContext?
+	
+	
+- Live: seaside counter / multi counter
+-- counter back button
+	
+- Seaside Component, html, bootstrap
+
+- Seaside call:/answer:
+
+
+!Resources probably as slides
 - Installation on Pharo.org
 - Live: Getting started: Coding live example counter: class first 10 min
 - Live: Getting started: Coding live example counter: test first 10 min
 - mailing-list, books, servers, ci, videos, Chapters Pharo by Example
 
-!! Potential Exos
+! Potential Exos
 
 - Deploy the app
 - Expressions visitor
 
-!!! 
-Immersive Videos
+! Immersive Videos
 
 - Finder
 - GTSpotter
@@ -429,26 +446,16 @@ Immersive Videos
 - Code search
 - sender/implementor
 
-!! Find how to 
+! Find how to 
 
 - ouvrir et afficher un fichier jpeg
 - lister le contenu d'un repertoire sur le disc
 - requete http recuperer la meteo sur le net
 - service google qui fait un calcul
 
-!! Random Stuff
-An item is composed of: 
-- Name: ''Iteration with ZnEasy''
-- Id: An id
-- A tag: environment, syntax, model, fun, tip
-- A Problem: How to iterate/manipulate collections?
-- A description about one line: students learn iterators such as ==do:==, ==collect:==, and ==select:== on 
-- Resources: 
--- *http://sdmeta.gforge.inria.fr/Videos/SqueakH-264Mov/006-FunWithCollection.mov*
-- Ideas: use ZnEasy instead to select files served by a server.
-- Exercises: A list of exercises.
-- Contents: A little synopsis for the videos.
-- Slides: A list of ids of useful slides.
+
+
+
 
 !! Ideas to assess and dispatch within the lectures
 

@@ -390,7 +390,7 @@ ${slide:title=Dictionary}$
 - Changing/adding ==at:put:==, ==at:ifAbsentPut:== 
 - iterating: ==do:==, ==keysDo:==, ==keysAndValuesDo:==
 
-${slide:title=Dictionary creation}$
+${slide:title=Dictionary Creation}$
 
 [[[
   | days |
@@ -400,6 +400,48 @@ ${slide:title=Dictionary creation}$
     at: #February put: 28;
     at: #March put: 31.  
 ]]]
+
+${slide:title=Alternate Dictionary creation}$
+
+[[[
+  | days |
+  days := Dictionary new. 
+  days   
+    at: #January put: 31;
+    at: #February put: 28;
+    at: #March put: 31.  
+]]]
+
+is equivalent to 
+
+[[[
+{ #January -> 31.
+  #February -> 28.
+  #March -> 31} asDictionary
+]]]
+
+${slide:title=Pairs}$
+
+[[[
+(#January -> 31) key 
+> #January
+]]]
+
+[[[
+(#January -> 31) value
+> 31
+]]]
+
+${slide:title=Dictionary Access}$
+[[[
+  | days |
+  days := Dictionary new. 
+  days   
+    at: #January put: 31;
+    at: #February put: 28;
+    at: #March put: 31.  
+]]]
+
 
 [[[
   days at: #January 
@@ -411,6 +453,8 @@ ${slide:title=Dictionary creation}$
   days at: #NoMonth ifAbsent: [0]
   > 0 
 ]]]
+
+
 
 ${slide:title=Dictionary iteration}$
 
