@@ -243,10 +243,30 @@ You will also see that 4 kinds of activities are distinguished:
 
 !!Week 4: Inheritance&Lookup, Collections and Web Development
 
-- 6 Inheritance
-- 6 InheritanceAndLookup-2-Lookup Did you really get this?
-- 6 InheritanceAndLookup-3-Super Did you really get super?
-- 6 InheritanceAndLookup-5-LookupMetaclass
+- [Lecture 6min] Inheritance
+-- Presenter: Damien
+-- Status: To Review
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week4/C019SD-W4S-InheritanceAndLookup-1-Inheritance.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
+
+- [Lecture 6min] Inheritance - Lookup
+-- Presenter: Damien
+-- Status: To Review
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week4/C019SD-W4S-InheritanceAndLookup-2-Lookup.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
+
+- [Lecture 6min] Inheritance - Super
+-- Presenter: Damien
+-- Status: To Review
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week4/C019SD-W4S-InheritanceAndLookup-3-Super.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
+
+- [Lecture 6min] Inheritance - Lookup when no method found
+-- Presenter: Damien
+-- Status: To Review
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week4/C019SD-W4S-InheritanceAndLookup-4-DoesNotUnderstand.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
+
+- [Lecture 6min] Inheritance - Lookup in Metaclasses
+-- Presenter: Damien
+-- Status: To Review
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week4/C019SD-W4S-InheritanceAndLookup-5-LookupMetaclasses.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
 
 - [Lecture 6min] First Glance at Collections (OrderedCollection, Array, Set)
 -- Presenter: Stef
