@@ -77,6 +77,10 @@ You will also see that 4 kinds of activities are distinguished:
 
 % - Redo: Coding a REST interface to a counter (REST). 
 % - Exo: Lamp et FeuTricolor
+!!!
+- [Exos] Answering Quiz 
+- [Exos] Redos
+
 
 !!Week 2: Pharo Syntax, Blocks and Inspector 
 
@@ -135,10 +139,19 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To review
 -- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.html*
 
+
+- [Lecture 6min] SUnit
+-- Presenter: Luc
+-- Status: To review
+-- Files: Lecture(TBD) /Slides/Week2/C019SD-W2S12-SUnit.pdf
+
+
 - [Lecture 6min] The Essence Of Dispatch through an Exercice
 -- Presenter: Stef
 -- Status: To review
 -- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S12-Design-EssenceOfDispatchExo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S12-Design-EssenceOfDispatchExo.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S12-Design-EssenceOfDispatchExo.html*
+
+!!! Exos
 
 - [Todo] Some Simple Exercices on the Syntax
 -- Status: To be done
@@ -157,6 +170,9 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To be done
 -- Files: ExercicesSubject(TBD) 
 
+- [Todo] find how to
+
+- [Todo] how is implemented 
 
 !!Week 3: Design, Class Methods
 
@@ -208,15 +224,15 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To review 
 -- Files: Lecture(TBD) W3S8-ClassMethodsAtWork.pillar		
 
+!!! Exos
+
 - [Redo] Live: Dice Game DSL dice
 -- Presenter: ?
 -- Status: Lecture(TBD)
 
 - [Redo] Live: Dice Game DSL handle
 -- Presenter: ?
--- Status: Lecture(TBD)
-
-!!!! Exos	
+-- Status: Lecture(TBD)	
 
 - Find how to 
 - Redo: Refaire le dice 
@@ -234,7 +250,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] First Glance at Collections (OrderedCollection, Array, Set)
 -- Presenter: Stef
--- Status: To Review
+-- Status: To Review (may be we should cut it in two: dictionary in another lectures)
 -- Files: Lecture(TBD) Week4/C019SD-W4S-Basic-ArraySetOrderedCollection - 
 
 - [Lecture 6min] W4S-Iterators
@@ -407,6 +423,9 @@ You will also see that 4 kinds of activities are distinguished:
 ! Missing points
 
 - how to debug
+--	self halt 
+--	self haltOnce
+--	self haltIf: 
 
 - most common mistakes
 
