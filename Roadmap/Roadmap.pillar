@@ -446,13 +446,6 @@ You will also see that 4 kinds of activities are distinguished:
 	
 ! Missing points
 
-- how to debug
---	self halt 
---	self haltOnce
---	self haltIf: 
-
-- most common mistakes
-
 - instVar
 - doesNotUnderstand	
 
@@ -484,10 +477,12 @@ You will also see that 4 kinds of activities are distinguished:
 - Finder
 - GTSpotter
 - developer dans le debugger
+- comprendre le debugger
 - coder n'import ou
 - Publier du code
 - Code search
 - sender/implementor
+
 
 ! Find how to 
 
