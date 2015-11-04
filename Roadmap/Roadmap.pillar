@@ -322,8 +322,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Doing it may be should move this one to another week (and after the lookup is done)
 -- Files: Lecture(TBD) W3S10-UnderstandingClassMethods.pillar			
 
-
-
 - 6 Live: Picasa
 -- explaining one the fly code generation and coding in the debugger
 
@@ -331,16 +329,20 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Stef
 -- Files: Lecture(TBD) Week5/C019SD-W5S-Exceptions.pillar			
 
-- [Lecture 6min] W5S-Debugger.pillar
+- [Lecture 6min] W5S-Debugging.pillar
+-- Presenter: 
+-- Status: should do probably another pass + add a debugger stack
+-- Files: Lecture(TBD) Week5/C019SD-W5S-Debugger.pillar			
+
+- [Lecture 6min] W5S-Benchmarking.pillar
 -- Presenter: 
 -- Status: should do probably another pass
--- Files: Lecture(TBD) Week5/C019SD-W5S-Debugger.pillar			
+-- Files: Lecture(TBD) Week5/C019SD-W5S-Benchmarking.pillar	
 
 - 6 Live Debugging of Seaside Web Applications 
 --	 ==10 + 20 + error +== debugger
 
-
-- 6 Extending GT:  Extending the inspector and spotter for the addressbook
+- 6 Live?? Extending GT:  Extending the inspector and spotter for the addressbook
 
 
 - 6 Reflection
@@ -365,14 +367,13 @@ You will also see that 4 kinds of activities are distinguished:
 !!Week 6: Rethink lookup and Advanced OO Design
 
 - 6 All the literal objects we did not talk about
--- really 6min?
+-- really 6min? may be we can simply drop it :)
 -- Numbers
 
 - [Lecture 6min]  Strings, characters, symbols
 -- Presenter: 
 -- Status: On the way
 -- Files: Lecture(TBD) Slides/Week6/C019SD-W6S-DidYouUnderstandSuper.pillar
-
 
 - [Lecture 6min]  Did you read understand super method?
 -- Presenter: Stef
@@ -405,8 +406,8 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] Runtime architecture
 -- Presenter: Stef
--- Status: doing it now 
--- Files: Lecture(TBD) 
+-- Status: 
+-- Files: C019SD-W6S-RuntimeArchitecture.pillar
 
 
 
