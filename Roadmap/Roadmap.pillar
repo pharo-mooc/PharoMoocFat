@@ -310,6 +310,13 @@ You will also see that 4 kinds of activities are distinguished:
 
 !!Week 5: Exception, Debugging and Reflection
 
+- [Lecture 6min] W5S-LearningFromMistakes.pillar
+-- Presenter: 
+-- Status: 
+-- Files: Lecture(TBD) W3S10-UnderstandingClassMethods.pillar	
+
+- 6 InheritanceAndLookup-4-DoesNotUnderstand
+
 - [Lecture 6min] W3S10-UnderstandingClassMethods.pillar
 -- Presenter: Stef
 -- Status: Doing it may be should move this one to another week (and after the lookup is done)
@@ -324,9 +331,6 @@ You will also see that 4 kinds of activities are distinguished:
 
 - 6 Live: Picasa
 -- explaining one the fly code generation and coding in the debugger
-
-- 6 InheritanceAndLookup-4-DoesNotUnderstand
-
 
 
 
@@ -346,7 +350,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- compile:
 -- scripting google service API? Stuff of franz Prinz
 
-- 6 Magritte
+- 6 Magritte??
 
 !!!! Exos	
 
