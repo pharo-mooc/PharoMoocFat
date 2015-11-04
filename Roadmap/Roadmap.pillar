@@ -322,21 +322,23 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Doing it may be should move this one to another week (and after the lookup is done)
 -- Files: Lecture(TBD) W3S10-UnderstandingClassMethods.pillar			
 
-- 6 Live Debugging of Seaside Web Applications 
---	 ==10 + 20 + error +== debugger
---	test first create on the fly
---	self halt 
---	self haltOnce
---	self haltIf: 
+
 
 - 6 Live: Picasa
 -- explaining one the fly code generation and coding in the debugger
 
-
-
 - [Lecture 6min] W5S-Exception.pillar
 -- Presenter: Stef
 -- Files: Lecture(TBD) Week5/C019SD-W5S-Exceptions.pillar			
+
+- [Lecture 6min] W5S-Debugger.pillar
+-- Presenter: 
+-- Status: should do probably another pass
+-- Files: Lecture(TBD) Week5/C019SD-W5S-Debugger.pillar			
+
+- 6 Live Debugging of Seaside Web Applications 
+--	 ==10 + 20 + error +== debugger
+
 
 - 6 Extending GT:  Extending the inspector and spotter for the addressbook
 
@@ -403,7 +405,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] Runtime architecture
 -- Presenter: Stef
--- Status: doing it now
+-- Status: doing it now 
 -- Files: Lecture(TBD) 
 
 
