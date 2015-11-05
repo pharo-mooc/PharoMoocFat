@@ -2,101 +2,114 @@
 	"title":"Files in Pharo"
 }
 
-${slide:title=Common Wisdom}$
 
-It can be easier to talk to objects than to read classes
-- The system is alive: Talk to it
-- The debugger is your best friend
-- Don't be afraid of it
-
-${slide:title=Debugging}$
-
-- Closing the debugger pop up does not solve your bugs :)
-
-- The debugger is your best friend:
--- access objects in a particular call
--- access object state
--- check state
--- send messages
--- compile code on the fly
-
-Watch the video on the debugger, on the inspector and practice!
-
-${slide:title=Simple trace}$
-
+${slide:title=Getting Started}$
 [[[
-Transcript cr; show: 'here with value: ', x printString
+| working |
+working := FileSystem disk workingDirectory.
 ]]]
 
-- A bit too traditional and often inefficient because too verbose
-
-
-${slide:title=Placing Breakpoint}$
-
+Direct files and folders
 [[[
-  ...
-  Halt now.
-  ...
+working children.
 ]]]
 
- ==Halt now== or ==self halt== will systematically 
-- stop the program and 
-- invoke the debugger
+All files and folders.
+[[[
+working allChildren.
+]]]
 
-${slide:title=Single Shot Halt}$
+${slide:title=FileReference}$
+
+FileReferences represent file or folders
 
 [[[
-  ...
-  Halt once.
-  ...
+| working |
+working := FileSystem disk workingDirectory.
+working class
+> FileReference
 ]]]
 
 [[[
-  Halt enableHaltOnce
+'/Users/ducasse/Workspace/FirstCircle/Pharo/20' asFileReference
 ]]]
 
-==Halt once==, once enabled, stop the first time
-
-${slide:title=Halt after n iterations}$
+${slide:title=All Files That...}$
 
 [[[
-Halt onCount: 10
+aFileRef allChildren select: [ :each | each basename endsWith: 'jpeg' ]
 ]]]
 
-${slide:title=You Can Invent Your Own}$
-
-Define a global variable and store an object or a value
+${slide:title=basename}$
 
 [[[
-Debug == self 
-  ifTrue: [ Halt now ]
+'foo/gloops.taz' asFileReference basename
+> 'gloops.taz'
 ]]]
 
 [[[
-Debug > 4 
-  ifTrue: [ Halt now ]
+FileSystem workingDirectory fullName
+>'/Users/ducasse/Pharo/50/current'
+ 
+FileSystem workingDirectory basename
+> 'current'
 ]]]
 
-${slide:title=Conditional Halt}$
+${slide:title=Navigating Down and Up}$
+
+Use message ==/== to build a path
+[[[
+| working cache parent |
+working := FileSystem disk workingDirectory. 
+cache := working / 'package-cache'.
+]]]
+
+Use ==parent== to get up
+[[[
+parent := cache parent.
+parent = working
+> true
+]]]
+
+${slide:title=File entry}$
 
 [[[
-foo 
-  ...
-  Halt if: #testSetInitialized
-  ...
+| c | 
+c := FileSystem disk workingDirectory / 'package-cache'.
+c entry creationTime.
+> aDateAndTime(2015-11-03T10:00:51-08:00)
+c entry permissions isWritable.
+> true
 ]]]
 
-==if: aSelector== stops the execution only if the method has been invoked from the aSelector
+${slide:title=Working with Streams}$
 
-- ==foo== will stop only when invoked from the test named ==#testSetInitialized==
-- Really powerful when the method is heavily used
-- Write a test and get benefit for it
+[[[
+| working stream |
+working := FileSystem disk workingDirectory. 
+stream := (working / 'foo.txt') writeStream. 
+stream nextPutAll: 'Hello World'.
+stream close.
+stream := (working / 'foo.txt') readStream. 
+stream contents.
+> 'Hello World' 
+stream close.
+]]]
 
-==if: aBlock stops the execution when aBlock is true
+${slide:title=Simpler with Streams}$
+
+[[[
+| working |
+working := FileSystem disk workingDirectory.
+working / 'foo.txt'
+  writeStreamDo: [ :stream | stream nextPutAll: 'Hello World' ]. 
+working / 'foo.txt'
+  readStreamDo: [ :stream | stream contents ].
+]]]
 
 ${slide:title=Summary}$
 
-- Watch the videos about the debugger
-- Watch the videos about the inspector
-- Try, try and try them
-- These tools are powerful
+- Files references are objects
+- Manipulate file references
+- Permissions are objects
+- Read ''Files with FileSystem'' chapter in "Deep into Pharoa"

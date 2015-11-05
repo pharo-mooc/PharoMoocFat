@@ -1,0 +1,102 @@
+{
+	"title":"Debugging in Pharo"
+}
+
+${slide:title=Common Wisdom}$
+
+It can be easier to talk to objects than to read classes
+- The system is alive: Talk to it
+- The debugger is your best friend
+- Don't be afraid of it
+
+${slide:title=Debugging}$
+
+- Closing the debugger pop up does not solve your bugs :)
+
+- The debugger is your best friend:
+-- access objects in a particular call
+-- access object state
+-- check state
+-- send messages
+-- compile code on the fly
+
+Watch the video on the debugger, on the inspector and practice!
+
+${slide:title=Simple trace}$
+
+[[[
+Transcript cr; show: 'here with value: ', x printString
+]]]
+
+- A bit too traditional and often inefficient because too verbose
+
+
+${slide:title=Placing Breakpoint}$
+
+[[[
+  ...
+  Halt now.
+  ...
+]]]
+
+ ==Halt now== or ==self halt== will systematically 
+- stop the program and 
+- invoke the debugger
+
+${slide:title=Single Shot Halt}$
+
+[[[
+  ...
+  Halt once.
+  ...
+]]]
+
+[[[
+  Halt enableHaltOnce
+]]]
+
+==Halt once==, once enabled, stop the first time
+
+${slide:title=Halt after n iterations}$
+
+[[[
+Halt onCount: 10
+]]]
+
+${slide:title=You Can Invent Your Own}$
+
+Define a global variable and store an object or a value
+
+[[[
+Debug == self 
+  ifTrue: [ Halt now ]
+]]]
+
+[[[
+Debug > 4 
+  ifTrue: [ Halt now ]
+]]]
+
+${slide:title=Conditional Halt}$
+
+[[[
+foo 
+  ...
+  Halt if: #testSetInitialized
+  ...
+]]]
+
+==if: aSelector== stops the execution only if the method has been invoked from the aSelector
+
+- ==foo== will stop only when invoked from the test named ==#testSetInitialized==
+- Really powerful when the method is heavily used
+- Write a test and get benefit for it
+
+==if: aBlock stops the execution when aBlock is true
+
+${slide:title=Summary}$
+
+- Watch the videos about the debugger
+- Watch the videos about the inspector
+- Try, try and try them
+- These tools are powerful

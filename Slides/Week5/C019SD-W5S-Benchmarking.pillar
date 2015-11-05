@@ -1,102 +1,56 @@
 {
-	"title":"Debugging in Pharo"
+	"title":"Benchmarking in Pharo"
 }
 
 ${slide:title=Common Wisdom}$
 
-It can be easier to talk to objects than to read classes
-- The system is alive: Talk to it
-- The debugger is your best friend
-- Don't be afraid of it
+If you did not profile your code you may have 50% speed up waiting for you.
 
-${slide:title=Debugging}$
 
-- Closing the debugger pop up does not solve your bugs :)
+${slide:title=Measuring execution speed}$
 
-- The debugger is your best friend:
--- access objects in a particular call
--- access object state
--- check state
--- send messages
--- compile code on the fly
-
-Watch the video on the debugger, on the inspector and practice!
-
-${slide:title=Simple trace}$
-
+For example ==select:==, then ==collect:== vs. ==select:thenCollect:==
+- We create an expression and use ==[ expression ] timeToRun==
 [[[
-Transcript cr; show: 'here with value: ', x printString
-]]]
-
-- A bit too traditional and often inefficient because too verbose
-
-
-${slide:title=Placing Breakpoint}$
-
-[[[
-  ...
-  Halt now.
-  ...
-]]]
-
- ==Halt now== or ==self halt== will systematically 
-- stop the program and 
-- invoke the debugger
-
-${slide:title=Single Shot Halt}$
-
-[[[
-  ...
-  Halt once.
-  ...
+| coll |
+coll := #(1 2 3 4 5 6 7 8) asOrderedCollection.
+[ 100000 timesRepeat: [ (coll select: [:each | each > 5]) collect: [:i |i * i]]] timeToRun
 ]]]
 
 [[[
-  Halt enableHaltOnce
+| coll |
+coll := #(1 2 3 4 5 6 7 8) asOrderedCollection.
+[ 100000 timesRepeat: [ coll select: [:each | each > 5] thenCollect:[:i |i * i]]] timeToRun 
 ]]]
 
-==Halt once==, once enabled, stop the first time
+${slide:title=bench}$
 
-${slide:title=Halt after n iterations}$
+- Return how many times the receiver can get executed in 5 seconds
+- Answer a string with meaningful description
 
 [[[
-Halt onCount: 10
+[ 1000 factorial ] bench 
 ]]]
 
-${slide:title=You Can Invent Your Own}$
+The higher the better!
 
-Define a global variable and store an object or a value
+${slide:title=Time Profiler}$
 
+- ==TimeProfiler==: a sampling-based code profiler
+- At regular interval, take information from the execution stack
 [[[
-Debug == self 
-  ifTrue: [ Halt now ]
+TimeProfiler 
+  spyOn: [ 20 timesRepeat: [ 
+            Transcript show: 1000 factorial printString ] ]
 ]]]
 
-[[[
-Debug > 4 
-  ifTrue: [ Halt now ]
-]]]
+${slide:title=Time Profiler}$
 
-${slide:title=Conditional Halt}$
-
-[[[
-foo 
-  ...
-  Halt if: #testSetInitialized
-  ...
-]]]
-
-==if: aSelector== stops the execution only if the method has been invoked from the aSelector
-
-- ==foo== will stop only when invoked from the test named ==#testSetInitialized==
-- Really powerful when the method is heavily used
-- Write a test and get benefit for it
-
-==if: aBlock stops the execution when aBlock is true
++>file://figures/TimeProfiler.png|width=110+
 
 ${slide:title=Summary}$
 
-- Watch the videos about the debugger
-- Watch the videos about the inspector
-- Try, try and try them
-- These tools are powerful
+- ==[ anExpression ] timeToRun==
+- ==[ anExpression ] bench==
+- ==TimeProfiler spyOn: [ anExpression ]==
+- Check ''Profiling Applications'' Chapter in "Deep into Pharo" 
