@@ -20,6 +20,9 @@ strings := persons collect: [ :person | person name ]
 ]]]
 
 - Yes in Java 8.0 it is finally simpler 
+[[[
+strings = persons.stream().map(person -> person.getName())
+]]]
 - But it is like that in Pharo since day one!
 - Iterators are deep into the core of the language and libraries
 

@@ -58,6 +58,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Done
 -- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.html*
 
+
 - [Redo 6min] Coding a Counter
 -- Presenter: Luc
 -- Status: To be done
@@ -68,6 +69,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Damien
 -- Status: To be done
 -- Files: Lecture(TBD) 
+
 
 - [Todo] Coding XXXXX 
 -- Presenter: ?
@@ -139,10 +141,14 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To review
 -- Files: Lecture(TBD) *SlidesPdf>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.html*
 
+- [Lecture 6min] Class and methods	6 min   
+-- Presenter: ?
+-- Status: To review  I move it there since we create many classes and methods. 
+-- Files: Lecture(TBD) W2S5-ClassDefinition.pillar
 
 - [Lecture 6min] SUnit
--- Presenter: Luc
--- Status: To review
+-- Presenter: Luc 
+-- Status: To review we can move it to another week
 -- Files: Lecture(TBD) /Slides/Week2/C019SD-W2S12-SUnit.pdf
 
 
@@ -205,14 +211,7 @@ You will also see that 4 kinds of activities are distinguished:
 - [Todo] Live: Tools to find information: implementors, senders		
 -- comment on peut lire un fichier png
 
-- [Lecture 6min] Class and methods	6 min   (Luc may move it elsewhere)
--- Presenter:
--- Status: TBD
--- Object model: 								
-	"static method" - only one send
-	public method 
-	no constructor
-	no operator
+
 
 - [Lecture 6min] W3S7-BasicClassMethods
 -- Presenter: Stephane
