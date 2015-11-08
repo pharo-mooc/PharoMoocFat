@@ -52,8 +52,8 @@ ${slide:title=Unit Tests}$
 ${slide:title=A Test}$
 
 A test
-- Create a context, 
-- Send a stimulus, 
+- Create a context 
+- Send a stimulus 
 - Check the results
 
 ${slide:title=A Test}$
@@ -62,6 +62,26 @@ A test
 - Create a context: Create an empty set
 - Send a stimulus: Add twice the same element
 - Check the results: Check that the set contains only one element
+
+
+${slide:title=Set TestCase}$
+
+[[[
+TestCase subclass: # SetTestCase
+    ...
+]]]
+
+[[[
+SetTestCase >> testAdd 
+  | empty |
+  empty := Set new.                      "Context"
+  empty add: 5.                             "Stimulus"
+  empty add: 5. 
+  self assert: empty size = 1.        "Check"
+
+SetTestCase run: #testAdd
+]]]
+
 
 ${slide:title=Good Tests}$
 - Repeatable

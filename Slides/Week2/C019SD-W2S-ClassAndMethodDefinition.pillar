@@ -2,110 +2,99 @@
     "title":"Class and Method Definition"
 }
 
-${slide:title=Class Definition|label=classdef}$
+${slide:title=Class Definition}$
 
-[[[language=smalltalk
+[[[
 Object subclass: #NameOfSubclass
     instanceVariableNames: ''
     classVariableNames: ''
-    category: 'PackageName'
+    package: 'PackageName'
 ]]]
 
-${slide:title=Example|label=arrays}$
+${slide:title=Example}$
 
-[[[language=smalltalk
+[[[
 Object subclass: #Point
     instanceVariableNames: 'x y'
     classVariableNames: ''
-    category: 'Graphics'
+    package: 'Graphics'
 ]]]
 
 
 ${slide:title=Method Definition}$
 
-[[[language=smalltalk
+[[[
 Game >> initializePlayers
-	super initializePlayers.
-	self players
-	   at: 'tileAction'
-	   put: ( MITileAction director: self )
+  super initializePlayers.
+  self players
+    at: 'tileAction'
+    put: ( MITileAction director: self )
 ]]]
 
-${slide:title=Methods always return self implicitly}$
+${slide:title=Methods return self by default}$
 
-[[[language=smalltalk
+[[[
 Game >> initializePlayers
-        super initializePlayers.
-        self players
-            at: 'tileAction'
-            put: ( MITileAction director: self )
-    ^ self 
+  super initializePlayers.
+  self players
+    at: 'tileAction'
+    put: ( MITileAction director: self )
+  ^ self 
 ]]]
 
 
-${slide:title=Typographical convention |label=arrays}$
+${slide:title=Typographical convention}$
 
 When you edit a method, you do not type the class name:
 
-[[[language=smalltalk
-crossProduct: aPoint 
-	"Answer a number that is the cross product of the receiver and the 
-	argument, aPoint."
-
-	^ (x * aPoint y) - (y * aPoint x)
+[[[
+dist: aPoint 
+  "Answer the distance between aPoint and the receiver."
+  | dx dy |
+  dx := aPoint x - x.
+  dy := aPoint y - y.
+  ^ (dx * dx + (dy * dy)) sqrt
 ]]]
 
-But when we show code you do not know in which class the method is defined. 
+We show the class we are talking about using ==Point >>==
 
-
-[[[language=smalltalk
-Point >> crossProduct: aPoint 
-        "Answer a number that is the cross product of the receiver and the 
-        argument, aPoint."
-
-        ^ (x * aPoint y) - (y * aPoint x)
-]]]
-
-
-${slide:title=An Example of Method|label=arrays}$
-
-[[[language=smalltalk
+[[[
 Point >> dist: aPoint 
-    "Answer the distance between aPoint and the receiver."
-    | dx dy |
-    dx := aPoint x - x.
-    dy := aPoint y - y.
-    ^ (dx * dx + (dy * dy)) sqrt
+  "Answer the distance between aPoint and the receiver."
+  | dx dy |
+  dx := aPoint x - x.
+  dy := aPoint y - y.
+  ^ (dx * dx + (dy * dy)) sqrt
 ]]]
 
-${slide:title=Class Method|label=classMethodDefinition}$
+${slide:title=Class Method}$
 
-To define a class method, press the class side button
+To define a class method, press the ""class side"" button
+In books and lecture notes we add 'class'
 
 ${columns}$
 
-${column:width=50}$
+${column:width=70}$
 
-+.>file://figures/classSideMethod.png|width=80+
++.>file://figures/classSideMethod.png|width=110+
 
-${column:width=50}$
-
-In books and lecture notes we add 'class'
+${column:width=80}$
 
 [[[
 Point class >> x: xInteger y: yInteger 
-     "Answer an instance of me with coordinates xInteger and yInteger."
+  "Answer an instance of me with coordinates xInteger and yInteger."
 
-     ^self basicNew setX: xInteger setY: yInteger
+  ^ self basicNew setX: xInteger setY: yInteger
 ]]]
 
 ${endColumns}$
 
 
 
-${slide:title=Summary|label=summary}$
+${slide:title=What you should know}$
 
 - Classes are defined inside packages.
 - Methods are public and virtual.
-- Class methods are just methods of the class.
 - By default a method returns the receiver.
+- Class methods are just methods of the class.
+
