@@ -1,9 +1,0 @@
-{
-    "title":"Class are Objects too"
-}
-
-${slide:title=Example}$
-
-- cf. ==CommandLineHandler class >> allHandler==
-- cf. ==CommandLineHandler class >> selectHandlersFor:==
-- cf. ==subclasses of CommandLineHandler class >> isResponsibleFor:==
