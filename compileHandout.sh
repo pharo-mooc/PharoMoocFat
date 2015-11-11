@@ -39,7 +39,7 @@ Slides/Week2/C019SD-W2S08-Blocks-Loops.pillar \
 Slides/Week2/C019SD-W2S09-Loops.pillar \
 Slides/Week2/C019SD-W2S10-BooleansAndCondition.pillar \
 Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.pillar \
-Slides/Week2/C019SD-W2S12-Design-EssenceOfDispatchExo.pillar"
+Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.pillar"
 
 cp -f ${PILLAR_FILES} Slides/Handout/
 
