@@ -16,89 +16,100 @@ ${slide:title=Hooks/Template}$
 
 
 - Template is the context that
--- defined hooks
+-- define hooks
 -- and is reused
-- Hooks are places to be customized. Hook methods do not have to be abstract, they may define default behavior or no behavior at all.
+- Hooks are places to be customized. 
+-- Hook methods do not have to be abstract
+-- they may define default behavior or no behavior at all.
 
-+>file://figures/hookAndTemplate.png|width=60+
++>file://figures/hookAndTemplate.png|width=80+
 
 ${slide:title=printString template}$
 
-[[[language=smalltalk
+[[[
 Object >> printString
-    "Answer a String whose characters are a description of the receiver. 
-    If you want to print without a character limit, use fullPrintString."
+  "Answer a String whose characters are a description of the receiver. If you want to print without a character limit, use fullPrintString."
 
-    ^ self printStringLimitedTo: 50000
+  ^ self printStringLimitedTo: 50000
 ]]]
 
-[[[language=smalltalk
+[[[
 Object >> printStringLimitedTo: limit
-    "Answer a String whose characters are a description of the receiver.
-    If you want to print without a character limit, use fullPrintString."
-    | limitedString |
-    limitedString := String streamContents: [:s | self printOn: s] limitedTo: limit.
-    limitedString size < limit ifTrue: [^ limitedString].
-    ^ limitedString , '...etc...'
+  "Answer a String whose characters are a description of the receiver. If you want to print without a character limit, use fullPrintString."
+  | limitedString |
+  limitedString := String streamContents: [ :s | self printOn: s ] limitedTo: limit.
+  limitedString size < limit ifTrue: [ ^ limitedString ].
+  ^ limitedString , '...etc...'
 ]]]
 
 ${slide:title=Default hook}$
 
-[[[language=smalltalk
+[[[
 Object >> printOn: aStream
-    "Append to the argument, aStream, a sequence of characters that  
-    identifies the receiver."
+  "Append to the argument, aStream, a sequence of characters that identifies the receiver."
 
-    | title |
-    title := self class name.
-    aStream
-        nextPutAll: (title first isVowel ifTrue: ['an '] ifFalse: ['a ']);
-        nextPutAll: title
+  | title |
+  title := self class name.
+  aStream
+      nextPutAll: (title first isVowel ifTrue: [ 'an ' ] ifFalse: [ 'a ' ]);
+      nextPutAll: title
 ]]]
 
 ${slide:title=printOn: Hook Example}$
 
 A simple redefinition
-[[[language=smalltalk
+[[[
 False >> printOn: aStream 
 
-    aStream nextPutAll: 'false'
+  aStream nextPutAll: 'false'
 ]]]
 
 
 
 ${slide:title=printOn: Hook Example}$
 
- More complex redefinition
+[[[
+1 to: 100 
+> (1 to: 100)
+1 to: 100 by: 3 
+> (1 to: 100 by: 3)
+]]]
+
+Simple: 
  
-[[[language=smalltalk
+[[[
 Interval >> printOn: aStream
-    aStream nextPut: $(;
-     print: start;
-     nextPutAll: ' to: ';
-     print: stop.
-    step ~= 1 ifTrue: [aStream nextPutAll: ' by: '; print: step].
-    aStream nextPut: $)
+  aStream nextPut: $(;
+    print: start;
+    nextPutAll: ' to: ';
+    print: stop.
+    step ~= 1 ifTrue: [ aStream nextPutAll: ' by: '; print: step ].
+  aStream nextPut: $)
 ]]]
 
 ${slide:title=printOn: Hook Example}$
 
-Nice extension of default behavior
+[[[
+Association key: #January value: 31 
+> #January->31 
+]]]
 
-[[[language=smalltalk
+Reusing and extending default behavior
+[[[
 Association >> printOn: aStream
 
-    super printOn: aStream.
-    aStream nextPutAll: '->'.
-    value printOn: aStream
+  super printOn: aStream.
+  aStream nextPutAll: '->'.
+  value printOn: aStream
 ]]]
 
 ${slide:title=Copy as another Hook/Template}$
 
 - Copying objects is complex:
--- should handle graph of connected objects
+-- Graph of connected objects
+-- Cycles
 -- Each object may want a different copy strategy
-- Often the copy is encapsulated into a Copier.
+- Often the copy logic is encapsulated into a Copier
 - Simple solution for simple cases: copy/postCopy hook and template
 
 
@@ -106,54 +117,53 @@ ${slide:title=Copy as another Hook/Template}$
 
 Copy is the smallest template method
 
-[[[language=smalltalk
+[[[
 Object >> copy
-    "Answer another instance just like the receiver. Subclasses typically override postCopy; they typically do not override 
-    shallowCopy. Copy is a template method in the sense of Design Patterns. So do not override it. 
-    Override postCopy instead. Pay attention that normally you should call postCopy of your superclass too."
+  "Answer another instance just like the receiver. Subclasses typically override postCopy; they typically do not override shallowCopy. Copy is a template method in the sense of Design Patterns. So do not override it. Override postCopy instead. Pay attention that normally you should call postCopy of your superclass too."
 
     ^ self shallowCopy postCopy
 ]]]
 
-[[[language=smalltalk
+[[[
 Object >> shallowCopy
-    "Answer a copy of the receiver which shares the receiver's instance variables. 
-    I should never be overridden. I'm invoked from the copy template method. 
-    Subclasses that need to specialize the copy should specialize the postCopy hook method."
+  "Answer a copy of the receiver which shares the receiver's instance variables. Subclasses that need to specialize the copy should specialize the postCopy hook method."
+  <primitive: 148>
+  ...
 ]]]
 
 ${slide:title=Default hook}$
 
-[[[language=smalltalk
+
+
+[[[
 Object >> postCopy
-    "I'm a hook method in the sense of Design Patterns TemplateHook/Methods. I'm called by copy. 
-    self is a shallow copy, subclasses should copy fields as necessary to complete the full copy"
+  "I'm a hook method in the sense of Design Patterns TemplateHook/Methods. I'm called by copy. self is a shallow copy, subclasses should copy fields as necessary to complete the full copy"
 
-    ^ self 
+  ^ self 
 ]]]
 
 ${slide:title=postCopy: Hook Example}$
 
-[[[language=smalltalk
+[[[
 Bag >> postCopy
-    super postCopy.
-    contents := contents copy
+  super postCopy.
+  contents := contents copy
 ]]]
 
 
 ${slide:title=postCopy: Hook Example}$
 
-[[[language=smalltalk
+[[[
 Dictionary >> postCopy
-    "Must copy the associations, or later store will affect both the original and the copy"
+  "Must copy the associations, or later store will affect both the original and the copy"
 
-    array := array collect: [ :association |
-        association ifNotNil: [ association copy ] ]
+  array := array collect: [ :association |
+     association ifNotNil: [ association copy ] ]
 ]]]        
-        
+
 ${slide:title=Conclusion}$
 
 - Common pattern
 - Based on essential aspects of OOP
-- self is a hook
-- Each time you send m message, you increase potential reuse.
+- self-sends are hooks
+- Each time you send a message, you increase potential reuse
