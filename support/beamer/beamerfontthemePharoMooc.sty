@@ -8,11 +8,15 @@
 \setbeamerfont{structure}{}
 \setbeamerfont{tiny structure}{size=\tiny}
 
-\setbeamerfont{title}{size=\Huge \bf,parent=structure}
+\setbeamerfont{title}{family=\fontfamily{ugq}\selectfont,size=\Huge\bf,parent=structure}
 \setbeamerfont{title in head/foot}{}
 \setbeamerfont{title in sidebar}{size=\tiny}
 
-\setbeamerfont{subtitle}{size=\normalsize,parent=title}
+\setbeamerfont{subtitle}{family=\fontfamily{cyklop}\selectfont,size=\normalsize,parent=title}
+
+\setbeamerfont{frametitle}{parent=structure,family=\fontfamily{ugq}\selectfont,size=\LARGE \bf}
+\setbeamerfont{framesubtitle}{parent=frametitle,size=\footnotesize}
+
 
 \setbeamerfont{author}{size=\footnotesize}
 \setbeamerfont{author in head/foot}{}
@@ -58,8 +62,6 @@
 \setbeamerfont{sidebar left}{parent=sidebar}
 \setbeamerfont{sidebar right}{parent=sidebar}
 
-\setbeamerfont{frametitle}{parent=structure,size=\LARGE \bf}
-\setbeamerfont{framesubtitle}{parent=frametitle,size=\footnotesize}
 
 \setbeamerfont{caption}{size=\small}
 \setbeamerfont{caption name}{parent={structure,caption}}
