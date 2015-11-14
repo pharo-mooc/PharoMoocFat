@@ -184,18 +184,31 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] Design Essence of Dispatch: the case of Not
 -- Presenter: Stef
--- Status: To review
--- Files:  *SlidesPdf>../Slides/Week3/W3S1-Design-EssenceOfDispatchNot.pdf* *SlidesHTML>../Slides/Week3/W3S1-Design-EssenceOfDispatchNot.html*
+-- Status: Probably an old version 
+-- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.html*
+
+
+- [Lecture 6min] Design Essence of Dispatch: the case of Not
+-- Presenter: Stef
+-- Status: ok 
+-- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S1-Design-EssenceOfDispatchNot.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S1-Design-EssenceOfDispatchNot.html*
 
 - [Lecture 6min] What can we learn from the not case
 -- Presenter: Stef
 -- Status: To review
--- Files: *SlidesPdf>../Slides/Week3/W3S2-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/W3S1-Design-EssenceOfDispatchNot.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S2-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S2-Design-EssenceOfDispatch.html*
+
+- [Lecture 6min] C019SD-W3S-Design-ImplementingIfTrue.pillar
+-- Presenter: Stef
+-- Status: TMay be to put in Extra
+-- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S-Design-ImplementingIfTrue.html*
+
+
 
 - [Lecture 6min] Teapot
 -- Presenter: Luc
 -- Status: To review
--- Files: *SlidesPdf>../Slides/Week3/W3S3-TeapotAsAPretext.pdf* *SlidesHTML>../Slides/Week3/W3S1-Design-EssenceOfDispatchNot.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S03-TeapotAsAPretext.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S03-TeapotAsAPretext.html*
 
 - [Todo] Live: trouver de l'information avec le Finder	
 -- method
@@ -206,18 +219,15 @@ You will also see that 4 kinds of activities are distinguished:
 - [Lecture 6min] Variables
 -- Presenter: ?
 -- Status: To review
--- Files: *SlidesPdf>../Slides/Week3/W3S5-Basic-Variables.pdf* *SlidesHTML>../Slides/Week3/W3S1-Design-EssenceOfDispatchNot.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S05-Basic-Variables.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S05-Basic-Variables.html*
 
 - [Todo] Live: Tools to find information: implementors, senders		
 -- comment on peut lire un fichier png
 
-
-
 - [Lecture 6min] W3S7-BasicClassMethods
 -- Presenter: Stephane
 -- Status: To review
--- Files: *SlidesPdf>../Slides/Week3/W3S7-ClassMethods.pdf*	*SlidesHTML>../Slides/Week3/W3S7-ClassMethods.html*	
-
+-- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S07-BasicClassMethods.pdf*	*SlidesHTML>../Slides/Week3/C019SD-W3S07-BasicClassMethods.html*	
 
 - [Lecture 6min] W3S7-ClassMethodsAtWork (on peut bouger cela semaine 6)
 -- Presenter: Damien
@@ -312,6 +322,12 @@ You will also see that 4 kinds of activities are distinguished:
 
 !!Week 5: Exception, Debugging and Reflection
 
+- [Lecture 6min] Understanding Class Methods
+-- Presenter: Stef?
+-- Status: 
+-- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S00-UnderstandingClassMethods.pdf*  *SlidesPdf>../Slides/Week5/C019SD-W5S00-UnderstandingClassMethods.html*
+
+
 - [Lecture 6min] W5S-LearningFromMistakes
 -- Presenter: 
 -- Status: 
@@ -336,7 +352,8 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] W5S-Benchmarking.pillar
 -- Presenter: 
--- Status: should do probably another pass
+-- Status: should do probably another pass 
+-- should add: ==[ 1234 factorial ] benchFor: 2 seconds==
 -- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S-Benchmarking.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S-Benchmarking.html*
 
 - 6 Live Debugging of Seaside Web Applications 
@@ -424,7 +441,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 
 
-!!Week 7: More on OO Design and Testing
+!!Week 7: 
 
 - 6 Understanding metaclass architecture
 -- Slides to be done
@@ -432,10 +449,8 @@ You will also see that 4 kinds of activities are distinguished:
 - 6 Understanding metaclass architecture	(two)
 -- Slides to be done
 
-- 6 Design-ClassAsObjects Class as objects					
--- no need for factory = static methods are ....
--- check the commandLineHandler in the image
--- Deja fait mais on peut le bouger la effectivement
+
+
 
 - 6 Double dispatch on paper	
 -- Slides to be done
@@ -451,22 +466,35 @@ You will also see that 4 kinds of activities are distinguished:
 - 6 Conclusion
 	
 	
-	
-! Missing points
+! Missing Lectures
 
+
+Reflection simple
 - instVar
 - doesNotUnderstand	
+- compile:
 
+Reflection 
 - reflection instance specific methods
 - thisContext?
 	
-	
+Seaside1	
 - Live: seaside counter / multi counter
 -- counter back button
 	
+Seaside3
 - Seaside Component, html, bootstrap
 
+Seaside2
 - Seaside call:/answer:
+
+Voyage
+- Voyage simple?
+
+Garage
+- 
+
+
 
 
 !Resources probably as slides
