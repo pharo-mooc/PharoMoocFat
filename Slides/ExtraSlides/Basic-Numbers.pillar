@@ -1,9 +1,9 @@
 {
-	"title":"Numbers"
+	"title":"A Glance at Numbers"
 }
 
 
-${slide:title=Numbers|label=Outline}$
+${slide:title=Numbers}$
 
 - SmallInteger, Integer,
 -- 4, 2r100 (4 in base 2), 3r11 (4 in base 3)
@@ -21,11 +21,10 @@ ${slide:title=Numbers|label=Outline}$
 
 ${slide:title=Numbers|label=Outline}$
 
-+.>file://figures/NumberHierarchy.png|width=60+
++.>file://figures/NumberHierarchy.png|width=80+
 
 
-
-${slide:title=Small ints are real objects|label=funsmallint}$
+${slide:title=Small Integers are Real Objects|label=funsmallint}$
 
 - Small ints are real objects: instance of class ==SmallInteger==
 - No need for boxing or unboxing
@@ -35,21 +34,25 @@ ${slide:title=Small ints are real objects|label=funsmallint}$
 	> SmallInteger
 ]]]
 
-- Operations on small ints are plain messages (no exception to the rule)
-- But small ints are heavily optimized
--- Small integers encoded on 30 bits
--- The pointer itself is the small integer
+- Operations on small integers are plain messages (no exception to the rule)
+
+${slide:title=Small integers are optimized}$
+
+But small integers are heavily optimized
+- Small integers encoded on 30 bits
+- The pointer itself is the small integer
 
 [[[
     2 raisedTo: 30  
     > 1073741823
-	
+]]]
+[[[	
     SmallInteger maxVal
     > 1073741823
 ]]]
 
 
-${slide:title=Automatic Coercion|label=funsmallint}$
+${slide:title=Automatic Coercion}$
 
 What is the largest small integer?
 
@@ -58,6 +61,7 @@ What is the largest small integer?
 	> 1073741823
 ]]]
 
+What is the smallest large integer?
 [[[
 	1 class maxVal +1
 	> 1073741824
@@ -69,54 +73,39 @@ What is the largest small integer?
 
 ${slide:title=Fun With Numbers|label=funsmallint}$
 
-[[[
-1000 factorial
+${slide:title=Fun With Large Numbers}$
 
-40238726007709377354370243392300398571937486421071463254379991042993851239862902059
-20442084869694048004799886101971960586316668729948085589013238296699445909974245040
-87073759918823627727188732519779505950995276120874975462497043601418278094646496291
-05639388743788648733711918104582578364784997701247663288983595573543251318532395846
-30755574091142624174743493475534286465766116677973966688202912073791438537195882498
-08126867838374559731746136085379534524221586593201928090878297308431392844403281231
-55861103697680135730421616874760967587134831202547858932076716913244842623613141250
-87802080002616831510273418279777047846358681701643650241536913982812648102130927612
-44896359928705114964975419909342221566832572080821333186116811553615836546984046708
-97560290095053761647584772842188967964624494516076535340819890138544248798495995331
-91017233555566021394503997362807501378376153071277619268490343526252000158885351473
-31611702103968175921510907788019393178114194545257223865541461062892187960223838971
-47608850627686296714667469756291123408243920816015378088989396451826324367161676217
-91689097799119037540312746222899880051954444142820121873617459926429565817466283029
-55570299024324153181617210465832036786906117260158783520751516284225540265170483304
-22614397428693306169089796848259012545832716822645806652676995865268227280707578139
-18581788896522081643483448259932660433676601769996128318607883861502794659551311565
-52036093988180612138558600301435694527224206344631797460594682573103790084024432...
-]]]
-
-${slide:title=Fraction|label=Fraction}$
-
-- ==denominator==, ==numerator==, ....
-- Can handle large numbers
-[[[
-1000 factorial / 999 factorial
-> 1000
-]]]
-
-${slide:title=Fun With Large Numbers|label=funsmallint}$
+==factorial== is not optimized
 
 [[[[
-    1000 factorial numberOfDigits
-    > 2568 
+1000 factorial numberOfDigits
+> 2568 
 ]]]
 
 [[[[
-    100000 factorial numberOfDigits
-    > 456574 
+100000 factorial numberOfDigits
+> 456574 
 ]]]
 
 - Takes some seconds :)
 
 
-${slide:title=Messages sent to objects|label=}$
+${slide:title=Fraction}$
+
+==Fraction==
+- ==denominator==, ==numerator==, ....
+- Can handle large numbers
+
+[[[
+1000 factorial / 999 factorial
+> 1000
+]]]
+
+
+${slide:title=Messages Sent to Objects}$
+
+-Operations on numbers are plain messages 
+- No exceptions
 
 [[[
 	(1 / 3) + (2 / 3)
@@ -132,58 +121,69 @@ ${slide:title=Messages sent to objects|label=}$
 - Mathematical operations are messages sent to objects
 
 
-${slide:title=Number limits|label=Outline}$
+${slide:title=Message Limits}$
 
 - There is no notion of precedence
 
 [[[
-	2 * 3 + 5
-	> 11
+2 * 3 + 5
+> 11
 ]]]
 
 [[[
-	2 + 3 * 5 
-	> 25 !!!
+2 + 3 * 5 
+> 25 !!!
 ]]]
 
 - Use parenthesis to enforce precedence
 
 [[[
-	2 + (3 * 5)
-	> 11
+2 + (3 * 5)
+> 11
 ]]]
 
 
-${slide:title=Points|label=points}$
+${slide:title=Points}$
 
-- Points are created using the message ==@==
+- A point has an x and y
+- Points are created using the message ==@== or ==x:y:==
 
 [[[
-
-	10 @ 100
-	(10 @ 100) x
-	> 10
-	(10 @ 100) y
-	>100
+10 @ 100
+(10 @ 100) x
+> 10
+(10 @ 100) y
+>100
 ]]]
 
-- Written in a functional way: Most ==Point== methods are returning new points
+Alternative
+[[[
+Point new x: 100 y: 100
+]]]
 
-${slide:title=Rectangles|label=rectangle}$
+Class written in a functional way: Most ==Point== methods are returning new points
 
-- Geometric operations
+
+${slide:title=Rectangles}$
+
+- Geometric and expected operations
 - ==areasOutside:==, ==expandBy:==, ==insetBy:==, ==intersect:==
-[[[
-	Rectangle left: 0 right: 2 top: 1 bottom: 1
 
-	Rectangle origin: 20@20	corner: 100@200
+[[[
+Rectangle left: 10 right: 100 top: 20  bottom: 40
+> (10@20) corner: (100@40)
 ]]]
 
-${slide:title=Margin|label=rectangle}$
+[[[
+Rectangle origin: 20@20	corner: 100@200
+]]]
+
+
+${slide:title=Margins}$
 
 ${columns}$
 
-${column:width=50}$
+${column:width=60}$
 
 - Delta to apply to a rectangle
 - Useful for GUI
@@ -193,9 +193,9 @@ ${column:width=50}$
 -- four numbers
 - Used to compute the extended (or inner) rectangle
 
-${column:width=50}$
+${column:width=40}$
 
-+.>file://figures/Margin.png|width=60+
++.>file://figures/Margin.png|width=100+
 
 ${endColumns}$
 
@@ -203,3 +203,4 @@ ${slide:title=Summary|label=points}$
 - Numbers are real objects
 - Automatic coercion
 - Number can be infinitely large
+- Abstractions are built on top: ==Point==, ==Rectangle==, ==Margin==

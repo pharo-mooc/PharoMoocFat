@@ -416,19 +416,18 @@ You will also see that 4 kinds of activities are distinguished:
 
 - 6 Hook and Template / Copy as a hook and template
 -- Presenter: 
--- Status: Should be moved to this week.
+-- Status: OK 
 -- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S-HookAndTemplate.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S-HookAndTemplate.html*
 
 
 
 - 6 Save objects in Mongo with Voyage
--- stef and esteban 
+-- stef and esteban ??
 
 - [Lecture 6min] Runtime architecture
 -- Presenter: Stef
 -- Status: 
 -- Files: C019SD-W6S-RuntimeArchitecture.pillar
-
 
 
 !!!! Exos	
@@ -438,26 +437,17 @@ You will also see that 4 kinds of activities are distinguished:
 - Exo: API Rest
 
 
-
 !!Week 7: 
 
-- 6 Understanding metaclass architecture
+- 6 Week7 Understanding metaclass architecture
 -- Slides to be done
 
-- 6 Understanding metaclass architecture	(two)
+- 6 Week7 Understanding metaclass architecture	(two)
 -- Slides to be done
 
+- 6 Week7 ?Visitor design pattern or only in exo
 
-
-
-- 6 Double dispatch on paper	
--- Slides to be done
--- do we have an example that is not numbers
--- luc a un exemple 
-
-- 6 Visitor design pattern or only in exo
-
-- 6 Deploying an application 
+- 6 Week7 Deploying an application 
 -- pharo cloud 
 -- cloud9
 
@@ -469,11 +459,24 @@ You will also see that 4 kinds of activities are distinguished:
 !! Extra Lectures
 
 - 6 Numbers
--- Slides to be done
---	-- Files: *SlidesPdf>../Slides/ExtraSlides/Basic-Numbers.pdf*	*SlidesHTML>../Slides/ExtraSlides/Basic-Numbers.html*	
+-- Presenter : 
+-- Status: Done
+-- Files: *SlidesPdf>../Slides/ExtraSlides/Basic-Numbers.pdf* *SlidesHTML>../Slides/ExtraSlides/Basic-Numbers.html*	
 	
 	
 !! Missing Lectures
+
+- 6 Week7 Understanding metaclass architecture
+-- Slides to be done
+
+- 6 Week7 Understanding metaclass architecture	(two)
+-- Slides to be done
+
+- 6 Week7 ?Visitor design pattern or only in exo
+
+- 6 Week7 Deploying an application 
+-- pharo cloud 
+-- cloud9
 
 Reflection simple
 - instVar
@@ -500,19 +503,17 @@ Voyage
 Garage ??
 - 
 
+- 6 Double dispatch on paper -> dans Extras?
+-- Slides to be done
+-- do we have an example that is not numbers
+-- luc a un exemple 
 
-!Resources probably as slides
-- Installation on Pharo.org
-- Live: Getting started: Coding live example counter: class first 10 min
-- Live: Getting started: Coding live example counter: test first 10 min
-- mailing-list, books, servers, ci, videos, Chapters Pharo by Example
+- 6 Magritte??
 
-! Potential Exos
 
-- Deploy the app
-- Expressions visitor
 
-! Immersive Videos
+
+!! Immersive Videos
 
 - Finder
 - GTSpotter
@@ -524,7 +525,7 @@ Garage ??
 - sender/implementor
 
 
-! Find how to 
+!! Find how to 
 
 - ouvrir et afficher un fichier jpeg
 - lister le contenu d'un repertoire sur le disc
@@ -532,8 +533,16 @@ Garage ??
 - service google qui fait un calcul
 
 
+!! Resources probably as slides
+- Installation on Pharo.org
+- Live: Getting started: Coding live example counter: class first 10 min
+- Live: Getting started: Coding live example counter: test first 10 min
+- mailing-list, books, servers, ci, videos, Chapters Pharo by Example
 
+!! Potential Exos
 
+- Expressions visitor
+- LAN (should ask damien to finish it)
 
 !! Ideas to assess and dispatch within the lectures
 

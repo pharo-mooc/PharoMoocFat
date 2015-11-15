@@ -1,11 +1,17 @@
 {
-    "title":"Avoid Null Checks"
+"title":"Avoid Null Checks"
 }
+
+${slide:title=Design Again}$
+
+- Not specific to Pharo 
+- Object-Oriented Design is part of our DNA ;)
 
 ${slide:title=The Pitch}$
 
 - Avoid null checks
-- This goes against "Tell, do not ask"
+- Null checks go against "Tell, do not ask" design guideline
+- Promotes polymorphic objects once again
 - Less checks, simpler logic, just send messages
 
 +.>file://figures/antifIfCampaign.png|width=60+
@@ -13,124 +19,120 @@ ${slide:title=The Pitch}$
 ${slide:title=First, avoid to return nil}$
 
 - Do not force your clients to have to check
-- Do not return nil AND another value
-- Not a collection and may be nil
+- Do not return nil AND another object
+-- Not a collection and may be nil
 
-${slide:title=First, avoid to return nil}$
+${slide:title=Return Polymorphic Objects}$
 
 - Return polymorphic objects!
-- Return collections and empty "collections"
-- Not a collection and may be nil
-
-${slide:title=First, avoid to return nil}$
-
-- Avoid error codes :)
-- If you should specify an exceptional behavior use an exception.
-
-[[[
-    [...] on: Error do:[...] or
-    [ ... ] on: FileStreamException do: [ ... ] or
-    [ ... ] on: FileDoesNotExistException do: [ ... ]
-]]]
-
+- Return a collection and an empty collection
 
 ${slide:title=Example}$
 
-[[[language=smalltalk
+[[[
 Inferencer >> getRulesFor: aFact
-    ^ self computeRulesFor: aFact ifAbsent: [ nil ].
+   ^ self computeRulesFor: aFact ifAbsent: [ nil ]
 ]]]
 
 - It looks really suspicious! We may return ==nil==
 
-[[[language=smalltalk
+[[[
 Inferencer >> computeRulesFor: aFact ifAbsent: aBlock
-    self noRule ifTrue: [ ^ aBlock value ]
-    ^ OrderedCollection with: self rules.
+   self noRule ifTrue: [ ^ aBlock value ]
+   ^ OrderedCollection with: self rules.
 ]]]
 
-- ==getRulesFor:== return either a collection or nil! 
-- Here you force "all" the clients of ==getRulesFor:== to check for ==nil== values!
+- ==getRulesFor:== returns either a collection or nil! 
+- You force ""all"" the clients of ==getRulesFor:== to check for ==nil== values!
 
 ${slide:title=Solution: return polymorphic objects}$
 
-[[[language=smalltalk
+[[[
 Inferencer >> getRulesFor: aFact
-    ^ self computeRulesFor: aFact ifAbsent: [#()].
+   ^ self computeRulesFor: aFact ifAbsent: [#()].
 ]]]
 
-- Your clients can just iterate and manipulate the returned value:
+Your clients can just iterate and manipulate the returned values:
+[[[
+(self getRulesForFact: 'a') do: [:each | ... ]
+]]]
 
--- ==(self getRulesForFact: 'a') do: [:each | ...]==
+${slide:title=For Exceptional Cases, Use Exceptions}$
 
+- Avoid error codes, when possible :)
+- If you should specify an exceptional behavior use exceptions.
+
+[[[
+[...] on: MyError do:[...]
+[ ... ] on: FileStreamException do: [ ... ]
+[ ... ] on: FileDoesNotExistException do: [ ... ]
+]]]
 
 ${slide:title=Second, initialize your object state}$
 
+- By default instance variables are initialized with ==nil==
+- Initialize your object state correctly
 
-[[[language=smalltalk
-    Archive >> initialize
-         super initialize.
-         members := OrderedCollection new.
+[[[
+Archive >> initialize
+   super initialize.
+   members := OrderedCollection new.
 ]]]
 
-${slide:title=Second, initialize your object state}$
+${slide:title=Use Lazy Initialization If Necessary}$
 
-You can also use lazy initialization if necessary
-
-[[[language=smalltalk
-    FreeTypeFont >> descent
-        ^ cachedDescent ifNil: [ 
-              cachedDescent := (self face descender * self pixelSize // 
-                                                          self face unitsPerEm) negated ]
+[[[
+FreeTypeFont >> descent
+   ^ cachedDescent ifNil: [ 
+        cachedDescent := (self face descender * self pixelSize // 
+                               self face unitsPerEm) negated ]
 ]]]
 
-- Do not forget to systematically use accessors.
+- Do not forget to systematically use accessors
 
 ${slide:title=Sometimes you have to check ...}$
 
-- Sometimes you have to check before doing some action.
+- Sometimes you have to check before doing some action
 - If you can, turn the default case into an object (NullObject)
 
-[[[language=smalltalk
-    ToolPalette >> nextAction
-        self selectedTool ifNotNil: [:t | t attachHandles]
+[[[
+ToolPalette >> nextAction
+   self selectedTool ifNotNil: [:t | t attachHandles]
 
-    ToolPalette >> previousAction
-        self selectedTool ifNotNil: [:t | t dettachHandles]
+ToolPalette >> previousAction
+   self selectedTool ifNotNil: [:t | t dettachHandles]
 ]]]
 
 ${slide:title=Third, use NullObject}$
 
 - A null object proposes a polymorphic API and embeds default actions/values
-
 - Woolf, Bobby (1998). "Null Object". In Pattern Languages of Program Design 3. Addison-Wesley.
-
 
 ${slide:title=Third, use NullObject}$
 
-[[[language=smalltalk
-    NoTool >> attachHandles
-        ^ self
+[[[
+NoTool >> attachHandles
+   ^ self
 ]]]
 
-[[[language=smalltalk
-    NoTool >> detachHandles
-        ^ self
+[[[
+NoTool >> detachHandles
+   ^ self
 ]]]
 
-[[[language=smalltalk
-    ToolPalette >> initialize
-        self selectedTool: NoTool new
+[[[
+ToolPalette >> initialize
+   self selectedTool: NoTool new
 ]]]
 
-[[[language=smalltalk
-    ToolPalette >> nextAction
-        self selectedTool attachHandles
+[[[
+ToolPalette >> nextAction
+   self selectedTool attachHandles
 ]]]
 
-[[[language=smalltalk
-    ToolPalette >> previousAction
-        self selectedTool detachHandles
+[[[
+ToolPalette >> previousAction
+   self selectedTool detachHandles
 ]]]
 
 
@@ -141,5 +143,3 @@ ${slide:title=Conclusion}$
 - If you can define, create objects that represent default behavior
 - When you can avoid it, avoid returning ==nil==
 - Initialize your variables
-
-
