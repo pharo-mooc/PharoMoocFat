@@ -335,7 +335,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] W3S10-UnderstandingClassMethods.pillar
 -- Presenter: Stef
--- Status: Doing it may be should move this one to another week (and after the lookup is done)
+-- Status: Done may be should move this one to another week.
 -- Files:  *SlidesPdf>../Slides/Week3/W3S10-UnderstandingClassMethods.pdf*	*SlidesHTML>../Slides/Week3/W3S10-UnderstandingClassMethods.html*			
 
 - 6 Live: Picasa
@@ -383,9 +383,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 !!Week 6: Rethink lookup and Advanced OO Design
 
-- 6 All the literal objects we did not talk about
--- really 6min? may be we can simply drop it :)
--- Numbers
+
 
 - [Lecture 6min]  Strings, characters, symbols
 -- Presenter: 
@@ -419,7 +417,7 @@ You will also see that 4 kinds of activities are distinguished:
 - 6 Hook and Template / Copy as a hook and template
 -- Presenter: 
 -- Status: Should be moved to this week.
--- Files: *SlidesPdf>../Slides/Week6/Slides/Week6/Slides/Week6/C019SD-W6S-HookAndTemplate.pdf* *SlidesHTML>../Slides/Week6/Slides/Week6/Slides/Week6/C019SD-W6S-HookAndTemplate.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S-HookAndTemplate.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S-HookAndTemplate.html*
 
 
 
@@ -466,8 +464,16 @@ You will also see that 4 kinds of activities are distinguished:
 - 6 Conclusion
 	
 	
-! Missing Lectures
+	
+	
+!! Extra Lectures
 
+- 6 Numbers
+-- Slides to be done
+--	-- Files: *SlidesPdf>../Slides/ExtraSlides/Basic-Numbers.pdf*	*SlidesHTML>../Slides/ExtraSlides/Basic-Numbers.html*	
+	
+	
+!! Missing Lectures
 
 Reflection simple
 - instVar
