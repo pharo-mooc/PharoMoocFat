@@ -3,7 +3,7 @@
 	 "slidesid" : "W2S01"
 }
 
-${slide:title=Reminder|label=objectives}$
+${slide:title=Reminder}$
 
 - we only manipulate ""objects"" (mouse, booleans, arrays, numbers, strings, ...)
 - we only send them ""messages"" (@, \+, not, getPng:, ifTrue:ifFalse:, new, ...)
