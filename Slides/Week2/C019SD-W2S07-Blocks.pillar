@@ -20,8 +20,8 @@ ${slide:title=Block Syntax}$
 
 - a block is delimited by ==[ ]==
 
-[[[language=smalltalk
-     [ expressions.... ]
+[[[
+    [ expressions.... ]
 ]]]
 
 ${slide:title=A Block}$
@@ -29,16 +29,16 @@ ${slide:title=A Block}$
 
 - Executing ==(1 / 0)== raises an error.
 
-[[[language=smalltalk
-    ( 1 / 0 )
+[[[
+   ( 1 / 0 )
    -> Error
 ]]]
 
 - Executing ==[ 1 / 0 ]== does not raise an error because the block body is not executed.
 
-[[[language=smalltalk
-    [ 1 / 0 ]
-    > [ 1 /0 ] 
+[[[
+   [ 1 / 0 ]
+   > [ 1 /0 ] 
 ]]]
 
 - If we do not ask a block to be executed, nothing happens.
@@ -48,9 +48,9 @@ ${slide:title=A Block is Freezing Computation}$
 - A block is not executed.
 - A block blocks execution: its body is not executed.
 
-[[[language=smalltalk
-    [ 2 + 6 ] 
-    > [ 2 + 6 ] 
+[[[
+   [ 2 + 6 ] 
+   > [ 2 + 6 ] 
 ]]]
 
 
@@ -58,31 +58,31 @@ ${slide:title=Executing a Block}$
 
 To execute a block we should ask ""explicitly"" its execution using the message ==value==
 
-[[[language=smalltalk
-    [ 2 + 6 ] value
-    > 8 
+[[[
+   [ 2 + 6 ] value
+   > 8 
 ]]]
 
-[[[language=smalltalk
-    [ 1 / 0 ] value
-    > Error
+[[[
+   [ 1 / 0 ] value
+   > Error
 ]]]
 
 
 ${slide:title=A Block with one argument}$
 - A bloc can take arguments (the same way a method can)
 
-[[[language=smalltalk
-    [ :x | x + 2 ]
+[[[
+   [ :x | x + 2 ]
 ]]]
 
 - ==[ ]== delimits the block.
 - == :x == is block argument.
 - == x + 2 == is the block body.
 
-[[[language=smalltalk
-    [ :x | x + 2 ] value: 5
-    > 7
+[[[
+   [ :x | x + 2 ] value: 5
+   > 7
 ]]]
 
 - ==value:== is a message that executes a block passing a value, here 5 as argument. ==x== will have the value 5.
@@ -92,11 +92,11 @@ ${slide:title=Block execution value}$
 
 - Execution returns the value of the last expression
 
-[[[language=smalltalk
-    [ :x | 
-            x + 33. 
-            x + 2 ] value: 5
-    > 7
+[[[
+   [ :x | 
+         x + 33. 
+         x + 2 ] value: 5
+   > 7
 ]]]
 
 ${slide:title=Blocks can be stored}$
@@ -104,15 +104,15 @@ ${slide:title=Blocks can be stored}$
 - We can store a block in variable
 - A block can be executed multiple times
 
-[[[language=smalltalk
-    | b |
-    b := [ :x | x + 2 ].
-    
-    b value: 5
-    > 7
-    
-    b value: 33
-    > 35
+[[[
+   | b |
+   b := [ :x | x + 2 ].
+   
+   b value: 5
+   > 7
+   
+   b value: 33
+   > 35
 ]]]
 
 
@@ -129,11 +129,11 @@ ${slide:title=A return in a bloc returns from the method}$
 
 [[[
 Integer >> factorial
-    "Answer the factorial of the receiver."
+   "Answer the factorial of the receiver."
 
-    self = 0 ifTrue: [ ^ 1 ].
-    self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-    self error: 'Not valid for negative integers'
+   self = 0 ifTrue: [ ^ 1 ].
+   self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+   self error: 'Not valid for negative integers'
 ]]]
 
 ${slide:title=More precisely}$
@@ -149,32 +149,31 @@ ${slide:title=Exercises}$
 - Guess how to execute a block taking two arguments
 
 [[[
-    [ :x :y | x + y ]   5  7
-    > 12
+   [ :x :y | x + y ]   5  7
+   > 12
 ]]]
 
 
 ${slide:title=Other examples|label=expressLoop}$
 
-[[[language=smalltalk 
-    
-    [ 2 + 3 + 4 + 5 ] value
-    > 14
-    [ :x | x + 3 + 4 + 5 ] value: 2
-    > 14
-    [ :x :y | x + y + 4 + 5] value: 2 value: 3
-    > 14
+[[[ 
+   [ 2 + 3 + 4 + 5 ] value
+   > 14
+   [ :x | x + 3 + 4 + 5 ] value: 2
+   > 14
+   [ :x :y | x + y + 4 + 5] value: 2 value: 3
+   > 14
 ]]]
 
 ${slide:title=Summary}$
 
 [[[
-    [ :variable1 :variable2 ... |
-        | tmp |
-        expression1.
-        ...variable1 ...
-        ]
-        value: ... value: ...
+   [ :variable1 :variable2 ... |
+      | tmp |
+      expression1.
+      ...variable1 ...
+      ]
+      value: ... value: ...
 ]]]
 
 - Approximately kind of an anonymous method 
@@ -184,3 +183,6 @@ ${slide:title=Summary}$
 - Basis of iterators (See companion lecture)
 - Further readings: *http://deepintopharo.org*
 
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S07-Blocks.pillar"
+% End:
