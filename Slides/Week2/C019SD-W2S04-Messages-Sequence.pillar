@@ -5,30 +5,25 @@
 
 ${slide:title=Message Sequence}$
 
-[[[language=Smalltalk
+[[[
     message1.
     message2.
     message3
 ]]]
 
-- . is a separator, not a terminator,
-- No need to put one at the end.
+- ==.== is a separator, not a terminator, no need to put one at the end
 
-[[[language=Smalltalk
-    | macNode pcNode node1 printerNode |
+[[[
+    | macNode pcNode |
     macNode := Workstation withName: #mac.
-    Transcript cr.
-    Transcript show: 1.
-    Transcript show: 2
+    [...]
 ]]]
 
-- No point after temporaries declaration
+- no point after temp. variable declaration
 
-${slide:title=Multiple messages to an object}$
+${slide:title=Multiple Messages to an Object}$
 
-- To send multiple messages to the same object
-
-[[[language=Smalltalk
+[[[
     Transcript cr.
     Transcript show: 1.
     Transcript show: 2.
@@ -36,56 +31,50 @@ ${slide:title=Multiple messages to an object}$
 
 is equivalent to:
 
-[[[language=Smalltalk
+[[[
     Transcript
         cr ;
         show: 1 ;
         show: 2
 ]]]
 
-- Using ; is called a cascade
-- ==show: 1==, ==show: 2== are sent to the receiver of the ==cr== message
+- sending multiple messages to the same object with ==;== is called a ""cascade""
+- ==cr==, ==show: 1== and ==show: 2== are sent to ==Transcript==
+- the cascade returns the last message return value
 
+${slide:title=A Puzzle}$
+
+We add 2 to a set
+[[[
+   Set new add: 2
+   > 2
+]]]
+
+We get 2 and not the set
 
 ${slide:title=A puzzle}$
 
-We add 2 to a set.
-[[[language=Smalltalk
-    Set new add: 2
-    > 2
+[[[
+Set>>add: newObject
+   "Include newObject as one of the receiver's elements, but only if not already present. Answer newObject."
+   [...]
+   ^ newObject
 ]]]
 
-But we get 2 and not the set.
+The method ==add:== returns its argument, not the receiver
 
-${slide:title=A puzzle (2)}$
+${slide:title=A puzzle}$
+
+To get the collection back, we can use a temporary variable
 
 [[[
-Collection >> add: newObject 
-    "Include newObject as one of the receiver's elements. Answer newObject. 
-    ArrayedCollections cannot respond to this message."
-
-    self subclassResponsibility
+   | s |
+   s := Set new.
+   s add: 1; add: 2.
+   s
 ]]]
 
-- The message ==add:== returns its argument and not the receiver.
-
-${slide:title=A puzzle (3)}$
-
-
-We have to use a temporary variable.
-
-[[[language=Smalltalk
-    | s |
-    s := Set new.
-    s add: 1; add: 2.
-    s 
-]]]
-
-- What could be another solution?
-
-${slide:title=A puzzle (4)}$
-
-What could be another solution?
+Do you see another solution?
 
 ${slide:title=One Hint}$
 
@@ -93,31 +82,39 @@ What if we get a message that returns the receiver?
 
 ${slide:title=yourself}$
 
-[[[language=Smalltalk
-Object >> yourself
-    ^ self
+[[[
+Object>>yourself
+   ^ self
 ]]]
 
 ${slide:title=A Puzzle: Solution}$
 
-[[[language=Smalltalk
-    | s |
-    s := Set new.
-    s add: 1; add: 2.
-    s 
+[[[
+   | s |
+   s := Set new.
+   s add: 1; add: 2.
+   s
 ]]]
 
-is equivalent to 
+is equivalent to
 
-[[[language=Smalltalk
-    Set new add: 1; add: 2; yourself
-    > aSet 
+[[[
+   Set new
+      add: 1;
+      add: 2;
+      yourself
+   > aSet 
 ]]]
 
-- ==add: 2== and ==yourself== are sent to the receiver of ==add: 1==
-- to the newly created set
+- ==add:== and ==yourself== are sent to the new ==Set==
+- the cascade returns the return value of ==yourself==
 
-${slide:title=Summary}$
+${slide:title=What you should Know}$
 
 - ==.== is a separator
-- ==;== is useful to avoid to repeat receiver
+- ==;== (cascade) is useful to avoid repeating the receiver
+- the cascade returns the last message return value
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S04-Messages-Sequence.pillar"
+% End:
