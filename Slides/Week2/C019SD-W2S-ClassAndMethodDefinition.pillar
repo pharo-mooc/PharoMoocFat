@@ -31,7 +31,7 @@ Game >> initializePlayers
     put: ( MITileAction director: self )
 ]]]
 
-${slide:title=Methods return self by default}$
+${slide:title=Methods Return self by Default}$
 
 [[[
 Game >> initializePlayers
@@ -39,11 +39,11 @@ Game >> initializePlayers
   self players
     at: 'tileAction'
     put: ( MITileAction director: self )
-  ^ self 
+  ^ self       "<-- this is optional"
 ]]]
 
 
-${slide:title=Typographical convention}$
+${slide:title=Typographical Convention}$
 
 When you edit a method, you do not type the class name:
 
@@ -56,7 +56,7 @@ dist: aPoint
   ^ (dx * dx + (dy * dy)) sqrt
 ]]]
 
-We show the class we are talking about using ==Point >>==
+We show the class we are talking about using ==Point>>==
 
 [[[
 Point >> dist: aPoint 
@@ -69,16 +69,20 @@ Point >> dist: aPoint
 
 ${slide:title=Class Method}$
 
-To define a class method, press the ""class side"" button
-In books and lecture notes we add 'class'
+
 
 ${columns}$
 
-${column:width=70}$
+${column:width=60}$
 
-+.>file://figures/classSideMethod.png|width=110+
++.>file://figures/classSideMethod.png|width=100+
 
-${column:width=80}$
+${column:width=40}$
+
+- press ==class side== to define a class method
+- in lectures, we add ==class==
+
+${endColumns}$
 
 [[[
 Point class >> x: xInteger y: yInteger 
@@ -87,14 +91,13 @@ Point class >> x: xInteger y: yInteger
   ^ self basicNew setX: xInteger setY: yInteger
 ]]]
 
-${endColumns}$
+${slide:title=What you should Know}$
 
+- Classes are defined inside packages
+- Methods are public and virtual
+- By default a method returns the receiver
+- Class methods are just methods of the class
 
-
-${slide:title=What you should know}$
-
-- Classes are defined inside packages.
-- Methods are public and virtual.
-- By default a method returns the receiver.
-- Class methods are just methods of the class.
-
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S-ClassAndMethodDefinition.pillar"
+% End:
