@@ -1,20 +1,16 @@
 {
-	"title":"Introduction to Blocks"
+  "title":"Introduction to Blocks"
 }
 
+${slide:title=Blocks}$
 
-${slide:title=Objectives}$
-
-- Called closures or lexical closures in other languages.
-- Just introduced in Java 8.0.
-- Really important and are at the heart of Pharo.
-- Used for loops, conditionals and iterators.
-- You can define your own control flow.
-- Used in UI development.
-- Really powerful concept 
-
-- As a first approximation, blocks are kind of anonymous methods
-
+- blocks are kind of anonymous methods
+-- sometimes called (lexical) closures
+- used everywhere
+-- loops, conditionals, iterators,...
+-- GUI frameworks, DSLs,..
+-- at the heart of Pharo
+- just introduced in Java 8.0
 
 ${slide:title=Block Syntax}$
 
@@ -26,41 +22,27 @@ ${slide:title=Block Syntax}$
 
 ${slide:title=A Block}$
 
-
-- Executing ==(1 / 0)== raises an error.
-
+- error signaled with ==(1 / 0)==
 [[[
    ( 1 / 0 )
    -> Error
 ]]]
-
-- Executing ==[ 1 / 0 ]== does not raise an error because the block body is not executed.
+- no error signaled with ==[ 1 / 0 ]==
 
 [[[
    [ 1 / 0 ]
-   > [ 1 /0 ] 
+   > [ 1 /0 ]
 ]]]
 
-- If we do not ask a block to be executed, nothing happens.
+Nothing happens until a block is evaluated
+- a block freezes the computation
 
-${slide:title=A Block is Freezing Computation}$
+${slide:title=Evaluating a Block}$
 
-- A block is not executed.
-- A block blocks execution: its body is not executed.
-
-[[[
-   [ 2 + 6 ] 
-   > [ 2 + 6 ] 
-]]]
-
-
-${slide:title=Executing a Block}$
-
-To execute a block we should ask ""explicitly"" its execution using the message ==value==
-
+Evaluating a block is done ""explicitly"" through ==value==
 [[[
    [ 2 + 6 ] value
-   > 8 
+   > 8
 ]]]
 
 [[[
@@ -69,66 +51,88 @@ To execute a block we should ask ""explicitly"" its execution using the message 
 ]]]
 
 
-${slide:title=A Block with one argument}$
-- A bloc can take arguments (the same way a method can)
+${slide:title=A Block with 1 Argument}$
+
+A bloc can take arguments (just like methods)
 
 [[[
    [ :x | x + 2 ]
 ]]]
 
-- ==[ ]== delimits the block.
-- == :x == is block argument.
-- == x + 2 == is the block body.
+- ==[ ]== delimits the block
+- == :x == is block argument
+- == x + 2 == is the block body
 
 [[[
    [ :x | x + 2 ] value: 5
    > 7
 ]]]
 
-- ==value:== is a message that executes a block passing a value, here 5 as argument. ==x== will have the value 5.
+- ==value: 5== evaluates the block with 5 as argument
+-- ==x== is 5 during the block evaluation
 
+${slide:title=A Block with 2 Arguments}$
 
-${slide:title=Block execution value}$
-
-- Execution returns the value of the last expression
+A bloc can take arguments (just like methods)
 
 [[[
-   [ :x | 
-         x + 33. 
-         x + 2 ] value: 5
+   [ :x :y | x + y ]
+]]]
+
+- ==[ ]== delimits the block
+- == :x :y == are block arguments
+- == x + y == is the block body
+
+[[[
+   [ :x :y | x + y ] value: 5 value: 7
+   > 12
+]]]
+
+- ==value: 5 value: 7== evaluates the block with 5 and 7
+-- ==x== is 5 and ==y== is 7 during the block evaluation
+
+
+${slide:title=Block Evaluation Value}$
+
+Block evaluation returns the value of the last expression
+[[[
+   [ :x |
+      x + 33.
+      x + 2 ] value: 5
    > 7
 ]]]
 
-${slide:title=Blocks can be stored}$
+${slide:title=Blocks can be Stored}$
 
-- We can store a block in variable
-- A block can be executed multiple times
+- a block can be stored in a variable
+- a block can be evaluated multiple times
 
 [[[
-   | b |
-   b := [ :x | x + 2 ].
-   
-   b value: 5
+   | add2 |
+   add2 := [ :x | x + 2 ].
+
+   add2 value: 5
    > 7
-   
-   b value: 33
+
+   add2 value: 33
    > 35
 ]]]
 
 
 ${slide:title=A Design Advice}$
 
-- Do not use blocks with too many arguments (2 or 3 max).
-- Define a class instead of block if you should pass more arguments.
-- A block is only one single computation it cannot define more facets (printing, testing)
+- use blocks with 2 or 3 arguments maximum
+- define a class instead of a block for more arguments
+- a block encapsulates only 1 computation
+-- it cannot define more facets (e.g., printing)
 
 
-${slide:title=A return in a bloc returns from the method}$
+${slide:title=Returning from a Block Returns from the Method}$
 
--  When a return is executed in block, computation exits the method that defined the block.
+When a return ==^== is evaluated in a block, computation exits the encapsulating method
 
 [[[
-Integer >> factorial
+Integer>>factorial
    "Answer the factorial of the receiver."
 
    self = 0 ifTrue: [ ^ 1 ].
@@ -136,17 +140,17 @@ Integer >> factorial
    self error: 'Not valid for negative integers'
 ]]]
 
-${slide:title=More precisely}$
+${slide:title=More Precisely}$
 
-- When a return in a block is executed, computation returns from the method that ""defined"" the block.
-- Since blocks can be passed around, from methods to methods, blocks behaves as an exception mechanism.
-- Do not use this mechanim, better use Exception.
-- Always think twice when you put a return in a block.
-- Further readings: *http://deepintopharo.org*
+- when a return in a block is evaluated, computation returns from the method ""defining"" the block
+- since blocks can be passed around in variables, blocks behave like an exception mechanism
+- prefer exceptions
+- pay attention when you put a return in a block.
+- further readings: *http://deepintopharo.org*
 
 ${slide:title=Exercises}$
 
-- Guess how to execute a block taking two arguments
+- Guess how to evaluate a block taking two arguments
 
 [[[
    [ :x :y | x + y ]   5  7
