@@ -71,27 +71,6 @@ A bloc can take arguments (just like methods)
 - ==value: 5== evaluates the block with 5 as argument
 -- ==x== is 5 during the block evaluation
 
-${slide:title=A Block with 2 Arguments}$
-
-A bloc can take arguments (just like methods)
-
-[[[
-   [ :x :y | x + y ]
-]]]
-
-- ==[ ]== delimits the block
-- == :x :y == are block arguments
-- == x + y == is the block body
-
-[[[
-   [ :x :y | x + y ] value: 5 value: 7
-   > 12
-]]]
-
-- ==value: 5 value: 7== evaluates the block with 5 and 7
--- ==x== is 5 and ==y== is 7 during the block evaluation
-
-
 ${slide:title=Block Evaluation Value}$
 
 Block evaluation returns the value of the last expression
@@ -142,32 +121,51 @@ Integer>>factorial
 
 ${slide:title=More Precisely}$
 
-- when a return in a block is evaluated, computation returns from the method ""defining"" the block
+- when returning from a block, the method ""defining"" the block is terminated
 - since blocks can be passed around in variables, blocks behave like an exception mechanism
-- prefer exceptions
-- pay attention when you put a return in a block.
+- prefer exceptions when this is what you need
+- pay attention when you put a return in a block
 - further readings: *http://deepintopharo.org*
 
-${slide:title=Exercises}$
+${slide:title=Exercise}$
 
-- Guess how to evaluate a block taking two arguments
+How to evaluate a block with two arguments?
 
 [[[
-   [ :x :y | x + y ]   5  7
+   [ :x :y | x + y ] ???  5  7
    > 12
 ]]]
 
+${slide:title=A Block with 2 Arguments}$
 
-${slide:title=Other examples|label=expressLoop}$
-
-[[[ 
-   [ 2 + 3 + 4 + 5 ] value
-   > 14
-   [ :x | x + 3 + 4 + 5 ] value: 2
-   > 14
-   [ :x :y | x + y + 4 + 5] value: 2 value: 3
-   > 14
+[[[
+   [ :x :y | x + y ]
 ]]]
+
+- == :x :y == are block arguments
+
+[[[
+   [ :x :y | x + y ] value: 5 value: 7
+   > 12
+]]]
+
+- ==value: 5 value: 7== evaluates the block with 5 and 7
+-- ==x== is 5 and ==y== is 7 during the block evaluation
+
+${slide:title=A Block with Temporary variables}$
+
+Blocks can define temp. variables (just like methods)
+[[[
+Collection>>affect: anObject when: aBoolean
+   self do: [ :index | | args |
+      args := ....
+      aBoolean
+         ifTrue: [ anObject do: args ]
+         ifFalse: [ anObject doDifferently: args ] ].
+]]]
+
+- ==| args | == defines a temporary variable named ==args==
+- ==args== exists only during block evaluation
 
 ${slide:title=Summary}$
 
@@ -180,12 +178,11 @@ ${slide:title=Summary}$
       value: ... value: ...
 ]]]
 
-- Approximately kind of an anonymous method 
-- Technically lexical closures
-- Can be passed as arguments to methods, stored in instance variables
-- Basis of conditionals and loops (See companion lecture)
-- Basis of iterators (See companion lecture)
-- Further readings: *http://deepintopharo.org*
+- kind of an anonymous method
+- technically lexical closures
+- can be stored in variables and method arguments
+- basis of conditionals, loops and iterators (see companion lectures)
+- further readings: *http://deepintopharo.org*
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S07-Blocks.pillar"
