@@ -231,9 +231,9 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] W3S7-ClassMethodsAtWork (on peut bouger cela semaine 6)
 -- Presenter: Damien
--- Status: To review 
+-- Status: reviewed (A '!' in a script prevents nice rendering. This is due to escapechar in 'listings' configuration)
 -- Files: *SlidesPdf>../Slides/Week3/W3S8-ClassMethodsAtWork.pdf*	*SlidesHTML>../Slides/Week3/W3S7-ClassMethods.html*	
-	
+
 
 !!! Exos
 

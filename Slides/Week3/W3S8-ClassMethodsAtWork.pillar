@@ -2,71 +2,65 @@
 	"title":"Class methods At Work"
 }
 
-${slide:title=What you will learn}$
+${slide:title=What you Will Learn}$
 
 - Class methods are dynamically looked up
 - Act as registration mechanism
 - No need for factory as in Java
 
-
 ${slide:title=Parsing Lines}$
 
-Imagine we want to parse 
-
+Imagine we want to parse
 [[[
-  ! Section Title
+!Section Title
+- list item
+-- sub-list item
 
-  - list item 1
-  -- sub-list item 1.2
-
-  Any text here
+Any text here
 ]]]
 
 
 ${slide:title=A Possible Design}$
 
-+>file://figures/Items.png|width=80+
++>file://figures/items.png|width=80+
 
-- Document element classes themselves know 
--- if they can parse the line (message ==canParse:==)
--- to create the corresponding object (message ==newFromLine:==)
-
+- Document item ""classes"" know
+-- if they can parse a line (==canParse:==)
+-- how to create instances (==newFromLine:==)
 
 ${slide:title=Parsing Lines}$
 
 [[[
-Parser >> parse: line
-  self sortedParsers
-     detect: [ :subclass | (subclass canParse: aLine)
-                        ifTrue: [ ^ subclass newFromLine: line ] ]
+Parser>>parse: line
+   self documentClasses
+      detect: [ :subclass |
+         (subclass canParse: aLine)
+            ifTrue: [ ^ subclass newFromLine: line ] ]
 
-Parser >> sortedParsers
-  ^ DocumentItem allSubclasses
-        sorted: [ :cls1 :cls2 | cls1 priority < cls2 priority ]
+Parser>>documentClasses
+   ^ DocumentItem allSubclasses
+      sorted: [ :cls1 :cls2 | cls1 priority < cls2 priority ]
 ]]]
 
 
-${slide:title=What do we see}$
+${slide:title=What do we See}$
 
+- ==documentClasses== sorts the subclasses
+- subclasses specialize ==canParse:== and ==newFromLine:==
 
-- ==sortedParsers== sorts the (sub)classes themselves according to their priority
-- Different subclasses specialize ==canParse:== and ==newFromLine:==
-
-	
 ${slide:title=Another Example}$
 
 Inside Pharo the way command-lines are managed use the same approach
 
 [[[
-CommandLineHandler class >> allHandlers
-  ^ self allSubclasses reject: [ :handler| handler isAbstract ]
-]]]
+CommandLineHandler class>>allHandlers
+   ^ self allSubclasses
+        reject: [ :handler| handler isAbstract ]
 
-[[[
-CommandLineHandler class >> selectHandlersFor: aCommandLine
-
-  ^ self allHandlers select: [ :handlerClass |
-      handlerClass isResponsibleFor: aCommandLine ]
+CommandLineHandler class>>handlersFor: aCommandLine
+  ^ self allHandlers
+       select: [ :handlerClass |
+          handlerClass isResponsibleFor: aCommandLine ]
 ]]]
 
 ${slide:title=CommandLineHandler and subclasses}$
@@ -92,9 +86,6 @@ ${slide:title=Conclusion}$
 - Classes can then be used as registration mechanism
 - Each subclass defines a behavior and the condition to use it
 
-
-
-
-
-
-
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/W3S8-ClassMethodsAtWork.pillar"
+% End:
