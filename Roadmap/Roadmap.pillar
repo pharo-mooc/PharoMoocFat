@@ -285,10 +285,20 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To review
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S07-BasicClassMethods.pdf*	*SlidesHTML>../Slides/Week3/C019SD-W3S07-BasicClassMethods.html*	
 
-- [Lecture 6min] W3S7-ClassMethodsAtWork (on peut bouger cela semaine 6)
+- [Lecture 6min] First Glance at Collections (OrderedCollection, Array, Set)
+-- Presenter: Stef
+-- Status: To Review (may be we should cut it in two: dictionary in another lectures)
+-- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week4/C019SD-W4S-Basic-ArraySetOrderedCollection.html*
+
+- [Lecture 6min] W4S-Iterators
+-- Presenter: Stef
+-- Status: To Review
+-- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-Iterators.pdf* *SlidesHTML>../Slides/Week4//C019SD-W4S-Iterators.html*
+
+- [Lecture 6min] W4S-Streams
 -- Presenter: Damien
--- Status: To review 
--- Files: *SlidesPdf>../Slides/Week3/W3S8-ClassMethodsAtWork.pdf*	*SlidesHTML>../Slides/Week3/W3S7-ClassMethods.html*	
+-- Status: To Review
+-- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-Stream.pdf* *SlidesHTML>../Slides/Week4//C019SD-W4S-Stream.html*		
 	
 
 !!!Exos
@@ -302,11 +312,13 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Lecture(TBD)	
 
 - Find how to 
+
 - Redo: Refaire le dice 
+
 - Ticket Model 
--- send mail
--- participation gratuite / payante
-- Tortillar: Lamps two of noury (need collection)  not needed
+-- ESRepo / REST interface withTeapot
+-- send mail?
+-- participation gratuite / payante?
 
 !!Week 4: Inheritance&Lookup, Collections and Web Development
 
@@ -335,21 +347,10 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To Review
 -- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-InheritanceAndLookup-5-LookupMetaclasses.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
 
-- [Lecture 6min] First Glance at Collections (OrderedCollection, Array, Set)
--- Presenter: Stef
--- Status: To Review (may be we should cut it in two: dictionary in another lectures)
--- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week4/C019SD-W4S-Basic-ArraySetOrderedCollection.html*
-
-- [Lecture 6min] W4S-Iterators
--- Presenter: Stef
--- Status: To Review
--- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-Iterators.pdf* *SlidesHTML>../Slides/Week4//C019SD-W4S-Iterators.html*
-
-- [Lecture 6min] W4S-Streams
+- [Lecture 6min] C019SD-W4S-ClassMethodsAtWork (on peut bouger cela semaine 6)
 -- Presenter: Damien
--- Status: To Review
--- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-Stream.pdf* *SlidesHTML>../Slides/Week4//C019SD-W4S-Stream.html*		
-
+-- Status: To review 
+-- Files: *SlidesPdf>../Slides/Week3/W3S8-ClassMethodsAtWork.pdf*	*SlidesHTML>../Slides/Week3/W3S7-ClassMethods.html*	
 
 - 3 min PharoWebStack: 4/5 slides
 	Voyage Mongo
@@ -363,9 +364,6 @@ You will also see that 4 kinds of activities are distinguished:
 - Seaside Component, html, bootstrap
 
 - Seaside call:/answer:
-	
-
-
 
 !!!! Exos	
 - Find how to ...
@@ -389,10 +387,10 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: 
 -- Files:  *SlidesPdf>../Slides/Week5/W5S-LearningFromMistakes.pdf* *SlidesHTML>../Slides/Week5/W5S-LearningFromMistakes.html*
 
-- [Lecture 6min] W3S10-UnderstandingClassMethods.pillar
+- [Lecture 6min] C019SD-W5S00-UnderstandingClassMethods.pillar
 -- Presenter: Stef
 -- Status: Done may be should move this one to another week.
--- Files:  *SlidesPdf>../Slides/Week3/W3S10-UnderstandingClassMethods.pdf*	*SlidesHTML>../Slides/Week3/W3S10-UnderstandingClassMethods.html*			
+-- Files:  *SlidesPdf>../Slides/Week5/C019SD-W5S00-UnderstandingClassMethods.pdf*	*SlidesHTML>../Slides/Week5/C019SD-W5S00-UnderstandingClassMethods.html*			
 
 - 6 Live: Picasa
 -- explaining one the fly code generation and coding in the debugger
