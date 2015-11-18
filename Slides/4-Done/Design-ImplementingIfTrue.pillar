@@ -1,9 +1,9 @@
 {
-	"title":"Exercice: Implement ifTrue\:ifFalse\:"
+	"title":"To the Roots of Dispatch and Objects"
 }
 
 
-${slide:title=Exercice}$
+${slide:title=Exercise 2\: Variation - Implement ifTrue\:ifFalse\:}$
 
 - Propose an implementation of ==ifTrue:ifFalse:== in a world where you do not have Booleans.
 - You only have objects, messages and closures.
