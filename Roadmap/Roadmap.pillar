@@ -1,6 +1,75 @@
 !Roadmap of the Pharo MOOC
 
-!!About this MOOC
+% ===============================================================================
+
+!TODO
+
+- Integrer les quizz et exos dans les Weeks
+
+- revoir les slides avec la nouvelle syntaxe de creation de classe
+	Object subclass: #ESEvent
+		slots: { #name. #date. #creator. #participants. #location }
+		classVariables: {  }
+		category: 'EventShine-Model'
+
+- Review Week 3
+	- [Lecture 6min] Design Essence of Dispatch: the case of Not
+	-- Presenter: Stef
+	-- Status: Probably an old version 
+	-- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.html*
+
+	
+
+!! Missing Lectures
+
+Reflection simple
+- instVar
+- doesNotUnderstand
+- become:
+- compile:
+
+
+Seaside1	
+- Live: seaside counter / multi counter
+-- counter back button
+	
+Seaside3
+- Seaside Component, html, bootstrap
+
+Seaside2
+- Seaside call:/answer:
+
+Voyage
+- Voyage simple?
+
+- 6 Week7 Deploying an application 
+-- pharo cloud 
+-- cloud9
+
+!! Immersive Videos
+
+- Finder
+- GTSpotter
+- developer dans le debugger
+- comprendre le debugger
+- coder n'import ou
+- Publier du code
+- Code search
+- sender/implementor
+
+
+!! Find how to 
+
+- ouvrir et afficher un fichier jpeg
+- lister le contenu d'un repertoire sur le disc
+- requete http recuperer la meteo sur le net
+- service google qui fait un calcul
+
+% ===============================================================================
+
+
+
+!About this MOOC
 
 This document summarizes the whole MOOC planning week by week.
 It is best to do the activities exactly in the order they are presented.
@@ -71,17 +140,15 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files:
 
 
-- [Todo] Coding XXXXX 
+- [Todo] Coding EventShine 
 -- Presenter: ?
 -- Status: To be done
 -- Files: ExercicesSubject(TBD) 
 -- Luc: something related to the model of THE Web App we will use throughout this MOOC
 
-% - Redo: Coding a REST interface to a counter (REST). 
-% - Exo: Lamp et FeuTricolor
-!!!
+!!!Exos
 - [Exos] Answering Quiz 
-- [Exos] Redos
+
 
 
 !!Week 2: Pharo Syntax, Blocks and Inspector 
@@ -151,13 +218,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To review we can move it to another week
 -- Files: /Slides/Week2/C019SD-W2S12-SUnit.pdf
 
-
 - [Lecture 6min] The Essence Of Dispatch through an Exercice
 -- Presenter: Stef
 -- Status: To review
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S13-Design-EssenceOfDispatchExo.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.html*
 
-!!! Exos
+!!!Exos
 
 - [Todo] Some Simple Exercices on the Syntax
 -- Status: To be done
@@ -187,7 +253,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Probably an old version 
 -- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.html*
 
-
 - [Lecture 6min] Design Essence of Dispatch: the case of Not
 -- Presenter: Stef
 -- Status: ok 
@@ -202,8 +267,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Stef
 -- Status: TMay be to put in Extra
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S-Design-ImplementingIfTrue.html*
-
-
 
 - [Lecture 6min] Teapot
 -- Presenter: Luc
@@ -457,19 +520,17 @@ You will also see that 4 kinds of activities are distinguished:
 
 - 6 Conclusion
 	
-	
-	
+		
+% ===============================================================================
 	
 !! Extra Lectures
 
+		  
 - 6 Numbers
 -- Presenter : 
 -- Status: Done
 -- Files: *SlidesPdf>../Slides/ExtraSlides/Basic-Numbers.pdf* *SlidesHTML>../Slides/ExtraSlides/Basic-Numbers.html*	
 	
-	
-!! Missing Lectures
-
 - 6 Week7 Understanding metaclass architecture
 -- Slides to be done
 
@@ -478,31 +539,12 @@ You will also see that 4 kinds of activities are distinguished:
 
 - 6 Week7 ?Visitor design pattern or only in exo
 
-- 6 Week7 Deploying an application 
--- pharo cloud 
--- cloud9
-
-Reflection simple
-- instVar
-- doesNotUnderstand	
-- compile:
-
 Reflection 
 - reflection instance specific methods
-- thisContext?
-	
-Seaside1	
-- Live: seaside counter / multi counter
--- counter back button
-	
-Seaside3
-- Seaside Component, html, bootstrap
+- thisContext
+- haltIf:
 
-Seaside2
-- Seaside call:/answer:
-
-Voyage
-- Voyage simple?
+- 6 Magritte??
 
 Garage ??
 - 
@@ -512,39 +554,23 @@ Garage ??
 -- do we have an example that is not numbers
 -- luc a un exemple 
 
-- 6 Magritte??
-
 - 6 Advanced Classes
 -- class instance variables/ class var
 -- variableSubclass: 
 -- class initialization
 
+- WhyTesting.pillar
+
+- TestAdvocado.pillar
+
+- Basic-Numbers.pillar
+
+- Design-LibrariesVsFrameworks.pillar
 
 
-!! Immersive Videos
+!! Resources / Biblio
 
-- Finder
-- GTSpotter
-- developer dans le debugger
-- comprendre le debugger
-- coder n'import ou
-- Publier du code
-- Code search
-- sender/implementor
-
-
-!! Find how to 
-
-- ouvrir et afficher un fichier jpeg
-- lister le contenu d'un repertoire sur le disc
-- requete http recuperer la meteo sur le net
-- service google qui fait un calcul
-
-
-!! Resources probably as slides
 - Installation on Pharo.org
-- Live: Getting started: Coding live example counter: class first 10 min
-- Live: Getting started: Coding live example counter: test first 10 min
 - mailing-list, books, servers, ci, videos, Chapters Pharo by Example
 
 !! Potential Exos
@@ -561,8 +587,6 @@ And we could add some more specific ones:
 - Query a Mongo DB
 
 These would require extra packages to be loaded.
-
-
 
 Inspector basic:
 - Browsing the file system: 
