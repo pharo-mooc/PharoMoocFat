@@ -1,9 +1,9 @@
 {
-	"title":"Exercice: Implement ifTrue\:ifFalse\:"
+	"title":"Exercise: Implement ifTrue:ifFalse:"
 }
 
 
-${slide:title=Exercice}$
+${slide:title=Exercise}$
 
 - Propose an implementation of ==ifTrue:ifFalse:== in a world where you do not have Booleans.
 - You only have objects, messages and closures.
