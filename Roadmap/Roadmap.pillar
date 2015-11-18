@@ -1,6 +1,74 @@
 !Roadmap of the Pharo MOOC
 
-!!About this MOOC
+% ===============================================================================
+
+!TODO
+
+- Integrer les quizz et exos dans les Weeks
+
+- revoir les slides avec la nouvelle syntaxe de creation de classe
+[[[	Object subclass: #ESEvent
+		slots: { #name. #date. #creator. #participants. #location }
+		classVariables: {  }
+		category: 'EventShine-Model'
+]]]
+
+- Review Week 3
+-- [Lecture 6min] Design Essence of Dispatch: the case of Not
+-- Presenter: Stef
+-- Status: Probably an old version 
+-- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.html*
+	
+
+!! Missing Lectures
+
+Reflection simple
+- instVar
+- doesNotUnderstand
+- become:
+- compile:
+
+Seaside1	
+- Live: seaside counter/multi counter
+-- counter back button
+	
+Seaside3
+- Seaside Component, html, bootstrap
+
+Seaside2
+- Seaside call:/answer:
+
+Voyage
+- Voyage simple?
+
+- 6 Week7 Deploying an application 
+-- pharo cloud 
+-- cloud9
+
+!! Immersive Videos
+
+- Finder
+- GTSpotter
+- developer dans le debugger
+- comprendre le debugger
+- coder n'import ou
+- Publier du code
+- Code search
+- sender/implementor
+
+
+!! Find how to 
+
+- ouvrir et afficher un fichier jpeg
+- lister le contenu d'un repertoire sur le disc
+- requete http recuperer la meteo sur le net
+- service google qui fait un calcul
+
+% ===============================================================================
+
+
+
+!About this MOOC
 
 This document summarizes the whole MOOC planning week by week.
 It is best to do the activities exactly in the order they are presented.
@@ -71,17 +139,15 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files:
 
 
-- [Todo] Coding XXXXX 
+- [Todo] Coding EventShine 
 -- Presenter: ?
 -- Status: To be done
 -- Files: ExercicesSubject(TBD) 
 -- Luc: something related to the model of THE Web App we will use throughout this MOOC
 
-% - Redo: Coding a REST interface to a counter (REST). 
-% - Exo: Lamp et FeuTricolor
-!!!
+!!!Exos
 - [Exos] Answering Quiz 
-- [Exos] Redos
+
 
 
 !!Week 2: Pharo Syntax, Blocks and Inspector 
@@ -151,13 +217,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To review we can move it to another week
 -- Files: /Slides/Week2/C019SD-W2S12-SUnit.pdf
 
-
 - [Lecture 6min] The Essence Of Dispatch through an Exercice
 -- Presenter: Stef
 -- Status: To review
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S13-Design-EssenceOfDispatchExo.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.html*
 
-!!! Exos
+!!!Exos
 
 - [Todo] Some Simple Exercices on the Syntax
 -- Status: To be done
@@ -184,31 +249,22 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] Design Essence of Dispatch: the case of Not
 -- Presenter: Stef
--- Status: Probably an old version 
--- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.html*
-
-
-- [Lecture 6min] Design Essence of Dispatch: the case of Not
--- Presenter: Stef
 -- Status: ok 
--- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S1-Design-EssenceOfDispatchNot.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S1-Design-EssenceOfDispatchNot.html*
+-- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S1-Design-EssenceOfDispatchNot.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatchNot.html*
 
 - [Lecture 6min] What can we learn from the not case
 -- Presenter: Stef
 -- Status: To review
--- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S2-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S2-Design-EssenceOfDispatch.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S02-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S02-Design-EssenceOfDispatch.html*
 
-- [Lecture 6min] C019SD-W3S-Design-ImplementingIfTrue.pillar
--- Presenter: Stef
--- Status: TMay be to put in Extra
--- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S-Design-ImplementingIfTrue.html*
-
-
+- [Todo] C019SD-W3S03-Design-ImplementingIfTrue.pillar
+-- Status: To review
+-- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S03-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S03-Design-ImplementingIfTrue.html*
 
 - [Lecture 6min] Teapot
 -- Presenter: Luc
 -- Status: To review
--- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S03-TeapotAsAPretext.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S03-TeapotAsAPretext.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S04-TeapotAsAPretext.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S04-TeapotAsAPretext.html*
 
 - [Todo] Live: trouver de l'information avec le Finder	
 -- method
@@ -229,13 +285,22 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To review
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S07-BasicClassMethods.pdf*	*SlidesHTML>../Slides/Week3/C019SD-W3S07-BasicClassMethods.html*	
 
-- [Lecture 6min] W3S7-ClassMethodsAtWork (on peut bouger cela semaine 6)
+- [Lecture 6min] First Glance at Collections (OrderedCollection, Array, Set)
+-- Presenter: Stef
+-- Status: To Review (may be we should cut it in two: dictionary in another lectures)
+-- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S08-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S08-Basic-ArraySetOrderedCollection.html*
+
+- [Lecture 6min] W4S-Iterators
+-- Presenter: Stef
+-- Status: To Review
+-- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S09-Iterators.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S09-Iterators.html*
+
+- [Lecture 6min] W4S-Streams
 -- Presenter: Damien
--- Status: reviewed (A '!' in a script prevents nice rendering. This is due to escapechar in 'listings' configuration)
--- Files: *SlidesPdf>../Slides/Week3/W3S8-ClassMethodsAtWork.pdf*	*SlidesHTML>../Slides/Week3/W3S7-ClassMethods.html*	
+-- Status: To Review
+-- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S10-Stream.pdf* *SlidesHTML>../Slides/Week4/Week3/C019SD-W3S10-Stream.html*		
 
-
-!!! Exos
+!!!Exos
 
 - [Redo] Live: Dice Game DSL dice
 -- Presenter: ?
@@ -246,11 +311,13 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Lecture(TBD)	
 
 - Find how to 
+
 - Redo: Refaire le dice 
+
 - Ticket Model 
--- send mail
--- participation gratuite / payante
-- Tortillar: Lamps two of noury (need collection)  not needed
+-- ESRepo / REST interface withTeapot
+-- send mail?
+-- participation gratuite / payante?
 
 !!Week 4: Inheritance&Lookup, Collections and Web Development
 
@@ -279,21 +346,10 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To Review
 -- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-InheritanceAndLookup-5-LookupMetaclasses.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
 
-- [Lecture 6min] First Glance at Collections (OrderedCollection, Array, Set)
--- Presenter: Stef
--- Status: To Review (may be we should cut it in two: dictionary in another lectures)
--- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week4/C019SD-W4S-Basic-ArraySetOrderedCollection.html*
-
-- [Lecture 6min] W4S-Iterators
--- Presenter: Stef
--- Status: To Review
--- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-Iterators.pdf* *SlidesHTML>../Slides/Week4//C019SD-W4S-Iterators.html*
-
-- [Lecture 6min] W4S-Streams
+- [Lecture 6min] C019SD-W4S-ClassMethodsAtWork (on peut bouger cela semaine 6)
 -- Presenter: Damien
--- Status: To Review
--- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-Stream.pdf* *SlidesHTML>../Slides/Week4//C019SD-W4S-Stream.html*		
-
+-- Status: To review 
+-- Files: *SlidesPdf>../Slides/Week3/W3S8-ClassMethodsAtWork.pdf*	*SlidesHTML>../Slides/Week3/W3S7-ClassMethods.html*	
 
 - 3 min PharoWebStack: 4/5 slides
 	Voyage Mongo
@@ -301,15 +357,12 @@ You will also see that 4 kinds of activities are distinguished:
 	Zinc
 	WebSocket
 	
-- Live: seaside counter / multi counter
+- Live: seaside counter/multi counter
 -- counter back button
 	
 - Seaside Component, html, bootstrap
 
 - Seaside call:/answer:
-	
-
-
 
 !!!! Exos	
 - Find how to ...
@@ -333,10 +386,10 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: 
 -- Files:  *SlidesPdf>../Slides/Week5/W5S-LearningFromMistakes.pdf* *SlidesHTML>../Slides/Week5/W5S-LearningFromMistakes.html*
 
-- [Lecture 6min] W3S10-UnderstandingClassMethods.pillar
+- [Lecture 6min] C019SD-W5S00-UnderstandingClassMethods.pillar
 -- Presenter: Stef
 -- Status: Done may be should move this one to another week.
--- Files:  *SlidesPdf>../Slides/Week3/W3S10-UnderstandingClassMethods.pdf*	*SlidesHTML>../Slides/Week3/W3S10-UnderstandingClassMethods.html*			
+-- Files:  *SlidesPdf>../Slides/Week5/C019SD-W5S00-UnderstandingClassMethods.pdf*	*SlidesHTML>../Slides/Week5/C019SD-W5S00-UnderstandingClassMethods.html*			
 
 - 6 Live: Picasa
 -- explaining one the fly code generation and coding in the debugger
@@ -457,19 +510,18 @@ You will also see that 4 kinds of activities are distinguished:
 
 - 6 Conclusion
 	
-	
-	
+		
+% ===============================================================================
 	
 !! Extra Lectures
 
+- [Lecture] ImplementingIfTrue.pillar
+		  
 - 6 Numbers
 -- Presenter : 
 -- Status: Done
 -- Files: *SlidesPdf>../Slides/ExtraSlides/Basic-Numbers.pdf* *SlidesHTML>../Slides/ExtraSlides/Basic-Numbers.html*	
 	
-	
-!! Missing Lectures
-
 - 6 Week7 Understanding metaclass architecture
 -- Slides to be done
 
@@ -478,31 +530,12 @@ You will also see that 4 kinds of activities are distinguished:
 
 - 6 Week7 ?Visitor design pattern or only in exo
 
-- 6 Week7 Deploying an application 
--- pharo cloud 
--- cloud9
-
-Reflection simple
-- instVar
-- doesNotUnderstand	
-- compile:
-
 Reflection 
 - reflection instance specific methods
-- thisContext?
-	
-Seaside1	
-- Live: seaside counter / multi counter
--- counter back button
-	
-Seaside3
-- Seaside Component, html, bootstrap
+- thisContext
+- haltIf:
 
-Seaside2
-- Seaside call:/answer:
-
-Voyage
-- Voyage simple?
+- 6 Magritte??
 
 Garage ??
 - 
@@ -512,39 +545,23 @@ Garage ??
 -- do we have an example that is not numbers
 -- luc a un exemple 
 
-- 6 Magritte??
-
 - 6 Advanced Classes
 -- class instance variables/ class var
 -- variableSubclass: 
 -- class initialization
 
+- WhyTesting.pillar
+
+- TestAdvocado.pillar
+
+- Basic-Numbers.pillar
+
+- Design-LibrariesVsFrameworks.pillar
 
 
-!! Immersive Videos
+!! Resources / Biblio
 
-- Finder
-- GTSpotter
-- developer dans le debugger
-- comprendre le debugger
-- coder n'import ou
-- Publier du code
-- Code search
-- sender/implementor
-
-
-!! Find how to 
-
-- ouvrir et afficher un fichier jpeg
-- lister le contenu d'un repertoire sur le disc
-- requete http recuperer la meteo sur le net
-- service google qui fait un calcul
-
-
-!! Resources probably as slides
 - Installation on Pharo.org
-- Live: Getting started: Coding live example counter: class first 10 min
-- Live: Getting started: Coding live example counter: test first 10 min
 - mailing-list, books, servers, ci, videos, Chapters Pharo by Example
 
 !! Potential Exos
@@ -561,8 +578,6 @@ And we could add some more specific ones:
 - Query a Mongo DB
 
 These would require extra packages to be loaded.
-
-
 
 Inspector basic:
 - Browsing the file system: 
@@ -589,19 +604,3 @@ http://www.humane-assessment.com/blog/debugging-the-debugger-with-the-inspector/
 - Understanding the AST with the inspector
 - Guiding custom code changes with the inspector:
 http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

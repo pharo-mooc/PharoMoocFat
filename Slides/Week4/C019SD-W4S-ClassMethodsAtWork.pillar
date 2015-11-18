@@ -82,7 +82,7 @@ EvaluateCommandLineHandler class >>	isResponsibleFor: commandLineArguments
 
 ${slide:title=Conclusion}$
 
-- Messages sent to classes are resolved dynamically the same way as messages sent to instances.
+- Messages sent to classes are resolved dynamically the same way as messages sent to instances
 - Classes can then be used as registration mechanism
 - Each subclass defines a behavior and the condition to use it
 

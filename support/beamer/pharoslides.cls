@@ -49,17 +49,12 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 
+\RequirePackage[scaled=0.92]{DejaVuSans}
+\newcommand{\codefont}[1]{{\usefont{T1}{DejaVuSans-TLF}{el}{n}#1}}
 
-% \RequirePackage{avant}
-% \newcommand{\codefont}[1]{{\usefont{T1}{pag}{m}{n}#1}}
+% \RequirePackage[light,nottdefault,t1]{sourcecodepro}
+% \newcommand{\codefont}[1]{{\usefont{T1}{SourceCodePro-TLF}{l}{n}#1}}
 
-\RequirePackage{DejaVuSansCondensed}
-\newcommand{\codefont}[1]{{\usefont{T1}{DejaVuSansCondensed-TLF}{m}{it}#1}}
-
-% \RequirePackage{DejaVuSans}
-% \newcommand{\codefont}[1]{{\usefont{T1}{DejaVuSans-TLF}{el}{n}#1}}
-
-% \RequirePackage[scaled=0.92]{helvet}
 \RequirePackage{helvet}
  
 \RequirePackage[absolute,showboxes,overlay]{textpos} 

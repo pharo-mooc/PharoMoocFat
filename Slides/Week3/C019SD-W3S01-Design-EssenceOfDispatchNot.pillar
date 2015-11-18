@@ -28,11 +28,9 @@ In Pharo, Booleans have nothing special, just a superb implementation!
 
 ${slide:title=Three Exercises}$
 
--1 Implement ==not==
--2 Implement ==|== (or)
--3 What these exercises illustrate?
-
-
+# Implement ==not==
+# Implement ==|== (or)
+# What these exercises illustrate?
 
 ${slide:title=Exercise 1\: Implement not}$
 
