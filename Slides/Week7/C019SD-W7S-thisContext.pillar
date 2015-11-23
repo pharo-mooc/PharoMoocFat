@@ -1,0 +1,72 @@
+{
+	"title":"Reflection: Stack"
+}
+
+${slide:title=Just to reveal a bit of it}$
+
+To let you know that it exist
+
+${slide:title=Stack Frame as an Object}$
+
+- Execution stack can be turned into a live object
+- Support exception definitions from within the language
+- For debugger support! 
+- Advanced debugging 
+- Continuation (web serving)
+
+${slide:title=thisContext}$
+
+- ==thisContext== is one of the three pseudovariables with ==self== and ==super==
+- returns an object that represents the method activation
+- can walk the stack
+- put ==self halt== in the code to see it and walk
+
+
+${slide:title=Conditional Halt and Test}$
+
+- How to halt a method that is heavily used?
+- ==if:== is really powerful!
+- Hint: Write a test and get benefit for it
+
+Example:
+[[[
+foo 
+  ...
+  Halt if: #testSetInitialized
+  ...
+]]]
+
+${slide:title=How if: is implemented?}$
+
+
+[[[
+Halt class >> if: condition
+  "This is the typical message to use for inserting breakpoints during debugging.
+  The argument can be one of the following:
+    - a block: if the Block has one arg, the calling object is bound to that.
+    - an expression
+    - a selector: Halt if found in the call chain"
+
+  condition isSymbol ifTrue: [ ^ self haltIfCallChainContains: condition ].
+  condition isBlock ifTrue: [ ^ self haltIfBlockWithCallingObject: condition].
+  condition ifTrue: [self signal].
+]]]
+
+
+[[[
+Halt class >> haltIfCallChainContains: aSelector
+
+  | cntxt |
+  cntxt := thisContext.
+  [cntxt sender isNil] whileFalse: [
+    cntxt := cntxt sender. 
+    (cntxt selector = aSelector) ifTrue: [ self signal ] ].
+]]]
+
+${slide:title=Foundation for innovation}$
+
+- Continuations
+- Seaside: Powerful dynamic web framework for dynamic web applications
+- http://www.seaside.st
+- http://book.seaside.st
+
