@@ -1,0 +1,110 @@
+{
+	"title":"Reflection"
+}
+
+
+${slide:title=What Definition Says}$
+
+Reflection is the ability of a program to manipulate as data something representing the state of the program during its own execution.
+—  Introspection is the ability for a program to observe and therefore reason about its own state.
+—  Intercession is the ability for a program to modify its own execution state or alter its own interpretation or meaning.
+
+Reification is the mechanism for encoding execution state as data
+- Creating explicit objects
+
+${slide:title=Pharo is a reflective system}$
+
+"A system having itself as application domain and that is causally connected with this domain can be qualified as a reflective system" Maes
+
+- A reflective system has an internal representation of itself
+- A reflective system is able to act on itself with the ensurance that its representation will be causally connected (up to date)
+- A reflective system has some static capacity of self-representation and dynamic self-modification in constant synchronization
+
+${slide:title=Accessing State}$
+
+- Object ==instVarAt: aNumber==
+- Object ==instVarNamed: aString==
+- Object ==instVarAt: aNumber put: anObject==
+
+[[[
+pt := 10@3.
+pt instVarNamed: 'x'.
+> 10 
+pt instVarNamed: 'x' put: 33.
+pt
+> 33@3
+]]]
+
+${slide:title=Foundation For Inspectors}$
+
+- Violate encapsulation 
+- But this is for tools and during development
+
+${slide:title=Accessing Class}$
+
+- Object ==class==
+
+[[[
+'hello' class
+(10@3) class
+Smalltalk class
+Class class
+Class class class
+Class class class class
+]]]
+
+${slide:title=Querying the System}$
+
+[[[
+Collection allSuperclasses size.
+Collection allSelectors size.
+Collection allInstVarNames size.
+Collection selectors size.
+Collection instVarNames size.
+Collection subclasses size.
+Collection allSubclasses size.
+Collection linesOfCode.
+]]]
+
+
+${slide:title=Querying the System}$
+
+[[[
+SystemNavigation default browseAllImplementorsOf: #,
+]]]
+
++.>file://figures/implementors.png|width=100+
+
+
+
+${slide:title=Reflection and Reification}$
+
+
+{
+	"title":"Deeper into Reflection"
+}
+
+
+${slide:title=Essence of a Class}$
+
+- A format i.e., a number of instance variables and types
+- A superclass
+- A method dictionary
+
+[[[
+Behavior class>> new
+  | classInstance |
+  classInstance := self basicNew. 
+  classInstance methodDictionary:
+  classInstance emptyMethodDictionary. 
+  classInstance superclass: Object. 
+  classInstance setFormat: Object format.  
+  ^ classInstance
+]]]
+
+${slide:title=Summary}$
+
+- Watch the videos about the debugger
+- Watch the videos about the inspector
+- Try, try and try them
+- These tools are powerful
