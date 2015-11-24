@@ -60,8 +60,8 @@ ${slide:title=Reference Swapping}$
 anObject become: anotherObject
 ]]]
 
-All the pointers pointing to ==anObject== points now to ==anotherObject== and the inverse atomatically
-
+- All the pointers to ==anObject== point now to ==anotherObject== 
+- And "the inverse" atomatically
 
 [[[
    | pt1 pt2 pt3 |
@@ -74,12 +74,37 @@ All the pointers pointing to ==anObject== points now to ==anotherObject== and th
    self assert: pt1 = (100@100)
 ]]]
 
+${slide:title=Reference Swapping}$
+
+Swap all the pointers from one object to the other (asymmetric)
+
+[[[
+anObject becomeForward: anotherObject
+]]]
+
+[[[
+| pt1 pt2 pt3 |
+pt1 := 0@0.
+pt2 := pt1.
+pt3 := 100@100.
+pt1 becomeForward: pt3.
+self assert: pt1 = (100@100).
+self assert: pt1 == pt2.
+self assert: pt2 == pt3.
+]]]
+
+
 ${slide:title=Changing the Class of an Object}$
 
 [[[
 Class >> adoptInstance: anInstance
    "Change the class of anInstance to me. Returns the class rather than the modified instance”
 ]]]
+
+
+${slide:title=Essence of a Class}$
+
+
 
 ${slide:title=Instance Specific Behavior}$
 
@@ -93,6 +118,25 @@ model primitiveChangeClassTo: behavior new.
 behavior compile: 'thisIsATest ^ 2'.
 model thisIsATest = 2.
 self should: [Model new thisIsATest] raise: MessageNotUnderstood.
+]]]
+
+${slide:title=Instance Specific Behavior}$
+
++.>file://figures/10AnonymousClasses.png|width=150+
+
+${slide:title=Anonymous Classes}$
+
+[[[
+| anonClass set | 
+anonClass := Behavior new. 
+anonClass superclass: Set;
+   setFormat: Set format.
+anonClass compile: 'add: anObject
+      Transcript show: ''adding '', anObject printString; cr.
+      ^ super add: anObject'.
+set := Set new.
+set add: 1.
+set primitiveChangeClassTo: anonClass basicNew. set add: 2.
 ]]]
 
 ${slide:title=Conclusion}$
