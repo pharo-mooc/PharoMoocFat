@@ -7,10 +7,9 @@
 - Integrer les quizz et exos dans les Weeks
 
 - revoir les slides avec la nouvelle syntaxe de creation de classe
-[[[	Object subclass: #ESEvent
-		slots: { #name. #date. #creator. #participants. #location }
-		classVariables: {  }
-		category: 'EventShine-Model'
+[[[	
+	Object subclass: #ESEvent
+		package: 'EventShine-Model'
 ]]]
 
 - Review Week 3
@@ -19,6 +18,8 @@
 -- Status: Probably an old version 
 -- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.html*
 	
+
+- a mettre dans learningFromMistakes: Class methods cannot access instance variables
 
 !! Missing Lectures
 
@@ -123,7 +124,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] Pharo's Syntax in a Nutshell
 -- Presenter: Stef
--- Status: Done
+-- Status: Done Reviewed by Christelle and typos fixed 
 -- Files: *SlidesPdf>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.html*
 
 
@@ -507,6 +508,17 @@ You will also see that 4 kinds of activities are distinguished:
 - 6 Week7 Deploying an application 
 -- pharo cloud 
 -- cloud9
+
+- [Lecture ] Reflection thisContext
+-- Presenter: Stef 
+-- Status: Done 
+-- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-thisContext.html*	
+
+- [Lecture ] Reflection Other Reflectives
+-- Presenter: Stef 
+-- Status: Done (to be revisited)
+-- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-thisContext.html*	
+
 
 - 6 Conclusion
 	
