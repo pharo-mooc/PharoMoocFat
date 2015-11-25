@@ -104,6 +104,20 @@ Class >> adoptInstance: anInstance
 
 ${slide:title=Essence of a Class}$
 
+# A format  I.e., a number of instance variables and types
+# A superclass
+# A method dictionary
+
+${slide:title=Behavior class >> new}$
+
+[[[
+Behavior >> initialize
+
+  super initialize.
+  self superclass: Object.
+  self methodDict: self emptyMethodDictionary.
+  self setFormat: Object format.
+]]]
 
 
 ${slide:title=Instance Specific Behavior}$
