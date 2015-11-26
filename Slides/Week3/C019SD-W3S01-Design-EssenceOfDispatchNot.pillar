@@ -1,80 +1,67 @@
 {
-	"title":"To the Roots of Dispatch and Objects"
+	"title":"Roots of Dispatch and Objects"
 }
 
 ${slide:title=Objectives}$
 
-- Deep understanding of late binding essence
-- More an object-oriented design lecture than a Pharo lecture
-- But it is looking at how beautiful Pharo's implementation is
-
-${slide:title=A Key Point}$
-
-- Message passing (late binding) is the heart of object-oriented programming
-
-- The lecture revisits this essential and fundamental aspect of OOP using some simple examples
-
-- After this lecture you will never look the same your programs.
+- understanding of message passing (late binding)
+-- the heart of OOP
+-- more an OOP lecture than a Pharo one
+- insight at how beautiful Pharo's implementation is
 
 ${slide:title=Context: Booleans}$
 
-In Pharo, Booleans have nothing special, just a superb implementation!
-- & | not (eager)
-- or: and: (lazy)
-- ifTrue:ifFalse:
-- ifFalse:ifTrue:
-- =>
-- ....
+In Pharo, Booleans have a superb implementation!
+
+- ==&==, ==|==, ==not== (eager)
+- ==or:==, ==and:== (lazy)
+- ==ifTrue:ifFalse:==, ==ifFalse:ifTrue:==
 
 ${slide:title=Three Exercises}$
 
 # Implement ==not==
-# Implement ==|== (or)
-# What these exercises illustrate?
+# Implement ==|== (or) and ==ifTrue:ifFalse:==
+# What is the goal of these exercises?
 
-${slide:title=Exercise 1\: Implement not}$
+${slide:title=Exercise 1: Implement not}$
 
-- Propose an implementation of ==not== in a world where you do not have Booleans implemented yet.
-- You only have objects and messages.
-
+- Propose an implementation of ==not== in a world where:
+-- you have Booleans but not operations
+-- you only have objects and messages
 [[[
-  false not 
-  -> true
+   false not
+   -> true
+
+   true not
+   -> false
 ]]]
 
-[[[
-  true not 
-  -> false
-]]]
+${slide:title=Exercise 2: Implement \| (or)}$
 
-${slide:title=Exercise 2\: Implement \| (Or)}$
-- Propose an implementation of ==or== (named ==|== in Pharo) in a world where you do not have Booleans.
-- You only have objects and messages.
+- Propose an implementation of ==not== in a world where:
+-- you do not have Booleans
+-- you only have objects and messages
 
 [[[
-  true | true -> true
-  true | false -> true
-  true | anything -> true
-]]]
+   true | true -> true
+   true | false -> true
+   true | anything -> true
 
-[[[
-  false | true -> true
-  false | false -> false
-  false | anything -> anything
+   false | true -> true
+   false | false -> false
+   false | anything -> anything
 ]]]
 
 ${slide:title=Hint 1: No conditionals}$
 
-- The solution does not use conditionals!
-
-- We would obtain a recursive definition of ==ifTrue:ifFalse:== 
+The solution does not use conditionals (i.e., no ==if==)
 
 ${slide:title=Hint 2: At Least Two Classes}$
 
-- The solution uses three classes: ==Boolean==, ==True== and ==False==
-- ==false== and ==true== are unique instances described by their own classes 
-- ==false== is an instance of the class ==False==
-- ==true== is an instance of the class ==True==
+- The solution uses three classes:
+-- ==Boolean==, ==True== and ==False==
+- ==true== is the singleton instance of ==True==
+- ==false== is the singleton instance of ==False==
 
 ${slide:title=Hint 2: At Least Two Classes}$
 
@@ -83,56 +70,54 @@ ${slide:title=Hint 2: At Least Two Classes}$
 ${slide:title=Hint 3: Define Methods and Send Messages}$
 
 How do we express choice in OOP?
-- We define methods in different classes 
-- We send messages to objects
+- by defining classes with compatible methods
+- by sending a message to an instance of such class
 
 [[[
-  ...
-  x color
-  -> Color red
+   x color
+   -> Color red
 ]]]
-	
-- ==x== can be a button, a pane, a window, a magic card, a bird
 
+- ==x== can be a button, a pane, a window, a bird, ...
+- the method is ""chosen"" based on the ==x=='s class
 
-
-${slide:title=Not implementation in two methods}$
+${slide:title=Implementation of not in two methods}$
 
 [[[
-  False >> not
-    "Negation -- answer true since the receiver is false."
-    ^ true
+False>>not
+   "Negation -- answer true since the receiver is false."
+   ^ true
 ]]]
 
-[[[ 
-  True >> not
-    "Negation -- answer false since the receiver is true."
-    ^ false
+[[[
+True>>not
+   "Negation -- answer false since the receiver is true."
+   ^ false
 ]]]
 
-${slide:title=Not implementation in two methods}$
+${slide:title=Implementation of not in two methods}$
 
 +Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethods.png|width=90+
 
 
-${slide:title=Not implementation in two methods}$
+${slide:title=Implementation of not in two methods}$
 
 +Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=90+
 
 
 ${slide:title=Boolean implementation}$
 
-- Class ==Boolean== is an abstract class that implements behavior common to true and false. 
-- Its subclasses are ==True== and ==False==. 
-- Subclasses just implement methods for logical operations ==&==, ==not==, and controls ==and:==, ==or:==, ==ifTrue:==, ==ifFalse:==, ==ifTrue:ifFalse:==, ==ifFalse:ifTrue:==
+- Class ==Boolean== is abstract and implements common behavior
+- Its subclasses are ==True== and ==False==
+- Subclasses implement
+-- logical operations ==&==, ==not==
+-- control structures ==and:==, ==or:==, ==ifTrue:==, ==ifFalse:==, ==ifTrue:ifFalse:==, ==ifFalse:ifTrue:==
 
 [[[
-  Boolean >> not
-    "Abstract method. Negation: Answer true if the receiver is false, answer false if the receiver is true."
-    self subclassResponsibility
+Boolean>>not
+   "Abstract method. Negation: Answer true if the receiver is false, answer false if the receiver is true."
+   self subclassResponsibility
 ]]]
-
-
 
 ${slide:title=\| (Or)}$
 
@@ -234,3 +219,6 @@ ${slide:title=Stepping back}$
 - Let's the receiver decide
 - Do not ask, tell
 
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatchNot.pillar"
+% End:

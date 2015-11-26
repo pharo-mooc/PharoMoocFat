@@ -4,7 +4,7 @@
 }
 
 
-${slide:title=Three Questions|label=questions}$
+${slide:title=Three Questions}$
 
 # Implement ==not==
 # Implement ==|== (or) and ==ifTrue:ifFalse:==
