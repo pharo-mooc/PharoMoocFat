@@ -1,59 +1,64 @@
 {
-	"title":"Essence of Dispatch",
-	"subtitle":"Exercises"
+    "title":"Essence of Dispatch",
+    "subtitle":"Exercises"
 }
 
 
 ${slide:title=Three Questions|label=questions}$
 
--1 Implement ==not==
--2 Implement ==|== (or) and ==ifTrue:ifFalse:==
--3 Why such exercises? What these exercises want to show
+# Implement ==not==
+# Implement ==|== (or) and ==ifTrue:ifFalse:==
+# What is the goal of these exercises?
 
 
-${slide:title=Exercise 1\: Implement not}$
+${slide:title=Exercise 1: Implement not}$
 
-- Propose an implementation of not in a world where you have Booleans but not operations.
-- You only have objects and messages.
-[[[language=smalltalk 
-    false not 
-    -> true
+- Propose an implementation of ==not== in a world where:
+-- you have Booleans but not operations
+-- you only have objects and messages
+[[[
+   false not
+   -> true
 
-    true not 
-    -> false
+   true not
+   -> false
 ]]]
 
-${slide:title=Exercise 2\: Implement \| (Or)}$
+${slide:title=Exercise 2: Implement \| (or)}$
 
-- Propose an implementation of or in a world where you do not have Booleans.
-- You only have objects and messages.
+- Propose an implementation of ==not== in a world where:
+-- you do not have Booleans
+-- you only have objects and messages
 
-[[[language=smalltalk 
-    true | true -> true
-    true | false -> true
-    true | anything -> true
+[[[
+   true | true -> true
+   true | false -> true
+   true | anything -> true
 
-    false | true -> true
-    false | false -> false
-    false | anything -> anything
+   false | true -> true
+   false | false -> false
+   false | anything -> anything
 ]]]
 
-${slide:title=Exercise 2\: Variation - Implement ifTrue\:ifFalse\:}$
+${slide:title=Exercise 2: Variation - Implement ifTrue:ifFalse:}$
 
-- Propose an implementation of not in a world where you do not have Booleans.
-- You only have objects, messages and closures.
+- Propose an implementation of not in a world where:
+-- you do not have Booleans
+-- you only have objects, messages and closures
 
-[[[language=smalltalk 
-    false ifTrue: [ 3 ] ifFalse: [ 5 ]
-    -> 5
+[[[
+   false ifTrue: [ 3 ] ifFalse: [ 5 ]
+   -> 5
 
-    true ifTrue: [ 3 ] ifFalse: [ 5 ]
-    -> 3
+   true ifTrue: [ 3 ] ifFalse: [ 5 ]
+   -> 3
 ]]]
 
-${slide:title=Exercise 3\: Why this exercise}$
+${slide:title=Exercise 3: Why these Exercises}$
 
-- From far the most interesting one!
-- Why such exercises?
-- This is certainly not because you will reimplement Booleans in your life. So why?
+- you are never going to implement Booleans in your life
+- why do we think these exercises are very important?
 
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.pillar"
+% End:
