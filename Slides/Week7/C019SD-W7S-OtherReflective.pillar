@@ -98,7 +98,7 @@ ${slide:title=Changing the Class of an Object}$
 
 [[[
 Class >> adoptInstance: anInstance
-   "Change the class of anInstance to me. Returns the class rather than the modified instance”
+   "Change the class of anInstance to me. Returns the class rather than the modified instance"
 ]]]
 
 
