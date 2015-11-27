@@ -4,24 +4,34 @@
 
 ${slide:title=You will learn}$
 
+- Understand common mistakes
 - How to recover faster from mistakes
-- Get the frequent mistakes
+
+${slide:title=Missing period}$
+
+- Remember . separates messages
+
++>file://figures/printOnUndefined.png|width=100+
+
+Message ==printOn:nextPutAll:== does not exist
+- Qualitant Assistant will warn you
+- But you may also send a message you did not want
 
 
 ${slide:title=Missing period}$
 
-+>file://figures/printOnUndefined.png|width=80+
-
-- Message ==printOn:nextPutAll:== is undefined
-
+Problem:
 [[[
 Dice >>	printOn: aStream
-  super printOn: aStream.
-  aStream nextPutAll: '(', faces printString , ')'
+   super printOn: aStream
+   aStream nextPutAll: '(', faces printString , ')'
 ]]]
-
-- Missing a period (message separator)
-
+Solution:
+[[[
+Dice >>	printOn: aStream
+   super printOn: aStream.
+   aStream nextPutAll: '(', faces printString , ')'
+]]]
 
 ${slide:title=Does Not Understand Self}$
 
@@ -35,7 +45,7 @@ ${slide:title=Does Not Understand Self}$
 +>file://figures/DebugSelf2.png|width=100+
 
 
-${slide:title=With Separator}$
+${slide:title=Again A Missing Period}$
 [[[
 + aDiceHandle 
 
@@ -46,8 +56,14 @@ ${slide:title=With Separator}$
   ^ res
 ]]]
 
-${slide:title=Forgotten parentheses}$
+${slide:title=Keyword-Based Messages}$
 
+Remember 
+- Keyword messages are built out of fragments 'word:'
+- The message is the longuest sequence of fragments
+- ==between:and:== in ==x between: 0 and: 20== 
+
+Problem:
 [[[
   x includes: 33 
     ifTrue: [ self do something ]
@@ -55,24 +71,35 @@ ${slide:title=Forgotten parentheses}$
 
 - ==includes:ifTrue:== is an unknown message
 
+${slide:title=Parentheses to Delimit Messages}$
+
+Problem:
+[[[
+  x includes: 33 
+    ifTrue: [ self do something ]
+]]]
+
+Solution:
 [[[
   (x includes: 33)
     ifTrue: [ self do something ]
 ]]]
 
-- Read again the lectures () vs. []
+- Read again the lectures '() vs. []'
 
 ${slide:title=Forgotten parentheses}$
 
 [[[
   self assert: players includes: aPlayer
 ]]]
-==assert:includes:== does not exist
+
+- ==assert:includes:== does not exist
+
 [[[
   self assert: (players includes: aPlayer)
 ]]]
 
-Do not forget to use parentheses when sending multiple keyword messages in one expression
+- Use parentheses to delimit multiple keyword messages
 
 
 ${slide:title=Forgotten yourself}$
@@ -96,11 +123,13 @@ col do: [ :each | ....]
 
 ${slide:title=True vs. true}$
 
+Problem: 
 [[[
 Book>>initialize
   inLibrary := True
 ]]]
 
+Solution: 
 [[[
 Book>>initialize
   inLibrary := true
@@ -110,9 +139,10 @@ Book>>initialize
 
 ${slide:title=nil is not a Boolean}$
 
-nil is not an acceptable receiver for ifTrue:
+==nil== is not an acceptable receiver for ifTrue:
+==nil== is the unique instance of ==UndefinedObject==
 
-${slide:title=Method argument are read only}$
+${slide:title=Method Arguments are Read Only}$
 
 - Do not try to assign a value to a method argument
 - Arguments are read only!
@@ -125,10 +155,12 @@ MyClass >> setName: aString
 
 Does not compile!
 
-${slide:title=Forgetting to return the result}$
+${slide:title=Forgetting to Return the Result}$
 
 - In a method self is returned by default
 - Do not forget ==^== to return something else!
+
+Problem:
 [[[
 Dice >> roll
   faces atRandom
@@ -136,16 +168,56 @@ Dice >> roll
 
 return self not the expression result
 
+Solution:
 [[[
 Dice >> roll
   ^ faces atRandom
 ]]]
 
-${slide:title=Initialize loops}$
+${slide:title=Returning Class instead of Instance}$
+
+Problem: 
+[[[
+Dice class >> new 
+  self new setFaces: 0
+]]]
+
+is equivalent to 
 
 [[[
 Dice class >> new 
+  self new setFaces: 0
+  ^ self 
+]]]
+- ==self== is the class ==Dice==
+- Returns ==Dice== and not its newly created instance
+
+${slide:title=Returning Instance}$
+
+Problem: 
+[[[
+Dice class >> new 
+  self new setFaces: 0
+]]]
+
+Solution: 
+[[[
+Dice class >> new 
+  ^ self new setFaces: 0 ; yourself
+]]]
+
+${slide:title=Instantiation Loops}$
+
+Problem: 
+[[[
+Dice class >> new 
   ^ self new setFaces: 0
+]]]
+
+Solution: 
+[[[
+Dice class >> new 
+  ^ self basicNew setFaces: 0 ; yourself
 ]]]
 
 

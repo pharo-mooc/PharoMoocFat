@@ -11,7 +11,7 @@ It can be easier to talk to objects than to read classes
 
 ${slide:title=Debugging}$
 
-- Closing the debugger pop up does not solve your bugs :)
+- Closing the debugger does not solve your bugs :)
 
 - The debugger is your best friend:
 -- access objects in a particular call
@@ -79,6 +79,25 @@ Debug > 4
 
 ${slide:title=Conditional Halt}$
 
+- ==if: aSelector== stops the execution only if the method has been invoked from aSelector
+- ==if: aBlock== stops the execution only if the block is true
+
+Example:
+- ==foo== will stop only when invoked from the message ==printString==
+[[[
+foo 
+  ...
+  Halt if: #printString
+  ...
+]]]
+
+${slide:title=Conditional Halt and Test}$
+
+- How to halt a method that is heavily used?
+- ==if:== is really powerful!
+- Hint: Write a test and get benefit for it
+
+Example:
 [[[
 foo 
   ...
@@ -86,13 +105,7 @@ foo
   ...
 ]]]
 
-==if: aSelector== stops the execution only if the method has been invoked from the aSelector
-
 - ==foo== will stop only when invoked from the test named ==#testSetInitialized==
-- Really powerful when the method is heavily used
-- Write a test and get benefit for it
-
-==if: aBlock stops the execution when aBlock is true
 
 ${slide:title=Summary}$
 

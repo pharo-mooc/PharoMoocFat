@@ -1,5 +1,5 @@
 {
-    "title":"Understanding Messages: Sequence et Cascade"
+    "title":"Understanding Messages: Sequence and Cascade"
 }
 
 
@@ -19,7 +19,7 @@ ${slide:title=Message Sequence}$
     [...]
 ]]]
 
-- no point after temp. variable declaration
+- no point after temporary variable declaration
 
 ${slide:title=Multiple Messages to an Object}$
 

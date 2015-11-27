@@ -9,7 +9,7 @@ ${slide:title=What you will learn}$
 - Class methods are not (java like) static methods
 - Class methods are plain normal methods
 
-${slide:title=There is only One Way}$
+${slide:title=There is Only One Lookup}$
 
 When we send messages to an instance, corresponding methods are looked up in the instance class and applied to that instance
 

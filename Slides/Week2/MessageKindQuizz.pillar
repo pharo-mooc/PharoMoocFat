@@ -1,0 +1,9 @@
+${slide:title=New Quizz}$
+
+- ==1 log==
+- ==Browser open== 
+- ==2 raisedTo: 5==
+- =='hello', 'world'==
+- ==10@20==
+- ==point1 x==
+- ==point1 distanceFrom: point2==

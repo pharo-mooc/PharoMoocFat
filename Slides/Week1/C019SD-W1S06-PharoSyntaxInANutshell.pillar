@@ -56,7 +56,7 @@ ${slide:title=Getting the Pharo Logo}$
 -- Class names start with an uppercase character
 - Message ==getPng:== is sent to the ==ZnEasy== class
 -- ==getPng:== is a keyword message 
-- Messages ==asMorph== and ==openInWorld== are sent
+- Messages ==asMorph== and ==openInWindow== are sent
 -- they are unary messages
 
 ${slide:title=Sending an unary message}$
@@ -158,38 +158,38 @@ ZnClient new
 ${slide:title=Essential Constructs}$
 
 - temporary variable declaration: ==| var |==
-- variable assigment: ==var \:= aValue==
+- variable assignment: ==var \:= aValue==
 
 
 To be explained later:
-- block 
+- Block 
 [[[
   [ :x | x + 2 ] value: 5
   > 7 
 ]]]
-- cascade: == receiver selector ; selector ...==
-- separator: ==message . message==
-- return: ==\^ expression==
+- Cascade: == receiver selector ; selector ...==
+- Separator: ==message . message==
+- Return: ==\^ expression==
 
 ${slide:title=Messages}$
 
 To minimize the use of parentheses, Pharo distinguishes 3 kinds of messages
 
-- unary message: ==receiver selector==
+- Unary message: ==receiver selector==
 -- ==Node new==
-- binary message: ==receiver selector argument==
+- Binary message: ==receiver selector argument==
 -- ==1\+2==
 -- ==3@4==
-- keyword message: ==receiver key1: arg1 key2: arg2==
+- Keyword message: ==receiver key1: arg1 key2: arg2==
 -- ==2 between: 10 and: 20==
 
 ${slide:title=Messages}$
 
 Messages are everywhere:
-- conditional 
-- loops
-- iterators
-- concurrency
+- Conditionals
+- Loops
+- Iterators
+- Concurrency
 
 ${slide:title=Conditionals are also Message Sends}$
 
@@ -216,7 +216,7 @@ ${slide:title=Loops are also Message Sends}$
 > 4
 ]]]
 - ==to:do:== is a message sent to an integer
-- Many other messages implements loops: ==timesRepeat:==, ==to:by:do:==, ==whileTrue:==, ==whileFalse:==, ...
+- Many other messages implement loops: ==timesRepeat:==, ==to:by:do:==, ==whileTrue:==, ==whileFalse:==, ...
 
 ${slide:title=With Iterators}$
 
@@ -280,7 +280,7 @@ ${slide:title=Block Usage}$
 ]]]
 
 - ==:each== is the block argument
-- It will take the value of each elements of the array
+- It will take the value of each element of the array
 
 
 ${slide:title=Class Definition}$

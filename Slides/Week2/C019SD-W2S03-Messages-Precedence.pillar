@@ -8,14 +8,14 @@ ${slide:title=Composition: from left to right!}$
 - Remember: (Msg) \> Unary \> Binary \> Keywords
 - What happens when we have two messages of the same kind?
 - From left to right
-[[[language=Smalltalk
+[[[
     1000 factorial class name  
     > LargePositiveInteger
 ]]]
 
 is equivalent to 
 
-[[[language=smalltalk
+[[[
     (((1000 factorial) class) name) 
 ]]]
 
@@ -31,7 +31,7 @@ Remember that we have only messages
 
 ${slide:title=Precedence Example}$
 
-[[[language=Smalltalk
+[[[
     2 + 3 squared
     > 2 + 9
     > 11
@@ -41,7 +41,7 @@ ${slide:title=Precedence Example}$
 
 ${slide:title=Precedence Example}$
 
-[[[language=Smalltalk
+[[[
     2 raisedTo: 3 + 2
     > 2 raisedTo: 5
     > 32
@@ -51,7 +51,7 @@ ${slide:title=Precedence Example}$
 
 ${slide:title=Precedence Example}$
 
-[[[language=Smalltalk
+[[[
     Color gray - Color white = Color black
     > aGray - aWhite = aBlack
     > aBlack = aBlack
@@ -62,14 +62,14 @@ ${slide:title=Precedence Example}$
 
 ${slide:title=Precedence Example}$
 
-[[[language=Smalltalk
+[[[
     1 class maxVal + 1 
     > 1073741824
 ]]]
 
 - unary, unary and binary
 
-[[[language=Smalltalk
+[[[
     1 class
     > SmallInteger
 
@@ -86,7 +86,7 @@ ${slide:title=Precedence Example}$
 
 ${slide:title=Getting the Pharo Logo|label=kids}$
 
-[[[language=smalltalk
+[[[
 (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
     asMorph openInWindow.
 ]]]
@@ -97,14 +97,14 @@ ${slide:title=Getting the Pharo Logo|label=kids}$
 
 ${slide:title=Parentheses take precedence!}$
 
-[[[language=Smalltalk
+[[[
     (0@0 extent: 100@100) bottomRight
     > (aPoint extent: anotherPoint) bottomRight
     > aRectangle bottomRight
     > 100@100
 ]]]
 
-[[[language=Smalltalk
+[[[
     0@0 extent: 100@100 bottomRight
     > Message not understood
     > 100 does not understand bottomRight
@@ -120,14 +120,14 @@ ${slide:title=The price for simplicity}$
 
 ${slide:title=No mathematical precedence}$
 
-[[[language=Smalltalk
+[[[
     3 + 2 * 10
     > 5 * 10
     > 50
 ]]]
 
 - should be rewritten using parentheses
-[[[language=Smalltalk
+[[[
     3 + (2 * 10)
     > 3 + 20
     > 23
@@ -135,13 +135,13 @@ ${slide:title=No mathematical precedence}$
 
 ${slide:title=No mathematical precedence}$
 
-[[[language=Smalltalk
+[[[
     1/3 + 2/3
     > 7/3 /3
     > 7/9
 ]]]
 - should be rewritten using parentheses
-[[[language=Smalltalk
+[[[l
     (1/3) + (2/3)
     > 1
 ]]]
