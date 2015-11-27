@@ -17,7 +17,7 @@ In Java
     ArrayList<String> strings = new ArrayList<String>();
 ]]]
 
-in Pharo
+In Pharo
 [[[
 strings := ArrayList new.
 ]]]

@@ -1,7 +1,5 @@
 !Roadmap of the Pharo MOOC
 
-% ===============================================================================
-
 !TODO
 
 - Integrer les quizz et exos dans les Weeks
@@ -45,6 +43,9 @@ Voyage
 - 6 Week7 Deploying an application 
 -- pharo cloud 
 -- cloud9
+
+
+- CLass init: and variableSubclass:...
 
 !! Immersive Videos
 
@@ -119,14 +120,13 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] Pharo's Model in a Nushell
 -- Presenter: Luc
--- Status: Done
+-- Status: Done Reviewed by Christelle and typos fixed
 -- Files: *SlidesPdf>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.html*
 
 - [Lecture 6min] Pharo's Syntax in a Nutshell
 -- Presenter: Stef
 -- Status: Done Reviewed by Christelle and typos fixed 
 -- Files: *SlidesPdf>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.html*
-
 
 - [Redo 6min] Coding a Counter
 -- Presenter: Luc
@@ -138,7 +138,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Damien
 -- Status: To be done
 -- Files:
-
 
 - [Todo] Coding EventShine 
 -- Presenter: ?
@@ -155,22 +154,22 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] Messages
 -- Presenter: Stef
--- Status: To review
+-- Status: Done Reviewed by Christelle and typos fixed
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S01-Messages.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S01-Messages.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S01-Messages.html*
 
 - [Lecture 3min] Messages for Java programmer
 -- Presenter: Damien
--- Status: To review
+-- Status: Done Reviewed by Christelle and typos fixed
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.html*
 
 - [Lecture 3min] Messages Precedence
 -- Presenter: Stef
--- Status: To review
+-- Status: Done Reviewed by Christelle and typos fixed
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S03-Messages-Precedence.html*
 
 - [Lecture 6min] Messages Sequence
 -- Presenter: Stef
--- Status: To review
+-- Status: Done Reviewed by Christelle and typos fixed
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S04-Messages-Sequence.html*
 
 - [Live 6min] Inspector: Inspecting a Counter 
@@ -185,7 +184,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] Blocks
 -- Presenter: Luc
--- Status: To review
+-- Status: Done Reviewed by Christelle and typos fixed
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S07-Blocks.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S07-Blocks.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S07-Blocks.html*
 
 - [Lecture 6min] Blocks for Loops

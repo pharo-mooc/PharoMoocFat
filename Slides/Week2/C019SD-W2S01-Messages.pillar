@@ -5,8 +5,8 @@
 
 ${slide:title=Reminder}$
 
-- we only manipulate ""objects"" (mouse, booleans, arrays, numbers, strings, ...)
-- we only send them ""messages"" (@, \+, not, getPng:, ifTrue:ifFalse:, new, ...)
+- We only manipulate ""objects"" (mouse, booleans, arrays, numbers, strings, ...)
+- We only send them ""messages"" (@, \+, not, getPng:, ifTrue:ifFalse:, new, ...)
 - and we use ""closures""
 
 ${slide:title=Syntax}$
@@ -112,7 +112,7 @@ ${slide:title=Did you notice?}$
     > #(#x #theta #quadrantOf: #onLineFrom:to:within: #bitShiftPoint: #< #scaleFrom:to: #sideOf: #'\\' #scaleTo: #grid: #'//' #asIntegerPoint #directionToLineFrom:to: ...) 
 ]]]
 
-- Returns all the messages the class understand
+- Returns all the messages the class understands
 
 
 ${slide:title=A little query}$
@@ -141,22 +141,22 @@ ${slide:title=Binary Messages}$
 
 ${slide:title=Binary Message Examples}$
 
-[[[language=Smalltalk
+[[[
     1 + 2
     > 3
 ]]]
 
-[[[language=Smalltalk
+[[[
     2 > 3
     > false
 ]]]
 
-[[[language=Smalltalk
+[[[
     10@200 
     > 10@200
 ]]]
 
-[[[language=Smalltalk
+[[[
     'Black chocolate' , ' is good'
     > 'Black chocolate is good'
 ]]]
@@ -164,20 +164,20 @@ ${slide:title=Binary Message Examples}$
 
 ${slide:title=Keyword Messages}$
 
-[[[language=Smalltalk
+[[[
     anObject keyword1: argument1 keyword2: argument2
 ]]]    
 
 equivalent to:
 
-[[[language=Smalltalk
+[[[
     receiver.keyword1keyword2(argument1, argument2)
 ]]]
 
 
 ${slide:title=Message setX:}$
 
-[[[language=Smalltalk
+[[[
     10@20 setX: 2
     > 2@20
 ]]]
@@ -188,7 +188,7 @@ ${slide:title=Message setX:}$
 ${slide:title=Message at:put:}$
 
 
-[[[language=Smalltalk
+[[[
     #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
     > #('Calvin' 'loves' 'Suzie')
 ]]]
@@ -200,24 +200,13 @@ ${slide:title=Message at:put:}$
 
 ${slide:title=Message between:and:}$
 
-[[[language=Smalltalk
+[[[
     12 between: 10 and: 20
     > true
 ]]]
 
 - The message ==between:and:== is sent to an integer
 - Takes two arguments ==10== and ==20==
-
-
-${slide:title=New Quizz}$
-
-- ==1 log==
-- ==Browser open== 
-- ==2 raisedTo: 5==
-- =='hello', 'world'==
-- ==10@20==
-- ==point1 x==
-- ==point1 distanceFrom: point2==
 
 ${slide:title=Summary}$
 

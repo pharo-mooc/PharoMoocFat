@@ -53,7 +53,7 @@ Evaluating a block is done ""explicitly"" through ==value==
 
 ${slide:title=A Block with 1 Argument}$
 
-A bloc can take arguments (just like methods)
+A block can take arguments (just like methods)
 
 [[[
    [ :x | x + 2 ]
@@ -100,9 +100,9 @@ ${slide:title=Blocks can be Stored}$
 
 ${slide:title=A Design Advice}$
 
-- use blocks with 2 or 3 arguments maximum
-- define a class instead of a block for more arguments
-- a block encapsulates only 1 computation
+- Use blocks with 2 or 3 arguments maximum
+- Define a class instead of a block for more arguments
+- A block encapsulates only 1 computation
 -- it cannot define more facets (e.g., printing)
 
 
@@ -121,11 +121,11 @@ Integer>>factorial
 
 ${slide:title=More Precisely}$
 
-- when returning from a block, the method ""defining"" the block is terminated
-- since blocks can be passed around in variables, blocks behave like an exception mechanism
-- prefer exceptions when this is what you need
-- pay attention when you put a return in a block
-- further readings: *http://deepintopharo.org*
+- When returning from a block, the method ""defining"" the block is terminated
+- Since blocks can be passed around in variables, blocks behave like an exception mechanism
+- Prefer exceptions when this is what you need
+- Pay attention when you put a return in a block
+- Further readings: *http://deepintopharo.org*
 
 ${slide:title=Exercise}$
 
@@ -178,11 +178,11 @@ ${slide:title=Summary}$
       value: ... value: ...
 ]]]
 
-- kind of an anonymous method
-- technically lexical closures
-- can be stored in variables and method arguments
-- basis of conditionals, loops and iterators (see companion lectures)
-- further readings: *http://deepintopharo.org*
+- Kind of anonymous method
+- Technically lexical closures
+- Can be stored in variables and method arguments
+- Basis of conditionals, loops and iterators (see companion lectures)
+- Further readings: *http://deepintopharo.org*
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S07-Blocks.pillar"
