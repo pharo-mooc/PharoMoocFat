@@ -83,8 +83,8 @@ You will also see that 4 kinds of activities are distinguished:
 
 - Week 1: Welcome on Board and Syntax Discovery
 - Week 2: Pharo Syntax, Blocks and Inspector 
-- Week 3: Object Model and Tools
-- Week 4: Inheritance&Lookup, Collections and Web Development
+- Week 3: Design, Class Methods and Collections
+- Week 4: Inheritance&Lookup and Web Development
 - Week 5: Exception, Debugging and Reflection
 - Week 6: Rethink lookup and Advanced OO Design
 - Week 7: More on OO Design and Testing
@@ -217,10 +217,11 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To review we can move it to another week
 -- Files: /Slides/Week2/C019SD-W2S12-SUnit.pdf
 
-- [Lecture 6min] The Essence Of Dispatch through an Exercice
+- [Lecture 4min] The Essence Of Dispatch through Exercices
 -- Presenter: Stef
 -- Status: To review
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S13-Design-EssenceOfDispatchExo.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.html*
+
 
 !!!Exos
 
@@ -245,7 +246,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Todo] how is implemented 
 
-!!Week 3: Design, Class Methods
+!!Week 3: Design, Class Methods and Collections
 
 - [Lecture 6min] Design Essence of Dispatch: the case of Not
 -- Presenter: Stef
@@ -273,7 +274,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- scan all code About...
 
 - [Lecture 6min] Variables
--- Presenter: ?
+-- Presenter: Luc
 -- Status: To review
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S05-Basic-Variables.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S05-Basic-Variables.html*
 
@@ -319,7 +320,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- send mail?
 -- participation gratuite / payante?
 
-!!Week 4: Inheritance&Lookup, Collections and Web Development
+!!Week 4: Inheritance&Lookup and Web Development
 
 - [Lecture 6min] Inheritance
 -- Presenter: Damien
@@ -409,18 +410,19 @@ You will also see that 4 kinds of activities are distinguished:
 -- should add: ==[ 1234 factorial ] benchFor: 2 seconds==
 -- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S-Benchmarking.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S-Benchmarking.html*
 
-- 6 Live Debugging of Seaside Web Applications 
+- [Lecture 6min] Live Debugging of Seaside Web Applications 
 --	 ==10 + 20 + error +== debugger
 
-- 6 Live?? Extending GT:  Extending the inspector and spotter for the addressbook
+- [Live] Extending the GTinspector and spotter for the addressbook
 
-
-- 6 Reflection
+- [Lecture 6min] Reflection
+-- Presenter: Luc
 -- Basic structural
 -- Window allInstances first close / Close all debugger windows
 -- this context implementation of HaltIf
 
-- 6 A bit more Reflection
+- [Lecture 6min] A bit more Reflection
+-- Presenter: Luc
 -- compile:
 -- scripting google service API? Stuff of franz Prinz
 
@@ -457,15 +459,10 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Doing it may be should move this one to another week (and after the lookup is done)
 -- Files: W3S10-UnderstandingClassMethods.pillar	
 
-- 6 A bit more Reflection
--- compile:
--- scripting google service API? Stuff of franz Prinz
-
 - [Lecture 6min] self class vs DiceHandle new
 -- Presenter: Stef ou luc
 -- Status: To be reviewed (we could move it to week 7)
 -- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S-SelfSendsDiceHandle.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S-SelfSendsDiceHandle.html*
-
 
 - 6 Hook and Template / Copy as a hook and template
 -- Presenter: 

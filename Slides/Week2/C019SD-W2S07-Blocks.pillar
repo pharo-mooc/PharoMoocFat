@@ -5,7 +5,7 @@
 ${slide:title=Blocks}$
 
 - blocks are kind of anonymous methods
--- sometimes called (lexical) closures
+-- also called (lexical) closures
 - used everywhere
 -- loops, conditionals, iterators,...
 -- GUI frameworks, DSLs,..
