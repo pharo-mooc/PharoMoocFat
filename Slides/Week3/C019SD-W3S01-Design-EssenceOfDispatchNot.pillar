@@ -36,7 +36,7 @@ ${slide:title=Exercise 1: Implement not}$
    -> false
 ]]]
 
-${slide:title=Exercise 2: Implement \| (or)}$
+${slide:title=Exercise 2: Implement OR}$
 
 - Propose an implementation of ==not== in a world where:
 -- you do not have Booleans
@@ -105,11 +105,10 @@ ${slide:title=Implementation of not in two methods}$
 +Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=90+
 
 
-${slide:title=Boolean implementation}$
+${slide:title=Boolean Implementation}$
 
-- Class ==Boolean== is abstract and implements common behavior
-- Its subclasses are ==True== and ==False==
-- Subclasses implement
+- ==Boolean== is abstract
+- subclasses are ==True== and ==False== and implement
 -- logical operations ==&==, ==not==
 -- control structures ==and:==, ==or:==, ==ifTrue:==, ==ifFalse:==, ==ifTrue:ifFalse:==, ==ifFalse:ifTrue:==
 
@@ -119,105 +118,99 @@ Boolean>>not
    self subclassResponsibility
 ]]]
 
-${slide:title=\| (Or)}$
+${slide:title=Behavior of OR}$
 
 [[[
-  true | true -> true
-  true | false -> true
-  true | anything -> true
+true | true -> true
+true | false -> true
+true | anything -> true
 ]]]
 
 [[[
-  false | true -> true
-  false | false -> false
-  false | anything -> anything
+false | true -> true
+false | false -> false
+false | anything -> anything
 ]]]
 
-${slide:title=False >> \| aBoolean}$
+${slide:title=Implementation of OR in Boolean}$
 
 [[[
-  false | true -> true
-  false | false -> false
-  false | anything -> anything
+Boolean>>| aBoolean
+   "Abstract method. Evaluating OR: Evaluate the argument.
+   Answer true if either the receiver or the argument is true."
+   self subclassResponsibility
 ]]]
 
-${slide:title=False >> \| aBoolean}$
+${slide:title=Implementation of OR in False}$
 
 [[[
-  false | true -> true
-  false | false -> false
-  false | anything -> anything
+false | true -> true
+false | false -> false
+false | anything -> anything
 ]]]
 
-[[[
-  False >> | aBoolean
-    "Evaluating OR -- answer with the argument, aBoolean."
-    ^ aBoolean 
-]]]
-
-
-${slide:title=True >> \| aBoolean}$
+${slide:title=Implementation of OR in False}$
 
 [[[
-  true | true -> true
-  true | false -> true
-  true | anything -> true
-]]]
-
-${slide:title=True >> \| aBoolean}$
-
-[[[
-  true | true -> true
-  true | false -> true
-  true | anything -> true
+false | true -> true
+false | false -> false
+false | anything -> anything
 ]]]
 
 [[[
-  True >> | aBoolean
-    "Evaluating OR -- answer true since the receiver is true."
-    ^ true
+False>>| aBoolean
+   "Evaluating OR -- answer with the argument, aBoolean."
+   ^ aBoolean
 ]]]
 
 
-${slide:title=Boolean >> \| aBoolean}$
+${slide:title=Implementation of OR in True}$
 
 [[[
-  Boolean >> | aBoolean
-    "Abstract method. Evaluating OR: Evaluate the argument. 
-	Answer true if either the receiver or the argument is true."
-    self subclassResponsibility
+true | true -> true
+true | false -> true
+true | anything -> true
 ]]]
 
-
-
-
-${slide:title=Real implementation of True >> \| aBoolean}$
-
+${slide:title=Implementation of OR in True}$
 
 [[[
-  True >> | aBoolean
-    "Evaluating disjunction (OR) -- answer true since the receiver is true."
-    ^ true
+true | true -> true
+true | false -> true
+true | anything -> true
+]]]
+
+[[[
+True>>| aBoolean
+   "Evaluating OR -- answer true since the receiver is true."
+   ^ true
+]]]
+
+${slide:title=Real implementation of OR in True}$
+
+[[[
+True>>| aBoolean
+   "Evaluating disjunction (OR) -- answer true since the receiver is true."
+   ^ true
 ]]]
 
 The object ==true== is indeed the receiver of the message!
 
 [[[
-  True >> | aBoolean
-    "Evaluating disjunction (OR) -- answer true since the receiver is true."
-    ^ self
+True>>| aBoolean
+   "Evaluating disjunction (OR) -- answer true since the receiver is true."
+   ^ self
 ]]]
 
-
-${slide:title=Or implementation in two methods}$
+${slide:title=OR Implementation in Two Methods}$
 
 +Boolean hierarchy and instances.>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=90+
 
 
-${slide:title=Stepping back}$
-- We did NOT use condition, we did not ask anything
-- Let's the receiver decide
-- Do not ask, tell
+${slide:title=Summary}$
+- the solution does NOT use conditionals
+- the receiver decides
+- do not ask, tell
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatchNot.pillar"
