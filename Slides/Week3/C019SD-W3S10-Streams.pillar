@@ -2,21 +2,20 @@
   "title":"Stream Overview"
 }
 
-${slide:title=What you will learn}$
+${slide:title=What you will Learn}$
 
-- How to create streams
-- How to add and get contents of streams
+- how to create streams
+- how to add and get contents
 
 ${slide:title=Streams}$
 
-- Associated with a collection
-- Allows the traversal and construction of a collection
-- Stores the current position
+- associated with a collection
+- allows the traversal and construction of a collection
+- stores the current position
 
 +>file://figures/StreamsTraversal.png+
 
-
-${slide:title=API overview}$
+${slide:title=API Overview}$
 
 - Adding: ==nextPut: anElement==, ==nextPutAll: aCollection==
 - Accessing: ==next==
@@ -28,24 +27,27 @@ Convenient messages:
 - ==readStream==, ==writeStream==
 - ==streamContents: [:s | ]==
 
-${slide:title=API overview}$
+${slide:title=API Overview}$
+
 [[[
-  | st |
-  st := ReadWriteStream on: (Array new: 6).
-  st nextPut: 1.
-  st nextPutAll: #(4 8 2 6 7).
-  st contents. 
-  > #(1 4 8 2 6 7)
-  st reset.
-  st next.
-  > 1
-  st position: 3. 
-  st next. 
-  > 2
-  
-  st := (1 2 5 3 7) readStream.
-  st next. 
-  > 1
+| st |
+st := ReadWriteStream on: (Array new: 6).
+st nextPut: 1.
+st nextPutAll: #(4 8 2 6 7).
+st contents.
+> #(1 4 8 2 6 7)
+
+st reset.
+st next.
+> 1
+
+st position: 3.
+st next.
+> 2
+
+st := (1 2 5 3 7) readStream.
+st next.
+> 1
 ]]]
 
 ${slide:title=Adding elements}$
@@ -53,27 +55,27 @@ ${slide:title=Adding elements}$
 - ==nexPut:==, ==nextPutAll:==
 
 [[[
-  | st |
-  st := ReadWriteStream on: (Array new: 6).
-  st nextPut: 1.
-  st nextPutAll: #(4 8 2 6 7).
+| st |
+st := ReadWriteStream on: (Array new: 6).
+st nextPut: 1.
+st nextPutAll: #(4 8 2 6 7).
 ]]]
 
 
 
 ${slide:title=Nicer creation API|label=api}$
 
-[[[language=smalltalk
-  | s |
-  s := WriteStream on: (String new: 16).
-  self printOn: s.
-  s contents
+[[[
+| s |
+s := WriteStream on: (String new: 16).
+self printOn: s.
+s contents
 ]]]
 
 is equivalent to
 
 [[[
-  String streamContents: [:s | self printOn: s]
+String streamContents: [:s | self printOn: s]
 ]]]
 
 ${slide:title=Nicer adding API}$
@@ -81,11 +83,11 @@ ${slide:title=Nicer adding API}$
 Some people prefer ==<<== to ==nextPutAll:==
 
 [[[
-printOn: aStream
-  aStream
-    print: self label;
-    << '->';
-    << (self value printStringLimitedTo: 50)
+XX>>printOn: aStream
+   aStream
+      print: self label;
+      << '->';
+      << (self value printStringLimitedTo: 50)
 ]]]
 
 ${slide:title=What you should know}$
@@ -94,7 +96,6 @@ ${slide:title=What you should know}$
 - Basis for many manipulation of collection of objects
 - Basic API
 
-
-
-
-
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019SD-W3S10-Streams.pillar"
+% End:
