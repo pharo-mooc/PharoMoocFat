@@ -108,7 +108,7 @@ ${slide:title=Essence of a Class}$
 # A superclass
 # A method dictionary
 
-${slide:title=Behavior class >> new}$
+${slide:title=Class initialize}$
 
 [[[
 Behavior >> initialize
