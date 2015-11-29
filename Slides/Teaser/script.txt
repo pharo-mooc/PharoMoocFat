@@ -1,0 +1,38 @@
+Pharo est un langage objet pur qui offre une experience unique 
+de développement en constante interaction avec des objets vivants.
+
+Pharo est un langage et environement open-source inspiré de 
+Smalltalk. Il est élégant, fun a programmer et très puissant.
+
+Pharo est élégant! En effet, tout l'environnement et le language lui meme sont écrits 
+dans Pharo lui-meme en utilisant exclusivement des objets et des messages.
+
+De plus, la syntaxe complete (et j'insiste sur le complete) tient sur une carte postale. 
+Le modele objet de pharo qu'en a lui est trivial:
+	tout est object
+	les methodes sont virtuelles et publiques, 
+	attributs sont proteges,
+	il y a de l'heritage simple entre classes
+et c'est tout!
+
+En programmant en Pharo vous etes immerges dans un monde d'objets vivants. 
+La video illustre ce point: a chaque fois que le code est modifie et compilé
+ l'animation 3D change immediatement. Le programmeur voit immediatement 
+ le resultat de son programme. 
+
+En pharo nous pouvons faire cela pour tout comme par exemple 
+des applications web, du code, graphics reseau. 
+
+Pharo est un environment tres productif et utilise en industrie.
+Allez lire les succes de pharo sur le site ce que les societes font avec Pharo. 
+Un grand nombre de societes utilise l'excellente pile web de Pharo.
+
+Dans ce mooc nous la presenterons. 
+
+Ce mooc a plusieurs objectifs:
+	- vous apprendre a programmer en pharo
+	- vous immerger dans un environnement vivant et vous permettre
+	de vivre une autre experience de programmation
+	- developper une application web montrant les differentes facettes
+	
+Pharo offre une experience unique de developpement.
