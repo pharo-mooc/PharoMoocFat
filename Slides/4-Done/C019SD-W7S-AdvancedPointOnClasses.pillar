@@ -9,6 +9,50 @@ ${slide:title=What you will learn}$
 - How to define variable size objects?
 
 
+${slide:title=How to share state between all the instances of a class?}$
+
+Need to share some constant or share complex objects?
+- Use ""class variables""
+
+
+${slide:title=Color class definition}$
+
+[[[
+Object subclass: #Color
+   instanceVariableNames: 'rgb cachedDepth cachedBitPattern alpha'
+   classVariableNames: 'BlueShift CachedColormaps ColorRegistry ComponentMask ComponentMax GrayToIndexMap GreenShift HalfComponentMask IndexedColors MaskingMap RedShift'
+   package: 'Graphics-Primitives'
+]]]
+
+${slide:title=Color class definition}$
+- Class variables are shared among all the instances and instances of subclasses
+- Shared? So it starts with an uppercase
+- Class variables are accessible from class methods too
+
+
+${slide:title=Color class initialization}$
+
+[[[
+Color class >> initialize
+	"Externally, the red, green, and blue components of color
+	are floats in the range [0.0..1.0]. Internally, they are represented
+	as integers in the range [0..ComponentMask] packing into a
+	small integer to save space and to allow fast hashing and
+	equality testing."
+	ComponentMask := 1023.
+	HalfComponentMask := 512.	"used to round up in integer calculations"
+	ComponentMax := 1023.0.	"a Float used to normalize components"
+	RedShift := 20.
+	GreenShift := 10.
+	BlueShift := 0.
+	self initializeIndexedColors.
+	self initializeColorRegistry.
+	self initializeGrayToIndexMap.
+]]]	
+
+
+
+
 ${slide:title=Remember}$
 
 - Everything is an object
@@ -17,7 +61,6 @@ ${slide:title=Remember}$
 - How/When classes are initialized
 
 ${slide:title=Classes are initialized}$
-
 
 Classes are initialized 
 - at load time when all their methods are compiled
@@ -45,3 +88,10 @@ ChronologyConstants >> initialize
  			August September October November December).
 	DaysInMonth := #(31 28 31 30 31 30 31 31 30 31 30 31).
 ]]]
+
+${slide:title=Warning}$
+
+It is a bad practice to do a ==super initialize== in a class initialize method
+
+Because you may reinitialize classes that should not be reinitialized
+
