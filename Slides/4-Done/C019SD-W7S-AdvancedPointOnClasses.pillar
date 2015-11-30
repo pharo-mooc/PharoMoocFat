@@ -1,0 +1,47 @@
+{
+	"title":"Advanced Points on Classes"
+}
+
+${slide:title=What you will learn}$
+
+- How can I share state between all the instances of a class?
+- How to initialize classes themselves?
+- How to define variable size objects?
+
+
+${slide:title=Remember}$
+
+- Everything is an object
+- An object is initialized at creation time
+- Classes are objects too
+- How/When classes are initialized
+
+${slide:title=Classes are initialized}$
+
+
+Classes are initialized 
+- at load time when all their methods are compiled
+- or explicitly by the programmer
+
+[[[
+ChronologyConstants initialize
+]]]
+
+${slide:title=What you will learn}$
+
+[[[
+ChronologyConstants >> initialize
+	"ChronologyConstants initialize"
+	SqueakEpoch := 2415386. 		"Julian day number of 1 Jan 1901" 
+	SecondsInDay := 86400.
+	MicrosecondsInDay := SecondsInDay * 1e6.
+	SecondsInHour := 3600.
+	SecondsInMinute := 60.
+	NanosInSecond := 10 raisedTo: 9.
+	NanosInMillisecond := 10 raisedTo: 6.
+	DayNames := #(Sunday Monday Tuesday Wednesday Thursday Friday Saturday).
+		
+	MonthNames := #(January February March April May June July
+ 			August September October November December).
+	DaysInMonth := #(31 28 31 30 31 30 31 31 30 31 30 31).
+]]]
