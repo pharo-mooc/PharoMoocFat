@@ -4,7 +4,7 @@
 
 ${slide:title=Loops}$
 
-- Loops are expressed as messages. 
+- Loops are expressed as messages
 - Many different ones
 -- Plain loops
 -- Conditional loops
@@ -71,7 +71,7 @@ ${slide:title=Loops: do:}$
     aCol do: [:each | ... ]
 ]]]
 
-The block is executed with ==each== taking as value all the elements of aCol.
+The block is executed with ==each== taking as value all the elements of aCol
 
 [[[language=smalltalk
 #(15 10 19 68) do:  
@@ -84,7 +84,7 @@ ${slide:title=Loops: whileTrue:}$
     [ ... ] whileTrue: [ ... ]
 ]]]
 
-Execute the argument, aBlock, as long as the value of the receiver is true. 
+Executes the argument, aBlock, as long as the value of the receiver is true 
 
 [[[language=smalltalk
 atLeastAsLuminentAs: aFloat 
@@ -96,7 +96,7 @@ atLeastAsLuminentAs: aFloat
 
 ${slide:title=Loops: whileTrue}$
 
-Execute the receiver, as long as its value is true.
+Executes the receiver, as long as its value is true
 
 [[[language=smalltalk
     [ ... ] whileTrue
@@ -106,7 +106,7 @@ Equivalent with ==whileFalse== and ==whileFalse:==
 
 ${slide:title=Summary}$
 
-- Loops are expressed as messages. 
+- Loops are expressed as messages
 - Many different ones
 -- Plain loops
 -- Conditional loops

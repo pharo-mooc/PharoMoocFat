@@ -5,8 +5,8 @@
 
 ${slide:title=Remember: A Block is Freezing Computation}$
 
-- A block is not executed.
-- A block blocks execution: its body is not executed.
+- A block is not executed
+- A block blocks execution: its body is not executed
 
 [[[language=smalltalk
     [ 2 + 6 ] 
@@ -54,11 +54,12 @@ ${slide:title=Blocks are used to express loops|label=expressLoop}$
 
 ${slide:title=Blocks are used to express loops|label=expressLoop}$
 
-- a traditional ==for== loop for i=1,100, i++
+- A traditional ==for== loop for i=1,100, i++
 
 [[[language=smalltalk
     1 to: 100 by: 3 do: [:i | File stdout << i ]
-    > 147101316192225283134374043464952555861646770737679828588919497100
+    > 1471013161922252831343740434649525558616467707
+	 > 37679828588919497100
 ]]]
 
 - The message ==to:by:do:== is sent to an integer
@@ -86,19 +87,19 @@ Weather isRaining
 ]]]
 
 - Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
-- ==ifTrue:ifFalse:== is in fact radically optimized by the compiler.
-- Implement another one such as ==siAlors:sinon:== and try it. 
+- ==ifTrue:ifFalse:== is in fact radically optimized by the compiler
+- Implement your own control structure such as ==siAlors:sinon:== (in French) and try it
 
 
 ${slide:title=Implementing ifTrue\:ifFalse\:}$
 
 - Do you see the pattern?
-- Remember that a closure blocks execution and that the message ==value== launches the execution of a frozen code.
-- Propose an implementation
+- Remember that a closure blocks execution and that the message ==value== launches the execution of a frozen code
+- How to implement ==ifTrue:ifFalse:==?
 
 ${slide:title=Implementing ifTrue\:ifFalse\:}$
 
-- Let us the receiver decides!
+- Let the receiver decides!
 [[[language=smalltalk 
     True>> ifTrue: aTrueBlock ifFalse: aFalseBlock
         ^ aTrueBlock value
@@ -111,15 +112,16 @@ ${slide:title=Implementing ifTrue\:ifFalse\:}$
 
 ${slide:title=Implementation Note}$
 
-- Note that the Virtual Machine shortcuts calls to Boolean such as condition for speed reason.
-- But you can implement your own conditional methods and debug to see that sending a message is dispatching to the right object.
+- Note that the Virtual Machine shortcuts calls to Boolean such as condition for speed reason
+- But you can implement your own conditional methods and debug to see that sending a message is dispatching to the right object
 
 
 ${slide:title=Summary|label=expressLoop}$
 
 - Blocks freeze and control computation 
 - Basis for conditionals 
-- Basis for exceptions (see companion lectures)
+- Basis for loops
+- Basis for exceptions (see extra lectures)
 - Basis for concurrence 
 
 

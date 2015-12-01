@@ -4,10 +4,10 @@
 
 ${slide:title=Objectives}$
 
-- understanding of message passing (late binding)
+- Understanding of message passing (late binding)
 -- the heart of OOP
 -- more an OOP lecture than a Pharo one
-- insight at how beautiful Pharo's implementation is
+- Insight at how beautiful Pharo's implementation is
 
 ${slide:title=Context: Booleans}$
 
@@ -38,7 +38,7 @@ ${slide:title=Exercise 1: Implement not}$
 
 ${slide:title=Exercise 2: Implement OR}$
 
-- Propose an implementation of ==not== in a world where:
+- Propose an implementation of ==or== in a world where:
 -- you do not have Booleans
 -- you only have objects and messages
 
@@ -56,14 +56,14 @@ ${slide:title=Hint 1: No conditionals}$
 
 The solution does not use conditionals (i.e., no ==if==)
 
-${slide:title=Hint 2: At Least Two Classes}$
+${slide:title=Hint 2: At Least Three Classes}$
 
 - The solution uses three classes:
 -- ==Boolean==, ==True== and ==False==
 - ==true== is the singleton instance of ==True==
 - ==false== is the singleton instance of ==False==
 
-${slide:title=Hint 2: At Least Two Classes}$
+${slide:title=Hint 2: At Least Three Classes}$
 
 +Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.png|width=75+
 
@@ -81,7 +81,7 @@ How do we express choice in OOP?
 - ==x== can be a button, a pane, a window, a bird, ...
 - the method is ""chosen"" based on the ==x=='s class
 
-${slide:title=Implementation of not in two methods}$
+${slide:title=Implementation of ==not== in two methods}$
 
 [[[
 False>>not
@@ -97,12 +97,12 @@ True>>not
 
 ${slide:title=Implementation of not in two methods}$
 
-+Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethods.png|width=90+
++Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethods.png|width=110+
 
 
 ${slide:title=Implementation of not in two methods}$
 
-+Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=90+
++Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=110+
 
 
 ${slide:title=Boolean Implementation}$
@@ -204,13 +204,14 @@ True>>| aBoolean
 
 ${slide:title=OR Implementation in Two Methods}$
 
-+Boolean hierarchy and instances.>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=90+
++Boolean hierarchy and instances.>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=110+
 
 
 ${slide:title=Summary}$
-- the solution does NOT use conditionals
-- the receiver decides
-- do not ask, tell
+- The solution to implement booleans' operations:
+-- does NOT use conditionals (if)
+-- let the receiver decides
+- Do not ask, tell
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatchNot.pillar"

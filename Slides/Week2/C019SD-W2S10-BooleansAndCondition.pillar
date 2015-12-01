@@ -21,7 +21,7 @@ ${slide:title=Lazy Logical Operators}$
     false & (1 error: 'crazy')
     -> an error
 ]]]
-- the argument ==(1 error: 'crazy')== is executed because this is a non lazy operator.
+- the argument ==(1 error: 'crazy')== is executed because this is a non lazy operator
 
 [[[language=smalltalk 
     false and: [1 error: 'crazy']
@@ -39,17 +39,17 @@ Weather isRaining
 ]]]
 
 - Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
-- ==ifTrue:ifFalse:== is in fact radically optimized by the compiler but you can implement another one such as ==siAlors:sinon:== and try it at home. 
+- ==ifTrue:ifFalse:== is in fact radically optimized by the compiler but you can implement another one such as ==siAlors:sinon:== and try it at home 
 
 ${slide:title=Boolean Implementation}$
 
 - ==true== is the unique instance of the class ==True==
 - ==false== is the unique instance of the class ==False==
 
-+Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.png|width=30+
++Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.png|width=50+
 
 
-To see more have a look at the Essence of Dispatch Lecture.
+To see more have a look at the Essence of Dispatch Lecture
 
 
 
@@ -93,10 +93,10 @@ ${slide:title=Conditionals: ifEmpty: ifNotEmpty:}$
             aList at: currentIndex  ]
 ]]]
 
-- Notice that when the receiver is not empty we get it as argument. 
-- No need to ask it again.
+- Notice that when the receiver is not empty we get it as argument
+- No need to ask it again
 
 ${slide:title=Summary}$
 
-- Booleans are real objects.
-- Some conditionals are messages sent to Booleans.
+- Booleans are real objects
+- Some conditionals are messages sent to Booleans
