@@ -98,7 +98,7 @@ ${slide:title=Changing the Class of an Object}$
 
 [[[
 Class >> adoptInstance: anInstance
-   "Change the class of anInstance to me. Returns the class rather than the modified instance”
+   "Change the class of anInstance to me. Returns the class rather than the modified instance"
 ]]]
 
 
@@ -108,7 +108,7 @@ ${slide:title=Essence of a Class}$
 # A superclass
 # A method dictionary
 
-${slide:title=Behavior class >> new}$
+${slide:title=Class initialize}$
 
 [[[
 Behavior >> initialize

@@ -1,0 +1,52 @@
+Pharo est un langage objet pur qui offre une experience unique 
+de développement en constante interaction avec des objets vivants.
+
+Pharo est un langage et environnement open-source inspiré de 
+Smalltalk. Il est élégant, fun a programmer et très puissant.
+
+Pharo est élégant! En effet, tout l'environnement et le language lui meme sont écrits 
+dans Pharo lui-meme en utilisant exclusivement des objets et des messages.
+
+De plus, la syntaxe complete (et j'insiste sur le complete) tient sur une carte postale. 
+Le modele objet de pharo qu'en a lui est trivial:
+	tout est object
+	les methodes sont virtuelles et publiques, 
+	attributs sont proteges,
+	il y a de l'heritage simple entre classes
+et c'est tout!
+
+En programmant en Pharo vous etes immerges dans un monde d'objets vivants. 
+La video illustre ce point: a chaque fois que le code est modifie et compilé
+ l'animation 3D change immediatement. Le programmeur voit immediatement 
+ le resultat de son programme. 
+
+En pharo nous pouvons faire cela pour tout comme par exemple 
+des applications web, du code lui-meme, des graphisme, du reseau. 
+
+Pharo est un environment tres productif et utilisé en industrie.
+Allez lire les succes de pharo sur le site http://www.pharo.org/succes 
+Un grand nombre de societes utilise l'excellente pile web de Pharo qui change la maniere de construire
+des applications web. 
+
+Pharo est utilisee dans plus d’une trentaine d’université dans le monde car il a des proprietes
+exceptionnelle pour la comprehension des concepts fondamentaux de la programmation objets.
+
+Nous la presenterons dans ce mooc.
+
+Ce mooc a plusieurs objectifs:
+	- vous apprendre a programmer en Pharo,
+	- vous immerger dans un environnement vivant et vous permettre
+	de vivre une autre experience de programmation.
+	- developper une application web montrant les differentes facettes mise en oeuvre
+	
+Ce mooc s’adresse a toute personne ayant une experience de programmation. Son niveau ideal est L3 mais 
+notre experience nous a montre qu’une personne motivee met une a deux semaines pour maitriser le langage.
+De plus il y a Pharo by Example (http://www.pharobyExample.org et ProfStef qui permettent de se faire la main. 
+
+Nous faisons souvent des cours de Pharo a des ingenieurs meme confirmés et Pharo donne une nouvelle 
+vision des fondements meme de la programmation que sont le polymorphisme et la liaison tardive. 
+
+Avec Pharo vous allez repenser votre comprehension de la programmation objet.
+Pharo offre une experience unique de developpement tentez-la.
+
+

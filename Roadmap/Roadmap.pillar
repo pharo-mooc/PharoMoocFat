@@ -208,7 +208,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.html*
 
 - [Lecture 6min] Class and methods	6 min   
--- Presenter: ?
+-- Presenter: Damien
 -- Status: To review  I move it there since we create many classes and methods. 
 -- Files: W2S5-ClassDefinition.pillar
 
@@ -217,8 +217,8 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To review we can move it to another week
 -- Files: /Slides/Week2/C019SD-W2S12-SUnit.pdf
 
-- [Lecture 4min] The Essence Of Dispatch through Exercices
--- Presenter: Stef
+- [Lecture 6min] The Essence Of Dispatch through an Exercice
+-- Presenter: Damien
 -- Status: To review
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S13-Design-EssenceOfDispatchExo.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.html*
 
@@ -296,7 +296,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To Review
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S09-Iterators.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S09-Iterators.html*
 
-- [Lecture 6min] W4S-Streams
+- [Lecture 6min] W3S-Streams
 -- Presenter: Damien
 -- Status: To Review
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S10-Stream.pdf* *SlidesHTML>../Slides/Week4/Week3/C019SD-W3S10-Stream.html*		
