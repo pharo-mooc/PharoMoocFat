@@ -16,8 +16,18 @@
 -- Status: Probably an old version 
 -- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.html*
 	
-
 - a mettre dans learningFromMistakes: Class methods cannot access instance variables
+
+- Idées pour le teaser
+-- mettre des vidéos de : vidéo des cubes (yuri), Roassal?, Quuve, Block/Brick, Yes Plan?
+-- démo coder dans le débuggeur / peut-être un exemple seaside 
+-- trouver une image libre de droit pour escher
+-- max 2min de teaser dont 1min30 grand max de texte
+-- pas d'habits verts le jour du tournage
+-- parler aux cibles : 
+---- si vous êtes un développeur OO ou avez déjà programmé en OO, vous allez redécouvrir la programmation par objets, ... 
+---- si vous êtes débutant en prog, ....
+---- ... 
 
 !! Missing Lectures
 
