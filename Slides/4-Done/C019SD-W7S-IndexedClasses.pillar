@@ -79,7 +79,7 @@ ${slide:title=Remember}$
 - Everything is an object
 - An object is initialized at creation time
 - Classes are objects too
-- How/When classes are initialized
+- How/When classes are initialized?
 
 
 
@@ -102,7 +102,7 @@ ${slide:title=Warning}$
 
 
 
-${slide:title=Variable Size Instance}$
+${slide:title=Variable Size Instances?}$
 
 - How do we represent objects whose size is variable such an array
 
@@ -115,7 +115,7 @@ Array new: 5
 > #(nil nil nil nil nil)
 ]]]
 
-${slide:title=Variable subclass Example }$
+${slide:title=Variable Class Definition}$
 
 
 [[[
@@ -125,14 +125,25 @@ ArrayedCollection variableSubclass: #Array
 	package: 'Collections-Sequenceable'
 ]]]
 
-- ==variableSubclass:== means that the instances will have a variable size instance variables
+
+${slide:title=Variable Class Example }$
+
+
+[[[
+ArrayedCollection variableSubclass: #Array
+	instanceVariableNames: ''
+	classVariableNames: ''
+	package: 'Collections-Sequenceable'
+]]]
+
+- ==variableSubclass:== : an instance has a variable (indexed) size instance variable
 
 - Indexed variable zone is implicitly added to the list of instance variables
 - Only one indexed instance variable per class
 - Access with ==at:== and ==at:put:==
 - Subclasses should also be indexed
 
-${slide:title=Index access}
+${slide:title=Index access}$
 - First access: anInstance at: 1
 - #size returns the number of indexed instance variables
 - Instantiated with #new: max

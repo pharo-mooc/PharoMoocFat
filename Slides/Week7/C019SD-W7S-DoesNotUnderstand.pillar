@@ -1,0 +1,123 @@
+{
+	"title":"Support for Live Programming"
+}
+
+${slide:title=Under the Curtain}$
+
+- What is happening when we recompile a class
+- What are the operations that take place
+
+
+${slide:title=A Typical Scenario}$
+
+- We have one class
+- Define some methods
+- Created some instances
+- Add an instance variable to the class
+- and continue working
+
+
+{slide:title=Operations supporting interactive coding}$
+
+- New class 
+- Method recompilation
+- Transparent instance migration
+- Identifying instances
+- Switching pointers
+
+
+${slide:title=Coding in the debugger}$
+
+- When a method is not found, we may end up with a debugger
+- In the debugger, we can ask for the creation of a method on the fly
+- The system compiles on the spot a special method, 
+- Then it reexecutes the method
+- It raises a shouldBeImplemented exception 
+- Then you can edit the method in the debugger 
+- then proceed and the program continues to run.
+
+
+${slide:title=Getting All Instances}$
+
+[[[
+Dictionary allInstances size
+]]]
+
+${slide:title=Getting all Pointers to}$
+
+To get all the pointers to a given object :)
+
+[[[
+anObject pointersTo
+]]]
+
+returns all the pointers pointing to this object
+
+
+${slide:title=Reference Swapping}$
+
+[[[
+anObject become: anotherObject
+]]]
+
+- All the pointers to ==anObject== point now to ==anotherObject== 
+- And "the inverse" atomatically
+
+[[[
+   | pt1 pt2 pt3 |
+   pt1 := 0@0.
+   pt2 := pt1.
+   pt3 := 100@100.
+   pt1 become: pt3.
+   self assert: pt2 = (100@100). 
+   self assert: pt3 = (0@0).
+   self assert: pt1 = (100@100)
+]]]
+
+${slide:title=Reference Swapping}$
+
+Swap all the pointers from one object to the other (asymmetric)
+
+[[[
+anObject becomeForward: anotherObject
+]]]
+
+[[[
+| pt1 pt2 pt3 |
+pt1 := 0@0.
+pt2 := pt1.
+pt3 := 100@100.
+pt1 becomeForward: pt3.
+self assert: pt1 = (100@100).
+self assert: pt1 == pt2.
+self assert: pt2 == pt3.
+]]]
+
+
+${slide:title=Changing the Class of an Object}$
+
+[[[
+Class >> adoptInstance: anInstance
+   "Change the class of anInstance to me. Returns the class rather than the modified instance”
+]]]
+
+${slide:title=Instance Specific Behavior}$
+
+[[[
+| behavior model |
+behavior := Behavior new.
+behavior superclass: Model.
+behavior setFormat: Model format.
+model := Model new.
+model primitiveChangeClassTo: behavior new. 
+behavior compile: 'thisIsATest ^ 2'.
+model thisIsATest = 2.
+self should: [Model new thisIsATest] raise: MessageNotUnderstood.
+]]]
+
+${slide:title=Conclusion}$
+
+- Foundation for Innovation
+- Do not use reflective operation in domain code
+- Understand when you absolutely need reflection
+
