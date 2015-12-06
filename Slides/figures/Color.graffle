@@ -55,7 +55,7 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{207.75, 139}, {58, 14}}</string>
+			<string>{{210.75, 122}, {58, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -115,9 +115,9 @@
 			<integer>84</integer>
 			<key>Points</key>
 			<array>
-				<string>{409.93044286572893, 203}</string>
-				<string>{410, 166}</string>
-				<string>{369.5, 165.33333611488342}</string>
+				<string>{415.65012290477961, 179.02960309131203}</string>
+				<string>{416, 149}</string>
+				<string>{375.5, 148.33333611488342}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -135,6 +135,8 @@
 			<dict>
 				<key>ID</key>
 				<integer>83</integer>
+				<key>Info</key>
+				<integer>15</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -149,8 +151,8 @@
 			<integer>9</integer>
 			<key>Points</key>
 			<array>
-				<string>{194, 156.00001557668097}</string>
-				<string>{279.5, 155.99998664855957}</string>
+				<string>{194, 139.66667348146439}</string>
+				<string>{285.5, 138.99998664855957}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -169,12 +171,12 @@
 				<key>ID</key>
 				<integer>28</integer>
 				<key>Info</key>
-				<integer>8</integer>
+				<integer>7</integer>
 			</dict>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{265, 203}, {247, 178}}</string>
+			<string>{{234, 179}, {247, 160}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -238,7 +240,6 @@
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
 \f0\fs24 \cf0 initialize\
-\
 	
 \b ComponentMask
 \b0  := 1023.\
@@ -271,7 +272,7 @@
 			<array>
 				<string>{85, 188.66667056083679}</string>
 				<string>{55, 188}</string>
-				<string>{55.347372080771201, 89.499996878903559}</string>
+				<string>{55.851053486644865, 99.499976898574985}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -295,7 +296,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{22, 8}, {288, 81}}</string>
+			<string>{{23, 18}, {288, 81}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -377,7 +378,7 @@
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{279.5, 128}, {90, 14}}</string>
+					<string>{{285.5, 111}, {90, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -418,7 +419,7 @@
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{279.5, 142}, {90, 14}}</string>
+					<string>{{285.5, 125}, {90, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -461,7 +462,7 @@
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{279.5, 156}, {90, 28}}</string>
+					<string>{{285.5, 139}, {90, 28}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -670,7 +671,7 @@ ColorRegistry\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
 \f0\fs24 \cf0 privateBlue\
- }</string>
+...}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -761,7 +762,7 @@ ColorRegistry\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-12-06 20:04:47 +0000</string>
+	<string>2015-12-06 20:34:32 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -856,7 +857,7 @@ ColorRegistry\
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{-86, 24}, {732, 639}}</string>
+		<string>{{-86, 0}, {732, 639}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>

@@ -1,110 +1,14 @@
 {
-	"title":"Advanced Points on Classes"
+	"title":"Variable Size Objects"
 }
 
 ${slide:title=What You Will Learn}$
 
-- How can I share state between instances of a class?
-- How to initialize classes themselves?
-- How to define variable size objects?
-
-
-${slide:title=Sharing State?}$
-
-
-Sometimes one needs to share objects between instances of a class
-
-
-- Use ""class variables"" (==classVariablesNames:==)
-
-[[[
-Object subclass: #Class
-   instanceVariableNames: ''
-   classVariableNames: 'ShareState'
-   package: ''
-]]]
-
-
-${slide:title=Color Class Definition}$
-
-[[[
-Object subclass: #Color
-   instanceVariableNames: 'rgb cachedDepth cachedBitPattern alpha'
-   classVariableNames: 'BlueShift CachedColormaps ColorRegistry ComponentMask ComponentMax GrayToIndexMap GreenShift HalfComponentMask IndexedColors MaskingMap RedShift'
-   package: 'Graphics-Primitives'
-]]]
-
-
-${slide:title=Color Class Definition}$
-
-- Class variables are shared among all the instances and instances of subclasses
-- They are shared! So it starts with an uppercase
-- Class variables are accessible from class methods too
-
-${slide:title=Class Variable Access}$
-
-+>file://figures/ClassVariabeVsInstanceVariable.png+
-
-toredo
-
-${slide:title=Class Variable Access}$
-
-+>file://figures/ClassVariableExemple.png+
-
-toredo
-
-
-${slide:title=Color Initialization}$
-
-[[[
-Color class >> initialize
-   "Externally, the red, green, and blue components of color are floats in the range [0.0..1.0]. Internally, they are represented as integers in the range [0..ComponentMask] packing into a small integer to save space and to allow fast hashing and equality testing."
-   ComponentMask := 1023.
-   HalfComponentMask := 512. "used to round up in integer calculations"
-   ComponentMax := 1023.0. "used to normalize components"
-   RedShift := 20.
-   GreenShift := 10.
-   BlueShift := 0.
-   self initializeIndexedColors.
-   self initializeColorRegistry.
-   self initializeGrayToIndexMap.
-]]]	
-
-
-
-
-
-${slide:title=Remember}$
-
-- Everything is an object
-- An object is initialized at creation time
-- Classes are objects too
-- How/When classes are initialized?
-
-
-
-${slide:title=Classes are initialized}$
-
-Classes are initialized 
-- at load time when all their methods are loaded/compiled
-- or explicitly by the programmer
-
-[[[
-Color initialize
-]]]
-
-
-${slide:title=Warning}$
-
-- It is a bad practice to do a ==super initialize== in a class initialize method
-
-- Because you may reinitialize (super) classes that should not be reinitialized
-
-
+- How to define variable size objects
+- How to instantiate variable size objects
 
 ${slide:title=Variable Size Instances?}$
 
-- How do we represent objects whose size is variable such an array
 
 [[[
 (Array new: 10)
@@ -114,6 +18,9 @@ ${slide:title=Variable Size Instances?}$
 Array new: 5
 > #(nil nil nil nil nil)
 ]]]
+
+Yes arrays can have different sizes
+
 
 ${slide:title=Variable Class Definition}$
 
@@ -140,23 +47,24 @@ ArrayedCollection variableSubclass: #Array
 
 - Indexed variable zone is implicitly added to the list of instance variables
 - Only one indexed instance variable per class
-- Access with ==at:== and ==at:put:==
-- Subclasses should also be indexed
 
-${slide:title=Index access}$
-- First access: anInstance at: 1
-- #size returns the number of indexed instance variables
-- Instantiated with #new: max
+- Subclasses should also be defined using variableSubclass:
+
+${slide:title=Index Access}$
+- Access with ==at:== and ==at:put:==
+- First element starts at 1
+- ==size== returns the number of indexed instance variables
+- Instantiated with ==new: max==
 
 [[[
 | a |
 a := Array new: 4.
 a at: 2 put: 'lulu'.
-a at: 1 -> nil
+a at: 1
+> nil
+a at: 2 
+> 'lulu'
 ]]]
-
-
-
 
 
 ${slide:title=Different Perspectives}$
@@ -164,7 +72,7 @@ ${slide:title=Different Perspectives}$
 - Named or indexed instance variables
 [[[
 Named: 'count' of class Counter
-Indexed: Array
+Variable/Indexed: Array
 ]]]
 
 - Or looking at them in another way:
@@ -176,18 +84,22 @@ Objects with arrays of bytes (word, long)
 
 ${slide:title=Refining the Variable Part}$
 
-|!Indexed |!Named Definition Method |!Examples
-|No |Yes #subclass:... |Packet|
-|Yes |Yes #variableSubclass: |Array|
-|Yes |No #variableByteSubclass: |String|
-
-- Method related to class types: #isPointers, #isBits, #isBytes, #isFixed, #isVariable, #kindOfSubclass
+|!Indexed |!Named |!Definition Method |!Examples
+|No  |Yes |#subclass:... |Color|
+|Yes |No | #variableSubclass: |AdditionalMethodState|
+|Yes |No |#variableByteSubclass: |ByteString|
+|Yes |No |#variableWordSubclass: |Bitmap|
+Some methods related to class types: ==isPointers==, ==isBits==, ==isBytes==, ==isFixed==, ==isVariable==
 
 ${slide:title=Constraints}$
 
 - Classes defined using ==#subclass:== can have any kind of subclasses
-- Classes defined using ==#variableSubclass:== can only have ==variableSubclass:== or ==variableByteSubclass:== subclasses
+- Classes defined using ==#variableSubclass:== can only have ==variableSubclass:== subclasses
 
 
+${slide:title=What You Should Know}$
+
+- How to define variable size objects
+- How to instantiate variable size objects
 
 
