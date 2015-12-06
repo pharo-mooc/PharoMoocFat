@@ -43,15 +43,13 @@ ${slide:title=Color Class Definition}$
 
 ${slide:title=Class Variable Access}$
 
-+>file://figures/ClassVariabeVsInstanceVariable.png+
++>file://figures/ColorAndColorClass2.pdf|width=140+
 
-toredo
 
 ${slide:title=Class Variable Access}$
 
-+>file://figures/ClassVariableExemple.png+
++>file://figures/Color.pdf|width=110+
 
-toredo
 
 
 ${slide:title=Color Initialization}$
@@ -121,7 +119,8 @@ WebServer class >> new
    self error: 'You should use uniqueInstance to get the unique instance'
 
 WebServer class>>uniqueInstance
-   ^ uniqueInstance ifNil: [ uniqueInstance := self basicNew initialize ].
+   ^ uniqueInstance 
+         ifNil: [ uniqueInstance := self basicNew initialize ]
 ]]]
 
 
@@ -134,8 +133,9 @@ ${slide:title=Subclasses have Their Own Singleton}$
 ${slide:title=Subclasses has Their Own Singleton}$
 
 
-With a ClassVariable, there is only one singleton for the complete class hierarchy
-Indeed ClassVariables are shared
+- With a ClassVariable, there is only one singleton for the complete class hierarchy
+
+- Indeed ClassVariables are shared
 
 [[[
 Object subclass: #WebServer
