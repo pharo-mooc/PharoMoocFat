@@ -6,7 +6,7 @@ ${slide:title=What You Will Learn}$
 
 - How can I share state between instances of a class?
 - How to initialize classes themselves?
-- How to define variable size objects?
+
 
 
 ${slide:title=Sharing State?}$
@@ -79,7 +79,7 @@ ${slide:title=Remember}$
 - Everything is an object
 - An object is initialized at creation time
 - Classes are objects too
-- How/When classes are initialized
+- How/When classes are initialized?
 
 
 
@@ -101,82 +101,50 @@ ${slide:title=Warning}$
 - Because you may reinitialize (super) classes that should not be reinitialized
 
 
+${slide:title=Class Instance Variables}$
 
-${slide:title=Variable Size Instance}$
+- Like any object
+- A class is an instance of a class (a metaclass) that can have instance variables that define the state of a class.
 
-- How do we represent objects whose size is variable such an array
+- When a metaclass defines a new instance variable, then its instance (a Class) gets a new value in addition to subclass, superclasses, methodDict...
 
-[[[
-(Array new: 10)
-> #(nil nil nil nil nil nil nil nil nil nil)
-]]]
-[[[
-Array new: 5
-> #(nil nil nil nil nil)
-]]]
+${slide:title=Singleton Pattern}$
 
-${slide:title=Variable subclass Example }$
-
+- A class has only one instance
+- Keep the instance created in an instance variable
 
 [[[
-ArrayedCollection variableSubclass: #Array
-	instanceVariableNames: ''
-	classVariableNames: ''
-	package: 'Collections-Sequenceable'
-]]]
+WebServer class
+   instanceVariableNames: 'uniqueInstance'
 
-- ==variableSubclass:== means that the instances will have a variable size instance variables
+WebServer class >> new
+   self error: 'You should use uniqueInstance to get the unique instance'
 
-- Indexed variable zone is implicitly added to the list of instance variables
-- Only one indexed instance variable per class
-- Access with ==at:== and ==at:put:==
-- Subclasses should also be indexed
-
-${slide:title=Index access}
-- First access: anInstance at: 1
-- #size returns the number of indexed instance variables
-- Instantiated with #new: max
-
-[[[
-| a |
-a := Array new: 4.
-a at: 2 put: 'lulu'.
-a at: 1 -> nil
+WebServer class>>uniqueInstance
+   ^ uniqueInstance ifNil: [ uniqueInstance := self basicNew initialize ].
 ]]]
 
 
+${slide:title=Subclasses have Their Own Singleton}$
+
+- With a ''class instance variable''
+- Each subclass of WebServer will have its own singleton
 
 
+${slide:title=Subclasses has Their Own Singleton}$
 
-${slide:title=Different Perspectives}$
 
-- Named or indexed instance variables
+With a ClassVariable, there is only one singleton for the complete class hierarchy
+Indeed ClassVariables are shared
+
 [[[
-Named: 'count' of class Counter
-Indexed: Array
+Object subclass: #WebServer
+   instanceVariableNames: ''
+   classVariableNames: 'Singleton'
+   package: ''
 ]]]
 
-- Or looking at them in another way:
-[[[
-Objects with pointers to other objects
-Objects with arrays of bytes (word, long)
-]]]
+${slide:title=What You Should Know}$
 
-
-${slide:title=Refining the Variable Part}$
-
-|!Indexed |!Named Definition Method |!Examples
-|No |Yes #subclass:... |Packet|
-|Yes |Yes #variableSubclass: |Array|
-|Yes |No #variableByteSubclass: |String|
-
-- Method related to class types: #isPointers, #isBits, #isBytes, #isFixed, #isVariable, #kindOfSubclass
-
-${slide:title=Constraints}$
-
-- Classes defined using ==#subclass:== can have any kind of subclasses
-- Classes defined using ==#variableSubclass:== can only have ==variableSubclass:== or ==variableByteSubclass:== subclasses
-
-
-
-
+- How to share objects between instances of a class?
+- How to initialize class?
