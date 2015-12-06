@@ -54,8 +54,7 @@ Voyage
 -- pharo cloud 
 -- cloud9
 
-
-- CLass init: and variableSubclass:...
+- variableSubclass:...
 
 !! Immersive Videos
 
@@ -525,6 +524,10 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Done (to be revisited)
 -- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-thisContext.html*	
 
+- [Lecture ]  "Slides/Week7/C019SD-W7S-AdvancedPointOnClasses.pillar",
+-- Presenter: Stef 
+-- Status: Done
+-- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-AdvancedPointOnClasse.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-AdvancedPointOnClasse.html*	
 
 - 6 Conclusion
 	
@@ -563,10 +566,9 @@ Garage ??
 -- do we have an example that is not numbers
 -- luc a un exemple 
 
-- 6 Advanced Classes
--- class instance variables/ class var
+- 6 Variable Classes
 -- variableSubclass: 
--- class initialization
+
 
 - WhyTesting.pillar
 
