@@ -428,14 +428,14 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Live] Extending the GTinspector and spotter for the addressbook
 
-- [Lecture 6min] Reflection
+- [Lecture 6min] Reflection: Basic Introspection
 -- Presenter: Luc
--- Basic structural
--- Window allInstances first close / Close all debugger windows
--- this context implementation of HaltIf
+-- Status: Done
+-- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S-Reflection.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S-Reflection.html* 
 
 - [Lecture 6min] A bit more Reflection
 -- Presenter: Luc
+-- DNU
 -- compile:
 -- scripting google service API? Stuff of franz Prinz
 

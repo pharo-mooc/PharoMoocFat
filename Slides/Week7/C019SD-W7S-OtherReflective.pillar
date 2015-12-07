@@ -43,6 +43,11 @@ ${slide:title=Getting All Instances}$
 Dictionary allInstances size
 ]]]
 
+
+[[[
+Window allInstances first close
+]]]
+
 ${slide:title=Getting all Pointers to}$
 
 To get all the pointers to a given object :)
