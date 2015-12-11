@@ -8,7 +8,7 @@ ${slide:title=Getting a Feel About Syntax}$
 In this lecture we want to give you the general feel to get started:
 
 - Overview of simple syntactical elements
-- Message composition
+- 3 Kinds of Message 
 - Overview of block syntax
 
 No stress if you do not get it right now!
@@ -59,6 +59,29 @@ ${slide:title=Getting the Pharo Logo}$
 - Messages ==asMorph== and ==openInWindow== are sent
 -- they are unary messages
 
+${slide:title=Three Kinds of Messages}$
+
+- Unary
+-- ==1 class==, ==Browser open== 
+
+- Binary (operators like)
+-- ==1\+2==, ==x \~\~ nil==
+
+- Keyword-based: 
+-- ==2 between: 0 and: 5==
+
+${slide:title=A Glimpse at Message Precedence}$
+
+- (Msg) \> Unary \> Binary \> Keywords
+
+- First we execute ==()==
+- Then unary, then binary and finally keyword messages
+- Minimize ==()== needs
+
+But let us start with messages
+
+
+
 ${slide:title=Sending an unary message}$
 
 
@@ -75,61 +98,6 @@ Example
 We send the message ==factorial== to the object ==10000==
 
 
-${slide:title=A Simple Method}$
-
-[[[
-factorial
-  "Answer the factorial of the receiver."
-
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
-]]]
-
-${slide:title=Within the Browser part of the Pharo IDE}$
-
-+>file://figures/FactorialInBrowser.png|width=100+
-
-${slide:title=A Simple Method}$
-
-[[[
-factorial
-  "Answer the factorial of the receiver."
-
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
-]]]
-
-- ==factorial== is the method name
-- ==\===, ==>==, ==\*== and ==-== are binary messages
-- ==^== is for returning a value
-- ==factorial== is an unary message
-- ==ifTrue:== is a message sent to a boolean expression
-
-
-${slide:title=Presentation Convention}$
-
-[[[
-factorial
-  "Answer the factorial of the receiver."
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
-]]]
-
-is displayed in this lecture as: 
-
-[[[
-Integer >> factorial
-  "Answer the factorial of the receiver."
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
-]]]
-
-- ""Integer >>"" is not part of the syntax:
--- it tells you the method's class
 
 
 ${slide:title=Sending a keyword message}$
