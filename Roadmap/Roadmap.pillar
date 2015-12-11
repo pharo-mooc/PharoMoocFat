@@ -431,7 +431,7 @@ You will also see that 4 kinds of activities are distinguished:
 - [Lecture 6min] Reflection: Basic Introspection
 -- Presenter: Luc
 -- Status: Done
--- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S-Reflection.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S-Reflection.html* 
+-- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S-Introspection.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S-Introspection.html* 
 
 - [Lecture 6min] A bit more Reflection
 -- Presenter: Luc
@@ -517,6 +517,11 @@ You will also see that 4 kinds of activities are distinguished:
 - 6 Week7 Deploying an application 
 -- pharo cloud 
 -- cloud9
+
+- [Lecture ] Reflection thisContext
+-- Presenter: Stef 
+-- Status: Done 
+-- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-DoesNotUnderstand.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-DoesNotUnderstand.html*	
 
 - [Lecture ] Reflection thisContext
 -- Presenter: Stef 
