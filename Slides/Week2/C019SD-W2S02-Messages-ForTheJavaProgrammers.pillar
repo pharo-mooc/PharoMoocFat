@@ -82,7 +82,7 @@ ${slide:title=Keyword Messages}$
 
 In Java
 [[[language=java
-    receiver.keyword1(argument1, argument2)
+    receiver.keyword1keyword2(argument1, argument2)
 ]]]
 
 In Pharo

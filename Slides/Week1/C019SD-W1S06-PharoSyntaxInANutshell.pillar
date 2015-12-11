@@ -8,7 +8,7 @@ ${slide:title=Getting a Feel About Syntax}$
 In this lecture we want to give you the general feel to get started:
 
 - Overview of simple syntactical elements
-- 3 Kinds of Message 
+- 3 kinds of Messages to minimize parentheses
 - Overview of block syntax
 
 No stress if you do not get it right now!
@@ -35,7 +35,7 @@ exampleWithNumber: x
   ^ x < y
 ]]]
 
-${slide:title=Hello World}$
+${slide:title=Let us Start with Hello World}$
 
 [[[
 	'Hello World' asMorph openInWindow
@@ -48,8 +48,8 @@ We send the message ==asMorph== to a string and get a graphical element that we 
 ${slide:title=Getting the Pharo Logo}$
 
 [[[
-  (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
-    asMorph openInWindow.
+(ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
+   asMorph openInWindow
 ]]]
 
 - ==ZnEasy== designates a class
@@ -58,6 +58,20 @@ ${slide:title=Getting the Pharo Logo}$
 -- ==getPng:== is a keyword message 
 - Messages ==asMorph== and ==openInWindow== are sent
 -- they are unary messages
+
+${slide:title=Syntactic Elements}$
+
+| comment| "a comment"|
+| character| \$\c \$\# \$\@ |
+| string| 'lulu' 'l''idiot'|
+| symbol (unique string)| #mac #+ |
+| array| #(12 23 36)|
+| integer| 1, 2r101 |
+| real | 1.5 6.03e-34,4, 2.4e7|
+| boolean| true, false|
+| nil | nil |
+| point| 10@120|
+
 
 ${slide:title=Three Kinds of Messages}$
 
