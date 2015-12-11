@@ -156,9 +156,9 @@ ${slide:title=Conditionals are just messages}$
 - Conditional expressions are messages sent to booleans or blocks
 
 [[[
-    initialAnswer := fullName isEmptyOrNil
-        ifTrue: [ 'FirstnameLastname' translated ]
-        ifFalse: [ fullName ]
+fullName isEmptyOrNil
+   ifTrue: [ 'FirstnameLastname' translated ]
+   ifFalse: [ fullName ]
 ]]]
 
 ${slide:title=Loops: Messages Sent to Objects}$

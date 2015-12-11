@@ -391,6 +391,7 @@
 			<key>Points</key>
 			<array>
 				<string>{360, 304}</string>
+				<string>{360, 286}</string>
 				<string>{360, 252.5}</string>
 			</array>
 			<key>Style</key>
@@ -864,7 +865,7 @@ ifTrue:ifFalse:}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-06-26 07:00:20 +0000</string>
+	<string>2015-12-06 20:03:24 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -959,7 +960,7 @@ ifTrue:ifFalse:}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{-86, 0}, {732, 623}}</string>
+		<string>{{-86, 0}, {732, 639}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>

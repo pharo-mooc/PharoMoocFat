@@ -1,6 +1,6 @@
 {
-    "title":"Understanding Messages",
-	 "slidesid" : "W2S01"
+"title":"Understanding Messages",
+"slidesid" : "W2S01"
 }
 
 ${slide:title=Reminder}$
@@ -18,7 +18,7 @@ ${slide:title=Syntax}$
 ${slide:title=Example}$
 
 [[[
-(ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png' asZnUrl) 
+(ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png') 
     asMorph openInWindow
 ]]]
 
@@ -28,7 +28,7 @@ ${slide:title=Three Kinds of Messages}$
 -- ==1 class==, ==Browser open== 
 
 - Binary (operators like)
--- ==1\+2==, ==x ~~ nil==
+-- ==1\+2==, ==x \~\~ nil==
 
 - Keyword-based: 
 -- ==2 between: 0 and: 5==
@@ -68,28 +68,28 @@ ${slide:title=Guess}$
 ${slide:title=Unary Message Examples}$
 
 [[[
-    anObject aSelector
+anObject aSelector
 ]]]
 
 
 [[[
-    1 class
-    > SmallInteger
+1 class
+> SmallInteger
 ]]]
 
 [[[
-    false not
-    > true
+false not
+> true
 ]]]
 
 [[[
-    Date today
-    > 24 May 2009
+Date today
+> 24 May 2009
 ]]]
 
 [[[
-    Float pi
-    > 3.141592653589793
+Float pi
+> 3.141592653589793
 ]]]
 
 ${slide:title=Did you notice?}$
@@ -98,24 +98,26 @@ ${slide:title=Did you notice?}$
 - There is no difference between sending a message to an object or to a class
 
 [[[
-    1 class
-    > SmallInteger
+1 class
+> SmallInteger
 ]]]
 
 [[[
-    Date today
-    > 27 June 2015
+Date today
+> 27 June 2015
 ]]]
 
+${slide:title=A Bit of Introspection}$
+
 [[[
-    Point selectors
-    > #(#x #theta #quadrantOf: #onLineFrom:to:within: #bitShiftPoint: #< #scaleFrom:to: #sideOf: #'\\' #scaleTo: #grid: #'//' #asIntegerPoint #directionToLineFrom:to: ...) 
+Point selectors
+> #(#x #theta #quadrantOf: #onLineFrom:to:within: #bitShiftPoint: #< #scaleFrom:to: #sideOf: #'\\' #scaleTo: #grid: #'//' #asIntegerPoint #directionToLineFrom:to: ...) 
 ]]]
 
 - Returns all the messages the class understands
 
 
-${slide:title=A little query}$
+${slide:title=A Little Query}$
 
 - Let us query the system and only filter the unary messages:
 
@@ -131,7 +133,7 @@ ${slide:title=A little query}$
 ${slide:title=Binary Messages}$
 
 [[[
-    anObject aBinarySelector anArgument
+anObject aBinarySelector anArgument
 ]]]
 
 - Used for arithmetic, comparison and logical operations
@@ -142,44 +144,44 @@ ${slide:title=Binary Messages}$
 ${slide:title=Binary Message Examples}$
 
 [[[
-    1 + 2
-    > 3
+1 + 2
+> 3
 ]]]
 
 [[[
-    2 > 3
-    > false
+2 > 3
+> false
 ]]]
 
 [[[
-    10@200 
-    > 10@200
+10@200 
+> 10@200
 ]]]
 
 [[[
-    'Black chocolate' , ' is good'
-    > 'Black chocolate is good'
+'Black chocolate' , ' is good'
+> 'Black chocolate is good'
 ]]]
 
 
 ${slide:title=Keyword Messages}$
 
 [[[
-    anObject keyword1: argument1 keyword2: argument2
-]]]    
+anObject keyword1: argument1 keyword2: argument2
+]]]
 
 equivalent to:
 
 [[[
-    receiver.keyword1keyword2(argument1, argument2)
+receiver.keyword1keyword2(argument1, argument2)
 ]]]
 
 
 ${slide:title=Message setX:}$
 
 [[[
-    10@20 setX: 2
-    > 2@20
+10@20 setX: 2
+> 2@20
 ]]]
 
 - We change the x value of the receiver (a point)
@@ -189,8 +191,8 @@ ${slide:title=Message at:put:}$
 
 
 [[[
-    #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
-    > #('Calvin' 'loves' 'Suzie')
+#('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
+> #('Calvin' 'loves' 'Suzie')
 ]]]
 
 - ==#(...)== creates an array
@@ -201,8 +203,8 @@ ${slide:title=Message at:put:}$
 ${slide:title=Message between:and:}$
 
 [[[
-    12 between: 10 and: 20
-    > true
+12 between: 10 and: 20
+> true
 ]]]
 
 - The message ==between:and:== is sent to an integer
@@ -210,7 +212,7 @@ ${slide:title=Message between:and:}$
 
 ${slide:title=Summary}$
 
-- Three kinds of messages: unary, binary and keywords
+Three kinds of messages: unary, binary and keywords
 - Unary
 -- ==5 factorial==
 - Binary

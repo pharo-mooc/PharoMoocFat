@@ -21,6 +21,64 @@ Object subclass: #Point
 ]]]
 
 
+${slide:title=Looking at A Simple Method}$
+
+[[[
+factorial
+  "Answer the factorial of the receiver."
+
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
+]]]
+
+${slide:title=Within the Browser part of the Pharo IDE}$
+
++>file://figures/FactorialInBrowser.png|width=100+
+
+${slide:title=Presentation Convention}$
+
+[[[
+factorial
+  "Answer the factorial of the receiver."
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
+]]]
+
+is displayed in this lecture as: 
+
+[[[
+Integer >> factorial
+  "Answer the factorial of the receiver."
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
+]]]
+
+- ""Integer >>"" is not part of the syntax:
+-- it tells you the method's class
+
+
+
+${slide:title=Remember Messages}$
+
+[[[
+Integer >> factorial
+  "Answer the factorial of the receiver."
+
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
+]]]
+
+- ==factorial== is the method name
+- ==\===, ==>==, ==\*== and ==-== are binary messages
+- ==^== is for returning a value
+- ==factorial== is an unary message
+- ==ifTrue:== and ==error:== are messages sent to a boolean expression
+
+
 ${slide:title=Method Definition}$
 
 [[[
@@ -42,30 +100,6 @@ Game >> initializePlayers
   ^ self       "<-- this is optional"
 ]]]
 
-
-${slide:title=Typographical Convention}$
-
-When you edit a method, you do not type the class name:
-
-[[[
-dist: aPoint 
-  "Answer the distance between aPoint and the receiver."
-  | dx dy |
-  dx := aPoint x - x.
-  dy := aPoint y - y.
-  ^ (dx * dx + (dy * dy)) sqrt
-]]]
-
-We show the class we are talking about using ==Point>>==
-
-[[[
-Point >> dist: aPoint 
-  "Answer the distance between aPoint and the receiver."
-  | dx dy |
-  dx := aPoint x - x.
-  dy := aPoint y - y.
-  ^ (dx * dx + (dy * dy)) sqrt
-]]]
 
 ${slide:title=Class Method}$
 
@@ -91,7 +125,7 @@ Point class >> x: xInteger y: yInteger
   ^ self basicNew setX: xInteger setY: yInteger
 ]]]
 
-${slide:title=What you should Know}$
+${slide:title=What You Should Know}$
 
 - Classes are defined inside packages
 - Methods are public and virtual
