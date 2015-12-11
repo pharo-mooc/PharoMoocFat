@@ -3,12 +3,14 @@
 }
 
 
-${slide:title= ( ) vs. [ ]|label=really}$
+${slide:title= ( ) vs. [ ]}$
 
 - ==( )== just changes the priority of an execution but the program is executed
 - ==[ ]== blocks program execution: the program is NOT executed
 
-- Therefore use ==[ ]== when you do not know if your program will be executed
+${slide:title= Use [ ] for 'Unknown' Execution}$
+
+- use ==[ ]== when you do not know if your program will be executed
 - When the message can change the execution of your program (if, while, ...) use a block
 
 [[[language=smalltalk
@@ -17,24 +19,10 @@ ${slide:title= ( ) vs. [ ]|label=really}$
 
 - ==timesRepeat:== executes a number of times its argument, therefore the argument is a block
 
-${slide:title= ( ) vs. [ ] Example|label=really}$
-
-[[[language=smalltalk
-     x includes: 3 ifTrue: [...]
-]]] 
-
-- The message is read as ==includes:ifTrue:== and does not exist
-
-[[[language=smalltalk
-    (x includes: 33) ifTrue: [ self doSomething ]
-]]]
-
-- We use ==( )== and not ==[ ]== for the receiver (==x includes: 33==) because this expression should be executed only once
-- We use ==( )== because we should make sure that the compiler identifies two messages: ==includes:== and ==ifTrue:== and not just one ==includes:ifTrue:==
-- We should use parentheses because we want ==includes:== to be executed first
 
 
-${slide:title= ( ) vs. [ ] Example|label=really}$
+
+${slide:title= ( ) vs. [ ] Example}$
 
 [[[language=smalltalk
     x isNil ifTrue: [ self doSomething ]
@@ -43,7 +31,7 @@ ${slide:title= ( ) vs. [ ] Example|label=really}$
 - ==ifTrue:== may execute or not its argument, therefore the argument is a block
 
 
-${slide:title= ( ) vs. [ ] Example|label=really}$
+${slide:title= ( ) vs. [ ] Example}$
 
 [[[language=smalltalk
     [ self start ] whileTrue: [ self doSomething ]
@@ -51,7 +39,7 @@ ${slide:title= ( ) vs. [ ] Example|label=really}$
 
 - ==whileTrue:== may execute both its receiver and argument multiple times, therefore they are both a block
 
-${slide:title=Quiz|label=squareBracketQuiz}$
+${slide:title=Quiz}$
 
 [[[
     1 to: 100 do: ... self doSomething ...
