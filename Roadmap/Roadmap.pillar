@@ -12,6 +12,13 @@
 		package: 'EventShine-Model'
 ]]]
 
+
+- Ajouter un cours sur return
+	return dans une method
+	pas de return dans une methode
+	return dans un block
+	pas de return dans un block
+
 - Review Week 3
 -- [Lecture 6min] Design Essence of Dispatch: the case of Not
 -- Presenter: Stef
@@ -35,12 +42,6 @@
 
 !! Missing Lectures
 
-Reflection simple
-- instVar
-- doesNotUnderstand
-- become:
-- compile:
-
 Seaside1	
 - Live: seaside counter/multi counter
 -- counter back button
@@ -58,7 +59,7 @@ Voyage
 -- pharo cloud 
 -- cloud9
 
-- variableSubclass:...
+- Metaclasses
 
 !! Immersive Videos
 
@@ -488,7 +489,7 @@ You will also see that 4 kinds of activities are distinguished:
 - [Lecture 6min] Runtime architecture
 -- Presenter: Stef
 -- Status: 
--- Files: C019SD-W6S-RuntimeArchitecture.pillar
+-- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S-RuntimeArchitecture.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S-RuntimeArchitecture.html*
 
 
 !!!! Exos	
@@ -512,15 +513,11 @@ You will also see that 4 kinds of activities are distinguished:
 - 6 Week7 Understanding metaclass architecture	(two)
 -- Slides to be done
 
-- 6 Week7 ?Visitor design pattern or only in exo
 
-- 6 Week7 Deploying an application 
--- pharo cloud 
--- cloud9
 
-- [Lecture ] Reflection thisContext
+- [Lecture ] DoesNotUnderstand
 -- Presenter: Stef 
--- Status: Done 
+-- Status: Done (working on it)
 -- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-DoesNotUnderstand.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-DoesNotUnderstand.html*	
 
 - [Lecture ] Reflection thisContext
@@ -542,6 +539,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Stef 
 -- Status: Done
 -- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-VariableClasses.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-VariableClasses.html*	
+
+- 6 Week7 ?Visitor design pattern or only in exo
+
+- 6 Week7 Deploying an application 
+-- pharo cloud 
+-- cloud9
 
 - 6 Conclusion
 	

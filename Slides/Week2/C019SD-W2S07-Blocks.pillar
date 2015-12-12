@@ -69,11 +69,11 @@ A block can take arguments (just like methods)
 ]]]
 
 - ==value: 5== evaluates the block with 5 as argument
--- ==x== is 5 during the block evaluation
+-- ==x== is 5 during the block execution
 
-${slide:title=Block Evaluation Value}$
+${slide:title=Block Execution Value}$
 
-Block evaluation returns the value of the last expression
+Block execution returns the value of the last expression
 [[[
    [ :x |
       x + 33.
@@ -119,13 +119,6 @@ Integer>>factorial
    self error: 'Not valid for negative integers'
 ]]]
 
-${slide:title=More Precisely}$
-
-- When returning from a block, the method ""defining"" the block is terminated
-- Since blocks can be passed around in variables, blocks behave like an exception mechanism
-- Prefer exceptions when this is what you need
-- Pay attention when you put a return in a block
-- Further readings: *http://deepintopharo.org*
 
 ${slide:title=Exercise}$
 
