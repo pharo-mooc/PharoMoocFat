@@ -1,9 +1,9 @@
 {
-	"title":"Really Understanding Class Methods"
+"title":"Really Understanding Class Methods"
 }
 
 
-${slide:title=What you will learn}$
+${slide:title=What you will Learn}$
 
 - Lookup of class methods are the same as instance methods
 - Class methods are not (java like) static methods
@@ -13,8 +13,7 @@ ${slide:title=There is Only One Lookup}$
 
 When we send messages to an instance, corresponding methods are looked up in the instance class and applied to that instance
 
-
-${slide:title=Remember: Sending a message}$
+${slide:title=Remember: Sending a Message}$
 
 ${columns}$
 
@@ -32,7 +31,7 @@ ${column:width=50}$
 
 ${endColumns}$
 
-${slide:title=Sending a message to a class}$
+${slide:title=Sending a Message to a Class}$
 
 ${columns}$
 
@@ -49,7 +48,7 @@ ${column:width=60}$
 
 ${endColumns}$
 
-${slide:title=Stepping back}$
+${slide:title=Stepping Back}$
 
 ${columns}$
 
@@ -64,32 +63,28 @@ ${column:width=60}$
 
 ${endColumns}$
 
-+>file://figures/CounterClassMetaclassBrowsing.png|width=100+
 
-
-
-${slide:title=Class is just an instance}$
+${slide:title=Class is Just an Instance}$
 
 A class is an object instance of another class (called a metaclass)
-- A metaclass is just one class whose instances are classes! 
+- A metaclass is just one class whose instances are classes
 - ==Counter== is the unique instance of the class ==Counter class==
 - ==Counter class== is automatically created when you create the class ==Counter==
 - The class of class ==XXX== is named ==XXX class==
 
-
-${slide:title=Class as objects}$
+${slide:title=Browsing two Classes}$
 
 Yes the browser is helping you to edit two classes: a class and its class
  
 +>file://figures/CounterClassMetaclassBrowsing.png|width=100+
 
 
-${slide:title=What you should know}$
+${slide:title=What you Should Know}$
 
-- Messages sent to classes are resolved the same way as messages sent to instances.
+- Messages sent to classes are resolved the same way as messages sent to instances
 - Class methods are
 -- public
 -- late-bound
-- Classes are just objects too.
-- Classes are instance of other classes (called metaclasses).
+- Classes are just objects too
+- Classes are instance of other classes (called metaclasses)
 
