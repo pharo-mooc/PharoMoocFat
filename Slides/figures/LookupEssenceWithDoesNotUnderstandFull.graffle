@@ -49,7 +49,7 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{300.73199462890625, 88}, {261, 24}}</string>
+			<string>{{316.4639892578125, 89}, {261, 24}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -97,7 +97,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{444, 206.08650207519531}, {184, 24}}</string>
+			<string>{{430, 206.08650207519531}, {184, 24}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -147,7 +147,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{26, 258.17300415039062}, {200, 72}}</string>
+			<string>{{162, 170}, {200, 72}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -245,7 +245,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{231.47999572753906, 135}, {54, 62}}</string>
+			<string>{{214, 108}, {54, 62}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -711,8 +711,8 @@
 			<integer>29</integer>
 			<key>Points</key>
 			<array>
-				<string>{323.93401899289046, 363.92300415039062}</string>
-				<string>{349.32693800291935, 301.173}</string>
+				<string>{323.9340189931242, 363.92300415039062}</string>
+				<string>{349.32693800437534, 301.173}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1102,7 +1102,7 @@ send:}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-06-28 15:57:51 +0000</string>
+	<string>2015-12-14 21:53:04 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -1198,7 +1198,7 @@ send:}</string>
 		<key>ExpandedCanvases</key>
 		<array/>
 		<key>Frame</key>
-		<string>{{470, 11}, {758, 812}}</string>
+		<string>{{343, 0}, {758, 778}}</string>
 		<key>ListView</key>
 		<false/>
 		<key>OutlineWidth</key>
@@ -1210,7 +1210,7 @@ send:}</string>
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{-57, 1}, {744, 702}}</string>
+		<string>{{-71, 1}, {758, 684}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>

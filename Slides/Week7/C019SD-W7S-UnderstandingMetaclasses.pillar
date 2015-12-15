@@ -1,196 +1,52 @@
 {
-    "title":"Understanding Metaclasses (TOBEDONE)",
-    "subtitle":"2: Lookup"
+    "title":"Inheritance and Lookup",
+    "subtitle":"5: Lookup in metaclasses"
 }
 
 ${slide:title=Goal}$
 
--mapping a message to a method
--==self== always represents the receiver
+-Messages can be sent to classes too
+-The mechanism is ""exactly"" the same
 
-${slide:title=Inheritance}$
+${slide:title=Lookup of Class Methods is No Different}$
 
-- inheritance of state is static
-- inheritance of behavior is dynamic
+Sending a message to a class is also late-bound (dynamically resolved)
+- contrary to Java/C#
+- no ==static==, only methods of another object (a class)
 
-${slide:title=Message Sending}$
+${slide:title=Lookup of Class Methods is No Different}$
+
 
 ${columns}$
-
-${column:width=50}$
-
-""Sending"" a ""message"" is a two-step process:
-# ""look up"" the ""method"" matching the message
-# execute this method on the ""receiver""
-
-${column:width=50}$
-
-+>file://figures/InheritanceDiagram-lookup-superclass.png|width=100+
-
-${endColumns}$
-
-
-${slide:title=Method Lookup}$
-
-${columns}$
-
-${column:width=50}$
-
-The lookup starts in the ""class"" of the ""receiver"" then:
--if the method is defined in the class, it is returned
--otherwise the search continues in the superclass
-
-${column:width=50}$
-
-+>file://figures/InheritanceDiagram-lookup-superclass.png|width=100+
-
-${endColumns}$
-
-${slide:title=Some Lookup Cases}$
-
-Sending the message ==color== to ==a ColoredRectangle==
-
-+>file://figures/InheritanceDiagram-lookup-superclass.png|width=50+
-
-${slide:title=Some Lookup Cases}$
-
-Sending the message ==area== to ==a ColoredRectangle==
-
-+>file://figures/InheritanceDiagram-lookup-superclass.png|width=50+
-
-${slide:title=self Always Represents the Receiver}$
-
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=80+
-
-[[[
-    A new foo
-    > ...
-    B new foo
-    > ...
-]]]
-
-${slide:title=self Always Represents the Receiver}$
-
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=80+
-
-[[[
-    A new foo
-    > 10
-    B new foo
-    > 50
-]]]
-
-${slide:title=What is self/this?}$
-
-Take 5 min and write the definition of ==self== (==this== in Java).
-
-- Your definition should have two points:
--- What does ==self== represent?
--- How are the methods looked up when a message is sent to ==self==?
-
-${slide:title=self/this}$
-
-- ==self== represents the receiver of the message
-- ==self== in Pharo, ==this== in Java
-- the method lookup starts in the class of the receiver
-
-${slide:title=self Always Represents the Receiver}$
-
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=80+
-
-[[[
-    A new bar
-    > ...
-    B new bar
-    > ...
-]]]
-
-${slide:title=self Always Represents the Receiver}$
-
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=80+
-
-[[[
-    A new bar
-    > 10
-    B new bar
-    > 50
-]]]
-
-${slide:title=self Always Represents the Receiver}$
-
-${columns}$
-
-${column:width=35}$
-
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=100+
-
-[[[
-    B new bar
-    > 50
-]]]
-
-${column:width=65}$
-
-#==B new bar==: no method ==bar== defined in ==B==
-#look up in ==A== - the method ==bar== is found
-#method ==bar== is executed
-#==self== refers to the object
-#==foo== is sent to ==self==
-#look up ==foo== in the receiver's class: ==B==!
-#==foo== is found there and executed
-
-${endColumns}$
-
-${slide:title=self Always Represents the Receiver}$
-
-${columns}$
-
-${column:width=60}$
-
-+>file://figures/LookupWithSelfInSuperclassMethodThreeClasses.png|width=100+
 
 ${column:width=40}$
 
-[[[
-    A new bar
-    > ...
-    B new bar
-    > ...
-    C new bar
-    > ...
-]]]
+Only one rule:
+
+When a message is sent to an object, a method is searched starting from the class of the object and following the inheritance chain
+
+${column:width=50}$
+
++>file://figures/LookupEssenceAny.png|width=130+
 
 ${endColumns}$
 
-${slide:title=self Always Represents the Receiver}$
 
-${columns}$
+${slide:title=A Class is an Instance of Another Class}$
 
-${column:width=60}$
+- A class ==X== is always the unique instance of another class ==X class==
+-- The class of ==Node== is ==Node class==
 
-+>file://figures/LookupWithSelfInSuperclassMethodThreeClasses.png|width=100+
-
-${column:width=40}$
-
-[[[
-    A new bar
-    > 10
-    B new bar
-    > 10
-    C new bar
-    > 50
-]]]
-
-${endColumns}$
-
-${slide:title=What you should Know}$
++>file://figures/WorkstationMetaclassesWithInheritance.png|width=90+
 
 
--==self== always represents the receiver
--sending a message is a two-step process:
--#look up the method matching the message
--#execute this method on the receiver
+${slide:title=Lookup of Class Methods is No Different}$
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/4-Done/InheritanceAndLookup-2-Lookup.pillar"
-% End:
++>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=130+
+
+${slide:What you Should Know}$
+
+-Classes are objects and can be sent messages
+-The process is ""exactly"" the same as for other objects
+-To know more: follow the lecture 'Understanding Metaclasses'
+

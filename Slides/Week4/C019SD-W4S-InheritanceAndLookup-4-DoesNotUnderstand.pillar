@@ -13,14 +13,14 @@ ${slide:title=When No Method is Found}$
 
 If no method is found in the hierarchy, a new message ==#doesNotUnderstand:== is sent to the receiver, with the initial message as parameter.
 
-+>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=30+
++>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=60+
 
 
 ${slide:title=When No Method is Found}$
 
 A new message ==#doesNotUnderstand:== is sent to the receiver, with the initial message as parameter.==doesNotUnderstand:== is looked up as a normal message.
 
-+>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=65+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=100+
 
 
 
@@ -28,19 +28,19 @@ ${slide:title=Step by Step...}$
 
 ${columns}$
 
+${column:width=60}$
+
+==node1 coucou: #stef==
+# ==coucou:== looked up in ==Node==
+# not defined in ==Node== -> continues in ==Object==
+# not defined in ==Object== -> send ==doesNotUnderstand:== to ==node1==
+# ==doesNotUnderstand:== looked up in ==Node==
+# not defined in ==Node== -> continues in ==Object==
+# ==doesNotUnderstand:== is found and executed
+
 ${column:width=50}$
 
-- ==node1 coucou: #stef==
--# ==coucou:== is looked up in ==Node==
--# not defined in ==Node== -> lookup continues in ==Object==
--# not defined in ==Object== => system sends ==doesNotUnderstand:== to ==node1==
--# ==doesNotUnderstand:== is looked up in ==Node==
--# not defined in ==Node== -> lookup continues in ==Object==
--# ==Object>>doesNotUnderstand:== is found and executed
-
-${column:width=50}$
-
-+>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=100+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=200+
 
 ${endColumns}$
 
@@ -52,13 +52,13 @@ ${slide:title=doesNotUnderstand: is a Message}$
 
 ${slide:title=doesNotUnderstand: and the Debugger}$
 
-What happens when a message is not understood can be customized:
-
-- the message ==doesNotUnderstand:== is looked up
+When the message ==doesNotUnderstand:== is looked up
 - when no class redefines the message ==doesNotUnderstand:==
 -- a ==MessageNotUnderstood== exception is raised
 -- when there is no handler of that exception, the default is to open a debugger
 - this behavior can be customized to hide/control/log errors
+
+${slide:title=Catching MessageNotUnderstood Error}$
 
 [[[language=smalltalk
 SomeClass>>doSomething
@@ -67,7 +67,7 @@ SomeClass>>doSomething
   do: [ Transcript show: 'Something went wrong with a message' ]
 ]]]
 
-${slide:What you should Know}
+${slide:What you should Know}$
 
 -==#doesNotUnderstand:== is sent when a method is not found by the lookup;
 -each class can implement this hook method;

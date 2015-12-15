@@ -1,67 +1,114 @@
 {
-	"title":"DoesNotUnderstand:"
+	"title":"DoesNotUnderstand: a Precious Hook"
 }
 
-${slide:title=Under the Curtain}$
-
-- What is happening when we get a debugger
-- How to take advantage of error controlling
 
 ${slide:title=When No Method is Found}$
-
-If no method is found in the hierarchy, a new message ==#doesNotUnderstand:== is sent to the receiver, with the initial message as parameter.
-
-+>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=30+
-
-
-${slide:title=When No Method is Found}$
-
-A new message ==#doesNotUnderstand:== is sent to the receiver, with the initial message as parameter.==doesNotUnderstand:== is looked up as a normal message.
-
-+>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=65+
-
-
-
-${slide:title=Step by Step...}$
-
-${columns}$
-
-${column:width=50}$
-
-- ==node1 coucou: #stef==
--# ==coucou:== is looked up in ==Node==
--# not defined in ==Node== -> lookup continues in ==Object==
--# not defined in ==Object== => system sends ==doesNotUnderstand:== to ==node1==
--# ==doesNotUnderstand:== is looked up in ==Node==
--# not defined in ==Node== -> lookup continues in ==Object==
--# ==Object>>doesNotUnderstand:== is found and executed
-
-${column:width=50}$
 
 +>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=100+
 
-${endColumns}$
-
 ${slide:title=doesNotUnderstand: is a Message}$
 
--==doesNotUnderstand:== is a message
--every class can customize handling of this error
--important hook for automatic delegation
+- ==doesNotUnderstand:== is a message
+- every class can customize handling of this error
+- important hook for automatic delegation and many other
 
-${slide:title=doesNotUnderstand: and the Debugger}$
 
-What happens when a message is not understood can be customized:
+${slide:title=Delegation}$
 
-- the message ==doesNotUnderstand:== is looked up
-- when no class redefines the message ==doesNotUnderstand:==
--- a ==MessageNotUnderstood== exception is raised
--- when there is no handler of that exception, the default is to open a debugger
-- this behavior can be customized to hide/control/log errors
-
-[[[language=smalltalk
-SomeClass>>doSomething
-  [ anObject nonExistingMethod ]
-  on: MessageNotUnderstood
-  do: [ Transcript show: 'Something went wrong with a message' ]
+[[[
+Delegating >> doesNotUnderstand: aMessage
+   ^ aMessage sendTo: self target
 ]]]
+
+- Pay attention it blurs code understandibility
+- Only tools and specific parts should use such tricks
+
+
+${slide:title=A LoggingProxy}$
+
+Basic idea:
+- Create a 'minimal' object raising error to most messages
+- Customize its doesNotUnderstand: method
+- Swap an object and the proxy
+
+
+${slide:title=Implementing LoggingProxy}$
+
+[[[
+ProtoObject subclass: #LoggingProxy
+	instanceVariableNames: 'subject invocationCount'
+	classVariableNames: ''
+	package: 'LoggingProxy'
+]]]
+
+[[[
+LoggingProxy >> initialize 
+	invocationCount := 0. 
+	subject := self
+	"will be swapped by become:"
+]]]
+
+${slide:title=Customize doesNotUnderstand:}$
+
+[[[
+LoggingProxy >> doesNotUnderstand: aMessage
+	Transcript show: 'performing ', aMessage printString; cr.
+	invocationCount := invocationCount + 1.
+	^ aMessage sendTo: subject
+]]]
+
+[[[
+Message >> sendTo: receiver
+   ^ receiver perform: selector withArguments: args
+]]]
+
+${slide:title=Message Behavior}$
+
+[[[
+| point |
+point := 1@2.
+LoggingProxy new become: point.
+self assert: point invocationCount = 0.
+self assert: point x + point y = 3.
+self assert: point + (3@4) = (4@6).
+self assert: point invocationCount = 3.
+]]]
+
++>file://figures/TranscriptLogging.png|width=100+
+
+
+${slide:title=Some Limits of such Minimal Object}$
+
+— Messages sent by the object to itself are not trapped!
+- Class control cannot be swapped
+- What to do with messages that are understood by both the MinimalObject and its subject?
+
+${slide:title=Another Application}$
+
+Scaffolding patterns: Generate code on use
+
+[[[
+DynamicAccsssors >> doesNotUnderstand: aMessage
+   | messageName |
+   messageName := aMessage selector asString.
+   (self class instVarNames includes: messageName)
+      ifTrue: [self class compile:
+                  messageName , String cr , ' ^ ' , messageName.
+         ^ aMessage sendTo: self].
+   super doesNotUnderstand: aMessage
+]]]
+
+
+
+${slide:title=Conclusion}$
+
+Minimal Objects
+- are the fundation for proxy in distributed settings
+- can be used to dynamically load code or objects
+
+doesNotUnderstand:
+- powerful hook
+
+
 

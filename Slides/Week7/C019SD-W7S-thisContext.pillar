@@ -9,6 +9,7 @@ To let you know that it exist
 ${slide:title=Stack Frame as an Object}$
 
 - Execution stack can be turned into a live object
+- By default the stack is not an object 
 - Support exception definitions from within the language
 - For debugger support! 
 - Advanced debugging 
@@ -52,6 +53,7 @@ Halt class >> if: condition
   condition ifTrue: [self signal].
 ]]]
 
+${slide:title=How if: is implemented?}$
 
 [[[
 Halt class >> haltIfCallChainContains: aSelector
@@ -63,10 +65,10 @@ Halt class >> haltIfCallChainContains: aSelector
     (cntxt selector = aSelector) ifTrue: [ self signal ] ].
 ]]]
 
-${slide:title=Foundation for innovation}$
+${slide:title=Foundation for Innovation}$
 
 - Continuations
 - Seaside: Powerful dynamic web framework for dynamic web applications
-- http://www.seaside.st
-- http://book.seaside.st
+-- http://www.seaside.st
+-- http://book.seaside.st
 

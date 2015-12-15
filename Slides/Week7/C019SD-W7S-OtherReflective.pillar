@@ -5,7 +5,7 @@
 ${slide:title=Under the Curtain}$
 
 - What is happening when we recompile a class
-- What are the operations that take place
+- What are the operations that take place?
 
 
 ${slide:title=A Typical Scenario}$
@@ -17,7 +17,7 @@ ${slide:title=A Typical Scenario}$
 - and continue working
 
 
-{slide:title=Operations supporting interactive coding}$
+${slide:title=Operations Supporting Interactive Coding}$
 
 - New class 
 - Method recompilation
@@ -26,7 +26,7 @@ ${slide:title=A Typical Scenario}$
 - Switching pointers
 
 
-${slide:title=Coding in the debugger}$
+${slide:title=Coding in the Debugger}$
 
 - When a method is not found, we may end up with a debugger
 - In the debugger, we can ask for the creation of a method on the fly
@@ -48,7 +48,7 @@ Dictionary allInstances size
 Window allInstances first close
 ]]]
 
-${slide:title=Getting all Pointers to}$
+${slide:title=Getting all Pointers to an Object}$
 
 To get all the pointers to a given object :)
 
@@ -141,7 +141,7 @@ self should: [Model new thisIsATest] raise: MessageNotUnderstood.
 
 ${slide:title=Instance Specific Behavior}$
 
-+.>file://figures/10AnonymousClasses.png|width=150+
++.>file://figures/10AnonymousClasses.png|width=100+
 
 ${slide:title=Anonymous Classes}$
 
@@ -160,7 +160,7 @@ set primitiveChangeClassTo: anonClass basicNew. set add: 2.
 
 ${slide:title=Conclusion}$
 
-- Foundation for Innovation
-- Do not use reflective operation in domain code
+- Foundation for innovation
+- Avoid to use reflective operation in domain code
 - Understand when you absolutely need reflection
 
