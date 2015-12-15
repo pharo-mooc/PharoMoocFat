@@ -83,8 +83,8 @@ Block execution returns the value of the last expression
 
 ${slide:title=Blocks can be Stored}$
 
-- a block can be stored in a variable
-- a block can be evaluated multiple times
+- A block can be stored in a variable
+- A block can be evaluated multiple times
 
 [[[
    | add2 |
@@ -108,7 +108,7 @@ ${slide:title=A Design Advice}$
 
 ${slide:title=Returning from a Block Returns from the Method}$
 
-When a return ==^== is evaluated in a block, computation exits the encapsulating method
+When a return ==^== is executed in a block, computation exits the method defining the block
 
 [[[
 Integer>>factorial
@@ -122,7 +122,7 @@ Integer>>factorial
 
 ${slide:title=Exercise}$
 
-How to evaluate a block with two arguments?
+How to execute a block with two arguments?
 
 [[[
    [ :x :y | x + y ] ???  5  7

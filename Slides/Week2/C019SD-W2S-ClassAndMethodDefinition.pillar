@@ -76,7 +76,7 @@ Integer >> factorial
 - ==\===, ==>==, ==\*== and ==-== are binary messages
 - ==^== is for returning a value
 - ==factorial== is an unary message
-- ==ifTrue:== and ==error:== are messages sent to a boolean expression
+- ==ifTrue:== and ==error:== are keyword messages sent to a boolean expression
 
 
 ${slide:title=Method Definition}$
@@ -102,8 +102,6 @@ Game >> initializePlayers
 
 
 ${slide:title=Class Method}$
-
-
 
 ${columns}$
 
