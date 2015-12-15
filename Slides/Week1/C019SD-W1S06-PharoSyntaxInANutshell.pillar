@@ -84,11 +84,9 @@ ${slide:title=Essential Constructs}$
   > 7 
 ]]]
 
-${slide:title=Computation}$
+${slide:title=Essence of Pharo Computation}$
 
-Most computation is defined in terms of 
-
-- Objects
+- Objects (created using messages)
 - Messages 
 - Blocks (anonymous methods)
 
@@ -116,7 +114,7 @@ But let us start with messages
 
 
 
-${slide:title=Sending an unary message}$
+${slide:title=Sending an Unary Message}$
 
 
 [[[
@@ -131,7 +129,7 @@ Example
 
 We send the message ==factorial== to the object ==10000==
 
-${slide:title=Sending a binary message}$
+${slide:title=Sending a Binary Message}$
 
 
 [[[
@@ -146,7 +144,7 @@ Example
 
 We send the message ==+== to the object ==1== with the object ==3== as argument
 
-${slide:title=Sending a keyword message}$
+${slide:title=Sending a Keyword Message}$
 
 [[[
 	receiver keyword1: arg1 keyword2: arg2
@@ -174,7 +172,7 @@ ZnClient new
 - ==;== (called a cascade) sends all messages to the same receiver
 
 
-${slide:title=Messages are everywhere!}$
+${slide:title=Messages are Everywhere!}$
 
 - Conditionals
 - Loops
@@ -272,7 +270,7 @@ ${slide:title=Class Definition with the IDE}$
 
 +>file://figures/PointClass.png|width=120+
 
-${slide:title=Class Definition with the IDE}$
+${slide:title=Class Definition is Message :)}$
 
 [[[
 Object subclass: #Point
@@ -298,17 +296,9 @@ messageSelectorAndArgumentNames
   statements
 ]]]
 
+
+
 ${slide:title=Method Definition Example}$
-[[[
-factorial
-  "Answer the factorial of the receiver."
-
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
-]]]
-
-${slide:title=Method Definition}$
 
 +>file://figures/FactorialInBrowser.png|width=120+
 
