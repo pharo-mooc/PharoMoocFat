@@ -7,8 +7,8 @@ ${slide:title=Getting a Feel About Syntax}$
 
 In this lecture we want to give you the general feel to get started:
 
-- Overview of simple syntactical elements
-- 3 kinds of Messages to minimize parentheses
+- Overview of syntactical elements and constructs
+- Three kinds of messages to minimize parentheses
 - Overview of block syntax
 
 No stress if you do not get it right now!
@@ -16,7 +16,7 @@ No stress if you do not get it right now!
 ${slide:title=The Complete Syntax on a Postcard}$
 
 No need to understand everything! 
-But everything is on this screen :)
+But "everything" is on this screen :)
 
 [[[
 exampleWithNumber: x
@@ -42,10 +42,10 @@ ${slide:title=Let us Start with Hello World}$
 ]]]
 
 
-We send the message ==asMorph== to a string and get a graphical element that we open in a window
+We send the message ==asMorph== to a string and obtain a graphical element that we open in a window sending it the message ==openInWorld==
 
 
-${slide:title=Getting the Pharo Logo}$
+${slide:title=Getting the Pharo Logo from the Web}$
 
 [[[
 (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
@@ -54,10 +54,10 @@ ${slide:title=Getting the Pharo Logo}$
 
 - ==ZnEasy== designates a class
 -- Class names start with an uppercase character
-- Message ==getPng:== is sent to the ==ZnEasy== class
+- Message ==getPng:== is sent to the ==ZnEasy== class with a string as argument
 -- ==getPng:== is a keyword message 
-- Messages ==asMorph== and ==openInWindow== are sent
--- they are unary messages
+- =='http://pharo.org/web/files/pharo.png'== is a string
+- Messages ==asMorph== and ==openInWindow== are from left to right
 
 ${slide:title=Syntactic Elements}$
 
@@ -65,32 +65,52 @@ ${slide:title=Syntactic Elements}$
 | character| \$\c \$\# \$\@ |
 | string| 'lulu' 'l''idiot'|
 | symbol (unique string)| #mac #+ |
-| array| #(12 23 36)|
+| literal array| #(12 23 36)|
 | integer| 1, 2r101 |
 | real | 1.5 6.03e-34,4, 2.4e7|
-| boolean| true, false|
-| nil | nil |
+| boolean| true, false (instances of True and False)|
+| undefined | nil (instance of UndefinedObject)|
 | point| 10@120|
 
+${slide:title=Essential Constructs}$
 
-${slide:title=Three Kinds of Messages}$
+- temporary variable declaration: ==| var |==
+- variable assignment: ==var \:= aValue==
+- Separator: ==message . message==
+- Return: ==\^ expression==
+- Block 
+[[[
+  [ :x | x + 2 ] value: 5
+  > 7 
+]]]
 
-- Unary
--- ==1 class==, ==Browser open== 
+${slide:title=Computation}$
 
-- Binary (operators like)
--- ==1\+2==, ==x \~\~ nil==
+Most computation is defined in terms of 
 
-- Keyword-based: 
--- ==2 between: 0 and: 5==
+- Objects
+- Messages 
+- Blocks (anonymous methods)
 
-${slide:title=A Glimpse at Message Precedence}$
 
-- (Msg) \> Unary \> Binary \> Keywords
+${slide:title=Three Kinds of Messages to Minimize Parentheses}$
+
+- Unary message: ==receiver selector==
+-- ==9 squared==, ==Date today==
+- Binary message: ==receiver selector argument==
+-- ==1\+2==
+-- ==3@4==
+- Keyword message: ==receiver key1: arg1 key2: arg2==
+-- ==2 between: 10 and: 20==
+
+${slide:title=Message Precedence}$
+
+(Msg) \> Unary \> Binary \> Keywords
 
 - First we execute ==()==
 - Then unary, then binary and finally keyword messages
-- Minimize ==()== needs
+
+This order minimizes ==()== needs
 
 But let us start with messages
 
@@ -111,13 +131,30 @@ Example
 
 We send the message ==factorial== to the object ==10000==
 
+${slide:title=Sending a binary message}$
 
 
+[[[
+	receiver selector argument
+]]]
+
+Example
+
+[[[
+	1 + 3
+]]]
+
+We send the message ==+== to the object ==1== with the object ==3== as argument
 
 ${slide:title=Sending a keyword message}$
 
 [[[
 	receiver keyword1: arg1 keyword2: arg2
+]]]
+
+equivalent to C like syntax
+[[[
+	receiver.keyword1keyword2(arg1, arg2)
 ]]]
 
 
@@ -134,40 +171,11 @@ ZnClient new
 - ==new== is a unary message sent to a class
 - ==queryAt:put:== is a keyword message
 - ==get== is a unary message
-- ==;== sends all messages to the same receiver
+- ==;== (called a cascade) sends all messages to the same receiver
 
 
-${slide:title=Essential Constructs}$
+${slide:title=Messages are everywhere!}$
 
-- temporary variable declaration: ==| var |==
-- variable assignment: ==var \:= aValue==
-
-
-To be explained later:
-- Block 
-[[[
-  [ :x | x + 2 ] value: 5
-  > 7 
-]]]
-- Cascade: == receiver selector ; selector ...==
-- Separator: ==message . message==
-- Return: ==\^ expression==
-
-${slide:title=Messages}$
-
-To minimize the use of parentheses, Pharo distinguishes 3 kinds of messages
-
-- Unary message: ==receiver selector==
--- ==Node new==
-- Binary message: ==receiver selector argument==
--- ==1\+2==
--- ==3@4==
-- Keyword message: ==receiver key1: arg1 key2: arg2==
--- ==2 between: 10 and: 20==
-
-${slide:title=Messages}$
-
-Messages are everywhere:
 - Conditionals
 - Loops
 - Iterators
@@ -184,9 +192,9 @@ factorial
 ]]]
 
 - ==ifTrue:== is sent to an object, a boolean!
-- ==ifFalse:ifTrue:==, ==ifTrue:ifFalse:== and ==ifFalse:== also exists
+- ==ifFalse:ifTrue:==, ==ifTrue:ifFalse:== and ==ifFalse:== also exist
 
-Read their implementation, this is not magic!
+You can read their implementation, this is not magic!
 
 ${slide:title=Loops are also Message Sends}$
 
@@ -202,7 +210,7 @@ ${slide:title=Loops are also Message Sends}$
 
 ${slide:title=With Iterators}$
 
-We ask the  collection object to perform the iteration
+We ask the collection object to perform the iteration on itself
 
 [[[
 #(1 2 -4 -86)
@@ -214,41 +222,31 @@ We ask the  collection object to perform the iteration
 ]]]
 
 
+${slide:title=Blocks Look like Functions}$
 
-
-${slide:title=Messages and Their Composition}$
-
-3 kinds of messages:
-- Unary: ==Node new==
-- Binary: ==1\+2==, ==3@4==
-- Keywords: ==2 between: 10 and: 20==
-
-Message Priority:
-- (Msg) > unary > binary > keyword
-- Same-Level messages: from left to right
-
-${slide:title=Message Examples}$
-
+fct(x) = x*x+3
 [[[
-  (ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
-    asMorph openInWindow.
+fct := [ :x | x * x + 3 ]
 ]]]
-
-- first ==getPng:== returns a Form object (internal graphics)
-- then ==asMorph== transforms it into a Morph (interactive graphics)
-- then ==openInWindow== 
-
+fct(2)
+[[[
+fct value: 2
+]]]
 
 ${slide:title=Blocks}$
 
-- A kind of anonymous method
+- Kind of anonymous methods
+
+[[[
+[ :each | Transcript show: each abs printString ; cr ]
+]]]
+- Blocks are lexical closures (for the experts)
 - Are plain objects:
 -- can be passed as method arguments
 -- can be stored in variables
 -- can be returned
-- Look like maths functions:
--- ==fct(x) = x*x+3== can be written ==fct := [ :x | x * x + 3 ]==
--- ==fct(2)== can be written ==fct value: 2==
+
+
 
 ${slide:title=Block Usage}$
 
@@ -260,19 +258,19 @@ ${slide:title=Block Usage}$
   > 4
   > 86
 ]]]
-
+- ==[ ]== delimits the block
 - ==:each== is the block argument
-- It will take the value of each element of the array
+- ==each== will take the value of each element of the array
 
 
 ${slide:title=Class Definition}$
 
-+>file://figures/ClassTemplate.png|width=100+
++>file://figures/ClassTemplate.png|width=120+
 
 
 ${slide:title=Class Definition with the IDE}$
 
-+>file://figures/PointClass.png|width=100+
++>file://figures/PointClass.png|width=120+
 
 ${slide:title=Class Definition with the IDE}$
 
@@ -283,7 +281,7 @@ Object subclass: #Point
   category: 'Graphics'
 ]]]
 
-- We ask the superclass to create the class.
+We send a message ==subclass:inst....== to the superclass to create the class
 
 ${slide:title=Method Definition}$
 
@@ -292,6 +290,15 @@ ${slide:title=Method Definition}$
 - Methods are virtual (''i.e.,'' looked up at runtime)
 - By default return ==self==
 
+[[[
+messageSelectorAndArgumentNames
+   "comment stating purpose of message"
+
+  | temporary variable names |
+  statements
+]]]
+
+${slide:title=Method Definition Example}$
 [[[
 factorial
   "Answer the factorial of the receiver."
@@ -303,16 +310,31 @@ factorial
 
 ${slide:title=Method Definition}$
 
-+>file://figures/FactorialInBrowser.png|width=100+
++>file://figures/FactorialInBrowser.png|width=120+
 
+
+${slide:title='Messages' Summary}$
+
+3 kinds of messages:
+- Unary: ==Node new==
+- Binary: ==1\+2==, ==3@4==
+- Keywords: ==2 between: 10 and: 20==
+
+Message Priority:
+- (Msg) > unary > binary > keyword
+- Same-Level messages: from left to right
 
 ${slide:title=Conclusion}$
 
 - Compact syntax
 - Few constructs but really expressive
 - Mainly messages and closures
-- 3 kinds of messages
+- Three kinds of messages
 - Support for Domain Specific Languages
+
+
+
+
 
 
 % Local Variables:
