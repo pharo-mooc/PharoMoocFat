@@ -315,6 +315,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To Review
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S10-Stream.pdf* *SlidesHTML>../Slides/Week4/Week3/C019SD-W3S10-Stream.html*		
 
+- [Lecture 6min] W3S-UnderstandingReturn
+-- Presenter: Damien
+-- Status: To Review
+-- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S11-UnderstandingReturn.pdf* *SlidesHTML>../Slides/Week4/Week3/C019SD-W3S11-UnderstandingReturn.html*		
+
+
 !!!Exos
 
 - [Redo] Live: Dice Game DSL dice
@@ -364,7 +370,7 @@ You will also see that 4 kinds of activities are distinguished:
 - [Lecture 6min] C019SD-W4S-ClassMethodsAtWork (on peut bouger cela semaine 6)
 -- Presenter: Damien
 -- Status: To review 
--- Files: *SlidesPdf>../Slides/Week3/W3S8-ClassMethodsAtWork.pdf*	*SlidesHTML>../Slides/Week3/W3S7-ClassMethods.html*	
+-- Files: *SlidesPdf>../Slides/Week4/W3S8-ClassMethodsAtWork.pdf*	*SlidesHTML>../Slides/Week4/W3S7-ClassMethods.html*	
 
 - 3 min PharoWebStack: 4/5 slides
 	Voyage Mongo
@@ -457,7 +463,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: On the way
 -- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S-DidYouUnderstandSuper.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S-DidYouUnderstandSuper.html* 
 
-- [Lecture 6min]  Did you read understand super method?
+- [Lecture 6min]  Did you read understand super?
 -- Presenter: Stef
 -- Status: To review
 -- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S-DidYouUnderstandSuper.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S-DidYouUnderstandSuper.html*
@@ -478,7 +484,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To be reviewed (we could move it to week 7)
 -- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S-SelfSendsDiceHandle.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S-SelfSendsDiceHandle.html*
 
-- 6 Hook and Template / Copy as a hook and template
+- [Lecture 6min] Hook and Template / Copy as a hook and template
 -- Presenter: 
 -- Status: OK 
 -- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S-HookAndTemplate.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S-HookAndTemplate.html*
