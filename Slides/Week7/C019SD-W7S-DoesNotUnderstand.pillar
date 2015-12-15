@@ -11,7 +11,7 @@ ${slide:title=doesNotUnderstand: is a Message}$
 
 - ==doesNotUnderstand:== is a message
 - every class can customize handling of this error
-- important hook for automatic delegation and many other
+- important hook for automatic delegation and many other usage
 
 
 ${slide:title=Delegation}$
@@ -78,9 +78,9 @@ self assert: point invocationCount = 3.
 +>file://figures/TranscriptLogging.png|width=100+
 
 
-${slide:title=Some Limits of such Minimal Object}$
+${slide:title=Some Limits of such Minimal Objects}$
 
-— Messages sent by the object to itself are not trapped!
+- Messages sent by the object to itself are not trapped!
 - Class control cannot be swapped
 - What to do with messages that are understood by both the MinimalObject and its subject?
 
@@ -104,11 +104,12 @@ DynamicAccsssors >> doesNotUnderstand: aMessage
 ${slide:title=Conclusion}$
 
 Minimal Objects
-- are the fundation for proxy in distributed settings
-- can be used to dynamically load code or objects
+- Basis for proxies
+- Multiple usages (distribution, object loading, spying)
 
 doesNotUnderstand:
-- powerful hook
+- Powerful hook
+- Only to be used when needed
 
 
 

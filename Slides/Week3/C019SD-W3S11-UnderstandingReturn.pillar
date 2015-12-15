@@ -1,101 +1,95 @@
 {
-  "title":"Stream Overview"
+  "title":"Understanding Return"
 }
 
 ${slide:title=What you will Learn}$
 
-- how to create streams
-- how to add and get contents
+- How return really behaves
 
-${slide:title=Streams}$
+${slide:title=4 Cases}$
 
-- associated with a collection
-- allows the traversal and construction of a collection
-- stores the current position
+- Method with a return statement
+- Method without a return statement
+- Block without a return statement
+- Block with a return statement
 
-+>file://figures/StreamsTraversal.png+
+${slide:title=Returning a Different Object than self}$
 
-${slide:title=API Overview}$
-
-- Adding: ==nextPut: anElement==, ==nextPutAll: aCollection==
-- Accessing: ==next==
-- Get all contents: ==contents==
-- Creation: ==on:==
-
-Convenient messages:
-
-- ==readStream==, ==writeStream==
-- ==streamContents: [:s | ]==
-
-${slide:title=API Overview}$
+Method with explicit return, just return the value of the expression
 
 [[[
-| st |
-st := ReadWriteStream on: (Array new: 6).
-st nextPut: 1.
-st nextPutAll: #(4 8 2 6 7).
-st contents.
-> #(1 4 8 2 6 7)
+Number >> squared
+	"Answer the receiver multipled by itself."
 
-st reset.
-st next.
-> 1
+	^ self * self
+]]]
+	
 
-st position: 3.
-st next.
-> 2
+${slide:title=Methods Return self by Default}$
 
-st := (1 2 5 3 7) readStream.
-st next.
-> 1
+Methods without explicit return return ==self==
+
+[[[
+Game >> initializePlayers
+  self players
+    at: 'tileAction'
+    put: ( MITileAction director: self )
 ]]]
 
-${slide:title=Adding elements}$
-
-- ==nexPut:==, ==nextPutAll:==
+equivalent to
 
 [[[
-| st |
-st := ReadWriteStream on: (Array new: 6).
-st nextPut: 1.
-st nextPutAll: #(4 8 2 6 7).
+Game >> initializePlayers
+  self players
+    at: 'tileAction'
+    put: ( MITileAction director: self )
+  ^ self       "<-- this is optional"
 ]]]
 
 
-
-${slide:title=Nicer creation API|label=api}$
-
-[[[
-| s |
-s := WriteStream on: (String new: 16).
-self printOn: s.
-s contents
-]]]
-
-is equivalent to
+${slide:title=Yourself}$
 
 [[[
-String streamContents: [:s | self printOn: s]
+Object >> yourself
+   ^ self 
 ]]]
 
-${slide:title=Nicer adding API}$
 
-Some people prefer ==<<== to ==nextPutAll:==
+${slide:title=Blocks without explicit return}$
+
+Blocks return the value of their last expresssion
 
 [[[
-XX>>printOn: aStream
-   aStream
-      print: self label;
-      << '->';
-      << (self value printStringLimitedTo: 50)
+   [ :x |
+      x + 33.
+      x + 2 ] value: 5
+   > 7
 ]]]
 
-${slide:title=What you should know}$
+${slide:title=Returning from a Block Returns from the Method}$
 
-- Streams offers a simple API. 
-- Basis for many manipulation of collection of objects
-- Basic API
+When a return ==^== is executed in a block, computation exits the method
 
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019SD-W3S11-UnderstandingReturn.pillar"
-% End:
+[[[
+Integer>>factorial
+   "Answer the factorial of the receiver."
+
+   self = 0 ifTrue: [ ^ 1 ].
+   self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+   self error: 'Not valid for negative integers'
+]]]
+
+${slide:title=More Precisely}$
+
+- When returning from a block, the method ""defining"" the block is terminated
+- Since blocks can be passed around in variables, blocks behave like an exception mechanism
+- Prefer exceptions when this is what you need them
+- Further readings: *http://deepintopharo.org*
+
+
+${slide:title=What you Should Know}$
+
+- Return from methods, return the value of the expression
+- Return from block are skipping definition method
+
+

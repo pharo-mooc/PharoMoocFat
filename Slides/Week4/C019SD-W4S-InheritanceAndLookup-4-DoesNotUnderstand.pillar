@@ -40,7 +40,7 @@ ${column:width=60}$
 
 ${column:width=50}$
 
-+>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=200+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=170+
 
 ${endColumns}$
 
@@ -67,7 +67,7 @@ SomeClass>>doSomething
   do: [ Transcript show: 'Something went wrong with a message' ]
 ]]]
 
-${slide:What you should Know}$
+${slide:What you Should Know}$
 
 -==#doesNotUnderstand:== is sent when a method is not found by the lookup;
 -each class can implement this hook method;
