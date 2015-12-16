@@ -37,9 +37,9 @@ ${slide:title=A Block}$
 Nothing happens until a block is evaluated
 - a block freezes the computation
 
-${slide:title=Evaluating a Block}$
+${slide:title=Executing a Block}$
 
-Evaluating a block is done ""explicitly"" through ==value==
+Executing a block is done ""explicitly"" through ==value==
 [[[
    [ 2 + 6 ] value
    > 8
@@ -68,7 +68,7 @@ A block can take arguments (just like methods)
    > 7
 ]]]
 
-- ==value: 5== evaluates the block with 5 as argument
+- ==value: 5== executes the block with 5 as argument
 -- ==x== is 5 during the block execution
 
 ${slide:title=Block Execution Value}$

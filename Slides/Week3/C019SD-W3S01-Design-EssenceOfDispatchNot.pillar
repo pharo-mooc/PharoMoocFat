@@ -67,11 +67,13 @@ ${slide:title=Hint 2: At Least Three Classes}$
 
 +Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.png|width=75+
 
-${slide:title=Hint 3: Define Methods and Send Messages}$
+${slide:title=Hint 3: How do we express choice in OOP?}$
 
-How do we express choice in OOP?
-- by defining classes with compatible methods
-- by sending a message to an instance of such class
+- By defining classes with compatible methods
+- By sending a message to an instance of such class
+
+
+${slide:title=Hint 3: Define Methods and Send Messages}$
 
 [[[
    x color
@@ -81,7 +83,7 @@ How do we express choice in OOP?
 - ==x== can be a button, a pane, a window, a bird, ...
 - the method is ""chosen"" based on the ==x=='s class
 
-${slide:title=Implementation of ==not== in two methods}$
+${slide:title=Implementation of not in two methods}$
 
 [[[
 False>>not
@@ -141,13 +143,6 @@ Boolean>>| aBoolean
    self subclassResponsibility
 ]]]
 
-${slide:title=Implementation of OR in False}$
-
-[[[
-false | true -> true
-false | false -> false
-false | anything -> anything
-]]]
 
 ${slide:title=Implementation of OR in False}$
 
@@ -161,15 +156,6 @@ false | anything -> anything
 False>>| aBoolean
    "Evaluating OR -- answer with the argument, aBoolean."
    ^ aBoolean
-]]]
-
-
-${slide:title=Implementation of OR in True}$
-
-[[[
-true | true -> true
-true | false -> true
-true | anything -> true
 ]]]
 
 ${slide:title=Implementation of OR in True}$

@@ -8,11 +8,11 @@ ${slide:title=Not implementation in two methods}$
 
 +Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=95+
 
-${slide:title=Stepping back}$
+${slide:title=Stepping Back}$
 - Let's the receiver decide
 - Do not ask, tell
 
-${slide:title=Ok so what?}$
+${slide:title=Ok So What?}$
 
 - You will probably never implement ==Booleans== in the future
 - So is it really that totally useless?
@@ -27,10 +27,9 @@ ${slide:title=Message sends act as case statements}$
 
 ${slide:title=Sending a message is making a choice}$
 
-- The execution engine will select the right method depending on the class of the receiver.
-- Each time you send a message, the system will select the method corresponding to the receiver.
+- The execution engine selects the right method depending on the class of the receiver
+- Each time you send a message, the system will select the method corresponding to the receiver
 - Sending a message is a choice operator.
-
 
 ${slide:title=Question}$
 
@@ -63,17 +62,16 @@ ${slide:title=Advantages of Small Class Hierarchy}$
 
 - The hierarchy provides a way to specialize behavior
 - You only focus on one class at a time
-- It is more modula : you can package different classes in different packages
+- It is more modular : you can package different classes in different packages
 - You can also load classes separately 
 
 
-${slide:title=Do not Ask, Tell}$
+${slide:title=Let the Receiver Decide}$
 
 - Sending a message lets the receiver decide
 - The client does not have to decide
 - Client code is not fixed
 - Different receivers may be substitued dynamically
-
 
 ${slide:title=Avoid Conditionals}$
 
@@ -89,8 +87,7 @@ ${slide:title=Follow-up: Implement ternary logic}$
 - Implementing the solution with your own classes.
 
 ${slide:title=Cornerstone of OOP}$
-- Tell, do not ask
 - Let the receiver decide
 - Message sends act as potential dynamic conditional
-- Class hiearchy builds a skeleton for dynamic dispatch
+- Class hierarchy builds a skeleton for dynamic dispatch
 - Avoid conditional

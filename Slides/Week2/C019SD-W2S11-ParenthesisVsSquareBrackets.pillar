@@ -42,7 +42,7 @@ ${slide:title= ( ) vs. [ ] Example}$
 ${slide:title=Quiz}$
 
 [[[
-    1 to: 100 do: ... self doSomething ...
+    1 to: n do: ... self doSomething ...
 ]]]
 
 [[[

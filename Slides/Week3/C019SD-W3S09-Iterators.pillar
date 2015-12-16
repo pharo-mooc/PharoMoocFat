@@ -2,10 +2,10 @@
     "title":"Iterators"
 }
 
-${slide:title=What you will learn}$
+${slide:title=What you Will Learn}$
 
-- Understand iterators
-- Offer an overview
+- Understand the power of iterators
+- Offer an overview of iterators
 
 ${slide:title=Pharo code is Compact!}$
 
@@ -83,13 +83,12 @@ Part of the Collection hierarchy.
 
 ${slide:title=Think objects!}$
 
-- With iterators we ask the collection to iterate on itself.
-- As a client we do not have to know the internal details of the collection.
-- Each collection can implement differently the iterator.
+- With iterators we ""tell"" the collection to ""iterate on itself""
+- As a client we do not have to know the internal logic of the collection
+- Each collection can implement differently the iterator
 
 
 ${slide:title=Basic Iterators Overview}$
-
 
 - ==do:== (iterate)
 - ==collect:== (iterate and collect results)
@@ -110,7 +109,7 @@ ${slide:title=do: an action on each element}$
   #(16 11 68 19) do: [ :each | Transcript show: each ; cr ]
 ]]]
 
-Here we print each elements and insert a carriage return.
+Here we print each elements and insert a carriage return
 
 +Results of do: >file://figures/Iterators-Transcript.png|width=80|label=Iterators-Transcript+
 
@@ -175,7 +174,7 @@ ${slide:title=Some Powerful Iterators}$
 - ==reverseDo:== (do an action on the collection starting from the end)
 - ==doWithIndex:== (do an action with the element and its index)
 - ==pairsDo:== (evaluate aBlock with my elements taken two at a time.)
-- ==permutationsDo:==
+- ==permutationsDo:== ...
 
 ${slide:title=Exercises}$
 
