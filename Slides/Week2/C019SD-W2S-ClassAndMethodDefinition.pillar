@@ -35,6 +35,7 @@ ${slide:title=Method Definition}$
 - Methods are virtual (''i.e.,'' looked up at runtime)
 - By default return ==self==
 
+Template
 [[[
 messageSelectorAndArgumentNames
    "comment stating purpose of message"
@@ -132,7 +133,7 @@ MyClass >> setName: aString
 
 ${slide:title=Never overwrite methods starting with basic}$
 
-Methods starting with 'basic' are important for the system
+Methods whose name starting with =='basic'== are important for the system
 if you overwrite them wrongly, you can damage it
 
 

@@ -181,7 +181,7 @@ aCollection do: [ :each | ... ]
 
 ${slide:title=Summary}$
 
-- 3 kinds of messages: unary, binary and keywords
+- Three kinds of messages: unary, binary and keywords
 - () > unary > binary > keywords
 - Conditionals are messages
 - Loops too
