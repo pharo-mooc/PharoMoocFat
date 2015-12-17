@@ -3,7 +3,7 @@
 "slidesid" : "W2S01"
 }
 
-${slide:title=Reminder}$
+${slide:title=Objects, Messages and Closures}$
 
 - We only manipulate ""objects"" (mouse, booleans, arrays, numbers, strings, ...)
 - We only send them ""messages"" (@, \+, not, getPng:, ifTrue:ifFalse:, new, ...)
@@ -22,47 +22,29 @@ ${slide:title=Example}$
     asMorph openInWindow
 ]]]
 
-${slide:title=Three Kinds of Messages}$
+${slide:title=Three Kinds of Messages to Minimize Parentheses}$
 
-- Unary
--- ==1 class==, ==Browser open== 
+- Unary message: ==receiver selector==
+-- ==9 squared==, ==Date today==
+- Binary message: ==receiver selector argument==
+-- ==1\+2==
+-- ==3@4==
+- Keyword message: ==receiver key1: arg1 key2: arg2==
+-- ==2 between: 10 and: 20==
 
-- Binary (operators like)
--- ==1\+2==, ==x \~\~ nil==
+${slide:title=Message Precedence}$
 
-- Keyword-based: 
--- ==2 between: 0 and: 5==
-
-${slide:title=A Glimpse at Message Precedence}$
-
-- (Msg) \> Unary \> Binary \> Keywords
+(Msg) \> Unary \> Binary \> Keywords
 
 - First we execute ==()==
 - Then unary, then binary and finally keyword messages
-- Minimize ==()== needs
+
+This order minimizes ==()== needs
 
 But let us start with messages
 
 
-${slide:title=Guess!}$
 
-- ==1 log==
-- ==Browser open== 
-- ==2 raisedTo: 5==
-- =='hello', 'world'==
-- ==10@20==
-- ==point1 x==
-- ==point1 distanceFrom: point2==
-
-${slide:title=Guess}$
-
-- ==1 log== (unary)
-- ==Browser open== (unary)
-- ==2 raisedTo: 5== (keyword)
-- =='hello', 'world'== (binary)
-- ==10@20== (binary)
-- ==point1 x== (unary)
-- ==point1 distanceFrom: point2== (keyword)
 
 
 ${slide:title=Unary Message Examples}$
@@ -126,7 +108,7 @@ ${slide:title=A Little Query}$
     > #(#x #theta #asIntegerPoint #r #negated #normalized #sign #degrees #isIntegerPoint #guarded #fourNeighbors #eightNeighbors #min #max #ceiling #normal #asPoint #y #abs #isPoint #angle #transposed #reciprocal #asFloatPoint #asNonFractionalPoint #rounded #leftRotated #floor #truncated #hash #deepCopy #fourDirections #rightRotated #isSelfEvaluating #asMargin #isZero)
 ]]]
 
-- ==select:== is an iterator (see following lecture)
+- ==select:== is an iterator (see Iterator lecture)
 - Easy :-)
 
 
@@ -176,8 +158,29 @@ equivalent to:
 receiver.keyword1keyword2(argument1, argument2)
 ]]]
 
+${slide:title=Test Yourself!}$
 
-${slide:title=Message setX:}$
+- ==1 log==
+- ==Browser open== 
+- ==2 raisedTo: 5==
+- =='hello', 'world'==
+- ==10@20==
+- ==point1 x==
+- ==point1 distanceFrom: point2==
+
+${slide:title=Test Yourself!}$
+
+- ==1 log== (unary)
+- ==Browser open== (unary)
+- ==2 raisedTo: 5== (keyword)
+- =='hello', 'world'== (binary)
+- ==10@20== (binary)
+- ==point1 x== (unary)
+- ==point1 distanceFrom: point2== (keyword)
+
+
+
+${slide:title=Example: Message setX:}$
 
 [[[
 10@20 setX: 2
@@ -187,7 +190,7 @@ ${slide:title=Message setX:}$
 - We change the x value of the receiver (a point)
 - No parentheses required
 
-${slide:title=Message at:put:}$
+${slide:title=Example: Message at:put:}$
 
 
 [[[
@@ -200,7 +203,7 @@ ${slide:title=Message at:put:}$
 - arrays start at 1 in Pharo (i.e., first element is at index 1)
 
 
-${slide:title=Message between:and:}$
+${slide:title=Example: Message between:and:}$
 
 [[[
 12 between: 10 and: 20
