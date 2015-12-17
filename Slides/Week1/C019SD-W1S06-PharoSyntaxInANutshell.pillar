@@ -5,13 +5,14 @@
 
 ${slide:title=Getting a Feel About Syntax}$
 
-In this lecture we want to give you the general feel to get started:
+Give you the general feel to get started:
 
 - Overview of syntactical elements and constructs
 - Three kinds of messages to minimize parentheses
 - Overview of block syntax
 
 No stress if you do not get it right now!
+We will repeat later
 
 ${slide:title=The Complete Syntax on a Postcard}$
 
@@ -20,7 +21,7 @@ But "everything" is on this screen :)
 
 [[[
 exampleWithNumber: x
-  "This method illustrates the complete syntax except primitive invocation."
+  "This method illustrates the complete syntax."
   <aMethodAnnotation>
 
   | y |
@@ -35,10 +36,10 @@ exampleWithNumber: x
   ^ x < y
 ]]]
 
-${slide:title=Let us Start with Hello World}$
+${slide:title=Hello World}$
 
 [[[
-	'Hello World' asMorph openInWindow
+'Hello World' asMorph openInWindow
 ]]]
 
 
@@ -74,11 +75,11 @@ ${slide:title=Syntactic Elements}$
 
 ${slide:title=Essential Constructs}$
 
-- temporary variable declaration: ==| var |==
-- variable assignment: ==var \:= aValue==
+- Temporary variable declaration: ==| var |==
+- Variable assignment: ==var \:= aValue==
 - Separator: ==message . message==
 - Return: ==\^ expression==
-- Block 
+- Block (lexical closures, a.k.a anonymous method)
 [[[
   [ :x | x + 2 ] value: 5
   > 7 
@@ -208,7 +209,7 @@ ${slide:title=Loops are also Message Sends}$
 
 ${slide:title=With Iterators}$
 
-We ask the collection object to perform the iteration on itself
+We ask the collection to perform the iteration on itself
 
 [[[
 #(1 2 -4 -86)
@@ -238,7 +239,7 @@ ${slide:title=Blocks}$
 [[[
 [ :each | Transcript show: each abs printString ; cr ]
 ]]]
-- Blocks are lexical closures (for the experts)
+- Are lexical closures
 - Are plain objects:
 -- can be passed as method arguments
 -- can be stored in variables
@@ -261,29 +262,18 @@ ${slide:title=Block Usage}$
 - ==each== will take the value of each element of the array
 
 
-${slide:title=Class Definition}$
+${slide:title=Class Definition Template}$
 
 +>file://figures/ClassTemplate.png|width=120+
 
 
-${slide:title=Class Definition with the IDE}$
+${slide:title=Class Definition within the IDE}$
 
 +>file://figures/PointClass.png|width=120+
 
-${slide:title=Class Definition is Message :)}$
-
-[[[
-Object subclass: #Point
-  instanceVariableNames: 'x y'
-  classVariableNames: ''
-  category: 'Graphics'
-]]]
-
-We send a message ==subclass:inst....== to the superclass to create the class
 
 ${slide:title=Method Definition}$
 
-- Defined in a browser (or by invoking the compiler)
 - Methods are public
 - Methods are virtual (''i.e.,'' looked up at runtime)
 - By default return ==self==
