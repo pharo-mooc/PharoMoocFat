@@ -1,64 +1,10 @@
 {
-  "title":"Understanding Messages: Sequence and Cascade",
-  "slidesid":"W2S04"
+  "title":"Yourself",
+  "slidesid":"W2S13"
 }
 
 
-${slide:title=Message Sequence}$
-
-[[[
-    message1.
-    message2.
-    message3
-]]]
-
-- ==.== is a separator, not a terminator, no need to put one at the end
-
-[[[
-    | macNode pcNode |
-    macNode := Workstation withName: #mac.
-    [...]
-]]]
-
-- no point after temporary variable declaration
-
-${slide:title=Multiple Messages to an Object}$
-
-[[[
-    Transcript cr.
-    Transcript show: 1.
-    Transcript show: 2.
-]]]
-
-is equivalent to:
-
-[[[
-    Transcript
-        cr ;
-        show: 1 ;
-        show: 2
-]]]
-
-${slide:title=Multiple Messages to an Object}$
-
-[[[
-    | c |
-    c := OrderedCollection new.
-    c add: 1.
-    c add: 2.
-]]]
-
-is equivalent to:
-
-[[[
-    OrderedCollection new
-        add: 1 ;
-        add: 2 
-]]]
-
-==add: 2== is sent to the receiver of message ==add:1==: the instance of OrderedCollection
-
-${slide:title=A Puzzle and Candidate for ;}$
+${slide:title=A Puzzle and Candidate for Cascade}$
 
 We add 2 to a set
 [[[
@@ -66,9 +12,9 @@ We add 2 to a set
    > 2
 ]]]
 
-We get 2 and not the set
+We get 2 and not the set!
 
-${slide:title=A puzzle}$
+${slide:title=Why?}$
 
 [[[
 Set>>add: newObject
@@ -77,9 +23,10 @@ Set>>add: newObject
    ^ newObject
 ]]]
 
-The method ==add:== returns its argument, not the receiver
+- The method ==add:== returns its argument, not the receiver
+- Strange but this is like that
 
-${slide:title=A puzzle}$
+${slide:title=A Verbose Solution}$
 
 To get the collection back, we can use a temporary variable
 
@@ -125,11 +72,31 @@ is equivalent to
 - ==add:== and ==yourself== are sent to the new ==Set==
 - the cascade returns the return value of ==yourself==
 
-${slide:title=What you should Know}$
 
-- ==.== is a separator
-- ==;== (cascade) is useful to avoid repeating the receiver
-- the cascade returns the last message return value
+${slide:title=Another Idiom}$
+
+[[[
+MyClass >> new
+  | instance |
+  instance := super new.
+  instance doSomething.
+  ^ instance
+]]]
+
+is equivalent to 
+
+[[[
+MyClass >> new
+  ^ super new doSomething; yourself
+]]]
+
+Using ==yourself== makes sure that we return the instance and not the result of ==doSomething==
+
+${slide:title=What you Should Know}$
+
+- Some simple methods are powerful
+- Cascade and ==yourself== plays well together
+
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S04-Messages-Sequence.pillar"
