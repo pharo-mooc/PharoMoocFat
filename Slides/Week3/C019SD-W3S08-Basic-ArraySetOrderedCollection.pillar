@@ -1,8 +1,8 @@
 {
-  "title":"An overview of essential collections"
+  "title":"An Overview of Essential Collections"
 }
 
-${slide:title=What you will Learn}$
+${slide:title=What you Will Learn}$
 
 - The basic collections
 - Essential API to program collections
@@ -198,8 +198,6 @@ They are instances of the class ==Array==
 
 
 
-
-
 ${slide:title=Literals Arrays are Array Instances}$
 
 Literal arrays are equivalent to a dynamic version.
@@ -214,118 +212,6 @@ An array
 [[[
   Array with: 45 with: 38 with: 'milou' with: 8
   > #(45 38 'milou' 8) 
-]]]
-
-${slide:title=Nested Arrays}$
-
-==()== inside a literal array produces a nested literal array.
-
-[[[
-  #((10@20) . (10@20))
-  > #(#(10 #@ 20) #'.' #(10 #@ 20))
-]]]
-
-[[[
-  #((10@20) . (10@20)) first class
-  > Array
-]]]
-
-
-
-${slide:title=Dynamic Array Short Syntax}$
-
-Defining array is tedious 
-[[[
-  | array | 
-  array := (Array new: 2). 
-  array 
-     at: 1 put: (Point x: 10 y: 20); 
-     at: 2 put: (Point x: 10 y: 20).
-   array
-]]]
-
-=={ element1 . element2 }== is syntactic sugar to create arrays
-
-[[[
-  {(10@20) . (10@20)}
-  {Point x: 10 y: 20 . Point x: 10 y: 20}
-]]]
-
-${slide:title=Literal Array Creation Time}$
-
-Literal arrays are created by the parser: when the expression is read, i.e. when the method is compiled, not the method is executed.
-
-[[[
-  | a |
-  a := 12.
-  #(a 13) 
-  > #(#a 13)
-]]]
-
-Dynamic arrays are created during execution
-[[[
-  | a |
-  a := 12.
-  {a . 13} 
-  > #(12 . 13)
-]]]
-
-
-
-${slide:title= Literal vs Dynamic}$
-
-=={}== executes expressions while ==#()== not.
-  
-[[[
-  {(10@20) . (10@20)} size 
-  > 2
- 
-  #((10@20) . (10@20)) size 
-  > 3
-]]]
-
-[[[
-  {(10@20) . (10@20)}
-  > {(10@20) . (10@20)}
-  
-  #((10@20) . (10@20))
-  > #(#(10 #@ 20) #'.' #(10 #@ 20))
-]]]
-
-
-
-
-${slide:title= No Message Execution in Literal Array}$
-
-There is no message executed when a literal array is created. 
-[[[
-  #(45 + 38 1300 8) 
-  > #( 45 #+ 38 1300 8)
-]]]
-
-Arrays created with message sends are created during program execution.
-[[[
-  Array with: 45 + 38 with: 1300 with: 8
-  > #( 83 . 1300 . 8)
-
-  { 45 + 38 . 1300 . 8 }
-  > #( 83 . 1300 . 8)
-]]]
-
-
-
-${slide:title=Literal Array Variants}$
-
-- An array of symbols:
-[[[
-  #(#calvin #hobbes #suzie)  
-  > #(#calvin #hobbes #suzie)  
-]]]
-
-- An array of strings:
-[[[
-  #('calvin' 'hobbes' 'suzie')
-  > #('calvin' 'hobbes' 'suzie')
 ]]]
 
 

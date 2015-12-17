@@ -1,12 +1,6 @@
 {
-    "title":"Inheritance and Lookup",
-    "subtitle":"5: Lookup in metaclasses"
+    "title":"Understanding Metaclasses",
 }
-
-${slide:title=Goal}$
-
--Messages can be sent to classes too
--The mechanism is ""exactly"" the same
 
 ${slide:title=Lookup of Class Methods is No Different}$
 
