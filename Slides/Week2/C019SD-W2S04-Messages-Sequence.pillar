@@ -1,5 +1,6 @@
 {
-    "title":"Understanding Messages: Sequence and Cascade"
+  "title":"Understanding Messages: Sequence and Cascade",
+  "slidesid":"W2S04"
 }
 
 
@@ -21,7 +22,7 @@ ${slide:title=Message Sequence}$
 
 - no point after temporary variable declaration
 
-${slide:title=Multiple Messages to an Object}$
+${slide:title=Cascade: Sending Multiple Messages to an Object}$
 
 [[[
     Transcript cr.
@@ -38,78 +39,28 @@ is equivalent to:
         show: 2
 ]]]
 
-- sending multiple messages to the same object with ==;== is called a ""cascade""
-- ==cr==, ==show: 1== and ==show: 2== are sent to ==Transcript==
-- the cascade returns the last message return value
-
-${slide:title=A Puzzle}$
-
-We add 2 to a set
-[[[
-   Set new add: 2
-   > 2
-]]]
-
-We get 2 and not the set
-
-${slide:title=A puzzle}$
+- ==;== is called a cascade
+${slide:title=Cascade: Sending Multiple Messages to an Object}$
 
 [[[
-Set>>add: newObject
-   "Include newObject as one of the receiver's elements, but only if not already present. Answer newObject."
-   [...]
-   ^ newObject
+    | c |
+    c := OrderedCollection new.
+    c add: 1.
+    c add: 2.
 ]]]
 
-The method ==add:== returns its argument, not the receiver
-
-${slide:title=A puzzle}$
-
-To get the collection back, we can use a temporary variable
+is equivalent to:
 
 [[[
-   | s |
-   s := Set new.
-   s add: 1; add: 2.
-   s
+    OrderedCollection new
+        add: 1 ;
+        add: 2 
 ]]]
 
-Do you see another solution?
+==add: 2== is sent to the receiver of message ==add:1==: the instance of OrderedCollection
 
-${slide:title=One Hint}$
 
-What if we get a message that returns the receiver?
-
-${slide:title=yourself}$
-
-[[[
-Object>>yourself
-   ^ self
-]]]
-
-${slide:title=A Puzzle: Solution}$
-
-[[[
-   | s |
-   s := Set new.
-   s add: 1; add: 2.
-   s
-]]]
-
-is equivalent to
-
-[[[
-   Set new
-      add: 1;
-      add: 2;
-      yourself
-   > aSet 
-]]]
-
-- ==add:== and ==yourself== are sent to the new ==Set==
-- the cascade returns the return value of ==yourself==
-
-${slide:title=What you should Know}$
+${slide:title=What you Should Know}$
 
 - ==.== is a separator
 - ==;== (cascade) is useful to avoid repeating the receiver
