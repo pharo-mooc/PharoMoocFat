@@ -1,5 +1,5 @@
 {
-    "title":"Class and Method Definition"
+    "title":"Class and Method Definitions"
 }
 
 ${slide:title=Class Definition}$
@@ -11,30 +11,42 @@ Object subclass: #NameOfSubclass
     package: 'PackageName'
 ]]]
 
-${slide:title=Example}$
+${slide:title=Class Definition within the IDE}$
+
++>file://figures/PointClass.png|width=120+
+
+${slide:title=Class Definition is Message :)}$
 
 [[[
 Object subclass: #Point
-    instanceVariableNames: 'x y'
-    classVariableNames: ''
-    package: 'Graphics'
+  instanceVariableNames: 'x y'
+  classVariableNames: ''
+  category: 'Graphics'
 ]]]
 
+We send a message ==subclass:inst....== to the superclass to create the class
 
-${slide:title=Looking at A Simple Method}$
+
+
+
+${slide:title=Method Definition}$
+
+- Methods are public
+- Methods are virtual (''i.e.,'' looked up at runtime)
+- By default return ==self==
 
 [[[
-factorial
-  "Answer the factorial of the receiver."
+messageSelectorAndArgumentNames
+   "comment stating purpose of message"
 
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
+  | temporary variable names |
+  statements
 ]]]
+
 
 ${slide:title=Within the Browser part of the Pharo IDE}$
 
-+>file://figures/FactorialInBrowser.png|width=100+
++>file://figures/FactorialInBrowser.png|width=120+
 
 ${slide:title=Presentation Convention}$
 
@@ -79,29 +91,53 @@ Integer >> factorial
 - ==ifTrue:== and ==error:== are keyword messages sent to a boolean expression
 
 
-${slide:title=Method Definition}$
+${slide:title=Methods Return self by Default}$
 
 [[[
 Game >> initializePlayers
-  super initializePlayers.
   self players
     at: 'tileAction'
     put: ( MITileAction director: self )
 ]]]
 
-${slide:title=Methods Return self by Default}$
+is equivalent to 
 
 [[[
 Game >> initializePlayers
-  super initializePlayers.
   self players
     at: 'tileAction'
     put: ( MITileAction director: self )
   ^ self       "<-- this is optional"
 ]]]
 
+${slide:title=Method Arguments are Read Only}$
 
-${slide:title=Class Method}$
+- Do not try to assign a value to a method argument
+- Arguments are read only!
+
+[[[
+MyClass >> setName: aString 
+  aString := aString, 'Device'.
+  ... aString ...
+]]]
+
+should be turned into 
+
+[[[
+MyClass >> setName: aString 
+  | string |
+  string :=  aString, 'Device'.
+  ... string ...
+]]]
+
+${slide:title=Never overwrite methods starting with basic}$
+
+Methods starting with 'basic' are important for the system
+if you overwrite them wrongly, you can damage it
+
+
+
+${slide:title=Class Methods}$
 
 ${columns}$
 

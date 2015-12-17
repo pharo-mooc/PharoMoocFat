@@ -142,18 +142,6 @@ ${slide:title=nil is not a Boolean}$
 ==nil== is not an acceptable receiver for ifTrue:
 ==nil== is the unique instance of ==UndefinedObject==
 
-${slide:title=Method Arguments are Read Only}$
-
-- Do not try to assign a value to a method argument
-- Arguments are read only!
-
-[[[
-MyClass >> setName: aString 
-  aString := aString, 'Device'.
-  name := aString
-]]]
-
-Does not compile!
 
 ${slide:title=Forgetting to Return the Result}$
 
