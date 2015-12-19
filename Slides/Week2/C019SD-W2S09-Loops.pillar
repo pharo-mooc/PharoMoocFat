@@ -1,5 +1,6 @@
 {
-	"title":"Loops"
+	"title":"Loops",
+  "slidesid" : "W2S09"
 }
 
 ${slide:title=Loops}$
@@ -23,14 +24,14 @@ To repeat a given number of times an action
 
 ${slide:title=Loops: to:do:}$
 
-[[[language=smalltalk
+[[[
 1 to: 100 do:
     [ :i | ... i ...]
 ]]]
 
 The block will be executed with the temporary ==i== taking values from 0 to 100
  
-[[[language=smalltalk
+[[[
 1 to: 100 do:
     [ :i | Transcript show: i ; space]
 ]]]
@@ -39,13 +40,13 @@ The block will be executed with the temporary ==i== taking values from 0 to 100
 
 ${slide:title=Loops: to:do:}$
 
-[[[language=smalltalk
+[[[
     0 to: 100 by: 3 do: [ :i | ... ]
 ]]]
 
 The block will be executed with i taking values from 0 to 100 by step of 3
 
-[[[language=smalltalk
+[[[
 1 to: 100 by: 3 do:
     [ :i | Transcript show: i ; space]
 ]]]
@@ -67,20 +68,20 @@ ${slide:title=Basic Iterators Overview}$
 
 ${slide:title=Loops: do:}$
 
-[[[language=smalltalk
+[[[
     aCol do: [:each | ... ]
 ]]]
 
 The block is executed with ==each== taking as value all the elements of aCol
 
-[[[language=smalltalk
+[[[
 #(15 10 19 68) do:  
       [:i | Transcript show: i ; cr ]
 ]]]
 
 ${slide:title=Loops: whileTrue:}$
 
-[[[language=smalltalk
+[[[
     [ ... ] whileTrue: [ ... ]
 ]]]
 
@@ -98,7 +99,7 @@ ${slide:title=Loops: whileTrue}$
 
 Executes the receiver, as long as its value is true
 
-[[[language=smalltalk
+[[[
     [ ... ] whileTrue
 ]]]
 
