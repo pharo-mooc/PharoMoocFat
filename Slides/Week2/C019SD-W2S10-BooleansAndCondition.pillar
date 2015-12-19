@@ -1,5 +1,6 @@
 {
-	"title":"Booleans and Conditions"
+  "title":"Booleans and Conditions",
+  "slidesid" : "W2S10"
 }
 
 ${slide:title=Booleans}$
@@ -15,31 +16,31 @@ In Pharo, booleans have nothing special
 - ifFalse:ifTrue:
 - ...
 
-${slide:title=Lazy Logical Operators}$
+${slide:title=Eager and Lazy Logical Operators}$
 
-[[[language=smalltalk 
-    false & (1 error: 'crazy')
-    -> an error
+[[[
+   false & (1 error: 'crazy')
+   -> an error
 ]]]
 - the argument ==(1 error: 'crazy')== is executed because this is a non lazy operator
 
-[[[language=smalltalk 
-    false and: [1 error: 'crazy']
-    -> false and not an error 
+[[[
+   false and: [1 error: 'crazy']
+   -> false and not an error 
 ]]]
 
 - the argument ==[1 error: 'crazy']== is not executed because it is not necessary
 
 ${slide:title=Yes ifTrue\:ifFalse\: is a message!}$
 
-[[[language=smalltalk 
+[[[ 
 Weather isRaining
-    ifTrue: [self takeMyUmbrella]
-    ifFalse: [self takeMySunglasses]
+   ifTrue: [self takeMyUmbrella]
+   ifFalse: [self takeMySunglasses]
 ]]]
 
 - Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
-- ==ifTrue:ifFalse:== is in fact radically optimized by the compiler but you can implement another one such as ==siAlors:sinon:== and try it at home 
+
 
 ${slide:title=Boolean Implementation}$
 
@@ -66,17 +67,9 @@ ${slide:title=Conditionals: ifTrue:ifFalse:}$
 ]]]
 
 [[[
-    initialAnswer := fullName isEmptyOrNil
-        ifTrue: [ 'FirstnameLastname' translated ]
-        ifFalse: [ fullName ].
-]]]
-
-${slide:title=ifTrue:ifFalse: other examples}$
-
-[[[
-    index isZero 
-        ifFalse: [ values at: index ]
-        ifTrue: [ self privateAt: key put: aBlock value ]
+   fullName isEmptyOrNil
+      ifTrue: [ 'FirstnameLastname' translated ]
+      ifFalse: [ fullName ].
 ]]]
 
 
@@ -89,8 +82,7 @@ ${slide:title=Conditionals: ifEmpty: ifNotEmpty:}$
 
 [[[
     self listItems 
-        ifNotEmpty: [ :aList | 
-            aList at: currentIndex  ]
+        ifNotEmpty: [ :aList | aList at: currentIndex ]
 ]]]
 
 - Notice that when the receiver is not empty we get it as argument
