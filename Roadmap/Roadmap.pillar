@@ -12,12 +12,7 @@
 		package: 'EventShine-Model'
 ]]]
 
-
-- Ajouter un cours sur return
-	return dans une method
-	pas de return dans une methode
-	return dans un block
-	pas de return dans un block
+- Week 2: Blocks- loops est redondant. 
 
 - Review Week 3
 -- [Lecture 6min] Design Essence of Dispatch: the case of Not
@@ -27,6 +22,8 @@
 
 	
 - a mettre dans learningFromMistakes: Class methods cannot access instance variables
+
+
 
 
 - Idées pour le teaser

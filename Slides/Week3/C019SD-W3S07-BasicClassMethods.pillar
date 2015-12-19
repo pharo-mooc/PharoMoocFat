@@ -1,5 +1,6 @@
 {
-	"title":"Class Methods"
+  "title":"Class Methods",
+  "slidesid" : "W3S07"
 }
 
 ${slide:title=Simply}$
@@ -8,18 +9,17 @@ ${slide:title=Simply}$
 - Corresponding methods are looked up (exactly as with instance-based methods) and applied to classes
 
 
-
 ${slide:title=Examples}$
 
 [[[
-  Time now 
-  > 10:44:16.10794 am
+Time now 
+> 10:44:16.10794 am
 ]]]
 We send the message ==time== to the class ==Time==
 
 [[[
-  Date today
-  > 29 July 2015
+Date today
+> 29 July 2015
 ]]]
 We send the message ==today== to the class ==Date==
 
@@ -36,8 +36,8 @@ ${slide:title=Some More Examples}$
 
 [[[
 (ZnServer startDefaultOn: 8080) 
-  onRequestRespond: [ :request | 
-  ZnResponse ok: (ZnEntity with: DateAndTime now printString) ]
+   onRequestRespond: [ :request | 
+   ZnResponse ok: (ZnEntity with: DateAndTime now printString) ]
 ]]]
 
 ${slide:title=Isn't simply natural?}$
@@ -61,16 +61,16 @@ Note the Class Button pressed!
 +>file://figures/ClassMethodDateToday.png|width=90+
 
 
-${slide:title=Class Methods are defined on Class Level}$
+${slide:title=Class Methods are Defined on Class Level}$
 
 +>file://figures/ClassMethodCounter.png|width=90+
 
 
-${slide:title=Common mistake}$
+${slide:title=Common Mistake}$
 
 [[[
-  Counter >> withValue: anInteger
-     self new value: anInteger
+Counter >> withValue: anInteger
+   self new value: anInteger
 ]]]
 
 - ==Counter withValue: 10== returns the class itself ==Counter==
@@ -78,28 +78,28 @@ ${slide:title=Common mistake}$
 ${slide:title=Why?}$
 
 [[[
-  Counter >> withValue: aString
-     self new name: aString
+Counter >> withValue: aString
+   self new name: aString
 ]]]
 
 - Since there is no explicit return the method return the receiver
 - It is equivalent to the next one
 
 [[[
-  Counter >> withValue: anInteger
-     self new value: anInteger
-     ^ self
+Counter >> withValue: anInteger
+   self new value: anInteger
+   ^ self
 ]]]
 
 ==self== here is the class ==Counter== (yes the receiver of the message)
 
-${slide:title=Correct way}$
+${slide:title=Correct Way}$
 
 We should just return the instance we created
 
 [[[
-    Counter >> withValue: anInteger
-       ^ self new value: anInteger
+   Counter >> withValue: anInteger
+     ^ self new value: anInteger
 ]]]
 
 
