@@ -1,6 +1,7 @@
 {
   "title":"A Simple HTTP Server",
-	"subtitle":"As a Pretext to revisit Pharo Syntax"
+  "subtitle":"As a Pretext to revisit Pharo Syntax",
+  "slidesid" : "W3S04"
 }
 
 
@@ -22,7 +23,7 @@ ZnClient new
 
 +>file://figures/TeapotOneBook.png|width=80+
 
-${slide:title=Adding a book}$
+${slide:title=Adding a Book}$
 
 [[[
 ZnClient new
@@ -38,7 +39,7 @@ is equivalent to
 
 ==formAtput('author','van Caekenberghe et al')==
 
-${slide:title=The full server}$
+${slide:title=The Full Server}$
 
 [[[
 | books teapot |
@@ -80,7 +81,7 @@ ${slide:title=Configuring a Server}$
 - =={ . . }== is an array of three elements
 - ==->== creates a key-value pair
 
-${slide:title=Defining the server routes}$
+${slide:title=Defining The Server Routes}$
 
 [[[
 ...
@@ -97,7 +98,7 @@ teapot
 ]]]
 - ==->== returns a pair string x block
 
-${slide:title=More about syntax}$
+${slide:title=More About Syntax}$
 
 [[[language=smalltalk
   teapot 

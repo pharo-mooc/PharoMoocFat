@@ -4,7 +4,8 @@
 
 ${slide:title=What you will Learn}$
 
-- How return really behaves
+- How to return a value from a method or a block
+- The default return values
 
 ${slide:title=4 Cases}$
 
@@ -13,51 +14,41 @@ ${slide:title=4 Cases}$
 - Block without a return statement
 - Block with a return statement
 
-${slide:title=Returning a Different Object than self}$
+${slide:title=Returning a Value From a Method}$
 
-Method with explicit return, just return the value of the expression
+Use the caret ==^== to return a value from a method
 
 [[[
 Number >> squared
-	"Answer the receiver multipled by itself."
-
-	^ self * self
+   "Answer the receiver multipled by itself."
+   ^ self * self
 ]]]
-	
 
-${slide:title=Methods Return self by Default}$
 
-Methods without explicit return return ==self==
+${slide:title=Default Method's Return Value}$
+
+A method with no caret ==^== returns ==self==
 
 [[[
 Game >> initializePlayers
   self players
     at: 'tileAction'
-    put: ( MITileAction director: self )
+    put: ( ... )
 ]]]
 
-equivalent to
+is equivalent to
 
 [[[
 Game >> initializePlayers
   self players
     at: 'tileAction'
-    put: ( MITileAction director: self )
+    put: ( ... )
   ^ self       "<-- this is optional"
 ]]]
 
+${slide:title=Blocks Return Value}$
 
-${slide:title=Yourself}$
-
-[[[
-Object >> yourself
-   ^ self 
-]]]
-
-
-${slide:title=Blocks without explicit return}$
-
-Blocks return the value of their last expresssion
+Blocks return the value of their last expression
 
 [[[
    [ :x |
@@ -66,9 +57,11 @@ Blocks return the value of their last expresssion
    > 7
 ]]]
 
-${slide:title=Returning from a Block Returns from the Method}$
+The caret ==^== in a block has a special meaning...
 
-When a return ==^== is executed in a block, computation exits the method
+${slide:title=A Caret in a Block Returns from the Method}$
+
+A caret ==^== in a block quits the enclosing method
 
 [[[
 Integer>>factorial
@@ -79,17 +72,14 @@ Integer>>factorial
    self error: 'Not valid for negative integers'
 ]]]
 
-${slide:title=More Precisely}$
-
-- When returning from a block, the method ""defining"" the block is terminated
-- Since blocks can be passed around in variables, blocks behave like an exception mechanism
-- Prefer exceptions when this is what you need them
+- When returning (with caret ==^==) from a block, the method ""defining"" the block is terminated
 - Further readings: *http://deepintopharo.org*
-
 
 ${slide:title=What you Should Know}$
 
-- Return from methods, return the value of the expression
-- Return from block are skipping definition method
+- The caret ==^== always terminates the method
+- A block's return value is the result of its last expression
 
-
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019SD-W3S11-UnderstandingReturn.pillar"
+% End:

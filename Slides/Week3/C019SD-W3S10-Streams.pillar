@@ -4,28 +4,32 @@
 
 ${slide:title=What you will Learn}$
 
-- how to create streams
-- how to add and get contents
+- what are streams
+- when to use them
+- how to use them
 
 ${slide:title=Streams}$
 
-- associated with a collection
-- allows the traversal and construction of a collection
-- stores the current position
+- iterate over a sequence of elements
+-- e.g., collection, file, network
+- current position separates past from future
 
-+>file://figures/StreamsTraversal.png+
++file://figures/a_bcdeStef.png|width=100|label=fig:a_bcde+
 
 ${slide:title=API Overview}$
 
-- Adding: ==nextPut: anElement==, ==nextPutAll: aCollection==
-- Accessing: ==next==
-- Get all contents: ==contents==
-- Creation: ==on:==
-
-Convenient messages:
-
-- ==readStream==, ==writeStream==
-- ==streamContents: [:s | ]==
+- Creating:
+-- ==anObject readStream==
+-- ==anObject writeStream==
+-- ==Collection streamContents: [:stream | ... ]==
+-- ==(Read/Write)Stream on: aCollection==
+- Reading elements
+-- ==next==
+-- ==upTo: anObject==
+-- ==upToEnd==
+- Writing elements
+-- ==nextPut: anElement==
+-- ==nextPutAll: aCollection==
 
 ${slide:title=API Overview}$
 
