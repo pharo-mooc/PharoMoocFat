@@ -1,12 +1,21 @@
 {
-	"title":"SUnit: Unit Tests in Pharo"
+  "title":"SUnit: Unit Tests in Pharo",
+  "slidesid" : "W2S12"
 }
+
+${slide:title=Agile Programming}$
+
+Pharo programming culture is agile programming
+- Incremental, early feedback
+- Be prepared for changes
+- Driven by human
+- Supported by automated tests
 
 ${slide:title=SUnit}$
 
-- Extremely simple
-- Got copied all over the places
+- Extremely simple (4 classes)
 - Originally developed by K. Beck (agile programming father)
+- Got copied all over the places
 
 ${slide:title=A Test}$
 
@@ -56,12 +65,21 @@ testAdjacentRunsWithEqualsAttributesAreMerged
 
 ${slide:title=Failures and Errors}$
 
-- A failure is a failed assertion, i.e., an anticipated problem that you test.
-- An error is a condition you didn't check for.
+- A failure is a failed assertion, i.e., an anticipated problem that you test
+- An error is a condition you didn't check for
+
+${slide:title=To Test That an Error Must Be Raised}$
 
 [[[
 SetTestCase >> removeElementNotInSet
   self should: [ Set new remove: 1 ] raise: NotFound
+]]]
+
+${slide:title=To Test That an Error Must Not Be Raised}$
+
+[[[
+SetTestCase >> removeElementNotInSet
+  self shouldnt: [ Set new add: 1 ] raise: NotFound
 ]]]
 
 ${slide:title=Duplicating the Context}$
@@ -81,8 +99,8 @@ SetTestCase >> testOccurrences
 
 ${slide: setUp and tearDown Messages}$
 - Executed systematically before and after each test run
-- setUp allows us to specify and reuse the context
-- tearDown to clean after.
+- ==setUp== allows us to specify and reuse the context
+- ==tearDown== to clean after
 
 +>file://figures/SetUpTearDown.png+
 
@@ -90,10 +108,10 @@ ${slide:title=Definiting a setUp Method}$
 
 [[[
 SetTestCase >> setUp
-  empty := Set new.   
+  empty := Set new
 ]]]
 
- ==setUp== is executed for you
+ ==setUp== is executed for you before any test execution
 
 [[[
 SetTestCase >> testOccurrences
@@ -132,6 +150,6 @@ ${slide:title=What you should know}$
 
 ${slide:title=Summary}$
 
-- Unit tests are easy to create and run.
-- Use them as your life insurance.
-- There exists other libraries for Mock (BabyMock) or different styles of testing.
+- Unit tests are easy to create and run
+- Use them as your life insurance
+- There exists other libraries for Mock (BabyMock) or different styles of testing
