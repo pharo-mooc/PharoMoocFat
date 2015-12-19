@@ -1,20 +1,60 @@
 {
-	"title":"Exercise: Implement ifTrue:ifFalse:"
+  "title":"Exercise: Implement ifTrue:ifFalse:",
+  "slidesid" : "W3S03"
 }
 
 
+${slide:title=Yes ifTrue\:ifFalse\: is a message!}$
+
+[[[
+Weather isRaining
+    ifTrue: [ self takeMyUmbrella ]
+    ifFalse: [ self takeMySunglasses ]
+]]]
+
+- Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
+
 ${slide:title=Exercise}$
 
-- Propose an implementation of ==ifTrue:ifFalse:== in a world where you do not have Booleans.
-- You only have objects, messages and closures.
+- Propose an implementation of ==ifTrue:ifFalse:==
+- You only have objects, messages and closures
 
-[[[language=smalltalk 
-    false ifTrue: [ 3 ] ifFalse: [ 5 ]
-    -> 5
+[[[
+   false ifTrue: [ 3 ] ifFalse: [ 5 ]
+   -> 5
 
-    true ifTrue: [ 3 ] ifFalse: [ 5 ]
-    -> 3
+   true ifTrue: [ 3 ] ifFalse: [ 5 ]
+   -> 3
 ]]]
 
 
+${slide:title=Implementing ifTrue\:ifFalse\:}$
+
+- Do you see the pattern?
+- Remember that a closure blocks execution and that the message ==value== launches the execution of a frozen code
+- How to implement ==ifTrue:ifFalse:==?
+
+${slide:title=Implementing ifTrue\:ifFalse\:}$
+
+- Let the receiver decides!
+[[[
+    True >> ifTrue: aTrueBlock ifFalse: aFalseBlock
+        ^ aTrueBlock value
+]]]
+
+[[[
+    False >> ifTrue: aTrueBlock ifFalse: aFalseBlock
+        ^ aFalseBlock value
+]]]
+
+${slide:title=Implementing ifTrue\:ifFalse\:}$
+
+
++>file://figures/BooleanIfTrueIfFalse.png|width=90+
+
+${slide:title=Conclusion}$
+
+- Message a message selects the right method
+- Let's the receiver decide
+- ==[ ]== freezes computation and ==value== forces execution
 

@@ -1,5 +1,6 @@
 {
-	"title":"Blocks - the friend of conditionals and loops"
+  "title":"Blocks - the friend of conditionals and loops",
+  "slidesid" : "W2S08"
 }
 
 
@@ -8,71 +9,71 @@ ${slide:title=Remember: A Block is Freezing Computation}$
 - A block is not executed
 - A block blocks execution: its body is not executed
 
-[[[language=smalltalk
+[[[
     [ 2 + 6 ] 
     > [ 2 + 6 ] 
 ]]]
 
-- The program can control its own execution
+- A program can control its own execution
 
-[[[language=smalltalk
+[[[
     [ 2 + 6 ] value
     > 8 
 ]]]
 
-${slide:title=Blocks are used to express conditions}$
+${slide:title=Blocks are Used to Express Conditions}$
 
-[[[language=smalltalk
+[[[
 max: anObject 
-	"Answer the receiver or the argument, whichever has the greater anObject."
+   "Answer the receiver or the argument, whichever has the greater anObject."
 
-	^ self > anObject
-		ifTrue: [ self ]
-		ifFalse: [ anObject ]
+   ^ self > anObject
+      ifTrue: [ self ]
+      ifFalse: [ anObject ]
 ]]]
 
 Yes this is a message ==ifTrue:ifFalse:== sent to a Boolean
 
 
-${slide:title=Blocks are used to express loops|label=expressLoop}$
+${slide:title=Blocks are Used to Express Loops}$
 
 - Some simple loops
 - Printing 10 dots
 
-[[[language=smalltalk
-    10 timesRepeat: [ File stdout << '.' ]
-    > ............
+[[[
+10 timesRepeat: [ File stdout << '.' ]
+> ............
 ]]]
 
 
-${slide:title=Blocks are used to express loops|label=expressLoop}$
+${slide:title=Blocks are Used to Express Loops 2}$
 
 [[[language=smalltalk
-    1 to: 10 do: [:i | File stdout << i ]
-    > 12345678910 
+1 to: 10 do: [:i | File stdout << i ]
+> 12345678910 
 ]]]
 
-${slide:title=Blocks are used to express loops|label=expressLoop}$
+${slide:title=Blocks are Used to Express Loops 3}$
 
 - A traditional ==for== loop for i=1,100, i++
 
-[[[language=smalltalk
-    1 to: 100 by: 3 do: [:i | File stdout << i ]
-    > 1471013161922252831343740434649525558616467707
-	 > 37679828588919497100
+[[[
+1 to: 100 by: 3 do: [:i | File stdout << i ]
+> 1471013161922252831343740434649525558616467707
+> 37679828588919497100
 ]]]
 
 - The message ==to:by:do:== is sent to an integer
 - ==i== will get all the computed values one by one
 
 
-${slide:title=Blocks are used to express loops|label=expressLoop}$
+${slide:title=Blocks are Used to Express Loops}$
 
 - Basis for iterators
 
 [[[language=smalltalk
-    #(2 4 5 -4 3 -2) collect: [ :each | each abs ]
-    > #(2 4 5 4 3 2)
+#(2 4 5 -4 3 -2) collect: [ :each | each abs ]
+> #(2 4 5 4 3 2)
 ]]]
 
 - Here the message is sent to the collection itself
@@ -80,7 +81,7 @@ ${slide:title=Blocks are used to express loops|label=expressLoop}$
 
 ${slide:title=Yes ifTrue\:ifFalse\: is a message!}$
 
-[[[language=smalltalk 
+[[[
 Weather isRaining
     ifTrue: [ self takeMyUmbrella ]
     ifFalse: [ self takeMySunglasses ]
@@ -88,41 +89,22 @@ Weather isRaining
 
 - Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
 - ==ifTrue:ifFalse:== is in fact radically optimized by the compiler
-- Implement your own control structure such as ==siAlors:sinon:== (in French) and try it
 
-
-${slide:title=Implementing ifTrue\:ifFalse\:}$
-
-- Do you see the pattern?
-- Remember that a closure blocks execution and that the message ==value== launches the execution of a frozen code
-- How to implement ==ifTrue:ifFalse:==?
-
-${slide:title=Implementing ifTrue\:ifFalse\:}$
-
-- Let the receiver decides!
-[[[language=smalltalk 
-    True>> ifTrue: aTrueBlock ifFalse: aFalseBlock
-        ^ aTrueBlock value
-]]]
-
-[[[language=smalltalk
-    False>> ifTrue: aTrueBlock ifFalse: aFalseBlock
-        ^ aFalseBlock value
-]]]
 
 ${slide:title=Implementation Note}$
 
 - Note that the Virtual Machine shortcuts calls to Boolean such as condition for speed reason
 - But you can implement your own conditional methods and debug to see that sending a message is dispatching to the right object
-
+- Implement your own control structure such as ==siAlors:sinon:== (in French) and try it
 
 ${slide:title=Summary|label=expressLoop}$
 
 - Blocks freeze and control computation 
-- Basis for conditionals 
-- Basis for loops
-- Basis for exceptions (see extra lectures)
-- Basis for concurrence 
+- Basis for 
+-- conditionals 
+-- loops / iterators
+-- exceptions (see future lectures)
+-- concurrence 
 
 
 
