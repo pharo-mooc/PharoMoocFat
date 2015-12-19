@@ -1,5 +1,5 @@
 {
-  "title":"Exercise: Implement ifTrue:ifFalse:",
+  "title":"Understanding Implementation of ifTrue:ifFalse:",
   "slidesid" : "W3S03"
 }
 
@@ -50,7 +50,7 @@ ${slide:title=Implementing ifTrue\:ifFalse\:}$
 ${slide:title=Implementing ifTrue\:ifFalse\:}$
 
 
-+>file://figures/BooleanIfTrueIfFalse.png|width=90+
++>file://figures/BooleanIfTrueIfFalse.png|width=120+
 
 ${slide:title=Conclusion}$
 

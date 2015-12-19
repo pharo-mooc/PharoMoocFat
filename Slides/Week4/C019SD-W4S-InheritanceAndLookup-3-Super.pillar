@@ -128,7 +128,7 @@ ${column:width=50}$
 
 ${column:width=50}$
 
-+>file://figures/SelfIsDynamic1.png|width=60+
++>file://figures/SelfIsDynamic1.png|width=100+
 
 ${endColumns}$
 
@@ -138,7 +138,7 @@ ${columns}$
 
 ${column:width=50}$
 
-+>file://figures/SuperIsStatic.png|width=50+
++>file://figures/SuperIsStatic.png|width=100+
 
 ${column:width=50}$
 

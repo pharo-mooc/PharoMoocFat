@@ -1,5 +1,5 @@
 {
-  "title":"Blocks - the friend of conditionals and loops",
+  "title":"Blocks - the Friend of Conditionals and Loops",
   "slidesid" : "W2S08"
 }
 
@@ -46,14 +46,14 @@ ${slide:title=Blocks are Used to Express Loops}$
 ]]]
 
 
-${slide:title=Blocks are Used to Express Loops 2}$
+${slide:title=Blocks are Used to Express Loops (2)}$
 
 [[[language=smalltalk
 1 to: 10 do: [:i | File stdout << i ]
 > 12345678910 
 ]]]
 
-${slide:title=Blocks are Used to Express Loops 3}$
+${slide:title=Blocks are Used to Express Loops (3)}$
 
 - A traditional ==for== loop for i=1,100, i++
 
@@ -67,17 +67,17 @@ ${slide:title=Blocks are Used to Express Loops 3}$
 - ==i== will get all the computed values one by one
 
 
-${slide:title=Blocks are Used to Express Loops}$
+${slide:title=Blocks are Used to Express Loops (4)}$
 
 - Basis for iterators
 
-[[[language=smalltalk
+[[[
 #(2 4 5 -4 3 -2) collect: [ :each | each abs ]
 > #(2 4 5 4 3 2)
 ]]]
 
 - Here the message is sent to the collection itself
-
+- See Lecture on Iterators
 
 ${slide:title=Yes ifTrue\:ifFalse\: is a message!}$
 
@@ -97,7 +97,7 @@ ${slide:title=Implementation Note}$
 - But you can implement your own conditional methods and debug to see that sending a message is dispatching to the right object
 - Implement your own control structure such as ==siAlors:sinon:== (in French) and try it
 
-${slide:title=Summary|label=expressLoop}$
+${slide:title=Summary}$
 
 - Blocks freeze and control computation 
 - Basis for 

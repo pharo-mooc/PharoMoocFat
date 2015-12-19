@@ -25,7 +25,7 @@ ${slide:title=Eager and Lazy Logical Operators}$
 - the argument ==(1 error: 'crazy')== is executed because this is a non lazy operator
 
 [[[
-   false and: [1 error: 'crazy']
+   false and: [ 1 error: 'crazy' ]
    -> false and not an error 
 ]]]
 
@@ -35,12 +35,12 @@ ${slide:title=Yes ifTrue\:ifFalse\: is a message!}$
 
 [[[ 
 Weather isRaining
-   ifTrue: [self takeMyUmbrella]
-   ifFalse: [self takeMySunglasses]
+   ifTrue: [ self takeMyUmbrella ]
+   ifFalse: [ self takeMySunglasses ]
 ]]]
 
 - Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
-
+- Heavily optimised by the compiler
 
 ${slide:title=Boolean Implementation}$
 
@@ -49,21 +49,19 @@ ${slide:title=Boolean Implementation}$
 
 +Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.png|width=50+
 
+To know more, have a look at the Essence of Dispatch Lecture
 
-To see more have a look at the Essence of Dispatch Lecture
+${slide:title=Conditionals}$
 
+In Pharo traditional conditional (if, else, while) are messages sent to boolean or blocks objects
 
+${slide:title=Conditionals: ifTrue: and ifTrue:ifFalse:}$
 
-${slide:title=Conditionals: ifTrue:ifFalse:}$
-
-- Booleans are objects
-- Conditionals are messages sent to booleans or block
-- ==ifFalse:== and ==ifFalse:ifTrue:== 
-- ==ifTrue:== and ==ifTrue:ifFalse:==
+==ifTrue: [ ]== and ==ifTrue:[ ] ifFalse: [ ]== are two differents messages
 
 [[[
-    forceItalicOrOblique
-        self slantValue = 0 ifTrue: [ slantValue := 1 ]
+   forceItalicOrOblique
+      self slantValue = 0 ifTrue: [ slantValue := 1 ]
 ]]]
 
 [[[
@@ -71,6 +69,11 @@ ${slide:title=Conditionals: ifTrue:ifFalse:}$
       ifTrue: [ 'FirstnameLastname' translated ]
       ifFalse: [ fullName ].
 ]]]
+
+${slide:title=Conditionals: ifFalse: and ifFalse:ifTrue:}$
+
+==ifFalse: [ ]== and ==ifFalse:[ ] ifTrue: [ ]== are two different messages
+
 
 
 ${slide:title=Conditionals: ifEmpty: ifNotEmpty:}$
