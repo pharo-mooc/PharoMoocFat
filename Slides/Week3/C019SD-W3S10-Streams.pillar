@@ -1,18 +1,18 @@
 {
-  "title":"Stream Overview"
+  "title":"Stream Overview",
+    "slidesid" : "W3S10"
 }
 
-${slide:title=What you will Learn}$
+${slide:title=What You Will Learn}$
 
-- what are streams
-- when to use them
-- how to use them
+- What streams are?
+- How to use them
 
 ${slide:title=Streams}$
 
-- iterate over a sequence of elements
+- Iterate over a sequence of elements
 -- e.g., collection, file, network
-- current position separates past from future
+- Current position separates past from future
 
 +file://figures/a_bcdeStef.png|width=100|label=fig:a_bcde+
 
@@ -54,7 +54,7 @@ st next.
 > 1
 ]]]
 
-${slide:title=Adding elements}$
+${slide:title=Adding Elements}$
 
 - ==nexPut:==, ==nextPutAll:==
 
@@ -67,7 +67,7 @@ st nextPutAll: #(4 8 2 6 7).
 
 
 
-${slide:title=Nicer creation API|label=api}$
+${slide:title=Nicer Creation API|label=api}$
 
 [[[
 | s |
@@ -82,7 +82,7 @@ is equivalent to
 String streamContents: [:s | self printOn: s]
 ]]]
 
-${slide:title=Nicer adding API}$
+${slide:title=Nicer Adding API}$
 
 Some people prefer ==<<== to ==nextPutAll:==
 
@@ -94,7 +94,7 @@ XX>>printOn: aStream
       << (self value printStringLimitedTo: 50)
 ]]]
 
-${slide:title=What you should know}$
+${slide:title=What You Should Know}$
 
 - Streams offers a simple API. 
 - Basis for many manipulation of collection of objects
