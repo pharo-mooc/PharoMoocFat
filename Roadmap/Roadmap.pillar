@@ -2,6 +2,12 @@
 
 !TODO
 
+- check that we add a diagram for visibility classVar vs instance var (I did one but I do not remember where) in  Slides/Week3/C019SD-W3S05-Basic-Variables.pillar
+
+[[[
+mate Slides/Week3/C019SD-W3S05-Basic-Variables.pillar
+]]]
+
 - Integrer les quizz et exos dans les Weeks
 
 - style sheet
@@ -298,7 +304,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] Variables
 -- Presenter: Luc
--- Status: To review
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S05-Basic-Variables.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S05-Basic-Variables.html*
 
 - [Todo] Live: Tools to find information: implementors, senders		
