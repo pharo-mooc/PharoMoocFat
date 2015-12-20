@@ -1,6 +1,7 @@
 {
     "title":"Inheritance and Lookup",
-    "subtitle":"1: Inheritance"
+    "subtitle":"1: Inheritance",
+	
 }
 
 ${slide:title=Goal}$
