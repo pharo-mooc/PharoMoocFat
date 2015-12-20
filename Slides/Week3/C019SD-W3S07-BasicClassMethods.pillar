@@ -3,10 +3,10 @@
   "slidesid" : "W3S07"
 }
 
-${slide:title=Simply}$
+${slide:title=Simply Said}$
 
-- We just send messages to classes 
-- Corresponding methods are looked up (exactly as with instance-based methods) and applied to classes
+- We just send a message to a class (receiver of the message) 
+- Corresponding method is looked up (exactly as with instance-based methods) and applied to the class (receiver of the message)
 
 
 ${slide:title=Examples}$
@@ -40,7 +40,7 @@ ${slide:title=Some More Examples}$
    ZnResponse ok: (ZnEntity with: DateAndTime now printString) ]
 ]]]
 
-${slide:title=Isn't simply natural?}$
+${slide:title=Isn't it simply natural?}$
 
 - We just send messages to classes and they perform some actions
 - Most of the time they create instances
@@ -77,13 +77,15 @@ Counter >> withValue: anInteger
 
 ${slide:title=Why?}$
 
+
+- Since there is no explicit return, the method return the receiver
+
 [[[
 Counter >> withValue: aString
    self new name: aString
 ]]]
 
-- Since there is no explicit return the method return the receiver
-- It is equivalent to the next one
+is equivalent to the next one
 
 [[[
 Counter >> withValue: anInteger
