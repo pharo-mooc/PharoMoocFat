@@ -1,10 +1,11 @@
 {
-  "title":"An Overview of Essential Collections"
+"title":"An Overview of Essential Collections",
+"slidesid" : "W3S08"
 }
 
-${slide:title=What you Will Learn}$
+${slide:title=What You Will Learn}$
 
-- The basic collections
+- Some basic collections
 - Essential API to program collections
 - Difference between literal and dynamic arrays
 
@@ -30,13 +31,13 @@ ${slide:title=Essential Collection In a Nutshell}$
 
 ${slide:title=Common API Overview}$
 
-- Most iterators work on all collections
+Common messages work on all collections
 
-#creation: ==with: anElement==, ==with:with:==, ==withAll: aCollection==
-#accessing: ==size==, ==capacity==, ==at: anIndex==, ==at: anIndex put: anElement==
-#testing: ==isEmpty==, ==includes: anElement==, ==contains: aBlock==, ==occurrencesOf: anElement==
+#creation: ==with: anElt==, ==with:with:==, ==withAll: aCollection==
+#accessing: ==size==, ==at: anIndex==, ==at: anIndex put: anElt==
+#testing: ==isEmpty==, ==includes: anElt==, ==contains: aBlock==, 
 #adding: ==add: anElement==, ==addAll: aCollection==
-#removing: ==remove: anElement==, ==remove: anElement ifAbsent: aBlock==, ==removeAll: aCollection==
+#removing: ==remove: anElt==, ==remove: anElt ifAbsent: aBlock==, ==removeAll: aCollection==
 #enumerating: ==do: aBlock==, ==collect: aBlock==, ==select: aBlock==, ==reject: aBlock==, ==detect: aBlock==, ...
 #converting: ==asBag==, ==asSet==, ==asOrderedCollection==, ==asSortedCollection==, ==asArray==
 
@@ -46,77 +47,77 @@ ${slide:title=Variable Size Object Creation}$
 - Message ==new: size== creates an object specifying its size
 
 [[[
-  Array new: 4
-  > #(nil nil nil nil)
+Array new: 4
+> #(nil nil nil nil)
 ]]]
 
 [[[
-  Array new: 2
-  > #(nil nil)
+Array new: 2
+> #(nil nil)
 ]]]
 
 [[[  
-  (OrderedCollection new: 1000) capacity
-  > 1000
+(OrderedCollection new: 1000)
 ]]]
 
 ${slide:title=With Specific Elements}$
 
 [[[  
-  OrderedCollection withAll: #(7 3 13)
-  > an OrderedCollection(7 3 13)
+OrderedCollection withAll: #(7 3 13)
+> an OrderedCollection(7 3 13)
 ]]]
 
 [[[  
-  Set withAll: #(7 3 13)
-  > a Set( 7 3 13)
+Set withAll: #(7 3 13)
+> a Set( 7 3 13)
 ]]]
 
 ${slide:title=Creation  with Default Value}$
 
 [[[
-  OrderedCollection new: 5 withAll: 'a' 
-  > an OrderedCollection('a' 'a' 'a' 'a' 'a')
+OrderedCollection new: 5 withAll: 'a' 
+> an OrderedCollection('a' 'a' 'a' 'a' 'a')
 ]]]
 
 
 ${slide:title=First Element Starts At 1}$
 
 [[[
-  #('Calvin' 'hates' 'Suzie') at: 2
-  > 'hates'
-  
-  #('Calvin' 'hates' 'Suzie') asOrderedCollection  at: 2 
-  > 'hates'
+#('Calvin' 'hates' 'Suzie') at: 2
+> 'hates'
+
+#('Calvin' 'hates' 'Suzie') asOrderedCollection  at: 2 
+> 'hates'
 ]]]
 
-${slide:title=Collection can be heterogenous |label=arrays}$
+${slide:title=Collections can be Heterogenous |label=arrays}$
 
-Collections can contain any sort of objects.
+Collections can contain any sort of objects
 
 [[[
-  #('calvin' (1 2 3))
-  > #('calvin' #(1 2 3))
+#('calvin' (1 2 3))
+> #('calvin' #(1 2 3))
 ]]]
-- An array a string and a collection
+- An array composed of a string and an array
 
 [[[
-  | s |
-  s := Set new. 
-  s add: Set new; 
-    add: 1;
-    add: 2.
-  s asArray 
+| s |
+s := Set new. 
+s add: Set new; 
+  add: 1;
+  add: 2.
+s asArray 
 ]]]
-- A set containing a set and some numbers
+- A set containing an empty set and some numbers
 
 
 ${slide:title=Iteration}$
 
 - Using message ==do: aBlock==
-- But many iterators (see Iterators)
+- But many iterators (see Iterators Lecture)
 [[[
-  #('Calvin' 'hates' 'Suzie') do: [ :each | Transcript show: each ]
+#('Calvin' 'hates' 'Suzie') 
+     do: [ :each | Transcript show: each ]
 ]]]
 
 +>file://figures/doTranscript.png|width=110+
@@ -129,54 +130,54 @@ ${slide:title=Arrays}$
 - Can also be created using ==new:== 
 
 [[[
-  #('Calvin' 'hates' 'Suzie') size
-  > 3
+#('Calvin' 'hates' 'Suzie') size
+> 3
 ]]]
 
 is equivalent to 
 
 [[[
-  ((Array new: 3) 
-      at: 1 put: 'Calvin'; 
-      at: 2 put: 'hates'; 
-      at: 3 put: 'Suzie') size
-  > 3
+((Array new: 3) 
+    at: 1 put: 'Calvin'; 
+    at: 2 put: 'hates'; 
+    at: 3 put: 'Suzie') size
+> 3
 ]]]
 
 
 
 ${slide:title=Accessing Elements}$
 
-The size of the collection
+Size
 [[[
-  #('Calvin' 'hates' 'Suzie') size
-  > 3
+#('Calvin' 'hates' 'Suzie') size
+> 3
 ]]]
 
 Accessing the 2nd element using ==at: anIndex==
 [[[
-  #('Calvin' 'hates' 'Suzie') at: 2
-  > 'hates'
+#('Calvin' 'hates' 'Suzie') at: 2
+> 'hates'
 ]]]
 
 Remember collection index starts at 1
 
-${slide:title=Accessing Elements}$
+${slide:title=Accessing Out of Bounds Elements}$
 
 [[[
-  #('Calvin' 'hates' 'Suzie') at: 55
-  > SubscriptOutOfBounds Error
+#('Calvin' 'hates' 'Suzie') at: 55
+> SubscriptOutOfBounds Error
 ]]]
 
 
-${slide:title=Changing Elements}$
+${slide:title=Modifying Elements}$
 
 Use the message ==at: anIndex put: anObject== 
 
-Changing the second element of the receiver
+Modifying the second element of the receiver
 [[[
-  #('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
-  > #('Calvin' 'loves' 'Suzie')
+#('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
+> #('Calvin' 'loves' 'Suzie')
 ]]]
 
 
@@ -185,41 +186,35 @@ ${slide:title=Literal Arrays}$
 Literal arrays contain objects that have a textual (literal) representation: numbers, strings, nil, symbols
 
 [[[
-  #(45 'milou' 1300 true #tintin)
-  > #(45 'milou' 1300 true #tintin)
+#(45 'milou' 1300 true #tintin)
+> #(45 'milou' 1300 true #tintin)
 ]]]
 
 They are instances of the class ==Array==
 
 [[[
-  #(45 38 1300 8) class
-  > Array
+#(45 38 1300 8) class
+> Array
 ]]]
 
 
 
 ${slide:title=Literals Arrays are Array Instances}$
 
-Literal arrays are equivalent to a dynamic version.
+Literal arrays are equivalent to a dynamic version
 
 A literal array
 [[[
-  #(45 38 1300 8) 
-  > #(45 38 'milou' 8) 
+#(45 38 1300 8) 
+> #(45 38 'milou' 8) 
 ]]]
 
 An array
 [[[
-  Array with: 45 with: 38 with: 'milou' with: 8
-  > #(45 38 'milou' 8) 
+Array with: 45 with: 38 with: 'milou' with: 8
+> #(45 38 'milou' 8) 
 ]]]
 
-
-
-${slide:title=Byte Arrays}$
-- Fixed size arrays
-- Elements are integers between 0 and 255
-- Has a special syntax: ==#[ 1 2 255 ]==
 
 ${slide:title=OrderedCollection}$
 
@@ -228,21 +223,21 @@ ${slide:title=OrderedCollection}$
 - ==add:==, ==remove:==
 
 [[[
-  | ordCol |
-  ordCol := OrderedCollection new.
-  ordCol add: 'Reef'; add: 'Pharo'; addFirst: 'Pharo'.
-  ordCol 
-  > an OrderedCollection('Pharo' 'Reef' 'Pharo')
-  ordCol add: 'Seaside'.
-  ordCol
-  > an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Seaside')
+| ordCol |
+ordCol := OrderedCollection new.
+ordCol add: 'Reef'; add: 'Pharo'; addFirst: 'Pharo'.
+ordCol 
+> an OrderedCollection('Pharo' 'Reef' 'Pharo')
+ordCol add: 'Seaside'.
+ordCol
+> an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Seaside')
 ]]]
 
 ${slide:title=Conversion}$
 
 [[[
-  #('Pharo' 'Reef' 'Pharo' 'Pharo') asOrderedCollection
-  > an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Pharo')
+#('Pharo' 'Reef' 'Pharo' 'Pharo') asOrderedCollection
+> an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Pharo')
 ]]]
 
 ${slide:title=Set}$
@@ -252,8 +247,12 @@ ${slide:title=Set}$
 - ==add:==, ==remove:==
 - Can contain any object including other Sets
 [[[
-  #('Pharo' 'Reef' 'Pharo' 'Pharo') asSet
-  >  a Set('Pharo' 'Reef')
+#('Pharo' 'Reef' 'Pharo' 'Pharo') asSet
+> a Set('Pharo' 'Reef')
+]]]
+
+[[[
+Set with: (Set with: 1) with: (Set with: 2)
 ]]]
 
 ${slide:title=Conversion}$
@@ -274,28 +273,28 @@ ${slide:title=Dictionary}$
 - Growing size
 - Accessing ==at:==, ==at:ifAbsent:==
 - Changing/adding ==at:put:==, ==at:ifAbsentPut:== 
-- iterating: ==do:==, ==keysDo:==, ==keysAndValuesDo:==
+- Iterating: ==do:==, ==keysDo:==, ==keysAndValuesDo:==
 
 ${slide:title=Dictionary Creation}$
 
 [[[
-  | days |
-  days := Dictionary new. 
-  days   
-    at: #January put: 31;
-    at: #February put: 28;
-    at: #March put: 31.  
+| days |
+days := Dictionary new. 
+days   
+  at: #January put: 31;
+  at: #February put: 28;
+  at: #March put: 31.  
 ]]]
 
-${slide:title=Alternate Dictionary creation}$
+${slide:title=Alternate Dictionary Creation}$
 
 [[[
-  | days |
-  days := Dictionary new. 
-  days   
-    at: #January put: 31;
-    at: #February put: 28;
-    at: #March put: 31.  
+| days |
+days := Dictionary new. 
+days   
+  at: #January put: 31;
+  at: #February put: 28;
+  at: #March put: 31.  
 ]]]
 
 is equivalent to 
@@ -342,7 +341,7 @@ ${slide:title=Dictionary Access}$
 
 
 
-${slide:title=Dictionary iteration}$
+${slide:title=Dictionary Iteration}$
 
 [[[
 days do: [ :each | Transcript show: each ;cr ] 
@@ -362,7 +361,7 @@ Dictionary >> do: aBlock
   ^self valuesDo: aBlock
 ]]]
 
-${slide:title=Dictionary iteration}$
+${slide:title=Keys and Values Iteration}$
 
 [[[
 days keysAndValuesDo: 
