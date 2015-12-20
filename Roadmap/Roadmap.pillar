@@ -85,6 +85,17 @@ Voyage
 - requete http recuperer la meteo sur le net
 - service google qui fait un calcul
 
+!! Exercices
+
+
+Propose some expressions to illustrate the uses of 
+- ==anySatisfy:== 
+- ==allSatisfy:== 
+- ==reverseDo:== 
+- ==doWithIndex:== 
+- ==pairsDo:== 
+- ==permutationsDo:==
+
 % ===============================================================================
 
 
@@ -315,9 +326,9 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S07-BasicClassMethods.pdf*	*SlidesHTML>../Slides/Week3/C019SD-W3S07-BasicClassMethods.html*	
 
-- [Lecture 6min] First Glance at Collections (OrderedCollection, Array, Set)
+- [Lecture 6min] C019SD-W3S08-Basic-ArraySetOrderedCollection.pillar
 -- Presenter: Stef
--- Status: To Review (may be we should cut it in two: dictionary in another lectures)
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S08-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S08-Basic-ArraySetOrderedCollection.html*
 
 - [Lecture 6min] W4S-Iterators

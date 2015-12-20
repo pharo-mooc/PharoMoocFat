@@ -1,8 +1,9 @@
 {
-    "title":"Iterators"
+  "title":"Iterators",
+  "slidesid" : "W3S09"
 }
 
-${slide:title=What you Will Learn}$
+${slide:title=What You Will Learn}$
 
 - Understand the power of iterators
 - Offer an overview of iterators
@@ -26,7 +27,7 @@ strings = persons.stream().map(person -> person.getName())
 - But it is like that in Pharo since day one!
 - Iterators are deep into the core of the language and libraries
 
-${slide:title= A first iterator: collect:}$
+${slide:title=A First Iterator - collect:}$
 
  ==collect:== applies the block to each element and returns a collection (of the same kind than the receiver) with the results
 
@@ -39,16 +40,16 @@ ${slide:title= A first iterator: collect:}$
 - and returns the resulting collection.
 - [Think object] We ask the collection to do something for us.
 
-${slide:title=Another collect: example}$
+${slide:title=Another collect: Example}$
 
 We want to know if each elements is odd or even.
 
 [[[
-    #(16 11 68 19) collect: [ :i | i odd ]
+#(16 11 68 19) collect: [ :i | i odd ]
 ]]]
 
 [[[
-    >  #(false true false true)
+>  #(false true false true)
 ]]]
 
 
@@ -58,22 +59,18 @@ ${slide:title=Choose your camp!}$
   #(16 11 68 19) collect: [ :i | i odd ]
 ]]]
 
-- We can also do it that way!
-[[[language=smalltalk
-  | result |
-  aCol :=  #(16 11 68 19).
-  result := aCol species new: aCol size.
-  1 to: aCollection size do:
-      [ :each | result at: each put: (aCol at: each) odd ].
-  ^ result
+We can also do it that way! (We copied the definition of ==collect:==)
+[[[
+| result |
+aCol :=  #(16 11 68 19).
+result := aCol species new: aCol size.
+1 to: aCollection size do:
+    [ :each | result at: each put: (aCol at: each) odd ].
+^ result
 ]]]
 
-(We copied the definition of ==collect:== but 
-this is error prone, verbose and tedious)
 
-
-
-${slide:title=Part of the collection hierarchy}$
+${slide:title=Part of the Collection Hierarchy}$
 
 Iterators work polymorphically on the entire collection hierarchy.
 
@@ -100,21 +97,21 @@ ${slide:title=Basic Iterators Overview}$
 - and a lot more...
 
 
-${slide:title=do: an action on each element}$
+${slide:title=do: an Action on Each Clement}$
 
 - Iterates on each elements
 - Applies the block on each elements
 
 [[[
-  #(16 11 68 19) do: [ :each | Transcript show: each ; cr ]
+#(16 11 68 19) do: [ :each | Transcript show: each ; cr ]
 ]]]
 
-Here we print each elements and insert a carriage return
+Here we print each element and insert a carriage return
 
 +Results of do: >file://figures/Iterators-Transcript.png|width=80|label=Iterators-Transcript+
 
 
-${slide:title=select: elements matching a criteria}$
+${slide:title=select: Elements Matching a Criteria}$
 
 To select some elements, use ==select:==
 
@@ -123,39 +120,38 @@ To select some elements, use ==select:==
   > #(11 19)
 ]]]
 
-${slide:title=With unary messages, no block needed}$
+${slide:title=With Unary Messages, No Block Needed}$
 
-When a block expects a single argument, we can pass an unary message selector
+When a block is just one message, we can pass an unary message selector
 [[[
-  #(16 11 68 19) select: [ :i | i odd ]
+#(16 11 68 19) select: [ :i | i odd ]
 ]]]
 
 is equivalent to
 
-[[[language=smalltalk
-    #(16 11 68 19) select: #odd
+[[[
+#(16 11 68 19) select: #odd
 ]]]
 
 
-${slide:title=reject: elements matching a criteria}$
+${slide:title=reject: Some Elements Matching a Criteria}$
 
 To filter some elements, use ==reject:==
 
 [[[
-  #(16 11 68 19) reject:  [ :i | i odd ]
-  > #(16 68)
+#(16 11 68 19) reject:  [ :i | i odd ]
+> #(16 68)
 ]]]
 
 
-${slide:title=detect: the first elements that...}$
+${slide:title=detect: The First Elements That...}$
 
 To find the first element that matches, use ==detect:==
 
 [[[
-  #(16 11 68 19) detect:  [ :i | i odd ]
-  > 11
+#(16 11 68 19) detect:  [ :i | i odd ]
+> 11
 ]]]
-
 
 
 ${slide:title=detect:ifNone:}$
@@ -163,8 +159,8 @@ ${slide:title=detect:ifNone:}$
 To find the first element that matches else return a value, use ==detect:ifNone:==
 
 [[[
-  #(16 12 68 20) detect:  [ :i | i odd ] ifNone: [ 0 ]
-  > 0
+#(16 12 68 20) detect:  [ :i | i odd ] ifNone: [ 0 ]
+> 0
 ]]]
 
 ${slide:title=Some Powerful Iterators}$
@@ -176,17 +172,7 @@ ${slide:title=Some Powerful Iterators}$
 - ==pairsDo:== (evaluate aBlock with my elements taken two at a time.)
 - ==permutationsDo:== ...
 
-${slide:title=Exercises}$
-
-Propose some expressions to illustrate the uses of 
-- ==anySatisfy:== 
-- ==allSatisfy:== 
-- ==reverseDo:== 
-- ==doWithIndex:== 
-- ==pairsDo:== 
-- ==permutationsDo:==
-
-${slide:title=Some cool iterators}$
+${slide:title=Some Cool Iterators}$
 
  How to produce?
 [[[
@@ -200,7 +186,7 @@ ${slide:title=Some cool iterators}$
     > ''
 ]]]
 
-${slide:title=Use doSeparatedBy:}$
+${slide:title=Use do:separatedBy:}$
 
 
 [[[
@@ -212,9 +198,9 @@ ${slide:title=Use doSeparatedBy:}$
 ]]]
 
 
-${slide:title=Iterating two structures}$
+${slide:title=Iterating Two Structures}$
 
-To iterative ==with:do:==
+To iterate ==with:do:==
 [[[
 #(1 2 3)
     with:  #(10 20 30)
@@ -225,7 +211,7 @@ To iterative ==with:do:==
 
 - ==with:do:== requires two structures of the same length.
 
-${slide:title=Grouping elements}$
+${slide:title=Grouping Elements}$
 
 To group elements according to a grouping function: ==groupedBy:==
 
@@ -235,7 +221,7 @@ To group elements according to a grouping function: ==groupedBy:==
 ]]]
 
 
-${slide:title=Flattening results}$
+${slide:title=Flattening Results}$
 
 How to remove one level of nesting in a collection? Use ==flatCollect:==
 
@@ -249,11 +235,12 @@ How to remove one level of nesting in a collection? Use ==flatCollect:==
   > #(1 2 3 4 5 6 ))
 ]]]
 
-${slide:title=Opening the box}$
+${slide:title=Opening The Box}$
 
 - You can learn and discover the system
 - You can define your own iterator
 - For example how ==do:== is implemented?
+
 [[[
 SequenceableCollection >> do: aBlock
   "Evaluate aBlock with each of the receiver's elements as the argument."
@@ -263,10 +250,10 @@ SequenceableCollection >> do: aBlock
 
 ${slide:title=Analysis}$
 
-- Iterators are really powerful because they support polymorphic code.
-- All the collections support them.
-- New ones are defined.
-- Missing controlled navigation as in the Iterator design pattern.
+- Iterators are really powerful because they support polymorphic code
+- All the collections support them
+- New ones are defined
+- Missing controlled navigation as in the Iterator design pattern
 
 ${slide:title=Summary}$
 - Iterators are your best friends
