@@ -11,6 +11,7 @@
 	Object subclass: #ESEvent
 		package: 'EventShine-Model'
 ]]]
+Probablement class and Method Definition lectures
 
 
 - Week 2: Blocks- loops est redondant. 
@@ -130,6 +131,11 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To be done
 -- Files:  
 
+- [Live 3min] Looking at how to select code (line start line end-beginning of bloc)
+-- Presenter: Stephane
+-- Status: To be done
+-- Files:  
+
 - [Lecture 6min] Pharo's Model in a Nushell
 -- Presenter: Luc
 -- Status: Done Reviewed by Christelle and typos fixed
@@ -137,7 +143,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] Pharo's Syntax in a Nutshell
 -- Presenter: Stef
--- Status: Done Reviewed by Christelle and typos fixed 
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.html*
 
 - [Redo 6min] Coding a Counter
@@ -164,24 +170,29 @@ You will also see that 4 kinds of activities are distinguished:
 
 !!Week 2: Pharo Syntax, Blocks and Inspector 
 
+- [Lecture 6min] Class and methods	6 min   
+-- Presenter: Damien
+-- Status: Reviewed after Yaounde I move it there since we create many classes and methods. But we could move it as S01 
+-- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S-ClassAndMethodDefinition.pdf* *SlidesHTML>../Slides/Week2/C019SD-W2S-ClassAndMethodDefinition.html*
+
 - [Lecture 6min] Messages
 -- Presenter: Stef
--- Status: Done Reviewed by Christelle and typos fixed
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S01-Messages.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S01-Messages.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S01-Messages.html*
 
-- [Lecture 3min] Messages for Java programmer
+- [Lecture 6min] Messages for Java programmer
 -- Presenter: Damien
--- Status: Done Reviewed by Christelle and typos fixed
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.html*
 
 - [Lecture 3min] Messages Precedence
 -- Presenter: Stef
--- Status: Done Reviewed by Christelle and typos fixed
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S03-Messages-Precedence.html*
 
 - [Lecture 6min] Messages Sequence
 -- Presenter: Stef
--- Status: Done Reviewed by Christelle and typos fixed
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S04-Messages-Sequence.html*
 
 - [Live 6min] Inspector: Inspecting a Counter 
@@ -196,43 +207,43 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] Blocks
 -- Presenter: Luc
--- Status: Done Reviewed by Christelle and typos fixed
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S07-Blocks.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S07-Blocks.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S07-Blocks.html*
 
-- [Lecture 6min] Blocks for Loops
+- [Lecture 6min] Blocks for Loops "on peut bouger celui la dans Extras"
 -- Presenter: Luc
--- Status: To review
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S08-Blocks-Loops.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S08-Blocks-Loops.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S08-Blocks-Loops.html*
 
 - [Lecture 6min] Loops
 -- Presenter: Luc
--- Status: To review
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S09-Loops.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S09-Loops.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S09-Loops.html*
 
 - [Lecture 6min] Booleans and Conditions
 -- Presenter: Luc
--- Status: To review
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S10-BooleansAndCondition.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S10-BooleansAndCondition.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S10-BooleansAndCondition.html*
 
 - [Lecture 6min] Parenthesis vs Square Brackets
 -- Presenter: Luc
--- Status: To review
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.html*
-
-- [Lecture 6min] Class and methods	6 min   
--- Presenter: Damien
--- Status: To review  I move it there since we create many classes and methods. 
--- Files: W2S5-ClassDefinition.pillar
 
 - [Lecture 6min] SUnit
 -- Presenter: Luc 
--- Status: To review we can move it to another week
--- Files: /Slides/Week2/C019SD-W2S12-SUnit.pdf
+-- Status: Reviewed after Yaounde
+-- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S12-SUnit.pdf* 
+
+- [Lecture 3min] Yourself
+-- Presenter: Damien
+-- Status: Reviewed after Yaounde
+-- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S13-Yourself.pdf* 
 
 - [Lecture 6min] The Essence Of Dispatch through an Exercice
 -- Presenter: Damien
--- Status: To review
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S13-Design-EssenceOfDispatchExo.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.html*
+-- Status: Reviewed after Yaounde
+-- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S14-Design-EssenceOfDispatchExo.pdf* 
 
 
 !!!Exos
@@ -262,7 +273,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] Design Essence of Dispatch: the case of Not
 -- Presenter: Stef
--- Status: ok 
+-- Status: Reviewed after Yaounde 
 -- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S1-Design-EssenceOfDispatchNot.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatchNot.html*
 
 - [Lecture 6min] What can we learn from the not case

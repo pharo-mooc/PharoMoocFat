@@ -1,5 +1,7 @@
 {
-	"title":"Roots of Dispatch and Objects"
+  "title":"Essence of Dispatch",
+  "subtitle":"Taking Pharo Booleans as Example",
+  "slidesid" : "W3S01"
 }
 
 ${slide:title=Objectives}$
@@ -19,15 +21,16 @@ In Pharo, Booleans have a superb implementation!
 
 ${slide:title=Three Exercises}$
 
-# Implement ==not==
-# Implement ==|== (or) and ==ifTrue:ifFalse:==
+# Implement ==not== (Not)
+# Implement ==|== (Or)
 # What is the goal of these exercises?
 
 ${slide:title=Exercise 1: Implement not}$
 
-- Propose an implementation of ==not== in a world where:
--- you have Booleans but not operations
--- you only have objects and messages
+- Propose an implementation of Not in a world where:
+-- You have: ==true==, ==false==
+-- You only have objects and messages
+-- How would you implement the message ==not==?
 [[[
    false not
    -> true
@@ -36,54 +39,37 @@ ${slide:title=Exercise 1: Implement not}$
    -> false
 ]]]
 
-${slide:title=Exercise 2: Implement OR}$
-
-- Propose an implementation of ==or== in a world where:
--- you do not have Booleans
--- you only have objects and messages
-
-[[[
-   true | true -> true
-   true | false -> true
-   true | anything -> true
-
-   false | true -> true
-   false | false -> false
-   false | anything -> anything
-]]]
-
 ${slide:title=Hint 1: No conditionals}$
 
 The solution does not use conditionals (i.e., no ==if==)
 
-${slide:title=Hint 2: At Least Three Classes}$
+${slide:title=Hint 2: With Three Classes}$
 
 - The solution uses three classes:
--- ==Boolean==, ==True== and ==False==
+-- ==Boolean== (abstract), ==True== and ==False==
 - ==true== is the singleton instance of ==True==
 - ==false== is the singleton instance of ==False==
 
-${slide:title=Hint 2: At Least Three Classes}$
+${slide:title=Hint 2: Three Classes}$
 
 +Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.png|width=75+
 
 ${slide:title=Hint 3: How do we express choice in OOP?}$
 
+In OOP, choice is expressed 
 - By defining classes with compatible methods
 - By sending a message to an instance of such class
 
 
-${slide:title=Hint 3: Define Methods and Send Messages}$
-
+Example 
 [[[
-   x color
-   -> Color red
+   x open
 ]]]
 
-- ==x== can be a button, a pane, a window, a bird, ...
-- the method is ""chosen"" based on the ==x=='s class
+- ==x== can be a file, a window, a tool,... 
+- the method is ""selected"" based on the ==x=='s class
 
-${slide:title=Implementation of not in two methods}$
+${slide:title=Implementation of Not in two methods}$
 
 [[[
 False>>not
@@ -97,12 +83,12 @@ True>>not
    ^ false
 ]]]
 
-${slide:title=Implementation of not in two methods}$
+${slide:title=Implementation Hierarchy}$
 
 +Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethods.png|width=110+
 
 
-${slide:title=Implementation of not in two methods}$
+${slide:title=Message Lookup is Choosing the Right Method}$
 
 +Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=110+
 
@@ -120,7 +106,7 @@ Boolean>>not
    self subclassResponsibility
 ]]]
 
-${slide:title=Behavior of OR}$
+${slide:title=Behavior of Or}$
 
 [[[
 true | true -> true
@@ -134,17 +120,17 @@ false | false -> false
 false | anything -> anything
 ]]]
 
-${slide:title=Implementation of OR in Boolean}$
+${slide:title=Implementation of Or in Boolean}$
 
 [[[
 Boolean>>| aBoolean
-   "Abstract method. Evaluating OR: Evaluate the argument.
+   "Abstract method. Evaluating Or: Evaluate the argument.
    Answer true if either the receiver or the argument is true."
    self subclassResponsibility
 ]]]
 
 
-${slide:title=Implementation of OR in False}$
+${slide:title=Implementation of Or in class False}$
 
 [[[
 false | true -> true
@@ -153,12 +139,12 @@ false | anything -> anything
 ]]]
 
 [[[
-False>>| aBoolean
-   "Evaluating OR -- answer with the argument, aBoolean."
+False>> | aBoolean
+   "Evaluating Or -- answer with the argument, aBoolean."
    ^ aBoolean
 ]]]
 
-${slide:title=Implementation of OR in True}$
+${slide:title=Implementation of Or in class True}$
 
 [[[
 true | true -> true
@@ -167,28 +153,29 @@ true | anything -> true
 ]]]
 
 [[[
-True>>| aBoolean
-   "Evaluating OR -- answer true since the receiver is true."
+True>> | aBoolean
+   "Evaluating Or -- answer true since the receiver is true."
    ^ true
 ]]]
 
-${slide:title=Real implementation of OR in True}$
+${slide:title=Real implementation of Or in class True}$
 
+The object ==true== is the receiver of the message!
 [[[
-True>>| aBoolean
-   "Evaluating disjunction (OR) -- answer true since the receiver is true."
+True>> | aBoolean
+   "Evaluating disjunction (Or) -- answer true since the receiver is true."
    ^ true
 ]]]
 
-The object ==true== is indeed the receiver of the message!
+So we can write it like the following:
 
 [[[
-True>>| aBoolean
-   "Evaluating disjunction (OR) -- answer true since the receiver is true."
+True>> | aBoolean
+   "Evaluating disjunction (Or) -- answer true since the receiver is true."
    ^ self
 ]]]
 
-${slide:title=OR Implementation in Two Methods}$
+${slide:title=Or Implementation in Two Methods}$
 
 +Boolean hierarchy and instances.>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=110+
 
