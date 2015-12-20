@@ -1,6 +1,7 @@
 {
-    "title":"Essence of Dispatch",
-    "subtitle":"Exercises"
+  "title":"Essence of Dispatch",
+  "subtitle":"Exercises",
+  "slidesid" : "W2S14"
 }
 
 
@@ -14,7 +15,8 @@ ${slide:title=Three Questions}$
 ${slide:title=Exercise 1: Implement not}$
 
 - Propose an implementation of ==not== in a world where:
--- You have Booleans: ==true==, ==false==
+-- You have: ==true==, ==false==
+-- You only have objects and messages
 -- How would you implement: ==not==?
 [[[
    false not
@@ -27,8 +29,9 @@ ${slide:title=Exercise 1: Implement not}$
 ${slide:title=Exercise 2: Implement \| (or)}$
 
 - Propose an implementation of ==or== in a world where:
--- you do not have Booleans
--- you only have objects and messages
+-- You have: ==true==, ==false==
+-- You only have objects and messages
+-- How would you implement: ==not==?
 
 [[[
    true | true -> true
@@ -40,24 +43,11 @@ ${slide:title=Exercise 2: Implement \| (or)}$
    false | anything -> anything
 ]]]
 
-${slide:title=Exercise 2: Variation - Implement ifTrue:ifFalse:}$
 
-- Propose an implementation of ==ifTrue:ifFalse:== in a world where:
--- you do not have Booleans
--- you only have objects, messages and closures
-
-[[[
-   false ifTrue: [ 3 ] ifFalse: [ 5 ]
-   -> 5
-
-   true ifTrue: [ 3 ] ifFalse: [ 5 ]
-   -> 3
-]]]
-
-${slide:title=Exercise 3: Why these Exercises}$
+${slide:title=Exercise 3: Why These Exercises?}$
 
 - You are never going to implement Booleans in your life
-- Why do we think these exercises are very important?
+- So why do we think these exercises are very important?
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S13-Design-EssenceOfDispatchExo.pillar"
