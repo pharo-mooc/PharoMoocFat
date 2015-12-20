@@ -1,17 +1,20 @@
 {
-    "title":"Inheritance and Lookup",
-    "subtitle":"2: Lookup"
+  "title":"Inheritance and Lookup",
+  "subtitle":"2: Lookup",
+  "slidesid" : "W4S02"
 }
 
 ${slide:title=Goal}$
 
--mapping a message to a method
--==self== always represents the receiver
+- Understanding 
+-- message passing 
+-- method lookup
+-- ==self== semantics
 
 ${slide:title=Inheritance}$
 
-- inheritance of state is static
-- inheritance of behavior is dynamic
+- Inheritance of state is static
+- Inheritance of behavior is dynamic
 
 ${slide:title=Message Sending}$
 
@@ -25,7 +28,7 @@ ${column:width=50}$
 
 ${column:width=50}$
 
-+>file://figures/InheritanceDiagram-lookup-superclass.png|width=100+
++>file://figures/InheritanceDiagram-sendingMessage.png|width=140+
 
 ${endColumns}$
 
@@ -37,12 +40,12 @@ ${columns}$
 ${column:width=50}$
 
 The lookup starts in the ""class"" of the ""receiver"" then:
--if the method is defined in the class, it is returned
--otherwise the search continues in the superclass
+- if the method is defined in the class, it is returned
+- otherwise the search continues in the superclass
 
 ${column:width=50}$
 
-+>file://figures/InheritanceDiagram-lookup-superclass.png|width=100+
++>file://figures/InheritanceDiagram-lookupTwoStages.png|width=140+
 
 ${endColumns}$
 
@@ -60,7 +63,7 @@ Sending the message ==area== to ==a ColoredRectangle==
 
 ${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=80+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=76+
 
 [[[
     A new foo
@@ -71,7 +74,7 @@ ${slide:title=self Always Represents the Receiver}$
 
 ${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=80+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=76+
 
 [[[
     A new foo
@@ -92,11 +95,11 @@ ${slide:title=self/this}$
 
 - ==self== represents the receiver of the message
 - ==self== in Pharo, ==this== in Java
-- the method lookup starts in the class of the receiver
+- The method lookup starts in the class of the receiver
 
 ${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=80+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=76+
 
 [[[
     A new bar
@@ -107,7 +110,7 @@ ${slide:title=self Always Represents the Receiver}$
 
 ${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=80+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=76+
 
 [[[
     A new bar
@@ -122,7 +125,7 @@ ${columns}$
 
 ${column:width=35}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=100+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=110+
 
 [[[
     B new bar
@@ -183,13 +186,13 @@ ${column:width=40}$
 
 ${endColumns}$
 
-${slide:title=What you should Know}$
+${slide:title=What You Should Know}$
 
 
--==self== always represents the receiver
--sending a message is a two-step process:
--#look up the method matching the message
--#execute this method on the receiver
+-==self== ""always"" represents the receiver
+- Sending a message is a two-step process:
+-# Look up the method matching the message
+-# Execute this method on the ""receiver""
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/4-Done/InheritanceAndLookup-2-Lookup.pillar"
