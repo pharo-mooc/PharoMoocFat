@@ -1,15 +1,15 @@
 {
-    "title":"Inheritance and Lookup",
-    "subtitle":"1: Inheritance",
-	
+  "title":"Inheritance and Lookup",
+  "subtitle":"1: Inheritance Basics",
+  "slidesid" : "W4S01"
 }
 
 ${slide:title=Goal}$
 
--what is inheritance?
--when to use it?
-
 Nothing special in this lecture, same in Java
+- What is inheritance?
+- When to use it?
+
 
 ${slide:title=The Basics}$
 
@@ -17,8 +17,8 @@ ${columns}$
 
 ${column:width=60}$
 
-- often we want small adaptations
-- we want to reuse/extend existing behavior and state
+- Often we want small adaptations
+- We want to reuse/extend existing behavior and state
 
 - Solution: ""class inheritance""
 
@@ -26,7 +26,7 @@ ${column:width=60}$
 
 ${column:width=40}$
 
-+>file://figures/InheritanceDiagram.png|width=80+
++>file://figures/InheritanceDiagram.png|width=100+
 
 ${endColumns}$
 
@@ -44,11 +44,11 @@ A subclass
 
 ${column:width=40}$
 
-+>file://figures/InheritanceDiagram.png|width=80+
++>file://figures/InheritanceDiagram.png|width=100+
 
 ${endColumns}$
 
-${slide:title=Root of Inheritance}$
+${slide:title=Root of Inheritance Hierarchy}$
 
 ${columns}$
 
@@ -76,14 +76,14 @@ ${columns}$
 
 ${column:width=65}$
 
-- happens during class definition
-- computed from
+- Happens during class definition
+- Computed from
 -- the class own instance variables
 -- the ones of its superclasses
 
 ${column:width=35}$
 
-+>file://figures/InheritanceDiagram.png|width=80+
++>file://figures/InheritanceDiagram.png|width=100+
 
 ${endColumns}$
 
@@ -93,8 +93,8 @@ ${columns}$
 
 ${column:width=50}$
 
-- happens at runtime
-- the method is searched
+- Happens at runtime
+- The method is searched
 -- starting from the receiver's class
 -- then going to the superclass
 
@@ -111,8 +111,8 @@ ${columns}$
 
 ${column:width=50}$
 
-- happens at runtime
-- the method is searched
+- Happens at runtime
+- The method is searched
 -- starting from the receiver's class
 -- then going to the superclass
 
@@ -122,13 +122,13 @@ ${column:width=50}$
 
 ${endColumns}$
 
-${slide:title=What you should Know}$
+${slide:title=What You Should Know}$
 
-- inheritance allows to refine state and behavior
-- every class has 1 and only 1 superclass
-- every class inherits from ==Object==
-- inheritance of state is static
-- inheritance of behavior is dynamic
+- Inheritance allows one to refine state and behavior
+- Every class has 1 and only 1 superclass
+- Every class eventually inherits from ==Object==
+- Inheritance of state is static
+- Inheritance of behavior is dynamic
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/4-Done/InheritanceAndLookup-1-Inheritance.pillar"
