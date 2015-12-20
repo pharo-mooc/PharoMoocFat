@@ -80,14 +80,17 @@ Voyage
 
 !! Find how to 
 
-- ouvrir et afficher un fichier jpeg
-- lister le contenu d'un repertoire sur le disc
-- requete http recuperer la meteo sur le net
-- service google qui fait un calcul
+
 
 !! Exercices
 
 
+!!! Finding 
+- ouvrir et afficher un fichier jpeg
+- lister le contenu d'un repertoire sur le disc
+- requete http recuperer la meteo sur le net
+- service google qui fait un calcul
+!!! Iterators
 Propose some expressions to illustrate the uses of 
 - ==anySatisfy:== 
 - ==allSatisfy:== 
@@ -331,19 +334,19 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S08-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S08-Basic-ArraySetOrderedCollection.html*
 
-- [Lecture 6min] W4S-Iterators
+- [Lecture 6min] C019SD-W3S09-Iterators.pillar
 -- Presenter: Stef
 -- Status: To Review
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S09-Iterators.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S09-Iterators.html*
 
-- [Lecture 6min] W3S-Streams
+- [Lecture 6min] C019SD-W3S10-Streams.pillar
 -- Presenter: Damien
--- Status: To Review
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S10-Stream.pdf* *SlidesHTML>../Slides/Week4/Week3/C019SD-W3S10-Stream.html*		
 
-- [Lecture 6min] W3S-UnderstandingReturn
+- [Lecture 6min] C019SD-W3S11-UnderstandingReturn
 -- Presenter: Damien
--- Status: ok
+-- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S11-UnderstandingReturn.pdf* *SlidesHTML>../Slides/Week4/Week3/C019SD-W3S11-UnderstandingReturn.html*
 
 !!!Exos
