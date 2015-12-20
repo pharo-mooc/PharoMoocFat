@@ -28,7 +28,7 @@ ${column:width=50}$
 
 ${column:width=50}$
 
-+>file://figures/InheritanceDiagram-sendingMessage.png|width=140+
++>file://figures/InheritanceDiagram-sendingMessage.png|width=130+
 
 ${endColumns}$
 
@@ -45,7 +45,7 @@ The lookup starts in the ""class"" of the ""receiver"" then:
 
 ${column:width=50}$
 
-+>file://figures/InheritanceDiagram-lookupTwoStages.png|width=140+
++>file://figures/InheritanceDiagram-lookupTwoStages.png|width=130+
 
 ${endColumns}$
 
