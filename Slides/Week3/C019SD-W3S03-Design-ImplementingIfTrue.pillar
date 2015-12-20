@@ -1,5 +1,5 @@
 {
-  "title":"Understanding Implementation of ifTrue:ifFalse:",
+  "title":"Understanding the Implementation of ifTrue:ifFalse:",
   "slidesid" : "W3S03"
 }
 
@@ -13,7 +13,7 @@ Weather isRaining
 ]]]
 
 - Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
-
+- Heavily optimised by the compiler
 ${slide:title=Exercise}$
 
 - Propose an implementation of ==ifTrue:ifFalse:==
@@ -30,13 +30,13 @@ ${slide:title=Exercise}$
 
 ${slide:title=Implementing ifTrue\:ifFalse\:}$
 
-- Do you see the pattern?
-- Remember that a closure blocks execution and that the message ==value== launches the execution of a frozen code
+- Remember that a block ==[ ]== freezes execution and that the message ==value== launches the execution of a frozen code
 - How to implement ==ifTrue:ifFalse:==?
+- Remember Not and Or?
 
-${slide:title=Implementing ifTrue\:ifFalse\:}$
+${slide:title=Implementation of ifTrue\:ifFalse\:}$
 
-- Let the receiver decides!
+Let the receiver decide!
 [[[
     True >> ifTrue: aTrueBlock ifFalse: aFalseBlock
         ^ aTrueBlock value
@@ -47,14 +47,14 @@ ${slide:title=Implementing ifTrue\:ifFalse\:}$
         ^ aFalseBlock value
 ]]]
 
-${slide:title=Implementing ifTrue\:ifFalse\:}$
+${slide:title=Implementation of ifTrue\:ifFalse\:}$
 
 
 +>file://figures/BooleanIfTrueIfFalse.png|width=120+
 
 ${slide:title=Conclusion}$
 
-- Message a message selects the right method
-- Let's the receiver decide
+- Sending a message selects the right method
+- Let the receiver decide
 - ==[ ]== freezes computation and ==value== forces execution
 
