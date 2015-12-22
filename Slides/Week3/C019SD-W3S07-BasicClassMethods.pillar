@@ -69,7 +69,7 @@ ${slide:title=Class Methods are Defined on Class Level}$
 ${slide:title=Common Mistake}$
 
 [[[
-Counter >> withValue: anInteger
+Counter class >> withValue: anInteger
    self new value: anInteger
 ]]]
 
@@ -81,14 +81,14 @@ ${slide:title=Why?}$
 - Since there is no explicit return, the method return the receiver
 
 [[[
-Counter >> withValue: aString
+Counter class >> withValue: aString
    self new name: aString
 ]]]
 
 is equivalent to the next one
 
 [[[
-Counter >> withValue: anInteger
+Counter class >> withValue: anInteger
    self new value: anInteger
    ^ self
 ]]]
@@ -100,7 +100,7 @@ ${slide:title=Correct Way}$
 We should just return the instance we created
 
 [[[
-   Counter >> withValue: anInteger
+   Counter class >> withValue: anInteger
      ^ self new value: anInteger
 ]]]
 

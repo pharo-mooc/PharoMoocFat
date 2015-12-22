@@ -111,6 +111,27 @@ Game >> initializePlayers
   ^ self       "<-- this is optional"
 ]]]
 
+${slide:title=Last Expression Is a Return}$
+
+- The last expression is always a return.
+
+Either added by you
+
+[[[
+Integer >> squared
+  ^ self * self 
+]]]
+
+Either added by the compiler
+
+[[[
+Game >> initializePlayers
+  self players
+    at: 'tileAction'
+    put: ( MITileAction director: self )
+  ^ self       "<-- Added by the compiler"
+]]]
+
 ${slide:title=Method Arguments are Read Only}$
 
 - Do not try to assign a value to a method argument
