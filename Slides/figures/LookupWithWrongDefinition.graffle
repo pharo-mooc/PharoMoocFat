@@ -59,8 +59,8 @@
 			<integer>39</integer>
 			<key>Points</key>
 			<array>
-				<string>{189, 182.21708749382415}</string>
-				<string>{212.17299999999997, 181.03812605857703}</string>
+				<string>{185, 181.57870655589483}</string>
+				<string>{212.17299999999997, 180.89267118894162}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -94,8 +94,8 @@
 			<integer>38</integer>
 			<key>Points</key>
 			<array>
-				<string>{168, 259.719272239595}</string>
-				<string>{213, 259.70979687483043}</string>
+				<string>{161, 259.81201737424345}</string>
+				<string>{213, 259.88554034271925}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -129,8 +129,8 @@
 			<integer>37</integer>
 			<key>Points</key>
 			<array>
-				<string>{116, 312.29610018642632}</string>
-				<string>{176, 312.29610018642632}</string>
+				<string>{106, 312.28949389431318}</string>
+				<string>{176, 312.27323874917784}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -154,7 +154,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{66, 168.34599304199219}, {123, 34}}</string>
+			<string>{{45, 164.34599304199219}, {140, 38}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -166,7 +166,7 @@
 				<key>Font</key>
 				<string>Helvetica-Oblique</string>
 				<key>Size</key>
-				<real>13</real>
+				<real>15</real>
 			</dict>
 			<key>ID</key>
 			<integer>36</integer>
@@ -200,7 +200,7 @@
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\i\fs28 \cf0 superclass of class \
+\f0\i\fs32 \cf0 superclass of class \
 of receiver}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
@@ -210,7 +210,7 @@ of receiver}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{66, 251.23001098632812}, {102, 17}}</string>
+			<string>{{45, 250.23001098632812}, {116, 19}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -222,7 +222,7 @@ of receiver}</string>
 				<key>Font</key>
 				<string>Helvetica-Oblique</string>
 				<key>Size</key>
-				<real>13</real>
+				<real>15</real>
 			</dict>
 			<key>ID</key>
 			<integer>35</integer>
@@ -256,7 +256,7 @@ of receiver}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\i\fs28 \cf0 class of receiver}</string>
+\f0\i\fs32 \cf0 class of receiver}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
@@ -265,7 +265,7 @@ of receiver}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{66, 303.79611206054688}, {50, 17}}</string>
+			<string>{{49, 302.79611206054688}, {57, 19}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -277,7 +277,7 @@ of receiver}</string>
 				<key>Font</key>
 				<string>Helvetica-Oblique</string>
 				<key>Size</key>
-				<real>13</real>
+				<real>15</real>
 			</dict>
 			<key>ID</key>
 			<integer>34</integer>
@@ -311,7 +311,7 @@ of receiver}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\i\fs28 \cf0 receiver}</string>
+\f0\i\fs32 \cf0 receiver}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
@@ -360,16 +360,25 @@ of receiver}</string>
 			<key>Shape</key>
 			<string>NoteShape</string>
 			<key>Style</key>
-			<dict/>
+			<dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
 			<key>Text</key>
 			<dict>
+				<key>Align</key>
+				<integer>0</integer>
 				<key>Text</key>
 				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
 \cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
-\f0\fs40 \cf0 ^ super foo}</string>
+\f0\fs40 \cf0 foo\
+   ^ super foo}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
@@ -393,8 +402,8 @@ of receiver}</string>
 			<integer>30</integer>
 			<key>Points</key>
 			<array>
-				<string>{257.75461992478864, 235.73002557373047}</string>
-				<string>{257.41329597869952, 202.346}</string>
+				<string>{257.75461404450209, 235.73002557373047}</string>
+				<string>{257.41328181042149, 202.346}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -448,6 +457,11 @@ of receiver}</string>
 							<key>GradientCenter</key>
 							<string>{-0.29411799999999999, -0.264706}</string>
 						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
 					</dict>
 					<key>Text</key>
 					<dict>
@@ -491,6 +505,11 @@ of receiver}</string>
 							<key>GradientCenter</key>
 							<string>{-0.29411799999999999, -0.264706}</string>
 						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
 					</dict>
 					<key>Text</key>
 					<dict>
@@ -533,8 +552,8 @@ of receiver}</string>
 			<integer>24</integer>
 			<key>Points</key>
 			<array>
-				<string>{311, 82}</string>
-				<string>{352.50060358212176, 79.958972867568733}</string>
+				<string>{302, 84}</string>
+				<string>{352.50104248796231, 80.733748086156567}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -563,16 +582,25 @@ of receiver}</string>
 			<key>Shape</key>
 			<string>NoteShape</string>
 			<key>Style</key>
-			<dict/>
+			<dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
 			<key>Text</key>
 			<dict>
+				<key>Align</key>
+				<integer>0</integer>
 				<key>Text</key>
 				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
 \cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
-\f0\fs40 \cf0 ^ 10}</string>
+\f0\fs40 \cf0 foo\
+    ^ 10}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
@@ -589,8 +617,8 @@ of receiver}</string>
 			<integer>14</integer>
 			<key>Points</key>
 			<array>
-				<string>{208.60447152327816, 300.29610937500001}</string>
-				<string>{228.76604645060155, 283.73002557373047}</string>
+				<string>{208.60876044931149, 300.29610937500001}</string>
+				<string>{228.77627484497484, 283.73001031494141}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -692,6 +720,11 @@ of receiver}</string>
 							<key>GradientCenter</key>
 							<string>{-0.29411799999999999, -0.264706}</string>
 						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
 					</dict>
 					<key>Text</key>
 					<dict>
@@ -734,6 +767,11 @@ of receiver}</string>
 						<dict>
 							<key>GradientCenter</key>
 							<string>{-0.29411799999999999, -0.264706}</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 						</dict>
 					</dict>
 					<key>Text</key>
@@ -784,8 +822,8 @@ of receiver}</string>
 			<integer>11</integer>
 			<key>Points</key>
 			<array>
-				<string>{257.13366419893237, 155.346}</string>
-				<string>{257.03933951851161, 99}</string>
+				<string>{257.13366421913133, 155.346}</string>
+				<string>{257.03933958714163, 99}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -841,6 +879,11 @@ of receiver}</string>
 							<key>GradientCenter</key>
 							<string>{-0.29411799999999999, -0.264706}</string>
 						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
 					</dict>
 					<key>Text</key>
 					<dict>
@@ -883,6 +926,11 @@ of receiver}</string>
 						<dict>
 							<key>GradientCenter</key>
 							<string>{-0.29411799999999999, -0.264706}</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 						</dict>
 					</dict>
 					<key>Text</key>
@@ -965,7 +1013,7 @@ of receiver}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-06-28 15:37:11 +0000</string>
+	<string>2015-12-25 05:31:38 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -1061,7 +1109,7 @@ of receiver}</string>
 		<key>ExpandedCanvases</key>
 		<array/>
 		<key>Frame</key>
-		<string>{{1663, 107}, {574, 832}}</string>
+		<string>{{392, 0}, {574, 778}}</string>
 		<key>ListView</key>
 		<false/>
 		<key>OutlineWidth</key>
@@ -1073,7 +1121,7 @@ of receiver}</string>
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{2, 1}, {560, 707}}</string>
+		<string>{{-1, 1}, {574, 684}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
