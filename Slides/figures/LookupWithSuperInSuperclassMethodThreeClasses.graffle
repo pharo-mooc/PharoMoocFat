@@ -59,8 +59,8 @@
 			<integer>33</integer>
 			<key>Points</key>
 			<array>
-				<string>{163.173, 183.02020548258218}</string>
-				<string>{207.00346928459848, 188.0599355820604}</string>
+				<string>{163.173, 183.07524204518111}</string>
+				<string>{207.00341398693874, 188.16857190469653}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -94,7 +94,13 @@
 			<key>Shape</key>
 			<string>NoteShape</string>
 			<key>Style</key>
-			<dict/>
+			<dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
 			<key>Text</key>
 			<dict>
 				<key>Align</key>
@@ -130,8 +136,8 @@
 			<integer>30</integer>
 			<key>Points</key>
 			<array>
-				<string>{118.75457059113211, 234.73002557373047}</string>
-				<string>{118.41317271562617, 201.346}</string>
+				<string>{118.75460675025484, 234.73002557373047}</string>
+				<string>{118.41325917212716, 201.346}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -185,6 +191,11 @@
 							<key>GradientCenter</key>
 							<string>{-0.29411799999999999, -0.264706}</string>
 						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
 					</dict>
 					<key>Text</key>
 					<dict>
@@ -228,6 +239,11 @@
 							<key>GradientCenter</key>
 							<string>{-0.29411799999999999, -0.264706}</string>
 						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
 					</dict>
 					<key>Text</key>
 					<dict>
@@ -270,8 +286,8 @@
 			<integer>26</integer>
 			<key>Points</key>
 			<array>
-				<string>{164.00000762939453, 261.9133906760361}</string>
-				<string>{270.50092926980687, 269.4474193110014}</string>
+				<string>{164.00000762939456, 261.81547242231704}</string>
+				<string>{270.50114009243242, 269.11777365949291}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -369,7 +385,13 @@
 			<key>Shape</key>
 			<string>NoteShape</string>
 			<key>Style</key>
-			<dict/>
+			<dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
 			<key>Text</key>
 			<dict>
 				<key>Align</key>
@@ -396,7 +418,13 @@
 			<key>Shape</key>
 			<string>NoteShape</string>
 			<key>Style</key>
-			<dict/>
+			<dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
 			<key>Text</key>
 			<dict>
 				<key>Align</key>
@@ -423,7 +451,13 @@
 			<key>Shape</key>
 			<string>NoteShape</string>
 			<key>Style</key>
-			<dict/>
+			<dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
 			<key>Text</key>
 			<dict>
 				<key>Align</key>
@@ -472,6 +506,11 @@
 							<key>GradientCenter</key>
 							<string>{-0.29411799999999999, -0.264706}</string>
 						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
 					</dict>
 					<key>Text</key>
 					<dict>
@@ -514,6 +553,11 @@
 						<dict>
 							<key>GradientCenter</key>
 							<string>{-0.29411799999999999, -0.264706}</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 						</dict>
 					</dict>
 					<key>Text</key>
@@ -564,8 +608,8 @@
 			<integer>11</integer>
 			<key>Points</key>
 			<array>
-				<string>{118.12871926083524, 154.346}</string>
-				<string>{118.06588583410384, 121}</string>
+				<string>{118.12873221035251, 154.346}</string>
+				<string>{118.06591715871058, 121}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -621,6 +665,11 @@
 							<key>GradientCenter</key>
 							<string>{-0.29411799999999999, -0.264706}</string>
 						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
 					</dict>
 					<key>Text</key>
 					<dict>
@@ -663,6 +712,11 @@
 						<dict>
 							<key>GradientCenter</key>
 							<string>{-0.29411799999999999, -0.264706}</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 						</dict>
 					</dict>
 					<key>Text</key>
@@ -746,7 +800,7 @@ bar}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-06-28 15:40:06 +0000</string>
+	<string>2015-12-25 05:19:56 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -842,7 +896,7 @@ bar}</string>
 		<key>ExpandedCanvases</key>
 		<array/>
 		<key>Frame</key>
-		<string>{{1663, 107}, {574, 832}}</string>
+		<string>{{372, 0}, {574, 778}}</string>
 		<key>ListView</key>
 		<false/>
 		<key>OutlineWidth</key>
@@ -854,7 +908,7 @@ bar}</string>
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{2, 1}, {560, 707}}</string>
+		<string>{{-1, 1}, {574, 684}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
