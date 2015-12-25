@@ -1,6 +1,7 @@
 {
-    "title":"Inheritance and Lookup",
-    "subtitle":"3: Super"
+  "title":"Inheritance and Lookup",
+  "subtitle":"3: Super",
+  "slidesid" : "W4S03"
 }
 
 ${slide:title=Goal}$
@@ -9,7 +10,7 @@ ${slide:title=Goal}$
 - Dynamic binding/method lookup
 - ==super== semantics and the differences with ==self==
 
-${slide:title=What is super?}$
+${slide:title=What is Super?}$
 
 Take 5 min and write the definition of super?
 
@@ -18,29 +19,29 @@ Take 5 min and write the definition of super?
 -- How the method are looked up when a message is sent to ==super==?
 
 
-${slide:title=How do we access to an overriden method?}$
+${slide:title=How Do We Access an Overriden Method?}$
 
 - You define a method with the same name that one in an upper class.
 - You want to execute it in your subclass?
 - Use ==super== instead of ==self==
 
-[[[language=Smalltalk
-    Workstation>>accept: aPacket
-        (aPacket isAddressedTo: self)
-            ifTrue: [ Transcript show: 'Accepted by the Workstation ', self name asString ]
-            ifFalse: [ super accept: aPacket ]
+[[[
+  Workstation>>accept: aPacket
+      (aPacket isAddressedTo: self)
+          ifTrue: [ Transcript show: 'Accepted by the Workstation ', self name asString ]
+          ifFalse: [ super accept: aPacket ]
 ]]]
 
 
-${slide:title=Challenge yourself with super!}$
+${slide:title=Challenge Yourself With Super!}$
 
 ${columns}$
 
-${column:width=50}$
+${column:width=80}$
 
-+>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=90+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=100+
 
-${column:width=50}$
+${column:width=30}$
 
 [[[
     A new bar
@@ -53,15 +54,15 @@ ${column:width=50}$
 
 ${endColumns}$
 
-${slide:title=Challenge yourself with super!}$
+${slide:title=Challenge Yourself With Super!}$
 
 ${columns}$
 
-${column:width=50}$
+${column:width=80}$
 
-+>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=90+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=100+
 
-${column:width=50}$
+${column:width=30}$
 
 [[[
     A new bar
@@ -74,49 +75,47 @@ ${column:width=50}$
 
 ${endColumns}$
 
-
-${slide:title=Super changes the class where the lookup starts}$
+${slide:title=Super Changes where the Lookup Starts}$
 
 ${columns}$
 
-${column:width=30}$
+${column:width=32}$
 
-+>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=100+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=135+
 
 [[[
     C new bar
     > 100
 ]]]
 
-${column:width=70}$
+${column:width=63}$
 
-- ==bar== is sent to ==aC== (an instance of C): ==bar== is looked up in C, not found, look in ==B==
+- ==bar== is sent to ==aC== (instance of C): ==bar== is looked up in C, not found, look in ==B==
 - ==bar== is found in class B, and applied to the receiver ==aC==.
 - ==bar== is sent to ==super==,
 - ==super== is the receiver (aC), but lookup starts above class ==B==
 - ==bar== is found in class ==A== and it is applied to the receiver ==aC==.
-- ==foo== is sent to ==self==: ==self== represents the receiver: ==aC==
+- ==foo== is sent to ==self==: ==aC==
 - ==foo== is found in class ==C== and applied to ==aC==, it returns 50.
 
 ${endColumns}$
 
-${slide:title=Super?}$
+${slide:title=Super? Super: the Receiver}$
 
 - ==super== refers to the receiver of the message (like ==self==. Yes!)
 - The method lookup starts in the superclass of ...?
 
 
-
-${slide:title=Super starts lookup in superclass of the class using it}$
+${slide:title=Super Starts Lookup in Superclass of the Class Using It}$
 
 - ==super== refers to the receiver of the message (like ==self==. Yes!)
-- The method lookup starts in the superclass of the class containing the super expression.
+- The method lookup starts in the superclass of ""the class containing the super expression""
 
-${slide:title=Super is static / self is dynamic}$
+${slide:title=Super is Static / Self is Dynamic}$
 
-- There is no reference to the receiver in the method lookup of a ==super== invocation!
+There is no reference to the receiver in the method lookup of a ==super== invocation!
 
-${slide:title=self is dynamic|label=selfdynamic}$
+${slide:title=Self is Dynamic}$
 
 ${columns}$
 
@@ -128,41 +127,40 @@ ${column:width=50}$
 
 ${column:width=50}$
 
-+>file://figures/SelfIsDynamic1.png|width=100+
++>file://figures/SelfIsDynamic1.png|width=110+
 
 ${endColumns}$
 
-${slide:title=super is static|label=super}$
+${slide:title=Super is Static}$
 
 ${columns}$
 
 ${column:width=50}$
 
-+>file://figures/SuperIsStatic.png|width=100+
++>file://figures/superIsStatic.png|width=90+
 
 ${column:width=50}$
 
-- At compilation-time, just reading the code we know that we should look above the class containing the ""method"" using ==super==.
+At compilation-time, just reading the code we know that we should look above the class containing the ""method"" using ==super==.
 
 ${endColumns}$
 
-${slide:title=Yes even some books got it wrong}$
+${slide:title=Even Some Books Got it Wrong}$
 
 - Wrong definition: super looks for the method in the superclass of the class of the ""receiver"".
-- Wrong!
-- It would loop forever!
-- ==aC foo== loops, because ==super== points to ==aC== and the superclass of the class of the receiver is B.
+- Wrong! It loops forever!
+- ==aC foo== loops, because ==super== points to ==aC== and the superclass of the class of the receiver is ==B==.
 
-+>file://figures/LookupWithWrongDefinition.png|width=45+
-
++>file://figures/LookupWithWrongDefinition.png|width=65+
 
 
 
-${slide:title=What you should know}$
+
+${slide:title=What You Should Know}$
 
 - ==self== ''always'' represents the receiver
-- the method lookup maps a message to a method
-- the method lookup starts in the class of the receiver...
+- Method lookup maps a message to a method
+- Method lookup starts in the class of the receiver...
 - ...and goes up in the hierarchy
-- ==super== is the receiver, lookup starts is superclass of the method using the expression.
+- ==super== is the receiver, lookup starts is superclass of the method using the expression
 - self sends act as a hook. Code of subclasses may be invoked.
