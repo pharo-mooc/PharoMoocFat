@@ -1,52 +1,59 @@
 {
-    "title":"Inheritance and Lookup",
-    "subtitle":"5: Lookup in metaclasses"
+  "title":"Inheritance and Lookup",
+  "subtitle":"5: Lookup in metaclasses",  
+  "slidesid" : "W4S05"
 }
 
 ${slide:title=Goal}$
 
--Messages can be sent to classes too
--The mechanism is ""exactly"" the same
+- Messages can be sent to classes too
+- The mechanism is ""exactly"" the same
 
 ${slide:title=Lookup of Class Methods is No Different}$
 
 Sending a message to a class is also late-bound (dynamically resolved)
 - contrary to Java/C#
-- no ==static==, only methods of another object (a class)
+- no ==static==, only methods of object (a class)
 
-${slide:title=Lookup of Class Methods is No Different}$
-
+${slide:title=Only One Lookup Rule}$
 
 ${columns}$
 
 ${column:width=40}$
 
-Only one rule:
-
-When a message is sent to an object, a method is searched starting from the class of the object and following the inheritance chain
+When a message is sent to an object, a method is searched 
+#starting from the ""class"" of the object and 
+#following the inheritance chain
 
 ${column:width=50}$
 
-+>file://figures/LookupEssenceAny.png|width=130+
++>file://figures/LookupEssenceWithGeneric.png|width=140+
 
 ${endColumns}$
 
 
 ${slide:title=A Class is an Instance of Another Class}$
 
-- A class ==X== is always the unique instance of another class ==X class==
--- The class of ==Node== is ==Node class==
+Class ==X== is always the unique instance of the class ==X class==
+- The class of ==Node== is ==Node class==
+- The class ==Node class== is automatically created by the system
 
-+>file://figures/WorkstationMetaclassesWithInheritance.png|width=90+
++>file://figures/ClassMetaclass.png|width=100+
+
+${slide:title=Superclass Chain}$
+
++>file://figures/WorkstationMetaclassesWithInheritance.png|width=120+
 
 
 ${slide:title=Lookup of Class Methods is No Different}$
 
-+>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=130+
++>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=140+
 
-${slide:What you Should Know}$
+${slide:What You Should Know}$
 
--Classes are objects and can be sent messages
--The process is ""exactly"" the same as for other objects
--To know more: follow the lecture 'Understanding Metaclasses'
+- Classes are objects and can be sent messages
+- Method lookup is ""exactly"" the same as for plain objects: 
+-- go to the class of the receiver 
+-- follow inheritance chain
+- To know more: follow the lecture ''Understanding Metaclasses''
 
