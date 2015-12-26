@@ -1,51 +1,48 @@
 {
-	"title":"Learning From Common Errors"
+  "title":"Learning From Common Errors",
+    "slidesid" : "W5S01"
 }
 
-${slide:title=You will learn}$
+${slide:title=What You Will Learn}$
 
 - Understand common mistakes
 - How to recover faster from mistakes
 
-${slide:title=Missing period}$
+${slide:title=Missing Period}$
 
 - Remember . separates messages
-
-+>file://figures/printOnUndefined.png|width=100+
-
-Message ==printOn:nextPutAll:== does not exist
 - Qualitant Assistant will warn you
 - But you may also send a message you did not want
 
 
-${slide:title=Missing period}$
+${slide:title=Missing Period}$
 
 Problem:
-[[[
-Dice >>	printOn: aStream
-   super printOn: aStream
-   aStream nextPutAll: '(', faces printString , ')'
-]]]
++>file://figures/printOnUndefined.png|width=100+
+Message ==printOn:nextPutAll:== does not exist
+
 Solution:
 [[[
-Dice >>	printOn: aStream
+Dice >> printOn: aStream
    super printOn: aStream.
    aStream nextPutAll: '(', faces printString , ')'
 ]]]
 
-${slide:title=Does Not Understand Self}$
+${slide:title=MessageNotUnderstood:...>>self}$
 
 +>file://figures/DebugSelf1.png|width=110+
 
 %+>file://figures/DebugSelf2.png|width=80+
 
 
-${slide:title=Does Not Understand Self}$
+${slide:title=MessageNotUnderstood:...>>self}$
 
 +>file://figures/DebugSelf2.png|width=100+
 
 
 ${slide:title=Again A Missing Period}$
+
+Solution:
 [[[
 + aDiceHandle 
 
@@ -63,13 +60,6 @@ Remember
 - The message is the longuest sequence of fragments
 - ==between:and:== in ==x between: 0 and: 20== 
 
-Problem:
-[[[
-  x includes: 33 
-    ifTrue: [ self do something ]
-]]]
-
-- ==includes:ifTrue:== is an unknown message
 
 ${slide:title=Parentheses to Delimit Messages}$
 
@@ -78,6 +68,7 @@ Problem:
   x includes: 33 
     ifTrue: [ self do something ]
 ]]]
+- ==includes:ifTrue:== is an unknown message (usually in red)
 
 Solution:
 [[[
@@ -87,14 +78,15 @@ Solution:
 
 - Read again the lectures '() vs. []'
 
-${slide:title=Forgotten parentheses}$
+${slide:title=Forgotten Parentheses}$
 
+Problem:
 [[[
   self assert: players includes: aPlayer
 ]]]
 
 - ==assert:includes:== does not exist
-
+Solution:
 [[[
   self assert: (players includes: aPlayer)
 ]]]
@@ -104,22 +96,34 @@ ${slide:title=Forgotten parentheses}$
 
 ${slide:title=Forgotten yourself}$
 
+Problem:
 [[[
-| col |
-col := OrderedCollection new add: 35; add: 65.
-col do: [ :each | ....]
+OrderedCollection new add: 35; add: 65
 ]]]
 
 - ==col== is 65 because ==add:== returns its argument and not the receiver
 
+Solution:
 [[[
-| col |
-col := OrderedCollection new add: 35; add: 65; yourself. 
-col do: [ :each | ....]
+OrderedCollection new add: 35; add: 65; yourself 
 ]]]
 
-- ==yourself== returns self, hence the receiver and here the collection.
+- ==yourself== returns ==self==, hence the receiver and here the collection
 
+${slide:title=yourself}$
+
+[[[
+OrderedCollection new add: 35; add: 65; yourself
+]]]
+
+is equivalent to 
+
+[[[
+| col |
+col := OrderedCollection new.
+col add: 35; add: 65.
+col
+]]]
 
 ${slide:title=True vs. true}$
 
@@ -135,9 +139,10 @@ Book>>initialize
   inLibrary := true
 ]]]
 
- ==true== is the instance of the class ==True==
+- ==true== is the instance of the class ==True==
+- Class names start with an uppercase
 
-${slide:title=nil is not a Boolean}$
+${slide:title=nil Is Not a Boolean}$
 
 ==nil== is not an acceptable receiver for ifTrue:
 ==nil== is the unique instance of ==UndefinedObject==
@@ -145,8 +150,11 @@ ${slide:title=nil is not a Boolean}$
 
 ${slide:title=Forgetting to Return the Result}$
 
-- In a method self is returned by default
+- In a method ==self== is returned by default when there is no other return
 - Do not forget ==^== to return something else!
+
+
+${slide:title=Forgetting to Return the Result}$
 
 Problem:
 [[[
@@ -154,7 +162,13 @@ Dice >> roll
   faces atRandom
 ]]]
 
-return self not the expression result
+is equivalent to 
+
+[[[
+Dice >> roll
+  faces atRandom
+  ^ self 
+]]]
 
 Solution:
 [[[
@@ -162,21 +176,22 @@ Dice >> roll
   ^ faces atRandom
 ]]]
 
-${slide:title=Returning Class instead of Instance}$
+${slide:title=Returning Class Instead of an Instance}$
 
 Problem: 
 [[[
 Dice class >> new 
-  self new setFaces: 0
+  super new setFaces: 0
 ]]]
 
 is equivalent to 
 
 [[[
 Dice class >> new 
-  self new setFaces: 0
+  super new setFaces: 0
   ^ self 
 ]]]
+- ==new== is a message sent to a class
 - ==self== is the class ==Dice==
 - Returns ==Dice== and not its newly created instance
 
@@ -185,14 +200,17 @@ ${slide:title=Returning Instance}$
 Problem: 
 [[[
 Dice class >> new 
-  self new setFaces: 0
+  super new setFaces: 0
 ]]]
 
 Solution: 
 [[[
 Dice class >> new 
-  ^ self new setFaces: 0 ; yourself
+  ^ super new setFaces: 0 ; yourself
 ]]]
+
+==yourself== makes sure that the result of ==new== is sent and not the result of ==setFaces:== which could be something else than the newly created instance
+
 
 ${slide:title=Instantiation Loops}$
 
@@ -205,15 +223,15 @@ Dice class >> new
 Solution: 
 [[[
 Dice class >> new 
-  ^ self basicNew setFaces: 0 ; yourself
+  ^ super setFaces: 0 ; yourself
 ]]]
 
 
-${slide:title=What you should know}$
+${slide:title=What You should know}$
 
 - How to identify faster error
 - Check period
-- Check parentheseses
+- Check parentheses
 - Use the debugger to look at the problem
 
 
