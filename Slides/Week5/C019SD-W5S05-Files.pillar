@@ -1,9 +1,15 @@
 {
-	"title":"Files in Pharo"
+  "title":"Files in Pharo",
+  "slidesid" : "W5S05"
 }
 
+${slide:title=What You Will Learn}$
+
+- File API (close to Java NIO)
+- Basic stream API
 
 ${slide:title=Getting Started}$
+
 [[[
 | working |
 working := FileSystem disk workingDirectory.
@@ -30,6 +36,7 @@ working class
 > FileReference
 ]]]
 
+Can also be created as follow:
 [[[
 '/Users/ducasse/Workspace/FirstCircle/Pharo/20' asFileReference
 ]]]
@@ -37,7 +44,8 @@ working class
 ${slide:title=All Files That...}$
 
 [[[
-aFileRef allChildren select: [ :each | each basename endsWith: 'jpeg' ]
+aFileRef allChildren 
+   select: [ :each | each basename endsWith: 'jpeg' ]
 ]]]
 
 ${slide:title=basename}$
@@ -71,13 +79,14 @@ parent = working
 > true
 ]]]
 
-${slide:title=File entry}$
+${slide:title=File Entry}$
 
 [[[
 | c | 
 c := FileSystem disk workingDirectory / 'package-cache'.
 c entry creationTime.
 > aDateAndTime(2015-11-03T10:00:51-08:00)
+
 c entry permissions isWritable.
 > true
 ]]]
@@ -96,7 +105,7 @@ stream contents.
 stream close.
 ]]]
 
-${slide:title=Simpler with Streams}$
+${slide:title=With writeStreamDo: and readStreamDo:}$
 
 [[[
 | working |
@@ -112,4 +121,4 @@ ${slide:title=Summary}$
 - Files references are objects
 - Manipulate file references
 - Permissions are objects
-- Read ''Files with FileSystem'' chapter in "Deep into Pharoa"
+- Read ''Files with FileSystem'' Chapter in "Deep into Pharo"
