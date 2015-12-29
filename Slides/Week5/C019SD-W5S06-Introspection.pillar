@@ -1,28 +1,29 @@
 {
-	"title":"Reflection: Basic Introspection"
+  "title":"Reflection: Basic Introspection", 
+  "slidesid" : "W5S06"
 }
 
 
 ${slide:title=What Definitions Say: Reflection}$
 
-'''Reflection is the ability of a program to manipulate as data something representing the state of the program during its own execution.'''
+''Reflection is the ability of a program to manipulate as data something representing the state of the program during its own execution.''
 - ""Introspection"" is the ability for a program to ""observe"" and therefore ""reason"" about its own state.
 - ""Intercession"" is the ability for a program to ""modify"" its own execution state or alter its own interpretation or meaning.
 
 
 ${slide:title=What Definitions Say: Reification}$
 
-""Reification"" is the process to get implicit as explicit (objects)
+""Reification"" is the process to transform implicit to explicit (objects)
 - i.e., getting the stack as an object
 - i.e., getting a class as an object
 
 
-${slide:title=Pharo is a reflective system}$
+${slide:title=Pharo is a Reflective System}$
 
-'''A system having itself as application domain and that is causally connected with this domain can be qualified as a reflective system''' Maes'87
+''A system having itself as application domain and that is causally connected with this domain can be qualified as a reflective system'' Maes'87
 
 - A reflective system has an internal representation of itself
-- A reflective system is able to act on itself with the ensurance that its representation will be causally connected (up to date)
+- A reflective system is able to act on itself with the ensurance that its representation will be causally connected (i.e. up to date)
 
 
 ${slide:title=Inspector}$
@@ -118,7 +119,7 @@ Object >> perform: aSymbol with: arg
 
 ${slide:title=Classes Hold Compiled Methods}$
 
-we should redo it.
+
 +.>file://figures/ClassCompiledMethods.png|width=150+
 
 
@@ -145,7 +146,6 @@ CompiledMethod >> valueWithReceiver:arguments:
 ${slide:title=Summary}$
 
 - Just a part of the reflective power!
-- Watch the videos about the debugger
-- Watch the videos about the inspector
-- Try, try and try them
-- These tools are powerful
+- Everything is an object and can be introspected
+- Grab objects and talk to them 
+- Have a look at inspector code
