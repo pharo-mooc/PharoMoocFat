@@ -48,6 +48,8 @@ ${slide:title=bench}$
 
 The higher the better!
 
+==[ 1234 factorial ] benchFor: 2 seconds==
+
 ${slide:title=Time Profiler}$
 
 - ==TimeProfiler==: a sampling-based code profiler

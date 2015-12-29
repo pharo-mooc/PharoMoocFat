@@ -1,5 +1,6 @@
 {
-	"title":"Debugging in Pharo"
+  "title":"Debugging in Pharo",
+  "slidesid" : "W5S03"
 }
 
 ${slide:title=Common Wisdom}$
@@ -15,23 +16,23 @@ ${slide:title=Debugging}$
 
 - The debugger is your best friend:
 -- access objects in a particular call
--- access object state
 -- check state
--- send messages
+-- send messages to specific objects
 -- compile code on the fly
 
-Watch the video on the debugger, on the inspector and practice!
+Watch the videos on the debugger, on the inspector and practice!
 
-${slide:title=Simple trace}$
+${slide:title=Simple Trace}$
 
 [[[
 Transcript cr; show: 'here with value: ', x printString
 ]]]
 
 - A bit too traditional and often inefficient because too verbose
+- We can do better!
 
 
-${slide:title=Placing Breakpoint}$
+${slide:title=Defining a Breakpoint}$
 
 [[[
   ...
@@ -51,13 +52,14 @@ ${slide:title=Single Shot Halt}$
   ...
 ]]]
 
+To arm it:
 [[[
   Halt enableHaltOnce
 ]]]
 
 ==Halt once==, once enabled, stop the first time
 
-${slide:title=Halt after n iterations}$
+${slide:title=Halt After n Iterations}$
 
 [[[
 Halt onCount: 10
@@ -78,8 +80,8 @@ Debug > 4
 ]]]
 
 ${slide:title=Conditional Halt}$
-
-- ==if: aSelector== stops the execution only if the method has been invoked from aSelector
+How to halt a method that is heavily used?
+- ==if: aSelector== stops the execution only if the method has been invoked from message named ==aSelector==
 - ==if: aBlock== stops the execution only if the block is true
 
 Example:
@@ -93,9 +95,7 @@ foo
 
 ${slide:title=Conditional Halt and Test}$
 
-- How to halt a method that is heavily used?
-- ==if:== is really powerful!
-- Hint: Write a test and get benefit for it
+Hint: Write a test and get benefit for it
 
 Example:
 [[[
