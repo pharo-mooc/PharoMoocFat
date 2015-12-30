@@ -2,6 +2,7 @@
 
 !TODO
 
+!! Simple points
 - [Lecture 6min] Slides/Week5/C019SD-W5S03-Debugging.pillar
 -- Status: + add a debugger stack!!!
 
@@ -11,6 +12,8 @@
 [[[
 mate Slides/Week3/C019SD-W3S05-Basic-Variables.pillar
 ]]]
+
+- redo screenshot of slide:title=Classes Hold Compiled Methods in W5S06
 
 - a mettre dans learningFromMistakes: Class methods cannot access instance variables
 
@@ -35,21 +38,6 @@ Probablement class and Method Definition lectures
 -- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatch.html*
 
 
-
-
-
-
-- Idées pour le teaser
--- mettre des vidéos de : vidéo des cubes (yuri), Roassal?, Quuve, Block/Brick, Yes Plan?
--- démo coder dans le débuggeur / peut-être un exemple seaside 
--- trouver une image libre de droit pour escher
--- max 2min de teaser dont 1min30 grand max de texte
--- pas d'habits verts le jour du tournage
--- parler aux cibles : 
----- si vous êtes un développeur OO ou avez déjà programmé en OO, vous allez redécouvrir la programmation par objets, ... 
----- si vous êtes débutant en prog, ....
----- ... 
-
 !! Missing Lectures
 
 Seaside1	
@@ -62,10 +50,10 @@ Seaside3
 Seaside2
 - Seaside call:/answer:
 
-Voyage
+Voyage in Week 6
 - Voyage simple?
 
-- 6 Week7 Deploying an application 
+Deploying an application Week 7
 -- pharo cloud 
 -- cloud9
 
@@ -86,17 +74,16 @@ Voyage
 
 !! Find how to 
 
-
-
-!! Exercices
-
-
-!!! Finding 
 - ouvrir et afficher un fichier jpeg
 - lister le contenu d'un repertoire sur le disc
 - requete http recuperer la meteo sur le net
 - service google qui fait un calcul
-!!! Iterators
+
+!! Exercices
+
+
+!!! Quiz
+
 Propose some expressions to illustrate the uses of 
 - ==anySatisfy:== 
 - ==allSatisfy:== 
@@ -435,13 +422,13 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] C019SD-W5S00-UnderstandingClassMethods.pillar
 -- Presenter: Stef
--- Status: Done may be should move this one to another week.
+-- Status: Reviewed after Lome
 -- Files:  *SlidesPdf>../Slides/Week5/C019SD-W5S00-UnderstandingClassMethods.pdf*	*SlidesHTML>../Slides/Week5/C019SD-W5S00-UnderstandingClassMethods.html*	
 
 
 - [Lecture 6min] W5S-LearningFromMistakes
 -- Presenter: 
--- Status: 
+-- Status: Reviewed after Lome
 -- Files:  *SlidesPdf>../Slides/Week5/W5S01-LearningFromMistakes.pdf* *SlidesHTML>../Slides/Week5/W5S01-LearningFromMistakes.html*
 
 
@@ -453,12 +440,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S-Exceptions.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S-Exceptions.html*
 
 - [Lecture 6min] Slides/Week5/C019SD-W5S03-Debugging.pillar
--- Presenter: 
+-- Presenter: Reviewed after Lome
 -- Status: + add a debugger stack
 -- Files:  *SlidesPdf>../Slides/Week5/C019SD-W5S03-Debugger.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S03-Debugger.html* 
 
 - [Lecture 6min] C019SD-W5S02-Benchmarking.pillar
--- Presenter: 
+-- Presenter: Reviewed after Lome
 -- Status: Done
 -- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S02-Benchmarking.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S02-Benchmarking.html*
 
@@ -468,20 +455,14 @@ You will also see that 4 kinds of activities are distinguished:
 
 - [Lecture 6min] C019SD-W5S05-Files.pillar
 -- Presenter: 
--- Status: Done
+-- Status: Reviewed after Lome
 -- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S05-Files.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S05-Files.html*
 
 
 - [Lecture 6min] Reflection: Basic Introspection
 -- Presenter: Luc
--- Status: Done
--- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S-Introspection.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S-Introspection.html* 
-
-- [Lecture 6min] A bit more Reflection
--- Presenter: Luc
--- DNU
--- compile:
--- scripting google service API? Stuff of franz Prinz
+-- Status: Reviewed after Lome
+-- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S06-Introspection.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S06-Introspection.html* 
 
 
 !!!! Exos	
@@ -494,15 +475,24 @@ You will also see that 4 kinds of activities are distinguished:
 
 !!Week 6: Rethink lookup and Advanced OO Design
 
+- [Lecture 6min]  Did you read understand super?
+-- Presenter: Stef
+-- Status: To review
+-- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S01-DidYouUnderstandSuper.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S01-DidYouUnderstandSuper.html*
+
+- [Lecture 6min] C019SD-W6S02-SelfSendsDiceHandle.pdf
+-- Presenter: Stef ou luc
+-- Status: To be reviewed (we could move it to week 7)
+-- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S02-SelfSendsDiceHandle.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S02-SelfSendsDiceHandle.html*
+
+
+
 - [Lecture 6min]  Strings, characters, symbols
 -- Presenter: 
 -- Status: On the way
 -- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S-DidYouUnderstandSuper.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S-DidYouUnderstandSuper.html* 
 
-- [Lecture 6min]  Did you read understand super?
--- Presenter: Stef
--- Status: To review
--- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S-DidYouUnderstandSuper.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S-DidYouUnderstandSuper.html*
+
 
 - 6 Advanced Classes
 -- Presenter: Stef
@@ -515,10 +505,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Doing it may be should move this one to another week (and after the lookup is done)
 -- Files: W3S10-UnderstandingClassMethods.pillar	
 
-- [Lecture 6min] self class vs DiceHandle new
--- Presenter: Stef ou luc
--- Status: To be reviewed (we could move it to week 7)
--- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S-SelfSendsDiceHandle.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S-SelfSendsDiceHandle.html*
+
 
 - [Lecture 6min] Hook and Template / Copy as a hook and template
 -- Presenter: 
