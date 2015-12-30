@@ -61,7 +61,7 @@
 			<integer>43</integer>
 			<key>Points</key>
 			<array>
-				<string>{239.50618955020687, 228.173}</string>
+				<string>{239.50619203423815, 228.173}</string>
 				<string>{239.5, 205}</string>
 			</array>
 			<key>Style</key>
@@ -86,7 +86,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{354, 143.62599182128906}, {187, 86}}</string>
+			<string>{{301, 131}, {187, 86}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -142,7 +142,7 @@ inheritance}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{273, 386.92300415039062}, {243, 43}}</string>
+			<string>{{257, 382.84600830078125}, {243, 43}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -195,7 +195,7 @@ inheritance}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{409, 224.34600830078125}, {39, 62}}</string>
+			<string>{{375, 210.6920166015625}, {39, 62}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -430,8 +430,8 @@ inheritance}</string>
 			<integer>29</integer>
 			<key>Points</key>
 			<array>
-				<string>{228.97399713307306, 362.92300415039062}</string>
-				<string>{233.73378005176019, 324.173}</string>
+				<string>{228.96059705243132, 362.92300415039062}</string>
+				<string>{233.67710887274481, 324.173}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -556,7 +556,7 @@ inheritance}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{159.00000561523439, 252.173}, {161.03800964355469, 72}}</string>
+					<string>{{159.00000561523439, 252.173}, {161.03802490234375, 72}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -597,8 +597,8 @@ inheritance}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
-\f0\fs40 \cf0 method1\
-method2\
+\f0\fs40 \cf0 method1()\
+method2()\
 }</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
@@ -811,7 +811,7 @@ method2\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-06-27 20:23:42 +0000</string>
+	<string>2015-12-25 06:18:59 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -907,7 +907,7 @@ method2\
 		<key>ExpandedCanvases</key>
 		<array/>
 		<key>Frame</key>
-		<string>{{301, 45}, {974, 787}}</string>
+		<string>{{206, 0}, {974, 778}}</string>
 		<key>ListView</key>
 		<false/>
 		<key>OutlineWidth</key>
@@ -919,7 +919,7 @@ method2\
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{-193, 1}, {960, 677}}</string>
+		<string>{{-201, 1}, {974, 684}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>

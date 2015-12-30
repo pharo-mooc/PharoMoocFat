@@ -1,24 +1,23 @@
 {
-    "title":"Inheritance and Lookup",
-    "subtitle":"4: Does Not Understand"
+  "title":"Inheritance and Lookup",
+  "subtitle":"4: Understanding Does Not Understand",
+  "slidesid" : "W4S03"
 }
 
 ${slide:title=Goal}$
 
--A hook message is sent when the lookup fails
--Code can implement the dedicated method to customize the reaction to this failure
+- A hook message is sent when the lookup fails
+- Code can implement a dedicated method to customize the reaction to this failure
 
 
 ${slide:title=When No Method is Found}$
 
-If no method is found in the hierarchy, a new message ==#doesNotUnderstand:== is sent to the receiver, with the initial message as parameter.
+If no method is found in the hierarchy, a new message ==doesNotUnderstand:== is sent to the receiver, with the initial message as parameter.
 
 +>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=60+
 
 
 ${slide:title=When No Method is Found}$
-
-A new message ==#doesNotUnderstand:== is sent to the receiver, with the initial message as parameter.==doesNotUnderstand:== is looked up as a normal message.
 
 +>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=100+
 
@@ -46,9 +45,9 @@ ${endColumns}$
 
 ${slide:title=doesNotUnderstand: is a Message}$
 
--==doesNotUnderstand:== is a message
--every class can customize handling of this error
--important hook for automatic delegation
+- ==doesNotUnderstand:== is a message
+- Every class can customize handling of this error
+- Important hook for automatic delegation, proxy, distribution
 
 ${slide:title=doesNotUnderstand: and the Debugger}$
 
@@ -67,8 +66,8 @@ SomeClass>>doSomething
   do: [ Transcript show: 'Something went wrong with a message' ]
 ]]]
 
-${slide:What you Should Know}$
+${slide:What You Should Know}$
 
--==#doesNotUnderstand:== is sent when a method is not found by the lookup;
--each class can implement this hook method;
--the default implementation of ==#doesNotUnderstand:== raises a ==MessageNotUnderstood== exception that can be handled.
+-==doesNotUnderstand:== is sent when a method is not found by the lookup
+- Each class can implement this hook method
+- Default implementation of ==doesNotUnderstand:== raises a ==MessageNotUnderstood== exception that can be handled

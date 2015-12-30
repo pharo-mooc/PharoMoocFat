@@ -52,12 +52,17 @@
 			<false/>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>Head</key>
+			<dict>
+				<key>ID</key>
+				<integer>26</integer>
+			</dict>
 			<key>ID</key>
 			<integer>27</integer>
 			<key>Points</key>
 			<array>
-				<string>{174.7106751098633, 537}</string>
-				<string>{216.48001098632812, 585}</string>
+				<string>{199.34599237060547, 489.37508172008421}</string>
+				<string>{258.17300415039062, 500.32355000384308}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -69,10 +74,8 @@
 					<true/>
 					<key>LineType</key>
 					<integer>1</integer>
-					<key>Pattern</key>
-					<integer>1</integer>
 					<key>TailArrow</key>
-					<string>0</string>
+					<string>FilledArrow</string>
 				</dict>
 			</dict>
 			<key>Tail</key>
@@ -83,7 +86,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{224.48001098632812, 570}, {61, 24}}</string>
+			<string>{{258.17300415039062, 494}, {61, 24}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -138,8 +141,9 @@
 			<integer>25</integer>
 			<key>Points</key>
 			<array>
-				<string>{282.92864281549868, 270.54678041620895}</string>
-				<string>{262.173, 226}</string>
+				<string>{273.56281908449881, 270.64017723558015}</string>
+				<string>{244, 240}</string>
+				<string>{258.17300415039062, 205}</string>
 				<string>{194.173, 180}</string>
 			</array>
 			<key>Style</key>
@@ -151,6 +155,8 @@
 					<key>Legacy</key>
 					<true/>
 					<key>LineType</key>
+					<integer>1</integer>
+					<key>Pattern</key>
 					<integer>1</integer>
 					<key>TailArrow</key>
 					<string>0</string>
@@ -183,8 +189,8 @@
 			<integer>11</integer>
 			<key>Points</key>
 			<array>
-				<string>{153.87660366536446, 489}</string>
-				<string>{154.27010524625416, 302.346}</string>
+				<string>{154.34599350084198, 457}</string>
+				<string>{154.34599350084198, 302.346}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -400,8 +406,8 @@ bar}</string>
 			<integer>6</integer>
 			<key>Points</key>
 			<array>
-				<string>{199.346, 273.92520375252087}</string>
-				<string>{232.85295804110314, 279.56867179964723}</string>
+				<string>{199.34600000000003, 273.92725933309254}</string>
+				<string>{232.85295313173327, 279.57225713650246}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -466,7 +472,7 @@ bar}</string>
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{108.82601098632813, 489}, {89.999992370605469, 24}}</string>
+					<string>{{109.346, 457}, {89.999992370605469, 24}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -514,7 +520,7 @@ bar}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{108.82601098632813, 513}, {89.999992370605469, 24}}</string>
+					<string>{{109.346, 481}, {89.999992370605469, 24}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -787,7 +793,7 @@ bar}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-12-25 05:18:38 +0000</string>
+	<string>2015-12-25 05:26:32 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
