@@ -59,8 +59,8 @@
 			<integer>33</integer>
 			<key>Points</key>
 			<array>
-				<string>{163.173, 183.07524204518111}</string>
-				<string>{207.00341398693874, 188.16857190469653}</string>
+				<string>{163.17300000000003, 183.09535526337152}</string>
+				<string>{207.00339386792734, 188.20827323551043}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -136,8 +136,8 @@
 			<integer>30</integer>
 			<key>Points</key>
 			<array>
-				<string>{118.75460675025484, 234.73002557373047}</string>
-				<string>{118.41325917212716, 201.346}</string>
+				<string>{118.75461299788992, 234.73002557373047}</string>
+				<string>{118.4132741102293, 201.346}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -286,8 +286,8 @@
 			<integer>26</integer>
 			<key>Points</key>
 			<array>
-				<string>{164.00000762939456, 261.81547242231704}</string>
-				<string>{270.50114009243242, 269.11777365949291}</string>
+				<string>{164.00000762939453, 261.80618048810084}</string>
+				<string>{270.5011612074822, 269.08649202572667}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -323,8 +323,8 @@
 			<integer>25</integer>
 			<key>Points</key>
 			<array>
-				<string>{172.499770606938, 108}</string>
-				<string>{270.50512084907024, 122.13536626854503}</string>
+				<string>{164.00000762939453, 104}</string>
+				<string>{270.50636421750789, 121.15755975979816}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -355,8 +355,8 @@
 			<integer>24</integer>
 			<key>Points</key>
 			<array>
-				<string>{172, 81}</string>
-				<string>{270.50515943235149, 66.73831025053498}</string>
+				<string>{164.00000762939453, 81}</string>
+				<string>{270.50465258510428, 66.368370746464976}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -608,8 +608,8 @@
 			<integer>11</integer>
 			<key>Points</key>
 			<array>
-				<string>{118.12873221035251, 154.346}</string>
-				<string>{118.06591715871058, 121}</string>
+				<string>{118.12873495177816, 154.346}</string>
+				<string>{118.06592379016091, 121}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -800,7 +800,7 @@ bar}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-12-25 05:19:56 +0000</string>
+	<string>2015-12-25 05:27:43 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>

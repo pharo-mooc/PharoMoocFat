@@ -180,7 +180,7 @@ instance of AClass}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{318, 97.5}, {153, 129}}</string>
+			<string>{{256.73202514648438, 149.34600067138672}, {229, 86}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -227,15 +227,14 @@ instance of AClass}</string>
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
 \f0\fs72 \cf0 look in \
-super\
-classes}</string>
+superclasses}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{294.73202514648438, 303}, {153, 86}}</string>
+			<string>{{285.48001098632812, 303}, {153, 86}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -291,7 +290,7 @@ the class}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{382.84600830078125, 218}, {39, 62}}</string>
+			<string>{{361.6920166015625, 231.17300415039062}, {39, 62}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -408,10 +407,10 @@ the class}</string>
 			<integer>32</integer>
 			<key>Points</key>
 			<array>
-				<string>{189.73200988769531, 456.72000122070312}</string>
-				<string>{196.46402090454103, 420}</string>
-				<string>{204.73200988769531, 436}</string>
-				<string>{208.46402090454103, 408.72000122070312}</string>
+				<string>{197, 439}</string>
+				<string>{204, 420.72000122070312}</string>
+				<string>{212, 436}</string>
+				<string>{222.22799795532228, 408.72000122070312}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -430,7 +429,7 @@ the class}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{174.73200988769531, 456.72000122070312}, {97, 24}}</string>
+			<string>{{112, 430.44000244140625}, {97, 24}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -526,8 +525,8 @@ the class}</string>
 			<integer>45</integer>
 			<key>Points</key>
 			<array>
-				<string>{222.70362592148061, 353.63470485614806}</string>
-				<string>{236.89406726580819, 293.173}</string>
+				<string>{222.69755913604564, 353.63332686892812}</string>
+				<string>{236.87314521241265, 293.173}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -685,8 +684,8 @@ the class}</string>
 			<integer>26</integer>
 			<key>Points</key>
 			<array>
-				<string>{242.02520497382778, 245.17300000000003}</string>
-				<string>{240.73586404872813, 180}</string>
+				<string>{242.45996533152817, 245.17300000000003}</string>
+				<string>{242.30009283426364, 149.34600830078125}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -697,8 +696,6 @@ the class}</string>
 					<key>Legacy</key>
 					<true/>
 					<key>LineType</key>
-					<integer>1</integer>
-					<key>Pattern</key>
 					<integer>1</integer>
 					<key>TailArrow</key>
 					<string>0</string>
@@ -721,7 +718,7 @@ the class}</string>
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{175.00000280761719, 144}, {130.75949096679688, 24}}</string>
+					<string>{{192.25999731445313, 113.34600830078125}, {100.48001098632812, 24}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -769,7 +766,7 @@ the class}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{175.00000280761719, 168}, {130.75949096679688, 12}}</string>
+					<string>{{192.25999731445313, 137.34600830078125}, {100.48001098632812, 12}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -873,7 +870,7 @@ the class}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-10-26 18:48:10 +0000</string>
+	<string>2015-12-25 07:22:07 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -981,7 +978,7 @@ the class}</string>
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{-93, 1}, {758, 668}}</string>
+		<string>{{-93, 1}, {758, 684}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>

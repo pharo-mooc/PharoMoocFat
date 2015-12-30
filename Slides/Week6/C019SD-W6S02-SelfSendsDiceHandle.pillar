@@ -1,6 +1,7 @@
 {
-    "title":"Message sends are plans for reuse",
-	"subtitle":"The case of DiceHandle"
+    "title":"Dice new vs. self class new",
+	"slidesid" : "W6S2"
+	
 	
 }
 
@@ -8,10 +9,11 @@ ${slide:title=From the Exercise}$
 
 To support 
 [[[
-(DiceHandle new add: (Dice faces: 4); add: (Dice faces: 4); yourself) + (DiceHandle new add: (Dice faces: 6); yourself)
+(DiceHandle new add: (Dice faces: 4); yourself) 
+	+ (DiceHandle new add: (Dice faces: 6); yourself)
 ]]]
 
-We define ==\+== as 
+We defined ==\+== as 
 
 [[[
 DiceHandle >> + aDiceHandle
@@ -22,17 +24,16 @@ DiceHandle >> + aDiceHandle
   ^ handle
 ]]]
 
-${slide:title=What Is The Difference Between:}$
+${slide:title=What Is The Difference...}$
 
-
+Between 
 [[[
 DiceHandle >> + aDiceHandle
   | handle |
   handle := DiceHandle new.
 ]]]
 
-and 
-
+And 
 [[[
 DiceHandle >> + aDiceHandle
   | handle |
@@ -43,16 +44,17 @@ Let us see....
 
 ${slide:title=What If We Create A New Subclass}$
 [[[
-DiceHandle subclass: MyDiceHandle
+DiceHandle subclass: MemoDiceHandle
   ....
 ]]]
 
 [[[
-(MyDiceHandle new add: (Dice faces: 4); add: (Dice faces: 4); yourself) + (MyDiceHandle new add: (Dice faces: 6); yourself)
+(MemoDiceHandle new add: (Dice faces: 4); yourself) 
+   + (MemoDiceHandle new add: (Dice faces: 6); yourself)
 > aDiceHandle
 ]]]
 
-We get a ==DiceHandle== instance back and not a ==MyDiceHandle== instance!!!
+We get a ==DiceHandle== instance back and not a ==MemoDiceHandle== instance!!!
 
 ${slide:title=Solution 1: Creating a Hook}$
 
@@ -73,18 +75,19 @@ DiceHandle >> handleClass
 A subclass may redefine ==handleClass== 
 
 [[[
-MyDiceHandle >> handleClass
-  ^ MyDiceHandle
+MemoDiceHandle >> handleClass
+  ^ MemoDiceHandle
 ]]] 
 
 ${slide:title=Solution 1: Creating a Hook}$
 
 [[[
-(MyDiceHandle new add: (Dice faces: 4); add: (Dice faces: 4); yourself) + (MyDiceHandle new add: (Dice faces: 6); yourself)
-> aMyDiceHandle
+(MemoDiceHandle new add: (Dice faces: 4); yourself) 
+   + (MemoDiceHandle new add: (Dice faces: 6); yourself)
+> aMemoDiceHandle
 ]]]
 
-We get an instance of the subclass.
+We get an instance of the subclass!
 
 ${slide:title=But We Can Do Better!}$
 
@@ -103,7 +106,7 @@ DiceHandle >> + aDiceHandle
   ^ handle
 ]]]
 
--  ==self class== always returns the class of the receiver
+- ==self class== always returns the class of the receiver
 - We get instances of the same kind of the receiver 
 
 ${slide:title=Conclusion}$
@@ -111,7 +114,7 @@ ${slide:title=Conclusion}$
 If we define a subclass of ==DiceHandle==, 
 and send the message ==\+== to an instance
 
-- With ==handle := DiceHandle new==, ==\+== does not return an instance of the subclass but of ==DiceHandle==
+- With ==DiceHandle new==, ==\+== does not return an instance of the subclass but of ==DiceHandle==
 
-- With ==handle := self class new==, ==\+== returns an instance of the receiver: an instance of a potential subclass
+- With ==self class new==, ==\+== returns an instance of the receiver: an instance of a potential subclass
 
