@@ -1,8 +1,16 @@
 {
-  "title":"Did you really understand super?"
+  "title" : "Did You Really Understand Super?",
+  "slidesid" : "W6S1"
 }
 
-${slide:title=Puzzle}$
+${slide:title=What You Will Learn}$
+
+Revisit 
+- ==super==
+- Message lookup
+- Class methods
+
+${slide:title=A Little Puzzle}$
 
 [[[
 Dice class >> new
@@ -26,12 +34,11 @@ Dice class >> new
   ^ inst
 ]]]
 
-Explain this code
 - What is ==inst==?
 - What is ==super==?
+- What is ==super new==?
 
-
-${slide:title=Hint}$
+${slide:title=Hint: super is not...}$
 
 [[[
 Dice class >> new
@@ -42,11 +49,10 @@ Dice class >> new
   ^ inst
 ]]]
 
-- What is ==super==?
 - No ==super== is not the superclass
 - No ==inst== is not an instance of the superclass
 
-${slide:title=Hint 2}$
+${slide:title=Hint 2: super is the message receiver}$
 
 [[[
 Dice class >> new
@@ -57,14 +63,16 @@ Dice class >> new
   ^ inst
 ]]]
 
-Remember: 
-- ==super== is the receiver of the message
-- the message is ==Dice new==
+- The message is ==Dice new==
 - So the receiver is the class ==Dice==
 
-${slide:title=Remember}$
+${slide:title=Sending a Message: Lookup \+ Apply on Receiver}$
 
-+>file://figures/LookupEssence.png|width=55+
++>file://figures/InheritanceDiagram-sendingMessage.png|width=72+
+
+${slide:title=Remember: method lookup}$
+
++>file://figures/LookupEssenceWithGeneric.png|width=70+
 
 
 ${slide:title=Solution}$
@@ -79,12 +87,16 @@ Dice class >> new
 ]]]
 
 - ==super== is the receiver: the class ==Dice==
-- We look for ==new== in the superclass of the class ==Dice==
+- Look for ==new== in the superclass of the class ==Dice==
 - Once found we apply to the receiver ==Dice==
 - We get an instance of the class ==Dice== and send it initialize and return
 
+${slide:title=Solution}$
+
++>file://figures/Workstation-Dice-MetaclassesWithInheritanceWithLookup.png|width=130+
 
 ${slide:title=Summary}$
 
+- Sending a message is looking up for the method and applying it on the receiver
 - Now you should really understand ==super== :)
 - ==super== is the receiver of the message and the method lookup starts in the superclass of the class  containing the expression
