@@ -37,10 +37,10 @@ ${columns}$
 ${column:width=60}$
 
 A subclass
--can add state and behavior:
---==color==, ==borderColor==, ...
--can use superclass behavior and state
--can specialize and redefine superclass behavior
+- can add state and behavior:
+-- ==color==, ==borderColor==, ...
+- can use superclass behavior and state
+- can specialize and redefine superclass behavior
 
 ${column:width=40}$
 
