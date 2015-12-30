@@ -1,15 +1,14 @@
 {
-    "title":"Message sends are plans for reuse"
+  "title" : "Message sends are plans for reuse",
+  "slidesid" : "W6S3"
 }
 
 ${slide:title=About this lecture}$
 
-This is another design lecture
-
-
+Another design lecture:
 - Natural next step of the NOT implementation lecture
-- It applies to any object-oriented language with dynamic binding
-- It will change your view on your programs :)
+- Relevant to any object-oriented language with dynamic binding
+- May change your view on design :)
 
 ${slide:title=What You Will Learn}$
 
@@ -23,12 +22,16 @@ ${slide:title=Remember...}$
 - Class hierarchies define choices
 - ==self== always represents the receiver and method lookup starts in the class of the receiver
 
-+One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=80+
++One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=110+
 
-${slide:title=Pitch}$
+${slide:title=The Pitch}$
 
 - Superclass code can be reused by subclasses 
 - Sending messages in a class define places where subclass' code can be injected.
+
+${slide:title=Gruyere-Oriented Programming}$
+
++.>file://figures/gruyereWithSlogan|width=120+
 
 ${slide:title=A First Example}$
 
@@ -117,10 +120,9 @@ OurSpecificNode >> ratio
   ^ super ratio + 10
 ]]]
 
-${slide:title=Many Small Messages}$
 
-- Newbies often complain that there are too many small methods
-- This is a good property
+
+${slide:title=Another Step}$
 
 [[[
 Node >> uiNode
@@ -154,11 +156,15 @@ Node >> uiNodeClass
   ^ UINodeClass
 ]]]
 
+${slide:title=Many Small Messages}$
 
-${slide:title=Avoid magic numbers}$
+- Newbies often complain that there are too many small methods
+- This is a good property
+
+${slide:title=Avoid Magic Numbers}$
 
 - Do not hardcode magic numbers (55)
-- Either define instance variables with setter and getter, and/or set default value via message semd
+- Either define instance variables with setter and getter, and/or set default value via message send
 
 [[[
 Node >> setWindowWithRatioForDisplay

@@ -1,6 +1,7 @@
 {
-    "title":"Hooks and Templates",
-    "subtitle":"An application of Self-sends are plans for reuse"
+  "title":"Hooks and Templates",
+  "subtitle":"An application of self-sends are plans for reuse",
+  "slidesid":"W6S4"
 }
 
 
@@ -16,20 +17,19 @@ ${slide:title=Hooks/Template}$
 
 
 - Template is the context that
--- define hooks
--- and is reused
-- Hooks are places to be customized. 
+-- defines hooks
+-- is reused
+- Hooks are places to be customized
 -- Hook methods do not have to be abstract
--- they may define default behavior or no behavior at all.
+-- May define default behavior or no behavior at all.
 
-+>file://figures/hookAndTemplate.png|width=80+
++>file://figures/hookAndTemplate.png|width=85+
 
-${slide:title=printString template}$
+${slide:title=printString Template}$
 
 [[[
 Object >> printString
   "Answer a String whose characters are a description of the receiver. If you want to print without a character limit, use fullPrintString."
-
   ^ self printStringLimitedTo: 50000
 ]]]
 
@@ -42,12 +42,11 @@ Object >> printStringLimitedTo: limit
   ^ limitedString , '...etc...'
 ]]]
 
-${slide:title=Default hook}$
+${slide:title=printOn: Default Hook}$
 
 [[[
 Object >> printOn: aStream
   "Append to the argument, aStream, a sequence of characters that identifies the receiver."
-
   | title |
   title := self class name.
   aStream
@@ -60,8 +59,7 @@ ${slide:title=printOn: Hook Example}$
 A simple redefinition
 [[[
 False >> printOn: aStream 
-
-  aStream nextPutAll: 'false'
+   aStream nextPutAll: 'false'
 ]]]
 
 
@@ -79,12 +77,12 @@ Simple:
  
 [[[
 Interval >> printOn: aStream
-  aStream nextPut: $(;
-    print: start;
-    nextPutAll: ' to: ';
-    print: stop.
-    step ~= 1 ifTrue: [ aStream nextPutAll: ' by: '; print: step ].
-  aStream nextPut: $)
+   aStream nextPut: $(;
+     print: start;
+     nextPutAll: ' to: ';
+     print: stop.
+     step ~= 1 ifTrue: [ aStream nextPutAll: ' by: '; print: step ].
+   aStream nextPut: $)
 ]]]
 
 ${slide:title=printOn: Hook Example}$
@@ -94,16 +92,15 @@ Association key: #January value: 31
 > #January->31 
 ]]]
 
-Reusing and extending default behavior
+Reusing and extending default behavior:
 [[[
 Association >> printOn: aStream
-
-  super printOn: aStream.
-  aStream nextPutAll: '->'.
-  value printOn: aStream
+   super printOn: aStream.
+   aStream nextPutAll: '->'.
+   value printOn: aStream
 ]]]
 
-${slide:title=Copy as another Hook/Template}$
+${slide:title=Object Copy as Another Hook/Template}$
 
 - Copying objects is complex:
 -- Graph of connected objects
@@ -119,8 +116,7 @@ Copy is the smallest template method
 
 [[[
 Object >> copy
-  "Answer another instance just like the receiver. Subclasses typically override postCopy; they typically do not override shallowCopy. Copy is a template method in the sense of Design Patterns. So do not override it. Override postCopy instead. Pay attention that normally you should call postCopy of your superclass too."
-
+  "Answer another instance just like the receiver. Subclasses typically override postCopy. Copy is a template method in the sense of Design Patterns. So do not override it. Override postCopy instead. Pay attention that normally you should call postCopy of your superclass too."
     ^ self shallowCopy postCopy
 ]]]
 
@@ -138,7 +134,6 @@ ${slide:title=Default hook}$
 [[[
 Object >> postCopy
   "I'm a hook method in the sense of Design Patterns TemplateHook/Methods. I'm called by copy. self is a shallow copy, subclasses should copy fields as necessary to complete the full copy"
-
   ^ self 
 ]]]
 
@@ -146,8 +141,8 @@ ${slide:title=postCopy: Hook Example}$
 
 [[[
 Bag >> postCopy
-  super postCopy.
-  contents := contents copy
+   super postCopy.
+   contents := contents copy
 ]]]
 
 
@@ -155,15 +150,14 @@ ${slide:title=postCopy: Hook Example}$
 
 [[[
 Dictionary >> postCopy
-  "Must copy the associations, or later store will affect both the original and the copy"
-
-  array := array collect: [ :association |
-     association ifNotNil: [ association copy ] ]
-]]]        
+   "Must copy the associations, or later store will affect both the original and the copy"
+   array := array collect: [ :association |
+      association ifNotNil: [ association copy ] ]
+]]]
 
 ${slide:title=Conclusion}$
 
 - Common pattern
 - Based on essential aspects of OOP
-- self-sends are hooks
+- self sends are hooks
 - Each time you send a message, you increase potential reuse
