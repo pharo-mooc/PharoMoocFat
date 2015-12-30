@@ -1,11 +1,13 @@
 {
-  "title":"Dynamic Vs. Literal Arrays"
+  "title":"Dynamic Vs. Literal Arrays",
+  "slidesid":"W6S7"
 }
 
-${slide:title=What you Will Learn}$
+${slide:title=What You Will Learn}$
 
 - Literal arrays are not created using messages
 - Dynamic arrays are created at runtime using messages
+- Still they are all instances of ==Array==
 
 ${slide:title=Literal Arrays}$
 
@@ -44,10 +46,7 @@ Literal arrays are instances of the class ==Array==
 ]]]
 
 
-${slide:title=Literals Arrays are Array Instances}$
-
-- Literal arrays are equivalent to a dynamic message version
-- Both are ==Array== instances
+${slide:title=Literal/Dynamic Arrays}$
 
 A literal array
 [[[
@@ -60,11 +59,12 @@ A dynamic array
   Array with: 45 with: 38 with: 'milou' with: 8
   > #(45 38 'milou' 8) 
 ]]]
+Both are ==Array== instances
 
 
 ${slide:title=Dynamic Array Compact Syntax}$
 
-Defining arrays is tedious 
+Defining dynamic arrays is tedious 
 [[[
 | array | 
 array := (Array new: 2). 
@@ -78,7 +78,7 @@ array
 
 [[[
 {(10@20) . (10@20)}
-{Point x: 10 y: 20 . Point x: 10 y: 20}
+{Point x: 10 y: 20 . Point x: 100 y: 200}
 ]]]
 
 ${slide:title=Literal Array Creation Time}$
@@ -104,15 +104,7 @@ Dynamic arrays execute expressions
 
 ${slide:title= Literal vs. Dynamic}$
 
-=={}== executes expressions while ==#()== not.
-  
-[[[
-  {(10@20) . (10@20)} size 
-  > 2
- 
-  #((10@20) . (10@20)) size 
-  > 3
-]]]
+=={}== executes expressions while ==#()== not
 
 [[[
   {(10@20) . (10@20)}
@@ -121,6 +113,16 @@ ${slide:title= Literal vs. Dynamic}$
   #((10@20) . (10@20))
   > #(#(10 #@ 20) #'.' #(10 #@ 20))
 ]]]
+
+[[[
+  {(10@20) . (10@20)} size 
+  > 2
+ 
+  #((10@20) . (10@20)) size 
+  > 3
+]]]
+
+
 
 ${slide:title=Nested Arrays}$
 
@@ -137,28 +139,10 @@ ${slide:title=Nested Arrays}$
 ]]]
 
 
-${slide:title= No Message Execution in Literal Array}$
-
-There is no message executed when a literal array is created
-[[[
-  #(45 + 38 1300 8) 
-  > #( 45 #+ 38 1300 8)
-]]]
-
-Arrays created with message sends are created during program execution
-[[[
-  Array with: 45 + 38 with: 1300 with: 8
-  > #( 83 . 1300 . 8)
-
-  { 45 + 38 . 1300 . 8 }
-  > #( 83 . 1300 . 8)
-]]]
-
-
 ${slide:title=Summary}$
 
 - Only one kind of Arrays
 - Three ways
--- Literal syntax: ==#( )== 
--- Dynamic =={ . . } == 
+-- Literal syntax: ==#( )== (no message)
 -- Using messages ==Array new: 3== 
+-- Syntactic sugar: Dynamic =={ . . } == 
