@@ -1,5 +1,6 @@
 {
-	"title":"Variable Size Objects"
+  "title":"Variable Size Objects",
+  "slidesid":"W7S2"
 }
 
 ${slide:title=What You Will Learn}$
@@ -24,7 +25,7 @@ Yes arrays can have different sizes
 
 ${slide:title=Variable Class Definition}$
 
-
+- Messages ==variableSubclass:== instead of ==subclass:==
 [[[
 ArrayedCollection variableSubclass: #Array
 	instanceVariableNames: ''
@@ -43,12 +44,12 @@ ArrayedCollection variableSubclass: #Array
 	package: 'Collections-Sequenceable'
 ]]]
 
-- ==variableSubclass:== : an instance has a variable (indexed) size instance variable
+${slide:title=Variable Class}$
 
-- Indexed variable zone is implicitly added to the list of instance variables
+- Instances have a variable size (indexed) instance variable
+- Indexed variable zone is implicitly added to the list of named instance variables
 - Only one indexed instance variable per class
 
-- Subclasses should also be defined using variableSubclass:
 
 ${slide:title=Index Access}$
 - Access with ==at:== and ==at:put:==
@@ -67,7 +68,7 @@ a at: 2
 ]]]
 
 
-${slide:title=Different Perspectives}$
+${slide:title=Different Perspectives on Classes}$
 
 - Named or indexed instance variables
 [[[
