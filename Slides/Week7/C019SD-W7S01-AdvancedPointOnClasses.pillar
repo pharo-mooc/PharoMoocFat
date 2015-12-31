@@ -1,5 +1,6 @@
 {
-	"title":"Advanced Points on Classes"
+	"title":"Advanced Points on Classes",
+	"slidesid":"W7S1"
 }
 
 ${slide:title=What You Will Learn}$
@@ -20,12 +21,12 @@ Sometimes one needs to share objects between instances of a class
 [[[
 Object subclass: #Class
    instanceVariableNames: ''
-   classVariableNames: 'ShareState'
+   classVariableNames: 'SharedState'
    package: ''
 ]]]
 
 
-${slide:title=Color Class Definition}$
+${slide:title=Example: Color Class Definition}$
 
 [[[
 Object subclass: #Color
@@ -35,11 +36,11 @@ Object subclass: #Color
 ]]]
 
 
-${slide:title=Color Class Definition}$
+${slide:title=Class Variables}$
 
-- Class variables are shared among all the instances and instances of subclasses
-- They are shared! So it starts with an uppercase
-- Class variables are accessible from class methods too
+- Shared among all the instances and instances of subclasses
+- Start with an uppercase
+- Accessible from instance and class methods
 
 ${slide:title=Class Variable Access}$
 
@@ -69,16 +70,12 @@ Color class >> initialize
 ]]]	
 
 
-
-
-
 ${slide:title=Remember}$
 
 - Everything is an object
 - An object is initialized at creation time
 - Classes are objects too
 - How/When classes are initialized?
-
 
 
 ${slide:title=Classes are initialized}$
@@ -91,7 +88,6 @@ Classes are initialized
 Color initialize
 ]]]
 
-
 ${slide:title=Warning}$
 
 - It is a bad practice to do a ==super initialize== in a class initialize method
@@ -101,8 +97,13 @@ ${slide:title=Warning}$
 
 ${slide:title=Class Instance Variables}$
 
-- Like any object
-- A class is an instance of a class (a metaclass) that can have instance variables that define the state of a class.
+- Like for any object
+- A class is an instance of a class (a metaclass) that can have instance variables that define the state of a class
+
+[[[
+WebServer class
+   instanceVariableNames: 'uniqueInstance'
+]]]
 
 - When a metaclass defines a new instance variable, then its instance (a Class) gets a new value in addition to subclass, superclasses, methodDict...
 
@@ -115,32 +116,29 @@ ${slide:title=Singleton Pattern}$
 WebServer class
    instanceVariableNames: 'uniqueInstance'
 
-WebServer class >> new
-   self error: 'You should use uniqueInstance to get the unique instance'
-
-WebServer class>>uniqueInstance
+WebServer class >> uniqueInstance
    ^ uniqueInstance 
          ifNil: [ uniqueInstance := self basicNew initialize ]
 ]]]
 
 
-${slide:title=Subclasses have Their Own Singleton}$
+${slide:title=Singleton with class instance variables}$
 
 - With a ''class instance variable''
-- Each subclass of WebServer will have its own singleton
+- Each subclass of WebServer has its own singleton
+- Each subclass has a specific instance variable value for uniqueInstance
 
 
-${slide:title=Subclasses has Their Own Singleton}$
+${slide:title=Singleton with class variables}$
 
-
-- With a ClassVariable, there is only one singleton for the complete class hierarchy
-
-- Indeed ClassVariables are shared
+- With a ''Class Variable'', 
+- Only one singleton for the complete class hierarchy
+- ClassVariables are shared
 
 [[[
 Object subclass: #WebServer
    instanceVariableNames: ''
-   classVariableNames: 'Singleton'
+   classVariableNames: 'UniqueInstance'
    package: ''
 ]]]
 
