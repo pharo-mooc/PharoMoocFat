@@ -1,29 +1,67 @@
 {
-	"title":"Reflection: Stack"
+  "title":"Reflection: Stack",
+  "slidesid":"W7S6"
 }
 
 ${slide:title=Just to reveal a bit of it}$
 
 To let you know that it exist
 
+${slide:title=Coding in the Debugger}$
+
+- When a method is not found, we may end up with a debugger
+- In the debugger, we can ask for the creation of a method on the fly
+- The system compiles on the spot a special method
+- Then it reexecutes the method
+- It raises a shouldBeImplemented exception 
+- Then you can edit the method in the debugger 
+- Then proceed and the program continues to run
+
+${slide:title=Operation Supporting Coding in the Debugger}$
+
+- On the fly method definition
+- Stack navigation / manipulation
+
+
 ${slide:title=Stack Frame as an Object}$
 
 - Execution stack can be turned into a live object
 - By default the stack is not an object 
+-- Can be reified on demand
 - Support exception definitions from within the language
-- For debugger support! 
-- Advanced debugging 
-- Continuation (web serving)
+- Basis for continuations and web serving
 
 ${slide:title=thisContext}$
 
 - ==thisContext== is one of the three pseudovariables with ==self== and ==super==
-- returns an object that represents the method activation
-- can walk the stack
-- put ==self halt== in the code to see it and walk
+- Returns an object that represents the method activation
+- Can walk and change the stack
+- Put ==self halt== in the code to see it and walk
 
+${slide:title=Example: Better Deprecated Message}$
 
-${slide:title=Conditional Halt and Test}$
+[[[
+A >> foo
+   self deprecated: 'Use bar' on: '31/12/2015' in: 'Pharo50'.
+   self bar
+]]]
+
+should print: 'foo is deprecated in Pharo50. Use bar'
+
+[[[
+deprecated: anExplanationString on: date in: version
+	"Warn that the sending method has been deprecated"
+	
+	(Deprecation
+		method: thisContext sender method
+		explanation: anExplanationString
+		on: date
+		in: version) signal
+]]]
+
+==thisContext sender method== returns compiled method ==A>>#foo==
+
+${slide:title=Example: Conditional Halt and Test}$
 
 - How to halt a method that is heavily used?
 - ==if:== is really powerful!
@@ -38,7 +76,6 @@ foo
 ]]]
 
 ${slide:title=How if: is implemented?}$
-
 
 [[[
 Halt class >> if: condition
@@ -57,10 +94,9 @@ ${slide:title=How if: is implemented?}$
 
 [[[
 Halt class >> haltIfCallChainContains: aSelector
-
   | cntxt |
   cntxt := thisContext.
-  [cntxt sender isNil] whileFalse: [
+  [ cntxt sender isNil ] whileFalse: [
     cntxt := cntxt sender. 
     (cntxt selector = aSelector) ifTrue: [ self signal ] ].
 ]]]
