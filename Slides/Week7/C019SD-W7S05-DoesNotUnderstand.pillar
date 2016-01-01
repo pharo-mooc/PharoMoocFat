@@ -1,5 +1,6 @@
 {
-	"title":"DoesNotUnderstand: a Precious Hook"
+  "title":"DoesNotUnderstand: a Precious Hook",
+  "slidesid":"W7S5"
 }
 
 
@@ -10,11 +11,16 @@ ${slide:title=When No Method is Found}$
 ${slide:title=doesNotUnderstand: is a Message}$
 
 - ==doesNotUnderstand:== is a message
-- every class can customize handling of this error
-- important hook for automatic delegation and many other usage
+- Every class can customize this hook
+- Important hook for automatic delegation, distributed programming and many other usages
 
 
-${slide:title=Delegation}$
+${slide:title=Example 1: Delegation}$
+
+[[[
+Object subclass: #Delegating
+	instanceVariableNames: 'target'
+]]]
 
 [[[
 Delegating >> doesNotUnderstand: aMessage
@@ -25,13 +31,12 @@ Delegating >> doesNotUnderstand: aMessage
 - Only tools and specific parts should use such tricks
 
 
-${slide:title=A LoggingProxy}$
+${slide:title=Example 2: A LoggingProxy}$
 
 Basic idea:
 - Create a 'minimal' object raising error to most messages
-- Customize its doesNotUnderstand: method
+- Customize its ==doesNotUnderstand:== method
 - Swap an object and the proxy
-
 
 ${slide:title=Implementing LoggingProxy}$
 
@@ -81,12 +86,12 @@ self assert: point invocationCount = 3.
 ${slide:title=Some Limits of such Minimal Objects}$
 
 - Messages sent by the object to itself are not trapped!
-- Class control cannot be swapped
-- What to do with messages that are understood by both the MinimalObject and its subject?
+- Class cannot be swapped
+- What to do with messages that are understood by both the minimalObject and its subject?
 
 ${slide:title=Another Application}$
 
-Scaffolding patterns: Generate code on use
+Scaffolding patterns: Generate code on the fly based of patterns
 
 [[[
 DynamicAccsssors >> doesNotUnderstand: aMessage
@@ -107,7 +112,7 @@ Minimal Objects
 - Basis for proxies
 - Multiple usages (distribution, object loading, spying)
 
-doesNotUnderstand:
+==doesNotUnderstand:==
 - Powerful hook
 - Only to be used when needed
 

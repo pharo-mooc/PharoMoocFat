@@ -530,42 +530,33 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S02-VariableClasses.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S02-VariableClasses.html*	
 
 - [Lecture ] "C019SD-W7S03-UnderstandingMetaclasses.pillar"
--- Presenter: Stef 
--- Status: Done 
+-- Presenter: Stef
+-- Status: Reviewed 
 -- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S03-UnderstandingMetaclasses.pdf* 	
 
 
 
 
-
-
-
-
 - [Lecture ] Reflection Other Reflectives
--- Presenter: Stef 
--- Status: 
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-thisContext.html*	
+-- Presenter:  
+-- Status: Reviewed
+-- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S04-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S04-thisContext.html*	
 
 
 - [Lecture ] DoesNotUnderstand
--- Presenter: Stef 
--- Status: Done (working on it)
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-DoesNotUnderstand.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-DoesNotUnderstand.html*	
+-- Presenter:  
+-- Status: Reviewed
+-- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S05-DoesNotUnderstand.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S05-DoesNotUnderstand.html*	
 
 - [Lecture ] Reflection thisContext
--- Presenter: Stef 
--- Status: Done 
+-- Presenter:  
+-- Status: Reviewed 
 -- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-thisContext.html*	
 
 - [Lecture ] Avoid is nil
--- Presenter: Stef 
+-- Presenter:  
 -- Status: Done (may be add a figure with the hierarchy and witohut null object?)
 -- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-AvoidIsNill.html*	
-
-
-
-
-- 6 Week7 ?Visitor design pattern or only in exo
 
 - 6 Week7 Deploying an application 
 -- pharo cloud 
