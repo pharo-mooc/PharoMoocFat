@@ -38,10 +38,10 @@ ${slide:title=Metaclasses in 7 Points}$
 # Every metaclass is an instance of ==Metaclass==
 # The metaclass of ==Metaclass== is an instance of ==Metaclass==
 
-${slide:title=Every object is an instance of a class}$
+${slide:title=Every Object is an Instance of a Class}$
 
++>file://figures/01-SortedCollectionInstanceOfSortedCollection.png|width=100+
 
-Image ici: instance class
 
 ${slide:title=Metaclasses in 7 Points}$
 
@@ -54,14 +54,16 @@ ${slide:title=Metaclasses in 7 Points}$
 # Every metaclass is an instance of ==Metaclass==
 # The metaclass of ==Metaclass== is an instance of ==Metaclass==
 
-${slide:title=Every class eventually inherits from Object}$
+${slide:title=Every Class Eventually Inherits From Object}$
 
 
-Image ici: class hierarchy
++>file://figures/02-SortedCollectionInheritsFromObject.png|width=100+
+
 
 ${slide:title=Meaning of is-a}$
 
-image: lookup
++>file://figures/03-SortedCollectionInheritsFromObjectLookup|width=95+
+
 
 ${slide:title=Responsibility of Object}$
 
