@@ -1,21 +1,23 @@
 {
 	"title":"Reflective Operations for Live Programming",
-	"slidesid":"W7S3"
+	"slidesid":"W7S4"
 }
 
 ${slide:title=Under the Curtain}$
 
 - What is happening when we recompile a class
-- What are the operations that take place
+- What are the reflective operations that take place
+- Looking at some of them
 
 
 ${slide:title=A Typical Scenario}$
 
 - Define one class
 - Define some methods
-- Created some instances
+- Create some instances
 - Add an instance variable to the class
-- and continue working
+- Existing instances got mutated
+- Continue working
 
 ${slide:title=Operations Supporting Interactive Coding}$
 
@@ -24,23 +26,6 @@ ${slide:title=Operations Supporting Interactive Coding}$
 - Transparent instance migration
 -- Collecting instances
 -- Switching pointers from old to new instances
-
-
-${slide:title=Coding in the Debugger}$
-
-- When a method is not found, we may end up with a debugger
-- In the debugger, we can ask for the creation of a method on the fly
-- The system compiles on the spot a special method
-- Then it reexecutes the method
-- It raises a shouldBeImplemented exception 
-- Then you can edit the method in the debugger 
-- Then proceed and the program continues to run
-
-${slide:title=Operation Supporting Coding in the Debugger}$
-
-- On the fly method definition
-- Stack navigation / manipulation
-
 
 ${slide:title=Getting All Instances}$
 
@@ -86,7 +71,7 @@ self assert: pt3 = (0@0).
 self assert: pt1 = (100@100)
 ]]]
 
-${slide:title=AsymmetricPointers Swapping}$
+${slide:title=Asymmetric Pointer Swapping}$
 
 Swap all the pointers from one object to the other (asymmetric)
 
@@ -94,7 +79,7 @@ Swap all the pointers from one object to the other (asymmetric)
 anObject becomeForward: anotherObject
 ]]]
 
-${slide:title=Example: AsymmetricPointers Swapping}$
+${slide:title=Example: Asymmetric Pointer Swapping}$
 
 [[[
 | pt1 pt2 pt3 |
@@ -154,7 +139,7 @@ ${slide:title=Instance Specific Behavior}$
 
 +.>file://figures/10AnonymousClasses.png|width=100+
 
-${slide:title=Anonymous Classes}$
+${slide:title=Anonymous Classes For Spying}$
 
 [[[
 | anonClass set | 
