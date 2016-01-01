@@ -1,40 +1,45 @@
 {
-	"title":"Support for Live Programming"
+	"title":"Reflective Operations for Live Programming",
+	"slidesid":"W7S3"
 }
 
 ${slide:title=Under the Curtain}$
 
 - What is happening when we recompile a class
-- What are the operations that take place?
+- What are the operations that take place
 
 
 ${slide:title=A Typical Scenario}$
 
-- We have one class
+- Define one class
 - Define some methods
 - Created some instances
 - Add an instance variable to the class
 - and continue working
 
-
 ${slide:title=Operations Supporting Interactive Coding}$
 
-- New class 
+- Dynamic class definition
 - Method recompilation
 - Transparent instance migration
-- Identifying instances
-- Switching pointers
+-- Collecting instances
+-- Switching pointers from old to new instances
 
 
 ${slide:title=Coding in the Debugger}$
 
 - When a method is not found, we may end up with a debugger
 - In the debugger, we can ask for the creation of a method on the fly
-- The system compiles on the spot a special method, 
+- The system compiles on the spot a special method
 - Then it reexecutes the method
 - It raises a shouldBeImplemented exception 
 - Then you can edit the method in the debugger 
-- then proceed and the program continues to run.
+- Then proceed and the program continues to run
+
+${slide:title=Operation Supporting Coding in the Debugger}$
+
+- On the fly method definition
+- Stack navigation / manipulation
 
 
 ${slide:title=Getting All Instances}$
@@ -48,7 +53,7 @@ Dictionary allInstances size
 Window allInstances first close
 ]]]
 
-${slide:title=Getting all Pointers to an Object}$
+${slide:title=Getting All Pointers to an Object}$
 
 To get all the pointers to a given object :)
 
@@ -56,36 +61,40 @@ To get all the pointers to a given object :)
 anObject pointersTo
 ]]]
 
-returns all the pointers pointing to this object
+returns all the pointers pointing to ==anObject==
 
 
-${slide:title=Reference Swapping}$
+${slide:title=Symmetric Pointer Swapping}$
 
 [[[
 anObject become: anotherObject
 ]]]
 
 - All the pointers to ==anObject== point now to ==anotherObject== 
-- And "the inverse" atomatically
+- And "the inverse" atomically
+
+${slide:title=Symmetric Pointer Swapping}$
 
 [[[
-   | pt1 pt2 pt3 |
-   pt1 := 0@0.
-   pt2 := pt1.
-   pt3 := 100@100.
-   pt1 become: pt3.
-   self assert: pt2 = (100@100). 
-   self assert: pt3 = (0@0).
-   self assert: pt1 = (100@100)
+| pt1 pt2 pt3 |
+pt1 := 0@0.
+pt2 := pt1.
+pt3 := 100@100.
+pt1 become: pt3.
+self assert: pt2 = (100@100). 
+self assert: pt3 = (0@0).
+self assert: pt1 = (100@100)
 ]]]
 
-${slide:title=Reference Swapping}$
+${slide:title=AsymmetricPointers Swapping}$
 
 Swap all the pointers from one object to the other (asymmetric)
 
 [[[
 anObject becomeForward: anotherObject
 ]]]
+
+${slide:title=Example: AsymmetricPointers Swapping}$
 
 [[[
 | pt1 pt2 pt3 |
@@ -106,10 +115,12 @@ Class >> adoptInstance: anInstance
    "Change the class of anInstance to me. Returns the class rather than the modified instance"
 ]]]
 
+- Limited reflective feature
+- Target class should have the same format than the origin
 
 ${slide:title=Essence of a Class}$
 
-# A format  I.e., a number of instance variables and types
+# A format  I.e., a number of instance variables and types (named/indexed)
 # A superclass
 # A method dictionary
 
@@ -155,12 +166,13 @@ anonClass compile: 'add: anObject
       ^ super add: anObject'.
 set := Set new.
 set add: 1.
-set primitiveChangeClassTo: anonClass basicNew. set add: 2.
+set primitiveChangeClassTo: anonClass basicNew. 
+set add: 2.
 ]]]
 
 ${slide:title=Conclusion}$
 
 - Foundation for innovation
-- Avoid to use reflective operation in domain code
+- Avoid use of reflective operations in domain code
 - Understand when you absolutely need reflection
 
