@@ -525,15 +525,15 @@ the class}</string>
 			<integer>45</integer>
 			<key>Points</key>
 			<array>
-				<string>{222.69755913604564, 353.63332686892812}</string>
-				<string>{236.87314521241265, 293.173}</string>
+				<string>{222.69751309807899, 353.63331639803152}</string>
+				<string>{236.87298644238228, 293.173}</string>
 			</array>
 			<key>Style</key>
 			<dict>
 				<key>stroke</key>
 				<dict>
 					<key>HeadArrow</key>
-					<string>FilledArrow</string>
+					<string>StickArrow</string>
 					<key>Legacy</key>
 					<true/>
 					<key>LineType</key>
@@ -541,7 +541,7 @@ the class}</string>
 					<key>TailArrow</key>
 					<string>0</string>
 					<key>Width</key>
-					<real>2</real>
+					<real>1.5</real>
 				</dict>
 			</dict>
 			<key>Tail</key>
@@ -684,8 +684,8 @@ the class}</string>
 			<integer>26</integer>
 			<key>Points</key>
 			<array>
-				<string>{242.45996533152817, 245.17300000000003}</string>
-				<string>{242.30009283426364, 149.34600830078125}</string>
+				<string>{242.49996496025477, 245.17300000000003}</string>
+				<string>{242.49980263340498, 149.34600830078125}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -870,7 +870,7 @@ the class}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-12-25 07:22:07 +0000</string>
+	<string>2016-01-01 17:22:28 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -978,7 +978,7 @@ the class}</string>
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{-93, 1}, {758, 684}}</string>
+		<string>{{-85, 1}, {744, 684}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>

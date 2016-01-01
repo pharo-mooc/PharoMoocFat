@@ -13,6 +13,19 @@ ${slide:title=What You Will Learn}$
 -- What is the class of a metaclass
 -- Uniformity of the instance reltionship
 
+${slide:title=Only One Method Lookup}$
+
+${columns}$
+
+${column:width=60}$
+
+When a message is sent to an object, a method is searched starting from the class of the object and following the inheritance chain
+
+${column:width=40}$
+
++>file://figures/LookupEssenceWithGeneric.png|width=160+
+
+${endColumns}$
 
 
 
@@ -148,7 +161,7 @@ ${slide:title=Every Metaclass Inherits from Class and Behavior}$
 
 +>file://figures/08-BehaviorClassDescriptionAndClass.png|width=110+
 
-${slide:title=Where new is defined?}$
+${slide:title=Where new is Defined?}$
 
 +>file://figures/09-BehaviorClassDescriptionAndClassWithNew.png|width=110+
 
@@ -157,18 +170,15 @@ ${slide:title=Where new is defined?}$
 ${slide:title=Responsibilities of Behavior}$
 
 ==Behavior==
-- Minimum state necessary for objects that have instances
-- Basic interface to the compiler
+- Minimum state for objects that have instances
 - State:
 -- class hierarchy link, method dictionary, description of instances (representation and number)
 - Methods:
--- creating a method dictionary, compiling method
--- instance creation (new, basicNew, new:, basicNew:)
--- class hierarchy manipulation (superclass:, addSubclass:) 
--- accessing (selectors, allSelectors, compiledMethodAt: ) 
--- accessing instances and variables (allInstances, instVarNames) 
--- accessing class hierarchy (superclass, subclasses)
--- testing (hasMethods, includesSelector, canUnderstand:, inheritsFrom:, isVariable)
+-- method dictionary, compiling method
+-- instance creation (==new==, ==basicNew==, new:, basicNew:)
+-- class hierarchy manipulation (==superclass:==, ==addSubclass:==) 
+-- accessing (==selectors==, ==allSelectors==, ==compiledMethodAt:==, ==allInstances==, ==instVarNames==) 
+
 
 
 ${slide:title=Responsibilities of ClassDescription}$
@@ -187,13 +197,13 @@ ${slide:title=Responsibilities of Class}$
 ==Class==
 - represents the common behavior of all classes
 --  name, compilation, method storing, instance variables ...
--  representation for classVariable names and shared pool variables (addClassVarName:, addSharedPool:, initialize)
+-  representation for classVariable names (==addClassVarName:==, ==initialize==)
 
 ${slide:title=Since Classes are Instances of Metaclasses}$
 - Classes are Instances of Metaclasses
 - Metaclass and class inheritance are parallel
 
-+>file://figures/08-BehaviorClassDescriptionAndClass.png|width=110+
++>file://figures/10-BehaviorClassDescriptionAndClassWithMetaclasses.png|width=110+
 
 ${slide:title=Metaclasses in 7 Points}$
 
@@ -205,9 +215,10 @@ ${slide:title=Metaclasses in 7 Points}$
 # ""Every metaclass is an instance of ==Metaclass==""
 # The metaclass of ==Metaclass== is an instance of ==Metaclass==
 
-${slide:title=Every metaclass is an instance of ==Metaclass==}$
+${slide:title=Every Metaclass is an Instance of Metaclass}$
 
-image with Metaclass
++>file://figures/11-BehaviorClassDescriptionAndClassWithMetaclassesInstanceOfMetaclass.png|width=120+
+- ==Metaclass== inherits from ==ClassDescription==
 
 ${slide:title=Metaclass Responsibilities}$
 
@@ -228,52 +239,33 @@ ${slide:title=Metaclasses in 7 Points}$
 # Every metaclass is an instance of ==Metaclass==
 # ""The metaclass of ==Metaclass== is an instance of ==Metaclass==""
 
-${slide:title=The metaclass of ==Metaclass== is an instance of ==Metaclass==}$
+${slide:title=The metaclass of Metaclass is an Instance of Metaclass}$
 
-Full picture
-
-${slide:title=Points}$
-
-- The full graph is consistent
--- Any class can receive a message 
--- Only one message lookup
-- No need 
++>file://figures/12-FullMetaclasses.png|width=130+
 
 
 
-
-${slide:title=Metaclasses in 7 Points}$
+${slide:title=Observations}$
 
 ${columns}$
 
-${column:width=40}$
+${column:width=70}$
 
-Only one rule:
+- When programming we do not really care about that!
+- Now The full graph is consistent
+-- Any class can receive a message 
+-- Only one message lookup
 
-When a message is sent to an object, a method is searched starting from the class of the object and following the inheritance chain
+${column:width=30}$
 
-${column:width=50}$
-
-+>file://figures/LookupEssenceAny.png|width=130+
++>file://figures/LookupEssenceWithGeneric.png|width=130+
 
 ${endColumns}$
 
 
-${slide:title=A Class is an Instance of Another Class}$
-
-- A class ==X== is always the unique instance of another class ==X class==
--- The class of ==Node== is ==Node class==
-
-+>file://figures/WorkstationMetaclassesWithInheritance.png|width=90+
-
-
-${slide:title=Lookup of Class Methods is No Different}$
-
-+>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=130+
 
 ${slide:What you Should Know}$
 
--Classes are objects and can be sent messages
--The process is ""exactly"" the same as for other objects
--To know more: follow the lecture 'Understanding Metaclasses'
+- Classes are objects and can be sent messages
+- The process is ""exactly"" the same as for any other objects
 
