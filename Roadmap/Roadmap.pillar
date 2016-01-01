@@ -529,18 +529,20 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S02-VariableClasses.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S02-VariableClasses.html*	
 
-
-- [Lecture ] Avoid is nil
+- [Lecture ] "C019SD-W7S03-UnderstandingMetaclasses.pillar"
 -- Presenter: Stef 
--- Status: Done (may be add a figure with the hierarchy and witohut null object?)
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-AvoidIsNill.html*	
+-- Status: Done 
+-- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S03-UnderstandingMetaclasses.pdf* 	
 
 
-- 6 Week7 Understanding metaclass architecture
--- Slides to be done
 
-- 6 Week7 Understanding metaclass architecture	(two)
--- Slides to be done
+
+
+
+
+
+
+
 
 - [Lecture ] Reflection Other Reflectives
 -- Presenter: Stef 
@@ -557,6 +559,11 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Stef 
 -- Status: Done 
 -- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-thisContext.html*	
+
+- [Lecture ] Avoid is nil
+-- Presenter: Stef 
+-- Status: Done (may be add a figure with the hierarchy and witohut null object?)
+-- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-AvoidIsNill.html*	
 
 
 
