@@ -144,13 +144,13 @@ ${slide:title=Metaclasses in 7 Points}$
 # The metaclass of ==Metaclass== is an instance of ==Metaclass==
 
 
-${slide:title=Every metaclass inherits from Class and Behavior}$
+${slide:title=Every Metaclass Inherits from Class and Behavior}$
 
-image  behavior and class
++>file://figures/08-BehaviorClassDescriptionAndClass.png|width=110+
 
 ${slide:title=Where new is defined?}$
 
-image  behavior and class  new added
++>file://figures/09-BehaviorClassDescriptionAndClassWithNew.png|width=110+
 
 
 
@@ -189,7 +189,11 @@ ${slide:title=Responsibilities of Class}$
 --  name, compilation, method storing, instance variables ...
 -  representation for classVariable names and shared pool variables (addClassVarName:, addSharedPool:, initialize)
 
+${slide:title=Since Classes are Instances of Metaclasses}$
+- Classes are Instances of Metaclasses
+- Metaclass and class inheritance are parallel
 
++>file://figures/08-BehaviorClassDescriptionAndClass.png|width=110+
 
 ${slide:title=Metaclasses in 7 Points}$
 
