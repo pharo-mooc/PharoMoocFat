@@ -1,5 +1,6 @@
 {
-"title":"Avoid Null Checks"
+  "title":"Avoid Null Checks",
+  "slidesid":"W7S7"
 }
 
 ${slide:title=Design Again}$
@@ -11,21 +12,25 @@ ${slide:title=The Pitch}$
 
 - Avoid null checks
 - Null checks go against "Tell, do not ask" design guideline
-- Promotes polymorphic objects once again
+
+Better
+- Promote polymorphic objects once again
 - Less checks, simpler logic, just send messages
 
 +.>file://figures/antifIfCampaign.png|width=60+
 
-${slide:title=First, avoid to return nil}$
+${slide:title=First, Do Not Return Nil}$
 
-- Do not force your clients to have to check
+- Do not force your clients to check
 - Do not return nil AND another object
 -- Not a collection and may be nil
+-- Not a number and may be nil
 
 ${slide:title=Return Polymorphic Objects}$
 
 - Return polymorphic objects!
 - Return a collection and an empty collection
+- Return a number and 0 or 1
 
 ${slide:title=Example}$
 
@@ -34,7 +39,7 @@ Inferencer >> getRulesFor: aFact
    ^ self computeRulesFor: aFact ifAbsent: [ nil ]
 ]]]
 
-- It looks really suspicious! We may return ==nil==
+- ==ifAbsent: [ nil ]== looks suspicious! 
 
 [[[
 Inferencer >> computeRulesFor: aFact ifAbsent: aBlock
@@ -45,19 +50,20 @@ Inferencer >> computeRulesFor: aFact ifAbsent: aBlock
 - ==getRulesFor:== returns either a collection or nil! 
 - You force ""all"" the clients of ==getRulesFor:== to check for ==nil== values!
 
-${slide:title=Solution: return polymorphic objects}$
+${slide:title=Solution: Return Polymorphic Objects}$
 
 [[[
 Inferencer >> getRulesFor: aFact
    ^ self computeRulesFor: aFact ifAbsent: [#()].
 ]]]
 
-Your clients can just iterate and manipulate the returned values:
+Your clients can just iterate and manipulate the returned value
+
 [[[
 (self getRulesForFact: 'a') do: [:each | ... ]
 ]]]
 
-${slide:title=For Exceptional Cases, Use Exceptions}$
+${slide:title=Second, For Exceptional Cases, Use Exceptions}$
 
 - Avoid error codes, when possible :)
 - If you should specify an exceptional behavior use exceptions.
@@ -68,7 +74,7 @@ ${slide:title=For Exceptional Cases, Use Exceptions}$
 [ ... ] on: FileDoesNotExistException do: [ ... ]
 ]]]
 
-${slide:title=Second, initialize your object state}$
+${slide:title=Third, Initialize Your Object State}$
 
 - By default instance variables are initialized with ==nil==
 - Initialize your object state correctly
@@ -103,12 +109,12 @@ ToolPalette >> previousAction
    self selectedTool ifNotNil: [:t | t dettachHandles]
 ]]]
 
-${slide:title=Third, use NullObject}$
+${slide:title=NullObject}$
 
 - A null object proposes a polymorphic API and embeds default actions/values
 - Woolf, Bobby (1998). "Null Object". In Pattern Languages of Program Design 3. Addison-Wesley.
 
-${slide:title=Third, use NullObject}$
+${slide:title=Use NullObject}$
 
 [[[
 NoTool >> attachHandles

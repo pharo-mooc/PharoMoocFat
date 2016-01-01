@@ -534,9 +534,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed 
 -- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S03-UnderstandingMetaclasses.pdf* 	
 
-
-
-
 - [Lecture ] Reflection Other Reflectives
 -- Presenter:  
 -- Status: Reviewed
@@ -556,7 +553,12 @@ You will also see that 4 kinds of activities are distinguished:
 - [Lecture ] Avoid is nil
 -- Presenter:  
 -- Status: Done (may be add a figure with the hierarchy and witohut null object?)
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-AvoidIsNill.html*	
+-- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S07-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S07-AvoidIsNill.html*	
+
+
+
+
+
 
 - 6 Week7 Deploying an application 
 -- pharo cloud 
