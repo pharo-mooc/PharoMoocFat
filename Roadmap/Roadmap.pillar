@@ -3,8 +3,11 @@
 !TODO
 
 !! Simple points
+
 - [Lecture 6min] Slides/Week5/C019SD-W5S03-Debugging.pillar
 -- Status: + add a debugger stack!!!
+
+-- Should probably put reflective architecture before the other reflective lectures in Week7 
 
 
 - check that we add a diagram for visibility classVar vs instance var (I did one but I do not remember where) in  Slides/Week3/C019SD-W3S05-Basic-Variables.pillar
@@ -516,6 +519,17 @@ You will also see that 4 kinds of activities are distinguished:
 
 !!Week 7: 
 
+- [Lecture ]  "Slides/Week7/C019SD-W7S01-AdvancedPointOnClasses.pillar"
+-- Presenter: Stef 
+-- Status: Reviewed
+-- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S01-AdvancedPointOnClasses.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S01-AdvancedPointOnClasses.html*	
+
+- [Lecture ]  "Slides/Week7/C019SD-W7S02-C019SD-W7S-VariableClasses.pillar"
+-- Presenter: Stef 
+-- Status: Reviewed
+-- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S02-VariableClasses.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S02-VariableClasses.html*	
+
+
 - [Lecture ] Avoid is nil
 -- Presenter: Stef 
 -- Status: Done (may be add a figure with the hierarchy and witohut null object?)
@@ -528,6 +542,10 @@ You will also see that 4 kinds of activities are distinguished:
 - 6 Week7 Understanding metaclass architecture	(two)
 -- Slides to be done
 
+- [Lecture ] Reflection Other Reflectives
+-- Presenter: Stef 
+-- Status: 
+-- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-thisContext.html*	
 
 
 - [Lecture ] DoesNotUnderstand
@@ -540,20 +558,8 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Done 
 -- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-thisContext.html*	
 
-- [Lecture ] Reflection Other Reflectives
--- Presenter: Stef 
--- Status: Done (to be revisited)
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-thisContext.html*	
 
-- [Lecture ]  "Slides/Week7/C019SD-W7S-AdvancedPointOnClasses.pillar"
--- Presenter: Stef 
--- Status: Done
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-AdvancedPointOnClasses.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-AdvancedPointOnClasses.html*	
 
-- [Lecture ]  "Slides/Week7/C019SD-W7S-C019SD-W7S-VariableClasses.pillar"
--- Presenter: Stef 
--- Status: Done
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-VariableClasses.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-VariableClasses.html*	
 
 - 6 Week7 ?Visitor design pattern or only in exo
 
