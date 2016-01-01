@@ -95,7 +95,7 @@ Classes are objects too!
 
 
 
-${slide:title=Metaclass are implicit}$
+${slide:title=Metaclass are Implicit}$
 
 Metaclasses are automatically created when creating a class
 
@@ -113,9 +113,9 @@ ${slide:title=Metaclasses in 7 Points}$
 
 
 
-${slide:title=The metaclass hierarchy parallels the class hierarchy}$
+${slide:title=Metaclass Hierarchy Parallels Class Hierarchy}$
 
-image with parallel
++>file://figures/05-OrderedCollectionIsInstanceOfOrderedCollectionClassInherit|width=120+
 
 
 ${slide:title=Lookup}$
