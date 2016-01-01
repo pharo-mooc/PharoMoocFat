@@ -118,15 +118,17 @@ ${slide:title=Metaclass Hierarchy Parallels Class Hierarchy}$
 +>file://figures/05-OrderedCollectionIsInstanceOfOrderedCollectionClassInherit|width=120+
 
 
-${slide:title=Lookup}$
+${slide:title=Sending a Message to a Class}$
 
-image avec browser + lookup
++>file://figures/06-OrderedCollectionIsInstanceOfOrderedCollectionClass|width=160+
 
 
-${slide:title=What about sending a message to a metaclass}$
+${slide:title=Questions}$
+- What is the class of a metaclass?
+- What is the superclass of ==Object class==?
+- What about sending a message to a metaclass?
 
-image
-previous plus send a message to a one 
++>file://figures/07-2Questions|width=110+
 
 
 
