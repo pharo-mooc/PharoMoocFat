@@ -89,7 +89,9 @@ ${slide:title=Every class is an instance of a metaclass}$
 Classes are objects too!
 —  Every class X is the unique instance of its metaclass, called X class
 
-image here with metaclass no inheritance 
++>file://figures/04-OrderedCollectionIsInstanceOfOrderedCollectionClass|width=120+
+
+
 
 
 
