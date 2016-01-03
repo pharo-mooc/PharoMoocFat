@@ -379,29 +379,41 @@ You will also see that 4 kinds of activities are distinguished:
 - [Lecture 6min] Inheritance - Super
 -- Presenter: Damien
 -- Status: To Review
--- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-InheritanceAndLookup-3-Super.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
+-- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S03-InheritanceAndLookup-3-Super.pdf* 
 
 - [Lecture 6min] Inheritance - Lookup when no method found
 -- Presenter: Damien
 -- Status: To Review
--- Files:  *SlidesPdf>../Slides/Week4/C019SD-W4S-InheritanceAndLookup-4-DoesNotUnderstand.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
+-- Files:  *SlidesPdf>../Slides/Week4/C019SD-W4S04-InheritanceAndLookup-4-DoesNotUnderstand.pdf* 
 
 - [Lecture 6min] Inheritance - Lookup in Metaclasses
 -- Presenter: Damien
 -- Status: To Review
--- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S-InheritanceAndLookup-5-LookupMetaclasses.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
+-- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S05-InheritanceAndLookup-5-LookupMetaclasses.pdf*
 
-- [Lecture 6min] C019SD-W4S-ClassMethodsAtWork (on peut bouger cela semaine 6)
+- [Lecture 6min] C019SD-W4S06-ClassMethodsAtWork (on peut bouger cela semaine 6)
 -- Presenter: Damien
 -- Status: To review 
--- Files: *SlidesPdf>../Slides/Week4/W3S8-ClassMethodsAtWork.pdf*	*SlidesHTML>../Slides/Week4/W3S7-ClassMethods.html*	
+-- Files: *SlidesPdf>../Slides/Week4/W4S06-ClassMethodsAtWork.pdf*
+
 
 - 3 min PharoWebStack: 4/5 slides
 	Voyage Mongo
 	Magritte
 	Zinc
 	WebSocket
+
 	
+- [Lecture 6min] C019SD-W4S07-Seaside.pillar
+-- Presenter: 
+-- Status: TODO
+-- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
+	
+- [Lecture 6min] C019SD-W4S08-Seaside.pillar
+-- Presenter: 
+-- Status: TODO
+-- Files: *SlidesPdf>../Slides/Week4/W3S08-Seaside.pdf*			
+		
 - Live: seaside counter/multi counter
 -- counter back button
 	
