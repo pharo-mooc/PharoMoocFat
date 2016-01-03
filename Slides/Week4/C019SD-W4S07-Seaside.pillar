@@ -1,27 +1,112 @@
 {
-  "title":"Class methods At Work",
+  "title":"Seaside: A Web Application Framework",
   "slidesid" : "W4S06"
 }
 
-${slide:title=What You Will Learn}$
+${slide:title=Seaside}$
 
-- Class methods are dynamically looked up
-- Act as registration mechanism
-- No need for factory as in Java
+- Powerful framework to build ""complex"" dynamic web applications
+- Live coding debugging 
+- Support reusable components 
+- Secure by default
+- Web 2.0 support
+- Rest integration
 
-${slide:title=Parsing Lines}$
++>file://figures/SeasideLogo.png|width=80+
 
-Imagine we want to parse
+${slide:title=Books and Tutorials}$
+
+http://
+- *book.seaside.st>http://book.seaside.st*
+- *www.swa.hpi.uni-potsdam.de/seaside/>http://www.swa.hpi.uni-potsdam.de/seaside/*
+- *seaside.gemtalksystems.com/tutorial.html>http://seaside.gemtalksystems.com/tutorial.html*
+- TinyBlog tutorial
+
+
+${slide:title=Seaside Little History}$
+
+- Developed by A. Briant and J. Fitzell
+- Enhanced by L. Renggli and P. Marshall
+- In production since 2002
+- Actively maintained J. Brichau, S. Eggermont (web site under full rewrite) 
+- Foundation for many Pharo success stories 
+- *http://www.pharo.org/success*
+
+
+${slide:title=Seaside in a Nutshell}$
+
+- Define stateful components
+- Use a DSL for rendering component
+- Compose application out of reusable components
+- Use messages ==call:/answer:== to schedule component
+- Debug your application on the fly
+- Use metadata to generate forms
+
+
+${slide:title=A First Dummy Example}$
+
+
++>file://figures/SeasideAdder.png|width=160+
+
+${slide:title=A First Dummy Example}$
+
 [[[
-!Section Title
-- list item
--- sub-list item
-
-Any text here
+WATask subclass: #Adder
+	instanceVariableNames: ''
+	classVariableNames: ''
+	category: 'SeaExample'
 ]]]
 
+[[[
+Adder >> go
+	| value1 value2 |
+	value1 := self request: 'first number'.
+	value2 := self request: 'second number'.
+	self inform: value1 asNumber + value2 asNumber
+]]]
 
-${slide:title=A Possible Design}$
+${slide:title=A Task}$
+
+Simple component
+- No UI part
+- Just flow
+- Will describe ==request:== implementation later
+
+${slide:title=Debugger at Work}$
+
+[[[
+Adder >> go
+	| value1 value2 |
+	value1 := self request: 'first number'.
+	1/0.
+	value2 := self request: 'second number'.
+	self inform: value1 asNumber + value2 asNumber
+]]]
+
+${slide:title=Triggering Server Side Debugger}$
+
++>file://figures/SeasideAdderWallback.png|width=160+
+
+
+
+${slide:title=Walking Application Stack}$
+
++>file://figures/SeasideAdderDebugger.png|width=130+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+${slide:title=HERE}$
 
 +>file://figures/items.png|width=80+
 
@@ -29,65 +114,6 @@ ${slide:title=A Possible Design}$
 -- if they can parse a line (==canParse:==)
 -- how to create instances (==newFromLine:==)
 
-${slide:title=Parsing Lines}$
-
-[[[
-Parser >> parse: line
-   self documentClasses
-      detect: [ :subclass |
-         (subclass canParse: aLine)
-            ifTrue: [ ^ subclass newFromLine: line ] ]
-
-Parser >> documentClasses
-   ^ DocumentItem allSubclasses
-      sorted: [ :cls1 :cls2 | cls1 priority < cls2 priority ]
-]]]
-
-
-${slide:title=What Do We See}$
-
-- ==documentClasses== sorts the subclasses
-- Subclasses specialize ==canParse:== and ==newFromLine:==
-- ==canParse:== is lookup 
-
-${slide:title=Another Example}$
-
-- Inside Pharo command-lines use the same approach
-- Each subclass of CommandLineHandler knows how to deal with one command
-- The correct one is selected by sending messages to the class
-
-${slide:title=CommandLineHandler}$
-
-[[[
-./pharo Pharo.image -e '1+2'
-]]]
-
-[[[
-CommandLineHandler class >>	isResponsibleFor: aCommandLineArguments
-	^ aCommandLineArguments includesSubCommand: self commandName		
-]]]
-
-[[[
-EvaluateCommandLineHandler class >>	isResponsibleFor: commandLineArguments
-  "directly handle top-level -e and --evaluate options"
-  commandLineArguments withFirstArgument: [ :arg | 
-    (#('-e' '--evaluate') includes: arg)
-        ifTrue: [ ^ true ]].
-  ^ commandLineArguments includesSubCommand: self commandName
-]]]
-
-
-
-[[[
-CommandLineHandler class >> allHandlers
-   ^ self allSubclasses
-        reject: [ :handler| handler isAbstract ]
-
-CommandLineHandler class >> handlersFor: aCommandLine
-  ^ self allHandlers
-       select: [ :handlerClass |
-          handlerClass isResponsibleFor: aCommandLine ]
-]]]
 
 
 
