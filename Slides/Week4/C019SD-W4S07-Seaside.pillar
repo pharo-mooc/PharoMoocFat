@@ -65,6 +65,9 @@ Adder >> go
 	self inform: value1 asNumber + value2 asNumber
 ]]]
 
+[[[
+WAAdmin register: self asApplicationAt: 'Adder'.
+]]]
 ${slide:title=A Task}$
 
 Simple component
@@ -94,25 +97,135 @@ ${slide:title=Walking Application Stack}$
 +>file://figures/SeasideAdderDebugger.png|width=130+
 
 
+${slide:title=So far...}$
+
+- no manual request parsing
+- no XML configuration files
+- no file/page
+- no hardcoding of next page
+
+
+${slide:title=Rendering components}$
+
+Using a DSL 
+- brushes to emit XHTML
+- valid XHTML
+- CSS-based
+
+${slide:title=Simple Example 1}$
+[[[
+html div id: 'title'; with: 'Title'
+]]]
+
+[[[
+<div id="title">Title</div>
+]]]
+
+[[[
+html div id: 'list'; 
+	with: [ 
+		html span class: 'item'; with: 'Item 1'.
+		html span class: 'item'; with: 'Item 2' ]
+]]]
+
+[[[
+<div id="list">
+	<span class="item">Item 1</span>
+	<span class="item">Item 2</span>
+	</div>
+]]]
+
+
+${slide:title=More}$
+
+Example2
+
+
+${slide:title=Reusing Components}$
+
+Example 4
 
 
 
 
+${slide:title=call:}$
+
++>file://figures/SeasideCall1.png|width=100+
+
+
+${slide:title=call:}$
+
++>file://figures/SeasideCall2.png|width=100+
+
+
+${slide:title=answer:}$
+
++>file://figures/SeasideAnswer1.png|width=100+
+
+${slide:title=answer:}$
+
++>file://figures/SeasideAnswer2.png|width=100+
+
+
+
+${slide:title=call:/answer:}$
+
+Messages ==call:answer:== reintroduce PC after call on top of a stateless protocol
+
+
+${slide:title=Back Button}$
+
+
+${slide:title=Advanced Seaside}$
+
+
+
+${slide:title=Twitter Bootstrap}$
+
++>file://figures/TwitterBootstrap.png|width=100+
+
+
+
+${slide:title=Twitter Alerts!}$
+
++>file://figures/TwitterAlerts.png|width=100+
+
+[[[
+renderExampleOn: html
+	html heading level: 2; with: 'Examples'.					
+	html tbsAlert 
+		beSuccess;
+		with: [ html strong: 'Well done!'. html text: ' You successfully read this important alert message.' ].
+	html tbsAlert 
+		beInfo;
+		with: [ html strong: 'Heads up!'. html text: ' This alert needs your attention, but it''s not super important.' ].
+]]]
+
+${slide:title=Twitter Buttons!}$
+
++>file://figures/TwitterButtons.png|width=60+ 
+
+[[[
+renderExampleOn: html
+
+	html tbsButtonGroup: [ 
+		html tbsButton beDefault; with: 'Left'.
+		html tbsButton beDefault; with: 'Middle'.
+		html tbsButton beDefault; with: 'Right' ].
+]]]
+
+
+${slide:title=Component Automatic Generation}$
 
 
 
 
+${slide:title=Stepping Back}$
 
-
-
-
-${slide:title=HERE}$
-
-+>file://figures/items.png|width=80+
-
-- Document item ""classes"" know
--- if they can parse a line (==canParse:==)
--- how to create instances (==newFromLine:==)
+- We don't think in terms of pages
+- No URL fiddling
+- No request parsing
+- Component composition
 
 
 
