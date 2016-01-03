@@ -1,0 +1,102 @@
+{
+  "title":"Class methods At Work",
+  "slidesid" : "W4S06"
+}
+
+${slide:title=What You Will Learn}$
+
+- Class methods are dynamically looked up
+- Act as registration mechanism
+- No need for factory as in Java
+
+${slide:title=Parsing Lines}$
+
+Imagine we want to parse
+[[[
+!Section Title
+- list item
+-- sub-list item
+
+Any text here
+]]]
+
+
+${slide:title=A Possible Design}$
+
++>file://figures/items.png|width=80+
+
+- Document item ""classes"" know
+-- if they can parse a line (==canParse:==)
+-- how to create instances (==newFromLine:==)
+
+${slide:title=Parsing Lines}$
+
+[[[
+Parser >> parse: line
+   self documentClasses
+      detect: [ :subclass |
+         (subclass canParse: aLine)
+            ifTrue: [ ^ subclass newFromLine: line ] ]
+
+Parser >> documentClasses
+   ^ DocumentItem allSubclasses
+      sorted: [ :cls1 :cls2 | cls1 priority < cls2 priority ]
+]]]
+
+
+${slide:title=What Do We See}$
+
+- ==documentClasses== sorts the subclasses
+- Subclasses specialize ==canParse:== and ==newFromLine:==
+- ==canParse:== is lookup 
+
+${slide:title=Another Example}$
+
+- Inside Pharo command-lines use the same approach
+- Each subclass of CommandLineHandler knows how to deal with one command
+- The correct one is selected by sending messages to the class
+
+${slide:title=CommandLineHandler}$
+
+[[[
+./pharo Pharo.image -e '1+2'
+]]]
+
+[[[
+CommandLineHandler class >>	isResponsibleFor: aCommandLineArguments
+	^ aCommandLineArguments includesSubCommand: self commandName		
+]]]
+
+[[[
+EvaluateCommandLineHandler class >>	isResponsibleFor: commandLineArguments
+  "directly handle top-level -e and --evaluate options"
+  commandLineArguments withFirstArgument: [ :arg | 
+    (#('-e' '--evaluate') includes: arg)
+        ifTrue: [ ^ true ]].
+  ^ commandLineArguments includesSubCommand: self commandName
+]]]
+
+
+
+[[[
+CommandLineHandler class >> allHandlers
+   ^ self allSubclasses
+        reject: [ :handler| handler isAbstract ]
+
+CommandLineHandler class >> handlersFor: aCommandLine
+  ^ self allHandlers
+       select: [ :handlerClass |
+          handlerClass isResponsibleFor: aCommandLine ]
+]]]
+
+
+
+${slide:title=Conclusion}$
+
+- Messages sent to classes are resolved dynamically the same way as messages sent to instances
+- Classes can then be used as registration mechanism
+
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/W3S8-ClassMethodsAtWork.pillar"
+% End:
