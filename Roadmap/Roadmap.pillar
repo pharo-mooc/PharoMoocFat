@@ -379,62 +379,59 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 4: Inheritance&Lookup and Web Development
 
-- [Lecture 6min] C019SD-W4S01-InheritanceAndLookup-1-Inheritance.pillar
+- W4S01 [Lecture 6min] InheritanceAndLookup-1-Inheritance.pillar
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
 -- Files:  *SlidesPdf>../Slides/Week4/C019SD-W4S01-InheritanceAndLookup-1-Inheritance.pdf* 
 
-- [Lecture 6min] Inheritance - Lookup
+- W4S02 [Lecture 6min] InheritanceAndLookup-2-Lookup
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
 -- Files:  *SlidesPdf>../Slides/Week4/C019SD-W4S02-InheritanceAndLookup-2-Lookup.pdf* 
 
-- [Lecture 6min] Inheritance - Super
+- W4S03 [Lecture 6min] InheritanceAndLookup-3-Super
 -- Presenter: Damien
 -- Status: To Review
 -- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S03-InheritanceAndLookup-3-Super.pdf* 
 
-- [Lecture 6min] Inheritance - Lookup when no method found
+- W4S04 [Lecture 6min] InheritanceAndLookup-4-DNU
 -- Presenter: Damien
 -- Status: To Review
 -- Files:  *SlidesPdf>../Slides/Week4/C019SD-W4S04-InheritanceAndLookup-4-DoesNotUnderstand.pdf* 
 
-- [Lecture 6min] Inheritance - Lookup in Metaclasses
+- W4S05 [Lecture 6min] InheritanceAndLookup-5-Lookup in Metaclasses
 -- Presenter: Damien
 -- Status: To Review
 -- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S05-InheritanceAndLookup-5-LookupMetaclasses.pdf*
 
-- [Lecture 6min] C019SD-W4S06-ClassMethodsAtWork (on peut bouger cela semaine 6)
+- W4S06 [Lecture 6min] C019SD-W4S06-ClassMethodsAtWork (on peut bouger cela semaine 6 - ici c'est bizarre) 
 -- Presenter: Damien
 -- Status: To review 
 -- Files: *SlidesPdf>../Slides/Week4/W4S06-ClassMethodsAtWork.pdf*
 
-
-- 3 min PharoWebStack: 4/5 slides
+- W4S07 [Lecture 3min] PharoWebStack: 4/5 slides
+-- Presenter: ?
+-- Status: TBD
 	Voyage Mongo
 	Magritte
 	Zinc
 	WebSocket
-
 	
-- [Lecture 6min] C019SD-W4S07-Seaside.pillar
--- Presenter: 
--- Status: TODO
+- W4S08 [Lecture 6min] Seaside (plusieurs lectures?)
+-- Presenter: ?
+-- Status: TBD
 -- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
+-- Seaside Component, html, bootstrap
+-- call / answer
 	
-- [Lecture 6min] C019SD-W4S08-Seaside.pillar
--- Presenter: 
--- Status: TODO
--- Files: *SlidesPdf>../Slides/Week4/W3S08-Seaside.pdf*			
-		
-- Live: seaside counter/multi counter
+- [Live] seaside counter/multi counter
+-- Presenter: ?
+-- Status: TBD
 -- counter back button
 	
-- Seaside Component, html, bootstrap
-
-- Seaside call:/answer:
-
-- [Lecture 6min] Live Debugging of Seaside Web Applications 
+- [Live] Live Debugging of Seaside Web Applications 
+-- Presenter: ?
+-- Status: TBD
 --	 ==10 + 20 + error +== debugger
 
 !!!! Exos	
@@ -446,6 +443,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Call/Answer in Seaside for view
 -- Login 
 
+% ===============================================================================
 !!Week 5: Exception, Debugging and Reflection
 
 - [Lecture 6min] C019SD-W5S00-UnderstandingClassMethods.pillar
@@ -500,7 +498,7 @@ You will also see that 4 kinds of activities are distinguished:
 - Exo: Magritte version of ticket.
 - Exo: ?? Discovering google services ?? We should check: https://www.min.at/prinz/?x=entry:entry150318-104537
 
-
+% ===============================================================================
 !!Week 6: Rethink lookup and Advanced OO Design
 
 - [Lecture 6min]  Did you read understand super?
@@ -541,7 +539,7 @@ You will also see that 4 kinds of activities are distinguished:
 - Exo: template Artefact
 - Exo: API Rest
 
-
+% ===============================================================================
 !!Week 7: More on OO Design and Testing
 
 - [Lecture ]  "Slides/Week7/C019SD-W7S01-AdvancedPointOnClasses.pillar"
