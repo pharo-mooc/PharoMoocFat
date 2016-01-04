@@ -104,7 +104,7 @@ ${slide: setUp and tearDown Messages}$
 
 +>file://figures/SetUpTearDown.png+
 
-${slide:title=Definiting a setUp Method}$
+${slide:title=Defining a setUp Method}$
 
 [[[
 SetTestCase >> setUp

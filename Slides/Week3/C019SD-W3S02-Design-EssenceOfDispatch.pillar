@@ -1,13 +1,13 @@
 {
-	"title":"Objects, Methods, and Messages",
+	"title":"Essence of Dispatch",
 	"slidesid" : "W3S02"
 }
 
 
 
-${slide:title=Not implementation in two methods}$
+${slide:title=Implementing not in two methods}$
 
-+Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=95+
++Not implementation>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=95+
 
 ${slide:title=Stepping Back}$
 - Let the receiver decide
