@@ -25,6 +25,46 @@
 \frame[plain]{\titlepage}
 
 {{{content}}}
+
+
+% \setlength{\textwidth}{\originaltextwidth}
+\setbeamertemplate{background canvas}{\insertBorderForHandout}
+
+\begin{frame}[plain]
+
+\begin{minipage}{\originaltextwidth}
+\centering
+\LARGE
+
+
+\vspace{0.5em}
+
+Un cours proposé par
+
+\vspace{1em}
+
+\Large
+
+\hspace{-20px}\includegraphics[height=50px]{logoMoocLab}\hspace{0.8em}\raisebox{7px}{et}\hspace{1.2em}\raisebox{-10px}{\includegraphics[height=45px]{logoutop}}
+
+\vspace{1em}
+
+% \includegraphics[height=27px]{inriaLogo}\hskip 5px%
+\includegraphics[height=35px]{unitlogo}\hskip 1em%
+\raisebox{-7px}{\includegraphics[height=45px]{unisciellogo}}\hskip 1em%
+\includegraphics[height=30px]{univLilleLogo}\hskip 1em%
+\raisebox{-6px}{\includegraphics[height=35px]{logo-IMT}}\hskip 1em%
+\raisebox{-9px}{\includegraphics[height=38px]{minesDouaiLogo}}
+
+\vspace{2em}
+\normalsize
+\includegraphics[height=25px]{by-nc-nd}
+
+Inria 2016
+
+\end{minipage}
+\end{frame}
+
 \end{document}
 
 %%% Local Variables:
