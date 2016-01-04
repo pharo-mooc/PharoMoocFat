@@ -20,10 +20,10 @@ subclass: aSubclassSymbol instanceVariableNames: instVarNames classVariableNames
 Probablement class and Method Definition lectures
  
  
-- check that we add a diagram for visibility classVar vs instance var (I did one but I do not remember where) in  Slides/Week3/C019SD-W3S05-Basic-Variables.pillar
+- check that we add a diagram for visibility classVar vs instance var (I did one but I do not remember where) in  Slides/Week3/C019W3S05-Basic-Variables.pillar
 
 [[[
-mate Slides/Week3/C019SD-W3S05-Basic-Variables.pillar
+mate Slides/Week3/C019W3S05-Basic-Variables.pillar
 ]]]
 
 - Week4, le cours seaside sera à diviser en 2 au moins je pense
@@ -130,17 +130,17 @@ You will also see that 4 kinds of activities are distinguished:
 - W1S01 [Lecture 2min] Objectives of this Mooc 
 -- Presenter: Stef
 -- Status: Done Should add one slides avec success stories wiat for lusy template
--- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S01-ObjectivesMooc.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S01-ObjectivesMooc.pdf* NoHTML
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019-W1S01-ObjectivesMooc.pdf* *SlidesHandout>../Slides/Handout/C019-W1S01-ObjectivesMooc.pdf* NoHTML
 
 - W1S02 [Lecture 6min] What is Pharo?
 -- Presenter: Damien
 -- Status: wait for lusy template
--- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S02-WhatIsPharo.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S02-WhatIsPharo.pdf* NoHTML
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019-W1S02-WhatIsPharo.pdf* *SlidesHandout>../Slides/Handout/C019-W1S02-WhatIsPharo.pdf* NoHTML
 
 - W1S03 [Lecture 6min] Pharo's Vision
 -- Presenter: Stef
 -- Status: wait for lusy template
--- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019SD-W1S03-PharoVision.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S03-PharoVision.pdf* NoHTML
+-- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019-W1S03-PharoVision.pdf* *SlidesHandout>../Slides/Handout/C019-W1S03-PharoVision.pdf* NoHTML
 
 - W1S04 [Live 3min] Installing Pharo / the notion of Pharo image / Saving the image
 -- Presenter: Luc
@@ -160,17 +160,17 @@ You will also see that 4 kinds of activities are distinguished:
 - W1S07 [Lecture 6min] Pharo's Model in a Nushell
 -- Presenter: Luc
 -- Status: Done Reviewed by Christelle and typos fixed
--- Files: *SlidesPdf>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S05-PharoModelInaNushell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S05-PharoModelInaNushell.html*
+-- Files: *SlidesPdf>../Slides/Week1/C019-W1S05-PharoModelInaNushell.pdf* *SlidesHandout>../Slides/Handout/C019-W1S05-PharoModelInaNushell.pdf* *SlidesHtml>../Slides/Week1/C019-W1S05-PharoModelInaNushell.html*
 
 - W1S08 [Lecture 6min] Pharo's Syntax in a Nutshell
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019SD-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019SD-W1S06-PharoSyntaxInANutshell.html*
+-- Files: *SlidesPdf>../Slides/Week1/C019-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019-W1S06-PharoSyntaxInANutshell.html*
 
 - W1S09 [Lecture 6min] Class and methods	6 min   
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde - it must be in S01 (Luc) 
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S-ClassAndMethodDefinition.pdf* *SlidesHTML>../Slides/Week2/C019SD-W2S-ClassAndMethodDefinition.html*
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S-ClassAndMethodDefinition.pdf* *SlidesHTML>../Slides/Week2/C019-W2S-ClassAndMethodDefinition.html*
 
 - W1S10 [Redo 6min] Coding a Counter
 -- Presenter: Luc
@@ -199,22 +199,22 @@ You will also see that 4 kinds of activities are distinguished:
 - W2S01 [Lecture 6min] Messages
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S01-Messages.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S01-Messages.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S01-Messages.html*
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S01-Messages.pdf* *SlidesHandout>../Slides/Handout/C019-W2S01-Messages.pdf* *SlidesHtml>../Slides/Week2/C019-W2S01-Messages.html*
 
 - W2S02 [Lecture 6min] Messages for Java programmer
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.html*
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHandout>../Slides/Handout/C019-W2S02-Messages-ForTheJavaProgrammers.pdf* *SlidesHtml>../Slides/Week2/C019-W2S02-Messages-ForTheJavaProgrammers.html*
 
 - W2S03 [Lecture 3min] Messages Precedence
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S03-Messages-Precedence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S03-Messages-Precedence.html*
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S03-Messages-Precedence.pdf* *SlidesHandout>../Slides/Handout/C019-W2S03-Messages-Precedence.pdf* *SlidesHtml>../Slides/Week2/C019-W2S03-Messages-Precedence.html*
 
 - W2S04 [Lecture 6min] Messages Sequence
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S04-Messages-Sequence.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S04-Messages-Sequence.html*
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S04-Messages-Sequence.pdf* *SlidesHandout>../Slides/Handout/C019-W2S04-Messages-Sequence.pdf* *SlidesHtml>../Slides/Week2/C019-W2S04-Messages-Sequence.html*
 
 - W2S05 [Live 6min] Inspector: Inspecting a Counter 
 -- Presenter: Luc
@@ -229,42 +229,42 @@ You will also see that 4 kinds of activities are distinguished:
 - W2S07 [Lecture 6min] Blocks
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S07-Blocks.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S07-Blocks.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S07-Blocks.html*
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S07-Blocks.pdf* *SlidesHandout>../Slides/Handout/C019-W2S07-Blocks.pdf* *SlidesHtml>../Slides/Week2/C019-W2S07-Blocks.html*
 
 - W2S08 [Lecture 6min] Blocks for Loops "on peut bouger celui la dans Extras"
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S08-Blocks-Loops.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S08-Blocks-Loops.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S08-Blocks-Loops.html*
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S08-Blocks-Loops.pdf* *SlidesHandout>../Slides/Handout/C019-W2S08-Blocks-Loops.pdf* *SlidesHtml>../Slides/Week2/C019-W2S08-Blocks-Loops.html*
 
 - W2S09 [Lecture 6min] Loops
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S09-Loops.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S09-Loops.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S09-Loops.html*
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S09-Loops.pdf* *SlidesHandout>../Slides/Handout/C019-W2S09-Loops.pdf* *SlidesHtml>../Slides/Week2/C019-W2S09-Loops.html*
 
 - W2S10 [Lecture 6min] Booleans and Conditions
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S10-BooleansAndCondition.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S10-BooleansAndCondition.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S10-BooleansAndCondition.html*
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S10-BooleansAndCondition.pdf* *SlidesHandout>../Slides/Handout/C019-W2S10-BooleansAndCondition.pdf* *SlidesHtml>../Slides/Week2/C019-W2S10-BooleansAndCondition.html*
 
 - W2S11 [Lecture 6min] Parenthesis vs Square Brackets
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019SD-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019SD-W2S11-ParenthesisVsSquareBrackets.html*
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019-W2S11-ParenthesisVsSquareBrackets.html*
 
 - W2S12 [Lecture 6min] SUnit
 -- Presenter: Luc 
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S12-SUnit.pdf* 
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S12-SUnit.pdf* 
 
 - W2S13 [Lecture 3min] Yourself
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S13-Yourself.pdf* 
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S13-Yourself.pdf* 
 
 - W2S14 [Lecture 6min] The Essence Of Dispatch through an Exercice
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019SD-W2S14-Design-EssenceOfDispatchExo.pdf* 
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S14-Design-EssenceOfDispatchExo.pdf* 
 
 
 !!!Exos
@@ -296,26 +296,26 @@ You will also see that 4 kinds of activities are distinguished:
 - W3S01 [Lecture 6min] Essence of Dispatch: Taking Pharo Booleans as Example 
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde 
--- Files:  *SlidesPdf>../Slides/Week3/C019SD-W3S1-Design-EssenceOfDispatchNot.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S01-Design-EssenceOfDispatchNot.html*
+-- Files:  *SlidesPdf>../Slides/Week3/C019-W3S1-Design-EssenceOfDispatchNot.pdf* *SlidesHTML>../Slides/Week3/C019-W3S01-Design-EssenceOfDispatchNot.html*
 
 - W3S02 [Lecture 6min] Essence of Dispatch
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde 
--- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S02-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S02-Design-EssenceOfDispatch.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019-W3S02-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019-W3S02-Design-EssenceOfDispatch.html*
 
-- W3S03 [Todo] C019SD-W3S03-Design-ImplementingIfTrue.pillar
+- W3S03 [Todo] C019-W3S03-Design-ImplementingIfTrue.pillar
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S03-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S03-Design-ImplementingIfTrue.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.html*
 
 - W3S04 [Lecture 6min] Variables
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde better to have it before Teapot
--- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S04-Basic-Variables.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S04-Basic-Variables.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019-W3S04-Basic-Variables.pdf* *SlidesHTML>../Slides/Week3/C019-W3S04-Basic-Variables.html*
 
-- W3S05 [Lecture 6min] C019SD-W3S05-TeapotAsAPretext.pillar
+- W3S05 [Lecture 6min] C019-W3S05-TeapotAsAPretext.pillar
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S05-TeapotAsAPretext.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S05-TeapotAsAPretext.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019-W3S05-TeapotAsAPretext.pdf* *SlidesHTML>../Slides/Week3/C019-W3S05-TeapotAsAPretext.html*
 
 - W3S06 [Todo] Live: trouver de l'information avec le Finder	
 -- Presenter: ?
@@ -333,27 +333,27 @@ You will also see that 4 kinds of activities are distinguished:
 - W3S08 [Lecture 6min] BasicClassMethods
 -- Presenter: Stephane
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S08-BasicClassMethods.pdf*	*SlidesHTML>../Slides/Week3/C019SD-W3S08-BasicClassMethods.html*	
+-- Files: *SlidesPdf>../Slides/Week3/C019-W3S08-BasicClassMethods.pdf*	*SlidesHTML>../Slides/Week3/C019-W3S08-BasicClassMethods.html*	
 
 - W3S09 [Lecture 6min] Basic-ArraySetOrderedCollection
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S09-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S09-Basic-ArraySetOrderedCollection.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.html*
 
 - W3S10 [Lecture 6min] Iterators
 -- Presenter: Stef
 -- Status: To Review
--- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S10-Iterators.pdf* *SlidesHTML>../Slides/Week3/C019SD-W3S10-Iterators.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019-W3S10-Iterators.pdf* *SlidesHTML>../Slides/Week3/C019-W3S10-Iterators.html*
 
 - W3S11 [Lecture 6min] Streams
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S11-Stream.pdf* *SlidesHTML>../Slides/Week4/Week3/C019SD-W3S11-Stream.html*		
+-- Files: *SlidesPdf>../Slides/Week3/C019-W3S11-Stream.pdf* *SlidesHTML>../Slides/Week4/Week3/C019-W3S11-Stream.html*		
 
 - W3S12 [Lecture 6min] UnderstandingReturn
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week3/C019SD-W3S12-UnderstandingReturn.pdf* *SlidesHTML>../Slides/Week4/Week3/C019SD-W3S12-UnderstandingReturn.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019-W3S12-UnderstandingReturn.pdf* *SlidesHTML>../Slides/Week4/Week3/C019-W3S12-UnderstandingReturn.html*
 
 !!!Exos
 
@@ -380,29 +380,29 @@ You will also see that 4 kinds of activities are distinguished:
 - W4S01 [Lecture 6min] InheritanceAndLookup-1-Inheritance.pillar
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
--- Files:  *SlidesPdf>../Slides/Week4/C019SD-W4S01-InheritanceAndLookup-1-Inheritance.pdf* 
+-- Files:  *SlidesPdf>../Slides/Week4/C019-W4S01-InheritanceAndLookup-1-Inheritance.pdf* 
 
 - W4S02 [Lecture 6min] InheritanceAndLookup-2-Lookup
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
--- Files:  *SlidesPdf>../Slides/Week4/C019SD-W4S02-InheritanceAndLookup-2-Lookup.pdf* 
+-- Files:  *SlidesPdf>../Slides/Week4/C019-W4S02-InheritanceAndLookup-2-Lookup.pdf* 
 
 - W4S03 [Lecture 6min] InheritanceAndLookup-3-Super
 -- Presenter: Damien
 -- Status: To Review
--- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S03-InheritanceAndLookup-3-Super.pdf* 
+-- Files: *SlidesPdf>../Slides/Week4/C019-W4S03-InheritanceAndLookup-3-Super.pdf* 
 
 - W4S04 [Lecture 6min] InheritanceAndLookup-4-DNU
 -- Presenter: Damien
 -- Status: To Review
--- Files:  *SlidesPdf>../Slides/Week4/C019SD-W4S04-InheritanceAndLookup-4-DoesNotUnderstand.pdf* 
+-- Files:  *SlidesPdf>../Slides/Week4/C019-W4S04-InheritanceAndLookup-4-DoesNotUnderstand.pdf* 
 
 - W4S05 [Lecture 6min] InheritanceAndLookup-5-Lookup in Metaclasses
 -- Presenter: Damien
 -- Status: To Review
--- Files: *SlidesPdf>../Slides/Week4/C019SD-W4S05-InheritanceAndLookup-5-LookupMetaclasses.pdf*
+-- Files: *SlidesPdf>../Slides/Week4/C019-W4S05-InheritanceAndLookup-5-LookupMetaclasses.pdf*
 
-- W4S06 [Lecture 6min] C019SD-W4S06-ClassMethodsAtWork (on peut bouger cela semaine 6 - ici c'est bizarre) 
+- W4S06 [Lecture 6min] C019-W4S06-ClassMethodsAtWork (on peut bouger cela semaine 6 - ici c'est bizarre) 
 -- Presenter: Damien
 -- Status: To review 
 -- Files: *SlidesPdf>../Slides/Week4/W4S06-ClassMethodsAtWork.pdf*
@@ -444,10 +444,10 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 5: Exception, Debugging and Reflection
 
-- W5S01 [Lecture 6min] C019SD-W5S00-UnderstandingClassMethods.pillar
+- W5S01 [Lecture 6min] C019-W5S00-UnderstandingClassMethods.pillar
 -- Presenter: Stef
 -- Status: Reviewed after Lome
--- Files:  *SlidesPdf>../Slides/Week5/C019SD-W5S00-UnderstandingClassMethods.pdf*	*SlidesHTML>../Slides/Week5/C019SD-W5S00-UnderstandingClassMethods.html*	
+-- Files:  *SlidesPdf>../Slides/Week5/C019-W5S00-UnderstandingClassMethods.pdf*	*SlidesHTML>../Slides/Week5/C019-W5S00-UnderstandingClassMethods.html*	
 
 - W5S02 [Lecture 6min] W5S-LearningFromMistakes
 -- Presenter: ?
@@ -459,29 +459,29 @@ You will also see that 4 kinds of activities are distinguished:
 
 - W5S04 [Lecture 6min] W5S-Exception.pillar
 -- Presenter: Stef
--- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S-Exceptions.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S-Exceptions.html*
+-- Files: *SlidesPdf>../Slides/Week5/C019-W5S-Exceptions.pdf* *SlidesHTML>../Slides/Week5/C019-W5S-Exceptions.html*
 
 - W5S05 [Lecture 6min] Debugging.pillar
 -- Presenter: ?
 -- Status: Reviewed after Lome / + add a debugger stack
--- Files:  *SlidesPdf>../Slides/Week5/C019SD-W5S03-Debugger.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S03-Debugger.html* 
+-- Files:  *SlidesPdf>../Slides/Week5/C019-W5S03-Debugger.pdf* *SlidesHTML>../Slides/Week5/C019-W5S03-Debugger.html* 
 
 - W5S06 [Live] Extending the GTinspector and spotter for the addressbook
 
 - W5S07 [Lecture 6min] Files.pillar
 -- Presenter: ?
 -- Status: Reviewed after Lome
--- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S05-Files.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S05-Files.html*
+-- Files: *SlidesPdf>../Slides/Week5/C019-W5S05-Files.pdf* *SlidesHTML>../Slides/Week5/C019-W5S05-Files.html*
 
 - W5S08 [Lecture 6min] Reflection: Basic Introspection
 -- Presenter: Luc
 -- Status: Reviewed after Lome
--- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S06-Introspection.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S06-Introspection.html* 
+-- Files: *SlidesPdf>../Slides/Week5/C019-W5S06-Introspection.pdf* *SlidesHTML>../Slides/Week5/C019-W5S06-Introspection.html* 
 
 - W5S09 [Lecture 6min] Benchmarking.pillar
 -- Presenter: ?
 -- Status: Reviewed after Lome
--- Files: *SlidesPdf>../Slides/Week5/C019SD-W5S02-Benchmarking.pdf* *SlidesHTML>../Slides/Week5/C019SD-W5S02-Benchmarking.html*
+-- Files: *SlidesPdf>../Slides/Week5/C019-W5S02-Benchmarking.pdf* *SlidesHTML>../Slides/Week5/C019-W5S02-Benchmarking.html*
 
 
 !!!! Exos	
@@ -497,37 +497,37 @@ You will also see that 4 kinds of activities are distinguished:
 - W6S01 [Lecture 6min]  Did you read understand super?
 -- Presenter: Stef
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S01-DidYouUnderstandSuper.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S01-DidYouUnderstandSuper.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S01-DidYouUnderstandSuper.pdf* *SlidesHTML>../Slides/Week6/C019-W6S01-DidYouUnderstandSuper.html*
 
-- W6S02 [Lecture 6min] C019SD-W6S02-SelfSendsDiceHandle
+- W6S02 [Lecture 6min] C019-W6S02-SelfSendsDiceHandle
 -- Presenter: Stef ou luc
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S02-SelfSendsDiceHandle.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S02-SelfSendsDiceHandle.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S02-SelfSendsDiceHandle.pdf* *SlidesHTML>../Slides/Week6/C019-W6S02-SelfSendsDiceHandle.html*
 
-- W6S03 [Lecture 6min] C019SD-W6S03-SelfSendsArePlanForReuse
+- W6S03 [Lecture 6min] C019-W6S03-SelfSendsArePlanForReuse
 -- Presenter: Stef
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S03-SelfSendsArePlanForReuse.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S03-SelfSendsArePlanForReuse.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S03-SelfSendsArePlanForReuse.pdf* *SlidesHTML>../Slides/Week6/C019-W6S03-SelfSendsArePlanForReuse.html*
 
 - W6S04 [Lecture 6min] Hook and Template / Copy as a hook and template
 -- Presenter: ?
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S-HookAndTemplate.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S-HookAndTemplate.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S-HookAndTemplate.pdf* *SlidesHTML>../Slides/Week6/C019-W6S-HookAndTemplate.html*
 
 - W6S05 [Lecture 6min] RuntimeArchitecture.pillar
 -- Presenter: Stef
 -- Status: Reviewed 
--- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S05-RuntimeArchitecture.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S05-RuntimeArchitecture.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S05-RuntimeArchitecture.pdf* *SlidesHTML>../Slides/Week6/C019-W6S05-RuntimeArchitecture.html*
 
 - W6S06 [Lecture 6min]  CharacterStringSymbol
 -- Presenter: ?
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/019SD-W6S06-CharacterStringSymbol.pdf* *SlidesHTML>../Slides/Week6/019SD-W6S06-CharacterStringSymbol.html* 
+-- Files: *SlidesPdf>../Slides/Week6/019-W6S06-CharacterStringSymbol.pdf* *SlidesHTML>../Slides/Week6/019-W6S06-CharacterStringSymbol.html* 
 
 - W6S07 [Lecture 6min]  DynamicVersusLiteralArray
 -- Presenter: ?
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019SD-W6S07-DynamicVersusLiteralArray.pdf* *SlidesHTML>../Slides/Week6/C019SD-W6S07-DynamicVersusLiteralArray.html* 
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S07-DynamicVersusLiteralArray.pdf* *SlidesHTML>../Slides/Week6/C019-W6S07-DynamicVersusLiteralArray.html* 
 
 
 !!!! Exos	
@@ -539,41 +539,41 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 7: More on OO Design and Testing
 
-- [Lecture ]  "Slides/Week7/C019SD-W7S01-AdvancedPointOnClasses.pillar"
+- [Lecture ]  "Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pillar"
 -- Presenter: Stef 
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S01-AdvancedPointOnClasses.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S01-AdvancedPointOnClasses.html*	
+-- Files: *SlidesPdf>../Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pdf* *SlidesHTML>../Slides/Week7/C019-W7S01-AdvancedPointOnClasses.html*	
 
-- [Lecture ]  "Slides/Week7/C019SD-W7S02-C019SD-W7S-VariableClasses.pillar"
+- [Lecture ]  "Slides/Week7/C019-W7S02-C019-W7S-VariableClasses.pillar"
 -- Presenter: Stef 
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S02-VariableClasses.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S02-VariableClasses.html*	
+-- Files: *SlidesPdf>../Slides/Week7/C019-W7S02-VariableClasses.pdf* *SlidesHTML>../Slides/Week7/C019-W7S02-VariableClasses.html*	
 
-- [Lecture ] "C019SD-W7S03-UnderstandingMetaclasses.pillar"
+- [Lecture ] "C019-W7S03-UnderstandingMetaclasses.pillar"
 -- Presenter: Stef
 -- Status: Reviewed 
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S03-UnderstandingMetaclasses.pdf* 	
+-- Files: *SlidesPdf>../Slides/Week7/C019-W7S03-UnderstandingMetaclasses.pdf* 	
 
 - [Lecture ] Reflection Other Reflectives
 -- Presenter:  
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S04-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S04-thisContext.html*	
+-- Files: *SlidesPdf>../Slides/Week7/C019-W7S04-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019-W7S04-thisContext.html*	
 
 
 - [Lecture ] DoesNotUnderstand
 -- Presenter:  
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S05-DoesNotUnderstand.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S05-DoesNotUnderstand.html*	
+-- Files: *SlidesPdf>../Slides/Week7/C019-W7S05-DoesNotUnderstand.pdf* *SlidesHTML>../Slides/Week7/C019-W7S05-DoesNotUnderstand.html*	
 
 - [Lecture ] Reflection thisContext
 -- Presenter:  
 -- Status: Reviewed 
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S-thisContext.html*	
+-- Files: *SlidesPdf>../Slides/Week7/C019-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019-W7S-thisContext.html*	
 
 - [Lecture ] Avoid is nil
 -- Presenter:  
 -- Status: Done (may be add a figure with the hierarchy and witohut null object?)
--- Files: *SlidesPdf>../Slides/Week7/C019SD-W7S07-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019SD-W7S07-AvoidIsNill.html*	
+-- Files: *SlidesPdf>../Slides/Week7/C019-W7S07-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019-W7S07-AvoidIsNill.html*	
 
 
 
