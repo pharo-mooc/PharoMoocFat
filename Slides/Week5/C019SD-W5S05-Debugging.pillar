@@ -1,6 +1,6 @@
 {
   "title":"Debugging in Pharo",
-  "slidesid" : "W5S03"
+  "slidesid" : "W5S05"
 }
 
 ${slide:title=Common Wisdom}$
@@ -76,10 +76,12 @@ Debug == self
 
 [[[
 Debug > 4 
-  ifTrue: [ Halt now ]
+  ifTrue: [ Halt now ] 
 ]]]
 
+
 ${slide:title=Conditional Halt}$
+
 How to halt a method that is heavily used?
 - ==if: aSelector== stops the execution only if the method has been invoked from message named ==aSelector==
 - ==if: aBlock== stops the execution only if the block is true
