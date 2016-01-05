@@ -5,50 +5,49 @@
 
 ${slide:title=Blocks}$
 
-- blocks are kind of anonymous methods
+Blocks are:
+- kind of anonymous methods
 -- also called (lexical) closures
-- used everywhere
--- loops, conditionals, iterators,...
--- GUI frameworks, DSLs,..
--- at the heart of Pharo
+- used everywhere in Pharo
+-- loops, conditionals, iterators, ...
+-- GUI frameworks, DSLs, ...
+-- at the heart of the system
 - just introduced in Java 8.0
 
 ${slide:title=Block Syntax}$
 
-- a block is delimited by ==[ ]==
+A block is delimited by ==[ ]==
 
 [[[
-    [ expressions.... ]
+[ expressions. ... ]
 ]]]
 
 ${slide:title=A Block}$
 
-- error signaled with ==(1 / 0)==
+- Executing code may signal an Error
 [[[
-   ( 1 / 0 )
-   -> Error
+( 1 / 0 )
+-> Error
 ]]]
-- no error signaled with ==[ 1 / 0 ]==
-
+- But, no error when executing a block definition
+-- nothing happens until a block is evaluated
+-- a block freezes the computation
 [[[
-   [ 1 / 0 ]
-   > [ 1 /0 ]
+[ 1 / 0 ]
+> [ 1 /0 ]
 ]]]
-
-Nothing happens until a block is evaluated
-- a block freezes the computation
 
 ${slide:title=Executing a Block}$
 
 Executing a block is done ""explicitly"" through ==value==
 [[[
-   [ 2 + 6 ] value
-   > 8
+[ 2 + 6 ] value
+> 8
 ]]]
 
 [[[
-   [ 1 / 0 ] value
-   > Error
+[ 1 / 0 ] value
+> Error
 ]]]
 
 
@@ -57,16 +56,16 @@ ${slide:title=A Block with 1 Argument}$
 A block can take arguments (just like methods)
 
 [[[
-   [ :x | x + 2 ]
+[ :x | x + 2 ]
 ]]]
 
 - ==[ ]== delimits the block
-- == :x == is block argument
-- == x + 2 == is the block body
+- ==:x== is a block argument
+- ==x + 2== is the block body
 
 [[[
-   [ :x | x + 2 ] value: 5
-   > 7
+[ :x | x + 2 ] value: 5
+> 7
 ]]]
 
 - ==value: 5== executes the block with 5 as argument
@@ -76,10 +75,10 @@ ${slide:title=Block Execution Value}$
 
 Block execution returns the value of the last expression
 [[[
-   [ :x |
-      x + 33.
-      x + 2 ] value: 5
-   > 7
+[ :x |
+  x + 33.
+  x + 2 ] value: 5
+> 7
 ]]]
 
 ${slide:title=Blocks can be Stored}$
@@ -88,14 +87,14 @@ ${slide:title=Blocks can be Stored}$
 - A block can be evaluated multiple times
 
 [[[
-   | add2 |
-   add2 := [ :x | x + 2 ].
+| add2 |
+add2 := [ :x | x + 2 ].
 
-   add2 value: 5
-   > 7
+add2 value: 5
+> 7
 
-   add2 value: 33
-   > 35
+add2 value: 33
+> 35
 ]]]
 
 
@@ -113,11 +112,11 @@ When a return ==^== is executed in a block, computation exits the method definin
 
 [[[
 Integer>>factorial
-   "Answer the factorial of the receiver."
-
-   self = 0 ifTrue: [ ^ 1 ].
-   self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-   self error: 'Not valid for negative integers'
+  "Answer the factorial of the receiver."
+  
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
 ]]]
 
 
@@ -126,36 +125,36 @@ ${slide:title=Exercise}$
 How to execute a block with two arguments?
 
 [[[
-   [ :x :y | x + y ] ???  5  7
-   > 12
+[ :x :y | x + y ] ???  5  7
+> 12
 ]]]
 
 ${slide:title=A Block with 2 Arguments}$
 
 [[[
-   [ :x :y | x + y ]
+[ :x :y | x + y ]
 ]]]
 
 - == :x :y == are block arguments
 
 [[[
-   [ :x :y | x + y ] value: 5 value: 7
-   > 12
+[ :x :y | x + y ] value: 5 value: 7
+> 12
 ]]]
 
 - ==value: 5 value: 7== evaluates the block with 5 and 7
 -- ==x== is 5 and ==y== is 7 during the block evaluation
 
-${slide:title=A Block with Temporary variables}$
+${slide:title=A Block with Temporary Variables}$
 
 Blocks can define temp. variables (just like methods)
 [[[
 Collection>>affect: anObject when: aBoolean
-   self do: [ :index | | args |
-      args := ....
-      aBoolean
-         ifTrue: [ anObject do: args ]
-         ifFalse: [ anObject doDifferently: args ] ].
+  self do: [ :index | | args |
+    args := ....
+    aBoolean
+      ifTrue: [ anObject do: args ]
+      ifFalse: [ anObject doDifferently: args ] ].
 ]]]
 
 - ==| args | == defines a temporary variable named ==args==
@@ -164,12 +163,11 @@ Collection>>affect: anObject when: aBoolean
 ${slide:title=Summary}$
 
 [[[
-   [ :variable1 :variable2 ... |
-      | tmp |
-      expression1.
-      ...variable1 ...
-      ]
-      value: ... value: ...
+[ :variable1 :variable2 ... |
+  | tmp |
+  expression1.
+  ... variable1 ...
+] value: ... value: ...
 ]]]
 
 - Kind of anonymous method

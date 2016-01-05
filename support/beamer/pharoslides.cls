@@ -53,8 +53,12 @@
 % \newcommand{\codefont}{\usefont{T1}{DejaVuSans-TLF}{el}{n}}
 % \newcommand*{\codefont}{\fontfamily{DejaVuSans-TLF}\selectfont}
 
-\RequirePackage[light,nottdefault,t1,scaled=1.05]{sourcecodepro}
-\newcommand{\codefont}{\usefont{T1}{SourceCodePro-TLF}{l}{n}}
+% \RequirePackage[light,nottdefault,t1]{sourcecodepro}
+% \newcommand{\codefont}{\usefont{T1}{SourceCodePro-TLF}{l}{n}}
+
+\RequirePackage[light,t1,scaled=1.08]{sourcesanspro}
+\newcommand{\codefont}{\usefont{T1}{SourceSansPro-TLF}{l}{n}}
+
 
 \RequirePackage{helvet}
  
