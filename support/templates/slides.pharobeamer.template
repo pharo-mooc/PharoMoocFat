@@ -39,15 +39,15 @@
 
 \vspace{2em}
 
-Un cours proposé par
+A course by
 
 \vspace{1em}
 
-\hspace{-20px}\includegraphics[height=32px]{inriaLogo}\hspace{3em}\raisebox{7px}{et}\hspace{3em}\raisebox{-6px}{\includegraphics[height=30px]{logoutop}}
+\hspace{-20px}\includegraphics[height=32px]{inriaLogo}\hspace{3em}\raisebox{7px}{and}\hspace{3em}\raisebox{-6px}{\includegraphics[height=30px]{logoutop}}
 
 \vspace{2em}
 
-avec la collaboration de
+in collaboration with
 
 \vspace{1em}
 
@@ -59,12 +59,12 @@ avec la collaboration de
 
 \vspace{2.5em}
 
-\includegraphics[width=40px]{by-nc-nd} \tiny \hskip 0.5em \raisebox{5px}{Inria 2016}
+\includegraphics[width=50px]{by-nc-nd} \tiny \hskip 0.5em \raisebox{5px}{Inria 2016}
 
 \medskip
 
 \tiny
-L'ensemble du contenu de ce document, sauf exception signalée, est mis à disposition sous licence CC BY-NC-ND 3.0 France
+Except where otherwise noted, this work is licensed under CC BY-NC-ND 3.0 France
 
 \url{https://creativecommons.org/licenses/by-nc-nd/3.0/fr/} 
 
