@@ -46,7 +46,7 @@ ${slide:title=Messages}$
 
 Computation between objects is done via message sends.
 
-Example: The cross product of two points:
+Example of the cross product of two points:
 
 [[[
 (point1 x * point2 y) - (point1 y * point2 x)

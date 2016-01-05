@@ -52,7 +52,7 @@ ${slide:title=Within the Browser part of the Pharo IDE}$
 
 ${slide:title=Presentation Convention}$
 
-In this lecture, a method will be displayed as: 
+In this lecture, a method will be displayed as 
 
 [[[
 Integer >> factorial
@@ -62,7 +62,7 @@ Integer >> factorial
   self error: 'Not valid for negative integers'
 ]]]
 
-- ""Integer >>"" is not part of the syntax:
+- ""Integer >>"" is not part of the syntax
 -- it tells you the method's class
 
 
@@ -145,7 +145,7 @@ MyClass >> setName: aString
 
 ${slide:title=Never overwrite methods starting with basic}$
 
-Methods whose name starting with =='basic'== are important for the system
+Methods whose name starts with =='basic'== are important for the system
 if you overwrite them wrongly, you can damage it
 
 

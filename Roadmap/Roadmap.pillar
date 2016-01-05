@@ -10,15 +10,6 @@ STYLE
 	- enlever le cadre indiquant l'incrustation de la vidéo
 
 - TBD Slides MOOC Roadmap
-
-- DONE revoir les slides avec la nouvelle syntaxe de creation de classe
-[[[	
-	Object subclass: #ESEvent
-		package: 'EventShine-Model'
-]]]
-subclass: aSubclassSymbol instanceVariableNames:  classVariableNames: classVarNames package:
-Probablement class and Method Definition lectures
- 
  
 - Week 2: Blocks- loops est redondant. 
  

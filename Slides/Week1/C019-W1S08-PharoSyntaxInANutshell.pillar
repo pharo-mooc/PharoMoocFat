@@ -11,8 +11,11 @@ Give you the general feel to get started:
 - Three kinds of messages to minimize parentheses
 - Overview of block syntax
 
+This lecture is an ""overview""
+
 No stress if you do not get it right now!
-We will repeat later
+
+We will repeat in future lectures
 
 ${slide:title=The Complete Syntax on a Postcard}$
 
@@ -43,7 +46,7 @@ ${slide:title=Hello World}$
 ]]]
 
 
-We send the message ==asMorph== to a string and obtain a graphical element that we open in a window sending it the message ==openInWorld==
+We send the message ==asMorph== to a string and obtain a graphical element that we open in a window by sending it the message ==openInWorld==
 
 
 ${slide:title=Getting the Pharo Logo from the Web}$
@@ -96,12 +99,16 @@ ${slide:title=Essence of Pharo Computation}$
 
 ${slide:title=Three Kinds of Messages to Minimize Parentheses}$
 
-- Unary message: ==receiver selector==
--- ==9 squared==, ==Date today==
-- Binary message: ==receiver selector argument==
+- Unary message
+-- Syntax: ==receiver selector==
+-- ==9 squared==
+-- ==Date today==
+- Binary message
+-- Syntax: ==receiver selector argument==
 -- ==1\+2==
 -- ==3@4==
-- Keyword message: ==receiver key1: arg1 key2: arg2==
+- Keyword message
+-- Syntax: ==receiver key1: arg1 key2: arg2==
 -- ==2 between: 10 and: 20==
 
 ${slide:title=Message Precedence}$
@@ -163,10 +170,10 @@ ${slide:title=Example: Sending an HTTP Request}$
 
 [[[
 ZnClient new
-  url: 'https://en.wikipedia.org/w/index.php';
-  queryAt: 'title' put: 'Pharo';
-  queryAt: 'action'  put: 'edit';
-  get
+ url: 'https://en.wikipedia.org/w/index.php';
+ queryAt: 'title' put: 'Pharo';
+ queryAt: 'action'  put: 'edit';
+ get
 ]]]
 
 - ==new== is a unary message sent to a class
@@ -253,7 +260,7 @@ ${slide:title=Block Usage}$
 
 [[[
 #(1 2 -4 -86) 
-	do: [ :each | Transcript show: each abs printString ; cr ]
+  do: [ :each | Transcript show: each abs printString ; cr ]
 > 1
 > 2
 > 4
@@ -295,7 +302,7 @@ ${slide:title=Method Definition Example}$
 +>file://figures/FactorialInBrowser.png|width=98+
 
 
-${slide:title='Messages' Summary}$
+${slide:title=Messages Summary}$
 
 3 kinds of messages:
 - Unary: ==Node new==
