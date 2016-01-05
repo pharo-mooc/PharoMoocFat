@@ -34,33 +34,39 @@
 
 \begin{minipage}{\originaltextwidth}
 \centering
-\LARGE
+\large
 
 
-\vspace{0.5em}
+\vspace{2em}
 
 Un cours proposé par
 
 \vspace{1em}
 
-\Large
+\hspace{-20px}\includegraphics[height=32px]{inriaLogo}\hspace{3em}\raisebox{7px}{et}\hspace{3em}\raisebox{-6px}{\includegraphics[height=30px]{logoutop}}
 
-\hspace{-20px}\includegraphics[height=50px]{logoMoocLab}\hspace{0.8em}\raisebox{7px}{et}\hspace{1.2em}\raisebox{-10px}{\includegraphics[height=45px]{logoutop}}
+\vspace{2em}
+
+avec la collaboration de
 
 \vspace{1em}
 
-% \includegraphics[height=27px]{inriaLogo}\hskip 5px%
-\includegraphics[height=35px]{unitlogo}\hskip 1em%
-\raisebox{-7px}{\includegraphics[height=45px]{unisciellogo}}\hskip 1em%
-\includegraphics[height=30px]{univLilleLogo}\hskip 1em%
-\raisebox{-6px}{\includegraphics[height=35px]{logo-IMT}}\hskip 1em%
-\raisebox{-9px}{\includegraphics[height=38px]{minesDouaiLogo}}
+\includegraphics[height=40px]{unisciellogo}\hskip 1.5em%
+\raisebox{5px}{\includegraphics[height=30px]{unitlogo}}\hskip 2em%
+\raisebox{8px}{\includegraphics[height=24px]{univLilleLogo}}\hskip 2em%
+\raisebox{3px}{\includegraphics[height=29px]{logo-IMT}}\hskip 2em%
+\raisebox{1px}{\includegraphics[height=32px]{minesDouaiLogo}}
 
-\vspace{2em}
-\normalsize
-\includegraphics[height=25px]{by-nc-nd}
+\vspace{2.5em}
 
-Inria 2016
+\includegraphics[width=40px]{by-nc-nd} \tiny \hskip 0.5em \raisebox{5px}{Inria 2016}
+
+\medskip
+
+\tiny
+L'ensemble du contenu de ce document, sauf exception signalée, est mis à disposition sous licence CC BY-NC-ND 3.0 France
+
+\url{https://creativecommons.org/licenses/by-nc-nd/3.0/fr/} 
 
 \end{minipage}
 \end{frame}

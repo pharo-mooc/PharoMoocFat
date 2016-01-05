@@ -28,9 +28,14 @@
 % \includegraphics[height=\paperheight]{pharoPhoto2}
 % \end{textblock*}%
 
-\begin{textblock*}{0px}(\paperwidth-3cm,0cm)%
+\begin{textblock*}{0px}(\paperwidth-4cm,0cm)%
 \includegraphics[height=\paperheight]{pharoPhoto}
 \end{textblock*}%
+
+\begin{textblock*}{0px}(\paperwidth-2cm,0.4cm)%
+\includegraphics[height=19px]{pharoLogo}
+\end{textblock*}%
+
 
 
     \bigskip
@@ -47,25 +52,43 @@
   \bigskip
   \bigskip
   
+  % \begin{center}
   \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par
-  \bigskip
-  
- {\scriptsize\color{Pharo-blue}\@slidesid, \the\year}\par  
+
+	% \medskip
+	% \pgfdeclarehorizontalshading{slideidshade}{1em}{%
+	% color(0cm)=(white);
+	% color(2cm)=(white!50!Pharo-blue);%
+	% color(6.5cm)=(white!50!Pharo-blue);%
+	% color(8.5cm)=(white)}%
+	%
+	% \pgfuseshading{slideidshade}%
+	%
+	% \vspace*{-1.1em}
+	%
+	% \hspace*{4cm}\scriptsize\color{white}{\@slidesid}
+	
+	\bigskip
+	
+	\hspace*{4cm}\scriptsize\color{Pharo-blue}{\@slidesid}
+	
+	% \end{center}
+	
   \bigskip
   \bigskip
 
 
 
-\raisebox{2px}{\includegraphics[height=19px]{pharoLogo}}\hskip 3px%
-\includegraphics[height=26px]{inriaLogo}\hskip 2px%
-\raisebox{2px}{\includegraphics[height=24px]{univLilleLogo}}\hskip 3px%
-\raisebox{-3px}{\includegraphics[height=29px]{logo-IMT}}\hskip 4px%
-\raisebox{-5px}{\includegraphics[height=32px]{minesDouaiLogo}}
-\vspace*{-0.6em}
-\begin{center}
-\raisebox{-7px}{\includegraphics[height=40px]{unisciellogo}}\hskip 2em%
-\includegraphics[height=30px]{unitlogo}
-\end{center}
+% \raisebox{2px}{\includegraphics[height=19px]{pharoLogo}}\hskip 3px%
+% \includegraphics[height=26px]{inriaLogo}\hskip 2px%
+% \raisebox{2px}{\includegraphics[height=24px]{univLilleLogo}}\hskip 3px%
+% \raisebox{-3px}{\includegraphics[height=29px]{logo-IMT}}\hskip 4px%
+% \raisebox{-5px}{\includegraphics[height=32px]{minesDouaiLogo}}
+% \vspace*{-0.6em}
+% \begin{center}
+% \raisebox{-7px}{\includegraphics[height=40px]{unisciellogo}}\hskip 2em%
+% \includegraphics[height=30px]{unitlogo}
+% \end{center}
 }
 
 % =========================
