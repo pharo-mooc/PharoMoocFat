@@ -210,7 +210,7 @@ ${slide:title=Class definition|label=class definition}$
 Object subclass: #Point
 	instanceVariableNames: 'x y'
 	classVariableNames: ''
-	category: 'Graphics'
+	package: 'Graphics'
 ]]]
 
 ${slide:title=Method definition|label=classdefinition}$

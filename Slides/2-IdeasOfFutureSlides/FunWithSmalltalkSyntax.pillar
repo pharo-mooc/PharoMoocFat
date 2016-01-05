@@ -231,19 +231,18 @@ str := 'Tiramisu'
 !!! A class definition!
 [[[
 Superclass subclass: #Class
-instanceVariableNames: 'a b c'
-...
-category: 'Package name'
+	instanceVariableNames: 'a b c'
+	...
+	package: 'Package name'
 ]]]
 
 !!! A class definition!
 
 [[[
 Object subclass: #Point
-instanceVariableNames: 'x y'
-classVariableNames: ''
-poolDictionaries: ''
-category: 'Graphics-Primitives'
+	instanceVariableNames: 'x y'
+	classVariableNames: ''
+	package: 'Graphics-Primitives'
 ]]]
 
 !! Roadmap

@@ -16,8 +16,8 @@ ${slide:title=Local Variables Start With Lowercase}$
 Example: ==c==
 
 [[[
-  | c |
-  c := Counter new
+| c |
+c := Counter new
 ]]]
 - Remember class names start with uppercase
 
@@ -29,13 +29,13 @@ ${slide:title=Local Variables Start With Lowercase}$
 Example: ==x==, ==y==, ==count==
 
 [[[
-  Object subclass: #Point
-     instanceVarNames: 'x y'
+Object subclass: #Point
+   instanceVarNames: 'x y'
 ]]]
 
 [[[
-  Object subclass: #Counter
-     instanceVarNames: 'count'
+Object subclass: #Counter
+   instanceVarNames: 'count'
 ]]]
 
 ${slide:title=Local Variables Start With Lowercase}$
@@ -53,7 +53,7 @@ crossProduct: aPoint
 ""Block arguments"": ==:x==
 
 [[[
-	[ :x | x + 2 ]
+[ :x | x + 2 ]
 ]]]
 
 ${slide:title=Special Variables}$
@@ -81,15 +81,15 @@ ${slide:title=Shared or Global Variable starts with Uppercase}$
 - Transcript is an object that is globally accessible (a kind of stdout)
 
 [[[
-  Transcript cr.
-  Transcript show: 'hello world.
-  Transcript cr.
+Transcript cr.
+Transcript show: 'hello world.
+Transcript cr.
 ]]]
 
 - The class ==Object== is globally accessible
 
 [[[
-  Object subclass: #Point
+Object subclass: #Point
 ]]]
 
 
@@ -100,10 +100,10 @@ ${slide:title=ClassVariables are Shared Variables}$
 
 
 [[[
-  Object subclass: #CombinedChar
-    instanceVariableNames: 'codes combined'
-    classVariableNames: 'Compositions Decompositions Diacriticals'
-    category: 'Kernel-BasicObjects'
+Object subclass: #CombinedChar
+   instanceVariableNames: 'codes combined'
+   classVariableNames: 'Compositions Decompositions Diacriticals'
+   package: 'Kernel-BasicObjects'
 ]]]
 
 - Here ==Compositions== is shared between all the ==CombinedChar== instances and instances of subclasses

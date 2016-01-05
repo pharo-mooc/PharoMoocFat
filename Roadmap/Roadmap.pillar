@@ -5,18 +5,18 @@
 !!Simple points
 
 STYLE
-	- from christelle : revoir page de garde des slides : année à déplacer, logos?, ...
-	- from Stef : augmenter la taille de la police pour les bouts de code sur les slides [[[...]]]
+	- DONE from christelle : revoir page de garde des slides : année à déplacer, logos?, ...
+	- DONE from Stef : augmenter la taille de la police pour les bouts de code sur les slides [[[...]]]
 	- enlever le cadre indiquant l'incrustation de la vidéo
 
 - TBD Slides MOOC Roadmap
 
-- revoir les slides avec la nouvelle syntaxe de creation de classe
+- DONE revoir les slides avec la nouvelle syntaxe de creation de classe
 [[[	
 	Object subclass: #ESEvent
 		package: 'EventShine-Model'
 ]]]
-subclass: aSubclassSymbol instanceVariableNames: instVarNames classVariableNames: classVarNames package:
+subclass: aSubclassSymbol instanceVariableNames:  classVariableNames: classVarNames package:
 Probablement class and Method Definition lectures
  
  

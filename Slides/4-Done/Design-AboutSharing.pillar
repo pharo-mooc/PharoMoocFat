@@ -21,10 +21,9 @@ Scanner new
 Object subclass: #Scanner
 	instanceVariableNames: 'source mark prevEnd
 hereChar token tokenType saveComments
-currentComment buffer typeTable '
-	classVariableNames: 'TypeTable '
-	poolDictionaries: ''
-	category: 'System-Compiler-Public Access'
+currentComment buffer typeTable'
+	classVariableNames: 'TypeTable'
+	package: 'System-Compiler-Public Access'
 ]]]
 
 !! Scanner enigma

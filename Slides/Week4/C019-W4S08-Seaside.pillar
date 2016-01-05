@@ -54,7 +54,7 @@ ${slide:title=A First Dummy Example}$
 WATask subclass: #Adder
 	instanceVariableNames: ''
 	classVariableNames: ''
-	category: 'SeaExample'
+	package: 'SeaExample'
 ]]]
 
 [[[
