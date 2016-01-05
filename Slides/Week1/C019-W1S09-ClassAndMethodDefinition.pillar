@@ -14,7 +14,7 @@ Object subclass: #NameOfSubclass
 
 ${slide:title=Class Definition within the IDE}$
 
-+>file://figures/PointClass.png|width=120+
++>file://figures/PointClass.png|width=98+
 
 ${slide:title=Class Definition is Message :)}$
 
@@ -22,7 +22,7 @@ ${slide:title=Class Definition is Message :)}$
 Object subclass: #Point
   instanceVariableNames: 'x y'
   classVariableNames: ''
-  category: 'Graphics'
+  package: 'Graphics'
 ]]]
 
 We send a message ==subclass:inst....== to the superclass to create the class
@@ -48,19 +48,11 @@ messageSelectorAndArgumentNames
 
 ${slide:title=Within the Browser part of the Pharo IDE}$
 
-+>file://figures/FactorialInBrowser.png|width=120+
++>file://figures/FactorialInBrowser.png|width=98+
 
 ${slide:title=Presentation Convention}$
 
-[[[
-factorial
-  "Answer the factorial of the receiver."
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
-]]]
-
-is displayed in this lecture as: 
+In this lecture, a method will be displayed as: 
 
 [[[
 Integer >> factorial
@@ -114,17 +106,15 @@ Game >> initializePlayers
 
 ${slide:title=Last Expression Is a Return}$
 
-- The last expression is always a return.
+The last expression in a method is always a return
 
-Either added by you
-
+- Either added by you
 [[[
 Integer >> squared
   ^ self * self 
 ]]]
 
-Either added by the compiler
-
+- or added by the compiler
 [[[
 Game >> initializePlayers
   self players

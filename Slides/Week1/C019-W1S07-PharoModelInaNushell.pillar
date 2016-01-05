@@ -17,7 +17,8 @@ ${slide:title=... and Block Closures}$
 - Closures are called ""blocks"" in Pharo
 
 [[[
-   4 timesRepeat: [ Transcript show: 'Hello World']
+4 timesRepeat: 
+	[ Transcript show: 'Hello World' ]
 ]]]
 
 - ""[ ... ]"" delimits a block
@@ -48,7 +49,7 @@ Computation between objects is done via message sends.
 Example: The cross product of two points:
 
 [[[
-  (point1 x * point2 y) - (point1 y * point2 x)
+(point1 x * point2 y) - (point1 y * point2 x)
 ]]]
 
 ${slide:title=Object Creation: Creating a Point}$
@@ -56,7 +57,7 @@ ${slide:title=Object Creation: Creating a Point}$
 A new object can be created by sending a message to another object.
 
 [[[
-  10@20
+10@20
 ]]]
 
 A new ==Point== object is created by:
@@ -67,7 +68,7 @@ A new ==Point== object is created by:
 ${slide:title=Object Creation: Creating a String}$
 
 [[[
-  'Pharo', ' is Cool'
+'Pharo', ' is Cool'
 > 'Pharo is Cool'
 ]]]
 
@@ -81,12 +82,12 @@ ${slide:title=Object Creation}$
 Sending the messages ==new== and ==new:== to a class
 
 [[[
-  Monster new
+Monster new
 > aMonster
 ]]]
 
 [[[
-  Array new: 6
+Array new: 6
 > #(nil nil nil nil nil nil)
 ]]]
 
@@ -97,7 +98,7 @@ ${slide:title=Object Creation}$
 Sending instance-creation messages to a class
 
 [[[
-  Tomagoshi withHunger: 10
+Tomagoshi withHunger: 10
 ]]]
 
 This executes a class method

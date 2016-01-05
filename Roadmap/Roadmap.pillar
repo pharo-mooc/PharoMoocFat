@@ -11,8 +11,6 @@ STYLE
 
 - TBD Slides MOOC Roadmap
 
-- Week 2: Blocks- loops est redondant. 
-
 - revoir les slides avec la nouvelle syntaxe de creation de classe
 [[[	
 	Object subclass: #ESEvent
@@ -21,6 +19,8 @@ STYLE
 subclass: aSubclassSymbol instanceVariableNames: instVarNames classVariableNames: classVarNames package:
 Probablement class and Method Definition lectures
  
+ 
+- Week 2: Blocks- loops est redondant. 
  
 - check that we add a diagram for visibility classVar vs instance var (I did one but I do not remember where) in  Slides/Week3/C019W3S05-Basic-Variables.pillar
 
