@@ -3,9 +3,10 @@
 
 \RequirePackage[most]{tcolorbox}
 
-\newcommand{\codesourcesize}{\footnotesize}
+\newcommand{\codesourcesize}{\small}
 
-\newcommand{\codesourcefont}{\codesourcesize\sffamily}
+% \newcommand{\codesourcefont}{\codesourcesize\sffamily}
+\newcommand{\codesourcefont}{\codesourcesize\usefont{T1}{SourceCodePro-TLF}{m}{n}}
 
 % Source Code
 \newcommand{\myCommentStyle}[1]{{\codesourcefont\color{gray!100!white} #1}}
@@ -92,9 +93,20 @@ identifierstyle=\idstyle,
 % \usepackage{fixltx2e}
 
 \newtcblisting{code}[1]{
-enhanced,%nobeforeafter,
+% enhanced,%
+% nobeforeafter,
 boxrule=1pt,%leftrule=4pt,
-colback=white!95!Pharo-blue,colframe=white!50!Pharo-blue,listing only, listing options={}}
+colback=white!95!Pharo-blue,colframe=white!50!Pharo-blue,listing only, listing options={resetmargins=true,linewidth=1.05\textwidth,breakindent=1em}}
+
+% enlarge listings
+% \newtcblisting{code}[1]{
+% % enhanced,%
+% % nobeforeafter,
+% boxrule=1pt,%leftrule=4pt,
+% width=\textwidth+1.05cm,
+% % enlarge left by=-1cm,left=1cm,
+% enlarge right by=-1.05cm,right=1.05cm,
+% colback=white!95!Pharo-blue,colframe=white!50!Pharo-blue,listing only, listing options={linewidth=10cm,breakindent=0.5em}}
 
 \newtcblisting{numcode}[1]{
 enhanced,%nobeforeafter,

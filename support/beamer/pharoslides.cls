@@ -49,11 +49,12 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 
-\RequirePackage[scaled=0.92]{DejaVuSans}
-\newcommand{\codefont}[1]{{\usefont{T1}{DejaVuSans-TLF}{el}{n}#1}}
+% \RequirePackage[scaled=0.89]{DejaVuSans}
+% \newcommand{\codefont}{\usefont{T1}{DejaVuSans-TLF}{el}{n}}
+% \newcommand*{\codefont}{\fontfamily{DejaVuSans-TLF}\selectfont}
 
-% \RequirePackage[light,nottdefault,t1]{sourcecodepro}
-% \newcommand{\codefont}[1]{{\usefont{T1}{SourceCodePro-TLF}{l}{n}#1}}
+\RequirePackage[light,nottdefault,t1,scaled=1.05]{sourcecodepro}
+\newcommand{\codefont}{\usefont{T1}{SourceCodePro-TLF}{l}{n}}
 
 \RequirePackage{helvet}
  
