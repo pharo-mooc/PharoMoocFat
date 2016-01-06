@@ -5,8 +5,8 @@
 
 ${slide:title=In a Nutshell}$
 
-- Local variables start with lowercase (temps, instance variables, arguments,...)
-- Shared variables start with uppercase (class, class variables)
+- ""Local"" variables start with ""lowercase"" (temps, instance variables, arguments,...)
+- ""Shared"" variables start with ""uppercase"" (class, class variables)
 
 ${slide:title=Local Variables Start With Lowercase}$
 
@@ -16,8 +16,10 @@ ${slide:title=Local Variables Start With Lowercase}$
 Example: ==c==
 
 [[[
-| c |
-c := Counter new
+testIncrement
+   | c |
+   c := Counter new.
+   ...
 ]]]
 - Remember class names start with uppercase
 
@@ -37,6 +39,7 @@ Object subclass: #Point
 Object subclass: #Counter
    instanceVarNames: 'count'
 ]]]
+
 
 ${slide:title=Local Variables Start With Lowercase}$
 
@@ -73,12 +76,12 @@ ${slide:title=Special Variables}$
 ${slide:title=Special Variables}$
 
 - ==self==: the receiver of the message (==this== in Java)
-- ==super==: refers to the receiver but looks method in the superclass of the class defining the method
+- ==super==: refers to the receiver but looks method in the superclass of the class defining the method (see dedicated Lectures)
 - ==thisContext== refers to the current execution stack (advanced)
 
 ${slide:title=Shared or Global Variable starts with Uppercase}$
 
-- Transcript is an object that is globally accessible (a kind of stdout)
+==Transcript== is an object that is globally accessible (a kind of stdout)
 
 [[[
 Transcript cr.
@@ -86,7 +89,7 @@ Transcript show: 'hello world.
 Transcript cr.
 ]]]
 
-- The class ==Object== is globally accessible
+==Object== is a class globally accessible
 
 [[[
 Object subclass: #Point
