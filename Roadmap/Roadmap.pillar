@@ -337,7 +337,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - W3S11 [Lecture 6min] Streams
 -- Presenter: Damien
--- Status: Reviewed after Yaounde
+-- Status: Reviewed by presenter
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S11-Stream.pdf* *SlidesHTML>../Slides/Week4/Week3/C019-W3S11-Stream.html*		
 
 - W3S12 [Lecture 6min] UnderstandingReturn
@@ -440,8 +440,8 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files:  *SlidesPdf>../Slides/Week5/C019-W5S00-UnderstandingClassMethods.pdf*	*SlidesHTML>../Slides/Week5/C019-W5S00-UnderstandingClassMethods.html*	
 
 - W5S02 [Lecture 6min] W5S-LearningFromMistakes
--- Presenter: ?
--- Status: Reviewed after Lome
+-- Presenter: Damien
+-- Status: Reviewed by presenter
 -- Files:  *SlidesPdf>../Slides/Week5/W5S01-LearningFromMistakes.pdf* *SlidesHTML>../Slides/Week5/W5S01-LearningFromMistakes.html*
 
 - W5S03 [Live] Picasa
@@ -452,7 +452,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week5/C019-W5S-Exceptions.pdf* *SlidesHTML>../Slides/Week5/C019-W5S-Exceptions.html*
 
 - W5S05 [Lecture 6min] Debugging.pillar
--- Presenter: ?
+-- Presenter: Damien
 -- Status: Reviewed after Lome / + add a debugger stack
 -- Files:  *SlidesPdf>../Slides/Week5/C019-W5S03-Debugger.pdf* *SlidesHTML>../Slides/Week5/C019-W5S03-Debugger.html* 
 

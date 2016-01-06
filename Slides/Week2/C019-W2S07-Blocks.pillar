@@ -14,27 +14,33 @@ Blocks are:
 -- at the heart of the system
 - just introduced in Java 8.0
 
-${slide:title=Block Syntax}$
+${slide:title=Block Definition}$
 
-A block is delimited by ==[ ]==
+A block is ""defined"" by ==[ ]==
 
 [[[
 [ expressions. ... ]
 ]]]
 
-${slide:title=A Block}$
+${slide:title=Block Definition Does not Execute Code}$
 
 - Executing code may signal an Error
 [[[
 ( 1 / 0 )
 -> Error
 ]]]
-- But, no error when executing a block definition
--- nothing happens until a block is evaluated
--- a block freezes the computation
+- But, no error when ""defining"" a block
+-- a block definition does not execute its body
+-- a block definition freezes its body computation
 [[[
 [ 1 / 0 ]
 > [ 1 /0 ]
+]]]
+
+[[[
+[ 1 / 0 ].
+1 + 2 
+> 3
 ]]]
 
 ${slide:title=Executing a Block}$

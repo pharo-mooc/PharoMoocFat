@@ -58,7 +58,7 @@ Color gray - Color white = Color black
 > true
 ]]]
 
-- unary messagesa
+- unary messages
 - then binary from left to right
 
 ${slide:title=Precedence Example}$

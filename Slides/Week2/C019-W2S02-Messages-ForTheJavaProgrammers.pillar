@@ -61,7 +61,7 @@ ${slide:title=Three Kinds of Messages}$
 
 - Unary
 [[[
-5 factorial.
+5 factorial
 Transcript cr
 ]]]
 
@@ -82,12 +82,12 @@ ${slide:title=Keyword Messages}$
 
 In Java
 [[[language=java
-    receiver.keyword1keyword2(argument1, argument2)
+    receiver.keyword1keyword2(arg1, arg2)
 ]]]
 
 In Pharo
 [[[
-    anObject keyword1: argument1 keyword2: argument2
+    anObject keyword1: arg1 keyword2: arg2
 ]]]
 
 ${slide:title=Keyword Messages for Java developers}$
