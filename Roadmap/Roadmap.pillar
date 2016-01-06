@@ -30,15 +30,6 @@ Seaside2
 Voyage in Week 4
 - Voyage simple?
 
-!!Immersive Videos
-
-
-- coder n'import ou
-- Publier du code
-- Code search
-- sender/implementor
-- deploying
-
 !!Find how to 
 
 - ouvrir et afficher un fichier jpeg
@@ -185,12 +176,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To be done
 -- Files: 
 
-- W2S06 [Live 6min] Inspector: Inspecting a Counter 
--- Presenter: Luc
--- Status: To be done
--- Files: 
-
-
 - W2S06 [Live 6min] Publishing Code on smalltalkhub.com
 -- Presenter: Damien
 -- Status: To be done
@@ -270,9 +255,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde 
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S02-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019-W3S02-Design-EssenceOfDispatch.html*
 
-
-
-
 - W3S04 [Lecture 6min] Variables
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde better to have it before Teapot
@@ -283,20 +265,18 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S05-TeapotAsAPretext.pdf* *SlidesHTML>../Slides/Week3/C019-W3S05-TeapotAsAPretext.html*
 
-
-- W3S07 [Todo] Live: Tools to find information: implementors, senders Shortcut		
+- W3S07 [Live] Tools to find information: implementors, senders Shortcut		
 -- Presenter: ?
 -- Status: TBD
 -- comment on peut lire un fichier png
 
-- W3S07 [Todo] Live: GTSpotter		
+- W3S07 [Live] GTSpotter		
 -- Presenter: ?
 -- Status: TBD
 -- method
 -- class
 -- examples
 -- scan all code About...
-
 
 - W3S08 [Lecture 6min] BasicClassMethods
 -- Presenter: Stephane
@@ -308,9 +288,13 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.html*
 
-- W3S06 [Todo] Live: GTInspector 	
+- W3S06 [Live] GTInspector 	
 -- Presenter: ?
 -- Status: TBD 3 videos
+
+- [Live] coder n'import ou 	
+-- Presenter: ?
+-- Status: TBD
 
 - W3S10 [Lecture 6min] Iterators
 -- Presenter: Stef
@@ -329,11 +313,11 @@ You will also see that 4 kinds of activities are distinguished:
 
 !!!Exos
 
-- [Redo] Live: Dice Game DSL dice
+- [Redo] Dice Game DSL dice
 -- Presenter: ?
 -- Status: Lecture (TBD)
 
-- [Redo] Live: Dice Game DSL handle
+- [Redo] Dice Game DSL handle
 -- Presenter: ?
 -- Status: Lecture(TBD)	
 
@@ -396,7 +380,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Seaside Component, html, bootstrap
 -- renderer 
 
-- W4S09 [Live] Live Coding Seaside + 3 Examples 
+- W4S09 [Live] Coding Seaside + 3 Examples 
 -- Presenter: ?
 -- Status: TBD
 -- ==10 + 20 + error +== debugger
@@ -413,7 +397,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: TBD
 -- counter back button
 	
-- W4S12 [lectures] Voyage
+- W4S12 [Lecture] Voyage
 -- Presenter: ?
 -- Status: TBD
 
@@ -473,6 +457,10 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Lome
 -- Files: *SlidesPdf>../Slides/Week5/C019-W5S02-Benchmarking.pdf* *SlidesHTML>../Slides/Week5/C019-W5S02-Benchmarking.html*
 
+- [Live] Deploying an application 
+-- pharo cloud 
+-- cloud9
+
 
 !!!! Exos	
 
@@ -494,7 +482,6 @@ You will also see that 4 kinds of activities are distinguished:
 - W3S03 [Todo] C019-W3S03-Design-ImplementingIfTrue.pillar
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.html*
-
 
 
 - W6S02 [Lecture 6min] C019-W6S02-SelfSendsDiceHandle
@@ -575,11 +562,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Done (may be add a figure with the hierarchy and witohut null object?)
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S07-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019-W7S07-AvoidIsNill.html*	
 
-
-
-- 6 Week7 Deploying an application 
--- pharo cloud 
--- cloud9
 
 - 6 Conclusion
 	
