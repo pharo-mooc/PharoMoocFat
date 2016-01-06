@@ -37,28 +37,23 @@ ZnClient new
 
 is equivalent to 
 
-==formAtput('author','van Caekenberghe et al')==
+==formAtput('author' , 'van Caekenberghe et al')==
 
 ${slide:title=The Full Server}$
 
 [[[
-| books teapot |
 books := Dictionary new.
-teapot := Teapot configure: {  #defaultOutput -> #json.   #port -> 8181 . #debugMode -> true }.
+teapot := Teapot configure: { #defaultOutput -> #json. #port -> 8181 }.
 teapot
-   GET: '/' 
-         -> '<h1>A simple book server</h1>'; output: #html;
-   GET: '/books' 
-         -> books;
-   GET: '/books/<id:IsInteger>' 
-         -> [ :request | books at: (request at: #id) asString];
-   POST: '/books/<id>' 
-      -> [ :request | 
-            | book |
-            book := { 'author' -> (request at: #author). 
-                           'title'  -> (request at: #title) } asDictionary.
-            books at: (request at: #id) put: book ];   
-   start.
+ GET: '/' -> '<h1>A simple book server</h1>'; output: #html;
+ GET: '/books' -> books;
+ GET: '/books/<id:IsInteger>' 
+   -> [ :request | books at: (request at: #id) asString];
+ POST: '/books/<id>' 
+   -> [ :request | | book |
+      book := { 'author' -> (request at: #author) . 'title'  -> (request at: #title) } asDictionary.
+      books at: (request at: #id) put: book ];   
+ start.
 ]]]
 
 
@@ -67,7 +62,7 @@ ${slide:title=Configuring a Server}$
 [[[
   | books teapot |
   books := Dictionary new.
-  teapot := Teapot configure: {  #defaultOutput -> #json.   #port -> 8181 . #debugMode -> true }.
+  teapot := Teapot configure: { #defaultOutput -> #json.   #port -> 8181 . #debugMode -> true}.
 ]]]
 
 ${slide:title=Configuring a Server}$
@@ -88,29 +83,27 @@ ${slide:title=Configuring a Server}$
 ${slide:title=Defining The Server Routes}$
 
 [[[
-...
 teapot
-   GET: '/' 
-         -> '<h1>A simple book server</h1>'; output: #html;
-   GET: '/books' 
-         -> books;
-   GET: '/books/<id:IsInteger>' 
-         -> [ :request | books at: (request at: #id) asString];
-   POST: '/books/<id>' 
-      -> [ :request | 
-            | book |
-            book := { 'author' -> (request at: #author). 
-                           'title'  -> (request at: #title) } asDictionary.
-            books at: (request at: #id) put: book ];   
-   start.
+ GET: '/' 
+   -> '<h1>A simple book server</h1>'; output: #html;
+ GET: '/books' 
+   -> books;
+ GET: '/books/<id:IsInteger>' 
+   -> [ :request | books at: (request at: #id) asString];
+ POST: '/books/<id>' 
+   -> [ :request | | book |
+      book := { 'author' -> (request at: #author) . 
+        'title' -> (request at: #title) } asDictionary.
+      books at: (request at: #id) put: book ];   
+ start.
 ]]]
 
 ${slide:title=More About Syntax}$
 
 [[[language=smalltalk
-  teapot 
-     GET: '/books/<id:IsInteger>'
-          -> [ :request | books at: (request at: #id) asString];
+teapot 
+ GET: '/books/<id:IsInteger>'
+   -> [ :request | books at: (request at: #id) asString];
 ]]]
 
 - ==[ :request | books at: (request at: #id) asString ]== is a block 

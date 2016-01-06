@@ -40,7 +40,7 @@ ${slide:title=Some More Examples}$
    ZnResponse ok: (ZnEntity with: DateAndTime now printString) ]
 ]]]
 
-${slide:title=Isn't it simply natural?}$
+${slide:title=Isn't it Simply Natural?}$
 
 - We just send messages to classes and they perform some actions
 - Most of the time they create instances
@@ -54,9 +54,9 @@ ${slide:title=Class Methods}$
 
 - They are just sent to classes
 
-${slide:title=Class Methods are defined on Class Level}$
+${slide:title=Class Methods are Defined on Class Level}$
 
-Note the Class Button pressed!
+Note the Class button pressed!
 
 +>file://figures/ClassMethodDateToday.png|width=90+
 
@@ -70,27 +70,26 @@ ${slide:title=Common Mistake}$
 
 [[[
 Counter class >> withValue: anInteger
-   self new value: anInteger
+  self new value: anInteger
 ]]]
 
-- ==Counter withValue: 10== returns the class itself ==Counter==
+==Counter withValue: 10== returns the class itself ==Counter==
 
 ${slide:title=Why?}$
 
-
-- Since there is no explicit return, the method return the receiver
+Since there is no explicit return, the method return the receiver
 
 [[[
 Counter class >> withValue: aString
-   self new name: aString
+  self new name: aString
 ]]]
 
 is equivalent to the next one
 
 [[[
 Counter class >> withValue: anInteger
-   self new value: anInteger
-   ^ self
+  self new value: anInteger
+  ^ self
 ]]]
 
 ==self== here is the class ==Counter== (yes the receiver of the message)
@@ -100,8 +99,8 @@ ${slide:title=Correct Way}$
 We should just return the instance we created
 
 [[[
-   Counter class >> withValue: anInteger
-     ^ self new value: anInteger
+Counter class >> withValue: anInteger
+  ^ self new value: anInteger
 ]]]
 
 
