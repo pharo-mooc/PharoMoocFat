@@ -17,20 +17,17 @@
 - style sheet
 
 
-!! Missing Lectures
+!!Missing Lectures
 
-Seaside1	
-- Live: seaside counter/multi counter
--- counter back button
-	
-Seaside3
+Seaside1
 - Seaside Component, html, bootstrap
 
 Seaside2
 - Seaside call:/answer:
 
-Voyage in Week 4
-- Voyage simple?
+Voyage
+- in Memory
+- Mongo 
 
 !!Find how to 
 
@@ -369,7 +366,7 @@ You will also see that 4 kinds of activities are distinguished:
 	Zinc
 	WebSocket
 	
-- W4S08 [Lecture 6min] Seaside (plusieurs lectures? 2 au moins je pense)
+- W4S08 [Lecture 6min] Seaside: Component, html, bootstrap 
 -- Presenter: Luc
 -- Status: TBD
 -- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
@@ -381,7 +378,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: TBD
 -- ==10 + 20 + error +== debugger
 
-- W4S10 [Lecture 6min] Seaside call and Answer
+- W4S10 [Lecture 6min] Seaside: call:/answer:
 -- Presenter: Luc
 -- Status: TBD
 -- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
