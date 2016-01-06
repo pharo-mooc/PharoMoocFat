@@ -149,7 +149,7 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 2: Pharo Syntax, Blocks and Inspector
 
-% 12 Lectures
+% 10 Lectures
 
 - W2S01 [Lecture 6min] Messages
 -- Presenter: Stef
@@ -200,11 +200,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019-W2S11-ParenthesisVsSquareBrackets.html*
-
-- W2S12 [Lecture 6min] SUnit
--- Presenter: Luc 
--- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019-W2S12-SUnit.pdf* 
 
 - W2S13 [Lecture 3min] Yourself
 -- Presenter: Damien
@@ -333,7 +328,7 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 4: Inheritance&Lookup and Web Development
 
-% 8 Lectures
+% 10 Lectures
 
 - W4S01 [Lecture 6min] InheritanceAndLookup-1-Inheritance.pillar
 -- Presenter: Damien
@@ -401,6 +396,9 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: ?
 -- Status: TBD
 
+- [Live] Deploying an application 
+-- pharo cloud 
+-- cloud9
 	
 !!!! Exos	
 - Find how to ...
@@ -414,7 +412,7 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 5: Exception, Debugging and Reflection
 
-% 7 lectures
+% 8 lectures
 
 - W5S01 [Lecture 6min] C019-W5S00-UnderstandingClassMethods.pillar
 -- Presenter: Stef
@@ -442,6 +440,11 @@ You will also see that 4 kinds of activities are distinguished:
 
 - W5S06 [Live] Extending the GTinspector and spotter for the addressbook
 
+- W5Sxx [Lecture 6min] SUnit
+-- Presenter: Luc 
+-- Status: Reviewed after Yaounde
+-- Files: *SlidesPdf>../Slides/Week2/C019-W2S12-SUnit.pdf* 
+
 - W5S07 [Lecture 6min] Files.pillar
 -- Presenter: Damien
 -- Status: Reviewed after Lome
@@ -456,11 +459,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: ?
 -- Status: Reviewed after Lome
 -- Files: *SlidesPdf>../Slides/Week5/C019-W5S02-Benchmarking.pdf* *SlidesHTML>../Slides/Week5/C019-W5S02-Benchmarking.html*
-
-- [Live] Deploying an application 
--- pharo cloud 
--- cloud9
-
 
 !!!! Exos	
 
@@ -563,7 +561,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S07-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019-W7S07-AvoidIsNill.html*	
 
 
-- 6 Conclusion
+- [Lecture ] Conclusion
 	
 		
 % ===============================================================================
