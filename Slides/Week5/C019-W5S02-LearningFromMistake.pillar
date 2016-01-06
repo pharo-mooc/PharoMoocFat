@@ -20,6 +20,13 @@ DiceHandle >> + aDiceHandle
 
 ${slide:title=Missing Period}$
 
+[[[
+DiceHandle >> + aDiceHandle
+   | res |
+   res := DiceHandle new.
+   self dices do: [ :each | ... ].
+]]]
+
 - Separate instructions with period (==.==)
 
 ${slide:title=A Problem}$
@@ -31,8 +38,6 @@ x includes: 33
 
 ""Error:"" Message ==includes:ifTrue:== does not exist
 
-${slide:title=A Problem}$
-
 [[[
 self assert: players includes: aPlayer
 ]]]
@@ -40,6 +45,11 @@ self assert: players includes: aPlayer
 ""Error:"" Message ==assert:includes:== does not exist
 
 ${slide:title=Keyword-Based Messages}$
+
+Solution
+[[[
+self assert: (players includes: aPlayer)
+]]]
 
 - keyword messages are built out of fragments
 - the message is the longuest sequence of fragments
@@ -53,8 +63,6 @@ numbers := OrderedCollection new
 ]]]
 
 ""Error:"" ==numbers== is the number 65 and not a collection
-
-${slide:title=A Problem}$
 
 [[[
 Dice >> setFaces: aNumber
@@ -85,6 +93,13 @@ numbers
 
 ${slide:title=Forgotten yourself}$
 
+Solution
+[[[
+numbers := OrderedCollection new
+             add: 35;
+             yourself
+]]]
+
 - ==add:== and ==setFaces:== return their argument, not the receiver
 - send ==yourself== after a sequence of messages if you want the receiver
 
@@ -97,18 +112,6 @@ Book>>borrow
 ]]]
 
 ""Error:"" ==nil== does not understand ==ifFalse:==
-
-${slide:title=Uninitialized variable}$
-
-[[[
-Book>>borrow
-   inLibrary ifFalse: [ ... ].
-   ...
-]]]
-
-""Error:"" ==nil== does not understand ==ifFalse:==
-
-The variable is not yet initialized
 
 ${slide:title=A Problem}$
 
@@ -125,6 +128,12 @@ Book>>borrow
 
 ${slide:title=True vs. true}$
 
+Solution
+[[[
+Book>>initialize
+   inLibrary := true
+]]]
+
 - ==nil== is the unique instance of the class ==UndefinedObject==
 - ==true== is the unique instance of the class ==True==
 - Class names start with an uppercase letter
@@ -138,7 +147,7 @@ Dice >> roll
 
 ""Error:"" ==aDice roll== returns ==aDice== instead of a number
 
-${slide:title=Forgetting to Return the Result}$
+${slide:title=A Problem}$
 
 [[[
 Dice >> roll
@@ -157,23 +166,29 @@ ${slide:title=A Problem}$
 
 [[[
 Dice class >> new
-   super new setFaces: 0
+   super new
+      setFaces: 0;
+      yourself
 ]]]
 
 ""Error:"" ==Dice new== returns the class instead of the new instance
 
-${slide:title=Forgetting to Return the Result}$
+${slide:title=A Problem}$
 
 [[[
 Dice class >> new
-   super new setFaces: 0
+   super new
+      setFaces: 0;
+      yourself
 ]]]
 
 is equivalent to
 
 [[[
 Dice class >> new
-   super new setFaces: 0.
+   super new
+      setFaces: 0;
+      yourself.
    ^ self
 ]]]
 
@@ -183,6 +198,13 @@ Dice class >> new
 
 ${slide:title=Forgetting to Return the Result}$
 
+[[[
+Dice class >> new
+   ^ super new
+      setFaces: 0;
+      yourself
+]]]
+
 - in a method, ==self== is returned by default
 - do not forget the caret ==^== to return something else
 
@@ -190,12 +212,21 @@ ${slide:title=A Problem}$
 
 [[[
 Dice class >> new
-  ^ self new setFaces: 0
+   ^ self new
+      setFaces: 0;
+      yourself
 ]]]
 
 ""Error:"" System is frozen
 
 ${slide:title=Infinite Loops in Overridden Methods}$
+
+[[[
+Dice class >> new
+   ^ super new
+      setFaces: 0;
+      yourself
+]]]
 
 - use ==super== in overridden methods
 
