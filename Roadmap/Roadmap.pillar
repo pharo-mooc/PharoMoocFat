@@ -125,13 +125,13 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde - it must be in S01 (Luc) 
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S-ClassAndMethodDefinition.pdf* *SlidesHTML>../Slides/Week2/C019-W2S-ClassAndMethodDefinition.html*
 
-- W1S07 [Redo 6min] Coding a Counter
+- W1S06 [Redo 6min] Coding a Counter
 -- Presenter: Luc
 -- Status: To be done
 -- Files: 
 -- Saving the Image only
 
-- W1S07 [Redo 6min] Coding a Counter: the Pharo Way
+- W1S06 [Redo 6min] Coding a Counter: the Pharo Way
 -- Presenter: Damien
 -- Status: To be done
 -- Files:
@@ -176,7 +176,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To be done
 -- Files: 
 
-- W2S06 [Live 6min] Publishing Code on smalltalkhub.com
+- W2S05 [Live 6min] Publishing Code on smalltalkhub.com
 -- Presenter: Damien
 -- Status: To be done
 -- Files: 
