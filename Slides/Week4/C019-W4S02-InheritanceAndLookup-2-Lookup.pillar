@@ -6,10 +6,10 @@
 
 ${slide:title=Goal}$
 
-- Understanding 
--- message passing 
+- Understanding
+-- message sending
 -- method lookup
--- ==self== semantics
+-- semantics of ==self==
 
 ${slide:title=Inheritance}$
 
@@ -20,15 +20,15 @@ ${slide:title=Message Sending}$
 
 ${columns}$
 
-${column:width=50}$
+${column:width=38}$
 
 ""Sending"" a ""message"" is a two-step process:
 # ""look up"" the ""method"" matching the message
 # execute this method on the ""receiver""
 
-${column:width=50}$
+${column:width=62}$
 
-+>file://figures/InheritanceDiagram-sendingMessage.png|width=130+
++>file://figures/InheritanceDiagram-sendingMessage.png|width=100+
 
 ${endColumns}$
 
@@ -37,29 +37,46 @@ ${slide:title=Method Lookup}$
 
 ${columns}$
 
-${column:width=50}$
+${column:width=38}$
 
 The lookup starts in the ""class"" of the ""receiver"" then:
 - if the method is defined in the class, it is returned
 - otherwise the search continues in the superclass
 
-${column:width=50}$
+${column:width=62}$
 
-+>file://figures/InheritanceDiagram-lookupTwoStages.png|width=130+
++>file://figures/InheritanceDiagram-lookupTwoStages.png|width=100+
 
 ${endColumns}$
 
 ${slide:title=Some Lookup Cases}$
 
+${columns}$
+
+${column:width=47}$
+
 Sending the message ==color== to ==a ColoredRectangle==
 
-+>file://figures/InheritanceDiagram-lookup-superclass.png|width=50+
+${column:width=53}$
+
++>file://figures/InheritanceDiagram-lookup-superclass.png|width=95+
+
+${endColumns}$
 
 ${slide:title=Some Lookup Cases}$
 
+${columns}$
+
+${column:width=47}$
+
 Sending the message ==area== to ==a ColoredRectangle==
 
-+>file://figures/InheritanceDiagram-lookup-superclass.png|width=50+
+${column:width=53}$
+
++>file://figures/InheritanceDiagram-lookup-superclass.png|width=95+
+
+${endColumns}$
+
 
 ${slide:title=self Always Represents the Receiver}$
 
@@ -195,5 +212,5 @@ ${slide:title=What You Should Know}$
 -# Execute this method on the ""receiver""
 
 % Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/4-Done/InheritanceAndLookup-2-Lookup.pillar"
+% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S02-InheritanceAndLookup-2-Lookup.pillar"
 % End:
