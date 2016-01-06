@@ -1,10 +1,10 @@
 {
-  "title":"Blocks - the Friend of Conditionals and Loops",
+  "title":"Blocks - the Friends of Conditionals and Loops",
   "slidesid" : "W2S08"
 }
 
 
-${slide:title=Remember: A Block is Freezing Computation}$
+${slide:title=Remember: Block Defining is Freezing Its Body}$
 
 - A block is not executed
 - A block blocks execution: its body is not executed
@@ -59,15 +59,15 @@ ${slide:title=Blocks are Used to Express Loops (3)}$
 
 [[[
 1 to: 100 by: 3 do: [:i | File stdout << i ]
-> 1471013161922252831343740434649525558616467707
-> 37679828588919497100
+> 147101316192225283134374043464952555861646
+> 770737679828588919497100
 ]]]
 
 - The message ==to:by:do:== is sent to an integer
 - ==i== will get all the computed values one by one
 
 
-${slide:title=Blocks are Used to Express Loops (4)}$
+${slide:title=Blocks are Used For Iterators}$
 
 - Basis for iterators
 
