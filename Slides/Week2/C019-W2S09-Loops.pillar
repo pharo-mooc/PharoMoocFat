@@ -26,14 +26,16 @@ ${slide:title=Loops: to:do:}$
 
 [[[
 1 to: 100 do:
-    [ :i | ... i ...]
+    [ :i | ... i ... ]
 ]]]
 
-The block will be executed with the temporary ==i== taking values from 0 to 100
+${slide:title=Example: to:do:}$
+
+The block is executed with the temporary ==i== taking values from 0 to 100
  
 [[[
 1 to: 100 do:
-    [ :i | Transcript show: i ; space]
+    [ :i | Transcript show: i ; space ]
 ]]]
 
 +>file://figures/1to100.png+
@@ -41,14 +43,16 @@ The block will be executed with the temporary ==i== taking values from 0 to 100
 ${slide:title=Loops: to:do:}$
 
 [[[
-    0 to: 100 by: 3 do: [ :i | ... ]
+    0 to: 100 by: 3 do: [ :i | ... i ... ]
 ]]]
 
-The block will be executed with i taking values from 0 to 100 by step of 3
+${slide:title=Example: to:do:}$
+
+The block is executed with i taking values from 0 to 100 by step of 3
 
 [[[
 1 to: 100 by: 3 do:
-    [ :i | Transcript show: i ; space]
+    [ :i | Transcript show: i ; space ]
 ]]]
 
 +>file://figures/1to100by3.png+
@@ -69,10 +73,12 @@ ${slide:title=Basic Iterators Overview}$
 ${slide:title=Loops: do:}$
 
 [[[
-    aCol do: [:each | ... ]
+    aCol do: [ :each | ... ]
 ]]]
 
-The block is executed with ==each== taking as value all the elements of aCol
+The block is executed with ==each== taking as value all the elements of ==aCol==
+
+${slide:title=Example: The iterator do:}$
 
 [[[
 #(15 10 19 68) do:  
@@ -85,14 +91,15 @@ ${slide:title=Loops: whileTrue:}$
     [ ... ] whileTrue: [ ... ]
 ]]]
 
-Executes the argument, aBlock, as long as the value of the receiver is true 
+Executes the argument, ==aBlock==, as long as the value of the receiver is true 
 
-[[[language=smalltalk
-atLeastAsLuminentAs: aFloat 
-	| revisedColor |
-	revisedColor := self.
-	[ revisedColor luminance < aFloat ] whileTrue: [ revisedColor := revisedColor slightlyLighter ].
-	^ revisedColor
+[[[
+Color >> atLeastAsLuminentAs: aFloat 
+  | revisedColor |
+  revisedColor := self.
+  [ revisedColor luminance < aFloat ] 
+     whileTrue: [ revisedColor := revisedColor slightlyLighter ].
+  ^ revisedColor
 ]]]
 
 ${slide:title=Loops: whileTrue}$
