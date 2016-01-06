@@ -4,12 +4,12 @@
 
 !!Simple points
 
+- renumeroter
+
 - enlever le cadre indiquant l'incrustation de la vidéo
 
 - TBD Slides MOOC Roadmap
- 
-- Week 2: Blocks- loops est redondant. 
- 
+  
 - check that we add a diagram for visibility classVar vs instance var (I did one but I do not remember where) in  Slides/Week3/C019W3S05-Basic-Variables.pillar
 
 [[[
@@ -117,6 +117,8 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 1: Welcome on Board and Syntax Discovery
 
+% 6 Lectures
+
 - W1S01 [Lecture 2min] Objectives of this Mooc 
 -- Presenter: Stef
 -- Status: Done Should add one slides avec success stories wiat for lusy template
@@ -186,6 +188,8 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 2: Pharo Syntax, Blocks and Inspector
 
+% 12 Lectures
+
 - W2S01 [Lecture 6min] Messages
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde
@@ -220,11 +224,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S07-Blocks.pdf* *SlidesHandout>../Slides/Handout/C019-W2S07-Blocks.pdf* *SlidesHtml>../Slides/Week2/C019-W2S07-Blocks.html*
-
-- W2S08 [Lecture 6min] Blocks for Loops "on peut bouger celui la dans Extras"
--- Presenter: Luc
--- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week2/C019-W2S08-Blocks-Loops.pdf* *SlidesHandout>../Slides/Handout/C019-W2S08-Blocks-Loops.pdf* *SlidesHtml>../Slides/Week2/C019-W2S08-Blocks-Loops.html*
 
 - W2S09 [Lecture 6min] Loops
 -- Presenter: Luc
@@ -282,6 +281,8 @@ You will also see that 4 kinds of activities are distinguished:
 
 % ===============================================================================
 !!Week 3: Design, Class Methods and Collections
+
+% 9 Lectures
 
 - W3S01 [Lecture 6min] Essence of Dispatch: Taking Pharo Booleans as Example 
 -- Presenter: Stef
@@ -367,6 +368,8 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 4: Inheritance&Lookup and Web Development
 
+% 8 Lectures
+
 - W4S01 [Lecture 6min] InheritanceAndLookup-1-Inheritance.pillar
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
@@ -434,6 +437,8 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 5: Exception, Debugging and Reflection
 
+% 7 lectures
+
 - W5S01 [Lecture 6min] C019-W5S00-UnderstandingClassMethods.pillar
 -- Presenter: Stef
 -- Status: Reviewed after Lome
@@ -484,6 +489,8 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 6: Rethink lookup and Advanced OO Design
 
+% 7 Lectures
+
 - W6S01 [Lecture 6min]  Did you read understand super?
 -- Presenter: Stef
 -- Status: Reviewed
@@ -529,6 +536,8 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 7: More on OO Design and Testing
 
+% 7 Lectures
+
 - [Lecture ]  "Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pillar"
 -- Presenter: Stef 
 -- Status: Reviewed
@@ -567,9 +576,6 @@ You will also see that 4 kinds of activities are distinguished:
 
 
 
-
-
-
 - 6 Week7 Deploying an application 
 -- pharo cloud 
 -- cloud9
@@ -580,6 +586,8 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 	
 !! Extra Lectures
+
+- [Lecture 6min] Blocks for Loops
 
 - [Lecture] ImplementingIfTrue.pillar
 		  
