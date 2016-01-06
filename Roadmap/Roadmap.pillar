@@ -76,7 +76,7 @@ You will also see that 4 kinds of activities are distinguished:
 - Week 7: More on OO Design and Testing
 
 % ===============================================================================
-!!Week 1: Welcome on Board and Syntax Discovery
+!!Week 1: Welcome on Board and Starting to Play
 
 % 6 Lectures
 
@@ -95,48 +95,48 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: wait for lusy template
 -- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019-W1S03-PharoVision.pdf* *SlidesHandout>../Slides/Handout/C019-W1S03-PharoVision.pdf* NoHTML
 
+- W1S04 [Lecture 6min] Pharo's Model in a Nushell
+-- Presenter: Luc
+-- Status: Done Reviewed by Christelle and typos fixed
+-- Files: *SlidesPdf>../Slides/Week1/C019-W1S05-PharoModelInaNushell.pdf* *SlidesHandout>../Slides/Handout/C019-W1S05-PharoModelInaNushell.pdf* *SlidesHtml>../Slides/Week1/C019-W1S05-PharoModelInaNushell.html*
+
 - W1S04 [Live 3min] Installing Pharo / the notion of Pharo image / Saving the image
 -- Presenter: Luc
 -- Status: To be done 
 -- Files: 
+
+- W1S05 [Lecture 6min] Pharo's Syntax in a Nutshell
+-- Presenter: Stef
+-- Status: Reviewed after Yaounde
+-- Files: *SlidesPdf>../Slides/Week1/C019-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019-W1S06-PharoSyntaxInANutshell.html*
 
 - W1S05 [Live 3min] Hello World Example 
 -- Presenter: Luc
 -- Status: To be done
 -- Files:  
 
-- W1S06 [Live 3min] Looking at how to select code (line start line end-beginning of bloc) + printing/doit
+- W1S05 [Live 3min] Looking at how to select code (line start line end-beginning of bloc) + printing/doit
 -- Presenter: Stephane
 -- Status: 
 -- Files:  
 
-- W1S07 [Lecture 6min] Pharo's Model in a Nushell
--- Presenter: Luc
--- Status: Done Reviewed by Christelle and typos fixed
--- Files: *SlidesPdf>../Slides/Week1/C019-W1S05-PharoModelInaNushell.pdf* *SlidesHandout>../Slides/Handout/C019-W1S05-PharoModelInaNushell.pdf* *SlidesHtml>../Slides/Week1/C019-W1S05-PharoModelInaNushell.html*
-
-- W1S08 [Lecture 6min] Pharo's Syntax in a Nutshell
--- Presenter: Stef
--- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week1/C019-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019-W1S06-PharoSyntaxInANutshell.html*
-
-- W1S09 [Lecture 6min] Class and methods	6 min   
+- W1S06 [Lecture 6min] Class and methods	6 min   
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde - it must be in S01 (Luc) 
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S-ClassAndMethodDefinition.pdf* *SlidesHTML>../Slides/Week2/C019-W2S-ClassAndMethodDefinition.html*
 
-- W1S10 [Redo 6min] Coding a Counter
+- W1S07 [Redo 6min] Coding a Counter
 -- Presenter: Luc
 -- Status: To be done
 -- Files: 
 -- Saving the Image only
 
-- W1S11 [Redo 6min] Coding a Counter: the Pharo Way
+- W1S07 [Redo 6min] Coding a Counter: the Pharo Way
 -- Presenter: Damien
 -- Status: To be done
 -- Files:
 
-- W1S12 [Todo] Coding EventShine 
+- W1S07 [Todo] Coding EventShine 
 -- Presenter: ?
 -- Status: To be done
 -- Files: ExercicesSubject(TBD) 
