@@ -18,7 +18,7 @@ ${slide:title=Streams}$
 
 ${slide:title=API Overview}$
 
-- Creating:
+- Creating
 -- ==anObject readStream==
 -- ==anObject writeStream==
 -- ==Collection streamContents: [:stream | ... ]==
@@ -31,75 +31,77 @@ ${slide:title=API Overview}$
 -- ==nextPut: anElement==
 -- ==nextPutAll: aCollection==
 
-${slide:title=API Overview}$
+${slide:title=Reading Elements}$
+
+- ==next==, ==upTo: anObject==, ==upToEnd==
 
 [[[
-| st |
-st := ReadWriteStream on: (Array new: 6).
-st nextPut: 1.
-st nextPutAll: #(4 8 2 6 7).
-st contents.
-> #(1 4 8 2 6 7)
+| strean |
+stream := #($a $b $c $d $e $f) readStream.
 
-st reset.
-st next.
-> 1
+stream next.
+> $a
 
-st position: 3.
-st next.
-> 2
+stream upTo: $d.
+>  #($b $c)
 
-st := (1 2 5 3 7) readStream.
-st next.
-> 1
+stream position.
+> 4
+
+stream upToEnd
+> #($e $f)
 ]]]
 
-${slide:title=Adding Elements}$
+${slide:title=Writing Elements}$
 
 - ==nexPut:==, ==nextPutAll:==
 
 [[[
-| st |
-st := ReadWriteStream on: (Array new: 6).
-st nextPut: 1.
-st nextPutAll: #(4 8 2 6 7).
+stream := (Array new: 6) writeStream.
+
+stream nextPut: 1.
+stream contents.
+> #(1)
+
+stream nextPutAll: #(4 8 2 6 7).
+stream contents.
+> #(1 4 8 2 6 7)
 ]]]
 
-
-
-${slide:title=Nicer Creation API|label=api}$
+${slide:title=Reading from a File}$
 
 [[[
-| s |
-s := WriteStream on: (String new: 16).
-self printOn: s.
-s contents
+stream := 'hello.txt' asFileReference readStream.
+
+stream next.
+> $H
+
+stream upToEnd
+> 'ello Pharo!'
+]]]
+
+${slide:title=Creating Collections from a Stream}$
+
+When you want to create a collection by writing to a stream:
+[[[
+stream := (Array new: 6) writeStream.
+stream nextPut: 1.
+stream contents
 ]]]
 
 is equivalent to
 
 [[[
-String streamContents: [:s | self printOn: s]
-]]]
-
-${slide:title=Nicer Adding API}$
-
-Some people prefer ==<<== to ==nextPutAll:==
-
-[[[
-XX>>printOn: aStream
-   aStream
-      print: self label;
-      << '->';
-      << (self value printStringLimitedTo: 50)
+Array streamContents: [:stream | stream nextPut: 1]
 ]]]
 
 ${slide:title=What You Should Know}$
 
-- Streams offers a simple API. 
-- Basis for many manipulation of collection of objects
-- Basic API
+- A stream can read from and write to
+-- collections, files and network
+- A stream maintains a current position
+- A stream can help create collections
 
 % Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019SD-W3S10-Streams.pillar"
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019-W3S11-Streams.pillar"
 % End:
