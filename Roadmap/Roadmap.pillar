@@ -409,12 +409,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- Login 
 
 % ===============================================================================
-!!Week 5: Indispensable: Exception, Files, Debugging and SUnit
+!!Week 5: Essential: Exceptions, Files, Debugging and SUnit
 
 % 8 lectures
 
 - W5S01 [Lecture 6min] C019-W5S00-UnderstandingClassMethods.pillar
--- Presenter: Stef
+-- Presenter: Damien
 -- Status: Reviewed after Lome
 -- Files:  *SlidesPdf>../Slides/Week5/C019-W5S00-UnderstandingClassMethods.pdf*	*SlidesHTML>../Slides/Week5/C019-W5S00-UnderstandingClassMethods.html*	
 
@@ -431,7 +431,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week5/C019-W5S-Exceptions.pdf* *SlidesHTML>../Slides/Week5/C019-W5S-Exceptions.html*
 
 - W5S05 [Lecture 6min] Debugging.pillar
--- Presenter: Damien
+-- Presenter: Stef
 -- Status: Reviewed by presenter
 -- Files:  *SlidesPdf>../Slides/Week5/C019-W5S03-Debugger.pdf* *SlidesHTML>../Slides/Week5/C019-W5S03-Debugger.html* 
 
@@ -455,7 +455,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week5/C019-W5S06-Introspection.pdf* *SlidesHTML>../Slides/Week5/C019-W5S06-Introspection.html* 
 
 - W5S09 [Lecture 6min] Benchmarking.pillar
--- Presenter: ?
+-- Presenter: Stef
 -- Status: Reviewed after Lome
 -- Files: *SlidesPdf>../Slides/Week5/C019-W5S02-Benchmarking.pdf* *SlidesHTML>../Slides/Week5/C019-W5S02-Benchmarking.html*
 
@@ -467,32 +467,32 @@ You will also see that 4 kinds of activities are distinguished:
 - Exo: ?? Discovering google services ?? We should check: https://www.min.at/prinz/?x=entry:entry150318-104537
 
 % ===============================================================================
-!!Week 6: Rethink lookup and Advanced OO Design
+!!Week 6: Rethinking lookup and Advanced OO Design
 
 % 7 Lectures
 
-- W6S01 [Lecture 6min]  Did you read understand super?
+- W6S01 [Lecture 6min] Did you really understand super?
 -- Presenter: Stef
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week6/C019-W6S01-DidYouUnderstandSuper.pdf* *SlidesHTML>../Slides/Week6/C019-W6S01-DidYouUnderstandSuper.html*
 
-- W3S03 [Todo] C019-W3S03-Design-ImplementingIfTrue.pillar
+- W6S02 [Lecture 6min] ImplementingIfTrue
+-- Presenter: Stef
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.html*
 
-
 - W6S02 [Lecture 6min] C019-W6S02-SelfSendsDiceHandle
--- Presenter: Stef ou luc
+-- Presenter: Luc
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week6/C019-W6S02-SelfSendsDiceHandle.pdf* *SlidesHTML>../Slides/Week6/C019-W6S02-SelfSendsDiceHandle.html*
 
 - W6S03 [Lecture 6min] C019-W6S03-SelfSendsArePlanForReuse
--- Presenter: Stef
+-- Presenter: Damien
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week6/C019-W6S03-SelfSendsArePlanForReuse.pdf* *SlidesHTML>../Slides/Week6/C019-W6S03-SelfSendsArePlanForReuse.html*
 
 - W6S04 [Lecture 6min] Hook and Template / Copy as a hook and template
--- Presenter: ?
+-- Presenter: Damien
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week6/C019-W6S-HookAndTemplate.pdf* *SlidesHTML>../Slides/Week6/C019-W6S-HookAndTemplate.html*
 
@@ -502,12 +502,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week6/C019-W6S05-RuntimeArchitecture.pdf* *SlidesHTML>../Slides/Week6/C019-W6S05-RuntimeArchitecture.html*
 
 - W6S06 [Lecture 6min]  CharacterStringSymbol
--- Presenter: ?
+-- Presenter: Luc
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week6/019-W6S06-CharacterStringSymbol.pdf* *SlidesHTML>../Slides/Week6/019-W6S06-CharacterStringSymbol.html* 
 
 - W6S07 [Lecture 6min]  DynamicVersusLiteralArray
--- Presenter: ?
+-- Presenter: Luc
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week6/C019-W6S07-DynamicVersusLiteralArray.pdf* *SlidesHTML>../Slides/Week6/C019-W6S07-DynamicVersusLiteralArray.html* 
 
@@ -524,38 +524,38 @@ You will also see that 4 kinds of activities are distinguished:
 % 7 Lectures
 
 - [Lecture ]  "Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pillar"
--- Presenter: Stef 
+-- Presenter: Damien
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pdf* *SlidesHTML>../Slides/Week7/C019-W7S01-AdvancedPointOnClasses.html*	
 
 - [Lecture ]  "Slides/Week7/C019-W7S02-C019-W7S-VariableClasses.pillar"
--- Presenter: Stef 
+-- Presenter: Stef
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S02-VariableClasses.pdf* *SlidesHTML>../Slides/Week7/C019-W7S02-VariableClasses.html*	
 
 - [Lecture ] "C019-W7S03-UnderstandingMetaclasses.pillar"
--- Presenter: Stef
+-- Presenter: Damien
 -- Status: Reviewed 
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S03-UnderstandingMetaclasses.pdf* 	
 
 - [Lecture ] Reflection Other Reflectives
--- Presenter:  
+-- Presenter: Luc
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S04-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019-W7S04-thisContext.html*	
 
 
 - [Lecture ] DoesNotUnderstand
--- Presenter:  
+-- Presenter: Luc
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S05-DoesNotUnderstand.pdf* *SlidesHTML>../Slides/Week7/C019-W7S05-DoesNotUnderstand.html*	
 
 - [Lecture ] Reflection thisContext
--- Presenter:  
+-- Presenter: Stef
 -- Status: Reviewed 
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019-W7S-thisContext.html*	
 
 - [Lecture ] Avoid is nil
--- Presenter:  
+-- Presenter: Damien
 -- Status: Done (may be add a figure with the hierarchy and witohut null object?)
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S07-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019-W7S07-AvoidIsNill.html*	
 
