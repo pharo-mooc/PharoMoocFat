@@ -53,39 +53,40 @@ To know more, have a look at the Essence of Dispatch Lecture
 
 ${slide:title=Conditionals}$
 
-In Pharo traditional conditional (if, else, while) are messages sent to boolean or blocks objects
+In Pharo, traditional conditional (if, else, while) are messages sent to boolean or block objects
 
 ${slide:title=Conditionals: ifTrue: and ifTrue:ifFalse:}$
 
-==ifTrue: [ ]== and ==ifTrue:[ ] ifFalse: [ ]== are two differents messages
+==ifTrue: [ ]== and ==ifTrue: [ ] ifFalse: [ ]== are two different messages
 
 [[[
-   forceItalicOrOblique
-      self slantValue = 0 ifTrue: [ slantValue := 1 ]
+forceItalicOrOblique
+   self slantValue = 0 
+      ifTrue: [ slantValue := 1 ]
 ]]]
 
 [[[
-   fullName isEmptyOrNil
-      ifTrue: [ 'FirstnameLastname' translated ]
-      ifFalse: [ fullName ].
+fullName isEmptyOrNil
+   ifTrue: [ 'FirstnameLastname' translated ]
+   ifFalse: [ fullName ].
 ]]]
 
 ${slide:title=Conditionals: ifFalse: and ifFalse:ifTrue:}$
 
-==ifFalse: [ ]== and ==ifFalse:[ ] ifTrue: [ ]== are two different messages
+==ifFalse: [ ]== and ==ifFalse: [ ] ifTrue: [ ]== are two different messages
 
 
 
 ${slide:title=Conditionals: ifEmpty: ifNotEmpty:}$
 
 [[[
-    myProtocol 
-         ifEmpty: [ 'As yet unclassified' ]
+myProtocol 
+   ifEmpty: [ 'As yet unclassified' ]
 ]]]
 
 [[[
-    self listItems 
-        ifNotEmpty: [ :aList | aList at: currentIndex ]
+self listItems 
+   ifNotEmpty: [ :aList | aList at: index ]
 ]]]
 
 - Notice that when the receiver is not empty we get it as argument
