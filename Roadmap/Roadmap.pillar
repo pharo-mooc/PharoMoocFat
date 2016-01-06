@@ -9,26 +9,6 @@
 - enlever le cadre indiquant l'incrustation de la vidéo
 
 - TBD Slides MOOC Roadmap
-  
-- check that we add a diagram for visibility classVar vs instance var (I did one but I do not remember where) in  Slides/Week3/C019W3S05-Basic-Variables.pillar
-
-[[[
-mate Slides/Week3/C019W3S05-Basic-Variables.pillar
-]]]
-
-- Week4, le cours seaside sera à diviser en 2 au moins je pense
-
-
-- W5S01 LearningFromMistake
--- slide 19, la solution est fausse ou alors je n'ai pas compris
--- ajouter dans learningFromMistakes: Class methods cannot access instance variables
-
-- W5S03 Debugging.pillar
--- Status: + add a debugger stack!!!
-
-- W5S06 redo screenshot of slide:title=Classes Hold Compiled Methods
--- Should probably put reflective architecture before the other reflective lectures in Week7 
-
 
 - Integrer les quizz et exos dans les Weeks
 
@@ -47,27 +27,17 @@ Seaside3
 Seaside2
 - Seaside call:/answer:
 
-Voyage in Week 6
+Voyage in Week 4
 - Voyage simple?
 
-Deploying an application Week 7
--- pharo cloud 
--- cloud9
-
-- Metaclasses
-
 !!Immersive Videos
-- Selecting a full expression, a line or printing
-- Printing vs doit (Nautilus open)
-- Finder
-- GTSpotter
-- developer dans le debugger
-- comprendre le debugger
+
+
 - coder n'import ou
 - Publier du code
 - Code search
 - sender/implementor
-
+- deploying
 
 !!Find how to 
 
@@ -144,9 +114,9 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To be done
 -- Files:  
 
-- W1S06 [Live 3min] Looking at how to select code (line start line end-beginning of bloc)
+- W1S06 [Live 3min] Looking at how to select code (line start line end-beginning of bloc) + printing/doit
 -- Presenter: Stephane
--- Status: To be done
+-- Status: 
 -- Files:  
 
 - W1S07 [Lecture 6min] Pharo's Model in a Nushell
@@ -210,10 +180,16 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S04-Messages-Sequence.pdf* *SlidesHandout>../Slides/Handout/C019-W2S04-Messages-Sequence.pdf* *SlidesHtml>../Slides/Week2/C019-W2S04-Messages-Sequence.html*
 
-- W2S05 [Live 6min] Inspector: Inspecting a Counter 
+- W2S05 [Live 6min] Finder... selector + 
 -- Presenter: Luc
 -- Status: To be done
 -- Files: 
+
+- W2S06 [Live 6min] Inspector: Inspecting a Counter 
+-- Presenter: Luc
+-- Status: To be done
+-- Files: 
+
 
 - W2S06 [Live 6min] Publishing Code on smalltalkhub.com
 -- Presenter: Damien
@@ -294,9 +270,8 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde 
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S02-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019-W3S02-Design-EssenceOfDispatch.html*
 
-- W3S03 [Todo] C019-W3S03-Design-ImplementingIfTrue.pillar
--- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.html*
+
+
 
 - W3S04 [Lecture 6min] Variables
 -- Presenter: Luc
@@ -308,7 +283,13 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S05-TeapotAsAPretext.pdf* *SlidesHTML>../Slides/Week3/C019-W3S05-TeapotAsAPretext.html*
 
-- W3S06 [Todo] Live: trouver de l'information avec le Finder	
+
+- W3S07 [Todo] Live: Tools to find information: implementors, senders Shortcut		
+-- Presenter: ?
+-- Status: TBD
+-- comment on peut lire un fichier png
+
+- W3S07 [Todo] Live: GTSpotter		
 -- Presenter: ?
 -- Status: TBD
 -- method
@@ -316,10 +297,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- examples
 -- scan all code About...
 
-- W3S07 [Todo] Live: Tools to find information: implementors, senders		
--- Presenter: ?
--- Status: TBD
--- comment on peut lire un fichier png
 
 - W3S08 [Lecture 6min] BasicClassMethods
 -- Presenter: Stephane
@@ -330,6 +307,10 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.html*
+
+- W3S06 [Todo] Live: GTInspector 	
+-- Presenter: ?
+-- Status: TBD 3 videos
 
 - W3S10 [Lecture 6min] Iterators
 -- Presenter: Stef
@@ -360,7 +341,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - Redo: Refaire le dice 
 
-- [Todo] Ticket Model 
+- [Todo] TinyBlog Model 
 -- ESRepo / REST interface withTeapot
 -- send mail?
 -- participation gratuite / payante?
@@ -413,18 +394,30 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: TBD
 -- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
 -- Seaside Component, html, bootstrap
+-- renderer 
+
+- W4S09 [Live] Live Coding Seaside + 3 Examples 
+-- Presenter: ?
+-- Status: TBD
+-- ==10 + 20 + error +== debugger
+
+- W4S10 [Lecture 6min] Seaside call and Answer
+-- Presenter: ?
+-- Status: TBD
+-- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
+-- Seaside Component, html, bootstrap
 -- call / answer
 	
-- W4S10 [Live] seaside counter/multi counter
+- W4S11 [Live] seaside counter/multi counter
 -- Presenter: ?
 -- Status: TBD
 -- counter back button
 	
-- W4S11 [Live] Live Debugging of Seaside Web Applications 
+- W4S12 [lectures] Voyage
 -- Presenter: ?
 -- Status: TBD
---	 ==10 + 20 + error +== debugger
 
+	
 !!!! Exos	
 - Find how to ...
 - Redo: TinyChat (pour extension futures)	
@@ -461,6 +454,8 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed by presenter
 -- Files:  *SlidesPdf>../Slides/Week5/C019-W5S03-Debugger.pdf* *SlidesHTML>../Slides/Week5/C019-W5S03-Debugger.html* 
 
+- W5S06 [Live] Understand the debugger
+
 - W5S06 [Live] Extending the GTinspector and spotter for the addressbook
 
 - W5S07 [Lecture 6min] Files.pillar
@@ -495,6 +490,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Stef
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week6/C019-W6S01-DidYouUnderstandSuper.pdf* *SlidesHTML>../Slides/Week6/C019-W6S01-DidYouUnderstandSuper.html*
+
+- W3S03 [Todo] C019-W3S03-Design-ImplementingIfTrue.pillar
+-- Status: Reviewed after Yaounde
+-- Files: *SlidesPdf>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.html*
+
+
 
 - W6S02 [Lecture 6min] C019-W6S02-SelfSendsDiceHandle
 -- Presenter: Stef ou luc
