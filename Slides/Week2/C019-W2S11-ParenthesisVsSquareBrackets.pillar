@@ -9,55 +9,55 @@ ${slide:title= ( ) vs. [ ]}$
 - ==( )== just changes the priority of an execution but the program is executed
 - ==[ ]== blocks program execution: the program is NOT executed
 
-${slide:title= Use [ ] for 'Unknown' Execution}$
+${slide:title= Use [ ] for 'Unknown' Execution Occurrence}$
 
-- use ==[ ]== when you do not know if your program will be executed
+- Use ==[ ]== when you do not know if your program will be executed
 - When the message can change the execution of your program (if, while, ...) use a block
 
-[[[language=smalltalk
-     n timesRepeat: [ self doSomething ]
+${slide:title=Example}$
+
+[[[
+n timesRepeat: [ self doSomething ]
 ]]]
 
-- ==timesRepeat:== executes a number of times its argument, therefore the argument is a block
-
-
+==timesRepeat:== executes a number of times its argument, therefore the argument is a block
 
 
 ${slide:title= ( ) vs. [ ] Example}$
 
-[[[language=smalltalk
-    x isNil ifTrue: [ self doSomething ]
+[[[
+x isNil ifTrue: [ self doSomething ]
 ]]]
 
-- ==ifTrue:== may execute or not its argument, therefore the argument is a block
+==ifTrue:== may execute or not its argument, therefore the argument is a block
 
 
 ${slide:title= ( ) vs. [ ] Example}$
 
-[[[language=smalltalk
-    [ self start ] whileTrue: [ self doSomething ]
+[[[
+[ self start ] whileTrue: [ self doSomething ]
 ]]]
 
-- ==whileTrue:== may execute both its receiver and argument multiple times, therefore they are both a block
+==whileTrue:== may execute both its receiver and argument multiple times, therefore they are both a block
 
 ${slide:title=Quiz}$
 
 [[[
-    1 to: n do: ... self doSomething ...
+1 to: n do: ... self doSomething ...
 ]]]
 
 [[[
-    x ifEmpty: ... self doSomething ...
+x ifEmpty: ... self doSomething ...
 ]]]
 
 ${slide:title=Quiz|label=squareBracketQuiz}$
 
 [[[
-    1 to: 100 do: [:i | self doSomething ]
+1 to: 100 do: [ :i | self doSomething ]
 ]]]
 
 [[[
-    x ifEmpty: [ self doSomething ]
+x ifEmpty: [ self doSomething ]
 ]]]
 
 ${slide:title=Summary|label=squareBracketQuiz}$
