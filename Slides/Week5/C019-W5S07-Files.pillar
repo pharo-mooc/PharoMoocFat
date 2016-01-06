@@ -5,123 +5,146 @@
 
 ${slide:title=What You Will Learn}$
 
-- File API (close to Java NIO)
-- Basic stream API
+- Navigating between directories
+- Creating and removing directories
+- Listing files
+- Reading from and writing to files
 
 ${slide:title=Getting Started}$
 
+Some standard directories
 [[[
-| working |
-working := FileSystem disk workingDirectory.
+FileLocator home.   "User's home directory (~)"
+FileLocator root.   "File system's root (/)"
+FileLocator C.      "Windows C:\"
 ]]]
 
-Direct files and folders
+Accessing the children of a directory
 [[[
-working children.
+| directory |
+directory := FileLocator home.
+directory children
+> an Array({home}/.bashrc {home}/Music ...)
 ]]]
 
-All files and folders.
-[[[
-working allChildren.
-]]]
-
-${slide:title=FileReference}$
-
-FileReferences represent file or folders
-
-[[[
-| working |
-working := FileSystem disk workingDirectory.
-working class
-> FileReference
-]]]
-
-Can also be created as follow:
-[[[
-'/Users/ducasse/Workspace/FirstCircle/Pharo/20' asFileReference
-]]]
-
-${slide:title=All Files That...}$
-
-[[[
-aFileRef allChildren
-   select: [ :each | each basename endsWith: 'jpeg' ]
-]]]
-
-${slide:title=basename}$
-
-[[[
-'foo/gloops.taz' asFileReference basename
-> 'gloops.taz'
-]]]
-
-[[[
-FileSystem workingDirectory fullName
->'/Users/ducasse/Pharo/50/current'
-
-FileSystem workingDirectory basename
-> 'current'
-]]]
-
-${slide:title=Navigating Down and Up}$
+${slide:title=Navigating Up and Down}$
 
 Use message ==/== to build a path
 [[[
-| working cache parent |
-working := FileSystem disk workingDirectory.
-cache := working / 'package-cache'.
+(directory / 'Music') directories
+> an Array({home}/Music/Anouar_Brahem ...)
 ]]]
 
-Use ==parent== to get up
+Use ==parent== to go up
 [[[
-parent := cache parent.
-parent = working
+(directory / 'Music') parent pathString
+> '/home/cassou/'
+]]]
+
+${slide:title=Creating and Removing Directories}$
+
+[[[
+music := FileLocator home / 'Music'.
+(music / 'Pink_Floyd') isDirectory.
+> false
+
+(music / 'Pink_Floyd') ensureCreateDirectory.
+(music / 'Pink_Floyd') isDirectory.
 > true
+
+(music / 'Pink_Floyd') delete.
+(music / 'Pink_Floyd') isDirectory
+> false
 ]]]
 
-${slide:title=File Entry}$
+${slide:title=Finding Children}$
 
 [[[
-| c |
-c := FileSystem disk workingDirectory / 'package-cache'.
-c entry creationTime.
-> aDateAndTime(2015-11-03T10:00:51-08:00)
+(pinkFloyd / 'Meddle')
+   allChildrenMatching: '*.ogg'.
+]]]
 
-c entry permissions isWritable.
+is equivalent to
+[[[
+(pinkFloyd / 'Meddle') allChildren
+   select: [ :each |
+             each basename endsWith: 'ogg' ]
+]]]
+
+${slide:title=Getting Information}$
+
+[[[
+| pharo |
+pharo := 'pharo5.image' asFileReference.
+
+pharo isFile.
 > true
+
+pharo basename
+> 'pharo5.image'
+
+pharo extension
+> 'image'
+
+pharo size
+> 23744868
+
+pharo parent pathString
+> '/home/cassou/Pharo/images/pharo5'
 ]]]
 
-${slide:title=Working with Streams}$
+${slide:title=Writing to a File}$
 
 [[[
-| working stream |
-working := FileSystem disk workingDirectory.
-stream := (working / 'foo.txt') writeStream.
+| hello stream |
+hello := 'hello.txt' asFileReference.
+hello exists
+> false
+
+stream := hello writeStream.
 stream nextPutAll: 'Hello World'.
 stream close.
-stream := (working / 'foo.txt') readStream.
-stream contents.
-> 'Hello World'
-stream close.
 ]]]
 
-${slide:title=With writeStreamDo: and readStreamDo:}$
+${slide:title=Reading from a File}$
 
 [[[
-| working |
-working := FileSystem disk workingDirectory.
-working / 'foo.txt'
-  writeStreamDo: [ :stream | stream nextPutAll: 'Hello World' ].
-working / 'foo.txt'
-  readStreamDo: [ :stream | stream contents ].
+| hello stream |
+hello := 'hello.txt' asFileReference.
+hello exists
+> true
+
+stream := hello readStream.
+stream next.
+> $H
+
+stream upToEnd.
+> 'ello World'
+
+stream close
 ]]]
 
-${slide:title=Summary}$
+${slide:title=Automatically Closing File Streams}$
 
-- Files references are objects
-- Manipulate file references
-- Permissions are objects
-- Read ''Files with FileSystem'' Chapter in "Deep into Pharo"
+Writing
+[[[
+hello writeStreamDo: [ :stream |
+   stream nextPutAll: 'Hello World'].
+]]]
+
+Reading
+[[[
+hello readStreamDo: [ :stream |
+   stream contents ]
+> 'Hello World'
+]]]
+
+
+${slide:title=What You Should Know}$
+
+- File and directory references are objects
+- The simple API facilitates navigation and manipulation
+- Reading from and writing to files is done through streams
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S07-Files.pillar"
