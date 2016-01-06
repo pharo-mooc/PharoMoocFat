@@ -8,7 +8,7 @@ ${slide:title=Goal}$
 - What is inheritance?
 - When to use it?
 
-Pharo treats inheritance the same way as Java.
+Pharo treats inheritance the same way as Java
 
 ${slide:title=The Basics}$
 
@@ -18,10 +18,8 @@ ${column:width=60}$
 
 - Often we want small adaptations
 - We want to reuse/extend existing behavior and state
-
 - Solution: ""class inheritance""
-
-- Each class refines the definition of its superclass
+- A class refines the definition of its superclass
 
 ${column:width=40}$
 
@@ -123,9 +121,9 @@ ${endColumns}$
 
 ${slide:title=What You Should Know}$
 
-- Inheritance allows one to refine state and behavior
-- Every class has 1 and only 1 superclass
-- Every class eventually inherits from ==Object==
+- Inheritance allows a class to refine state and behavior
+- A class has 1 and only 1 superclass
+- A class eventually inherits from ==Object==
 - Inheritance of state is static
 - Inheritance of behavior is dynamic
 
