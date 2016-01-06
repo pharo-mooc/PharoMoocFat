@@ -3,10 +3,32 @@
   "slidesid" : "W4S07"
 }
 
-${slide:title=Pharo and the Web}$
+${slide:title=Pharo and the Web: a Gorgeous Stack}$
 
-TBD
+- Several Web Servers: Zinc (HTTP/HTTPS), Teapot, Seaside
+- 
+- 
 
+
+${slide:title=Web Frameworks}$
+
+- Seaside *http://www.seaside.st* / *http://book.seaside.st
+-- usually use Zinc as an HTTP Server
+-- Applications are built out of reusable components
+
+${slide:title=Database}$
+
+- NoSQL
+-- ""Voyage"", MongoTalk, Riak
+
+- Relational
+-- Garage unified API to talk to relational database (Postgres, mysql, sqlite, opendbx)
+
+${slide:title=Forms Report Builder}$
+
+- Magritte
+-- described data
+-- generates
 ${slide:title=Conclusion}$
 
 - A rich eco-system (frameworks) 
