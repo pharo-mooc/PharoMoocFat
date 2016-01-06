@@ -78,6 +78,10 @@
 
 \RequirePackage{booktabs}
 \RequirePackage{textcomp}
+
+\RequirePackage{upquote}
+\newcommand\upquote[1]{\textquotesingle#1\textquotesingle}
+
 \RequirePackage{wasysym} % \CIRCLE \Circle
 
 \RequirePackage{calc}
