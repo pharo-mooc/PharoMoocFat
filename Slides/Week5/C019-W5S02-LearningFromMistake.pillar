@@ -234,4 +234,6 @@ ${slide:title=What You should know}$
 - Check parentheses
 - Use the debugger to look at the problem
 
-
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S02-LearningFromMistake.pillar"
+% End:
