@@ -101,7 +101,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week1/C019-W1S05-PharoModelInaNushell.pdf* *SlidesHandout>../Slides/Handout/C019-W1S05-PharoModelInaNushell.pdf* *SlidesHtml>../Slides/Week1/C019-W1S05-PharoModelInaNushell.html*
 
 - W1S04 [Live 3min] Installing Pharo / the notion of Pharo image / Saving the image
--- Presenter: Luc
+-- Author: Luc
 -- Status: To be done 
 -- Files: 
 
@@ -111,12 +111,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week1/C019-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHandout>../Slides/Handout/C019-W1S06-PharoSyntaxInANutshell.pdf* *SlidesHtml>../Slides/Week1/C019-W1S06-PharoSyntaxInANutshell.html*
 
 - W1S05 [Live 3min] Hello World Example 
--- Presenter: Luc
+-- Author: Luc
 -- Status: To be done
 -- Files:  
 
 - W1S05 [Live 3min] Looking at how to select code (line start line end-beginning of bloc) + printing/doit
--- Presenter: Stephane
+-- Author: Stephane
 -- Status: 
 -- Files:  
 
@@ -126,18 +126,18 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S-ClassAndMethodDefinition.pdf* *SlidesHTML>../Slides/Week2/C019-W2S-ClassAndMethodDefinition.html*
 
 - W1S06 [Redo 6min] Coding a Counter
--- Presenter: Luc
+-- Author: Stephane
 -- Status: To be done
 -- Files: 
 -- Saving the Image only
 
 - W1S06 [Redo 6min] Coding a Counter: the Pharo Way
--- Presenter: Damien
+-- Author: Stephane
 -- Status: To be done
 -- Files:
 
-- W1S07 [Todo] Coding EventShine 
--- Presenter: ?
+- W1S07 [Todo] Coding TinyBlog
+-- Author: ?
 -- Status: To be done
 -- Files: ExercicesSubject(TBD) 
 -- Luc: something related to the model of THE Web App we will use throughout this MOOC
@@ -172,12 +172,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S04-Messages-Sequence.pdf* *SlidesHandout>../Slides/Handout/C019-W2S04-Messages-Sequence.pdf* *SlidesHtml>../Slides/Week2/C019-W2S04-Messages-Sequence.html*
 
 - W2S05 [Live 6min] Finder... selector + 
--- Presenter: Luc
+-- Author: Luc
 -- Status: To be done
 -- Files: 
 
 - W2S05 [Live 6min] Publishing Code on smalltalkhub.com
--- Presenter: Damien
+-- Author: Presenter: Damien
 -- Status: To be done
 -- Files: 
 
@@ -207,7 +207,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S13-Yourself.pdf* 
 
 - W2S14 [Lecture 6min] The Essence Of Dispatch through an Exercice
--- Presenter: Damien
+-- Presenter: Stef
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S14-Design-EssenceOfDispatchExo.pdf* 
 
@@ -236,7 +236,7 @@ You will also see that 4 kinds of activities are distinguished:
 - [Todo] how is implemented 
 
 % ===============================================================================
-!!Week 3: Design, Class Methods and Collections
+!!Week 3: Essence of Dispatch, and Collections
 
 % 9 Lectures
 
@@ -261,12 +261,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S05-TeapotAsAPretext.pdf* *SlidesHTML>../Slides/Week3/C019-W3S05-TeapotAsAPretext.html*
 
 - W3S07 [Live] Tools to find information: implementors, senders Shortcut		
--- Presenter: ?
+-- Author: ?
 -- Status: TBD
 -- comment on peut lire un fichier png
 
 - W3S07 [Live] GTSpotter		
--- Presenter: ?
+-- Author: ?
 -- Status: TBD
 -- method
 -- class
@@ -274,12 +274,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- scan all code About...
 
 - W3S08 [Lecture 6min] BasicClassMethods
--- Presenter: Stephane
+-- Presenter: Damien
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S08-BasicClassMethods.pdf*	*SlidesHTML>../Slides/Week3/C019-W3S08-BasicClassMethods.html*	
 
 - W3S09 [Lecture 6min] Basic-ArraySetOrderedCollection
--- Presenter: Stef
+-- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.html*
 
@@ -292,7 +292,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: TBD
 
 - W3S10 [Lecture 6min] Iterators
--- Presenter: Stef
+-- Presenter: Luc
 -- Status: To Review
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S10-Iterators.pdf* *SlidesHTML>../Slides/Week3/C019-W3S10-Iterators.html*
 
@@ -355,13 +355,13 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To Review
 -- Files: *SlidesPdf>../Slides/Week4/C019-W4S05-InheritanceAndLookup-5-LookupMetaclasses.pdf*
 
-- W4S06 [Lecture 6min] C019-W4S06-ClassMethodsAtWork (on peut bouger cela semaine 6 - ici c'est bizarre) 
+- W4S06 [Lecture 6min] C019-W4S06-ClassMethodsAtWork
 -- Presenter: Damien
 -- Status: To review 
 -- Files: *SlidesPdf>../Slides/Week4/W4S06-ClassMethodsAtWork.pdf*
 
 - W4S07 [Lecture 3min] PharoWebStack: 4/5 slides
--- Presenter: ?
+-- Presenter: Stef
 -- Status: TBD
 	Voyage Mongo
 	Magritte
@@ -369,36 +369,35 @@ You will also see that 4 kinds of activities are distinguished:
 	WebSocket
 	
 - W4S08 [Lecture 6min] Seaside (plusieurs lectures? 2 au moins je pense)
--- Presenter: ?
+-- Presenter: Luc
 -- Status: TBD
 -- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
 -- Seaside Component, html, bootstrap
 -- renderer 
 
 - W4S09 [Live] Coding Seaside + 3 Examples 
--- Presenter: ?
+-- Author: 
 -- Status: TBD
 -- ==10 + 20 + error +== debugger
 
 - W4S10 [Lecture 6min] Seaside call and Answer
--- Presenter: ?
+-- Presenter: Luc
 -- Status: TBD
 -- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
 -- Seaside Component, html, bootstrap
 -- call / answer
 	
 - W4S11 [Live] seaside counter/multi counter
--- Presenter: ?
+-- Author: Luc
 -- Status: TBD
 -- counter back button
 	
 - W4S12 [Lecture] Voyage
--- Presenter: ?
+-- Presenter: Stephane
 -- Status: TBD
 
 - [Live] Deploying an application 
--- pharo cloud 
--- cloud9
+-- Author:
 	
 !!!! Exos	
 - Find how to ...
@@ -410,7 +409,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Login 
 
 % ===============================================================================
-!!Week 5: Exception, Debugging and Reflection
+!!Week 5: Indispensable: Exception, Files, Debugging and SUnit
 
 % 8 lectures
 
