@@ -40,8 +40,8 @@ ${slide:title=Defining a Breakpoint}$
   ...
 ]]]
 
- ==Halt now== or ==self halt== will systematically 
-- stop the program and 
+ ==Halt now== or ==self halt== will systematically
+- stop the program and
 - invoke the debugger
 
 ${slide:title=Single Shot Halt}$
@@ -70,13 +70,13 @@ ${slide:title=You Can Invent Your Own}$
 Define a global variable and store an object or a value
 
 [[[
-Debug == self 
+Debug == self
   ifTrue: [ Halt now ]
 ]]]
 
 [[[
-Debug > 4 
-  ifTrue: [ Halt now ] 
+Debug > 4
+  ifTrue: [ Halt now ]
 ]]]
 
 
@@ -89,7 +89,7 @@ How to halt a method that is heavily used?
 Example:
 - ==foo== will stop only when invoked from the message ==printString==
 [[[
-foo 
+foo
   ...
   Halt if: #printString
   ...
@@ -101,7 +101,7 @@ Hint: Write a test and get benefit for it
 
 Example:
 [[[
-foo 
+foo
   ...
   Halt if: #testSetInitialized
   ...
@@ -115,3 +115,7 @@ ${slide:title=Summary}$
 - Watch the videos about the inspector
 - Try, try and try them
 - These tools are powerful
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S05-Debugging.pillar"
+% End:
