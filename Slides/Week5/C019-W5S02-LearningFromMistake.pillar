@@ -44,7 +44,7 @@ ${slide:title=Again A Missing Period}$
 
 Solution:
 [[[
-+ aDiceHandle 
++ aDiceHandle
 
   | res |
   res := DiceHandle new.
@@ -55,17 +55,17 @@ Solution:
 
 ${slide:title=Keyword-Based Messages}$
 
-Remember 
+Remember
 - Keyword messages are built out of fragments 'word:'
 - The message is the longuest sequence of fragments
-- ==between:and:== in ==x between: 0 and: 20== 
+- ==between:and:== in ==x between: 0 and: 20==
 
 
 ${slide:title=Parentheses to Delimit Messages}$
 
 Problem:
 [[[
-  x includes: 33 
+  x includes: 33
     ifTrue: [ self do something ]
 ]]]
 - ==includes:ifTrue:== is an unknown message (usually in red)
@@ -105,7 +105,7 @@ OrderedCollection new add: 35; add: 65
 
 Solution:
 [[[
-OrderedCollection new add: 35; add: 65; yourself 
+OrderedCollection new add: 35; add: 65; yourself
 ]]]
 
 - ==yourself== returns ==self==, hence the receiver and here the collection
@@ -116,7 +116,7 @@ ${slide:title=yourself}$
 OrderedCollection new add: 35; add: 65; yourself
 ]]]
 
-is equivalent to 
+is equivalent to
 
 [[[
 | col |
@@ -127,13 +127,13 @@ col
 
 ${slide:title=True vs. true}$
 
-Problem: 
+Problem:
 [[[
 Book>>initialize
   inLibrary := True
 ]]]
 
-Solution: 
+Solution:
 [[[
 Book>>initialize
   inLibrary := true
@@ -162,12 +162,12 @@ Dice >> roll
   faces atRandom
 ]]]
 
-is equivalent to 
+is equivalent to
 
 [[[
 Dice >> roll
   faces atRandom
-  ^ self 
+  ^ self
 ]]]
 
 Solution:
@@ -178,18 +178,18 @@ Dice >> roll
 
 ${slide:title=Returning Class Instead of an Instance}$
 
-Problem: 
+Problem:
 [[[
-Dice class >> new 
+Dice class >> new
   super new setFaces: 0
 ]]]
 
-is equivalent to 
+is equivalent to
 
 [[[
-Dice class >> new 
+Dice class >> new
   super new setFaces: 0
-  ^ self 
+  ^ self
 ]]]
 - ==new== is a message sent to a class
 - ==self== is the class ==Dice==
@@ -197,15 +197,15 @@ Dice class >> new
 
 ${slide:title=Returning Instance}$
 
-Problem: 
+Problem:
 [[[
-Dice class >> new 
+Dice class >> new
   super new setFaces: 0
 ]]]
 
-Solution: 
+Solution:
 [[[
-Dice class >> new 
+Dice class >> new
   ^ super new setFaces: 0 ; yourself
 ]]]
 
@@ -214,15 +214,15 @@ Dice class >> new
 
 ${slide:title=Instantiation Loops}$
 
-Problem: 
+Problem:
 [[[
-Dice class >> new 
+Dice class >> new
   ^ self new setFaces: 0
 ]]]
 
-Solution: 
+Solution:
 [[[
-Dice class >> new 
+Dice class >> new
   ^ super setFaces: 0 ; yourself
 ]]]
 
