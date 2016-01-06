@@ -96,7 +96,7 @@ ${slide:title=Blocks can be Stored}$
 | add2 |
 add2 := [ :x | x + 2 ].
 
-add2 value: 5
+add2 value: 5.
 > 7
 
 add2 value: 33

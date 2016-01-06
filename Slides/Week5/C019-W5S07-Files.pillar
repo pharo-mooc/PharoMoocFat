@@ -44,7 +44,7 @@ Can also be created as follow:
 ${slide:title=All Files That...}$
 
 [[[
-aFileRef allChildren 
+aFileRef allChildren
    select: [ :each | each basename endsWith: 'jpeg' ]
 ]]]
 
@@ -58,7 +58,7 @@ ${slide:title=basename}$
 [[[
 FileSystem workingDirectory fullName
 >'/Users/ducasse/Pharo/50/current'
- 
+
 FileSystem workingDirectory basename
 > 'current'
 ]]]
@@ -68,7 +68,7 @@ ${slide:title=Navigating Down and Up}$
 Use message ==/== to build a path
 [[[
 | working cache parent |
-working := FileSystem disk workingDirectory. 
+working := FileSystem disk workingDirectory.
 cache := working / 'package-cache'.
 ]]]
 
@@ -82,7 +82,7 @@ parent = working
 ${slide:title=File Entry}$
 
 [[[
-| c | 
+| c |
 c := FileSystem disk workingDirectory / 'package-cache'.
 c entry creationTime.
 > aDateAndTime(2015-11-03T10:00:51-08:00)
@@ -95,13 +95,13 @@ ${slide:title=Working with Streams}$
 
 [[[
 | working stream |
-working := FileSystem disk workingDirectory. 
-stream := (working / 'foo.txt') writeStream. 
+working := FileSystem disk workingDirectory.
+stream := (working / 'foo.txt') writeStream.
 stream nextPutAll: 'Hello World'.
 stream close.
-stream := (working / 'foo.txt') readStream. 
+stream := (working / 'foo.txt') readStream.
 stream contents.
-> 'Hello World' 
+> 'Hello World'
 stream close.
 ]]]
 
@@ -111,7 +111,7 @@ ${slide:title=With writeStreamDo: and readStreamDo:}$
 | working |
 working := FileSystem disk workingDirectory.
 working / 'foo.txt'
-  writeStreamDo: [ :stream | stream nextPutAll: 'Hello World' ]. 
+  writeStreamDo: [ :stream | stream nextPutAll: 'Hello World' ].
 working / 'foo.txt'
   readStreamDo: [ :stream | stream contents ].
 ]]]
@@ -122,3 +122,7 @@ ${slide:title=Summary}$
 - Manipulate file references
 - Permissions are objects
 - Read ''Files with FileSystem'' Chapter in "Deep into Pharo"
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S07-Files.pillar"
+% End:

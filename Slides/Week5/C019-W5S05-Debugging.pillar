@@ -21,16 +21,14 @@ ${slide:title=Debugging}$
 -- check state
 -- send messages to specific objects
 -- compile code on the fly
--- retry without restarting from scratch
+-- continue without restarting from scratch
 
 Watch the videos and practice
 
 ${slide:title=Simple Trace}$
 
 [[[
-Transcript
-   cr;
-   show: 'here with value: ', x printString
+Transcript show: 'x = ', x printString
 ]]]
 
 - used when you don't have tools
@@ -42,10 +40,9 @@ ${slide:title=Defining a Breakpoint}$
 [[[
    ...
    Halt now.
-   ...
 ]]]
 
-==Halt now== or ==self halt== will systematically
+==Halt now== (or ==self halt==)
 - pause the program
 - invoke the debugger
 
@@ -54,7 +51,6 @@ ${slide:title=Single-Shot Halt}$
 [[[
   ...
   Halt once.
-  ...
 ]]]
 
 To enable it, evaluate
@@ -62,7 +58,10 @@ To enable it, evaluate
   Halt enableHaltOnce
 ]]]
 
-- ==Halt once==, once enabled, stops the first time
+==Halt once==, if enabled :
+- pauses the program
+- opens a debugger
+- disables itself
 
 ${slide:title=Halt After n Iterations}$
 
@@ -70,56 +69,56 @@ ${slide:title=Halt After n Iterations}$
 Halt onCount: 10
 ]]]
 
-${slide:title=You Can Invent Your Own}$
+${slide:title=Conditional Halt}$
 
-Define a global variable and store an object or a value
+- ==if: aSelector== stops when invoked from a ==aSelector==
+- ==if: aBlock== stops if the block evaluates to ==true==
+
+
+==faces== will stop only when invoked from ==printString==
 
 [[[
-Debug == self
-  ifTrue: [ Halt now ]
+Dice >> faces
+  ...
+  Halt if: #printString
 ]]]
-
-[[[
-Debug > 4
-  ifTrue: [ Halt now ]
-]]]
-
 
 ${slide:title=Conditional Halt}$
 
-How to halt a method that is heavily used?
-- ==if: aSelector== stops the execution only if the method has been invoked from message named ==aSelector==
-- ==if: aBlock== stops the execution only if the block is true
+The parameter passed to ==if:== can be a test name too:
 
-Example:
-- ==foo== will stop only when invoked from the message ==printString==
 [[[
-foo
+Dice >> faces
   ...
-  Halt if: #printString
-  ...
+  Halt if: #testLargeDice
 ]]]
 
-${slide:title=Conditional Halt and Test}$
+==faces== will stop only when invoked from ==testLargeDice==
 
-Hint: Write a test and get benefit for it
+${slide:title=Create Your Own Breakpoints}$
 
-Example:
+- ==now==, ==once==, ==onCount:== and ==if:== are methods in ==Halt class==
+- you can add your own methods, e.g.,
+
 [[[
-foo
-  ...
-  Halt if: #testSetInitialized
-  ...
+Halt class >> between: minTime and: maxTime
+   (Time current
+      between: minTime asTime
+      and: maxTime asTime)
+         ifTrue: [ self signal ]
+
+Dice >> faces
+   ...
+   Halt between: '00:00' and: '02:00'
 ]]]
 
-- ==foo== will stop only when invoked from the test named ==#testSetInitialized==
+==faces== will halt only between midnight and 2am.
 
-${slide:title=Summary}$
+${slide:title=What You Should Know}$
 
-- Watch the videos about the debugger
-- Watch the videos about the inspector
-- Try, try and try them
-- These tools are powerful
+- The debugger is a powerful tool
+- You should communicate with objects
+- Breakpoints are powerful and customizable
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S05-Debugging.pillar"
