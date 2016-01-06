@@ -14,7 +14,7 @@
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {783, 559}}</string>
+		<string>{{0, 0}, {817.44000244140625, 570.96002197265625}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -74,8 +74,8 @@
 			<integer>19</integer>
 			<key>Points</key>
 			<array>
-				<string>{125.84692414381882, 197.96751514949702}</string>
-				<string>{144.85446118960806, 128.05750256774536}</string>
+				<string>{125.84667674629031, 197.96751252585858}</string>
+				<string>{144.85270646786009, 128.05748789873221}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -203,8 +203,8 @@
 			<integer>17</integer>
 			<key>Points</key>
 			<array>
-				<string>{213.61805576064859, 382.56183186990734}</string>
-				<string>{146.69773318355908, 359.45877580056947}</string>
+				<string>{213.60399653104091, 382.56188172315933}</string>
+				<string>{146.69765541159344, 359.47154926415305}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -332,8 +332,8 @@
 			<integer>15</integer>
 			<key>Points</key>
 			<array>
-				<string>{412.52885520477611, 305.78606508680792}</string>
-				<string>{461.45147935901633, 339.91356752339561}</string>
+				<string>{412.52318996117009, 305.78613365357938}</string>
+				<string>{461.42868356145198, 339.91384367814658}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -391,8 +391,8 @@
 			<integer>14</integer>
 			<key>Points</key>
 			<array>
-				<string>{483.40385520477616, 206.56106508680793}</string>
-				<string>{532.32647935901639, 240.68856752339559}</string>
+				<string>{483.39818996117003, 206.56113365357936}</string>
+				<string>{532.30368356145209, 240.68884367814667}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -586,8 +586,8 @@
 			<integer>11</integer>
 			<key>Points</key>
 			<array>
-				<string>{260.07018839507873, 275.44216852627602}</string>
-				<string>{317.23660803580469, 283.4307165425526}</string>
+				<string>{260.07018520633119, 275.44528465469682}</string>
+				<string>{317.19540072062404, 283.43075213656937}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -645,8 +645,8 @@
 			<integer>10</integer>
 			<key>Points</key>
 			<array>
-				<string>{357.50011833529118, 159.29871134699707}</string>
-				<string>{433.20844453015076, 184.11918882764795}</string>
+				<string>{357.50011460771327, 159.29924406326978}</string>
+				<string>{433.20074214688702, 184.11922108133842}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -840,8 +840,8 @@
 			<integer>7</integer>
 			<key>Points</key>
 			<array>
-				<string>{207.93183654214261, 254.84059840940861}</string>
-				<string>{323.17484872638801, 164.05949203717319}</string>
+				<string>{207.93117798927207, 254.84058950871002}</string>
+				<string>{323.16890403250346, 164.05941161584673}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -899,8 +899,8 @@
 			<integer>6</integer>
 			<key>Points</key>
 			<array>
-				<string>{132.21027056640798, 339.81586432863696}</string>
-				<string>{184.10326482003455, 277.53436346468618}</string>
+				<string>{132.20845987003165, 339.81583383444496}</string>
+				<string>{184.09154786407333, 277.53416627841301}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -918,7 +918,7 @@
 						<string>0</string>
 					</dict>
 					<key>HeadArrow</key>
-					<string>FilledDoubleArrow</string>
+					<string>StickArrow</string>
 					<key>HeadScale</key>
 					<real>1.4375</real>
 					<key>Join</key>
@@ -1075,7 +1075,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{185.15561637488275, 144.59591883341756}, {66, 24}}</string>
+			<string>{{184.65421823372697, 144.59634294210403}, {66, 24}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -1147,8 +1147,8 @@
 			<integer>3</integer>
 			<key>Points</key>
 			<array>
-				<string>{147.22499999999999, 203.11500000000001}</string>
-				<string>{318.02499999999998, 158.029}</string>
+				<string>{146.70844092307104, 203.11917819787354}</string>
+				<string>{317.5415592050885, 158.02498036303876}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1166,7 +1166,7 @@
 						<string>0</string>
 					</dict>
 					<key>HeadArrow</key>
-					<string>FilledDoubleArrow</string>
+					<string>StickArrow</string>
 					<key>HeadScale</key>
 					<real>1.4375</real>
 					<key>Join</key>
@@ -1378,7 +1378,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-11-24 17:10:10 +0000</string>
+	<string>2016-01-06 15:53:15 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -1394,7 +1394,12 @@
 		<key>NSBottomMargin</key>
 		<array>
 			<string>float</string>
-			<string>18</string>
+			<string>12</string>
+		</array>
+		<key>NSHorizonalPagination</key>
+		<array>
+			<string>coded</string>
+			<string>BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU051bWJlcgCEhAdOU1ZhbHVlAISECE5TT2JqZWN0AIWEASqEhAFxlwCG</string>
 		</array>
 		<key>NSJobFeatures</key>
 		<array>
@@ -1404,7 +1409,7 @@
 		<key>NSLeftMargin</key>
 		<array>
 			<string>float</string>
-			<string>18</string>
+			<string>12</string>
 		</array>
 		<key>NSOrientation</key>
 		<array>
@@ -1426,6 +1431,11 @@
 			<string>int</string>
 			<string>0</string>
 		</array>
+		<key>NSPrintReverseOrientation</key>
+		<array>
+			<string>int</string>
+			<string>0</string>
+		</array>
 		<key>NSReversePageOrder</key>
 		<array>
 			<string>int</string>
@@ -1434,12 +1444,12 @@
 		<key>NSRightMargin</key>
 		<array>
 			<string>float</string>
-			<string>41</string>
+			<string>12.56</string>
 		</array>
 		<key>NSTopMargin</key>
 		<array>
 			<string>float</string>
-			<string>18</string>
+			<string>12.04</string>
 		</array>
 	</dict>
 	<key>PrintOnePage</key>
@@ -1468,6 +1478,8 @@
 		<integer>0</integer>
 		<key>ExpandedCanvases</key>
 		<array/>
+		<key>Frame</key>
+		<string>{{823, 734}, {954, 664}}</string>
 		<key>ListView</key>
 		<false/>
 		<key>OutlineWidth</key>
@@ -1479,7 +1491,7 @@
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{-74, -95}, {931, 751}}</string>
+		<string>{{1, 1}, {816, 570}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
