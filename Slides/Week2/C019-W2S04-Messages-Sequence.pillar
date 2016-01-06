@@ -12,7 +12,8 @@ ${slide:title=Message Sequence}$
     message3
 ]]]
 
-- ==.== is a separator, not a terminator, no need to put one at the end
+- ==.== is a separator, not a terminator 
+- no need to put one at the end
 
 [[[
     | macNode pcNode |
@@ -40,8 +41,9 @@ is equivalent to:
 ]]]
 
 - ==;== is called a cascade
-${slide:title=Cascade: Sending Multiple Messages to an Object}$
+${slide:title=Cascade Example }$
 
+Sending Multiple Messages to an Object
 [[[
     | c |
     c := OrderedCollection new.
@@ -57,14 +59,15 @@ is equivalent to:
         add: 2 
 ]]]
 
-==add: 2== is sent to the receiver of message ==add:1==: the instance of OrderedCollection
+- ==add: 2== is sent to the receiver of message ==add: 1==
+- this receiver is the instance of ==OrderedCollection==
 
 
-${slide:title=What you Should Know}$
+${slide:title=What You Should Know}$
 
 - ==.== is a separator
 - ==;== (cascade) is useful to avoid repeating the receiver
-- the cascade returns the last message return value
+- the cascade returns the last message returned value
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S04-Messages-Sequence.pillar"
