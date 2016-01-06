@@ -1,237 +1,213 @@
 {
-  "title":"Learning From Common Errors",
+  "title":"Common Errors",
     "slidesid" : "W5S02"
 }
 
 ${slide:title=What You Will Learn}$
 
-- Understand common mistakes
-- How to recover faster from mistakes
+Find and fix common mistakes faster
+
+${slide:title=A Problem}$
+
+[[[
+DiceHandle >> + aDiceHandle
+   | res |
+   res := DiceHandle new
+   self dices do: [ :each | ... ].
+]]]
+
++>file://figures/DebugSelf2-cut.png|width=90+
 
 ${slide:title=Missing Period}$
 
-- Remember . separates messages
-- Qualitant Assistant will warn you
-- But you may also send a message you did not want
+- Separate instructions with period (==.==)
 
+${slide:title=A Problem}$
 
-${slide:title=Missing Period}$
-
-Problem:
-+>file://figures/printOnUndefined.png|width=100+
-Message ==printOn:nextPutAll:== does not exist
-
-Solution:
 [[[
-Dice >> printOn: aStream
-   super printOn: aStream.
-   aStream nextPutAll: '(', faces printString , ')'
+x includes: 33
+   ifTrue: [ self do something ]
 ]]]
 
-${slide:title=MessageNotUnderstood:...>>self}$
+""Error:"" Message ==includes:ifTrue:== does not exist
 
-+>file://figures/DebugSelf1.png|width=110+
+${slide:title=A Problem}$
 
-%+>file://figures/DebugSelf2.png|width=80+
-
-
-${slide:title=MessageNotUnderstood:...>>self}$
-
-+>file://figures/DebugSelf2.png|width=100+
-
-
-${slide:title=Again A Missing Period}$
-
-Solution:
 [[[
-+ aDiceHandle 
-
-  | res |
-  res := DiceHandle new.
-  self dices do: [ :each | res addDice: each ].
-  aDiceHandle dices do: [ :each | res addDice: each ].
-  ^ res
+self assert: players includes: aPlayer
 ]]]
+
+""Error:"" Message ==assert:includes:== does not exist
 
 ${slide:title=Keyword-Based Messages}$
 
-Remember 
-- Keyword messages are built out of fragments 'word:'
-- The message is the longuest sequence of fragments
-- ==between:and:== in ==x between: 0 and: 20== 
+- keyword messages are built out of fragments
+- the message is the longuest sequence of fragments
+- use parentheses to delimit multiple keyword messages
 
+${slide:title=A Problem}$
 
-${slide:title=Parentheses to Delimit Messages}$
-
-Problem:
 [[[
-  x includes: 33 
-    ifTrue: [ self do something ]
-]]]
-- ==includes:ifTrue:== is an unknown message (usually in red)
-
-Solution:
-[[[
-  (x includes: 33)
-    ifTrue: [ self do something ]
+numbers := OrderedCollection new
+             add: 35
 ]]]
 
-- Read again the lectures '() vs. []'
+""Error:"" ==numbers== is the number 65 and not a collection
 
-${slide:title=Forgotten Parentheses}$
+${slide:title=A Problem}$
 
-Problem:
 [[[
-  self assert: players includes: aPlayer
+Dice >> setFaces: aNumber
+   ^ faces := aNumber
+
+Dice class >> new
+   ^ super new setFaces: 6
 ]]]
 
-- ==assert:includes:== does not exist
-Solution:
-[[[
-  self assert: (players includes: aPlayer)
-]]]
-
-- Use parentheses to delimit multiple keyword messages
-
+""Error:"" ==Dice new== returns 6 instead of a dice
 
 ${slide:title=Forgotten yourself}$
 
-Problem:
 [[[
-OrderedCollection new add: 35; add: 65
+numbers := OrderedCollection new
+             add: 35;
+             yourself
 ]]]
 
-- ==col== is 65 because ==add:== returns its argument and not the receiver
-
-Solution:
-[[[
-OrderedCollection new add: 35; add: 65; yourself 
-]]]
-
-- ==yourself== returns ==self==, hence the receiver and here the collection
-
-${slide:title=yourself}$
+is equivalent to
 
 [[[
-OrderedCollection new add: 35; add: 65; yourself
+| numbers |
+numbers := OrderedCollection new.
+numbers add: 35.
+numbers
 ]]]
 
-is equivalent to 
+${slide:title=Forgotten yourself}$
+
+- ==add:== and ==setFaces:== return their argument, not the receiver
+- send ==yourself== after a sequence of messages if you want the receiver
+
+${slide:title=A Problem}$
 
 [[[
-| col |
-col := OrderedCollection new.
-col add: 35; add: 65.
-col
+Book>>borrow
+   inLibrary ifFalse: [ ... ].
+   ...
 ]]]
+
+""Error:"" ==nil== does not understand ==ifFalse:==
+
+${slide:title=Uninitialized variable}$
+
+[[[
+Book>>borrow
+   inLibrary ifFalse: [ ... ].
+   ...
+]]]
+
+""Error:"" ==nil== does not understand ==ifFalse:==
+
+The variable is not yet initialized
+
+${slide:title=A Problem}$
+
+[[[
+Book>>initialize
+   inLibrary := True
+
+Book>>borrow
+   inLibrary ifFalse: [ ... ].
+  ...
+]]]
+
+""Error:"" Class ==True== does not understand ==ifFalse:==
 
 ${slide:title=True vs. true}$
 
-Problem: 
+- ==nil== is the unique instance of the class ==UndefinedObject==
+- ==true== is the unique instance of the class ==True==
+- Class names start with an uppercase letter
+
+${slide:title=A Problem}$
+
 [[[
-Book>>initialize
-  inLibrary := True
+Dice >> roll
+   faces atRandom
 ]]]
 
-Solution: 
-[[[
-Book>>initialize
-  inLibrary := true
-]]]
-
-- ==true== is the instance of the class ==True==
-- Class names start with an uppercase
-
-${slide:title=nil Is Not a Boolean}$
-
-==nil== is not an acceptable receiver for ifTrue:
-==nil== is the unique instance of ==UndefinedObject==
-
+""Error:"" ==aDice roll== returns ==aDice== instead of a number
 
 ${slide:title=Forgetting to Return the Result}$
 
-- In a method ==self== is returned by default when there is no other return
-- Do not forget ==^== to return something else!
+[[[
+Dice >> roll
+   faces atRandom
+]]]
 
+is equivalent to
+
+[[[
+Dice >> roll
+   faces atRandom.
+   ^ self
+]]]
+
+${slide:title=A Problem}$
+
+[[[
+Dice class >> new
+   super new setFaces: 0
+]]]
+
+""Error:"" ==Dice new== returns the class instead of the new instance
 
 ${slide:title=Forgetting to Return the Result}$
 
-Problem:
 [[[
-Dice >> roll
-  faces atRandom
+Dice class >> new
+   super new setFaces: 0
 ]]]
 
-is equivalent to 
+is equivalent to
 
 [[[
-Dice >> roll
-  faces atRandom
-  ^ self 
+Dice class >> new
+   super new setFaces: 0.
+   ^ self
 ]]]
 
-Solution:
-[[[
-Dice >> roll
-  ^ faces atRandom
-]]]
-
-${slide:title=Returning Class Instead of an Instance}$
-
-Problem: 
-[[[
-Dice class >> new 
-  super new setFaces: 0
-]]]
-
-is equivalent to 
-
-[[[
-Dice class >> new 
-  super new setFaces: 0
-  ^ self 
-]]]
-- ==new== is a message sent to a class
+- ==new== is sent to a class
 - ==self== is the class ==Dice==
-- Returns ==Dice== and not its newly created instance
+- returns ==Dice== and not its newly created instance
 
-${slide:title=Returning Instance}$
+${slide:title=Forgetting to Return the Result}$
 
-Problem: 
+- in a method, ==self== is returned by default
+- do not forget the caret ==^== to return something else
+
+${slide:title=A Problem}$
+
 [[[
-Dice class >> new 
-  super new setFaces: 0
-]]]
-
-Solution: 
-[[[
-Dice class >> new 
-  ^ super new setFaces: 0 ; yourself
-]]]
-
-==yourself== makes sure that the result of ==new== is sent and not the result of ==setFaces:== which could be something else than the newly created instance
-
-
-${slide:title=Instantiation Loops}$
-
-Problem: 
-[[[
-Dice class >> new 
+Dice class >> new
   ^ self new setFaces: 0
 ]]]
 
-Solution: 
-[[[
-Dice class >> new 
-  ^ super setFaces: 0 ; yourself
-]]]
+""Error:"" System is frozen
 
+${slide:title=Infinite Loops in Overridden Methods}$
 
-${slide:title=What You should know}$
+- use ==super== in overridden methods
 
-- How to identify faster error
-- Check period
-- Check parentheses
-- Use the debugger to look at the problem
+${slide:title=What You Should Know}$
 
+- How to identify common errors faster
+- Check periods ==.==
+- Check parentheses ==(== and ==)==
+- Check carets ==^==
+- Check ==yourself==
+- Use the debugger to understand the problem
 
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S02-LearningFromMistake.pillar"
+% End:
