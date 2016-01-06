@@ -4,30 +4,41 @@
 }
 
 
-${slide:title=Remember: Block Defining is Freezing Its Body}$
+${slide:title=Remember: A Block Definition Freezes its Body}$
 
-- A block is not executed
-- A block blocks execution: its body is not executed
-
+- Evaluating a block definition does ""not"" execute its body 
 [[[
-    [ 2 + 6 ] 
-    > [ 2 + 6 ] 
+[ 2 + 6 ] 
+> [ 2 + 6 ] 
 ]]]
 
-- A program can control its own execution
+${slide:title=Remember: Block Execution}$
+
+- Executing a Block is explicit 
 
 [[[
-    [ 2 + 6 ] value
-    > 8 
+[ 2 + 6 ] value
+> 8 
+]]]
+
+- and repeatable
+
+[[[
+| b |
+b := [ 2 + 6 ].
+b value.
+> 8
+b value
+> 8 
 ]]]
 
 ${slide:title=Blocks are Used to Express Conditions}$
 
 [[[
 max: anObject 
-   "Answer the receiver or the argument, whichever has the greater anObject."
+  "Answer the receiver or the argument, whichever has the greater anObject."
 
-   ^ self > anObject
+  ^ self > anObject
       ifTrue: [ self ]
       ifFalse: [ anObject ]
 ]]]
