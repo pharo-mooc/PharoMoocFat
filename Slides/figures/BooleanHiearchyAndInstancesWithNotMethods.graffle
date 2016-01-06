@@ -961,7 +961,7 @@ ifTrue:ifFalse:}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{-86, 0}, {732, 623}}</string>
+		<string>{{-94, 0}, {746, 639}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>

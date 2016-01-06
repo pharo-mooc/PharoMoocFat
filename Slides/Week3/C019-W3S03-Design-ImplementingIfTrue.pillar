@@ -30,7 +30,9 @@ ${slide:title=Exercise}$
 
 ${slide:title=Implementing ifTrue\:ifFalse\:}$
 
-- Remember that a block ==[ ]== freezes execution and that the message ==value== launches the execution of a frozen code
+- Remember: 
+--  ==[ ]== freezes body execution 
+-- ==value== kicks execution of a frozen code
 - How to implement ==ifTrue:ifFalse:==?
 - Remember Not and Or?
 
@@ -38,19 +40,19 @@ ${slide:title=Implementation of ifTrue\:ifFalse\:}$
 
 Let the receiver decide!
 [[[
-    True >> ifTrue: aTrueBlock ifFalse: aFalseBlock
-        ^ aTrueBlock value
+True>>ifTrue: aTrueBlock ifFalse: aFalseBlock
+   ^ aTrueBlock value
 ]]]
 
 [[[
-    False >> ifTrue: aTrueBlock ifFalse: aFalseBlock
-        ^ aFalseBlock value
+False>>ifTrue: aTrueBlock ifFalse: aFalseBlock
+   ^ aFalseBlock value
 ]]]
 
 ${slide:title=Implementation of ifTrue\:ifFalse\:}$
 
 
-+>file://figures/BooleanIfTrueIfFalse.png|width=120+
++>file://figures/BooleanIfTrueIfFalse.png|width=110+
 
 ${slide:title=Conclusion}$
 
