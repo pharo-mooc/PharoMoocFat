@@ -3,48 +3,53 @@
   "slidesid" : "W5S05"
 }
 
-${slide:title=Common Wisdom}$
+${slide:title=What You Will Learn}$
 
-It can be easier to talk to objects than to read classes
-- The system is alive: Talk to it
+- The system is alive: Communicate with it
 - The debugger is your best friend
 - Don't be afraid of it
 
 ${slide:title=Debugging}$
 
-- Closing the debugger does not solve your bugs :)
++>file://figures/DebugSelf2.png|width=100+
 
-- The debugger is your best friend:
--- access objects in a particular call
+${slide:title=Debugging}$
+
+- Closing the debugger does not solve bugs
+- The debugger is your best friend
+-- communicate with objects of the context
 -- check state
 -- send messages to specific objects
 -- compile code on the fly
+-- retry without restarting from scratch
 
-Watch the videos on the debugger, on the inspector and practice!
+Watch the videos and practice
 
 ${slide:title=Simple Trace}$
 
 [[[
-Transcript cr; show: 'here with value: ', x printString
+Transcript
+   cr;
+   show: 'here with value: ', x printString
 ]]]
 
-- A bit too traditional and often inefficient because too verbose
-- We can do better!
-
+- used when you don't have tools
+- often inefficient
+- we can do better
 
 ${slide:title=Defining a Breakpoint}$
 
 [[[
-  ...
-  Halt now.
-  ...
+   ...
+   Halt now.
+   ...
 ]]]
 
- ==Halt now== or ==self halt== will systematically
-- stop the program and
+==Halt now== or ==self halt== will systematically
+- pause the program
 - invoke the debugger
 
-${slide:title=Single Shot Halt}$
+${slide:title=Single-Shot Halt}$
 
 [[[
   ...
@@ -52,12 +57,12 @@ ${slide:title=Single Shot Halt}$
   ...
 ]]]
 
-To arm it:
+To enable it, evaluate
 [[[
   Halt enableHaltOnce
 ]]]
 
-==Halt once==, once enabled, stop the first time
+- ==Halt once==, once enabled, stops the first time
 
 ${slide:title=Halt After n Iterations}$
 
