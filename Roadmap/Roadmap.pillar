@@ -177,7 +177,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: 
 
 - W2S05 [Live 6min] Publishing Code on smalltalkhub.com
--- Author: Presenter: Damien
+-- Author: Damien
 -- Status: To be done
 -- Files: 
 
@@ -223,7 +223,6 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: ExercicesSubject(TBD) 
 
 - [Redo 6min] Live Programming a Turtle in the Inspector
--- Presenter: ?
 -- Status: To be done
 -- Files: 
 
@@ -284,11 +283,11 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.html*
 
 - W3S06 [Live] GTInspector 	
--- Presenter: ?
+-- Author: ?
 -- Status: TBD 3 videos
 
 - [Live] coder n'import ou 	
--- Presenter: ?
+-- Author: ?
 -- Status: TBD
 
 - W3S10 [Lecture 6min] Iterators
@@ -309,11 +308,11 @@ You will also see that 4 kinds of activities are distinguished:
 !!!Exos
 
 - [Redo] Dice Game DSL dice
--- Presenter: ?
+-- Author: ?
 -- Status: Lecture (TBD)
 
 - [Redo] Dice Game DSL handle
--- Presenter: ?
+-- Author: ?
 -- Status: Lecture(TBD)	
 
 - Find how to 
@@ -657,3 +656,4 @@ http://www.humane-assessment.com/blog/debugging-the-debugger-with-the-inspector/
 - Understanding the AST with the inspector
 - Guiding custom code changes with the inspector:
 http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
+
