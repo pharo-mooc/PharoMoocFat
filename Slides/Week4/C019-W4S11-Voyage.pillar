@@ -1,0 +1,241 @@
+{
+  "title":"Seaside: A Web Application Framework",
+  "slidesid" : "W4S08"
+}
+
+${slide:title=Seaside}$
+
+- Powerful framework to build ""complex"" dynamic web applications
+- Live coding debugging 
+- Support reusable components 
+- Secure by default
+- Web 2.0 support
+- Rest integration
+
++>file://figures/SeasideLogo.png|width=80+
+
+${slide:title=Books and Tutorials}$
+
+http://
+- *book.seaside.st>http://book.seaside.st*
+- *www.swa.hpi.uni-potsdam.de/seaside/>http://www.swa.hpi.uni-potsdam.de/seaside/*
+- *seaside.gemtalksystems.com/tutorial.html>http://seaside.gemtalksystems.com/tutorial.html*
+- TinyBlog tutorial
+
+
+${slide:title=Seaside Little History}$
+
+- Developed by A. Briant and J. Fitzell
+- Enhanced by L. Renggli and P. Marshall
+- In production since 2002
+- Actively maintained J. Brichau, S. Eggermont (web site under full rewrite) 
+- Foundation for many Pharo success stories 
+- *http://www.pharo.org/success*
+
+
+${slide:title=Seaside in a Nutshell}$
+
+- Define stateful components
+- Use a DSL for rendering component
+- Compose application out of reusable components
+- Use messages ==call:/answer:== to schedule component
+- Debug your application on the fly
+- Use metadata to generate forms
+
+
+${slide:title=A First Dummy Example}$
+
+
++>file://figures/SeasideAdder.png|width=160+
+
+${slide:title=A First Dummy Example}$
+
+[[[
+WATask subclass: #Adder
+	instanceVariableNames: ''
+	classVariableNames: ''
+	package: 'SeaExample'
+]]]
+
+[[[
+Adder >> go
+	| value1 value2 |
+	value1 := self request: 'first number'.
+	value2 := self request: 'second number'.
+	self inform: value1 asNumber + value2 asNumber
+]]]
+
+[[[
+WAAdmin register: self asApplicationAt: 'Adder'.
+]]]
+${slide:title=A Task}$
+
+Simple component
+- No UI part
+- Just flow
+- Will describe ==request:== implementation later
+
+${slide:title=Debugger at Work}$
+
+[[[
+Adder >> go
+	| value1 value2 |
+	value1 := self request: 'first number'.
+	1/0.
+	value2 := self request: 'second number'.
+	self inform: value1 asNumber + value2 asNumber
+]]]
+
+${slide:title=Triggering Server Side Debugger}$
+
++>file://figures/SeasideAdderWallback.png|width=160+
+
+
+
+${slide:title=Walking Application Stack}$
+
++>file://figures/SeasideAdderDebugger.png|width=130+
+
+
+${slide:title=So far...}$
+
+- no manual request parsing
+- no XML configuration files
+- no file/page
+- no hardcoding of next page
+
+
+${slide:title=Rendering components}$
+
+Using a DSL 
+- brushes to emit XHTML
+- valid XHTML
+- CSS-based
+
+${slide:title=Simple Example 1}$
+[[[
+html div id: 'title'; with: 'Title'
+]]]
+
+[[[
+<div id="title">Title</div>
+]]]
+
+[[[
+html div id: 'list'; 
+	with: [ 
+		html span class: 'item'; with: 'Item 1'.
+		html span class: 'item'; with: 'Item 2' ]
+]]]
+
+[[[
+<div id="list">
+	<span class="item">Item 1</span>
+	<span class="item">Item 2</span>
+	</div>
+]]]
+
+
+${slide:title=More}$
+
+Example2
+
+
+${slide:title=Reusing Components}$
+
+Example 4
+
+
+
+
+${slide:title=call:}$
+
++>file://figures/SeasideCall1.png|width=100+
+
+
+${slide:title=call:}$
+
++>file://figures/SeasideCall2.png|width=100+
+
+
+${slide:title=answer:}$
+
++>file://figures/SeasideAnswer1.png|width=100+
+
+${slide:title=answer:}$
+
++>file://figures/SeasideAnswer2.png|width=100+
+
+
+
+${slide:title=call:/answer:}$
+
+Messages ==call:answer:== reintroduce PC after call on top of a stateless protocol
+
+
+${slide:title=Back Button}$
+
+
+${slide:title=Advanced Seaside}$
+
+
+
+${slide:title=Twitter Bootstrap}$
+
++>file://figures/TwitterBootstrap.png|width=100+
+
+
+
+${slide:title=Twitter Alerts!}$
+
++>file://figures/TwitterAlerts.png|width=100+
+
+[[[
+renderExampleOn: html
+	html heading level: 2; with: 'Examples'.					
+	html tbsAlert 
+		beSuccess;
+		with: [ html strong: 'Well done!'. html text: ' You successfully read this important alert message.' ].
+	html tbsAlert 
+		beInfo;
+		with: [ html strong: 'Heads up!'. html text: ' This alert needs your attention, but it''s not super important.' ].
+]]]
+
+${slide:title=Twitter Buttons!}$
+
++>file://figures/TwitterButtons.png|width=60+ 
+
+[[[
+renderExampleOn: html
+
+	html tbsButtonGroup: [ 
+		html tbsButton beDefault; with: 'Left'.
+		html tbsButton beDefault; with: 'Middle'.
+		html tbsButton beDefault; with: 'Right' ].
+]]]
+
+
+${slide:title=Component Automatic Generation}$
+
+
+
+
+${slide:title=Stepping Back}$
+
+- We don't think in terms of pages
+- No URL fiddling
+- No request parsing
+- Component composition
+
+
+
+
+${slide:title=Conclusion}$
+
+- Messages sent to classes are resolved dynamically the same way as messages sent to instances
+- Classes can then be used as registration mechanism
+
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/W3S8-ClassMethodsAtWork.pillar"
+% End:
