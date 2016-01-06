@@ -24,7 +24,7 @@ Set>>add: newObject
 ]]]
 
 - The method ==add:== returns its argument, not the receiver
-- Strange but this is like that
+- Strange but this is like that!
 
 ${slide:title=A Verbose Solution}$
 
@@ -46,7 +46,7 @@ What if we get a message that returns the receiver?
 ${slide:title=yourself}$
 
 [[[
-Object>>yourself
+Object >> yourself
    ^ self
 ]]]
 
@@ -70,7 +70,7 @@ is equivalent to
 ]]]
 
 - ==add:== and ==yourself== are sent to the new ==Set==
-- the cascade returns the return value of ==yourself==
+- The cascade (;) returns the returned value of ==yourself==, hence the receiver
 
 
 ${slide:title=Another Idiom}$
@@ -92,7 +92,7 @@ MyClass >> new
 
 Using ==yourself== makes sure that we return the instance and not the result of ==doSomething==
 
-${slide:title=What you Should Know}$
+${slide:title=What You Should Know}$
 
 - Some simple methods are powerful
 - Cascade and ==yourself== plays well together
