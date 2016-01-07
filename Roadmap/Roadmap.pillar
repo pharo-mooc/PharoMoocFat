@@ -330,17 +330,17 @@ You will also see that 4 kinds of activities are distinguished:
 
 - W4S01 [Lecture 6min] InheritanceAndLookup-1-Inheritance.pillar
 -- Presenter: Damien
--- Status: Reviewed after Yaounde
+-- Status: Reviewed by presenter
 -- Files:  *SlidesPdf>../Slides/Week4/C019-W4S01-InheritanceAndLookup-1-Inheritance.pdf* 
 
 - W4S02 [Lecture 6min] InheritanceAndLookup-2-Lookup
 -- Presenter: Damien
--- Status: Reviewed after Yaounde
+-- Status: Reviewed by presenter
 -- Files:  *SlidesPdf>../Slides/Week4/C019-W4S02-InheritanceAndLookup-2-Lookup.pdf* 
 
 - W4S03 [Lecture 6min] InheritanceAndLookup-3-Super
 -- Presenter: Damien
--- Status: To Review
+-- Status: Reviewed by presenter
 -- Files: *SlidesPdf>../Slides/Week4/C019-W4S03-InheritanceAndLookup-3-Super.pdf* 
 
 - W4S04 [Lecture 6min] InheritanceAndLookup-4-DNU
@@ -655,4 +655,3 @@ http://www.humane-assessment.com/blog/debugging-the-debugger-with-the-inspector/
 - Understanding the AST with the inspector
 - Guiding custom code changes with the inspector:
 http://www.humane-assessment.com/blog/guiding-custom-changes-with-gtinspector
-
