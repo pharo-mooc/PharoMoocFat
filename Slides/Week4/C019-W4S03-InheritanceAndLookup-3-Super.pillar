@@ -27,9 +27,9 @@ ${slide:title=How Do We Access an Overriden Method?}$
 
 [[[
 Workstation >> accept: aPacket
-   (aPacket isAddressedTo: self)
-      ifTrue: [ Transcript show: 'Accepted Workstation ', self name asString ]
-      ifFalse: [ super accept: aPacket ]
+  (aPacket isAddressedTo: self)
+     ifTrue: [ Transcript show: 'Accepted Workstation ', self name asString ]
+     ifFalse: [ super accept: aPacket ]
 ]]]
 
 
@@ -79,16 +79,16 @@ ${slide:title=Super Changes where the Lookup Starts}$
 
 ${columns}$
 
-${column:width=32}$
+${column:width=36}$
 
-+>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=135+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=125+
 
 [[[
     C new bar
     > 100
 ]]]
 
-${column:width=63}$
+${column:width=68}$
 
 - ==bar== is sent to ==aC== (instance of C): ==bar== is looked up in C, not found, look in ==B==
 - ==bar== is found in class B, and applied to the receiver ==aC==.
