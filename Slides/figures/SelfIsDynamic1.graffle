@@ -81,42 +81,6 @@
 			</dict>
 		</dict>
 		<dict>
-			<key>Class</key>
-			<string>LineGraphic</string>
-			<key>ID</key>
-			<integer>37</integer>
-			<key>Points</key>
-			<array>
-				<string>{453.27076800138292, 221.54355540928051}</string>
-				<string>{181, 466}</string>
-				<string>{319.346, 292}</string>
-				<string>{328, 192}</string>
-			</array>
-			<key>Style</key>
-			<dict>
-				<key>stroke</key>
-				<dict>
-					<key>HeadArrow</key>
-					<string>FilledArrow</string>
-					<key>Legacy</key>
-					<true/>
-					<key>LineType</key>
-					<integer>1</integer>
-					<key>Pattern</key>
-					<integer>1</integer>
-					<key>TailArrow</key>
-					<string>0</string>
-				</dict>
-			</dict>
-			<key>Tail</key>
-			<dict>
-				<key>ID</key>
-				<integer>25</integer>
-				<key>Position</key>
-				<real>0.0085166003555059433</real>
-			</dict>
-		</dict>
-		<dict>
 			<key>AllowLabelDrop</key>
 			<false/>
 			<key>Class</key>
@@ -473,35 +437,6 @@
 			</dict>
 			<key>Wrap</key>
 			<string>NO</string>
-		</dict>
-		<dict>
-			<key>Class</key>
-			<string>LineGraphic</string>
-			<key>ID</key>
-			<integer>25</integer>
-			<key>Points</key>
-			<array>
-				<string>{455, 217.173}</string>
-				<string>{356, 466}</string>
-				<string>{360, 291}</string>
-				<string>{348.17299652099609, 194}</string>
-			</array>
-			<key>Style</key>
-			<dict>
-				<key>stroke</key>
-				<dict>
-					<key>HeadArrow</key>
-					<string>FilledArrow</string>
-					<key>Legacy</key>
-					<true/>
-					<key>LineType</key>
-					<integer>1</integer>
-					<key>Pattern</key>
-					<integer>1</integer>
-					<key>TailArrow</key>
-					<string>0</string>
-				</dict>
-			</dict>
 		</dict>
 		<dict>
 			<key>Bounds</key>
@@ -1192,7 +1127,7 @@ bar}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2016-01-07 13:39:37 +0000</string>
+	<string>2016-01-07 19:12:42 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -1244,6 +1179,16 @@ bar}</string>
 		<array>
 			<string>int</string>
 			<string>0</string>
+		</array>
+		<key>NSPrinter</key>
+		<array>
+			<string>coded</string>
+			<string>BAtzdHJlYW10eXBlZIHoA4QBQISEhAlOU1ByaW50ZXIAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKxZwcmludC5saWxsZS5pbnJpYS5mciAyhoY=</string>
+		</array>
+		<key>NSPrinterName</key>
+		<array>
+			<string>string</string>
+			<string>print.lille.inria.fr 2</string>
 		</array>
 		<key>NSReversePageOrder</key>
 		<array>
@@ -1300,7 +1245,7 @@ bar}</string>
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{-164, 80}, {890, 684}}</string>
+		<string>{{-156, 80}, {876, 684}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
