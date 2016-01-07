@@ -106,7 +106,7 @@ Take 5 min and write the definition of ==self== (==this== in Java).
 
 - Your definition should have two points:
 -- What does ==self== represent?
--- How are the methods looked up when a message is sent to ==self==?
+-- How is a method looked up when a message is sent to ==self==?
 
 ${slide:title=self/this}$
 
@@ -212,6 +212,9 @@ ${slide:title=What You Should Know}$
 - Sending a message is a two-step process:
 -# Look up the method matching the message
 -# Execute this method on the ""receiver""
+- Method lookup maps a message to a method
+- Method lookup starts in the class of the receiver
+-- ...and goes up in the hierarchy
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S02-InheritanceAndLookup-2-Lookup.pillar"
