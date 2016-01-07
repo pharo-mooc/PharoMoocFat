@@ -80,7 +80,7 @@ ${endColumns}$
 
 ${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=76+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=71+
 
 [[[
     A new foo
@@ -91,7 +91,7 @@ ${slide:title=self Always Represents the Receiver}$
 
 ${slide:title=self Always Represents the Receiver}$
 
-+>file://figures/LookupWithSelfInSuperclassMethod.png|width=76+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=71+
 
 [[[
     A new foo

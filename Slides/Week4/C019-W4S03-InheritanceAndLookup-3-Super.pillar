@@ -26,10 +26,10 @@ ${slide:title=How Do We Access an Overriden Method?}$
 - Use ==super== instead of ==self==
 
 [[[
-  Workstation>>accept: aPacket
-      (aPacket isAddressedTo: self)
-          ifTrue: [ Transcript show: 'Accepted by the Workstation ', self name asString ]
-          ifFalse: [ super accept: aPacket ]
+Workstation >> accept: aPacket
+   (aPacket isAddressedTo: self)
+      ifTrue: [ Transcript show: 'Accepted Workstation ', self name asString ]
+      ifFalse: [ super accept: aPacket ]
 ]]]
 
 

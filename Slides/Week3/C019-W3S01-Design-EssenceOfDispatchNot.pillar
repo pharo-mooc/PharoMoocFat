@@ -73,13 +73,13 @@ Example
 ${slide:title=Implementation of Not in Two Methods}$
 
 [[[
-False>>not
+False >> not
    "Negation -- answer true since the receiver is false."
    ^ true
 ]]]
 
 [[[
-True>>not
+True >> not
    "Negation -- answer false since the receiver is true."
    ^ false
 ]]]
@@ -124,7 +124,7 @@ false | anything -> anything
 ${slide:title=Implementation of Or in Boolean}$
 
 [[[
-Boolean>>| aBoolean
+Boolean >>| aBoolean
    "Abstract method. Evaluating Or: Evaluate the argument.
    Answer true if either the receiver or the argument is true."
    self subclassResponsibility
@@ -140,7 +140,7 @@ false | anything -> anything
 ]]]
 
 [[[
-False>> | aBoolean
+False >> | aBoolean
    "Evaluating Or -- answer with the argument, aBoolean."
    ^ aBoolean
 ]]]
@@ -154,7 +154,7 @@ true | anything -> true
 ]]]
 
 [[[
-True>> | aBoolean
+True >> | aBoolean
    "Evaluating Or -- answer true since the receiver is true."
    ^ true
 ]]]
@@ -171,7 +171,7 @@ True>> | aBoolean
 So we can write it like the following:
 
 [[[
-True>> | aBoolean
+True >> | aBoolean
    "Evaluating disjunction (Or) -- answer true since the receiver is true."
    ^ self
 ]]]

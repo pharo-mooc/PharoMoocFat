@@ -14,7 +14,7 @@
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {570.96002197265625, 817.44000244140625}}</string>
+		<string>{{0, 0}, {561.3199462890625, 808.3199462890625}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -430,15 +430,15 @@ inheritance}</string>
 			<integer>29</integer>
 			<key>Points</key>
 			<array>
-				<string>{228.96059705243132, 362.92300415039062}</string>
-				<string>{233.67710887274481, 324.173}</string>
+				<string>{228.96053983927362, 362.92300415039062}</string>
+				<string>{233.67686690874567, 324.173}</string>
 			</array>
 			<key>Style</key>
 			<dict>
 				<key>stroke</key>
 				<dict>
 					<key>HeadArrow</key>
-					<string>FilledArrow</string>
+					<string>StickArrow</string>
 					<key>Legacy</key>
 					<true/>
 					<key>LineType</key>
@@ -811,7 +811,7 @@ method2()\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-12-25 06:18:59 +0000</string>
+	<string>2016-01-07 13:19:47 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -827,7 +827,7 @@ method2()\
 		<key>NSBottomMargin</key>
 		<array>
 			<string>float</string>
-			<string>12.56</string>
+			<string>16.84</string>
 		</array>
 		<key>NSHorizonalPagination</key>
 		<array>
@@ -842,7 +842,7 @@ method2()\
 		<key>NSLeftMargin</key>
 		<array>
 			<string>float</string>
-			<string>12</string>
+			<string>16.84</string>
 		</array>
 		<key>NSPagesPerSheet</key>
 		<array>
@@ -852,7 +852,7 @@ method2()\
 		<key>NSPaperSize</key>
 		<array>
 			<string>size</string>
-			<string>{595, 842}</string>
+			<string>{594.99997329711914, 842}</string>
 		</array>
 		<key>NSPrintAllPages</key>
 		<array>
@@ -872,12 +872,12 @@ method2()\
 		<key>NSRightMargin</key>
 		<array>
 			<string>float</string>
-			<string>12.04</string>
+			<string>16.84</string>
 		</array>
 		<key>NSTopMargin</key>
 		<array>
 			<string>float</string>
-			<string>12</string>
+			<string>16.84</string>
 		</array>
 	</dict>
 	<key>PrintOnePage</key>
@@ -919,7 +919,7 @@ method2()\
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{-201, 1}, {974, 684}}</string>
+		<string>{{-205, 1}, {974, 684}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>

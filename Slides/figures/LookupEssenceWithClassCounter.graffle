@@ -14,7 +14,7 @@
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {570.96002197265625, 817.44000244140625}}</string>
+		<string>{{0, 0}, {561.3199462890625, 808.3199462890625}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -512,15 +512,15 @@ class}</string>
 			<integer>45</integer>
 			<key>Points</key>
 			<array>
-				<string>{218.86759496676095, 336.69845458138968}</string>
-				<string>{227.91005246361533, 293.173}</string>
+				<string>{218.86568829406468, 336.69843385149164}</string>
+				<string>{227.89888895872588, 293.173}</string>
 			</array>
 			<key>Style</key>
 			<dict>
 				<key>stroke</key>
 				<dict>
 					<key>HeadArrow</key>
-					<string>FilledArrow</string>
+					<string>StickArrow</string>
 					<key>Legacy</key>
 					<true/>
 					<key>LineType</key>
@@ -669,8 +669,8 @@ class}</string>
 			<integer>26</integer>
 			<key>Points</key>
 			<array>
-				<string>{232.880736967312, 245.173}</string>
-				<string>{232.88319453251233, 185.34600067138672}</string>
+				<string>{232.87981637990504, 245.173}</string>
+				<string>{232.8799791125146, 185.34600067138672}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -853,7 +853,7 @@ class}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-10-26 15:17:59 +0000</string>
+	<string>2016-01-07 13:19:07 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -869,7 +869,7 @@ class}</string>
 		<key>NSBottomMargin</key>
 		<array>
 			<string>float</string>
-			<string>12.56</string>
+			<string>16.84</string>
 		</array>
 		<key>NSHorizonalPagination</key>
 		<array>
@@ -884,7 +884,7 @@ class}</string>
 		<key>NSLeftMargin</key>
 		<array>
 			<string>float</string>
-			<string>12</string>
+			<string>16.84</string>
 		</array>
 		<key>NSPagesPerSheet</key>
 		<array>
@@ -894,7 +894,7 @@ class}</string>
 		<key>NSPaperSize</key>
 		<array>
 			<string>size</string>
-			<string>{595, 842}</string>
+			<string>{594.99997329711914, 842}</string>
 		</array>
 		<key>NSPrintAllPages</key>
 		<array>
@@ -914,12 +914,12 @@ class}</string>
 		<key>NSRightMargin</key>
 		<array>
 			<string>float</string>
-			<string>12.04</string>
+			<string>16.84</string>
 		</array>
 		<key>NSTopMargin</key>
 		<array>
 			<string>float</string>
-			<string>12</string>
+			<string>16.84</string>
 		</array>
 	</dict>
 	<key>PrintOnePage</key>
@@ -961,7 +961,7 @@ class}</string>
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{-93, 1}, {758, 668}}</string>
+		<string>{{-97, 1}, {758, 684}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
