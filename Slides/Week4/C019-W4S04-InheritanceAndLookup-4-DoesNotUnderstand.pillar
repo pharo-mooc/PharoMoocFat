@@ -78,11 +78,15 @@ ${slide:title=doesNotUnderstand: and the Debugger}$
 When no class redefines ==doesNotUnderstand:==
 -- ==doesNotUnderstand:== in ==Object== is executed
 -- this method raises a ==MessageNotUnderstood== exception
--- when there is no exception handler, the default is to open a debugger
+-- when not handled, this exception opens a debugger
 
 ${slide:title=Catching MessageNotUnderstood Error}$
 
-==MessageNotUnderstood== is just an exception, you can handle it:
+${columns}$
+
+${column:width=60}$
+
+==MessageNotUnderstood== is just an exception, code can handle it:
 
 [[[
 Node >> sayHello
@@ -94,11 +98,17 @@ Node >> welcome
   do: [ Transcript show: 'Something went wrong with a message' ]
 ]]]
 
+${column:width=40}$
+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=170+
+
+${endColumns}$
+
 ${slide:What You Should Know}$
 
--==doesNotUnderstand:== is sent when a method is not found by the lookup
-- Each class can implement this hook method
-- Default implementation of ==doesNotUnderstand:== raises a ==MessageNotUnderstood== exception that can be handled
+-The lookup sends ==doesNotUnderstand:== when it can not find a method
+-Each class can implement this method
+-The default implementation of ==doesNotUnderstand:== raises an exception that can be handled
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S04-InheritanceAndLookup-4-DoesNotUnderstand.pillar"
