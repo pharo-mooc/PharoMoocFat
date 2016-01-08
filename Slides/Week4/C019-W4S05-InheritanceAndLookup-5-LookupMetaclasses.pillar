@@ -7,13 +7,13 @@
 ${slide:title=Goal}$
 
 - Messages can be sent to classes too
+- A class is an object
 - The mechanism is ""exactly"" the same
 
 ${slide:title=Lookup of Class Methods is No Different}$
 
 Sending a message to a class is also late-bound (dynamically resolved)
-- contrary to Java/C#
-- no ==static==, only methods of object (a class)
+- contrary to Java (with the ==static== keyword)
 
 ${slide:title=Only One Lookup Rule}$
 
@@ -21,22 +21,24 @@ ${columns}$
 
 ${column:width=40}$
 
-When a message is sent to an object, a method is searched 
-#starting from the ""class"" of the object and 
-#following the inheritance chain
+The lookup starts in the ""class"" of the ""receiver"" then:
+- if the method is defined in the class, it is returned
+- otherwise the search continues in the superclass
 
 ${column:width=50}$
 
-+>file://figures/LookupEssenceWithGeneric.png|width=140+
++>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=100+
 
 ${endColumns}$
 
 
 ${slide:title=A Class is an Instance of Another Class}$
 
-Class ==X== is always the unique instance of the class ==X class==
-- The class of ==Node== is ==Node class==
-- The class ==Node class== is automatically created by the system
+Class ==X== is always the unique instance of the class ==X class==:
+- ==Node== is a class and an object
+- each object is an instance of a class
+- the class of ==Node== is ==Node class==
+- the class ==Node class== is automatically created
 
 +>file://figures/ClassMetaclass.png|width=100+
 
@@ -52,8 +54,11 @@ ${slide:title=Lookup of Class Methods is No Different}$
 ${slide:What You Should Know}$
 
 - Classes are objects and can be sent messages
-- Method lookup is ""exactly"" the same as for plain objects: 
+- Method lookup is ""exactly"" the same as for all objects:
 -- go to the class of the receiver 
 -- follow inheritance chain
 - To know more: follow the lecture ''Understanding Metaclasses''
 
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S05-InheritanceAndLookup-5-LookupMetaclasses.pillar"
+% End:
