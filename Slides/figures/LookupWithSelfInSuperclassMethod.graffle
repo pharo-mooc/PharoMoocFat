@@ -14,7 +14,7 @@
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {570.96002197265625, 817.44000244140625}}</string>
+		<string>{{0, 0}, {561.3199462890625, 808.3199462890625}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -258,15 +258,15 @@
 			<integer>14</integer>
 			<key>Points</key>
 			<array>
-				<string>{101.95652792012294, 251}</string>
-				<string>{133.16109478956133, 223.17299999999997}</string>
+				<string>{101.97475131663721, 251}</string>
+				<string>{133.22157672397586, 223.17299999999997}</string>
 			</array>
 			<key>Style</key>
 			<dict>
 				<key>stroke</key>
 				<dict>
 					<key>HeadArrow</key>
-					<string>FilledArrow</string>
+					<string>StickArrow</string>
 					<key>Legacy</key>
 					<true/>
 					<key>LineType</key>
@@ -463,8 +463,8 @@
 			<integer>11</integer>
 			<key>Points</key>
 			<array>
-				<string>{160.1363157663809, 175.173}</string>
-				<string>{160.05350319798751, 121}</string>
+				<string>{160.13631580476618, 175.173}</string>
+				<string>{160.05350332301629, 121}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -655,7 +655,7 @@ bar}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-12-20 18:00:33 +0000</string>
+	<string>2016-01-07 13:18:04 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -671,7 +671,7 @@ bar}</string>
 		<key>NSBottomMargin</key>
 		<array>
 			<string>float</string>
-			<string>12.56</string>
+			<string>16.84</string>
 		</array>
 		<key>NSHorizonalPagination</key>
 		<array>
@@ -686,7 +686,7 @@ bar}</string>
 		<key>NSLeftMargin</key>
 		<array>
 			<string>float</string>
-			<string>12</string>
+			<string>16.84</string>
 		</array>
 		<key>NSPagesPerSheet</key>
 		<array>
@@ -696,7 +696,7 @@ bar}</string>
 		<key>NSPaperSize</key>
 		<array>
 			<string>size</string>
-			<string>{595, 842}</string>
+			<string>{594.99997329711914, 842}</string>
 		</array>
 		<key>NSPrintAllPages</key>
 		<array>
@@ -716,12 +716,12 @@ bar}</string>
 		<key>NSRightMargin</key>
 		<array>
 			<string>float</string>
-			<string>12.04</string>
+			<string>16.84</string>
 		</array>
 		<key>NSTopMargin</key>
 		<array>
 			<string>float</string>
-			<string>12</string>
+			<string>16.84</string>
 		</array>
 	</dict>
 	<key>PrintOnePage</key>
@@ -763,7 +763,7 @@ bar}</string>
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{-1, 1}, {574, 684}}</string>
+		<string>{{-5, 1}, {574, 684}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>

@@ -14,7 +14,7 @@
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {570.96002197265625, 817.44000244140625}}</string>
+		<string>{{0, 0}, {561.3199462890625, 808.3199462890625}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -59,15 +59,15 @@
 			<integer>39</integer>
 			<key>Points</key>
 			<array>
-				<string>{185, 181.57870655589483}</string>
-				<string>{212.17299999999997, 180.89267118894162}</string>
+				<string>{185, 181.22082774403603}</string>
+				<string>{212.17299999999997, 180.3958689348737}</string>
 			</array>
 			<key>Style</key>
 			<dict>
 				<key>stroke</key>
 				<dict>
 					<key>HeadArrow</key>
-					<string>StickArrow</string>
+					<string>FilledArrow</string>
 					<key>Legacy</key>
 					<true/>
 					<key>LineType</key>
@@ -94,15 +94,15 @@
 			<integer>38</integer>
 			<key>Points</key>
 			<array>
-				<string>{161, 259.81201737424345}</string>
-				<string>{213, 259.88554034271925}</string>
+				<string>{161, 259.73492025115712}</string>
+				<string>{213, 259.73932166100377}</string>
 			</array>
 			<key>Style</key>
 			<dict>
 				<key>stroke</key>
 				<dict>
 					<key>HeadArrow</key>
-					<string>StickArrow</string>
+					<string>FilledArrow</string>
 					<key>Legacy</key>
 					<true/>
 					<key>LineType</key>
@@ -129,15 +129,15 @@
 			<integer>37</integer>
 			<key>Points</key>
 			<array>
-				<string>{106, 312.28949389431318}</string>
-				<string>{176, 312.27323874917784}</string>
+				<string>{106, 312.29608822473909}</string>
+				<string>{176, 312.29602968064984}</string>
 			</array>
 			<key>Style</key>
 			<dict>
 				<key>stroke</key>
 				<dict>
 					<key>HeadArrow</key>
-					<string>StickArrow</string>
+					<string>FilledArrow</string>
 					<key>Legacy</key>
 					<true/>
 					<key>LineType</key>
@@ -402,8 +402,8 @@ of receiver}</string>
 			<integer>30</integer>
 			<key>Points</key>
 			<array>
-				<string>{257.75461404450209, 235.73002557373047}</string>
-				<string>{257.41328181042149, 202.346}</string>
+				<string>{257.75461302065548, 235.73002557373047}</string>
+				<string>{257.41327936240265, 202.346}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -617,15 +617,15 @@ of receiver}</string>
 			<integer>14</integer>
 			<key>Points</key>
 			<array>
-				<string>{208.60876044931149, 300.29610937500001}</string>
-				<string>{228.77627484497484, 283.73001031494141}</string>
+				<string>{208.61009128877689, 300.29610937500001}</string>
+				<string>{228.77944291930834, 283.73001031494141}</string>
 			</array>
 			<key>Style</key>
 			<dict>
 				<key>stroke</key>
 				<dict>
 					<key>HeadArrow</key>
-					<string>FilledArrow</string>
+					<string>StickArrow</string>
 					<key>Legacy</key>
 					<true/>
 					<key>LineType</key>
@@ -822,8 +822,8 @@ of receiver}</string>
 			<integer>11</integer>
 			<key>Points</key>
 			<array>
-				<string>{257.13366421913133, 155.346}</string>
-				<string>{257.03933958714163, 99}</string>
+				<string>{257.13366422088103, 155.346}</string>
+				<string>{257.03933959308654, 99}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1013,7 +1013,7 @@ of receiver}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-12-25 05:31:38 +0000</string>
+	<string>2016-01-07 13:17:01 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -1029,7 +1029,7 @@ of receiver}</string>
 		<key>NSBottomMargin</key>
 		<array>
 			<string>float</string>
-			<string>12.56</string>
+			<string>16.84</string>
 		</array>
 		<key>NSHorizonalPagination</key>
 		<array>
@@ -1044,7 +1044,7 @@ of receiver}</string>
 		<key>NSLeftMargin</key>
 		<array>
 			<string>float</string>
-			<string>12</string>
+			<string>16.84</string>
 		</array>
 		<key>NSPagesPerSheet</key>
 		<array>
@@ -1054,7 +1054,7 @@ of receiver}</string>
 		<key>NSPaperSize</key>
 		<array>
 			<string>size</string>
-			<string>{595, 842}</string>
+			<string>{594.99997329711914, 842}</string>
 		</array>
 		<key>NSPrintAllPages</key>
 		<array>
@@ -1074,12 +1074,12 @@ of receiver}</string>
 		<key>NSRightMargin</key>
 		<array>
 			<string>float</string>
-			<string>12.04</string>
+			<string>16.84</string>
 		</array>
 		<key>NSTopMargin</key>
 		<array>
 			<string>float</string>
-			<string>12</string>
+			<string>16.84</string>
 		</array>
 	</dict>
 	<key>PrintOnePage</key>
@@ -1121,7 +1121,7 @@ of receiver}</string>
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{-1, 1}, {574, 684}}</string>
+		<string>{{-5, 1}, {574, 684}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
