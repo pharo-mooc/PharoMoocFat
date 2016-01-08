@@ -70,3 +70,7 @@ ${slide:What You Should Know}$
 -==doesNotUnderstand:== is sent when a method is not found by the lookup
 - Each class can implement this hook method
 - Default implementation of ==doesNotUnderstand:== raises a ==MessageNotUnderstood== exception that can be handled
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S04-InheritanceAndLookup-4-DoesNotUnderstand.pillar"
+% End:
