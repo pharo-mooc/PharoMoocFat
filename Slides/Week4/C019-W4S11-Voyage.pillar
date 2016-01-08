@@ -1,5 +1,6 @@
 {
-  "title":"Voyage: Document NoSQL",
+  "title":"Voyage",
+  "subtitle":"NoSQL Object Database",
   "slidesid" : "W4S011"
 }
 
@@ -44,6 +45,9 @@ ${slide:title=Setting a In Memory Connexion}$
 repository := VOMemoryRepository new.
 repository enableSingleton.
 ]]]
+
+- Really nice to prototype 
+- Then can eaily switch to a MongoDB
 
 ${slide:title=A Simple Model}$
 
@@ -153,12 +157,150 @@ ${slide:title=In DB}$
 }
 ]]]
 
+${slide:title=Querying}$
+
+[[[
+Hero selectAll.
+> an OrderedCollection(a Hero, a Hero)
+]]]
+
+[[[
+Hero selectOne: [ :each | each name = 'Spiderman' ].
+> a Hero
+]]]
+
+[[[
+Hero selectMany: [ :each | each level = #epic ]. 
+> an OrderedCollection(a Hero, a Hero)
+]]]
+
+${slide:title=Querying 2}$
+
+[[[
+Hero selectOne: { #name -> 'Spiderman' } asDictionary.
+> a Hero
+]]]
+
+[[[
+Hero selectMany: { #level -> #epic } asDictionary. 
+> an OrderedCollection(a Hero, a Hero)
+]]]
+
+
+${slide:title=Querying 3}$
+
+
+[[[
+Hero
+    selectMany: { #level -> #epic } asDictionary
+    sortBy: { #name -> VOOrder ascending }
+    limit: 10
+    offset: 0. 
+> an OrderedCollection(a Hero, a Hero)
+]]]
+
+
+${slide:title=Some Operations}$
+
+[[[
+Hero count.
+> 2
+]]]
+
+[[[
+Hero count: [ :each | each name = 'Spiderman' ]
+> 1.
+]]]
+
+[[[
+Hero removeAll. “Beware of this!”
+> Hero class
+]]]
+
+[[[
+hero := Hero selectAll anyOne.
+hero remove.
+> a Hero
+]]]
+
+${slide:title=Defining Document Roots}$
+
+- If you want to query them
+- If you want to share objects between roots
+
+${slide:title=Defining Document Roots}$
+
+- Yes, Hero is a root on the example
+- Power can be a root too (you can “share” powers between heroes)
+- Any class can be declared as root, Voyage will manage it automatically
+
+${slide:title=Defining Document Roots}$
+
+[[[
+Power class >> isVoyageRoot
+  ^ true
+]]]
+
+[[[
+Power new name: 'Fly'; save.
+Power new name: 'Super-strength'; save.
+]]]
+
+[[[
+fly := Power selectOne: [ :each | each name = 'Fly'].
+superStrength := Power selectOne: [ :each | each name = 'Super-strength']. 
+Hero new 
+    name: 'Superman';
+    level: #epic;
+    addPower: fly;
+    addPower: superStrength;
+    save.
+]]]
+
+${slide:title=Important}$
+
+Reset repository when changing the schema
+
+[[[
+VORepository current reset.
+]]]
+
+${slide:title=In DB}$
+
+[[[
+> db.Hero.find()[0]
+{
+	"_id" : ObjectId("d8474983421aa909b4000008"),
+	"#version" : NumberLong("3874503784"),
+	"#instanceOf" : "Hero",
+	"level" : "epic",
+	"name" : "Superman",
+	"powers" : [
+		{
+			"#collection" : "Power",
+			"#instanceOf" : "Power",
+			"__id" : ObjectId("d84745dd421aa909b4000005")
+		},
+		{
+			"#collection" : "Power",
+			"#instanceOf" : "Power",
+			"__id" : ObjectId("d84745dd421aa909b4000006")
+		}
+	]
+}
+]]]
+
+${slide:title=Relationships}$
+
+- Root references (kind of “foreign keys”)
+- Voyage handles cyclic references of root objects 
+- Beware, Voyage does not support cyclic references of embedded objects (yet)
 
 
 ${slide:title=Conclusion}$
 
-- Messages sent to classes are resolved dynamically the same way as messages sent to instances
-- Classes can then be used as registration mechanism
+- We can easily save objects in MongoDB
+- More information in ""Entreprise Pharo: a Web Perspective""
 
 
 % Local Variables:
