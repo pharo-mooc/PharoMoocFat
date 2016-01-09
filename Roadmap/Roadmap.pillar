@@ -4,6 +4,8 @@
 
 !!Simple points
 
+- sur la page de garde des slides beamer, passer l'URL de pharo sous le logo
+
 - renumeroter
 
 - faire un dessin pour Pharo Web Stack
@@ -366,29 +368,24 @@ You will also see that 4 kinds of activities are distinguished:
 	Zinc
 	WebSocket
 	
-- W4S08 [Lecture 6min] Seaside: Component, html, bootstrap 
+- W4S08 [Lecture 6min] Seaside: Component
 -- Presenter: Luc
 -- Status: TBD
 -- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
--- Seaside Component, html, bootstrap
--- renderer 
+-- Seaside Component, renderContentOn:, back button
 
-- W4S09 [Live] Coding Seaside + 3 Examples 
+- W4S08 [Live] Coding a counter, back button
 -- Author: 
 -- Status: TBD
--- ==10 + 20 + error +== debugger
+-- live debugger
 
-- W4S10 [Lecture 6min] Seaside: call:/answer:
+- W4S09 [Lecture 6min] Seaside: Rendering Components
 -- Presenter: Luc
 -- Status: TBD
--- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
--- Seaside Component, html, bootstrap
--- call / answer
-	
-- W4S11 [Live] seaside counter/multi counter
--- Author: Luc
--- Status: TBD
--- counter back button
+-- Files: *SlidesPdf>../Slides/Week4/W3S09-SeasideDSL.pdf*	
+-- Seaside DSL, html, bootstrap
+-- renderer 
+
 	
 - W4S12 [Lecture] Voyage
 -- Presenter: Stephane
@@ -409,7 +406,19 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 5: Essential: Exceptions, Files, Debugging and SUnit
 
-% 8 lectures
+% 9 lectures
+
+- W5S01 [Lecture 6min] Seaside: Composing Components
+-- Presenter: Luc
+-- Status: TBD
+-- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
+-- Seaside Component, html, bootstrap
+-- call / answer
+	
+- W4S01 [Live] seaside counter/multi counter
+-- Author: Luc
+-- Status: TBD
+-- counter back button
 
 - W5S01 [Lecture 6min] C019-W5S00-UnderstandingClassMethods.pillar
 -- Presenter: Damien
@@ -456,6 +465,9 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Stef
 -- Status: Reviewed after Lome
 -- Files: *SlidesPdf>../Slides/Week5/C019-W5S02-Benchmarking.pdf* *SlidesHTML>../Slides/Week5/C019-W5S02-Benchmarking.html*
+
+
+
 
 !!!!Exos	
 
