@@ -5,30 +5,34 @@
 
 ${slide:title=Pharo and the Web: a Gorgeous Stack}$
 
-- Several Web Servers: Zinc (HTTP/HTTPS), Teapot, Seaside
-- 
-- 
++file://figures/GorgeousWebStack.png|width=120+
+
+${slide:title=Seaside}$
+
+- A Web Framework 
+- Applications are built out of reusable components
+- No HTTP noise
+
+- *http://www.seaside.st*
+- *http://book.seaside.st*
 
 
-${slide:title=Web Frameworks}$
+${slide:title=Persitence}$
 
-- Seaside *http://www.seaside.st* / *http://book.seaside.st
--- usually use Zinc as an HTTP Server
--- Applications are built out of reusable components
+- ""Voyage"" framework 
+-- a unified API for NoSQL databases
+-- MongoTalk, Riak
 
-${slide:title=Database}$
-
-- NoSQL
--- ""Voyage"", MongoTalk, Riak
-
-- Relational
--- Garage unified API to talk to relational database (Postgres, mysql, sqlite, opendbx)
+- ""Garage"" framework 
+-- a unified API for Relational databases
+-- Postgres, mysql, sqlite, opendbx
 
 ${slide:title=Forms Report Builder}$
 
-- Magritte
--- described data
--- generates
+- ""Magritte"" framework
+-- write descriptions for your data
+-- use them to generate all kind of elements: Web forms, reports, ...
+
 ${slide:title=Conclusion}$
 
 - A rich eco-system (frameworks) 
