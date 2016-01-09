@@ -249,22 +249,22 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde 
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S02-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019-W3S02-Design-EssenceOfDispatch.html*
 
-- W3S04 [Lecture 6min] Variables
+- W3S03 [Lecture 6min] Variables
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde better to have it before Teapot
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S04-Basic-Variables.pdf* *SlidesHTML>../Slides/Week3/C019-W3S04-Basic-Variables.html*
 
-- W3S05 [Lecture 6min] C019-W3S05-TeapotAsAPretext.pillar
+- W3S04 [Lecture 6min] C019-W3S05-TeapotAsAPretext.pillar
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S05-TeapotAsAPretext.pdf* *SlidesHTML>../Slides/Week3/C019-W3S05-TeapotAsAPretext.html*
 
-- W3S07 [Live] Tools to find information: implementors, senders Shortcut		
+- W3S05 [Live] Tools to find information: implementors, senders Shortcut		
 -- Author: ?
 -- Status: TBD
 -- comment on peut lire un fichier png
 
-- W3S07 [Live] GTSpotter		
+- W3S05 [Live] GTSpotter		
 -- Author: ?
 -- Status: TBD
 -- method
@@ -272,30 +272,30 @@ You will also see that 4 kinds of activities are distinguished:
 -- examples
 -- scan all code About...
 
-- W3S08 [Lecture 6min] BasicClassMethods
+- W3S06 [Lecture 6min] BasicClassMethods
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S08-BasicClassMethods.pdf*	*SlidesHTML>../Slides/Week3/C019-W3S08-BasicClassMethods.html*	
 
-- W3S09 [Lecture 6min] Basic-ArraySetOrderedCollection
+- W3S07 [Lecture 6min] Basic-ArraySetOrderedCollection
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.html*
 
-- W3S06 [Live] GTInspector 	
+- W3S08 [Live] GTInspector 	
 -- Author: ?
 -- Status: TBD 3 videos
 
-- [Live] coder n'import ou 	
+- W3S08 [Live] coder n'import ou 	
 -- Author: ?
 -- Status: TBD
 
-- W3S10 [Lecture 6min] Iterators
+- W3S09 [Lecture 6min] Iterators
 -- Presenter: Luc
 -- Status: To Review
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S10-Iterators.pdf* *SlidesHTML>../Slides/Week3/C019-W3S10-Iterators.html*
 
-- W3S11 [Lecture 6min] Streams
+- W3S10 [Lecture 6min] Streams
 -- Presenter: Damien
 -- Status: Reviewed by presenter
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S11-Stream.pdf* *SlidesHTML>../Slides/Week4/Week3/C019-W3S11-Stream.html*		
