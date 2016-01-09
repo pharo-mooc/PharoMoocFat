@@ -213,7 +213,7 @@ Hero count: [ :each | each name = 'Spiderman' ]
 ]]]
 
 [[[
-Hero removeAll. “Beware of this!”
+Hero removeAll. "Beware of this!"
 > Hero class
 ]]]
 
