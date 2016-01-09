@@ -1,0 +1,75 @@
+{
+  "title":"Seaside: MetaData and REST",
+  "slidesid" : "W4S08"
+}
+
+${slide:title=Magritte: MetaData}$
+
+- Describe once
+- Generate many times
+- No more manually created forms
+- Seaside component automatic generation
+
+${slide:title=Address}$
+
++>file://figures/Address.png|width=100+
+
+${slide:title=Address Description}$
+
++>file://figures/AddressDescription.png|width=120+
+
+${slide:title=Describe}$
+
+[[[
+Address >> descriptionStreet
+   ^ MAStringDescription new
+      autoAccessor: #street;
+      label: 'Street';
+      priority: 100
+
+Address >> descriptionPlz
+   ^ MANumberDescription new
+      autoAccessor: #plz;
+      priority: 200; label: 'PLZ';
+      beRequired;
+      min: 1000; max: 9999
+]]]
+
+${slide:title=Interpret}$
+
+[[[
+anAddress description do: [ :description |
+   Transcript
+       show: description label; show: ':'; tab;
+       show: (description toString: (anAddress readUsing: description));
+       cr ]
+]]]
+
+[[[
+Street:	Schutzenmattstrasse
+PLZ:	3012
+Place:	Bern
+Canton:	Bern
+]]]
+
+${slide:title=Generate Forms}$
+
+[[[
+self call: (anAddress asComponent addValidatedForm; yourself)
+]]]
+
++>file://figures/AddressForms.png|width=35+
+
+${slide:title=Generate Reports}$
+
+
+
+${slide:title=Conclusion}$
+
+- Messages sent to classes are resolved dynamically the same way as messages sent to instances
+- Classes can then be used as registration mechanism
+
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/W3S8-ClassMethodsAtWork.pillar"
+% End:
