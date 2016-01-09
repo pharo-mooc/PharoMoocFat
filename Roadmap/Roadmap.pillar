@@ -419,25 +419,26 @@ You will also see that 4 kinds of activities are distinguished:
 -- Seaside Component, html, bootstrap
 -- call / answer
 	
-- W4S01 [Live] seaside counter/multi counter
+- W5S01 [Live] seaside counter/multi counter
 -- Author: Luc
 -- Status: TBD
 -- counter back button
 
-- W5S01 [Lecture 6min] C019-W5S00-UnderstandingClassMethods.pillar
+- W5S01 [Live] Picasa
+-- explaining one the fly code generation and coding in the debugger
+
+
+- W5S02 [Lecture 6min] UnderstandingClassMethods.pillar
 -- Presenter: Damien
 -- Status: Reviewed after Lome
 -- Files:  *SlidesPdf>../Slides/Week5/C019-W5S00-UnderstandingClassMethods.pdf*	*SlidesHTML>../Slides/Week5/C019-W5S00-UnderstandingClassMethods.html*	
 
-- W5S02 [Lecture 6min] W5S-LearningFromMistakes
+- W5S03 [Lecture 6min] LearningFromMistakes
 -- Presenter: Damien
 -- Status: Reviewed by presenter
 -- Files:  *SlidesPdf>../Slides/Week5/W5S01-LearningFromMistakes.pdf* *SlidesHTML>../Slides/Week5/W5S01-LearningFromMistakes.html*
 
-- W5S03 [Live] Picasa
--- explaining one the fly code generation and coding in the debugger
-
-- W5S04 [Lecture 6min] W5S-Exception.pillar
+- W5S04 [Lecture 6min] Exception.pillar
 -- Presenter: Stef
 -- Files: *SlidesPdf>../Slides/Week5/C019-W5S-Exceptions.pdf* *SlidesHTML>../Slides/Week5/C019-W5S-Exceptions.html*
 
@@ -446,11 +447,9 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed by presenter
 -- Files:  *SlidesPdf>../Slides/Week5/C019-W5S03-Debugger.pdf* *SlidesHTML>../Slides/Week5/C019-W5S03-Debugger.html* 
 
-- W5S06 [Live] Understand the debugger
+- W5S05 [Live] Understand the debugger
 
-- W5S06 [Live] Extending the GTinspector and spotter for the addressbook
-
-- W5Sxx [Lecture 6min] SUnit
+- W5S06 [Lecture 6min] SUnit
 -- Presenter: Luc 
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S12-SUnit.pdf* 
@@ -464,6 +463,8 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Luc
 -- Status: Reviewed after Lome
 -- Files: *SlidesPdf>../Slides/Week5/C019-W5S06-Introspection.pdf* *SlidesHTML>../Slides/Week5/C019-W5S06-Introspection.html* 
+
+- W5S08 [Live] Extending the GTinspector and spotter for the addressbook
 
 - W5S09 [Lecture 6min] Benchmarking.pillar
 -- Presenter: Stef
