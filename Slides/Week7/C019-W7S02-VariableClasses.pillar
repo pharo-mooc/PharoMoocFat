@@ -5,8 +5,14 @@
 
 ${slide:title=What You Will Learn}$
 
-- How to define variable size objects
-- How to instantiate variable size objects
+- How to define variable size objects?
+- How to instantiate variable size objects?
+
+
+${slide:title=Roadmap}$
+
+- ""How to define variable size objects?""
+- How to instantiate variable size objects?
 
 ${slide:title=Variable Size Instances?}$
 
@@ -25,7 +31,8 @@ Yes arrays can have different sizes
 
 ${slide:title=Variable Class Definition}$
 
-- Messages ==variableSubclass:== instead of ==subclass:==
+Use message ==variableSubclass:== instead of ==subclass:==
+Example
 [[[
 ArrayedCollection variableSubclass: #Array
 	instanceVariableNames: ''
@@ -33,29 +40,27 @@ ArrayedCollection variableSubclass: #Array
 	package: 'Collections-Sequenceable'
 ]]]
 
-
-${slide:title=Variable Class Example }$
-
-
-[[[
-ArrayedCollection variableSubclass: #Array
-	instanceVariableNames: ''
-	classVariableNames: ''
-	package: 'Collections-Sequenceable'
-]]]
 
 ${slide:title=Variable Class}$
 
-- Instances have a variable size (indexed) instance variable
+- Instances of a variable class have a variable size (indexed) instance variable
 - Indexed variable zone is implicitly added to the list of named instance variables
-- Only one indexed instance variable per class
+- Only one indexed instance variable per class (always the last one)
 
 
-${slide:title=Index Access}$
-- Access with ==at:== and ==at:put:==
-- First element starts at 1
+${slide:title=Roadmap}$
+
+- How to define variable size objects?
+- ""How to instantiate variable size objects?""
+
+
+${slide:title=Variable Class Instantiation and Index Access}$
+
+- Create instances with ==new: max==
+- Access indexed values with ==at:== and ==at:put:==
+- First element starts at index 1
 - ==size== returns the number of indexed instance variables
-- Instantiated with ==new: max==
+
 
 [[[
 | a |
@@ -68,20 +73,13 @@ a at: 2
 ]]]
 
 
-${slide:title=Different Perspectives on Classes}$
+${slide:title=Classes with Different Shape}$
 
-- Named or indexed instance variables
-[[[
-Named: 'count' of class Counter
-Variable/Indexed: Array
-]]]
-
-- Or looking at them in another way:
-[[[
-Objects with pointers to other objects
-Objects with arrays of bytes (word, long)
-]]]
-
+- Classes with named instance variables 
+--==Counter== has an instance variable named ==count==
+- Classes with a variable/indexed instance variable
+--==Array== has only an indexed instance variable
+- Classes with some named instance variables ""and"" one indexed instance variable
 
 ${slide:title=Refining the Variable Part}$
 
@@ -100,7 +98,9 @@ ${slide:title=Constraints}$
 
 ${slide:title=What You Should Know}$
 
-- How to define variable size objects
-- How to instantiate variable size objects
-
+- How to define variable size objects?
+-- define a ==variableSubclass:== with an indexed instance variable 
+- How to instantiate variable size objects?
+-- use ==new:== 
+-- use ==at:== and ==at:put:== to access indexed values
 
