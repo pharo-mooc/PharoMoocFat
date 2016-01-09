@@ -1,54 +1,61 @@
 {
-  "title":"Seaside: A Web Application Framework",
-  "slidesid" : "W4S08"
+  "title":"Seaside: Composing components",
+  "slidesid" : "W4S10"
 }
 
-${slide:title=Seaside}$
+${slide:title=Remember: Seaside}$
 
-- Powerful framework to build ""complex"" dynamic web applications
-- Live coding debugging 
-- Support reusable components 
-- Secure by default
-- Web 2.0 support
-- Rest integration
+- ...
 
 +>file://figures/SeasideLogo.png|width=80+
 
-${slide:title=Books and Tutorials}$
+${slide:title=Reusing Components}$
 
-http://
-- *book.seaside.st>http://book.seaside.st*
-- *www.swa.hpi.uni-potsdam.de/seaside/>http://www.swa.hpi.uni-potsdam.de/seaside/*
-- *seaside.gemtalksystems.com/tutorial.html>http://seaside.gemtalksystems.com/tutorial.html*
-- TinyBlog tutorial
+- agregate components (children)
+- call: / answer:
+- define workflows (Task)
 
+${slide:title=call:}$
 
-${slide:title=Seaside Little History}$
-
-- Developed by A. Briant and J. Fitzell
-- Enhanced by L. Renggli and P. Marshall
-- In production since 2002
-- Actively maintained J. Brichau, S. Eggermont (web site under full rewrite) 
-- Foundation for many Pharo success stories 
-- *http://www.pharo.org/success*
++>file://figures/SeasideCall1.png|width=100+
 
 
-${slide:title=Seaside in a Nutshell}$
+${slide:title=call:}$
 
-- Define stateful components
-- Use a DSL for rendering component
-- Compose application out of reusable components
-- Use messages ==call:/answer:== to schedule component
-- Debug your application on the fly
-- Use metadata to generate forms
++>file://figures/SeasideCall2.png|width=100+
 
 
-${slide:title=A First Dummy Example}$
+${slide:title=answer:}$
+
++>file://figures/SeasideAnswer1.png|width=100+
+
+${slide:title=answer:}$
+
++>file://figures/SeasideAnswer2.png|width=100+
 
 
-+>file://figures/SeasideAdder.png|width=160+
 
-${slide:title=A First Dummy Example}$
+${slide:title=call:/answer:}$
+
+Messages ==call:answer:== reintroduce PC after call on top of a stateless protocol
+
+
+${slide:title=Back Button}$
+
+
+
+
+${slide:title=A Task}$
+
+Simple component
+- No UI part
+- Just flow
+- Usually orchestrator between several components
+-- use call:/answer: behind the scene
+
+${slide:title=A simple Web Task}$
+
+Will describe ==request:== implementation later
 
 [[[
 WATask subclass: #Adder
@@ -68,12 +75,6 @@ Adder >> go
 [[[
 WAAdmin register: self asApplicationAt: 'Adder'.
 ]]]
-${slide:title=A Task}$
-
-Simple component
-- No UI part
-- Just flow
-- Will describe ==request:== implementation later
 
 ${slide:title=Debugger at Work}$
 
@@ -105,118 +106,16 @@ ${slide:title=So far...}$
 - no hardcoding of next page
 
 
-${slide:title=Rendering components}$
-
-Using a DSL 
-- brushes to emit XHTML
-- valid XHTML
-- CSS-based
-
-${slide:title=Simple Example 1}$
-[[[
-html div id: 'title'; with: 'Title'
-]]]
-
-[[[
-<div id="title">Title</div>
-]]]
-
-[[[
-html div id: 'list'; 
-	with: [ 
-		html span class: 'item'; with: 'Item 1'.
-		html span class: 'item'; with: 'Item 2' ]
-]]]
-
-[[[
-<div id="list">
-	<span class="item">Item 1</span>
-	<span class="item">Item 2</span>
-	</div>
-]]]
 
 
-${slide:title=More}$
-
-Example2
-
-
-${slide:title=Reusing Components}$
-
-Example 4
-
-
-
-
-${slide:title=call:}$
-
-+>file://figures/SeasideCall1.png|width=100+
-
-
-${slide:title=call:}$
-
-+>file://figures/SeasideCall2.png|width=100+
-
-
-${slide:title=answer:}$
-
-+>file://figures/SeasideAnswer1.png|width=100+
-
-${slide:title=answer:}$
-
-+>file://figures/SeasideAnswer2.png|width=100+
-
-
-
-${slide:title=call:/answer:}$
-
-Messages ==call:answer:== reintroduce PC after call on top of a stateless protocol
-
-
-${slide:title=Back Button}$
 
 
 ${slide:title=Advanced Seaside}$
 
 
 
-${slide:title=Twitter Bootstrap}$
-
-+>file://figures/TwitterBootstrap.png|width=100+
-
-
-
-${slide:title=Twitter Alerts!}$
-
-+>file://figures/TwitterAlerts.png|width=100+
-
-[[[
-renderExampleOn: html
-	html heading level: 2; with: 'Examples'.					
-	html tbsAlert 
-		beSuccess;
-		with: [ html strong: 'Well done!'. html text: ' You successfully read this important alert message.' ].
-	html tbsAlert 
-		beInfo;
-		with: [ html strong: 'Heads up!'. html text: ' This alert needs your attention, but it''s not super important.' ].
-]]]
-
-${slide:title=Twitter Buttons!}$
-
-+>file://figures/TwitterButtons.png|width=60+ 
-
-[[[
-renderExampleOn: html
-
-	html tbsButtonGroup: [ 
-		html tbsButton beDefault; with: 'Left'.
-		html tbsButton beDefault; with: 'Middle'.
-		html tbsButton beDefault; with: 'Right' ].
-]]]
-
 
 ${slide:title=Component Automatic Generation}$
-
 
 
 
