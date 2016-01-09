@@ -181,32 +181,32 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To be done
 -- Files: 
 
-- W2S07 [Lecture 6min] Blocks
+- W2S06 [Lecture 6min] Blocks
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S07-Blocks.pdf* *SlidesHandout>../Slides/Handout/C019-W2S07-Blocks.pdf* *SlidesHtml>../Slides/Week2/C019-W2S07-Blocks.html*
 
-- W2S09 [Lecture 6min] Loops
+- W2S07 [Lecture 6min] Loops
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S09-Loops.pdf* *SlidesHandout>../Slides/Handout/C019-W2S09-Loops.pdf* *SlidesHtml>../Slides/Week2/C019-W2S09-Loops.html*
 
-- W2S10 [Lecture 6min] Booleans and Conditions
+- W2S08 [Lecture 6min] Booleans and Conditions
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S10-BooleansAndCondition.pdf* *SlidesHandout>../Slides/Handout/C019-W2S10-BooleansAndCondition.pdf* *SlidesHtml>../Slides/Week2/C019-W2S10-BooleansAndCondition.html*
 
-- W2S11 [Lecture 6min] Parenthesis vs Square Brackets
+- W2S09 [Lecture 6min] Parenthesis vs Square Brackets
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019-W2S11-ParenthesisVsSquareBrackets.html*
 
-- W2S13 [Lecture 3min] Yourself
+- W2S10 [Lecture 3min] Yourself
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S13-Yourself.pdf* 
 
-- W2S14 [Lecture 6min] The Essence Of Dispatch through an Exercice
+- W2S11 [Lecture 6min] The Essence Of Dispatch through an Exercice
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S14-Design-EssenceOfDispatchExo.pdf* 
