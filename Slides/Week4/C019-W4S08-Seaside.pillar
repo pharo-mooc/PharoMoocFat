@@ -47,7 +47,7 @@ ${slide:title=Seaside in a Nutshell}$
 - Debug your application on the fly
 - Use metadata to generate forms
 
-${slide:title=Seaside in production since 2002}$
+${slide:title=Seaside in Production Since 2002}$
 
 +>file://figures/Seaside-Success.png|width=90+
 
@@ -75,7 +75,7 @@ ${slide:title=Seaside Components}$
 WAAdmin register: WACounter asApplicationAt: 'Counter'.
 ]]]
 
-${slide:title=The Counter Web application}$
+${slide:title=The Counter Web Application}$
 
 +>file://figures/SeasideWACounter.png|width=70+
 
@@ -83,22 +83,22 @@ ${slide:title=WACounter}$
 
 [[[
 WAComponent subclass: #WACounter
-	instanceVariableNames: 'count'
-	classVariableNames: ''
-	package: 'Seaside-Examples-Misc'.
+   instanceVariableNames: 'count'
+   classVariableNames: ''
+   package: 'Seaside-Examples-Misc'.
 
 WACounter >> initialize
-	super initialize.
-	count := 0
+   super initialize.
+   count := 0
 
 WACounter >> increase
-	count := count + 1
+   count := count + 1
 
 WACounter >> decrease
-	count := count - 1
+   count := count - 1
 ]]]
 
-${slide:title=From components to valid HTML}$
+${slide:title=From Components to Valid HTML}$
 
 - All components respond to ==renderContentOn:== 
 - This method converts a component to valid HTML
@@ -112,14 +112,14 @@ ${slide:title=HTML Rendering}$
 
 [[[
 WACounter >> renderContentOn: html
-	html heading: count.
-	html anchor
-		callback: [ self increase ];
-		with: '++'.
-	html space.
-	html anchor
-		callback: [ self decrease ];
-		with: '--'
+   html heading: count.
+   html anchor
+      callback: [ self increase ];
+      with: '++'.
+   html space.
+   html anchor
+      callback: [ self decrease ];
+      with: '--'
 ]]]
 
 
@@ -127,135 +127,105 @@ ${slide:title=Live Debugging}$
 
 [[[
 WACounter>>decrease
-	self haltIf: (count-1 < 0).
-	count := count - 1
+   self haltIf: (count-1 < 0).
+   count := count - 1
 ]]]
-		
 
 ${slide:title=Walking Application Stack}$
 
 +>file://figures/SeasideDebuggingWACounter.png|width=85+
 
+
+${slide:title=Back Button}$
+
+Pressing the ""back button"" of the browser desynchronizes server and client
+
+Example: 
+- Increment the counter 5 times (==count== = 5)
+- Press the ""back button"" => the displayed value is 4
+- Increment the counter => the displayed value is 6
+
+How to make it work properly?
+
+${slide:title=A Counter Dealing with Back Button}$
+
+Just declare the component state to be preserved 
+[[[
+WACounter >> states
+        ^ Array with: self
+]]]
+
+${slide:title=Plain Code in Callbacks}$
+
+[[[
+WACounter >> renderContentOn: html
+   html heading: count.
+   html anchor
+      callback: [ 
+         count odd 
+            ifTrue: [ self increase ]
+            ifFalse: [ 
+               self inform: 'Even number!'. 
+               count := count + 2] 
+      ];
+      with: '++'.
+   html space.
+   html anchor
+   	callback: [ self decrease ];
+   	with: '--'
+]]]
+
+${slide:title=Callback Execution}$
+
+Pressing ++
++>file://figures/SeasideWACounter.png|width=40+
+
+shows
++>file://figures/SeasideCounterInform.png|width=40+
+
+
+${slide:title=Callbacks with the User Value}$
+
+A ==Greeter== component
+
+[[[
+Greeter >> renderContentOn: html
+    html form: [
+         html text: 'Username:'.
+         html textInput
+            callback: [ :value | username := value ].
+         html submitButton
+            callback: [ self inform: 'Hi ', username ];
+            text: 'Say Hello'. ].
+]]]
+
+
+${slide:title=Greeter Application}$
+
++>file://figures/SeasideGreeter.png|width=50+
+
++>file://figures/SeasideGreeterHi.png|width=50+
+
+
+
+
 ${slide:title=Did you see?!}$
 
 - ""No"" manual request parsing
 - ""No"" XML configuration files
-- ""No"" file/page
+- ""No"" file/page 
+-- don't think in terms of pages
+-- use components
 - ""No"" hardcoding of next page
 - ""Live Debugging"" 
 -- use the debugger to modify objects and proceed to generate the HTML response
 
 
-${slide:title=Rendering components}$
-
-Using a DSL 
-- Brushes to emit HTML
--- OO API to generate HTML
--- Generated HTML valid by construction
-- CSS-based
-
-${slide:title=Generating a Title}$
-
-[[[
-html div id: 'title'; with: 'Title'
-]]]
-
-[[[
-<div id="title">Title</div>
-]]]
-
-${slide:title=Generating a List}$
-
-[[[
-html div id: 'list'; 
-	with: [ 
-		html span class: 'item'; with: 'Item 1'.
-		html span class: 'item'; with: 'Item 2' ]
-]]]
-
-[[[
-<div id="list">
-	<span class="item">Item 1</span>
-	<span class="item">Item 2</span>
-	</div>
-]]]
-
-${slide:title=Generating a List}$
-
-[[[
-html unorderedList 
-	id: 'list'; 
-	with: [
-		1 to: 5 do: [ :i |
-		html listItem 
-			class: 'item'; 
-			with: 'Item ', i asString ]]
-]]]
-
-[[[
-<ul id="list">
-  <li class="item">Item 1</li>
-  <li class="item">Item 2</li>
-  <li class="item">Item 3</li>
-  <li class="item">Item 4</li>
-  <li class="item">Item 5</li>
-</ul>
-]]]
-
-${slide:title=Twitter Bootstrap}$
-
-+>file://figures/TwitterBootstrap.png|width=100+
-
-
-
-${slide:title=Twitter Alerts!}$
-
-+>file://figures/TwitterAlerts.png|width=100+
-
-[[[
-renderExampleOn: html
-	html heading level: 2; with: 'Examples'.					
-	html tbsAlert 
-		beSuccess;
-		with: [ html strong: 'Well done!'. html text: ' You successfully read this important alert message.' ].
-	html tbsAlert 
-		beInfo;
-		with: [ html strong: 'Heads up!'. html text: ' This alert needs your attention, but it''s not super important.' ].
-]]]
-
-${slide:title=Twitter Buttons!}$
-
-+>file://figures/TwitterButtons.png|width=60+ 
-
-[[[
-renderExampleOn: html
-
-	html tbsButtonGroup: [ 
-		html tbsButton beDefault; with: 'Left'.
-		html tbsButton beDefault; with: 'Middle'.
-		html tbsButton beDefault; with: 'Right' ].
-]]]
-
-
-${slide:title=Back Button}$
-
-TODO
-
-
-${slide:title=Stepping Back}$
-
-- Don't think in terms of pages
-- ""No"" URL fiddling
-- ""No"" request parsing
-- ""No"" routing
-- ""No"" XML 
-- but powerful!
-
-
 ${slide:title=Conclusion}$
 
 - A Web application = a root component
-- A Component is rendered in HTML 
+- A Component renders itself in HTML (==renderContentOn:==)
+- An extensible DSL helps to easily generate HTML 
 
 
 % Local Variables:

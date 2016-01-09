@@ -15,19 +15,38 @@ ${slide:title=Reusing Components}$
 - call: / answer:
 - define workflows (Task)
 
+
+${slide:title=A Multi-Counter}$
+
++>file://figures/SeasideMultiCounter.png|width=50+
+
+
+${slide:title=WAMultiCounter}$
+
+
+[[[
+	Code
+]]]
+
+${slide:title=WAMultiCounter using WATwitterCounter}$
+
++>file://figures/SeasideMultiTwitterCounter.png|width=50+
+
+
+
 ${slide:title=call:}$
 
-+>file://figures/SeasideCall1.png|width=100+
++>file://figures/SeasideCall1.png|width=90+
 
 
 ${slide:title=call:}$
 
-+>file://figures/SeasideCall2.png|width=100+
++>file://figures/SeasideCall2.png|width=90+
 
 
 ${slide:title=answer:}$
 
-+>file://figures/SeasideAnswer1.png|width=100+
++>file://figures/SeasideAnswer1.png|width=90+
 
 ${slide:title=answer:}$
 
@@ -44,7 +63,6 @@ ${slide:title=Back Button}$
 
 
 
-
 ${slide:title=A Task}$
 
 Simple component
@@ -53,7 +71,7 @@ Simple component
 - Usually orchestrator between several components
 -- use call:/answer: behind the scene
 
-${slide:title=A simple Web Task}$
+${slide:title=A Simple Web Task}$
 
 Will describe ==request:== implementation later
 
@@ -75,6 +93,41 @@ Adder >> go
 [[[
 WAAdmin register: self asApplicationAt: 'Adder'.
 ]]]
+
+${slide:title=How request: is Implemented?}$
+
+[[[
+WAComponent >> request: aRequestString label: aLabelString default: aDefaultString onAnswer: aBlock
+	"Display an input dialog with the question aRequestString, the button label aLabelString and the default string aDefaultString. Passes the answer into aBlock."
+	
+	self
+		call: (WAInputDialog new
+			addMessage: aRequestString;
+			default: aDefaultString;
+			label: aLabelString;
+			yourself)
+		onAnswer: aBlock	
+]]]
+
+- ==request:== uses ==call:== / ==answer:==
+
+${slide:title=request: implementation}$
+
+A reusable component ==answer:== a result
+
+[[[
+WAInputDialog >> renderContentOn: html
+	html form
+		defaultAction: [ self answer: value ];
+		with: [
+			html div: [
+				html textInput on: #value of: self.
+				html space.
+				html submitButton
+					callback: [ self answer: value ];
+					text: self label ] ]
+]]]
+
 
 ${slide:title=Debugger at Work}$
 
