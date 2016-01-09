@@ -24,13 +24,13 @@ Modèle
 	Attributs protegés
 	Heritage simple -->
 
-Sa syntaxe complete (et j'insiste sur le complete) tient sur une carte postale et son modèle s'énonce en 4 lignes. 
+Sa syntaxe complete (et j'insiste sur le complete) tient sur une carte postale et son modèle objet s'énonce en 4 lignes. 
 
 De plus, tout l'environnement et le langage sont écrits dans Pharo lui-meme avec uniquement des objets et des messages. 
 
-Tous cela le rend très facile à apprendre mais permet ensuite de comprendre des concepts très avancés de façon naturelle.
+Tous cela le rend très facile à apprendre mais permet ensuite de comprendre des concepts ou domaines avancés de façon naturelle.
 
-C'est pourquoi Pharo est d'ailleurs utilisé dans plus d’une trentaine d’université dans le monde.
+C'est pourquoi Pharo est d'ailleurs utilisé dans plus d’une trentaine d’universités dans le monde.
 
 <!-- Visuel:
 University of Bern, Switzerland, http://scg.unibe.ch
@@ -87,6 +87,9 @@ dont pouvez voir quelques des success stories de pharo sur son site Web.
 
 Dans ce MOOC nous présenterons plus particulièrement son excellente pile web qui change la maniere de construire des applications web. 
 D'ailleurs, d'ici la fin de ce MOOC vous déploierez votre propre application Web écrite complètement en Pharo.
+
+Nous n’allons pas seulement présenté Pharo mais nous allons revisiter des concepts essentiels de la programmation en illustrant comment Pharo les utilise. 
+Ces concepts sont applicables dans n’importe quel langage objets.
 
 
 <!-- Concl -->
