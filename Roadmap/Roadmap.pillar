@@ -17,6 +17,8 @@
 
 - style sheet
 
+- [Lecture ] MOOC Conclusion in Week7
+
 
 !!Missing Lectures
 
@@ -538,44 +540,42 @@ You will also see that 4 kinds of activities are distinguished:
 
 % 7 Lectures
 
-- [Lecture ]  "Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pillar"
+- W7S01 [Lecture]  AdvancedPointOnClasses.pillar
 -- Presenter: Damien
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pdf* *SlidesHTML>../Slides/Week7/C019-W7S01-AdvancedPointOnClasses.html*	
 
-- [Lecture ]  "Slides/Week7/C019-W7S02-C019-W7S-VariableClasses.pillar"
+- W7S02 [Lecture]  VariableClasses.pillar
 -- Presenter: Stef
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S02-VariableClasses.pdf* *SlidesHTML>../Slides/Week7/C019-W7S02-VariableClasses.html*	
 
-- [Lecture ] "C019-W7S03-UnderstandingMetaclasses.pillar"
+- W7S03 [Lecture] UnderstandingMetaclasses.pillar
 -- Presenter: Damien
 -- Status: Reviewed 
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S03-UnderstandingMetaclasses.pdf* 	
 
-- [Lecture ] Reflection Other Reflectives
+- W7S04 [Lecture] Reflection Other Reflectives
 -- Presenter: Luc
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S04-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019-W7S04-thisContext.html*	
 
-
-- [Lecture ] DoesNotUnderstand
+- W7S05 [Lecture] DoesNotUnderstand
 -- Presenter: Luc
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S05-DoesNotUnderstand.pdf* *SlidesHTML>../Slides/Week7/C019-W7S05-DoesNotUnderstand.html*	
 
-- [Lecture ] Reflection thisContext
+- W7S06 [Lecture] Reflection thisContext
 -- Presenter: Stef
 -- Status: Reviewed 
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019-W7S-thisContext.html*	
 
-- [Lecture ] Avoid is nil
+- W7S07 [Lecture] Avoid is nil
 -- Presenter: Damien
 -- Status: Done (may be add a figure with the hierarchy and witohut null object?)
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S07-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019-W7S07-AvoidIsNill.html*	
 
-
-- [Lecture ] Conclusion
+- W7S08 [Lecture] Conclusion
 	
 		
 % ===============================================================================
