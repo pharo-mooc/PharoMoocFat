@@ -494,37 +494,37 @@ You will also see that 4 kinds of activities are distinguished:
 - W6S02 [Lecture 6min] ImplementingIfTrue
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019-W6S02-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019-W6S02-Design-ImplementingIfTrue.html*
 
-- W6S02 [Lecture 6min] C019-W6S02-SelfSendsDiceHandle
+- W6S03 [Lecture 6min] SelfSendsDiceHandle
 -- Presenter: Luc
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019-W6S02-SelfSendsDiceHandle.pdf* *SlidesHTML>../Slides/Week6/C019-W6S02-SelfSendsDiceHandle.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S03-SelfSendsDiceHandle.pdf* *SlidesHTML>../Slides/Week6/C019-W6S03-SelfSendsDiceHandle.html*
 
-- W6S03 [Lecture 6min] C019-W6S03-SelfSendsArePlanForReuse
+- W6S04 [Lecture 6min] SelfSendsArePlanForReuse
 -- Presenter: Damien
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019-W6S03-SelfSendsArePlanForReuse.pdf* *SlidesHTML>../Slides/Week6/C019-W6S03-SelfSendsArePlanForReuse.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S04-SelfSendsArePlanForReuse.pdf* *SlidesHTML>../Slides/Week6/C019-W6S04-SelfSendsArePlanForReuse.html*
 
-- W6S04 [Lecture 6min] Hook and Template / Copy as a hook and template
+- W6S05 [Lecture 6min] Hook and Template / Copy as a hook and template
 -- Presenter: Damien
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019-W6S-HookAndTemplate.pdf* *SlidesHTML>../Slides/Week6/C019-W6S-HookAndTemplate.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S05-HookAndTemplate.pdf* *SlidesHTML>../Slides/Week6/C019-W6S05-HookAndTemplate.html*
 
-- W6S05 [Lecture 6min] RuntimeArchitecture.pillar
+- W6S06 [Lecture 6min] RuntimeArchitecture.pillar
 -- Presenter: Stef
 -- Status: Reviewed 
--- Files: *SlidesPdf>../Slides/Week6/C019-W6S05-RuntimeArchitecture.pdf* *SlidesHTML>../Slides/Week6/C019-W6S05-RuntimeArchitecture.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S06-RuntimeArchitecture.pdf* *SlidesHTML>../Slides/Week6/C019-W6S06-RuntimeArchitecture.html*
 
-- W6S06 [Lecture 6min]  CharacterStringSymbol
+- W6S07 [Lecture 6min]  CharacterStringSymbol
 -- Presenter: Luc
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/019-W6S06-CharacterStringSymbol.pdf* *SlidesHTML>../Slides/Week6/019-W6S06-CharacterStringSymbol.html* 
+-- Files: *SlidesPdf>../Slides/Week6/019-W6S07-CharacterStringSymbol.pdf* *SlidesHTML>../Slides/Week6/019-W6S07-CharacterStringSymbol.html* 
 
-- W6S07 [Lecture 6min]  DynamicVersusLiteralArray
+- W6S08 [Lecture 6min]  DynamicVersusLiteralArray
 -- Presenter: Luc
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019-W6S07-DynamicVersusLiteralArray.pdf* *SlidesHTML>../Slides/Week6/C019-W6S07-DynamicVersusLiteralArray.html* 
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S08-DynamicVersusLiteralArray.pdf* *SlidesHTML>../Slides/Week6/C019-W6S08-DynamicVersusLiteralArray.html* 
 
 
 !!!! Exos	
