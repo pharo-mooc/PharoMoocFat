@@ -3,15 +3,20 @@
 	"slidesid":"W7S1"
 }
 
-${slide:title=What You Will Learn}$
+${slide:title=Roadmap}$
 
-- How can I share state between instances of a class?
-- How to initialize classes themselves?
+- Sharing state between instances of a class
+- Classes initialization
+- Classes' Instance Variables
 
+${slide:title=Roadmap}$
+
+- ""Sharing state between instances of a class""
+- Classes initialization
+- Classes' Instance Variables
 
 
 ${slide:title=Sharing State?}$
-
 
 Sometimes one needs to share objects between instances of a class
 
@@ -44,14 +49,37 @@ ${slide:title=Class Variables}$
 
 ${slide:title=Class Variable Access}$
 
-+>file://figures/ColorAndColorClass2.pdf|width=140+
++>file://figures/ColorAndColorClass2.png|width=100+
 
 
 ${slide:title=Class Variable Access}$
 
-+>file://figures/Color.pdf|width=110+
++>file://figures/Color.png|width=95+
+
+${slide:title=Roadmap}$
+
+- Sharing state between instances of a class
+- ""Classes initialization""
+- Classes' Instance Variables
 
 
+${slide:title=Remember}$
+
+- Everything is an object
+- An object is initialized at creation time
+- Classes are objects too
+- How/When classes are initialized?
+
+
+${slide:title=Classes are initialized}$
+
+A class is initialized 
+- at load time after its methods are loaded/compiled
+- or explicitly by the programmer
+
+[[[
+Color initialize
+]]]
 
 ${slide:title=Color Initialization}$
 
@@ -67,25 +95,6 @@ Color class >> initialize
    self initializeIndexedColors.
    self initializeColorRegistry.
    self initializeGrayToIndexMap.
-]]]	
-
-
-${slide:title=Remember}$
-
-- Everything is an object
-- An object is initialized at creation time
-- Classes are objects too
-- How/When classes are initialized?
-
-
-${slide:title=Classes are initialized}$
-
-Classes are initialized 
-- at load time when all their methods are loaded/compiled
-- or explicitly by the programmer
-
-[[[
-Color initialize
 ]]]
 
 ${slide:title=Warning}$
@@ -95,22 +104,32 @@ ${slide:title=Warning}$
 - Because you may reinitialize (super) classes that should not be reinitialized
 
 
+${slide:title=Roadmap}$
+
+- Sharing state between instances of a class
+- Classes initialization
+- ""Classes' Instance Variables""
+
 ${slide:title=Class Instance Variables}$
 
-- Like for any object
-- A class is an instance of a class (a metaclass) that can have instance variables that define the state of a class
+Classes have instance variables like any object
+- A class is an instance of a class (a metaclass) 
+- A metaclass can have instance variables that define the state of a class
 
 [[[
 WebServer class
    instanceVariableNames: 'uniqueInstance'
 ]]]
 
-- When a metaclass defines a new instance variable, then its instance (a Class) gets a new value in addition to subclass, superclasses, methodDict...
+${slide:title=Singleton Design Pattern}$
 
-${slide:title=Singleton Pattern}$
+- Intent: Enforce that a class has only one instance
+- Possible solution: Keep the created instance in a variable of the class
 
-- A class has only one instance
-- Keep the instance created in an instance variable
+
+${slide:title=Singleton Design Pattern: Implementation 1}$
+
+Keep the created instance in a ""class instance variable""
 
 [[[
 WebServer class
@@ -118,31 +137,34 @@ WebServer class
 
 WebServer class >> uniqueInstance
    ^ uniqueInstance 
-         ifNil: [ uniqueInstance := self basicNew initialize ]
+         ifNil: [ uniqueInstance := self new ]
 ]]]
 
+Consequences:
+- Each subclass of ==WebServer== has its own singleton
+- Each subclass has its own instance variable ""value"" for ==uniqueInstance==
 
-${slide:title=Singleton with class instance variables}$
+${slide:title=Singleton Design Pattern: Implementation 2}$
 
-- With a ''class instance variable''
-- Each subclass of WebServer has its own singleton
-- Each subclass has a specific instance variable value for uniqueInstance
-
-
-${slide:title=Singleton with class variables}$
-
-- With a ''Class Variable'', 
-- Only one singleton for the complete class hierarchy
-- ClassVariables are shared
+Keep the created instance in a ""class variables""
 
 [[[
 Object subclass: #WebServer
    instanceVariableNames: ''
    classVariableNames: 'UniqueInstance'
-   package: ''
+   package: 'Web'
 ]]]
+
+Consequences:
+- Only one singleton for the complete class hierarchy
+- Remember that class variables are shared
+
 
 ${slide:title=What You Should Know}$
 
 - How to share objects between instances of a class?
+-- use class variables
 - How to initialize class?
+-- use ==initialize== class methods
+- How to add state to a class?
+-- use class instance variables
