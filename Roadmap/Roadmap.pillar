@@ -370,7 +370,7 @@ You will also see that 4 kinds of activities are distinguished:
 - W4S08 [Lecture 6min] Seaside: Component
 -- Presenter: Luc
 -- Status: TBD
--- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
+-- Files: *SlidesPdf>../Slides/Week4/W4S08-Seaside.pdf*	
 -- Seaside Component, renderContentOn:, back button
 
 - W4S08 [Live] Coding a counter, back button
@@ -380,18 +380,23 @@ You will also see that 4 kinds of activities are distinguished:
 
 - W4S09 [Lecture 6min] Seaside: Rendering Components
 -- Presenter: Luc
--- Status: TBD
--- Files: *SlidesPdf>../Slides/Week4/W3S09-SeasideDSL.pdf*	
+-- Status: Done
+-- Files: *SlidesPdf>../Slides/Week4/W4S09-SeasideDSL.pdf*	
 -- Seaside DSL, html, bootstrap
 -- renderer 
 
-	
-- W4S12 [Lecture] Voyage
+- W4S10 [Lecture] Magritte REST
 -- Presenter: Stephane
--- Status: TBD
+-- Files: *SlidesPdf>../Slides/Week4/C019-W4S10-Seaside-MagritteREST.pdf*	
+-- Status: Done
+
+- W4S11 [Lecture] Voyage
+-- Presenter: Stephane
+-- Files: *SlidesPdf>../Slides/Week4/C019-W4S11-Voyage.pdf*	
+-- Status: Done
 
 - [Live] Deploying an application 
--- Author:
+-- Author: 
 	
 !!!! Exos	
 - Find how to ...
