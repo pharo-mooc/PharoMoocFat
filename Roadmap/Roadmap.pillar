@@ -4,9 +4,6 @@
 
 !!Simple points
 
-- sur la page de garde des slides beamer, passer l'URL de pharo sous le logo
-
-- enlever le cadre indiquant l'incrustation de la vidéo
 
 - TBD Slides MOOC Roadmap
 
@@ -16,28 +13,12 @@
 
 - [Lecture ] MOOC Conclusion in Week7
 
-
-!!Missing Lectures
-
-Seaside1
-- Seaside Component, html, bootstrap
-
-Seaside2
-- Seaside call:/answer:
-
-Voyage
-- in Memory
-- Mongo 
-
 !!Find how to 
 
 - ouvrir et afficher un fichier jpeg
 - lister le contenu d'un repertoire sur le disc
 - requete http recuperer la meteo sur le net
 - service google qui fait un calcul
-
-!!Exercices
-
 
 !!!Quiz
 
@@ -326,7 +307,7 @@ You will also see that 4 kinds of activities are distinguished:
 % ===============================================================================
 !!Week 4: Inheritance&Lookup and Web Development
 
-% 10 Lectures
+% 11 Lectures
 
 - W4S01 [Lecture 6min] InheritanceAndLookup-1-Inheritance.pillar
 -- Presenter: Damien
