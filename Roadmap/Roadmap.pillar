@@ -66,7 +66,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019-W1S01-ObjectivesMooc.pdf* *SlidesHandout>../Slides/Handout/C019-W1S01-ObjectivesMooc.pdf* NoHTML
 
 - W1S02 [Lecture 6min] What is Pharo?
--- Presenter: Damien
+-- Presenter: Stef
 -- Status: wait for lusy template
 -- Files: Lecture(TBD) *SlidesPdf>../Slides/Week1/C019-W1S02-WhatIsPharo.pdf* *SlidesHandout>../Slides/Handout/C019-W1S02-WhatIsPharo.pdf* NoHTML
 
@@ -102,7 +102,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - W1S06 [Lecture 6min] Class and methods	6 min   
 -- Presenter: Damien
--- Status: Reviewed after Yaounde - it must be in S01 (Luc) 
+-- Status: Reviewed by presenter
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S-ClassAndMethodDefinition.pdf* *SlidesHTML>../Slides/Week2/C019-W2S-ClassAndMethodDefinition.html*
 
 - W1S06 [Redo 6min] Coding a Counter
