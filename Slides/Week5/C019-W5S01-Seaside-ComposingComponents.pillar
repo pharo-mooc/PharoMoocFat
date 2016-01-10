@@ -212,12 +212,6 @@ WAInputDialog >> renderContentOn: html
 ]]]
 
 
-
-${slide:title=call:/answer: is Powerful}$
-
-Messages ==call:answer:== reintroduce PC after call on top of a stateless protocol
-
-
 ${slide:title=Roadmap}$
 
 3 mechanisms to reuse components:
