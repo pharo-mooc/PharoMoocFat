@@ -29,9 +29,12 @@ ${slide:title=Loops: to:do:}$
     [ :i | ... i ... ]
 ]]]
 
+==to:do:== is a method defined on ==Number==
+
+
 ${slide:title=Example: to:do:}$
 
-The block is executed with the temporary ==i== taking values from 0 to 100
+The block is executed with the temporary ==i== taking values from 1 to 100
  
 [[[
 1 to: 100 do:
@@ -40,13 +43,15 @@ The block is executed with the temporary ==i== taking values from 0 to 100
 
 +>file://figures/1to100.png+
 
-${slide:title=Loops: to:do:}$
+${slide:title=Loops: to:by:do:}$
 
 [[[
     0 to: 100 by: 3 do: [ :i | ... i ... ]
 ]]]
 
-${slide:title=Example: to:do:}$
+==to:by:do:== is also a method defined on ==Number==
+
+${slide:title=Example: to:by:do:}$
 
 The block is executed with i taking values from 0 to 100 by step of 3
 
