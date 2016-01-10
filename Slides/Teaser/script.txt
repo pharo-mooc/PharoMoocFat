@@ -28,7 +28,7 @@ Sa syntaxe complete (et j'insiste sur le complete) tient sur une carte postale e
 
 De plus, tout l'environnement et le langage sont écrits dans Pharo lui-meme avec uniquement des objets et des messages. 
 
-Tous cela le rend très facile à apprendre mais permet ensuite de comprendre des concepts ou domaines avancés de façon naturelle.
+Tous cela le rend très facile à apprendre et permet ensuite de comprendre des concepts ou domaines avancés de façon naturelle. Une fois cette syntaxe tres simple comprise, le monde complet de Pharo vous est ouvert. 
 
 C'est pourquoi Pharo est d'ailleurs utilisé dans plus d’une trentaine d’universités dans le monde.
 
@@ -68,10 +68,10 @@ Pharo est fun!
 <!-- video yuriy -->
 
 En programmant en Pharo vous etes immerges dans un monde d'objets vivants. 
-La video illustre ce point: a chaque fois que le code est modifie et compilé l'animation 3D change immediatement. 
+La video illustre ce point: a chaque fois que le code est modifié et compilé l'animation 3D change immediatement. 
 Le programmeur voit immediatement le resultat de son programme. 
 
-En Pharo, le programmeur modifie en live sans cesse des objets qui peuvent représenter : des applications web, du code lui-meme, des graphisme, du reseau. 
+En Pharo, le programmeur modifie en live sans cesse des objets qui peuvent représenter : des applications web, du code lui-meme, du graphisme, du reseau….
 
 
 <!-- puissant -->
@@ -85,27 +85,18 @@ dont pouvez voir quelques des success stories de pharo sur son site Web.
  http://www.pharo.org/succes 
  -->
 
-Dans ce MOOC nous présenterons plus particulièrement son excellente pile web qui change la maniere de construire des applications web. 
-D'ailleurs, d'ici la fin de ce MOOC vous déploierez votre propre application Web écrite complètement en Pharo.
+Dans ce MOOC nous présenterons plus particulièrement son excellente pile web qui change la maniere de construire des applications web.  D’ici la fin de ce MOOC vous déploierez votre propre application Web écrite complètement en Pharo.
 
-Nous n’allons pas seulement présenté Pharo mais nous allons revisiter des concepts essentiels de la programmation en illustrant comment Pharo les utilise. 
-Ces concepts sont applicables dans n’importe quel langage objets.
-
+Maintenant, nous n’allons pas seulement présenté Pharo mais nous allons revisiter des concepts essentiels de la programmation en illustrant comment Pharo les utilise. 
+Nous allons présenter des heuristiques pour mieux concevoir des applications objets et aussi des Design Patterns. Ces concepts sont applicables dans n’importe quel langage objets. 
 
 <!-- Concl -->
 
-Ce mooc s’adresse donc à toute personne ayant une experience en programmation même si une personne motivée pourra également suivre grâce aux nombreuses ressources telles que les livres : Pharo by Example (http://www.pharobyExample.org) disponibles gratuitement sur le site de Pharo.
+Ce mooc s’adresse donc à toute personne ayant une experience meme petite en programmation. Une personne nmotivée pourra également suivre grâce aux nombreuses ressources telles que le livre : Pharo by Example (http://www.pharobyExample.org) disponibles gratuitement sur le site de Pharo.
 
-<!-- à enlever : 
-Ce mooc a plusieurs objectifs:
-	- vous apprendre a programmer en Pharo,
-	- vous immerger dans un environnement vivant et vous permettre
-	de vivre une autre experience de programmation.
-	- developper une application web montrant les differentes facettes mise en oeuvre -->
-	
 Pour les plus confirmés, ce MOOC vous apportera une nouvelle vision des fondements meme de la programmation objet que sont le polymorphisme et la liaison tardive. 
 
-A travers ce MOOC et Pharo, venez apprendre ou ré-découvrir la programmation objet avec nous !
+A travers ce MOOC et Pharo, venez apprendre ou ré-découvrir la programmation objet dans un monde différent !
 
 
 

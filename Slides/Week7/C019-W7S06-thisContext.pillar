@@ -1,11 +1,13 @@
 {
-  "title":"Reflection: Stack",
+  "title":"Reflection: Stack as an Object",
   "slidesid":"W7S06"
 }
 
-${slide:title=Just to reveal a bit of it}$
+${slide:title=Just to Reveal a Bit of it}$
 
-To let you know that it exist
+To let you know that it exists
+- On demand the stack can be turned into an object
+- We can walk but also ""modify"" it
 
 ${slide:title=Coding in the Debugger}$
 
@@ -40,13 +42,17 @@ ${slide:title=thisContext}$
 
 ${slide:title=Example: Better Deprecated Message}$
 
+We declare deprecation
 [[[
 A >> foo
-   self deprecated: 'Use bar' on: '31/12/2015' in: 'Pharo50'.
+   self deprecated: 'Use bar.' on: '31/12/2015' in: 'Pharo50'.
    self bar
 ]]]
 
-should print: 'foo is deprecated in Pharo50. Use bar'
+should print: 'Message foo is deprecated in Pharo50. Use bar'
+
+
+${slide:title=Example: Better Deprecated Message}$
 
 [[[
 deprecated: anExplanationString on: date in: version
@@ -64,10 +70,8 @@ deprecated: anExplanationString on: date in: version
 ${slide:title=Example: Conditional Halt and Test}$
 
 - How to halt a method that is heavily used?
-- ==if:== is really powerful!
-- Hint: Write a test and get benefit for it
+- How to stop execution only from a given execution flow?
 
-Example:
 [[[
 foo 
   ...
@@ -75,7 +79,10 @@ foo
   ...
 ]]]
 
-${slide:title=How if: is implemented?}$
+Only halt if executed from ==testSetInitialized==
+
+
+${slide:title= if: Implementation}$
 
 [[[
 Halt class >> if: condition
