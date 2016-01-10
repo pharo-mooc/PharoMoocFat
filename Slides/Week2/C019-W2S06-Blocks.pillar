@@ -173,7 +173,7 @@ Collection>>affect: anObject when: aBoolean
 - ==| args | == defines a temporary variable named ==args==
 - ==args== exists only during block evaluation
 
-${slide:title=Summary}$
+${slide:title=Summary on Blocks}$
 
 [[[
 [ :variable1 :variable2 ... |
