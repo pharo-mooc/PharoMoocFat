@@ -5,9 +5,8 @@
 
 ${slide:title=Only Objects and Messages}$
 
-Remember we ""only"" manipulate objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compiler, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
-
-and we send messages, messages, messages and messages (and closures)
+- code in Pharo ""only"" manipulates objects: mouse, booleans, arrays, numbers, compressed, strings, windows, scrollbars, canvas, files, trees, compiler, sound, url, socket, fonts, text, collections, stack, shortcut, streams, ...
+- messages and assignments are the only way to do something
 
 
 ${slide:title=Equivalence}$
@@ -22,6 +21,7 @@ In Pharo
 strings := ArrayList new.
 ]]]
 
+- ==new== is a message sent to a class
 - no static typing
 - no generics
 
@@ -68,15 +68,14 @@ Transcript cr
 - Binary
 [[[
 3 + 4
+5 -> 10
 ]]]
 
 - Keyword-based
 [[[
-2 between: 0 and: 5.
-Transcript show: 'hello world' ; cr
+Transcript show: 'hello world'
+2 between: 0 and: 5
 ]]]
-
-
 
 ${slide:title=Keyword Messages}$
 
@@ -145,19 +144,19 @@ In Pharo
     postman send: mail to: recipient
 ]]]
 
-- The message
+- the message
 -- is named ==send:to:==
 -- is sent to ==postman==
 -- includes two arguments (==mail== and ==recipient==)
 
-${slide:title=Conditionals are just messages}$
+${slide:title=Conditionals are Just Messages}$
 
-- Booleans are objects
-- Conditional expressions are messages sent to booleans or blocks
+- booleans are objects
+- conditional expressions are messages sent to booleans or blocks
 
 [[[
-fullName isEmptyOrNil
-   ifTrue: [ 'FirstnameLastname' translated ]
+fullName isEmpty
+   ifTrue: [ 'FirstnameLastname' ]
    ifFalse: [ fullName ]
 ]]]
 
@@ -187,5 +186,5 @@ ${slide:title=Summary}$
 - Loops too
 
 % Local Variables:
-% compile-command: "cd ../.. && ./compile1Slide.sh Slides/Week2/C019SD-W2S02-Messages-ForTheJavaProgrammers.pillar"
+% compile-command: "cd ../.. && ./compile1Slide.sh Slides/Week2/C019-W2S02-Messages-ForTheJavaProgrammers.pillar"
 % End:
