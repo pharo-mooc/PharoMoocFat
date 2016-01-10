@@ -8,8 +8,8 @@ ${slide:title=A Puzzle and Candidate for Cascade}$
 
 We add 2 to a set
 [[[
-   Set new add: 2
-   > 2
+Set new add: 2
+> 2
 ]]]
 
 We get 2 and not the set!
@@ -24,7 +24,11 @@ Set>>add: newObject
 ]]]
 
 - The method ==add:== returns its argument, not the receiver
-- Strange but this is like that!
+
+[[[
+Set new add: 2
+> 2
+]]]
 
 ${slide:title=A Verbose Solution}$
 
@@ -33,15 +37,9 @@ To get the collection back, we can use a temporary variable
 [[[
    | s |
    s := Set new.
-   s add: 1; add: 2.
+   s add: 2.
    s
 ]]]
-
-Do you see another solution?
-
-${slide:title=One Hint}$
-
-What if we get a message that returns the receiver?
 
 ${slide:title=yourself}$
 
@@ -50,23 +48,11 @@ Object >> yourself
    ^ self
 ]]]
 
-${slide:title=A Puzzle: Solution}$
-
 [[[
-   | s |
-   s := Set new.
-   s add: 1; add: 2.
-   s
-]]]
-
-is equivalent to
-
-[[[
-   Set new
-      add: 1;
-      add: 2;
-      yourself
-   > aSet
+Set new
+   add: 2;
+   yourself
+> aSet
 ]]]
 
 - ==add:== and ==yourself== are sent to the new ==Set==
@@ -76,26 +62,28 @@ is equivalent to
 ${slide:title=Another Idiom}$
 
 [[[
-MyClass >> new
-  | instance |
-  instance := super new.
-  instance doSomething.
-  ^ instance
+MyClass class >> new
+   | instance |
+   instance := super new.
+   instance doSomething.
+   ^ instance
 ]]]
 
 is equivalent to
 
 [[[
-MyClass >> new
-  ^ super new doSomething; yourself
+MyClass class >> new
+   ^ super new
+      doSomething;
+      yourself
 ]]]
 
-Using ==yourself== makes sure that we return the instance and not the result of ==doSomething==
+Using ==yourself== makes sure the code returns the new instance
 
 ${slide:title=What You Should Know}$
 
 - Some simple methods are powerful
-- Cascade and ==yourself== plays well together
+- Cascade ==;== and ==yourself== often go together
 
 
 % Local Variables:
