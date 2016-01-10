@@ -5,14 +5,14 @@
 
 ${slide:title=Simply Said}$
 
-- We just send a message to a class (receiver of the message) 
+- We just send a message to a class (receiver of the message)
 - Corresponding method is looked up (exactly as with instance-based methods) and applied to the class (receiver of the message)
 
 
 ${slide:title=Examples}$
 
 [[[
-Time now 
+Time now
 > 10:44:16.10794 am
 ]]]
 We send the message ==time== to the class ==Time==
@@ -30,13 +30,13 @@ ${slide:title=Some More Examples}$
 ]]]
 
 [[[
-(ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
-	  asMorph openInWindow
+(ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
+      asMorph openInWindow
 ]]]
 
 [[[
-(ZnServer startDefaultOn: 8080) 
-   onRequestRespond: [ :request | 
+(ZnServer startDefaultOn: 8080)
+   onRequestRespond: [ :request |
    ZnResponse ok: (ZnEntity with: DateAndTime now printString) ]
 ]]]
 
@@ -110,3 +110,7 @@ ${slide:title=Summary}$
 - No different than instance methods
 - We send a message to a class, the corresponding method is looked up and applied to the class
 - To define a class method with the browser you should edit the class side
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019-W3S06-BasicClassMethods.pillar"
+% End:
