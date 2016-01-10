@@ -5,33 +5,145 @@
 
 ${slide:title=Remember: Seaside}$
 
-- ...
-
-+>file://figures/SeasideLogo.png|width=80+
-
-${slide:title=Reusing Components}$
-
-- agregate components (children)
-- call: / answer:
-- define workflows (Task)
+- Think in terms of ""reusable"" and ""stateful components""
+- A web application = a root component
+- Live Debugging
+-- through the debugger, you can modify objects and proceed to generate the HTML response
 
 
-${slide:title=A Multi-Counter}$
+${slide:title=Roadmap}$
 
-+>file://figures/SeasideMultiCounter.png|width=50+
+3 mechanisms to reuse components:
+- Components aggregation 
+- The ==call:== / ==answer:== mechanism
+- Definition of workflows (Task)
+
+${slide:title=Roadmap}$
+
+3 mechanisms to reuse components:
+- ""Components aggregation""
+- The ==call:== / ==answer:== mechanism
+- Definition of workflows (Task)
+
+
+${slide:title=Remember: Counter / TwitterCounter}$
+
+${columns}$
+
+${column:width=50}$
+
+==WACounter==
++>file://figures/SeasideWACounter.png|width=90+
+
+
+${column:width=50}$
+
+==WATwitterCounter==
++>file://figures/SeasideCounterBootstrap.png|width=90+
+
+${endColumns}$
+
+
+
+${slide:title=How to Build a Multi-Counter Application?}$
+
+==WAMultiCounter==
++>file://figures/SeasideMultiTwitterCounter.png|width=50+
 
 
 ${slide:title=WAMultiCounter}$
 
-
 [[[
-	Code
+WAExampleComponent subclass: #WAMultiCounter
+    instanceVariableNames: 'counters'
+    classVariableNames: ''
+    package: 'Seaside-Examples-Misc'.
+	
+WAMultiCounter >> initialize
+    super initialize.
+    counters := (1 to: 5) collect: [ :each | WACounter new ].
+
+WAMultiCounter >> children
+    ^ counters
+		
+WAMultiCounter >> renderContentOn: html
+    counters do: [ :each | html render: each ]
 ]]]
 
-${slide:title=WAMultiCounter using WATwitterCounter}$
+${slide:title=How to Compose Components?}$
 
-+>file://figures/SeasideMultiTwitterCounter.png|width=50+
+A composite:
+- Stores subcomponents in an instance variable (e.g. ==counters==)
+- Sends ==render:== to subcomponents in its ==renderContentOn:== method
+- Redefines ==children== to return the collection of its subcomponents 
 
+${slide:title=Aggregating Different Subcomponents}$
+
+[[[
+WAExampleComponent subclass: #MyApp
+    instanceVariableNames: 'children'
+    classVariableNames: ''
+    package: 'Seaside-Examples-Misc'.
+
+MyApp >> initialize
+    super initialize.
+    children := { Greeter new. 
+		 WATwitterCounter new. WACounter new }.
+
+MyApp >> children
+    ^ children
+
+MyApp >> renderContentOn: html
+    children do: [ :each | html render: each ]
+        separatedBy: [ html line ]
+]]]
+
+${slide:title=Aggregating Different Subcomponents}$
+
++>file://figures/SeasideDifferentSubcomponents.png|width=80+
+
+${slide:title=Rendering Only One Subcomponent}$
+
+${columns}$
+
+${column:width=50}$
+
++>file://figures/SeasideMyApp.png|width=95+
+
+${column:width=50}$
+
++>file://figures/SeasideMyApp2.png|width=95+
+
+${endColumns}$
+
+${slide:title=Rendering Only One Subcomponent}$
+
+[[[
+MyApp >> initialize
+    "..."
+	 selectedChild := children first
+
+MyApp >> renderContentOn: html
+	self renderMenuOn: html.
+	html render: selectedChild 
+
+MyApp >> renderMenuOn: html
+    html unorderedList: [ 
+        self children doWithIndex: [ :child :i |
+            html listItem: [ 
+                html anchor 
+                    class: 'selected' if: child = currentComponnent ;
+                    callback: [ selectedChild := self children at: i ];
+						  with: child className  
+    ] ] ]
+]]]
+
+${slide:title=Roadmap}$
+
+3 mechanisms to reuse components:
+- Components aggregation
+- ""The ==call:== / ==answer:== mechanism""
+- Definition of workflows (Task)
 
 
 ${slide:title=call:}$
@@ -59,8 +171,13 @@ ${slide:title=call:/answer:}$
 Messages ==call:answer:== reintroduce PC after call on top of a stateless protocol
 
 
-${slide:title=Back Button}$
 
+${slide:title=Roadmap}$
+
+3 mechanisms to reuse components:
+- Components aggregation
+- The ==call:== / ==answer:== mechanism
+- ""Definition of workflows (Task)""
 
 
 ${slide:title=A Task}$
@@ -69,7 +186,7 @@ Simple component
 - No UI part
 - Just flow
 - Usually orchestrator between several components
--- use call:/answer: behind the scene
+-- it uses ==call:==/==answer:== behind the scene
 
 ${slide:title=A Simple Web Task}$
 
@@ -157,19 +274,6 @@ ${slide:title=So far...}$
 - no XML configuration files
 - no file/page
 - no hardcoding of next page
-
-
-
-
-
-
-${slide:title=Advanced Seaside}$
-
-
-
-
-${slide:title=Component Automatic Generation}$
-
 
 
 ${slide:title=Stepping Back}$

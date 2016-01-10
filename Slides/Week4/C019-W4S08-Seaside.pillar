@@ -224,7 +224,7 @@ ${slide:title=Did you see?!}$
 ${slide:title=Conclusion}$
 
 - A Web application = a root component
-- A Component renders itself in HTML (==renderContentOn:==)
+- A component renders itself in HTML (==renderContentOn:==)
 - An extensible DSL helps to easily generate HTML 
 
 
