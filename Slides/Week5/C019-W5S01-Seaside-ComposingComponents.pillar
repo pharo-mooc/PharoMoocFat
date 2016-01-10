@@ -148,89 +148,55 @@ ${slide:title=Roadmap}$
 
 ${slide:title=call:}$
 
-+>file://figures/SeasideCall1.png|width=90+
++>file://figures/SeasideCall1.png|width=70+
 
 
 ${slide:title=call:}$
 
-+>file://figures/SeasideCall2.png|width=90+
++>file://figures/SeasideCall2.png|width=70+
 
 
 ${slide:title=answer:}$
 
-+>file://figures/SeasideAnswer1.png|width=90+
++>file://figures/SeasideAnswer1.png|width=70+
 
 ${slide:title=answer:}$
 
-+>file://figures/SeasideAnswer2.png|width=100+
++>file://figures/SeasideAnswer2.png|width=70+
 
 
+${slide:title=call:/answer: Example}$
 
-${slide:title=call:/answer:}$
++>file://figures/SeasideCallAnswerCounter1-cut.png|width=50+
++>file://figures/SeasideCallAnswerCounter2-cut.png|width=50+
++>file://figures/SeasideCallAnswerCounter3-cut.png|width=50+
 
-Messages ==call:answer:== reintroduce PC after call on top of a stateless protocol
-
-
-
-${slide:title=Roadmap}$
-
-3 mechanisms to reuse components:
-- Components aggregation
-- The ==call:== / ==answer:== mechanism
-- ""Definition of workflows (Task)""
-
-
-${slide:title=A Task}$
-
-Simple component
-- No UI part
-- Just flow
-- Usually orchestrator between several components
--- it uses ==call:==/==answer:== behind the scene
-
-${slide:title=A Simple Web Task}$
-
-Will describe ==request:== implementation later
+${slide:title=call:/answer: Example}$
 
 [[[
-WATask subclass: #Adder
-	instanceVariableNames: ''
-	classVariableNames: ''
-	package: 'SeaExample'
+WATwitterCounter >> renderContentOn: html
+    "..."
+    html tbsButton beDefault; 
+        callback: [ self setCountToUserValue ]; with: 'Set Value'
+    "..."
+
+WATwitterCounter >> setCountToUserValue
+    | webDialog newCounterValueByUser |
+    webDialog := WAInputDialog new
+        addMessage: 'Enter a new value for the counter:';
+        default: '0';
+        label: 'Ok';
+        yourself.
+    newCounterValueByUser := self call: webDialog.
+    count := newCounterValueByUser asNumber
 ]]]
 
-[[[
-Adder >> go
-	| value1 value2 |
-	value1 := self request: 'first number'.
-	value2 := self request: 'second number'.
-	self inform: value1 asNumber + value2 asNumber
-]]]
 
-[[[
-WAAdmin register: self asApplicationAt: 'Adder'.
-]]]
+${slide:title=WAInputDialog Internals}$
 
-${slide:title=How request: is Implemented?}$
-
-[[[
-WAComponent >> request: aRequestString label: aLabelString default: aDefaultString onAnswer: aBlock
-	"Display an input dialog with the question aRequestString, the button label aLabelString and the default string aDefaultString. Passes the answer into aBlock."
-	
-	self
-		call: (WAInputDialog new
-			addMessage: aRequestString;
-			default: aDefaultString;
-			label: aLabelString;
-			yourself)
-		onAnswer: aBlock	
-]]]
-
-- ==request:== uses ==call:== / ==answer:==
-
-${slide:title=request: implementation}$
-
-A reusable component ==answer:== a result
+==WAInputDialog== 
+- is a reusable component
+- it ==answer:== a result
 
 [[[
 WAInputDialog >> renderContentOn: html
@@ -246,52 +212,93 @@ WAInputDialog >> renderContentOn: html
 ]]]
 
 
-${slide:title=Debugger at Work}$
+
+${slide:title=call:/answer: is Powerful}$
+
+Messages ==call:answer:== reintroduce PC after call on top of a stateless protocol
+
+
+${slide:title=Roadmap}$
+
+3 mechanisms to reuse components:
+- Components aggregation
+- The ==call:== / ==answer:== mechanism
+- ""Definition of workflows (Task)""
+
+
+${slide:title=Encapsulating Workflows}$
+
+Tasks are simple components:
+- No UI part (i.e. no ==renderContentOn:==)
+- Orchestrating several components
+-- use ==call:==/==answer:== behind the scene
+
+${slide:title=A Simple Web Task}$
+
+[[[
+WATask subclass: #Adder
+    instanceVariableNames: ''
+    classVariableNames: ''
+    package: 'SeaExample'
+]]]
 
 [[[
 Adder >> go
-	| value1 value2 |
-	value1 := self request: 'first number'.
-	1/0.
-	value2 := self request: 'second number'.
-	self inform: value1 asNumber + value2 asNumber
+    | value1 value2 |
+    value1 := self request: 'first number'.
+    value2 := self request: 'second number'.
+    self inform: value1 asNumber + value2 asNumber
 ]]]
 
-${slide:title=Triggering Server Side Debugger}$
+[[[
+WAAdmin register: self asApplicationAt: 'Adder'.
+]]]
 
-+>file://figures/SeasideAdderWallback.png|width=160+
+${slide:title=How request: is Implemented?}$
 
+==request:== uses ==call:== / ==answer:== on a ==WAInputDialog==
 
+[[[
+WAComponent >> request: aRequestString label: aLabelString default: aDefaultString onAnswer: aBlock
+	"Display an input dialog with the question aRequestString, the button label aLabelString and the default string aDefaultString. Passes the answer into aBlock."
+	
+    self 
+         call: (WAInputDialog new
+            addMessage: aRequestString;
+            default: aDefaultString;
+            label: aLabelString;
+            yourself)
+        onAnswer: aBlock	
+]]]
 
-${slide:title=Walking Application Stack}$
+${slide:title=How inform: is Implemented?}$
 
-+>file://figures/SeasideAdderDebugger.png|width=130+
+==inform:== uses ==call:== / ==answer:== on a ==WAFormDialog==
 
+[[[
+WAComponent >> inform: aString onAnswer: aBlock	
+    "Display a dialog with aString to the user until he clicks the ok button. Continue by evaluating aBlock."
 
-${slide:title=So far...}$
-
-- no manual request parsing
-- no XML configuration files
-- no file/page
-- no hardcoding of next page
+    self 
+        call: (WAFormDialog new
+            addMessage: aString;
+            yourself)
+        onAnswer: aBlock
+]]]
 
 
 ${slide:title=Stepping Back}$
 
-- We don't think in terms of pages
-- No URL fiddling
-- No request parsing
-- Component composition
-
-
-
+- ""No"" manual request parsing
+- ""No"" request routing 
+- ""No"" hardcoding of next page
+- ""No"" XML configuration files
 
 ${slide:title=Conclusion}$
 
-- Messages sent to classes are resolved dynamically the same way as messages sent to instances
-- Classes can then be used as registration mechanism
+Seaside provides:
+- Stateful components
+- Components composition (children)
+- Components scheduling using ==call:== / ==answer:==
+- Tasks to encapsulate workflows
 
-
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/W3S8-ClassMethodsAtWork.pillar"
-% End:
