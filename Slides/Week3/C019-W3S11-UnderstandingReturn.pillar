@@ -5,7 +5,7 @@
 
 ${slide:title=What You Will Learn}$
 
-- How to return a value from a method or a block
+- How to return a value from a method and a block
 - The default return values
 
 ${slide:title=4 Cases}$
@@ -32,19 +32,19 @@ A method with no caret ==^== returns ==self==
 
 [[[
 Game >> initializePlayers
-  self players
-    at: 'tileAction'
-    put: ( ... )
+   self players
+      at: 'tileAction'
+      put: ...
 ]]]
 
 is equivalent to
 
 [[[
 Game >> initializePlayers
-  self players
-    at: 'tileAction'
-    put: ( ... )
-  ^ self       "<-- this is optional"
+   self players
+      at: 'tileAction'
+      put: ...
+   ^ self       "<-- this is optional"
 ]]]
 
 ${slide:title=Blocks Return Value}$
@@ -52,10 +52,10 @@ ${slide:title=Blocks Return Value}$
 Blocks return the value of their last expression
 
 [[[
-   [ :x |
-      x + 33.
-      x + 2 ] value: 5
-   > 7
+[ :x |
+   x + 33.
+   x + 2 ] value: 5
+> 7
 ]]]
 
 The caret ==^== in a block has a special meaning...
@@ -79,8 +79,9 @@ Integer>>factorial
 ${slide:title=What you Should Know}$
 
 - The caret ==^== always terminates the method
+- A method returns ==self== by default
 - A block's return value is the result of its last expression
 
 % Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019SD-W3S11-UnderstandingReturn.pillar"
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019-W3S11-UnderstandingReturn.pillar"
 % End:
