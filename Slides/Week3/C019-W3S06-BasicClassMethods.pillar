@@ -3,114 +3,98 @@
   "slidesid" : "W3S06"
 }
 
-${slide:title=Simply Said}$
+${slide:title=Class Methods}$
 
-- We just send a message to a class (receiver of the message)
-- Corresponding method is looked up (exactly as with instance-based methods) and applied to the class (receiver of the message)
+# in Pharo, everything is an object
+# objects are sent messages
+# classes are objects too
 
+Classes can receive messages
 
 ${slide:title=Examples}$
 
 [[[
 Time now
-> 10:44:16.10794 am
+> 9:18:36.304688 pm
 ]]]
-We send the message ==time== to the class ==Time==
+
+The message ==now== is sent to the class ==Time==
 
 [[[
 Date today
 > 29 July 2015
 ]]]
-We send the message ==today== to the class ==Date==
+The message ==today== is sent to the class ==Date==
 
-${slide:title=Some More Examples}$
+${slide:title=Examples}$
 
 [[[
-(FileLocator workingDirectory filesMatching: '*.jpg')
+FileLocator workingDirectory
 ]]]
 
 [[[
-(ZnEasy getPng: 'http://pharo.org/web/files/pharo.png')
-      asMorph openInWindow
+ZnEasy getPng: 'http://pharo.org/web/files/pharo.png'
 ]]]
 
 [[[
-(ZnServer startDefaultOn: 8080)
-   onRequestRespond: [ :request |
-   ZnResponse ok: (ZnEntity with: DateAndTime now printString) ]
+ZnServer startDefaultOn: 8080
 ]]]
 
-${slide:title=Isn't it Simply Natural?}$
+${slide:title=Class Methods are Defined on Class Side}$
 
-- We just send messages to classes and they perform some actions
-- Most of the time they create instances
-
-${slide:title=Class Methods}$
-
-- Class methods are (same as for instance-based methods):
--- public
--- virtual / late-bound
--- return the receiver by default
-
-- They are just sent to classes
-
-${slide:title=Class Methods are Defined on Class Level}$
-
-Note the Class button pressed!
+Note the ==Class== button pressed!
 
 +>file://figures/ClassMethodDateToday.png|width=90+
-
-
-${slide:title=Class Methods are Defined on Class Level}$
-
-+>file://figures/ClassMethodCounter.png|width=90+
-
 
 ${slide:title=Common Mistake}$
 
 [[[
 Counter class >> withValue: anInteger
-  self new value: anInteger
+   self new
+      value: anInteger;
+      yourself
 ]]]
 
-==Counter withValue: 10== returns the class itself ==Counter==
+==Counter withValue: 10== returns the class ==Counter== instead of a new instance
 
 ${slide:title=Why?}$
 
-Since there is no explicit return, the method return the receiver
-
 [[[
-Counter class >> withValue: aString
-  self new name: aString
+Counter class >> withValue: anInteger
+   self new
+      value: anInteger;
+      yourself
 ]]]
 
-is equivalent to the next one
+is equivalent to
 
 [[[
 Counter class >> withValue: anInteger
-  self new value: anInteger
-  ^ self
+   self new
+      value: anInteger;
+      yourself.
+   ^ self
 ]]]
 
-==self== here is the class ==Counter== (yes the receiver of the message)
+==self== here is the class ==Counter== (the receiver of the message)
 
-${slide:title=Correct Way}$
-
-We should just return the instance we created
+${slide:title=Solution}$
 
 [[[
 Counter class >> withValue: anInteger
-  ^ self new value: anInteger
+   ^ self new
+      value: anInteger;
+      yourself
 ]]]
-
 
 ${slide:title=Summary}$
 
-- Class methods are methods defined on classes
-- No different than instance methods
-- We send a message to a class, the corresponding method is looked up and applied to the class
-- To define a class method with the browser you should edit the class side
+- Classes are objects
+- Messages can be sent to classes too
+- Class-side methods are no different from other methods
+- Most class-side methods create new instances
+- To define a class-side method, press the ==class== button
 
 % Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019-W3S06-BasicClassMethods.pillar"
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019-W3S06-BasicClassMethods.pillar"
 % End:
