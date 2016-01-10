@@ -44,7 +44,7 @@ ${slide:title=Pharo Object Model}$
 
 ${slide:title=Messages}$
 
-Computation between objects is done via message sends.
+Computation between objects is done via message sends
 
 Example of the cross product of two points:
 
@@ -54,7 +54,7 @@ Example of the cross product of two points:
 
 ${slide:title=Object Creation: Creating a Point}$
 
-A new object can be created by sending a message to another object.
+A new object can be created by sending a message to another object
 
 [[[
 10@20

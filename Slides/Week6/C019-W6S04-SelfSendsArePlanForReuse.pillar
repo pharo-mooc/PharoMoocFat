@@ -22,7 +22,7 @@ ${slide:title=Remember...}$
 - Class hierarchies define choices
 - ==self== always represents the receiver and method lookup starts in the class of the receiver
 
-+One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=110+
++One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=95+
 
 ${slide:title=The Pitch}$
 
@@ -31,7 +31,7 @@ ${slide:title=The Pitch}$
 
 ${slide:title=Gruyere-Oriented Programming}$
 
-+.>file://figures/gruyereWithSlogan|width=120+
++.>file://figures/gruyereWithSlogan|width=95+
 
 ${slide:title=A First Example}$
 

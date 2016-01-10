@@ -1,8 +1,73 @@
 {
-  "title":"TBD",
+  "title":"A Journey in Pharo: A Bright Future",
   "slidesid":"W7S08"
 }
 
-${slide:title=TDB}$
+${slide:title=Pharo}$
 
-TBD
+We hope that you liked your journey in Pharo
+- Small, elegant and uniform
+- Powerful and fun
+
+${slide:title=The Most Important Effort is Passed}$
+
+- Learned most of Pharo aspects for real developments
+-- Missing project configuration, integration builder, deploy scripts are described in books
+- You learned the core of Pharo 
+- Now you can learn any Pharo library
+
+
+${slide:title=Pharo is not Read-Only}$
+
+Pharo is ""not"" a black-box, it is an aquarium living objects and you can swim into it
+and be really productive
+
++.>file://figures/AmongFishes.jpg|width=80+
+
+${slide:title=Our Infrastructure Vision}$
+
+Pharo is a system to build and develop innovative solutions
+
++.>file://figures/Moteur.jpg|width=80+
+
+
+${slide:title=Business}$
+
+Pharo is a community of people building business
+- If you need help just ask!
+
+${slide:title=Pharo is Evolving}$
+
+- Pharo is at the beginning of its life
+- Infrastructure is continously improving (compiler, tools, core libraries)
+- Community is constantly growing
+
+
+${slide:title=Mid-Term Vision}$
+
+- Bootstrapped core to support from coffee machine to the cloud
+- Better integration with OSes and C
+- Pharo as a DLL
+- Better package systems
+- A module system
+- Scripting syntax
+- Better integration with versioning systems
+- Modular and validated distributions
+
+${slide:title=Pharo and its Projects}$
+
+- Pharo is built by up to 70 international contributors
+- The community is working on a multitude of different projects
+- You can join, help
+
++.>file://figures/F1Team.jpg|width=70+
+
+${slide:title=www.pharo.org}$
+
+- Pure & elegant 
+- Fun, simple 
+- Highly productive 
+- Excellent for teaching 
+- Empowering
+- Full access
+

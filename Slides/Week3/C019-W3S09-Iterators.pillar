@@ -108,7 +108,7 @@ ${slide:title=do: an Action on Each Clement}$
 
 Here we print each element and insert a carriage return
 
-+Results of do: >file://figures/Iterators-Transcript.png|width=80|label=Iterators-Transcript+
++Results of do: >file://figures/Iterators-Transcript2.png|width=40+
 
 
 ${slide:title=select: Elements Matching a Criteria}$

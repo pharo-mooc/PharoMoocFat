@@ -125,23 +125,30 @@ Integer>>factorial
   self error: 'Not valid for negative integers'
 ]]]
 
+[[[
+0 factorial
+>1
 
-${slide:title=Exercise}$
+42 factorial
+>1405006117752879898543142606244511569936384000000000
+]]]
+
+${slide:title=Defining a Block with 2 Arguments}$
+
+Example:
+[[[
+[ :x :y | x + y ]
+]]]
+== :x :y == are block arguments
 
 How to execute a block with two arguments?
 
 [[[
-[ :x :y | x + y ] ???  5  7
+[ :x :y | x + y ] ??? 5 7
 > 12
 ]]]
 
-${slide:title=A Block with 2 Arguments}$
-
-[[[
-[ :x :y | x + y ]
-]]]
-
-- == :x :y == are block arguments
+${slide:title=Executing Block with 2 Arguments}$
 
 [[[
 [ :x :y | x + y ] value: 5 value: 7
@@ -166,7 +173,7 @@ Collection>>affect: anObject when: aBoolean
 - ==| args | == defines a temporary variable named ==args==
 - ==args== exists only during block evaluation
 
-${slide:title=Summary}$
+${slide:title=Summary on Blocks}$
 
 [[[
 [ :variable1 :variable2 ... |

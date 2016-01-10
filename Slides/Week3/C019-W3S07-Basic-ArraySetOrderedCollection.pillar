@@ -117,10 +117,10 @@ ${slide:title=Iteration}$
 - But many iterators (see Iterators Lecture)
 [[[
 #('Calvin' 'hates' 'Suzie') 
-     do: [ :each | Transcript show: each ]
+     do: [ :each | Transcript show: each ; cr ]
 ]]]
 
-+>file://figures/doTranscript.png|width=110+
++>file://figures/doTranscript2.png|width=35+
 
 ${slide:title=Arrays}$
 
