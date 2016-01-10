@@ -12,11 +12,11 @@ Object subclass: #NameOfSubclass
     package: 'PackageName'
 ]]]
 
-${slide:title=Class Definition within the IDE}$
+${slide:title=Class Definition within the Pharo IDE}$
 
 +>file://figures/PointClass.png|width=98+
 
-${slide:title=Class Definition is Message :)}$
+${slide:title=Class Definition is a Message}$
 
 [[[
 Object subclass: #Point
@@ -25,18 +25,10 @@ Object subclass: #Point
   package: 'Graphics'
 ]]]
 
-We send a message ==subclass:inst....== to the superclass to create the class
-
-
-
+We send the message ==subclass:inst....== to the superclass to create the class
 
 ${slide:title=Method Definition}$
 
-- Methods are public
-- Methods are virtual (''i.e.,'' looked up at runtime)
-- By default return ==self==
-
-Template
 [[[
 messageSelectorAndArgumentNames
    "comment stating purpose of message"
@@ -45,8 +37,9 @@ messageSelectorAndArgumentNames
   statements
 ]]]
 
+A method is always public
 
-${slide:title=Within the Browser part of the Pharo IDE}$
+${slide:title=Method Definition within the Pharo IDE}$
 
 +>file://figures/FactorialInBrowser.png|width=98+
 
@@ -80,12 +73,12 @@ Integer >> factorial
 
 - ==factorial== is the method name
 - ==\===, ==>==, ==\*== and ==-== are binary messages
-- ==^== is for returning a value
+- The caret ==^== is for returning a value
 - ==factorial== is an unary message
-- ==ifTrue:== and ==error:== are keyword messages sent to a boolean expression
+- ==ifTrue:== and ==error:== are keyword messages
 
 
-${slide:title=Methods Return self by Default}$
+${slide:title=A Method Returns self by Default}$
 
 [[[
 Game >> initializePlayers
@@ -94,61 +87,34 @@ Game >> initializePlayers
     put: ( MITileAction director: self )
 ]]]
 
-is equivalent to 
+is equivalent to
 
 [[[
 Game >> initializePlayers
   self players
     at: 'tileAction'
-    put: ( MITileAction director: self )
+    put: ( MITileAction director: self ).
   ^ self       "<-- this is optional"
-]]]
-
-${slide:title=Last Expression Is a Return}$
-
-The last expression in a method is always a return
-
-- Either added by you
-[[[
-Integer >> squared
-  ^ self * self 
-]]]
-
-- or added by the compiler
-[[[
-Game >> initializePlayers
-  self players
-    at: 'tileAction'
-    put: ( MITileAction director: self )
-  ^ self       "<-- Added by the compiler"
 ]]]
 
 ${slide:title=Method Arguments are Read Only}$
 
-- Do not try to assign a value to a method argument
-- Arguments are read only!
+Do not try to assign a value to a method argument
 
 [[[
-MyClass >> setName: aString 
-  aString := aString, 'Device'.
+MyClass >> setName: aString
+  aString := aString, 'Device'.    "<-- error"
   ... aString ...
 ]]]
 
-should be turned into 
+should be turned into
 
 [[[
-MyClass >> setName: aString 
+MyClass >> setName: aString
   | string |
   string :=  aString, 'Device'.
   ... string ...
 ]]]
-
-${slide:title=Never overwrite methods starting with basic}$
-
-Methods whose name starts with =='basic'== are important for the system
-if you overwrite them wrongly, you can damage it
-
-
 
 ${slide:title=Class Methods}$
 
@@ -161,7 +127,7 @@ ${column:width=60}$
 ${column:width=40}$
 
 - press ==class side== to define a class method
-- in lectures, we add ==class==
+- in lectures, we add ==class==:
 
 ${endColumns}$
 
@@ -174,11 +140,12 @@ Point class >> x: xInteger y: yInteger
 
 ${slide:title=What You Should Know}$
 
+- A class is defined by sending a message to its superclass 
 - Classes are defined inside packages
-- Methods are public and virtual
-- By default a method returns the receiver
-- Class methods are just methods of the class
+- Methods are public
+- By default a method returns the receiver, ==self==
+- Class methods are just methods of the class side
 
 % Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week2/C019SD-W2S-ClassAndMethodDefinition.pillar"
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week1/C019-W1S06-ClassAndMethodDefinition.pillar"
 % End:
