@@ -76,6 +76,7 @@ html unorderedList
   <li class="item">Item 5</li>
 </ul>
 ]]]
+			
 
 ${slide:title=Twitter Bootstrap}$
 
@@ -151,6 +152,27 @@ WATwitterCounter >> renderContentOn: html
 ${slide:title=Implement a Counter using Twitter}$
 
 +>file://figures/SeasideCounterBootstrap.png|width=70+ 
+
+
+${slide:title=Apply Your Own CSS Rules}$
+
+[[[
+WATwitterCounter >> renderContentOn: html
+	html tbsContainer: [ 
+		html form: [ 
+			"..."
+			html space.
+			html tbsBadge
+					class: 'odd' if: self count odd;
+					with: self count ] ]
+
+WATwitterCounter >> style
+    ^ '.odd { color: red; }'
+]]]
+
+[[[
+<span class="badge odd">7</span>
+]]]
 
 ${slide:title=Stepping Back}$
 
