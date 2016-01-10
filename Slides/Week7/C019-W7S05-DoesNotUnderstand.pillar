@@ -17,10 +17,16 @@ ${slide:title=doesNotUnderstand: is a Message}$
 
 ${slide:title=Example 1: Delegation}$
 
+Redirect unknown messages to another object (a target)
+
+
+${slide:title=Example 1: Delegation}$
+
 [[[
 Object subclass: #Delegating
-	instanceVariableNames: 'target'
+   instanceVariableNames: 'target'
 ]]]
+
 
 [[[
 Delegating >> doesNotUnderstand: aMessage

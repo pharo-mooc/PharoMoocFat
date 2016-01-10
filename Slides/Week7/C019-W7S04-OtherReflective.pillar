@@ -19,7 +19,7 @@ ${slide:title=A Typical Scenario}$
 
 ${slide:title=Operations Supporting Interactive Coding}$
 
-- Dynamic class definition
+- Dynamic class (re)definition
 - Method recompilation
 - Transparent instance migration
 -- Collecting instances
