@@ -122,11 +122,11 @@ ${columns}$
 
 ${column:width=60}$
 
-+.>file://figures/classSideMethod.png|width=100+
++>file://figures/ClassMethodDateToday.png|width=90+
 
 ${column:width=40}$
 
-- press ==class side== to define a class method
+- press the button ==class== to define a class method
 - in lectures, we add ==class==:
 
 ${endColumns}$
