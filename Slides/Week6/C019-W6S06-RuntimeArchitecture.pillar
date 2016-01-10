@@ -40,7 +40,7 @@ ${column:width=60}$
 
 ${column:width=50}$
 
-+>file://figures/File-VirtualMachineAndImages.png|width=180+
++>file://figures/File-VirtualMachineAndImages.png|width=160+
 
 ${endColumns}$
 
@@ -60,7 +60,7 @@ ${slide:title=Image/Change Files}$
 - Image contains all the objects in binary form. Can be executed without the changes file
 - Changes file simply contains the textual representation of the changes made to the image
 
-+>file://figures/File-VirtualMachineAndImageChange.png|width=110+
++>file://figures/File-VirtualMachineAndImageChange.png|width=85+
 
 ${slide:title=Save your code using a package and version control system}$
 - Change and image are handy to develop

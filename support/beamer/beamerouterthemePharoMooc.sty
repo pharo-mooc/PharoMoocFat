@@ -47,35 +47,42 @@
   \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
   \end{minipage}%
   
-  \bigskip
+  
   \bigskip
   
   % \begin{center}
   \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par
 
-	% \medskip
-	% \pgfdeclarehorizontalshading{slideidshade}{1em}{%
-	% color(0cm)=(white);
-	% color(2cm)=(white!50!Pharo-blue);%
-	% color(6.5cm)=(white!50!Pharo-blue);%
-	% color(8.5cm)=(white)}%
-	%
-	% \pgfuseshading{slideidshade}%
-	%
-	% \vspace*{-1.1em}
-	%
-	% \hspace*{4cm}\scriptsize\color{white}{\@slidesid}
-	
+	% ====
 	\bigskip
-	\bigskip
-	
-	\footnotesize\usebeamercolor[fg]{subtitle}{\@slidesid}
+	\pgfdeclarehorizontalshading{slideidshade}{1em}{%
+	color(0cm)=(white);
+	color(2cm)=(white!50!Pharo-blue);%
+	color(6.5cm)=(white!50!Pharo-blue);%
+	color(8.5cm)=(white)}%
+
+	\pgfuseshading{slideidshade}%
+
+	\vspace*{-14px}
+
+	\hspace*{3.8cm}{\scriptsize\color{white}{\@slidesid}}
+	% ====	
+
+	% \bigskip
+	% \bigskip
+
+	\footnotesize
+	\usebeamercolor[fg]{subtitle}
+	% {\@slidesid}
 
 	\bigskip
 	\bigskip
-	\bigskip
 	
-	\hspace*{-0.2cm}\includegraphics[height=40px]{pharoLogo}\hspace{1em}\raisebox{11.5px}{\url{http://www.pharo.org}}
+	
+	\hspace*{-0.2cm}\includegraphics[height=40px]{pharoLogo}
+	
+	\vspace*{-8px}
+	\hspace*{-0.1cm}\url{http://www.pharo.org}
 	
 	
 	% \end{center}

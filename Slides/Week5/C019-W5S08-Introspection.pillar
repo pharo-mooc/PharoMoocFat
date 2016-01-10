@@ -30,7 +30,7 @@ ${slide:title=Inspector}$
 
 How does it access internal object state?
 
-+.>file://figures/InspectorCollection.png|width=100+
++.>file://figures/InspectorCollection.png|width=80+
 
 
 ${slide:title=State Introspection}$
@@ -120,7 +120,7 @@ Object >> perform: aSymbol with: arg
 ${slide:title=Classes Hold Compiled Methods}$
 
 
-+.>file://figures/ClassCompiledMethods.png|width=150+
++.>file://figures/ClassCompiledMethods.png|width=135+
 
 
 

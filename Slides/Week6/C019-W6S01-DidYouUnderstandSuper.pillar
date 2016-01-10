@@ -68,7 +68,7 @@ Dice class >> new
 
 ${slide:title=Sending a Message: Lookup \+ Apply on Receiver}$
 
-+>file://figures/InheritanceDiagram-sendingMessage.png|width=72+
++>file://figures/InheritanceDiagram-sendingMessage.png|width=64+
 
 ${slide:title=Remember: method lookup}$
 
