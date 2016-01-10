@@ -1,14 +1,12 @@
 {
 	"title":"Reflective Operations for Live Programming",
-	"slidesid":"W7S4"
+	"slidesid":"W7S04"
 }
 
-${slide:title=Under the Curtain}$
+${slide:title=Behind the Curtain}$
 
-- What is happening when we recompile a class
-- What are the reflective operations that take place
-- Looking at some of them
-
+- What is happening when we recompile a class?
+- What are the reflective operations that take place?
 
 ${slide:title=A Typical Scenario}$
 
@@ -40,13 +38,11 @@ Window allInstances first close
 
 ${slide:title=Getting All Pointers to an Object}$
 
-To get all the pointers to a given object :)
-
 [[[
 anObject pointersTo
 ]]]
 
-returns all the pointers pointing to ==anObject==
+returns all objects that store a reference to ==anObject==
 
 
 ${slide:title=Symmetric Pointer Swapping}$

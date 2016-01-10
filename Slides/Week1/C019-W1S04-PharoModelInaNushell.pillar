@@ -1,7 +1,7 @@
 {
     "title":"Pharo Object Model in a Nutshell",
     "subtitle":"Elegance and Simplicity",
-	 "slidesid":"W1S07"
+	 "slidesid":"W1S04"
 }
 
 ${slide:title=Only Objects, Messages, ...}$

@@ -5,7 +5,6 @@
 !!Simple points
 
 - sur la page de garde des slides beamer, passer l'URL de pharo sous le logo
-
 - renumeroter
 
 - faire un dessin pour Pharo Web Stack
@@ -17,6 +16,8 @@
 - Integrer les quizz et exos dans les Weeks
 
 - style sheet
+
+- [Lecture ] MOOC Conclusion in Week7
 
 
 !!Missing Lectures
@@ -182,32 +183,32 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: To be done
 -- Files: 
 
-- W2S07 [Lecture 6min] Blocks
+- W2S06 [Lecture 6min] Blocks
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S07-Blocks.pdf* *SlidesHandout>../Slides/Handout/C019-W2S07-Blocks.pdf* *SlidesHtml>../Slides/Week2/C019-W2S07-Blocks.html*
 
-- W2S09 [Lecture 6min] Loops
+- W2S07 [Lecture 6min] Loops
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S09-Loops.pdf* *SlidesHandout>../Slides/Handout/C019-W2S09-Loops.pdf* *SlidesHtml>../Slides/Week2/C019-W2S09-Loops.html*
 
-- W2S10 [Lecture 6min] Booleans and Conditions
+- W2S08 [Lecture 6min] Booleans and Conditions
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S10-BooleansAndCondition.pdf* *SlidesHandout>../Slides/Handout/C019-W2S10-BooleansAndCondition.pdf* *SlidesHtml>../Slides/Week2/C019-W2S10-BooleansAndCondition.html*
 
-- W2S11 [Lecture 6min] Parenthesis vs Square Brackets
+- W2S09 [Lecture 6min] Parenthesis vs Square Brackets
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHandout>../Slides/Handout/C019-W2S11-ParenthesisVsSquareBrackets.pdf* *SlidesHtml>../Slides/Week2/C019-W2S11-ParenthesisVsSquareBrackets.html*
 
-- W2S13 [Lecture 3min] Yourself
+- W2S10 [Lecture 3min] Yourself
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S13-Yourself.pdf* 
 
-- W2S14 [Lecture 6min] The Essence Of Dispatch through an Exercice
+- W2S11 [Lecture 6min] The Essence Of Dispatch through an Exercice
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S14-Design-EssenceOfDispatchExo.pdf* 
@@ -250,22 +251,22 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde 
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S02-Design-EssenceOfDispatch.pdf* *SlidesHTML>../Slides/Week3/C019-W3S02-Design-EssenceOfDispatch.html*
 
-- W3S04 [Lecture 6min] Variables
+- W3S03 [Lecture 6min] Variables
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde better to have it before Teapot
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S04-Basic-Variables.pdf* *SlidesHTML>../Slides/Week3/C019-W3S04-Basic-Variables.html*
 
-- W3S05 [Lecture 6min] C019-W3S05-TeapotAsAPretext.pillar
+- W3S04 [Lecture 6min] C019-W3S05-TeapotAsAPretext.pillar
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S05-TeapotAsAPretext.pdf* *SlidesHTML>../Slides/Week3/C019-W3S05-TeapotAsAPretext.html*
 
-- W3S07 [Live] Tools to find information: implementors, senders Shortcut		
+- W3S05 [Live] Tools to find information: implementors, senders Shortcut		
 -- Author: ?
 -- Status: TBD
 -- comment on peut lire un fichier png
 
-- W3S07 [Live] GTSpotter		
+- W3S05 [Live] GTSpotter		
 -- Author: ?
 -- Status: TBD
 -- method
@@ -273,30 +274,30 @@ You will also see that 4 kinds of activities are distinguished:
 -- examples
 -- scan all code About...
 
-- W3S08 [Lecture 6min] BasicClassMethods
+- W3S06 [Lecture 6min] BasicClassMethods
 -- Presenter: Damien
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S08-BasicClassMethods.pdf*	*SlidesHTML>../Slides/Week3/C019-W3S08-BasicClassMethods.html*	
 
-- W3S09 [Lecture 6min] Basic-ArraySetOrderedCollection
+- W3S07 [Lecture 6min] Basic-ArraySetOrderedCollection
 -- Presenter: Luc
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.html*
 
-- W3S06 [Live] GTInspector 	
+- W3S08 [Live] GTInspector 	
 -- Author: ?
 -- Status: TBD 3 videos
 
-- [Live] coder n'import ou 	
+- W3S08 [Live] coder n'import ou 	
 -- Author: ?
 -- Status: TBD
 
-- W3S10 [Lecture 6min] Iterators
+- W3S09 [Lecture 6min] Iterators
 -- Presenter: Luc
 -- Status: To Review
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S10-Iterators.pdf* *SlidesHTML>../Slides/Week3/C019-W3S10-Iterators.html*
 
-- W3S11 [Lecture 6min] Streams
+- W3S10 [Lecture 6min] Streams
 -- Presenter: Damien
 -- Status: Reviewed by presenter
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S11-Stream.pdf* *SlidesHTML>../Slides/Week4/Week3/C019-W3S11-Stream.html*		
@@ -371,7 +372,7 @@ You will also see that 4 kinds of activities are distinguished:
 - W4S08 [Lecture 6min] Seaside: Component
 -- Presenter: Luc
 -- Status: TBD
--- Files: *SlidesPdf>../Slides/Week4/W3S07-Seaside.pdf*	
+-- Files: *SlidesPdf>../Slides/Week4/W4S08-Seaside.pdf*	
 -- Seaside Component, renderContentOn:, back button
 
 - W4S08 [Live] Coding a counter, back button
@@ -381,18 +382,23 @@ You will also see that 4 kinds of activities are distinguished:
 
 - W4S09 [Lecture 6min] Seaside: Rendering Components
 -- Presenter: Luc
--- Status: TBD
--- Files: *SlidesPdf>../Slides/Week4/W3S09-SeasideDSL.pdf*	
+-- Status: Done
+-- Files: *SlidesPdf>../Slides/Week4/W4S09-SeasideDSL.pdf*	
 -- Seaside DSL, html, bootstrap
 -- renderer 
 
-	
-- W4S12 [Lecture] Voyage
+- W4S10 [Lecture] Magritte REST
 -- Presenter: Stephane
--- Status: TBD
+-- Files: *SlidesPdf>../Slides/Week4/C019-W4S10-Seaside-MagritteREST.pdf*	
+-- Status: Done
+
+- W4S11 [Lecture] Voyage
+-- Presenter: Stephane
+-- Files: *SlidesPdf>../Slides/Week4/C019-W4S11-Voyage.pdf*	
+-- Status: Done
 
 - [Live] Deploying an application 
--- Author:
+-- Author: 
 	
 !!!! Exos	
 - Find how to ...
@@ -415,25 +421,26 @@ You will also see that 4 kinds of activities are distinguished:
 -- Seaside Component, html, bootstrap
 -- call / answer
 	
-- W4S01 [Live] seaside counter/multi counter
+- W5S01 [Live] seaside counter/multi counter
 -- Author: Luc
 -- Status: TBD
 -- counter back button
 
-- W5S01 [Lecture 6min] C019-W5S00-UnderstandingClassMethods.pillar
+- W5S01 [Live] Picasa
+-- explaining one the fly code generation and coding in the debugger
+
+
+- W5S02 [Lecture 6min] UnderstandingClassMethods.pillar
 -- Presenter: Damien
 -- Status: Reviewed after Lome
 -- Files:  *SlidesPdf>../Slides/Week5/C019-W5S00-UnderstandingClassMethods.pdf*	*SlidesHTML>../Slides/Week5/C019-W5S00-UnderstandingClassMethods.html*	
 
-- W5S02 [Lecture 6min] W5S-LearningFromMistakes
+- W5S03 [Lecture 6min] LearningFromMistakes
 -- Presenter: Damien
 -- Status: Reviewed by presenter
 -- Files:  *SlidesPdf>../Slides/Week5/W5S01-LearningFromMistakes.pdf* *SlidesHTML>../Slides/Week5/W5S01-LearningFromMistakes.html*
 
-- W5S03 [Live] Picasa
--- explaining one the fly code generation and coding in the debugger
-
-- W5S04 [Lecture 6min] W5S-Exception.pillar
+- W5S04 [Lecture 6min] Exception.pillar
 -- Presenter: Stef
 -- Files: *SlidesPdf>../Slides/Week5/C019-W5S-Exceptions.pdf* *SlidesHTML>../Slides/Week5/C019-W5S-Exceptions.html*
 
@@ -442,11 +449,9 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed by presenter
 -- Files:  *SlidesPdf>../Slides/Week5/C019-W5S03-Debugger.pdf* *SlidesHTML>../Slides/Week5/C019-W5S03-Debugger.html* 
 
-- W5S06 [Live] Understand the debugger
+- W5S05 [Live] Understand the debugger
 
-- W5S06 [Live] Extending the GTinspector and spotter for the addressbook
-
-- W5Sxx [Lecture 6min] SUnit
+- W5S06 [Lecture 6min] SUnit
 -- Presenter: Luc 
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S12-SUnit.pdf* 
@@ -460,6 +465,8 @@ You will also see that 4 kinds of activities are distinguished:
 -- Presenter: Luc
 -- Status: Reviewed after Lome
 -- Files: *SlidesPdf>../Slides/Week5/C019-W5S06-Introspection.pdf* *SlidesHTML>../Slides/Week5/C019-W5S06-Introspection.html* 
+
+- W5S08 [Live] Extending the GTinspector and spotter for the addressbook
 
 - W5S09 [Lecture 6min] Benchmarking.pillar
 -- Presenter: Stef
@@ -489,37 +496,37 @@ You will also see that 4 kinds of activities are distinguished:
 - W6S02 [Lecture 6min] ImplementingIfTrue
 -- Presenter: Stef
 -- Status: Reviewed after Yaounde
--- Files: *SlidesPdf>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019-W3S03-Design-ImplementingIfTrue.html*
+-- Files: *SlidesPdf>../Slides/Week3/C019-W6S02-Design-ImplementingIfTrue.pdf* *SlidesHTML>../Slides/Week3/C019-W6S02-Design-ImplementingIfTrue.html*
 
-- W6S02 [Lecture 6min] C019-W6S02-SelfSendsDiceHandle
+- W6S03 [Lecture 6min] SelfSendsDiceHandle
 -- Presenter: Luc
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019-W6S02-SelfSendsDiceHandle.pdf* *SlidesHTML>../Slides/Week6/C019-W6S02-SelfSendsDiceHandle.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S03-SelfSendsDiceHandle.pdf* *SlidesHTML>../Slides/Week6/C019-W6S03-SelfSendsDiceHandle.html*
 
-- W6S03 [Lecture 6min] C019-W6S03-SelfSendsArePlanForReuse
+- W6S04 [Lecture 6min] SelfSendsArePlanForReuse
 -- Presenter: Damien
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019-W6S03-SelfSendsArePlanForReuse.pdf* *SlidesHTML>../Slides/Week6/C019-W6S03-SelfSendsArePlanForReuse.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S04-SelfSendsArePlanForReuse.pdf* *SlidesHTML>../Slides/Week6/C019-W6S04-SelfSendsArePlanForReuse.html*
 
-- W6S04 [Lecture 6min] Hook and Template / Copy as a hook and template
+- W6S05 [Lecture 6min] Hook and Template / Copy as a hook and template
 -- Presenter: Damien
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019-W6S-HookAndTemplate.pdf* *SlidesHTML>../Slides/Week6/C019-W6S-HookAndTemplate.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S05-HookAndTemplate.pdf* *SlidesHTML>../Slides/Week6/C019-W6S05-HookAndTemplate.html*
 
-- W6S05 [Lecture 6min] RuntimeArchitecture.pillar
+- W6S06 [Lecture 6min] RuntimeArchitecture.pillar
 -- Presenter: Stef
 -- Status: Reviewed 
--- Files: *SlidesPdf>../Slides/Week6/C019-W6S05-RuntimeArchitecture.pdf* *SlidesHTML>../Slides/Week6/C019-W6S05-RuntimeArchitecture.html*
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S06-RuntimeArchitecture.pdf* *SlidesHTML>../Slides/Week6/C019-W6S06-RuntimeArchitecture.html*
 
-- W6S06 [Lecture 6min]  CharacterStringSymbol
+- W6S07 [Lecture 6min]  CharacterStringSymbol
 -- Presenter: Luc
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/019-W6S06-CharacterStringSymbol.pdf* *SlidesHTML>../Slides/Week6/019-W6S06-CharacterStringSymbol.html* 
+-- Files: *SlidesPdf>../Slides/Week6/019-W6S07-CharacterStringSymbol.pdf* *SlidesHTML>../Slides/Week6/019-W6S07-CharacterStringSymbol.html* 
 
-- W6S07 [Lecture 6min]  DynamicVersusLiteralArray
+- W6S08 [Lecture 6min]  DynamicVersusLiteralArray
 -- Presenter: Luc
 -- Status: Reviewed
--- Files: *SlidesPdf>../Slides/Week6/C019-W6S07-DynamicVersusLiteralArray.pdf* *SlidesHTML>../Slides/Week6/C019-W6S07-DynamicVersusLiteralArray.html* 
+-- Files: *SlidesPdf>../Slides/Week6/C019-W6S08-DynamicVersusLiteralArray.pdf* *SlidesHTML>../Slides/Week6/C019-W6S08-DynamicVersusLiteralArray.html* 
 
 
 !!!! Exos	
@@ -533,44 +540,42 @@ You will also see that 4 kinds of activities are distinguished:
 
 % 7 Lectures
 
-- [Lecture ]  "Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pillar"
+- W7S01 [Lecture]  AdvancedPointOnClasses.pillar
 -- Presenter: Damien
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pdf* *SlidesHTML>../Slides/Week7/C019-W7S01-AdvancedPointOnClasses.html*	
 
-- [Lecture ]  "Slides/Week7/C019-W7S02-C019-W7S-VariableClasses.pillar"
+- W7S02 [Lecture]  VariableClasses.pillar
 -- Presenter: Stef
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S02-VariableClasses.pdf* *SlidesHTML>../Slides/Week7/C019-W7S02-VariableClasses.html*	
 
-- [Lecture ] "C019-W7S03-UnderstandingMetaclasses.pillar"
+- W7S03 [Lecture] UnderstandingMetaclasses.pillar
 -- Presenter: Damien
 -- Status: Reviewed 
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S03-UnderstandingMetaclasses.pdf* 	
 
-- [Lecture ] Reflection Other Reflectives
+- W7S04 [Lecture] Reflection Other Reflectives
 -- Presenter: Luc
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S04-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019-W7S04-thisContext.html*	
 
-
-- [Lecture ] DoesNotUnderstand
+- W7S05 [Lecture] DoesNotUnderstand
 -- Presenter: Luc
 -- Status: Reviewed
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S05-DoesNotUnderstand.pdf* *SlidesHTML>../Slides/Week7/C019-W7S05-DoesNotUnderstand.html*	
 
-- [Lecture ] Reflection thisContext
+- W7S06 [Lecture] Reflection thisContext
 -- Presenter: Stef
 -- Status: Reviewed 
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S-thisContext.pdf* *SlidesHTML>../Slides/Week7/C019-W7S-thisContext.html*	
 
-- [Lecture ] Avoid is nil
+- W7S07 [Lecture] Avoid is nil
 -- Presenter: Damien
 -- Status: Done (may be add a figure with the hierarchy and witohut null object?)
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S07-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019-W7S07-AvoidIsNill.html*	
 
-
-- [Lecture ] Conclusion
+- W7S08 [Lecture] Conclusion
 	
 		
 % ===============================================================================
