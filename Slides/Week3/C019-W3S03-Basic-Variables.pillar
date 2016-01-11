@@ -16,12 +16,12 @@ ${slide:title=Local Variables Start With Lowercase}$
 Example: ==c==
 
 [[[
-testIncrement
+CounterTest >> testIncrement
    | c |
    c := Counter new.
    ...
 ]]]
-- Remember class names start with uppercase
+Remember: class names start with uppercase
 
 
 ${slide:title=Local Variables Start With Lowercase}$
@@ -75,25 +75,29 @@ ${slide:title=Special Variables}$
 
 ${slide:title=Special Variables}$
 
-- ==self==: the receiver of the message (==this== in Java)
-- ==super==: refers to the receiver but looks method in the superclass of the class defining the method (see dedicated Lectures)
+- ==self== refers to the receiver of the message (==this== in Java)
+- ==super== refers to the receiver but the method lookup starts in the superclass of the class defining the method (see dedicated Lectures)
 - ==thisContext== refers to the current execution stack (advanced)
+
 
 ${slide:title=Shared or Global Variable starts with Uppercase}$
 
-==Transcript== is an object that is globally accessible (a kind of stdout)
-
-[[[
-Transcript cr.
-Transcript show: 'hello world.
-Transcript cr.
-]]]
 
 ==Object== is a class globally accessible
 
 [[[
 Object subclass: #Point
 ]]]
+
+==Transcript== is an object that is globally accessible (a kind of stdout)
+
+[[[
+Transcript cr.
+Transcript show: 'hello world'.
+Transcript cr.
+]]]
+
+
 
 
 ${slide:title=ClassVariables are Shared Variables}$
