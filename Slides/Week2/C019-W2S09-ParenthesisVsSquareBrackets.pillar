@@ -11,8 +11,9 @@ ${slide:title= ( ) vs. [ ]}$
 
 ${slide:title= Use [ ] for 'Unknown' Execution Occurrence}$
 
-- Use ==[ ]== when you do not know if your program will be executed
-- When the message can change the execution of your program (if, while, ...) use a block
+Use ==[ expressions ]== when:
+- ==expressions== may not be executed at all (if, and, ...)
+- ==expressions== may be executed multiple times (while, ...)
 
 ${slide:title=Example}$
 
