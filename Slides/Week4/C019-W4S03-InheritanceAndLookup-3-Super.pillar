@@ -7,16 +7,16 @@
 ${slide:title=Goal}$
 
 - Sending a message
-- Dynamic binding/method lookup
+- Method lookup
 - ==super== semantics and the differences with ==self==
 
 ${slide:title=What is super?}$
 
-Take 5 min and write the definition of super
+Take 5 min and write the definition of ==super==
 
-- Your definition should have two points:
--- What does it represent?
--- How is a method looked up when a message is sent to ==super==?
+- your definition should have two points:
+-- what does ==super== represent?
+-- how is a method looked up when a message is sent to ==super==?
 
 ${slide:title=Challenge Yourself With super!}$
 
@@ -86,7 +86,7 @@ ${endColumns}$
 ${slide:title=super Changes Where the Lookup Starts}$
 
 -==super== refers to the receiver of the message (just like ==self==)
--The method lookup starts in the superclass of ""the class containing the super expression""
+-The method lookup starts in the superclass of ""the class containing the ==super== expression""
 
 ${slide:title=self is Dynamic}$
 
@@ -124,15 +124,15 @@ ${slide:title=Even Some Books Got it Wrong}$
 
 +>file://figures/LookupWithWrongDefinition.png|width=65+
 
-In reality it ""does not"" loop, the definition is wrong.
+In reality it ""does not"" loop, the definition is wrong
 
 ${slide:title=What You Should Know}$
 
-- ==self== ''always'' represents the receiver
-- ==super== ''always'' represents the receiver
-- ==super== changes lookup:
+- ==self== always represents the receiver
+- ==super== always represents the receiver
+- ==super== changes the lookup:
 -- a super send starts the lookup in the class above it
-- self sends act as a hook. Code of subclasses may be invoked.
+- self sends act as a hook: code of subclasses may be invoked
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S03-InheritanceAndLookup-3-Super.pillar"
