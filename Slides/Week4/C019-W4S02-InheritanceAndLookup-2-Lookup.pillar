@@ -104,9 +104,9 @@ ${slide:title=What is self/this?}$
 
 Take 5 min and write the definition of ==self== (==this== in Java).
 
-- Your definition should have two points:
--- What does ==self== represent?
--- How is a method looked up when a message is sent to ==self==?
+- your definition should have two points:
+-- what does ==self== represent?
+-- how is a method looked up when a message is sent to ==self==?
 
 ${slide:title=self/this}$
 
