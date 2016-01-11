@@ -208,10 +208,10 @@ ${endColumns}$
 ${slide:title=What You Should Know}$
 
 
--==self== ""always"" represents the receiver
+-==self== always represents the receiver
 - Sending a message is a two-step process:
 -# Look up the method matching the message
--# Execute this method on the ""receiver""
+-# Execute this method on the receiver
 - Method lookup maps a message to a method
 - Method lookup starts in the class of the receiver
 -- ...and goes up in the hierarchy
