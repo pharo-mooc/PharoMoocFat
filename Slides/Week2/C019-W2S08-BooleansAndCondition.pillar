@@ -26,10 +26,14 @@ ${slide:title=Eager and Lazy Logical Operators}$
 
 [[[
    false and: [ 1 error: 'crazy' ]
-   -> false and not an error 
+   -> false "no error!"
 ]]]
 
 - the argument ==[1 error: 'crazy']== is not executed because it is not necessary
+
+${slide:title=Conditionals}$
+
+In Pharo, traditional conditional (if, else, while) are messages sent to boolean or block objects
 
 ${slide:title=Yes ifTrue\:ifFalse\: is a message!}$
 
@@ -51,9 +55,6 @@ ${slide:title=Boolean Implementation}$
 
 More details in a future lecture (The Essence of Dispatch)
 
-${slide:title=Conditionals}$
-
-In Pharo, traditional conditional (if, else, while) are messages sent to boolean or block objects
 
 ${slide:title=Conditionals: ifTrue: and ifTrue:ifFalse:}$
 
