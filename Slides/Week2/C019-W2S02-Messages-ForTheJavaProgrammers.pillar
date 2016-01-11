@@ -18,9 +18,10 @@ In Java
 
 In Pharo
 [[[
-strings := ArrayList new.
+strings := OrderedCollection new.
 ]]]
 
+- 1 assignment, 1 message sent
 - ==new== is a message sent to a class
 - no static typing
 - no generics
@@ -48,7 +49,7 @@ ${slide:title=Equivalence}$
 
 In Java 8
 [[[language=java
-new Thread(() -> doSomething()).start();
+new Thread(() -> this.doSomething()).start();
 ]]]
 
 In Pharo
@@ -77,7 +78,7 @@ Transcript show: 'hello world'
 2 between: 0 and: 5
 ]]]
 
-${slide:title=Keyword Messages}$
+${slide:title=Keyword Messages for Java developers}$
 
 In Java
 [[[language=java
@@ -151,8 +152,9 @@ In Pharo
 
 ${slide:title=Conditionals are Just Messages}$
 
+- in Java, ==if==, ==else==, ==for==, ==while==, ==do==, ... are language keywords
+- in Pharo, conditional expressions are messages
 - booleans are objects
-- conditional expressions are messages sent to booleans or blocks
 
 [[[
 fullName isEmpty
@@ -160,7 +162,7 @@ fullName isEmpty
    ifFalse: [ fullName ]
 ]]]
 
-${slide:title=Loops: Messages Sent to Objects}$
+${slide:title=Loops are Just Messages}$
 
 [[[
 4 timesRepeat: [ self doSomething ]
