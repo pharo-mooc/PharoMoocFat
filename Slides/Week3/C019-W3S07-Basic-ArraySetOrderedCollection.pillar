@@ -63,14 +63,15 @@ Array new: 2
 ${slide:title=With Specific Elements}$
 
 [[[  
-OrderedCollection withAll: #(7 3 13)
-> an OrderedCollection(7 3 13)
+OrderedCollection withAll: #(7 7 3 13)
+> an OrderedCollection(7 7 3 13)
 ]]]
 
 [[[  
-Set withAll: #(7 3 13)
+Set withAll: #(7 7 3 13)
 > a Set( 7 3 13)
 ]]]
+Remember: no duplicate in Sets
 
 ${slide:title=Creation  with Default Value}$
 
@@ -104,9 +105,10 @@ Collections can contain any sort of objects
 | s |
 s := Set new. 
 s add: Set new; 
-  add: 1;
-  add: 2.
+    add: 1;
+    add: 2.
 s asArray 
+> an Array(1 2 a Set())
 ]]]
 - A set containing an empty set and some numbers
 
@@ -148,7 +150,7 @@ is equivalent to
 
 ${slide:title=Accessing Elements}$
 
-Size
+Getting the size of a collection
 [[[
 #('Calvin' 'hates' 'Suzie') size
 > 3
@@ -382,4 +384,4 @@ ${slide:title=Summary}$
 - Easy to use collections
 - Common vocabulary
 - Simple conversion between them
-
+- Easy to discover!

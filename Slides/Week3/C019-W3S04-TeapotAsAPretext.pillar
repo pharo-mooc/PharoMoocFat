@@ -1,5 +1,5 @@
 {
-  "title":"A Simple HTTP Server",
+  "title":"A Simple HTTP Application",
   "subtitle":"As a pretext to revisit Pharo Syntax",
   "slidesid" : "W3S04"
 }
@@ -62,14 +62,6 @@ ${slide:title=Configuring a Server}$
 [[[
   | books teapot |
   books := Dictionary new.
-  teapot := Teapot configure: { #defaultOutput -> #json.   #port -> 8181 . #debugMode -> true}.
-]]]
-
-${slide:title=Configuring a Server}$
-
-[[[
-  | books teapot |
-  books := Dictionary new.
   teapot := Teapot configure: {  #defaultOutput -> #json.   #port -> 8181 . #debugMode -> true }.
 ]]]
 - ==| |== delimits local variable definition
@@ -100,7 +92,11 @@ teapot
 
 ${slide:title=More About Syntax}$
 
-[[[language=smalltalk
+
+Processing URIs such as:
+==http://localhost:8181/books/1==
+
+[[[
 teapot 
  GET: '/books/<id:IsInteger>'
    -> [ :request | books at: (request at: #id) asString];
@@ -110,8 +106,6 @@ teapot
 - acts as an anonymous method
 -- ==:request== is an argument
 -- ==at:== is a message accepting one argument
-
-
 
 ${slide:title=Conclusion}$
 
