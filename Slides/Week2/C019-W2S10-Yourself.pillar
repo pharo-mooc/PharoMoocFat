@@ -56,25 +56,27 @@ Set new
 ]]]
 
 - ==add:== and ==yourself== are sent to the new ==Set==
-- The cascade (;) returns the returned value of ==yourself==, hence the receiver
+- the cascade (;) returns the returned value of ==yourself==
 
 
 ${slide:title=Another Idiom}$
 
 [[[
-MyClass class >> new
+Set >> with: anObject
+   "Answer an instance of me containing anObject."
    | instance |
-   instance := super new.
-   instance doSomething.
+   instance := self new.
+   instance add: anObject.
    ^ instance
 ]]]
 
 is equivalent to
 
 [[[
-MyClass class >> new
-   ^ super new
-      doSomething;
+Set >> with: anObject
+   "Answer an instance of me containing anObject."
+   ^ self new
+      add: anObject;
       yourself
 ]]]
 
