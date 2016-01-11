@@ -103,27 +103,6 @@ add2 value: 33
 > 35
 ]]]
 
-${slide:title=Returning from a Block Returns from the Method}$
-
-When a return ==^== is executed in a block, computation exits the method defining the block
-
-[[[
-Integer>>factorial
-  "Answer the factorial of the receiver."
-  
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
-]]]
-
-[[[
-0 factorial
->1
-
-42 factorial
->1405006117752879898543142606244511569936384000000000
-]]]
-
 ${slide:title=Defining a Block with 2 Arguments}$
 
 Example:
@@ -139,7 +118,7 @@ How to execute a block with two arguments?
 > 12
 ]]]
 
-${slide:title=Executing Block with 2 Arguments}$
+${slide:title=Executing a Block with 2 Arguments}$
 
 [[[
 [ :x :y | x + y ] value: 5 value: 7
@@ -163,6 +142,27 @@ Collection>>affect: anObject when: aBoolean
 
 - ==| args | == defines a temporary variable named ==args==
 - ==args== exists only during block evaluation
+
+${slide:title=Returning from a Block Returns from the Method}$
+
+When a return ==^== is executed in a block, computation exits the method defining the block
+
+[[[
+Integer>>factorial
+  "Answer the factorial of the receiver."
+  
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
+]]]
+
+[[[
+0 factorial
+>1
+
+42 factorial
+>1405006117752879898543142606244511569936384000000000
+]]]
 
 ${slide:title=A Design Advice}$
 
