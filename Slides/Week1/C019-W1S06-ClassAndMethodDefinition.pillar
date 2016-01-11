@@ -3,16 +3,12 @@
 	 "slidesid":"W1S06"
 }
 
-${slide:title=Class Definition}$
+${slide:title=Class and Method Definitions in Pharo}$
 
-[[[
-Object subclass: #NameOfSubclass
-    instanceVariableNames: ''
-    classVariableNames: ''
-    package: 'PackageName'
-]]]
+- classes and methods are defined within tools
+- there is no dedicated syntax
 
-${slide:title=Class Definition within the Pharo IDE}$
+${slide:title=Class Definition in Pharo}$
 
 +>file://figures/PointClass.png|width=98+
 
@@ -27,25 +23,25 @@ Object subclass: #Point
 
 We send the message ==subclass:inst....== to the superclass to create the class
 
-${slide:title=Method Definition}$
-
-[[[
-messageSelectorAndArgumentNames
-   "comment stating purpose of message"
-
-  | temporary variable names |
-  statements
-]]]
-
-A method is always public
-
-${slide:title=Method Definition within the Pharo IDE}$
+${slide:title=Method Definition in Pharo}$
 
 +>file://figures/FactorialInBrowser.png|width=98+
 
+${slide:title=Method Definition in Pharo}$
+
+[[[
+factorial
+  "Answer the factorial of the receiver."
+  self = 0 ifTrue: [ ^ 1 ].
+  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+  self error: 'Not valid for negative integers'
+]]]
+
+In which class is ==factorial== defined?
+
 ${slide:title=Presentation Convention}$
 
-In this lecture, a method will be displayed as 
+In this lecture, a method will be displayed as
 
 [[[
 Integer >> factorial
@@ -58,7 +54,11 @@ Integer >> factorial
 - ""Integer >>"" is not part of the syntax
 -- it tells you the method's class
 
+${slide:title=Presentation Convention}$
 
++>file://figures/FactorialInBrowser.png|width=80+
+
+In Pharo, the method belongs to the selected class
 
 ${slide:title=Remember Messages}$
 
@@ -73,9 +73,9 @@ Integer >> factorial
 
 - ==factorial== is the method name
 - ==\===, ==>==, ==\*== and ==-== are binary messages
-- The caret ==^== is for returning a value
 - ==factorial== is an unary message
 - ==ifTrue:== and ==error:== are keyword messages
+- the caret ==^== is for returning a value
 
 
 ${slide:title=A Method Returns self by Default}$
@@ -94,26 +94,7 @@ Game >> initializePlayers
   self players
     at: 'tileAction'
     put: ( MITileAction director: self ).
-  ^ self       "<-- this is optional"
-]]]
-
-${slide:title=Method Arguments are Read Only}$
-
-Do not try to assign a value to a method argument
-
-[[[
-MyClass >> setName: aString
-  aString := aString, 'Device'.    "<-- error"
-  ... aString ...
-]]]
-
-should be turned into
-
-[[[
-MyClass >> setName: aString
-  | string |
-  string :=  aString, 'Device'.
-  ... string ...
+  ^ self       "<-- optional"
 ]]]
 
 ${slide:title=Class Methods}$
@@ -122,12 +103,12 @@ ${columns}$
 
 ${column:width=60}$
 
-+>file://figures/ClassMethodDateToday.png|width=90+
++>file://figures/Point-xy-class-method.png|width=90+
 
 ${column:width=40}$
 
 - press the button ==class== to define a class method
-- in lectures, we add ==class==:
+- in lectures, we add ==class==
 
 ${endColumns}$
 
