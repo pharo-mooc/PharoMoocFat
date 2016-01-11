@@ -6,7 +6,7 @@
 ${slide:title=Class Methods}$
 
 # in Pharo, everything is an object
-# objects are sent messages
+# objects can receive messages
 # classes are objects too
 
 Classes can receive messages
