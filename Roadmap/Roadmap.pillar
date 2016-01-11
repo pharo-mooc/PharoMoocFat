@@ -96,7 +96,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files:  
 
 - W1S05 [Live 3min] Looking at how to select code (line start line end-beginning of bloc) + printing/doit
--- Author: Stephane
+-- Author: Stef
 -- Status: 
 -- Files:  
 
@@ -106,13 +106,13 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S-ClassAndMethodDefinition.pdf* *SlidesHTML>../Slides/Week2/C019-W2S-ClassAndMethodDefinition.html*
 
 - W1S06 [Redo 6min] Coding a Counter
--- Author: Stephane
+-- Author: Stef
 -- Status: To be done
 -- Files: 
 -- Saving the Image only
 
 - W1S06 [Redo 6min] Coding a Counter: the Pharo Way
--- Author: Stephane
+-- Author: Stef
 -- Status: To be done
 -- Files:
 
@@ -183,7 +183,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - W2S10 [Lecture 3min] Yourself
 -- Presenter: Damien
--- Status: Reviewed by reviewer
+-- Status: Reviewed by presenter
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S13-Yourself.pdf* 
 
 - W2S11 [Lecture 6min] The Essence Of Dispatch through an Exercice
@@ -366,12 +366,12 @@ You will also see that 4 kinds of activities are distinguished:
 -- renderer 
 
 - W4S10 [Lecture] Magritte REST
--- Presenter: Stephane
+-- Presenter: Stef
 -- Files: *SlidesPdf>../Slides/Week4/C019-W4S10-Seaside-MagritteREST.pdf*	
 -- Status: Done
 
 - W4S11 [Lecture] Voyage
--- Presenter: Stephane
+-- Presenter: Stef
 -- Files: *SlidesPdf>../Slides/Week4/C019-W4S11-Voyage.pdf*	
 -- Status: Done
 
@@ -554,7 +554,7 @@ You will also see that 4 kinds of activities are distinguished:
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S07-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019-W7S07-AvoidIsNill.html*	
 
 - W7S08 [Lecture] Conclusion
-	
+-- Presenter: Stef
 		
 % ===============================================================================
 	
