@@ -12,8 +12,8 @@ ${slide:title=Pharo code is Compact!}$
 
 [[[language=Java
 ArrayList<String> strings = new ArrayList<String>();
-  for(Person person: persons)
-          strings.add(person.name());
+for(Person person: persons)
+    strings.add(person.name());
 ]]]
 is expressed as
 [[[
@@ -36,13 +36,14 @@ ${slide:title=A First Iterator - collect:}$
   > #(2 3 4 35 4)
 ]]]
 
-- ==collect:== sends the message ==abs== (absolute) to each element of the receiver 
-- and returns the resulting collection.
-- [Think object] We ask the collection to do something for us.
+- ==collect:== evaluates the block for each element (using ==value:==)
+- In the block, each element is sent ==abs== (absolute)  
+- ==collect:== returns a new collection (of the same kind of the receiver) with all results
+- [Think object] We ask the collection to do something for us
 
 ${slide:title=Another collect: Example}$
 
-We want to know if each elements is odd or even.
+We want to know if each elements is odd or even
 
 [[[
 #(16 11 68 19) collect: [ :i | i odd ]
@@ -73,9 +74,10 @@ result := aCol species new: aCol size.
 ${slide:title=Part of the Collection Hierarchy}$
 
 Iterators work polymorphically on the entire collection hierarchy.
+Below a part of the Collection hierarchy.
+
 
 +Part of the Collection hierarchy.>file://figures/CollectionHierarchy.png|width=100+
-Part of the Collection hierarchy.
 
 
 ${slide:title=Think objects!}$
@@ -172,32 +174,6 @@ ${slide:title=Some Powerful Iterators}$
 - ==pairsDo:== (evaluate aBlock with my elements taken two at a time.)
 - ==permutationsDo:== ...
 
-${slide:title=Some Cool Iterators}$
-
- How to produce?
-[[[
-    #('a' 'b' 'c') message
-    > 'a, b, c'
-
-    #('a') message
-    > 'a'
-	
-    #() message
-    > ''
-]]]
-
-${slide:title=Use do:separatedBy:}$
-
-
-[[[
-  String streamContents: [ :s |
-            #('a' 'b' 'c')
-                do: [ :each | s << each ]
-                separatedBy: [ s << ', ' ]
-            ]
-]]]
-
-
 ${slide:title=Iterating Two Structures}$
 
 To iterate ==with:do:==
@@ -209,15 +185,26 @@ To iterate ==with:do:==
 
 +Results of with:do: >file://figures/Iterator-WithDo-Transcript.png|width=70|label=Iterator-WithDo-Transcript+
 
-- ==with:do:== requires two structures of the same length.
+==with:do:== requires two structures of the same length
+
+${slide:title=Use do:separatedBy:}$
+
+[[[
+String streamContents: [ :s |
+    #('a' 'b' 'c')
+        do: [ :each | s << each ]
+        separatedBy: [ s << ', ' ]
+]
+> 'a, b, c'
+]]]
 
 ${slide:title=Grouping Elements}$
 
 To group elements according to a grouping function: ==groupedBy:==
 
 [[[
-  #(1 2 3 4 5 6 7 ) groupedBy: #even
-  > a PluggableDictionary(false->#(1 3 5 7) true->#(2 4 6) )
+#(1 2 3 4 5 6 7) groupedBy: #even
+> a PluggableDictionary(false->#(1 3 5 7) true->#(2 4 6) )
 ]]]
 
 
@@ -226,13 +213,13 @@ ${slide:title=Flattening Results}$
 How to remove one level of nesting in a collection? Use ==flatCollect:==
 
 [[[
-  #( #(1 2) #(3) #(4) #(5 6))) collect: [ :each | each ]
-  > #(#(1 2) #(3) #(4) #(5 6)))
+#( #(1 2) #(3) #(4) #(5 6)) collect: [ :each | each ]
+> #(#(1 2) #(3) #(4) #(5 6)))
 ]]]
 
 [[[
-  #( #(1 2) #(3) #(4) #(5 6))) flatCollect: [ :each | each ]
-  > #(1 2 3 4 5 6 ))
+#( #(1 2) #(3) #(4) #(5 6)) flatCollect: [ :each | each ]
+> #(1 2 3 4 5 6 )
 ]]]
 
 ${slide:title=Opening The Box}$
