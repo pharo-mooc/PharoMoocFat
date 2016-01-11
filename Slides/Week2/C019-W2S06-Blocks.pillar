@@ -103,15 +103,6 @@ add2 value: 33
 > 35
 ]]]
 
-
-${slide:title=A Design Advice}$
-
-- Use blocks with 2 or 3 arguments maximum
-- Define a class instead of a block for more arguments
-- A block encapsulates only 1 computation
--- it cannot define more facets (e.g., printing)
-
-
 ${slide:title=Returning from a Block Returns from the Method}$
 
 When a return ==^== is executed in a block, computation exits the method defining the block
@@ -172,6 +163,13 @@ Collection>>affect: anObject when: aBoolean
 
 - ==| args | == defines a temporary variable named ==args==
 - ==args== exists only during block evaluation
+
+${slide:title=A Design Advice}$
+
+- Use blocks with 2 or 3 arguments maximum
+- Define a class instead of a block for more arguments
+- A block encapsulates only 1 computation
+-- it cannot define more facets (e.g., printing)
 
 ${slide:title=Summary on Blocks}$
 
