@@ -10,14 +10,14 @@ ${slide:title=Remember}$
 
 [[[
 WACounter >> renderContentOn: html
-	html heading: count.
-	html anchor
-		callback: [ self increase ];
-		with: '++'.
-	html space.
-	html anchor
-		callback: [ self decrease ];
-		with: '--'
+    html heading: count.
+    html anchor
+        callback: [ self increase ];
+        with: '++'.
+    html space.
+    html anchor
+        callback: [ self decrease ];
+        with: '--'
 ]]]
 
 
@@ -43,40 +43,67 @@ ${slide:title=Generating a List}$
 
 [[[
 html div id: 'list'; 
-	with: [ 
-		html span class: 'item'; with: 'Item 1'.
-		html span class: 'item'; with: 'Item 2' ]
+    with: [ 
+        html span class: 'item'; with: 'Item 1'.
+        html span class: 'item'; with: 'Item 2' ]
 ]]]
+
 
 [[[
 <div id="list">
-	<span class="item">Item 1</span>
-	<span class="item">Item 2</span>
+    <span class="item">Item 1</span>
+    <span class="item">Item 2</span>
 </div>
 ]]]
 
-${slide:title=Generating a List}$
+
+${slide:title=Generating a List with a Loop}$
 
 [[[
 html unorderedList 
-	id: 'list'; 
-	with: [
-		1 to: 5 do: [ :i |
-			html listItem 
-				class: 'item'; 
-				with: 'Item ', i asString ]]
+    id: 'list'; 
+    with: [
+        1 to: 5 do: [ :i |
+            html listItem 
+                class: 'item'; 
+                with: 'Item ', i asString ]]
 ]]]
 
 [[[
 <ul id="list">
-  <li class="item">Item 1</li>
-  <li class="item">Item 2</li>
-  <li class="item">Item 3</li>
-  <li class="item">Item 4</li>
-  <li class="item">Item 5</li>
+    <li class="item">Item 1</li>
+    <li class="item">Item 2</li>
+    <li class="item">Item 3</li>
+    <li class="item">Item 4</li>
+    <li class="item">Item 5</li>
+</ul>
+]]]
+
+
+${slide:title=Generating a List with a Loop}$
+
+[[[
+html unorderedList 
+    id: 'list'; 
+    with: [
+        1 to: 5 do: [ :i |
+            html listItem 
+                class: 'itemodd' if: i odd; 
+                class: 'itemeven' if: i even; 
+                with: 'Item ', i asString ]]
+]]]
+
+[[[
+<ul id="list">
+    <li class="itemodd" >Item 1</li>
+     <li class="itemeven">Item 2</li>
+     <li class="itemodd" >Item 3</li>
+     <li class="itemeven">Item 4</li>
+     <li class="itemodd" >Item 5</li>
 </ul>
 ]]]
 			
+	
 
 ${slide:title=Twitter Bootstrap}$
 
@@ -90,11 +117,11 @@ ${slide:title=Rendering Twitter Alerts}$
 
 [[[
 renderExampleOn: html
-	html heading level: 2; with: 'Examples'.					
-	html tbsAlert beSuccess;
-		with: [ html strong: 'Well done!'. html text: ' You successfully read this important alert message.' ].
-	html tbsAlert beInfo;
-		with: [ html strong: 'Heads up!'. html text: ' This alert needs your attention, but it''s not super important.' ].
+    html heading level: 2; with: 'Examples'.					
+    html tbsAlert beSuccess;
+        with: [ html strong: 'Well done!'. html text: ' You successfully read this important alert message.' ].
+    html tbsAlert beInfo;
+        with: [ html strong: 'Heads up!'. html text: ' This alert needs your attention, but it''s not super important.' ].
 ]]]
 
 ${slide:title=Rendering Twitter Buttons}$
@@ -103,10 +130,10 @@ ${slide:title=Rendering Twitter Buttons}$
 
 [[[
 renderExampleOn: html
-	html tbsButtonGroup: [ 
-		html tbsButton beDefault; with: 'Left'.
-		html tbsButton beDefault; with: 'Middle'.
-		html tbsButton beDefault; with: 'Right' ].
+    html tbsButtonGroup: [ 
+        html tbsButton beDefault; with: 'Left'.
+        html tbsButton beDefault; with: 'Middle'.
+        html tbsButton beDefault; with: 'Right' ].
 ]]]
 
 ${slide:title=Implement a Counter using Twitter Bootstrap}$
@@ -115,21 +142,21 @@ ${slide:title=Implement a Counter using Twitter Bootstrap}$
 
 [[[
 WACounter subclass: #WATwitterCounter
-	instanceVariableNames: ''
-	classVariableNames: ''
-	package: 'Seaside-Examples-Misc'
+    instanceVariableNames: ''
+    classVariableNames: ''
+    package: 'Seaside-Examples-Misc'
 ]]]
 
 - Use JQuery and Bootstrap libraries
 
 [[[
 WATwitterCounter class >> initialize
-	"self initialize"
-	| app |
-	app := WAAdmin register: self asApplicationAt: 'twittercounter'.
-	app 
-		addLibrary: JQDeploymentLibrary;
-		addLibrary: TBSDevelopmentLibrary
+    "self initialize"
+    | app |
+    app := WAAdmin register: self asApplicationAt: 'twittercounter'.
+    app 
+        addLibrary: JQDeploymentLibrary;
+        addLibrary: TBSDevelopmentLibrary
 ]]]
 
 ${slide:title=Implement a Counter using Twitter Bootstrap}$
@@ -137,16 +164,16 @@ ${slide:title=Implement a Counter using Twitter Bootstrap}$
 - Redefine ==renderContentOn:==
 [[[
 WATwitterCounter >> renderContentOn: html
-	html tbsContainer: [ 
-		html form: [ 
-			html tbsButtonGroup beSmall; with: [ 	
-				html tbsButton beDefault; 
-					callback: [ self increase ]; with: '+'.
-				html tbsButton beDefault; 
-					callback: [ self decrease ]; with: '-' ].
-			html 
-				space; 
-				tbsBadge: self count ] ]
+    html tbsContainer: [ 
+        html form: [ 
+            html tbsButtonGroup beSmall; with: [ 	
+                html tbsButton beDefault; 
+                    callback: [ self increase ]; with: '+'.
+                html tbsButton beDefault; 
+                    callback: [ self decrease ]; with: '-' ].
+            html 
+                space; 
+                tbsBadge: self count ] ]
 ]]]
 
 ${slide:title=Implement a Counter using Twitter}$
@@ -158,13 +185,13 @@ ${slide:title=Apply Your Own CSS Rules}$
 
 [[[
 WATwitterCounter >> renderContentOn: html
-	html tbsContainer: [ 
-		html form: [ 
-			"..."
-			html space.
-			html tbsBadge
-					class: 'odd' if: self count odd;
-					with: self count ] ]
+    html tbsContainer: [ 
+         html form: [ 
+             "..."
+             html space.
+             html tbsBadge
+                 class: 'odd' if: self count odd;
+                 with: self count ] ]
 
 WATwitterCounter >> style
     ^ '.odd { color: red; }'
@@ -174,21 +201,14 @@ WATwitterCounter >> style
 <span class="badge odd">7</span>
 ]]]
 
-${slide:title=Stepping Back}$
-
-- Don't think in terms of pages
-- ""No"" URL fiddling
-- ""No"" request parsing
-- ""No"" routing
-- ""No"" XML 
-- but powerful!
-
-
 ${slide:title=Conclusion}$
 
 - A Web application = a root component
 - A Component renders itself in HTML (==renderContentOn:==)
-- An extensible DSL helps to easily generate HTML 
+- An exensible DSL helps to easily generate HTML 
+-- using brushes 
+-- according to CSS frameworks such as Bootstrap, JQuery UI, ...
+-- and scripting (loops, ...)
 
 
 % Local Variables:
