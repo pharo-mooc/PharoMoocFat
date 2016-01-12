@@ -43,7 +43,7 @@ ${endColumns}$
 
 ${slide:title=When No Method is Found}$
 
-+>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=100+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull-no-lines.png|width=70+
 
 
 
@@ -63,7 +63,7 @@ ${column:width=60}$
 
 ${column:width=50}$
 
-+>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=170+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull-no-lines.png|width=120+
 
 ${endColumns}$
 
@@ -100,7 +100,7 @@ Node >> welcome
 
 ${column:width=40}$
 
-+>file://figures/LookupEssenceWithDoesNotUnderstandFull.png|width=170+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull-no-lines.png|width=130+
 
 ${endColumns}$
 
