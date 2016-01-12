@@ -5,9 +5,9 @@
 
 ${slide:title=What You Will Learn}$
 
-- Class methods are dynamically looked up
-- Act as registration mechanism
-- No need for factory as in Java
+- Class methods are normal methods
+- Most class methods create new instances
+-- but they can be used for other things
 
 ${slide:title=Parsing Lines}$
 
@@ -15,7 +15,7 @@ Imagine we want to parse
 [[[
 !Section Title
 - list item
--- sub-list item
+-- subitem
 
 Any text here
 ]]]
@@ -31,23 +31,25 @@ ${slide:title=A Possible Design}$
 
 ${slide:title=Parsing Lines}$
 
++>file://figures/items.png|width=60+
+
 [[[
+Parser >> documentClasses
+   ^ DocumentItem allSubclasses
+      sorted: [ :cls1 :cls2 | cls1 priority < cls2 priority ]
+
 Parser >> parse: line
    self documentClasses
       detect: [ :subclass |
          (subclass canParse: aLine)
             ifTrue: [ ^ subclass newFromLine: line ] ]
-
-Parser >> documentClasses
-   ^ DocumentItem allSubclasses
-      sorted: [ :cls1 :cls2 | cls1 priority < cls2 priority ]
 ]]]
 
 
 ${slide:title=What Do We See}$
 
 - ==documentClasses== sorts the subclasses
-- Subclasses specialize ==canParse:== and ==newFromLine:==
+- subclasses specialize ==canParse:== and ==newFromLine:==
 - ==canParse:== is lookup 
 
 ${slide:title=Another Example}$
@@ -98,5 +100,5 @@ ${slide:title=Conclusion}$
 
 
 % Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/W3S8-ClassMethodsAtWork.pillar"
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week4/C019-W4S06-ClassMethodsAtWork.pillar"
 % End:
