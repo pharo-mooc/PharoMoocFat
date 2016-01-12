@@ -43,7 +43,8 @@ ${slide:title=The Full Server}$
 
 [[[
 books := Dictionary new.
-teapot := Teapot configure: { #defaultOutput -> #json. #port -> 8181 }.
+teapot := Teapot configure: { 
+    #defaultOutput -> #json. #port -> 8181 }.
 teapot
  GET: '/' -> '<h1>A simple book server</h1>'; output: #html;
  GET: '/books' -> books;
@@ -51,8 +52,9 @@ teapot
    -> [ :request | books at: (request at: #id) asString];
  POST: '/books/<id>' 
    -> [ :request | | book |
-      book := { 'author' -> (request at: #author) . 'title'  -> (request at: #title) } asDictionary.
-      books at: (request at: #id) put: book ];   
+          book := { 'author' -> (request at: #author). 
+          'title'  -> (request at: #title) } asDictionary.
+          books at: (request at: #id) put: book ];   
  start.
 ]]]
 
