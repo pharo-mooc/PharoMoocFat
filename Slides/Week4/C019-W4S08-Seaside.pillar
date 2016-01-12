@@ -131,7 +131,7 @@ WACounter>>decrease
    count := count - 1
 ]]]
 
-${slide:title=Walking Application Stack}$
+${slide:title=Walking the Application Stack}$
 
 +>file://figures/SeasideDebuggingWACounter.png|width=85+
 
@@ -184,6 +184,13 @@ shows
 +>file://figures/SeasideCounterInform.png|width=40+
 
 
+${slide:title=A Greeter Application}$
+
++>file://figures/SeasideGreeter.png|width=50+
+
++>file://figures/SeasideGreeterHi.png|width=50+
+
+
 ${slide:title=Callbacks with the User Value}$
 
 A ==Greeter== component
@@ -198,15 +205,6 @@ Greeter >> renderContentOn: html
             callback: [ self inform: 'Hi ', username ];
             text: 'Say Hello'. ].
 ]]]
-
-
-${slide:title=Greeter Application}$
-
-+>file://figures/SeasideGreeter.png|width=50+
-
-+>file://figures/SeasideGreeterHi.png|width=50+
-
-
 
 
 ${slide:title=Did you see?!}$
