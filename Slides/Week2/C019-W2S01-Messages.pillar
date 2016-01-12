@@ -18,7 +18,7 @@ ${slide:title=Syntax}$
 ${slide:title=Example}$
 
 [[[
-(ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/126/87.png') 
+(ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/12/8.png') 
     asMorph openInWindow
 ]]]
 
