@@ -97,7 +97,7 @@ ${slide:title=Message Lookup is Choosing the Right Method}$
 ${slide:title=Boolean Implementation}$
 
 - ==Boolean== is abstract
-- subclasses are ==True== and ==False== and implement
+- Subclasses are ==True== and ==False== and implement
 -- logical operations ==&==, ==not==
 -- control structures ==and:==, ==or:==, ==ifTrue:==, ==ifFalse:==, ==ifTrue:ifFalse:==, ==ifFalse:ifTrue:==
 
@@ -124,7 +124,7 @@ false | anything -> anything
 ${slide:title=Implementation of Or in Boolean}$
 
 [[[
-Boolean >>| aBoolean
+Boolean >> | aBoolean
    "Abstract method. Evaluating Or: Evaluate the argument.
    Answer true if either the receiver or the argument is true."
    self subclassResponsibility

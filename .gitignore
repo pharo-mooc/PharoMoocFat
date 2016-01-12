@@ -11,3 +11,4 @@ pharo-vm
 /pillar
 /pillarPostExport.sh
 auto/
+compileLuc.sh

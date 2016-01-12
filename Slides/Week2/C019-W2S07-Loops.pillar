@@ -53,7 +53,7 @@ ${slide:title=Loops: to:by:do:}$
 
 ${slide:title=Example: to:by:do:}$
 
-The block is executed with i taking values from 0 to 100 by step of 3
+The block is executed with i taking values from 1 to 100 by step of 3
 
 [[[
 1 to: 100 by: 3 do:

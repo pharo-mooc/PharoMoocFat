@@ -68,6 +68,14 @@ stream contents.
 > #(1 4 8 2 6 7)
 ]]]
 
+${slide:title=Writing to a File}$
+
+[[[
+stream := 'hello.txt' asFileReference writeStream.
+stream nextPutAll: 'Hello Pharo!'.
+stream close.
+]]]
+
 ${slide:title=Reading from a File}$
 
 [[[
@@ -84,7 +92,7 @@ ${slide:title=Creating Collections from a Stream}$
 
 When you want to create a collection by writing to a stream:
 [[[
-stream := (Array new: 6) writeStream.
+stream := OrderedCollection new writeStream.
 stream nextPut: 1.
 stream contents
 ]]]
@@ -92,8 +100,11 @@ stream contents
 is equivalent to
 
 [[[
-Array streamContents: [:stream | stream nextPut: 1]
+OrderedCollection
+   streamContents: [:stream | stream nextPut: 1]
 ]]]
+
+Both scripts return a collection with number 1 inside.
 
 ${slide:title=What You Should Know}$
 
@@ -103,5 +114,5 @@ ${slide:title=What You Should Know}$
 - A stream can help create collections
 
 % Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019-W3S11-Streams.pillar"
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/C019-W3S10-Streams.pillar"
 % End:

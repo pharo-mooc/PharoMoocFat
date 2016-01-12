@@ -130,8 +130,7 @@ Caroussel :
 	Debugging
 -->
  
-Maintenant, nous n’allons pas seulement présenté Pharo mais nous allons revisiter des concepts essentiels de la programmation en illustrant comment Pharo les utilise. 
-Nous allons présenter des heuristiques pour mieux concevoir des applications objets et aussi des Design Patterns. Ces concepts sont applicables dans n’importe quel langage objets. 
+Maintenant, nous n’allons pas seulement présenter Pharo mais nous allons revisiter des concepts essentiels de la programmation en illustrant comment Pharo les utilise. Nous allons présenter des heuristiques et des Design Patterns pour mieux concevoir des applications objets. Ces concepts sont applicables dans n’importe quel langage objets.
 
 
 <!-- Stef -->
