@@ -149,3 +149,7 @@ ${slide:title=Conclusion}$
 - If you can define, create objects that represent default behavior
 - When you can avoid it, avoid returning ==nil==
 - Initialize your variables
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week7/C019-W7S07-AvoidIsNill.pillar"
+% End:
