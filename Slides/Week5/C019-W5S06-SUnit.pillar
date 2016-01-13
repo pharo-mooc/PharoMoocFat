@@ -154,7 +154,7 @@ ${slide:title=Test Resources}$
 ${slide:title=What You Should Know}$
 
 - How to write simple tests
-- Reuse a bit the context by defining ==setUp== methodss
+- Reuse a bit the context by defining ==setUp== methods
 
 ${slide:title=Summary}$
 
