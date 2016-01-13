@@ -168,3 +168,7 @@ ${slide:title=What You Should Know}$
 -- use ==initialize== class methods
 - How to add state to a class?
 -- use class instance variables
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pillar"
+% End:
