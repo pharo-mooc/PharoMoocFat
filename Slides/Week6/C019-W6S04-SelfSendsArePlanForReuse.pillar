@@ -26,7 +26,7 @@ ${slide:title=Remember...}$
 
 ${slide:title=The Pitch}$
 
-- Superclass code can be reused by subclasses 
+- Superclass code can be reused by subclasses
 - Sending messages in a class define places where subclass' code can be injected.
 
 ${slide:title=Gruyere-Oriented Programming}$
@@ -103,7 +103,7 @@ Node >> setWindowWithRatioForDisplay
 ]]]
 [[[
     Node >> ratio
-        ^ mainCoordinate /maximiseViewRatio    
+        ^ mainCoordinate /maximiseViewRatio
 ]]]
 
 
@@ -111,7 +111,7 @@ ${slide:title=Subclasses Reuse Superclass Logic}$
 
 Now a subclass can only express the delta and reuse the superclass logic
 [[[
-Node subclass: OurSpecificNode 
+Node subclass: OurSpecificNode
   ...
 ]]]
 
