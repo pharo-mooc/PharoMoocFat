@@ -50,7 +50,8 @@ ${slide:title=Lookup of Class Methods is No Different}$
 
 ${slide:What You Should Know}$
 
-- Classes are objects and can be sent messages
+- A class is an object
+- A class can receive messages
 - Method lookup is exactly the same as for all objects:
 -- go to the class of the receiver 
 -- follow inheritance chain
