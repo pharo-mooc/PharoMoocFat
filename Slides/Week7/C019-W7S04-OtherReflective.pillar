@@ -3,7 +3,7 @@
 	"slidesid":"W7S04"
 }
 
-${slide:title=Behind the Curtain}$
+${slide:title=Behind the Scene}$
 
 - What is happening when we recompile a class?
 - What are the reflective operations that take place?
@@ -97,11 +97,11 @@ Class >> adoptInstance: anInstance
 ]]]
 
 - Limited reflective feature
-- Target class should have the same format than the origin
+- Target class should have the same format as the original one
 
 ${slide:title=Essence of a Class}$
 
-# A format  I.e., a number of instance variables and types (named/indexed)
+# A format  i.e., a number of instance variables and types (named/indexed)
 # A superclass
 # A method dictionary
 
@@ -120,40 +120,43 @@ Behavior >> initialize
 ${slide:title=Instance Specific Behavior}$
 
 [[[
-| behavior model |
+| behavior model newClass |
 behavior := Behavior new.
 behavior superclass: Model.
 behavior setFormat: Model format.
 model := Model new.
 model primitiveChangeClassTo: behavior new. 
-behavior compile: 'thisIsATest ^ 2'.
-model thisIsATest = 2.
-self should: [Model new thisIsATest] raise: MessageNotUnderstood.
+self assert: model class = behavior.
+self assert: model class superclass = Model.
+behavior compile: 'foo ^ 2'.
+self assert: model foo = 2.
+self should: [Model new thisIsATest] raise: MessageNotUnderstood
 ]]]
 
 ${slide:title=Instance Specific Behavior}$
 
-+.>file://figures/10AnonymousClasses.png|width=100+
++file://figures/10AnonymousClasses.png|width=100+
 
 ${slide:title=Anonymous Classes For Spying}$
 
 [[[
-| anonClass set | 
-anonClass := Behavior new. 
-anonClass superclass: Set;
+| logClass set | 
+logClass := Behavior new. 
+logClass superclass: Set;
    setFormat: Set format.
-anonClass compile: 'add: anObject
+logClass compile: 'add: anObject
       Transcript show: ''adding '', anObject printString; cr.
       ^ super add: anObject'.
 set := Set new.
 set add: 1.
-set primitiveChangeClassTo: anonClass basicNew. 
+set class. 
+set primitiveChangeClassTo: logClass basicNew. 
 set add: 2.
 ]]]
 
 ${slide:title=Conclusion}$
 
-- Foundation for innovation
-- Avoid use of reflective operations in domain code
+- Reflection is a solid foundation for innovation and language extensibility
+- Avoid using reflective operations in domain code
 - Understand when you absolutely need reflection
 

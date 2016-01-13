@@ -17,21 +17,21 @@ ${slide:title=Characters}$
 -- ==Character space==, ==Character tab==, ==Character cr==
 
 
-${slide:title=\'Strings\'}$
+${slide:title='Strings'}$
 
 Delimited by =='==
 [[[
-	'eclair au chocolat'	
+'eclair au chocolat'	
 ]]]
 
 [[[
-	'eclair au chocolat' size
-	> 18
+'eclair au chocolat' size
+> 18
 ]]]
  
 [[[
 Character space split: 'eclair au chocolat' 
->  an OrderedCollection('eclair' 'au' 'chocolat')	
+> an OrderedCollection('eclair' 'au' 'chocolat')	
 ]]]
 
 ${slide:title=A String: a Collection of Characters}$
@@ -66,7 +66,10 @@ ${slide:title=Getting the Last Char}$
 [[[
 | str |
 str := 'Tiramisu'.
-str at: str length
+str at: str size
+> $u
+
+str last
 > $u
 ]]]
 
@@ -97,7 +100,7 @@ ${slide:title=For Concatenation Use ,}$
 
 ${slide:title= Take Care With ,}$
 
-Message comma (==,==) copies strings so multiple concatenations can generate spurious versions
+Message comma ==#,== copies strings so multiple concatenations can generate useless intermediate versions
 
 [[[
 'Calvin' , ' & ', 'Hobbes'

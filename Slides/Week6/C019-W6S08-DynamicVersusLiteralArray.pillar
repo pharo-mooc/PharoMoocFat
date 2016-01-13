@@ -9,55 +9,34 @@ ${slide:title=What You Will Learn}$
 - Dynamic arrays are created at runtime using messages
 - Still they are all instances of ==Array==
 
-${slide:title=Literal Arrays}$
-
-[[[
-  #('Calvin' 'hates' 'Suzie') size
-  > 3
-]]]
-
-is equivalent to 
-
-[[[
-  ((Array new: 3) 
-      at: 1 put: 'Calvin'; 
-      at: 2 put: 'hates'; 
-      at: 3 put: 'Suzie') size
-  > 3
-]]]
-
-${slide:title=Literal Arrays Elements}$
+${slide:title=Remember: Literal Arrays}$
 
 Literal array definition can only contain objects that have a textual (literal) representation: numbers, strings, nil, symbols, boolean
 
 [[[
-  #(45 'milou' 1300 true #tintin)
-  > #(45 'milou' 1300 true #tintin)
+#(45 'milou' 1300 true #tintin)
+> #(45 'milou' 1300 true #tintin)
 ]]]
-
-
-${slide:title=Literal Arrays are Instances of Array}$
 
 Literal arrays are instances of the class ==Array==
 
 [[[
-  #(45 38 1300 8) class
-  > Array
+#(45 38 1300 8) class
+> Array
 ]]]
-
 
 ${slide:title=Literal/Dynamic Arrays}$
 
 A literal array
 [[[
-  #(45 38 1300 8) 
-  > #(45 38 'milou' 8) 
+#(45 38 'milou' 8) 
+> #(45 38 'milou' 8) 
 ]]]
 
 A dynamic array
 [[[
-  Array with: 45 with: 38 with: 'milou' with: 8
-  > #(45 38 'milou' 8) 
+Array with: 45 with: 38 with: 'milou' with: 8
+> #(45 38 'milou' 8) 
 ]]]
 Both are ==Array== instances
 
@@ -69,35 +48,35 @@ Defining dynamic arrays is tedious
 | array | 
 array := (Array new: 2). 
 array 
-   at: 1 put: 10 @ 10 ; 
-   at: 2 put: (Point x: 100 y: 200).
+    at: 1 put: 10 @ 10 ; 
+    at: 2 put: (Point x: 100 y: 200).
 array
 ]]]
 
-=={ element1 . element2 }== is syntactic sugar to create dynamic arrays
+=={ expression1 . expression2 }== is syntactic sugar to create dynamic arrays
 
 [[[
-{(10@20) . (10@20)}
+{(10@20) . (100@200)}
 {Point x: 10 y: 20 . Point x: 100 y: 200}
 ]]]
 
 ${slide:title=Literal Array Creation Time}$
 
-Literal arrays are created by the parser: when the expression is read, i.e. when the method is compiled, not the method is executed
+Literal arrays are created at ""compile time"" by the parser when the expression is read  and not during the execution
 
 [[[
-  | a |
-  a := 12.
-  #(a + 1 13) 
-  > #(#a #+ 1 13)
+| a |
+a := 12.
+#(a + 1 . 13) 
+> #(#a #+ 1 #'.' 13)
 ]]]
 
 Dynamic arrays execute expressions 
 [[[
-  | a |
-  a := 12.
-  {a + 1 . 13} 
-  > #(13 . 13)
+| a |
+a := 12.
+{a + 1 . 13} 
+> #(13 . 13)
 ]]]
 
 
@@ -107,19 +86,19 @@ ${slide:title= Literal vs. Dynamic}$
 =={}== executes expressions while ==#()== not
 
 [[[
-  {(10@20) . (10@20)}
-  > {(10@20) . (10@20)}
-  
-  #((10@20) . (10@20))
-  > #(#(10 #@ 20) #'.' #(10 #@ 20))
+{(10@20) . (10@20)}
+> {(10@20) . (10@20)}
+
+#((10@20) . (10@20))
+> #(#(10 #@ 20) #'.' #(10 #@ 20))
 ]]]
 
 [[[
-  {(10@20) . (10@20)} size 
-  > 2
- 
-  #((10@20) . (10@20)) size 
-  > 3
+{(10@20) . (10@20)} size 
+> 2
+
+#((10@20) . (10@20)) size 
+> 3
 ]]]
 
 
@@ -129,13 +108,13 @@ ${slide:title=Nested Arrays}$
 ==()== inside a literal array produces a nested literal array
 
 [[[
-  #((10@20) (100@200))
-  > #(#(10 #@ 20) #(100 #@ 200))
+#((10@20) (100@200))
+> #(#(10 #@ 20) #(100 #@ 200))
 ]]]
 
 [[[
-  #((10@20) . (100@200)) first
-  > #(10 #@ 20)
+#((10@20) . (100@200)) first
+> #(10 #@ 20)
 ]]]
 
 
