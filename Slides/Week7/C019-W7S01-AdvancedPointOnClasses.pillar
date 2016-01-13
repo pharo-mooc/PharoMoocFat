@@ -1,6 +1,6 @@
 {
-	"title":"Advanced Points on Classes",
-	"slidesid":"W7S01"
+    "title":"Advanced Points on Classes",
+    "slidesid":"W7S01"
 }
 
 ${slide:title=Roadmap}$
@@ -73,7 +73,7 @@ ${slide:title=Remember}$
 
 ${slide:title=Classes are initialized}$
 
-A class is initialized 
+A class is initialized
 - at load time after its methods are loaded/compiled
 - or explicitly by the programmer
 
@@ -113,7 +113,7 @@ ${slide:title=Roadmap}$
 ${slide:title=Class Instance Variables}$
 
 Classes have instance variables like any object
-- A class is an instance of a class (a metaclass) 
+- A class is an instance of a class (a metaclass)
 - A metaclass can have instance variables that define the state of a class
 
 [[[
@@ -136,7 +136,7 @@ WebServer class
    instanceVariableNames: 'uniqueInstance'
 
 WebServer class >> uniqueInstance
-   ^ uniqueInstance 
+   ^ uniqueInstance
          ifNil: [ uniqueInstance := self new ]
 ]]]
 
