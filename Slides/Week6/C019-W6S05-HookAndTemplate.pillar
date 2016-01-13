@@ -9,7 +9,7 @@ ${slide:title=Remember...}$
 
 - Message passing is a choice operator
 - Class hierarchies define choices
-- Superclass code can be reused by subclasses 
+- Superclass code can be reused by subclasses
 - Sending messages in a superclass define places where subclass code can be injected.
 
 
@@ -58,7 +58,7 @@ ${slide:title=printOn: Hook Example}$
 
 A simple redefinition
 [[[
-False >> printOn: aStream 
+False >> printOn: aStream
    aStream nextPutAll: 'false'
 ]]]
 
@@ -67,14 +67,14 @@ False >> printOn: aStream
 ${slide:title=printOn: Hook Example}$
 
 [[[
-1 to: 100 
+1 to: 100
 > (1 to: 100)
-1 to: 100 by: 3 
+1 to: 100 by: 3
 > (1 to: 100 by: 3)
 ]]]
 
-Simple: 
- 
+Simple:
+
 [[[
 Interval >> printOn: aStream
    aStream nextPut: $(;
@@ -88,8 +88,8 @@ Interval >> printOn: aStream
 ${slide:title=printOn: Hook Example}$
 
 [[[
-Association key: #January value: 31 
-> #January->31 
+Association key: #January value: 31
+> #January->31
 ]]]
 
 Reusing and extending default behavior:
@@ -134,7 +134,7 @@ ${slide:title=Default hook}$
 [[[
 Object >> postCopy
   "I'm a hook method in the sense of Design Patterns TemplateHook/Methods. I'm called by copy. self is a shallow copy, subclasses should copy fields as necessary to complete the full copy"
-  ^ self 
+  ^ self
 ]]]
 
 ${slide:title=postCopy: Hook Example}$
@@ -161,3 +161,7 @@ ${slide:title=Conclusion}$
 - Based on essential aspects of OOP
 - self sends are hooks
 - Each time you send a message, you increase potential reuse
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week6/C019-W6S05-HookAndTemplate.pillar"
+% End:
