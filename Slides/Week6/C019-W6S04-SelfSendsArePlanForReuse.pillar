@@ -16,16 +16,16 @@ ${slide:title=What You Will Learn}$
 - ''"I like big methods because I can see all the code"'' leads to bad design
 - Why writing small methods is a sign of good design
 
-${slide:title=Remember...}$
+${slide:title=Sending A Message Leads to a Choice}$
 
-- message passing is a choice operator
-- a class hierarchy defines choices
+- a message send leads to a choice
+- a class hierarchy defines the choices
 - ==self== always represents the receiver
 - method lookup starts in the class of the receiver
 
 +>file://figures/Design-FatVsDispatch.png|width=95+
 
-${slide:title=A First Example}$
+${slide:title=An Example}$
 
 [[[
 Node >> setWindowWithRatioForDisplay
@@ -50,17 +50,17 @@ OurSpecificNode >> setWindowWithRatioForDisplay
   avgRatio := 55.
   defaultNodeSize := (mainCoordinate / maximizeViewRatio) + 10.
   self window add:
-      (UINode new with: (bandWidth * avgRatio / defaultWindowSize).
+      (UINode new
+         with: (bandWidth * avgRatio / defaultWindowSize).
   previousNodeSize := defaultNodeSize.
 ]]]
 
 ${slide:title=Avoid Duplication}$
 
-- If ==setWindowWithRatioForDisplay== uses private attributes (Java like languages), copying the code in subclass is not possible.
-- Duplication is not a good practice:
+- if ==setWindowWithRatioForDisplay== uses private attributes (as in Java like languages), code duplication in subclasses is not even possible
+- duplication is not a good practice:
 -- copy bugs
--- fragile when original code will change (and it will change)
--- burden on us to keep the system running
+-- fragile when original code changes (it ''will'' change)
 
 ${slide:title=Solution}$
 
@@ -68,9 +68,10 @@ ${columns}$
 
 ${column:width=50}$
 
-- Define small methods
-- Send messages to invoke such methods
-- Let subclasses customize such methods
+- send messages
+- define small methods
+
+Subclasses can override such methods
 
 ${column:width=50}$
 
@@ -78,74 +79,87 @@ ${column:width=50}$
 
 ${endColumns}$
 
+${slide:title=Better Design}$
 
-
-${slide:title=Good Design In The First Place}$
-
-- Extract code into methods
-- Call such methods
 [[[
 Node >> setWindowWithRatioForDisplay
-  | avgRatio defaultNodeSize |
-  avgRatio := 55.
-  defaultNodeSize := self ratio.
-  self window add:
-        (UINode new with: (bandWidth * avgRatio / defaultWindowSize).
-  previousNodeSize := defaultNodeSize.
-]]]
-[[[
-    Node >> ratio
-        ^ mainCoordinate / maximizeViewRatio
+   | avgRatio defaultNodeSize |
+   avgRatio := 55.
+   defaultNodeSize := self ratio.
+   self window add:
+      (UINode new
+         with: (bandWidth * avgRatio / defaultWindowSize).
+   previousNodeSize := defaultNodeSize.
+
+Node >> ratio
+   ^ mainCoordinate / maximizeViewRatio
 ]]]
 
 
 ${slide:title=Subclasses Reuse Superclass Logic}$
 
-Now a subclass can only express the delta and reuse the superclass logic
+A subclass can refine the behavior
+
 [[[
 Node subclass: OurSpecificNode
-  ...
+   ...
 ]]]
 
 [[[
 OurSpecificNode >> ratio
-  ^ super ratio + 10
+   ^ super ratio + 10
 ]]]
-
-
 
 ${slide:title=Another Step}$
 
 [[[
-Node >> uiNode
-  ^ (UINode new with: (bandWidth * avgRatio / defaultWindowSize)
+Node >> setWindowWithRatioForDisplay
+   | avgRatio defaultNodeSize |
+   avgRatio := 55.
+   defaultNodeSize := self ratio.
+   self window add:
+      (UINode new
+         with: (bandWidth * avgRatio / defaultWindowSize).
+   previousNodeSize := defaultNodeSize.
 ]]]
+
+We can also extract the ==UINode== instantiation.
+
+${slide:title=Another Step}$
 
 [[[
 Node >> setWindowWithRatioForDisplay
-  | defaultNodeSize |
-  self avgRatio: 55.
-  defaultNodeSize := self ratio.
-  self window add: self uiNode
+   | avgRatio defaultNodeSize |
+   avgRatio := 55.
+   defaultNodeSize := self ratio.
+   self window add: self uiNode.
+   previousNodeSize := defaultNodeSize.
+]]]
+
+[[[
+Node >> uiNode
+   ^ UINode new
+      with: bandWidth * avgRatio / defaultWindowSize
 ]]]
 
 ${slide:title=Do Not Hardcode Class Use}$
 
 [[[
 Node >> uiNode
-  ^ (UINode new with: (bandWidth * avgRatio / defaultWindowSize)
+   ^ UINode new
+      with: bandWidth * avgRatio / defaultWindowSize
 ]]]
 
-${slide:title=Define method returning classes}$
+${slide:title=Define Methods Returning Classes}$
 
 [[[
 Node >> uiNode
-  ^ (self uiNodeClass new with: (bandWidth * avgRatio / defaultWindowSize).
+   ^ (self uiNodeClass new with: (bandWidth * avgRatio / defaultWindowSize).
 ]]]
 
 [[[
 Node >> uiNodeClass
-  ^ UINodeClass
+   ^ UINodeClass
 ]]]
 
 ${slide:title=Many Small Messages}$
@@ -160,9 +174,9 @@ ${slide:title=Avoid Magic Numbers}$
 
 [[[
 Node >> setWindowWithRatioForDisplay
-  | avgRatio defaultNodeSize |
-  avgRatio := 55.
-  ...
+   | avgRatio defaultNodeSize |
+   avgRatio := 55.
+   ...
 ]]]
 
 ${slide:title=Use Setter and Default}$
