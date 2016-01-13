@@ -6,14 +6,14 @@
 ${slide:title=Roadmap}$
 
 - Sharing state between instances of a class
-- Classes initialization
-- Classes' Instance Variables
+- Class initialization
+- Instance variables of metaclasses
 
 ${slide:title=Roadmap}$
 
 - ""Sharing state between instances of a class""
-- Classes initialization
-- Classes' Instance Variables
+- Class initialization
+- Instance variables of metaclasses
 
 
 ${slide:title=Sharing State?}$
@@ -59,8 +59,8 @@ ${slide:title=Class Variable Access}$
 ${slide:title=Roadmap}$
 
 - Sharing state between instances of a class
-- ""Classes initialization""
-- Classes' Instance Variables
+- ""Class initialization""
+- Instance variables of metaclasses
 
 
 ${slide:title=Remember}$
@@ -107,8 +107,8 @@ ${slide:title=Warning}$
 ${slide:title=Roadmap}$
 
 - Sharing state between instances of a class
-- Classes initialization
-- ""Classes' Instance Variables""
+- Class initialization
+- ""Instance variables of metaclasses""
 
 ${slide:title=Class Instance Variables}$
 
