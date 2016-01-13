@@ -161,3 +161,7 @@ ${slide:title=Conclusion}$
 - Based on essential aspects of OOP
 - self sends are hooks
 - Each time you send a message, you increase potential reuse
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week6/C019-W6S05-HookAndTemplate.pillar"
+% End:
