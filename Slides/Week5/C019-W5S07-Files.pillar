@@ -21,9 +21,13 @@ FileLocator C.      "Windows C:\"
 
 Accessing the children of a directory
 [[[
-| directory |
-directory := FileLocator home.
-directory children
+| home |
+home := FileLocator home.
+
+home pathString
+> '/home/cassou/'
+
+home children
 > an Array({home}/.bashrc {home}/Music ...)
 ]]]
 
@@ -31,19 +35,20 @@ ${slide:title=Navigating Up and Down}$
 
 Use message ==/== to build a path
 [[[
-(directory / 'Music') directories
+(home / 'Music') directories
 > an Array({home}/Music/Anouar_Brahem ...)
 ]]]
 
 Use ==parent== to go up
 [[[
-(directory / 'Music') parent pathString
+(home / 'Music') parent pathString
 > '/home/cassou/'
 ]]]
 
 ${slide:title=Creating and Removing Directories}$
 
 [[[
+| music |
 music := FileLocator home / 'Music'.
 (music / 'Pink_Floyd') isDirectory.
 > false
@@ -60,15 +65,13 @@ music := FileLocator home / 'Music'.
 ${slide:title=Finding Children}$
 
 [[[
-(pinkFloyd / 'Meddle')
-   allChildrenMatching: '*.ogg'.
+(pinkFloyd / 'Meddle') allChildrenMatching: '*.ogg'.
 ]]]
 
 is equivalent to
 [[[
 (pinkFloyd / 'Meddle') allChildren
-   select: [ :each |
-             each basename endsWith: 'ogg' ]
+   select: [ :each | each basename endsWith: 'ogg' ]
 ]]]
 
 ${slide:title=Getting Information}$
@@ -126,6 +129,11 @@ stream close
 
 ${slide:title=Automatically Closing File Streams}$
 
+[[[
+| hello |
+hello := 'hello.txt' asFileReference.
+]]]
+
 Writing
 [[[
 hello writeStreamDo: [ :stream |
@@ -134,8 +142,7 @@ hello writeStreamDo: [ :stream |
 
 Reading
 [[[
-hello readStreamDo: [ :stream |
-   stream contents ]
+hello readStreamDo: [ :stream | stream contents ]
 > 'Hello World'
 ]]]
 
