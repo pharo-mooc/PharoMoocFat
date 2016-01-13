@@ -6,46 +6,43 @@
 ${slide:title=Roadmap}$
 
 - Sharing state between instances of a class
+- Instance variables of classes
 - Class initialization
-- Instance variables of metaclasses
 
 ${slide:title=Roadmap}$
 
 - ""Sharing state between instances of a class""
+- Instance variables of classes
 - Class initialization
-- Instance variables of metaclasses
-
 
 ${slide:title=Sharing State?}$
 
-Sometimes one needs to share objects between instances of a class
+How do you share state between all instances of a class?
 
-
-- Use ""class variables"" (==classVariablesNames:==)
+- in Java, an "instance" variable can be ==static==
+- in Pharo, we use ""class variables""
 
 [[[
-Object subclass: #Class
+Object subclass: #MyClass
    instanceVariableNames: ''
    classVariableNames: 'SharedState'
    package: ''
 ]]]
 
-
 ${slide:title=Example: Color Class Definition}$
 
 [[[
 Object subclass: #Color
-   instanceVariableNames: 'rgb cachedDepth cachedBitPattern alpha'
-   classVariableNames: 'BlueShift CachedColormaps ColorRegistry ComponentMask ComponentMax GrayToIndexMap GreenShift HalfComponentMask IndexedColors MaskingMap RedShift'
+   instanceVariableNames: 'rgb cachedDepth...'
+   classVariableNames: 'ColorRegistry ComponentMask...'
    package: 'Graphics-Primitives'
 ]]]
 
-
 ${slide:title=Class Variables}$
 
-- Shared among all the instances and instances of subclasses
-- Start with an uppercase
-- Accessible from instance and class methods
+- shared by the instances of the class and subclasses
+- accessible from instance and class methods
+- start with an uppercase letter
 
 ${slide:title=Class Variable Access}$
 
@@ -59,22 +56,78 @@ ${slide:title=Class Variable Access}$
 ${slide:title=Roadmap}$
 
 - Sharing state between instances of a class
-- ""Class initialization""
-- Instance variables of metaclasses
+- ""Instance variables of classes""
+- Class initialization
 
+${slide:title=Instance Variables of Classes}$
+
+A class can have instance variables like any object
+- a class is an instance of a class (its metaclass)
+- a metaclass can specify ""class instance variables""
+
+[[[
+MyClass class
+   instanceVariableNames: 'NonSharedState'
+]]]
+
+- ==NonSharedState== has a different value in ==MyClass== and in its subclasses.
+- accessible from class methods only
+- start with a lowercase letter
+
+${slide:title=Singleton Design Pattern}$
+
+- Intent: Enforce that a class has only one instance
+- Possible solution: Keep the unique instance in a variable of the class
+
+${slide:title=Singleton with a Class Instance Variable}$
+
+[[[
+WebServer class
+   instanceVariableNames: 'uniqueInstance'
+
+WebServer class >> uniqueInstance
+   ^ uniqueInstance
+      ifNil: [ uniqueInstance := super new ]
+
+WebServer class >> new
+   self error: 'Can''t create a new instance''
+]]]
+
+Consequence:
+- each subclass has its own value for ==uniqueInstance==
+-- each subclass of ==WebServer== has its own singleton
+
+${slide:title=Singleton with a Class Variable}$
+
+[[[
+Object subclass: #WebServer
+   instanceVariableNames: ''
+   classVariableNames: 'UniqueInstance'
+   package: 'Web'
+]]]
+
+Consequence:
+- only one singleton for the complete class hierarchy
+-- class variable values are shared
+
+${slide:title=Roadmap}$
+
+- Sharing state between instances of a class
+- Instance variables of classes
+- ""Class initialization""
 
 ${slide:title=Remember}$
 
 - Everything is an object
 - An object is initialized at creation time
 - Classes are objects too
-- How/When classes are initialized?
 
+How and when are classes initialized?
 
-${slide:title=Classes are initialized}$
+${slide:title=Class Initialization}$
 
 A class is initialized
-- at load time after its methods are loaded/compiled
+- at load time after its methods are loaded
 - or explicitly by the programmer
 
 [[[
@@ -99,75 +152,15 @@ Color class >> initialize
 
 ${slide:title=Warning}$
 
-- It is a bad practice to do a ==super initialize== in a class initialize method
 
-- Because you may reinitialize (super) classes that should not be reinitialized
-
-
-${slide:title=Roadmap}$
-
-- Sharing state between instances of a class
-- Class initialization
-- ""Instance variables of metaclasses""
-
-${slide:title=Class Instance Variables}$
-
-Classes have instance variables like any object
-- A class is an instance of a class (a metaclass)
-- A metaclass can have instance variables that define the state of a class
-
-[[[
-WebServer class
-   instanceVariableNames: 'uniqueInstance'
-]]]
-
-${slide:title=Singleton Design Pattern}$
-
-- Intent: Enforce that a class has only one instance
-- Possible solution: Keep the created instance in a variable of the class
-
-
-${slide:title=Singleton Design Pattern: Implementation 1}$
-
-Keep the created instance in a ""class instance variable""
-
-[[[
-WebServer class
-   instanceVariableNames: 'uniqueInstance'
-
-WebServer class >> uniqueInstance
-   ^ uniqueInstance
-         ifNil: [ uniqueInstance := self new ]
-]]]
-
-Consequences:
-- Each subclass of ==WebServer== has its own singleton
-- Each subclass has its own instance variable ""value"" for ==uniqueInstance==
-
-${slide:title=Singleton Design Pattern: Implementation 2}$
-
-Keep the created instance in a ""class variables""
-
-[[[
-Object subclass: #WebServer
-   instanceVariableNames: ''
-   classVariableNames: 'UniqueInstance'
-   package: 'Web'
-]]]
-
-Consequences:
-- Only one singleton for the complete class hierarchy
-- Remember that class variables are shared
-
+- don't write ==super initialize== in a class ==initialize== method
+-- this will initialize superclasses that are already initialized
 
 ${slide:title=What You Should Know}$
 
-- How to share objects between instances of a class?
--- use class variables
-- How to initialize class?
--- use ==initialize== class methods
-- How to add state to a class?
--- use class instance variables
+- state is shared between instances through class variables
+- a class can store values in class instance variables
+- a class is initialized through the class method ==initialize==
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pillar"
