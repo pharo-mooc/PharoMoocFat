@@ -10,8 +10,16 @@ If you did not profile your code you may have 40-50% speed up waiting for you.
 
 ${slide:title=Measuring Execution Speed}$
 
-- We create an expression and use ==[ expression ] timeToRun==
-- For example ==select:==, then ==collect:== vs. ==select:thenCollect:==
+We create an expression and use ==[ expression ] timeToRun==
+
+[[[
+[ 1000 factorial ] timeToRun
+]]]
+
+
+${slide:title=Comparing Two Executions}$
+
+Is  ==select:==, then ==collect:== slower than ==select:thenCollect:==?
 
 
 ${slide:title=timeToRun example}$
