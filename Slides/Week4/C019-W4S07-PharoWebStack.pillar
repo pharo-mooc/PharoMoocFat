@@ -17,7 +17,7 @@ ${slide:title=Seaside}$
 - *http://book.seaside.st*
 
 
-${slide:title=Persitence}$
+${slide:title=Persistence}$
 
 - ""Voyage"" framework 
 -- a unified API for NoSQL databases
