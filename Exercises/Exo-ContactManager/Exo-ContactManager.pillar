@@ -23,7 +23,7 @@ A contact has two instance variables ==fullname== and ==email==, both strings. C
 Object subclass: #Contact
     instanceVariableNames: 'fullname email'
     classVariableNames: ''
-    category: 'ContactBook'
+    package: 'ContactBook'
 ]]]
 
 
@@ -62,7 +62,7 @@ You can define a test to make sure that you can create an instance without error
 	TestCase subclass: #ContactText
 	    instanceVariableNames: ''
 	    classVariableNames: ''
-	    category: 'ContactBook'
+	    package: 'ContactBook'
 ]]]
 
 [[[language=smalltalk
@@ -113,7 +113,7 @@ A contact book contains a collection of ==contacts==. Let us create the ==Contac
     Object subclass: #ContactBook
         instanceVariableNames: 'contacts'
         classVariableNames: ''
-        category: 'ContactBook'
+        package: 'ContactBook'
 ]]]
 
 It should be possible to add and remove contacts from the collection. Add the necessary methods:
@@ -164,7 +164,7 @@ Create the ==WAContactBook== class with a ==contactBook== instance variable:
 WAComponent subclass: #WAContactBook
   instanceVariableNames: 'contactBook'
   classVariableNames: ''
-  category: 'ContactBook'
+  package: 'ContactBook'
 ]]]
 
 !!!Rendering a Title

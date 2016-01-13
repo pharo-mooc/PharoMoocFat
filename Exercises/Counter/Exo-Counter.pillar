@@ -51,7 +51,7 @@ You should get the following class definition.
   Object subclass: #Counter
     instanceVariableNames: 'count'
     classVariableNames: ''
-    category: 'MyCounter'
+    package: 'MyCounter'
 ]]]
 
 Figure *@figclassCreated* illustrates the resulting situation that the browser should show.
@@ -127,7 +127,7 @@ To define a test case we will define a class that inherits from ==TestCase==. Th
   TestCase subclass: #CounterTest
     instanceVariableNames: ''
     classVariableNames: ''
-    category: 'Counter'
+    package: 'Counter'
 ]]]
 
 Now we can write a first test by defining one method. Test methods should start with ''text'' to be automatically executed by the test runner or when you press on the icon

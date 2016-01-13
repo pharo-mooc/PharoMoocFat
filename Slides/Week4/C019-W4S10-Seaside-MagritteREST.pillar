@@ -78,7 +78,7 @@ ${slide:title=Filter Definition}$
 WARestfulFilter subclass: #TBRestfulFilter
 	instanceVariableNames: ''
 	classVariableNames: ''
-	category: 'TinyBlog-REST'
+	package: 'TinyBlog-REST'
 ]]]
 
 [[[
@@ -162,5 +162,5 @@ ${slide:title=Conclusion}$
 
 
 % Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/W3S8-ClassMethodsAtWork.pillar"
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week4/C019-W4S10-Seaside-MagritteREST.pillar"
 % End:
