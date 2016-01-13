@@ -31,8 +31,8 @@ ${columns}$
 ${column:width=60}$
 
 ''.image'' files is a cache of objects:
-- simple objects (points, strings ...)
-- but also ""compiled"" classes and ""compiled"" methods
+- Simple objects (points, strings ...)
+- But also ""compiled"" classes and ""compiled"" methods
 - Each time we save the image, all objects are saved to disc
 - At startup we get back all the objects we saved
 - PC (program counter) is also saved and restored 
@@ -95,8 +95,8 @@ ${columns}$
 ${column:width=40}$
 
 During development or code loading 
-- new objects are compiled in the image
-- new definitions are added to the changes file
+- New objects are compiled in the image
+- New definitions are added to the changes file
 - Still you can browse the definition of the system class (stored in the ''PharoXX.sources'')
 
 ${column:width=60}$
