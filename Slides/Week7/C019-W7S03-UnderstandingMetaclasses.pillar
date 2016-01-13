@@ -255,8 +255,12 @@ ${column:width=30}$
 ${endColumns}$
 
 
+${slide:title=A Consistent World}$
 
-${slide:What you Should Know}$
++>file://figures/12-FullMetaclasses.png|width=130+
+
+
+${slide:What You Should Know}$
 
 - Classes are objects and can receive messages
 - The process is ""exactly"" the same as for any other objects

@@ -3,22 +3,10 @@
   "slidesid":"W7S02"
 }
 
-${slide:title=What You Will Learn}$
-
-- How to define variable size objects?
-- How to instantiate variable size objects?
-
-
-${slide:title=Roadmap}$
-
-- ""How to define variable size objects?""
-- How to instantiate variable size objects?
-
 ${slide:title=Variable Size Instances?}$
 
-
 [[[
-(Array new: 10)
+Array new: 10
 > #(nil nil nil nil nil nil nil nil nil nil)
 ]]]
 [[[
@@ -29,9 +17,22 @@ Array new: 5
 Yes arrays can have different sizes
 
 
+${slide:title=What You Will Learn}$
+
+- How to define variable size objects?
+- How to instantiate and access variable size objects?
+
+
+${slide:title=Roadmap}$
+
+- ""How to define variable size objects?""
+- How to instantiate and access variable size objects?
+
+
 ${slide:title=Variable Class Definition}$
 
 Use message ==variableSubclass:== instead of ==subclass:==
+
 Example
 [[[
 ArrayedCollection variableSubclass: #Array
@@ -41,17 +42,24 @@ ArrayedCollection variableSubclass: #Array
 ]]]
 
 
-${slide:title=Variable Class}$
+${slide:title=Example Variable Class}$
 
-- Instances of a variable class have a variable size (indexed) instance variable
-- Indexed variable zone is implicitly added to the list of named instance variables
+Example
+[[[
+Object variableSubclass: #StrangePoint
+        instanceVariableNames: 'x y'
+        classVariableNames: ''
+        package: 'Collections-Sequenceable'
+]]]
+
+- Instances of a variable class have a variable size (indexed) zone after named variables
 - Only one indexed instance variable per class (always the last one)
 
 
 ${slide:title=Roadmap}$
 
 - How to define variable size objects?
-- ""How to instantiate variable size objects?""
+- ""How to instantiate and access variable size objects?""
 
 
 ${slide:title=Variable Class Instantiation and Index Access}$
@@ -92,8 +100,8 @@ Some methods related to class types: ==isPointers==, ==isBits==, ==isBytes==, ==
 
 ${slide:title=Constraints}$
 
-- Classes defined using ==#subclass:== can have any kind of subclasses
-- Classes defined using ==#variableSubclass:== can only have ==variableSubclass:== subclasses
+- Classes defined using ==subclass:== can have any kind of subclasses
+- Classes defined using ==variableSubclass:== can only have ==variableSubclass:== subclasses
 
 
 ${slide:title=What You Should Know}$

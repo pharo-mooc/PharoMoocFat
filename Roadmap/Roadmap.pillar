@@ -488,12 +488,12 @@ You will also see that 4 kinds of activities are distinguished:
 
 - W6S04 [Lecture 6min] SelfSendsArePlanForReuse
 -- Presenter: Damien
--- Status: Reviewed
+-- Status: Reviewed by presenter
 -- Files: *SlidesPdf>../Slides/Week6/C019-W6S04-SelfSendsArePlanForReuse.pdf* *SlidesHTML>../Slides/Week6/C019-W6S04-SelfSendsArePlanForReuse.html*
 
-- W6S05 [Lecture 6min] Hook and Template / Copy as a hook and template
+- W6S05 [Lecture 6min] Hook and Template / printString/Copy template methods
 -- Presenter: Damien
--- Status: Reviewed
+-- Status: Reviewed by presenter
 -- Files: *SlidesPdf>../Slides/Week6/C019-W6S05-HookAndTemplate.pdf* *SlidesHTML>../Slides/Week6/C019-W6S05-HookAndTemplate.html*
 
 - W6S06 [Lecture 6min] RuntimeArchitecture.pillar

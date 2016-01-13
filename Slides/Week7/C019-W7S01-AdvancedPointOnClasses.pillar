@@ -1,19 +1,19 @@
 {
-	"title":"Advanced Points on Classes",
-	"slidesid":"W7S01"
+    "title":"Advanced Points on Classes",
+    "slidesid":"W7S01"
 }
 
 ${slide:title=Roadmap}$
 
 - Sharing state between instances of a class
-- Classes initialization
-- Classes' Instance Variables
+- Class initialization
+- Instance variables of metaclasses
 
 ${slide:title=Roadmap}$
 
 - ""Sharing state between instances of a class""
-- Classes initialization
-- Classes' Instance Variables
+- Class initialization
+- Instance variables of metaclasses
 
 
 ${slide:title=Sharing State?}$
@@ -59,8 +59,8 @@ ${slide:title=Class Variable Access}$
 ${slide:title=Roadmap}$
 
 - Sharing state between instances of a class
-- ""Classes initialization""
-- Classes' Instance Variables
+- ""Class initialization""
+- Instance variables of metaclasses
 
 
 ${slide:title=Remember}$
@@ -73,7 +73,7 @@ ${slide:title=Remember}$
 
 ${slide:title=Classes are initialized}$
 
-A class is initialized 
+A class is initialized
 - at load time after its methods are loaded/compiled
 - or explicitly by the programmer
 
@@ -107,13 +107,13 @@ ${slide:title=Warning}$
 ${slide:title=Roadmap}$
 
 - Sharing state between instances of a class
-- Classes initialization
-- ""Classes' Instance Variables""
+- Class initialization
+- ""Instance variables of metaclasses""
 
 ${slide:title=Class Instance Variables}$
 
 Classes have instance variables like any object
-- A class is an instance of a class (a metaclass) 
+- A class is an instance of a class (a metaclass)
 - A metaclass can have instance variables that define the state of a class
 
 [[[
@@ -136,7 +136,7 @@ WebServer class
    instanceVariableNames: 'uniqueInstance'
 
 WebServer class >> uniqueInstance
-   ^ uniqueInstance 
+   ^ uniqueInstance
          ifNil: [ uniqueInstance := self new ]
 ]]]
 
@@ -168,3 +168,7 @@ ${slide:title=What You Should Know}$
 -- use ==initialize== class methods
 - How to add state to a class?
 -- use class instance variables
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pillar"
+% End:
