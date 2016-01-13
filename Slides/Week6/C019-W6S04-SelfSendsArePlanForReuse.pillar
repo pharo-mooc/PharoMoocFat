@@ -1,64 +1,56 @@
 {
-  "title" : "Message sends are plans for reuse",
+  "title" : "Message Sends are Plans for Reuse",
   "slidesid" : "W6S04"
 }
 
-${slide:title=About this lecture}$
+${slide:title=About This Lecture}$
 
 Another design lecture:
-- Natural next step of the NOT implementation lecture
-- Relevant to any object-oriented language with dynamic binding
-- May change your view on design :)
+- Next step of the ==not== implementation lecture
+- Relevant to any object-oriented language
+- May change your view on design
 
 ${slide:title=What You Will Learn}$
 
-- Message sends are places where subclass code can be injected
-- Why "I like big methods because I can see all the code" leads to bad design
-- Why writing small methods is a sign of excellent design
+- Message sends are hooks for subclasses
+- ''"I like big methods because I can see all the code"'' leads to bad design
+- Why writing small methods is a sign of good design
 
 ${slide:title=Remember...}$
 
-- Message passing is a choice operator
-- Class hierarchies define choices
-- ==self== always represents the receiver and method lookup starts in the class of the receiver
+- message passing is a choice operator
+- a class hierarchy defines choices
+- ==self== always represents the receiver
+- method lookup starts in the class of the receiver
 
-+One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=95+
-
-${slide:title=The Pitch}$
-
-- Superclass code can be reused by subclasses
-- Sending messages in a class define places where subclass' code can be injected.
-
-${slide:title=Gruyere-Oriented Programming}$
-
-+.>file://figures/gruyereWithSlogan|width=95+
++>file://figures/Design-FatVsDispatch.png|width=95+
 
 ${slide:title=A First Example}$
 
 [[[
 Node >> setWindowWithRatioForDisplay
-  | averageRatio defaultNodeSize |
-  averageRatio := 55.
-  defaultNodeSize := mainCoordinate /maximiseViewRatio.
-  self window add:
-    (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
-  previousNodeSize := defaultNodeSize.
+   | avgRatio defaultNodeSize |
+   avgRatio := 55.
+   defaultNodeSize := mainCoordinate / maximizeViewRatio.
+   self window add:
+      (UINode new
+         with: (bandWidth * avgRatio / defaultWindowSize).
+   previousNodeSize := defaultNodeSize.
 ]]]
 
-- What if we want to change the ==defaultNodeSize== definition in our subclass?
+We want to change the ==defaultNodeSize== formula in a subclass
 
+${slide:title=Duplication}$
 
-${slide:title=A Not So Good Solution}$
-- What if we cannot modify the code of ==Node==?
-- Duplicate the code in our subclass
+Duplicate the code in a subclass
 
 [[[
 OurSpecificNode >> setWindowWithRatioForDisplay
-  | averageRatio defaultNodeSize |
-  averageRatio := 55.
-  defaultNodeSize := (mainCoordinate /maximiseViewRatio) + 10.
+  | avgRatio defaultNodeSize |
+  avgRatio := 55.
+  defaultNodeSize := (mainCoordinate / maximizeViewRatio) + 10.
   self window add:
-      (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
+      (UINode new with: (bandWidth * avgRatio / defaultWindowSize).
   previousNodeSize := defaultNodeSize.
 ]]]
 
@@ -94,16 +86,16 @@ ${slide:title=Good Design In The First Place}$
 - Call such methods
 [[[
 Node >> setWindowWithRatioForDisplay
-  | averageRatio defaultNodeSize |
-  averageRatio := 55.
+  | avgRatio defaultNodeSize |
+  avgRatio := 55.
   defaultNodeSize := self ratio.
   self window add:
-        (UINode new with: (bandWidth * averageRatio / defaultWindowSize).
+        (UINode new with: (bandWidth * avgRatio / defaultWindowSize).
   previousNodeSize := defaultNodeSize.
 ]]]
 [[[
     Node >> ratio
-        ^ mainCoordinate /maximiseViewRatio
+        ^ mainCoordinate / maximizeViewRatio
 ]]]
 
 
@@ -126,13 +118,13 @@ ${slide:title=Another Step}$
 
 [[[
 Node >> uiNode
-  ^ (UINode new with: (bandWidth * averageRatio / defaultWindowSize)
+  ^ (UINode new with: (bandWidth * avgRatio / defaultWindowSize)
 ]]]
 
 [[[
 Node >> setWindowWithRatioForDisplay
   | defaultNodeSize |
-  self averageRatio: 55.
+  self avgRatio: 55.
   defaultNodeSize := self ratio.
   self window add: self uiNode
 ]]]
@@ -141,14 +133,14 @@ ${slide:title=Do Not Hardcode Class Use}$
 
 [[[
 Node >> uiNode
-  ^ (UINode new with: (bandWidth * averageRatio / defaultWindowSize)
+  ^ (UINode new with: (bandWidth * avgRatio / defaultWindowSize)
 ]]]
 
 ${slide:title=Define method returning classes}$
 
 [[[
 Node >> uiNode
-  ^ (self uiNodeClass new with: (bandWidth * averageRatio / defaultWindowSize).
+  ^ (self uiNodeClass new with: (bandWidth * avgRatio / defaultWindowSize).
 ]]]
 
 [[[
@@ -168,8 +160,8 @@ ${slide:title=Avoid Magic Numbers}$
 
 [[[
 Node >> setWindowWithRatioForDisplay
-  | averageRatio defaultNodeSize |
-  averageRatio := 55.
+  | avgRatio defaultNodeSize |
+  avgRatio := 55.
   ...
 ]]]
 
@@ -177,20 +169,30 @@ ${slide:title=Use Setter and Default}$
 
 [[[
 Node >> setWindowWithRatioForDisplay
-  | averageRatio defaultNodeSize |
-  averageRatio := self defaultAverageRatio.
+  | avgRatio defaultNodeSize |
+  avgRatio := self defaultAverageRatio.
   ...
 ]]]
 
 [[[
 Node >> defaultAverageRatio
-  ^ 55
+   ^ 55
 ]]]
 
 - With setter, clients may change the value without subclassing
-[[[language=smalltalk
-    aNode averageRatio: 55
+[[[
+aNode avgRatio: 55
 ]]]
+
+${slide:title=The Pitch}$
+
+- Code can be reused and refined in subclasses
+- Sending a message in a class defines a ""hook"":
+-- i.e., a place where subclasses can inject variations
+
+${slide:title=Gruyere-Oriented Programming}$
+
++.>file://figures/gruyereWithSlogan|width=95+
 
 ${slide:title=Conclusion}$
 
