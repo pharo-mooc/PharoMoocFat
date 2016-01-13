@@ -5,7 +5,7 @@
 
 ${slide:title=Design Again}$
 
-- Not specific to Pharo 
+- Not specific to Pharo
 - Object-Oriented Design is part of our DNA ;)
 
 ${slide:title=The Pitch}$
@@ -39,7 +39,7 @@ Inferencer >> getRulesFor: aFact
    ^ self computeRulesFor: aFact ifAbsent: [ nil ]
 ]]]
 
-- ==ifAbsent: [ nil ]== looks suspicious! 
+- ==ifAbsent: [ nil ]== looks suspicious!
 
 [[[
 Inferencer >> computeRulesFor: aFact ifAbsent: aBlock
@@ -47,7 +47,7 @@ Inferencer >> computeRulesFor: aFact ifAbsent: aBlock
    ^ OrderedCollection with: self rules.
 ]]]
 
-- ==getRulesFor:== returns either a collection or nil! 
+- ==getRulesFor:== returns either a collection or nil!
 - You force ""all"" the clients of ==getRulesFor:== to check for ==nil== values!
 
 ${slide:title=Solution: Return Polymorphic Objects}$
@@ -89,8 +89,8 @@ ${slide:title=Use Lazy Initialization If Necessary}$
 
 [[[
 FreeTypeFont >> descent
-   ^ cachedDescent ifNil: [ 
-        cachedDescent := (self face descender * self pixelSize // 
+   ^ cachedDescent ifNil: [
+        cachedDescent := (self face descender * self pixelSize //
                                self face unitsPerEm) negated ]
 ]]]
 
