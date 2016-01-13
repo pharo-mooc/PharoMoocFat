@@ -62,7 +62,7 @@ numbers := OrderedCollection new
              add: 35
 ]]]
 
-""Error:"" ==numbers== is the number 65 and not a collection
+""Error:"" ==numbers== is the number 35 and not a collection
 
 [[[
 Dice >> setFaces: aNumber
