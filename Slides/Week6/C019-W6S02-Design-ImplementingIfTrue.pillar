@@ -40,12 +40,12 @@ ${slide:title=Implementation of ifTrue\:ifFalse\:}$
 
 Let the receiver decide!
 [[[
-True>>ifTrue: aTrueBlock ifFalse: aFalseBlock
+True >> ifTrue: aTrueBlock ifFalse: aFalseBlock
    ^ aTrueBlock value
 ]]]
 
 [[[
-False>>ifTrue: aTrueBlock ifFalse: aFalseBlock
+False >> ifTrue: aTrueBlock ifFalse: aFalseBlock
    ^ aFalseBlock value
 ]]]
 
