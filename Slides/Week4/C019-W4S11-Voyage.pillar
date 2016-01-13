@@ -88,7 +88,7 @@ ${slide:title=A Simpler Model}$
 Object subclass: #Power
 	instanceVariableNames: 'name'
 	classVariableNames: ''
-	category: 'Demo1'.
+	package: 'Demo1'.
 
 Power>>name
     ^ name
