@@ -93,11 +93,16 @@ numbers
 
 ${slide:title=Forgotten yourself}$
 
-Solution
+Solutions
 [[[
 numbers := OrderedCollection new
              add: 35;
              yourself
+]]]
+
+[[[
+Dice class >> new
+   ^ super new setFaces: 6; yourself
 ]]]
 
 - ==add:== and ==setFaces:== return their argument, not the receiver
@@ -198,7 +203,11 @@ Dice class >> new
 
 ${slide:title=Forgetting to Return the Result}$
 
+Solutions
 [[[
+Dice >> roll
+   ^ faces atRandom
+
 Dice class >> new
    ^ super new
       setFaces: 0;
@@ -221,6 +230,7 @@ Dice class >> new
 
 ${slide:title=Infinite Loops in Overridden Methods}$
 
+Solution
 [[[
 Dice class >> new
    ^ super new
@@ -240,5 +250,5 @@ ${slide:title=What You Should Know}$
 - Use the debugger to understand the problem
 
 % Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S02-LearningFromMistake.pillar"
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S03-LearningFromMistake.pillar"
 % End:

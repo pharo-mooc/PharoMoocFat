@@ -26,7 +26,7 @@ ${slide:title=Remember...}$
 
 ${slide:title=The Pitch}$
 
-- Superclass code can be reused by subclasses 
+- Superclass code can be reused by subclasses
 - Sending messages in a class define places where subclass' code can be injected.
 
 ${slide:title=Gruyere-Oriented Programming}$
@@ -103,7 +103,7 @@ Node >> setWindowWithRatioForDisplay
 ]]]
 [[[
     Node >> ratio
-        ^ mainCoordinate /maximiseViewRatio    
+        ^ mainCoordinate /maximiseViewRatio
 ]]]
 
 
@@ -111,7 +111,7 @@ ${slide:title=Subclasses Reuse Superclass Logic}$
 
 Now a subclass can only express the delta and reuse the superclass logic
 [[[
-Node subclass: OurSpecificNode 
+Node subclass: OurSpecificNode
   ...
 ]]]
 
@@ -197,3 +197,6 @@ ${slide:title=Conclusion}$
 - Each time you send a message you create a hook where the code of a subclass may be executed instead of yours.
 - Prefer small methods over long ones because it forces you to create more methods, hence more hooks.
 
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week6/C019-W6S04-SelfSendsArePlanForReuse.pillar"
+% End:

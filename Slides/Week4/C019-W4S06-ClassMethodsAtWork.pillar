@@ -1,5 +1,5 @@
 {
-  "title":"Class methods At Work",
+  "title":"Class Methods At Work",
   "slidesid" : "W4S06"
 }
 
@@ -36,7 +36,7 @@ ${slide:title=Parsing Lines}$
 [[[
 Parser >> documentClasses
    ^ DocumentItem allSubclasses
-      sorted: [ :cls1 :cls2 | cls1 priority < cls2 priority ]
+      sorted: [ :class1 :class2 | class1 priority < class2 priority ]
 
 Parser >> parse: line
    self documentClasses
@@ -46,58 +46,47 @@ Parser >> parse: line
 ]]]
 
 
-${slide:title=What Do We See}$
+${slide:title=The Command-Line Handler}$
 
-- ==documentClasses== sorts the subclasses
-- subclasses specialize ==canParse:== and ==newFromLine:==
-- ==canParse:== is lookup 
+- the Pharo command-line interface (CLI) uses the same approach
+- each subclass of ==CommandLineHandler== knows how to deal with one command
+- the correct subclass is selected by sending messages to the class
 
-${slide:title=Another Example}$
-
-- Inside Pharo command-lines use the same approach
-- Each subclass of CommandLineHandler knows how to deal with one command
-- The correct one is selected by sending messages to the class
-
-${slide:title=CommandLineHandler}$
-
-[[[
-./pharo Pharo.image -e '1+2'
-]]]
-
-[[[
-CommandLineHandler class >>	isResponsibleFor: aCommandLineArguments
-	^ aCommandLineArguments includesSubCommand: self commandName		
-]]]
-
-[[[
-EvaluateCommandLineHandler class >>	isResponsibleFor: commandLineArguments
-  "directly handle top-level -e and --evaluate options"
-  commandLineArguments withFirstArgument: [ :arg | 
-    (#('-e' '--evaluate') includes: arg)
-        ifTrue: [ ^ true ]].
-  ^ commandLineArguments includesSubCommand: self commandName
+[[[language=bash
+$ pharo Pharo.image eval "10 factorial"
+3628800
 ]]]
 
 
+${slide:title=The Command-Line Handler}$
 
 [[[
+CommandLineHandler class >> isResponsibleFor: arguments
+   ^ arguments includesSubCommand: self commandName
+
+EvaluateCommandLineHandler class >> commandName
+   ^ 'eval'
+
 CommandLineHandler class >> allHandlers
    ^ self allSubclasses
-        reject: [ :handler| handler isAbstract ]
+      reject: [ :handler| handler isAbstract ]
 
-CommandLineHandler class >> handlersFor: aCommandLine
-  ^ self allHandlers
-       select: [ :handlerClass |
-          handlerClass isResponsibleFor: aCommandLine ]
+CommandLineHandler class >> handlersFor: arguments
+   ^ self allHandlers
+      select: [ :handlerClass |
+         handlerClass isResponsibleFor: arguments ]
 ]]]
 
 
 
 ${slide:title=Conclusion}$
 
-- Messages sent to classes are resolved dynamically the same way as messages sent to instances
-- Classes can then be used as registration mechanism
-
+- Classes are objects and can be sent messages
+- Method lookup is exactly the same as for all objects:
+-- go to the class of the receiver 
+-- follow inheritance chain
+- More during the lecture ''Understanding Metaclasses''
+- Pharo makes it easy to iterate over subclasses
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week4/C019-W4S06-ClassMethodsAtWork.pillar"
