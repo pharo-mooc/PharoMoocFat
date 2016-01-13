@@ -17,19 +17,10 @@ ${slide:title=Roadmap}$
 
 ${slide:title=Sharing State?}$
 
-How do you share state between all instances of a class?
+How do you share state between instances of a class?
 
 - in Java, an "instance" variable can be ==static==
 - in Pharo, we use ""class variables""
-
-[[[
-Object subclass: #MyClass
-   instanceVariableNames: ''
-   classVariableNames: 'SharedState'
-   package: ''
-]]]
-
-${slide:title=Example: Color Class Definition}$
 
 [[[
 Object subclass: #Color
@@ -59,25 +50,30 @@ ${slide:title=Roadmap}$
 - ""Instance variables of classes""
 - Class initialization
 
-${slide:title=Instance Variables of Classes}$
+${slide:title=Class Instance Variables}$
 
 A class can have instance variables like any object
 - a class is an instance of a class (its metaclass)
 - a metaclass can specify ""class instance variables""
 
 [[[
-MyClass class
-   instanceVariableNames: 'NonSharedState'
+RPackageSet class
+   instanceVariableNames: 'cachePackages'
 ]]]
 
-- ==NonSharedState== has a different value in ==MyClass== and in its subclasses.
 - accessible from class methods only
 - start with a lowercase letter
+
+${slide:title=No Sharing with Class Instance Variables}$
+
+Each instance has a different value for ==cachePackages==
+
++>file://figures/classInstanceVariable.png|width=100+
 
 ${slide:title=Singleton Design Pattern}$
 
 - Intent: Enforce that a class has only one instance
-- Possible solution: Keep the unique instance in a variable of the class
+- A solution: Keep the instance in a variable of the class
 
 ${slide:title=Singleton with a Class Instance Variable}$
 
@@ -85,12 +81,12 @@ ${slide:title=Singleton with a Class Instance Variable}$
 WebServer class
    instanceVariableNames: 'uniqueInstance'
 
+WebServer class >> new
+   self error: 'Can''t create a new instance'
+
 WebServer class >> uniqueInstance
    ^ uniqueInstance
       ifNil: [ uniqueInstance := super new ]
-
-WebServer class >> new
-   self error: 'Can''t create a new instance''
 ]]]
 
 Consequence:
@@ -104,6 +100,13 @@ Object subclass: #WebServer
    instanceVariableNames: ''
    classVariableNames: 'UniqueInstance'
    package: 'Web'
+
+WebServer class >> new
+   self error: 'Can''t create a new instance'
+
+WebServer class >> uniqueInstance
+   ^ UniqueInstance
+      ifNil: [ UniqueInstance := super new ]
 ]]]
 
 Consequence:
@@ -116,7 +119,7 @@ ${slide:title=Roadmap}$
 - Instance variables of classes
 - ""Class initialization""
 
-${slide:title=Remember}$
+${slide:title=Class Initialization}$
 
 - Everything is an object
 - An object is initialized at creation time
@@ -128,7 +131,7 @@ ${slide:title=Class Initialization}$
 
 A class is initialized
 - at load time after its methods are loaded
-- or explicitly by the programmer
+- or explicitly by the programmer:
 
 [[[
 Color initialize
