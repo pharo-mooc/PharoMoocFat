@@ -57,10 +57,10 @@ OurSpecificNode >> setWindowWithRatioForDisplay
 
 ${slide:title=Avoid Duplication}$
 
-- if ==setWindowWithRatioForDisplay== uses private attributes (as in Java like languages), code duplication in subclasses is not even possible
+- in Java-like languages, using ==private== attributes makes duplication in subclasses impossible
 - duplication is not a good practice:
--- copy bugs
--- fragile when original code changes (it ''will'' change)
+-- duplication copies bugs
+-- changing one copy requires changing others
 
 ${slide:title=Solution}$
 
@@ -78,6 +78,19 @@ ${column:width=50}$
 +>file://figures/SelfIsDynamic.png|width=85+
 
 ${endColumns}$
+
+${slide:title=We can Refactor this}$
+
+[[[
+Node >> setWindowWithRatioForDisplay
+  | avgRatio defaultNodeSize |
+  avgRatio := 55.
+  defaultNodeSize := (mainCoordinate / maximizeViewRatio).
+  self window add:
+      (UINode new
+         with: (bandWidth * avgRatio / defaultWindowSize).
+  previousNodeSize := defaultNodeSize.
+]]]
 
 ${slide:title=Better Design}$
 
@@ -129,8 +142,7 @@ ${slide:title=Another Step}$
 
 [[[
 Node >> setWindowWithRatioForDisplay
-   | avgRatio defaultNodeSize |
-   avgRatio := 55.
+   | defaultNodeSize |
    defaultNodeSize := self ratio.
    self window add: self uiNode.
    previousNodeSize := defaultNodeSize.
@@ -139,7 +151,7 @@ Node >> setWindowWithRatioForDisplay
 [[[
 Node >> uiNode
    ^ UINode new
-      with: bandWidth * avgRatio / defaultWindowSize
+      with: bandWidth * 55 / defaultWindowSize
 ]]]
 
 ${slide:title=Do Not Hardcode Class Use}$
@@ -147,14 +159,15 @@ ${slide:title=Do Not Hardcode Class Use}$
 [[[
 Node >> uiNode
    ^ UINode new
-      with: bandWidth * avgRatio / defaultWindowSize
+      with: bandWidth * 55 / defaultWindowSize
 ]]]
 
 ${slide:title=Define Methods Returning Classes}$
 
 [[[
 Node >> uiNode
-   ^ (self uiNodeClass new with: (bandWidth * avgRatio / defaultWindowSize).
+   ^ self uiNodeClass new
+      with: (bandWidth * 55 / defaultWindowSize).
 ]]]
 
 [[[
@@ -164,27 +177,30 @@ Node >> uiNodeClass
 
 ${slide:title=Many Small Messages}$
 
-- Newbies often complain that there are too many small methods
-- This is a good property
+- Some developers complain about all these small methods
+- They try to understand code line by line
+- This does not scale
+
+Small messages are a sign of good design
 
 ${slide:title=Avoid Magic Numbers}$
 
 - Do not hardcode magic numbers (55)
-- Either define instance variables with setter and getter, and/or set default value via message send
+-- define instance variables with setter and getter
+-- set default value via message send
 
 [[[
-Node >> setWindowWithRatioForDisplay
-   | avgRatio defaultNodeSize |
-   avgRatio := 55.
-   ...
+Node >> uiNode
+   ^ self uiNodeClass new
+      with: (bandWidth * 55 / defaultWindowSize).
 ]]]
 
-${slide:title=Use Setter and Default}$
+${slide:title=Use A Message Send}$
 
 [[[
 Node >> setWindowWithRatioForDisplay
   | avgRatio defaultNodeSize |
-  avgRatio := self defaultAverageRatio.
+  avgRatio := self averageRatio.
   ...
 ]]]
 
