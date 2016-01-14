@@ -9,27 +9,33 @@ We hope that you liked your journey in Pharo
 - Small, elegant and uniform
 - Powerful and fun
 
-${slide:title=The Most Important Effort is Passed}$
+${slide:title=The Most Important Effort is Behind}$
 
-- Learned most of Pharo aspects for real developments
--- Missing parts: project configuration, integration builder, deployment scripts are described in books
+- You learned most of Pharo aspects
+-- the rest, including dependency management and continuous integration, is in *www.pharo.org>http://www.pharo.org/*
 - You learned the core of Pharo
-- Now you can learn any Pharo library
-
+-- now you can learn any Pharo library
 
 ${slide:title=Pharo is not Read-Only}$
 
-Pharo is ""not"" a black-box, it is an aquarium living objects and you can swim into it
-and be really productive
+Pharo is not a black-box, it is an aquarium with living objects!
+You can swim in it and be really productive.
 
 +.>file://figures/AmongFishes.jpg|width=80+
 
 ${slide:title=Our Infrastructure Vision}$
 
-Pharo is a system to build and develop innovative solutions
+${columns}$
 
-+.>file://figures/Moteur.jpg|width=70+
+${column:width=40}$
 
+Pharo is a system to build and develop ""innovative solutions""
+
+${column:width=70}$
+
++.>file://figures/Moteur-cut.jpg|width=70+
+
+${endColumns}$
 
 ${slide:title=Business}$
 
