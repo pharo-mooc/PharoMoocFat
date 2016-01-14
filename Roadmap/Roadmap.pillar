@@ -525,7 +525,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - W7S01 [Lecture]  AdvancedPointOnClasses.pillar
 -- Presenter: Damien
--- Status: Reviewed
+-- Status: Reviewed by presenter
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S01-AdvancedPointOnClasses.pdf* *SlidesHTML>../Slides/Week7/C019-W7S01-AdvancedPointOnClasses.html*	
 
 - W7S02 [Lecture]  VariableClasses.pillar
@@ -555,7 +555,7 @@ You will also see that 4 kinds of activities are distinguished:
 
 - W7S07 [Lecture] Avoid is nil
 -- Presenter: Damien
--- Status: Done (may be add a figure with the hierarchy and witohut null object?)
+-- Status: Reviewed by presenter
 -- Files: *SlidesPdf>../Slides/Week7/C019-W7S07-AvoidIsNill.pdf* *SlidesHTML>../Slides/Week7/C019-W7S07-AvoidIsNill.html*	
 
 - W7S08 [Lecture] Conclusion
