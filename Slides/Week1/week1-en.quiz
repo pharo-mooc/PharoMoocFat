@@ -28,6 +28,28 @@ Which of these free books contains the most appropriate information for a Pharo 
 http://books.pharo.org contains the information about Pharo books. Pharo by Example, intended for both students and developers, will guide you gently through the Pharo language and environment by means of a series of examples and exercises.
 [explanation]
 
+Which one of those is a Pharo web framework?
+
+   ( ) Spotter
+   ( ) Self
+   (x) Seaside
+   ( ) JSON
+
+[explanation]
+Spotter is the search interface. Self (with capital S) is a programming language influenced by Smalltalk. Seaside is one of Pharo's web frameworks and is rapidly presented in Pharo By Example. JSON is a text format.
+[explanation]
+
+Which shortcut opens Spotter, the Pharo search interface?
+
+   ( ) Shift + Enter
+   ( ) Alt + Space
+   ( ) Ctrl + Space
+   ( ) Ctrl + o
+
+[explanation]
+Shift+Enter opens the Spotter search interface from which you can find tools, packages to install, classes, methods, ....
+[explanation]
+
 ! C019-W1S06-ClassAndMethodDefinition.pillar
 
 What is the message to create a new class given its name, instance variable names, ...? Answer the method name. Remember: a method name never contains spaces.
