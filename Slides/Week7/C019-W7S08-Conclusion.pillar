@@ -3,16 +3,10 @@
   "slidesid":"W7S08"
 }
 
-${slide:title=Pharo}$
-
-We hope that you liked your journey in Pharo
-- Small, elegant and uniform
-- Powerful and fun
-
 ${slide:title=The Most Important Effort is Behind}$
 
 - You learned most of Pharo aspects
--- the rest, including dependency management and continuous integration, is in *www.pharo.org>http://www.pharo.org/*
+-- the rest, including package dependency management and continuous integration, is in *www.pharo.org>http://www.pharo.org/*
 - You learned the core of Pharo
 -- now you can learn any Pharo library
 
@@ -22,20 +16,6 @@ Pharo is not a black-box, it is an aquarium with living objects!
 You can swim in it and be really productive.
 
 +.>file://figures/AmongFishes.jpg|width=80+
-
-${slide:title=Our Infrastructure Vision}$
-
-${columns}$
-
-${column:width=40}$
-
-Pharo is a system to build and develop ""innovative solutions""
-
-${column:width=70}$
-
-+.>file://figures/Moteur-cut.jpg|width=70+
-
-${endColumns}$
 
 ${slide:title=Business}$
 
@@ -64,19 +44,23 @@ ${slide:title=Mid-Term Vision}$
 ${slide:title=Pharo and its Projects}$
 
 - Pharo is built by up to 70 international contributors
-- The community is working on a multitude of different projects
+- The community is working on many different projects
 - You can join, help
 
 +.>file://figures/F1Team.jpg|width=70+
 
-${slide:title=www.pharo.org}$
 
+${slide:title=Hope You Liked the Journey in Pharo}$
+
+${slide:title=Hope You Liked the Journey in Pharo}$
+
+Pharo is
 - Pure & elegant
 - Fun, simple
 - Highly productive
 - Excellent for teaching
 - Empowering
-- Full access
+- Fully accessible
 
 % Local Variables:
 % compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week7/C019-W7S08-Conclusion.pillar"

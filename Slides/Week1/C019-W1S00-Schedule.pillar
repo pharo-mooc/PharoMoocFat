@@ -1,0 +1,19 @@
+{
+    "title":"Week1: Overview",
+    "subtitle":"Definition, Vision, Syntax and Model",
+	 "slidesid":"W1S00"
+}
+
+${slide:title=Schedule}$
+
+- Objectives
+- What is Pharo?
+- Vision
+- Pharo Object Model
+- Pharo Syntax
+- Class and Method Definition
+
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/4-Done/Intro-ModelInaNushell.pillar"
+% End:
