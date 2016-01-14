@@ -71,3 +71,6 @@ ${slide:title=www.pharo.org}$
 - Empowering
 - Full access
 
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week7/C019-W7S08-Conclusion.pillar"
+% End:
