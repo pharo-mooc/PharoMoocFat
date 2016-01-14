@@ -1,0 +1,18 @@
+{
+    "title":"Week3: Overview",
+    "subtitle":"Essence of Dispatch, and Collections",
+	 "slidesid":"W3S00"
+}
+
+${slide:title=Schedule}$
+
+# Essence of Dispatch: Taking Pharo Booleans as Example 
+# Essence of Dispatch
+# Variables
+# A Simple HTTP Application: a pretext to revisit Pharo Syntax
+# Class Methods
+# An Overview of Essential Collections
+# Iterators
+# Stream Overview
+# Understanding Return
+
