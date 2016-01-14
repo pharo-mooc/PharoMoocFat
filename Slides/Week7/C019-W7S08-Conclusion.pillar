@@ -13,7 +13,7 @@ ${slide:title=The Most Important Effort is Passed}$
 
 - Learned most of Pharo aspects for real developments
 -- Missing parts: project configuration, integration builder, deployment scripts are described in books
-- You learned the core of Pharo 
+- You learned the core of Pharo
 - Now you can learn any Pharo library
 
 
@@ -64,10 +64,10 @@ ${slide:title=Pharo and its Projects}$
 
 ${slide:title=www.pharo.org}$
 
-- Pure & elegant 
-- Fun, simple 
-- Highly productive 
-- Excellent for teaching 
+- Pure & elegant
+- Fun, simple
+- Highly productive
+- Excellent for teaching
 - Empowering
 - Full access
 
