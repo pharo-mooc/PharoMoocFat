@@ -130,7 +130,7 @@ self assert: model class = behavior.
 self assert: model class superclass = Model.
 behavior compile: 'foo ^ 2'.
 self assert: model foo = 2.
-self should: [Model new thisIsATest] raise: MessageNotUnderstood
+self should: [Model new foo] raise: MessageNotUnderstood
 ]]]
 
 ${slide:title=Instance Specific Behavior}$
