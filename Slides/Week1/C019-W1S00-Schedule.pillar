@@ -7,13 +7,9 @@
 ${slide:title=Schedule}$
 
 - Objectives
-- What is Pharo?
-- Vision
-- Pharo Object Model
-- Pharo Syntax
-- Class and Method Definition
+- Pharo: an Immersive Object-Oriented System
+- Pharo Vision
+- Pharo Object Model in a Nutshell
+- Pharo Syntax in a Nutshell
+- Class and Method Definitions
 
-
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/4-Done/Intro-ModelInaNushell.pillar"
-% End:

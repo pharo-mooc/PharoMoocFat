@@ -1,23 +1,18 @@
 {
     "title":"Week2: Overview",
-    "subtitle":"Definition, Vision, Syntax and Model",
+    "subtitle":"Pharo Syntax, Blocks and Inspector",
 	 "slidesid":"W2S00"
 }
 
 ${slide:title=Schedule}$
 
-- Messages
-- Messages for Java programmers
-- Message precedence
-- Message sequence
-- Blocks
-- Loops
-- Booleans and conditions
-- Parentheses Vs. Brackets
-- Yourself
-- Exercises for following week
-
-
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/4-Done/Intro-ModelInaNushell.pillar"
-% End:
+- [Lecture] Understanding Messages
+- [Lecture] Messages for Java Programmers
+- [Lecture] Messages: Composition and Precedence
+- [Lecture] Messages: Sequence and Cascade
+- [Lecture] Introduction to Blocks
+- [Lecture] Loops
+- [Lecture] Booleans and conditions
+- [Lecture] Parentheses vs. Square Brackets
+- [Lecture] Yourself
+- [Lecture] Exercises for Essence of Dispatch
