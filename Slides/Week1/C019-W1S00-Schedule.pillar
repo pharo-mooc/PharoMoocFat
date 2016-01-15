@@ -6,10 +6,10 @@
 
 ${slide:title=Schedule}$
 
-- Objectives
-- Pharo: an Immersive Object-Oriented System
-- Pharo Vision
-- Pharo Object Model in a Nutshell
-- Pharo Syntax in a Nutshell
-- Class and Method Definitions
+- [Lecture] Objectives
+- [Lecture] Pharo: an Immersive Object-Oriented System
+- [Lecture] Pharo Vision
+- [Lecture] Pharo Object Model in a Nutshell
+- [Lecture] Pharo Syntax in a Nutshell
+- [Lecture] Class and Method Definitions
 
