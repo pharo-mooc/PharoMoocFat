@@ -1,22 +1,22 @@
 ! Developing a simple counter
 
-We want you to implement a simple counter by following the steps given below. In this exercise you will learn how to create classes, method, instances. You will learn how to define tests and many more.
+We want you to implement a simple counter by following the steps given below. In this exercise you will learn how to create packages classes, method, instances. You will learn how to define tests and more. This simple tutorial covers most of the important actions that we do when developing in Pharo. 
 
-Note that the development flow promoted by this little tutorial is traditional in the sense that you will define a package, a class, then define its instance variable then define its methods and finally execute it. The companion video follows also such programming development flow.
-
-Now in Pharo, developers often follows a totally different style (that we call more live coding) where they execute an expression that will raise errors and they will code in the debugger or let the system define some instance variables and methods on the fly for them. Once you will have finish this tutorial we will ask you to try the other style by following a video showing such different development practice.
+Note that the development flow promoted by this little tutorial is ''traditional'' in the sense that you will define a package, a class, ''then'' define its instance variable ''then'' define its methods ''and'' finally execute it. The companion video follows also such programming development flow. Now in Pharo, developers often follows a ''totally'' different style (that we call live coding) where they execute an expression that raises errors and they code in the debugger and let the system define some instance variables and methods on the fly for them. Once you will have finish this tutorial, you will feel more confident with Pharo and we strongly suggest you to try the other style by following the second video showing such different development practices.
 
 !! Our use case
 
-Here is our use case: We want to be able to create a counter, increment it twice, decrement it and check that its value is correct.
+Here is our use case: We want to be able to create a counter, increment it twice, decrement it and check that its value is correct. It looks like this little use case will fit perfectly a unit test - you will define one later. 
 
 [[[
-  | counter |
-  counter := Counter new.
-  counter increment; increment.
-  counter decrement.
-  counter count = 1
+| counter |
+counter := Counter new.
+counter increment; increment.
+counter decrement.
+counter count = 1
 ]]]
+
+
 
 Now we will develop all the mandatory class and methods to support this scenario.
 
