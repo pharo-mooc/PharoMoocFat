@@ -45,10 +45,10 @@ Creating a class requires five steps. They consist basically in editing the clas
 You should get the following class definition.
 
 [[[
-  Object subclass: #Counter
-    instanceVariableNames: 'count'
-    classVariableNames: ''
-    package: 'MyCounter'
+   Object subclass: #Counter
+      instanceVariableNames: 'count'
+      classVariableNames: ''
+      package: 'MyCounter'
 ]]]
 
 Now we should compile it. We now have a filled-in class definition for the class ==Counter==. To define it, we still have to ''compile'' it. Therefore, select the accept menu item. The class ==Counter== is now compiled and immediately added to the system.
@@ -57,6 +57,8 @@ Now we should compile it. We now have a filled-in class definition for the class
 
 Figure *@figclassCreated* illustrates the resulting situation that the browser should show.
 +Class created.>file://figures/CounterClassCreated.png|label=figclassCreated+
+
+The tool runs automatically some code critic and some of them are just inaccurate, so do not care for now. 
 
 As we are disciplined developers, we add a comment to ==Counter== class by clicking Comment button. You can write the following comment:
 
@@ -76,32 +78,32 @@ In this part you will use the browser to learn how to add protocols and methods.
 
 The class we have defined has one instance variable named ==count==. You should remember that in Pharo, (1) everything is an object, (2) that instance variables are private to the object, and (3) that the only way to interact with an object is by sending messages to it.
 
-Therefore, there is no other mechanism to access the instance variable values from outside an object than sending a message to the object. What you can do is to define messages that return the value of the instance variable of a class. Such methods are called ''accessors'', and it is a common practice to always define and use them. We start to create an accessor method for our instance variable ==count==.
+Therefore, there is no other mechanism to access the instance variable values from outside an object than sending a message to the object. What you can do is to define messages that return the value of the instance variable. Such methods are called ''accessors'', and it is a common practice to always define and use them. We start to create an accessor method for our instance variable ==count==.
 
-Remember that every method belongs to a protocol. These protocols are just a group of methods without any language semantics, but convey important navigation information for the reader of your class. Although protocols can have any name, Pharo programmers follow certain conventions for naming these protocols. If you define a method and are not sure what protocol it should be in, first go through existing code and try to find a fitting name.
+A method is usually sorted into a protocol. These protocols are just a group of methods without any language semantics, but convey important navigation information for the reader of your class. Although protocols can have any name, Pharo programmers follow certain conventions for naming these protocols. If you define a method and are not sure what protocol it should be in, first go through existing code and try to find a fitting name.
 
 !!! Create a method
 
-Now let us create the accessor methods for the instance variable ==count==. Start by selecting the class ==Counter== in a browser, and make sure the you are editing the instance side of the class (i.e., we define methods that will be sent to instances) by deselecting the Class side radiobutton.
+Now let us create the accessor methods for the instance variable ==count==. Start by selecting the class ==Counter== in a browser, and make sure the you are editing the instance side of the class (i.e., we define methods that will be sent to instances) by deselecting the Class side radio button.
 
 Create a new protocol by bringing the menu of methods protocol list. Select the newly created protocol. Then in the bottom pane, the edit field displays a method template laying out the default structure of a method. As a general hint, double click at the end of or beginning of the text and start typing your method.
 Replace the template with the following method definition:
 
 [[[
 count
-  "return the current value of the value instance variable"
-  ^ count
+   "return the current value of the value instance variable"
+   ^ count
 ]]]
 
-This defines a method called ==count==, taking no arguments, having a method comment and returning the instance variable ==count==. Then choose ''accept'' in the operate menu to compile the method. You can now test your new method by typing and evaluating the next expression in a Playground, or any text editor.
+This defines a method called ==count==, taking no arguments, having a method comment and returning the instance variable ==count==. Then choose ''accept'' in the menu to compile the method. You can now test your new method by typing and evaluating the next expression in a Playground, or any text editor.
 
 
 [[[
-  Counter new count
-  > nil
+   Counter new count
+   > nil
 ]]]
 
-This expression first creates a new instance of ==Counter==, and then sends the message ==count== to it. It retrieves the current value of the counter. This should return ==nil== (the default value for noninitialised instance variables). Afterwards we will create instances with a reasonable default initialisation value.
+This expression first creates a new instance of ==Counter==, and then sends the message ==count== to it. It retrieves the current value of the counter. This should return ==nil== (the default value for non-initialised instance variables). Afterwards we will create instances with a reasonable default initialisation value.
 
 
 !!! Adding a setter method
@@ -110,10 +112,10 @@ Another method that is normally used besides the accessor method is a so-called 
 The snippets shows that the counter effectively contains its value.
 
 [[[
-  | c |
-  c := Counter new count: 7.
-  c count
-  > 7
+   | c |
+   c := Counter new count: 7.
+   c count
+   > 7
 ]]]
 
 
@@ -121,80 +123,140 @@ This setter method does not currently exist, so as an exercise write the method 
 
 !! Define a Test Class
 
-Writing tests is an important activity that will support the evolution of your application. Remember that a test is written once and executed million times.
+Writing tests is an important activity that will support the evolution of your application. Remember that a test is written ''once and executed million'' times. For example if we have turned the expression above into a test we could have checked automatically that our new method is correctly working. 
+
 To define a test case we will define a class that inherits from ==TestCase==. Therefore define a class named ==CounterTest== as follows:
 
 [[[
-  TestCase subclass: #CounterTest
-    instanceVariableNames: ''
-    classVariableNames: ''
-    package: 'Counter'
+   TestCase subclass: #CounterTest
+      instanceVariableNames: ''
+      classVariableNames: ''
+      package: 'Counter'
 ]]]
 
-Now we can write a first test by defining one method. Test methods should start with ''text'' to be automatically executed by the test runner or when you press on the icon
-of the method. Now to make sure that you understand in which class we define the method we prefix the method body with the class name and ==>>==.
+Now we can write a first test by defining one method. Test methods should start with ''text'' to be automatically executed by the TestRunner or when you press on the icon of the method. Now to make sure that you understand in which class we define the method we prefix the method body with the class name and ==>>==.
 ==CounterTest>>== means that the method is defined in the class ==CounterTest==.
 
-Define the following method. It first creates an instance, set its value and verifies that the value is correct. The message ==assert:== is a special message recording if the test passed or not.
+Define the following method. It first creates an instance, sets its value and verifies that the value is correct. The message ==assert:== is a special message verifying if the test passed or not.
 
 [[[
-CounterTest>>testCountIsSetAndRead
-  | c |
-  c := Counter new.
-  c count: 15.
-  self assert: c count = 15
+CounterTest >> testCountIsSetAndRead
+   | c |
+   c := Counter new.
+   c count: 7.
+   self assert: c count = 7
 ]]]
 
-Verify that the test passes by executing either pressing the icon in front of the method or using the test runner (selecting your package).
+Verify that the test passes by executing either pressing the icon in front of the method or using the TestRunner available in the Tools menus (selecting your package).
+Since you have a first green test. This is a good moment to save your work. 
+
+
++Selecting a new kind of repository to the list of possible places to commit the package.>file://figures/CounterAddingRepo.png|label=figSelectingARepo+
+
++Editing the repository information.>file://figures/CounterEditingProject.png|label=figAddingARepo+
+
+!! Saving your work
+
+Several ways to save your work exist. 
+
+- ''Using plain files''. You can save the class or a method by clicking on it and selecting the fileout menu item. You will get a file containing the source code on your hard-disc - This is not the favorite way to save your code. 
+- ''Using a version control system''. It is better to use a version control system. In Pharo you can use Monticello and Git (even if it is more for advanced users).
+
+
+In this tutorial we explain the simplest way to get you done. Note that the complete set of Pharo packages is managed via Monticello (which is a distributed versioning control system - there is are chapters in ""Pharo by Example"" and ""Deep into Pharo"" books *http://books.pharo.org*).
+
+Use the ""Monticello Browser"" (available in Tools) to save your work. You can save a package locally on your harddisc or on a remote server on the web such *http://www.smalltalkhub.com*
+
+!!! Saving using Monticello
+
+Using Monticello you can save your work:
+- ''Locally''. You can store your packages in a folder on your disc (use directory as a kind of repository).
+- ''Remotely''. Using an account on a free server such *http://www.smalltalkhub.com/*. You can save your work and share it with others.
+Note each time you load or save a package, this package is also be stored on the folder named 'package-cache' on your hard-disc.
+
+
+!!!! Add a repository.
+Go to *http://www.smalltalkhub.com/* and create a member account then register a new project. You get an HTTP entry that refers to your project. Define a new HTTP repository using the Monticello Browser as shown by Figures *@figSelectingARepo* and *@figAddingARepo*.
+
+Figure *@figSelectingARepo* shows that you package is dirty: this is indicated with the little '*' in front of the packages. 
+
+Example. We are saving our examples into a special team named PharoMooc in the the Counter project so the template is the following one 
+
+[[[
+MCHttpRepository
+	location: 'http://smalltalkhub.com/mc/PharoMooc/Counter/main'
+	user: ''
+	password: ''
+]]]
+
+So the template is the following: 
+
+[[[
+MCHttpRepository
+	location: 'http://smalltalkhub.com/mc/YourAccountOrTeamAccount/YourProject/main'
+	user: 'YourAccountID'
+	password: 'YourAccountPassword'
+]]]
+
+
+!!!! Saving your package.
+
+To save your work, simply select your package and the repository you want to save it to and save it using the Save button. This will open a dialog where you can give a comment, version numbers and blessing. From then on, other people can load it from there, in the same way that you would use cvs or other multi-user versioning systems. Saving the image is also a way to save your working environment, but not a way to version and publish it in a way that can be easily shared.
+
+You can of course both publish your package (so that other people can load it, and that you can compare it with other versions, etc.) and save your image (so that next time that you start your image you are in the same working environment).
+
 
 
 
 !! Adding more messages
-Before implementing the following messages we will define first a test.
+Before implementing the following messages we define first a test.
 We define one test for the method ==increment== as follows:
 
 [[[
-CounterTest>>testIncrement
-  | c |
-  c := Counter new.
-  c count: 0 ; increment; increment.
-  self assert: c count = 2
+CounterTest >> testIncrement
+   | c |
+   c := Counter new.
+   c count: 0 ; increment; increment.
+   self assert: c count = 2
 ]]]
 
 - Propose a definition for the method ==increment==.
 - Define a test and method for the method ==decrement==.
-- Implement the following methods ==increment== and ==decrement== in the protocol ==operation==.
+- Implement the following methods ==increment== and ==decrement== in the protocol 'operation'.
 
 [[[
-Counter>>increment
-  self count: self count + 1
+Counter >> increment
+   self count: self count + 1
 ]]]
 
 [[[
-Counter>>decrement
-  self count: self count - 1
+Counter >> decrement
+   self count: self count - 1
 ]]]
 
 +Class with green tests.>file://figures/CounterClassTestCreated.png|label=figclassTestCreated+
 
-Run your tests they should pass (as shown in Figure *@figclassTestCreated*).
+Run your tests they should pass (as shown in Figure *@figclassTestCreated*). Again this is a good moment to save your work. Saving at point where tests are green
+is always a good process. 
 
-!!! Better object description
+
+
+!! Better object description
 
 When you open an inspect (putting a ==self halt== inside a method definition) you obtain an inspector or when you select the expression ==Counter new== and print its result (using the Print it menu of the editor) you obtain a simple string =='a Counter'==.
 
 [[[
-  Counter new
-  > a Counter
+   Counter new
+   > a Counter
 ]]]
 
 We would like to get a much richer information for example knowing the counter value. Implement the following methods in the protocol ==printing==
 
 [[[
-Counter>>printOn: aStream
-  super printOn: aStream.
-  aStream nextPutAll: ' with value: ', self count printString.
-  aStream cr.
+Counter >> printOn: aStream
+   super printOn: aStream.
+   aStream nextPutAll: ' with value: ', self count printString.
+   aStream cr.
 ]]]
 
 Note that the method ==printOn:== is used when you print an object using print it (See Figure *@figBetterDescription*) or click on ==self== in an inspector.
@@ -203,28 +265,30 @@ Note that the method ==printOn:== is used when you print an object using print i
 
 
 !! Instance initialization method
-Right now the initial value of our counter is not set.
+Right now the initial value of our counter is not set as the following expression shows it.
 
 [[[
-  Counter new count
-  > nil
+   Counter new count
+   > nil
 ]]]
 
 Let us write a test checking that a newly created instance has 0 as a default value.
 
 [[[
-CounterTest>>testValueAtCreationTimeIsZero
-  self assert: Counter new count = 0
+CounterTest >> testValueAtCreationTimeIsZero
+   self assert: Counter new count = 0
 ]]]
 
-!!! Define initialize method
+If you run it, it will turn yellow indicating a failure (a situation that you anticipated but that is not correct) - by opposition to an error which is an anticipated situation leading to failed assertion. 
+
+!!! Define an initialize method
 
 Now we have to write an initialization method that sets a default value of the ==count== instance variable. However, as we mentioned the ==initialize== message is sent to the newly created instance. This means that the ==initialize== method should be defined at the instance side as any method that is sent to an instance of ==Counter== (like ==increment==) and ==decrement==. The ==initialize== method is responsible to set up the instance variable default values.
 
 Therefore at the instance side, you should create a protocol ==initialization==, and create the following method (the body of this method is left blank. Fill it in!).
 
 [[[
-Counter>>initialize
+Counter >> initialize
   "set the initial value of the value to 0"
 ]]]
 
@@ -232,44 +296,47 @@ Counter>>initialize
 Now create a new instance of class ==Counter==. Is it initialized by default? The following code should now work without problem:
 
 [[[
-  Counter new increment
+    Counter new increment
 ]]]
 
 and the following one should return 2
 
 [[[
-  Counter new increment; increment; count
-  > 2
+   Counter new increment; increment; count
+   > 2
 ]]]
+
+Again save your work before starting the next step.
 
 !! Define a new instance creation method
 
-To be sure that you have really understood the distinction between instance and class methods, you should now define a different instance creation method named ==withValue:==. This method receives an integer as argument and returns an instance of ==Counter== with the specified value.
+We would like to show you the difference between an instance method (i.e. sent to instances) and a class method (i.e. to a class).
+In fact the only difference is the place to define them. An instance method is defined in the instance side of Code Browser while class methods
+are defined on the class side (Pressing the button Class). 
+
+Define a different instance creation method named ==withValue:==. This method receives an integer as argument and returns an instance of ==Counter== with the specified value.
 
 Let us define a test:
 
 [[[
-CounterTest>>testAlternateCreationMethod
+CounterTest >> testAlternateCreationMethod
   self assert: ((Counter withValue: 19) increment ; count) = 20
 ]]]
 
 Here the message ==withValue:== is sent to the class ==Counter== itself.
 
-!! Saving your Work
+Your implementation should look like
+[[[
+Counter class >> withValue: anInteger
+	| c |
+	c := self new count: anInteger. 
+	^ c 
+]]]
 
-Several ways to save your work exist: You can
-
-- Save the class by clicking on it and selecting the fileout menu item. You will get a file containing the source code on your harddisc - This is not the favorite way to save your code.
-- Use the Monticello browser to save a package.
-
-Use SmalltalkHub to save your work. Go to *http://www.smalltalkhub.com/* and create a member account then register a new project. You get then an HTTP entry that refer to your project. Enter it as an HTTP repository in Monticello.
-
-To save your work, simply publish your package. This will open a dialog where you can give a comment, version numbers and blessing. From then on, other people can load it from there, in the same way that you would use cvs or other multi-user versioning systems. Saving the image is also a way to save your working environment, but publishing it is better.
-
-You can of course both publish your package (so that other people can load it, and that you can compare it with other versions, etc.) and save your image (so that next time that you start your image you are in the same working environment).
+Note that ==self== in such method refers to the class ==Counter== itself. 
 
 !! Conclusion
 
-In this exercise you learned how to define classes, methods, and define tests.
-The flow of programming that we chose for this first exercise is similar to most of programming languages.
+In this tutorial you learned how to define packages, classes, methods, and define tests.
+The flow of programming that we chose for this first tutorial is similar to most of programming languages.
 In Pharo you can use a different flow that is based on defining a test first, executing it and when the execution raises error to define the corresponding classes, methods, and instance variable often from inside the debugger. We suggest you now to redo the exercise following the second companion video.
