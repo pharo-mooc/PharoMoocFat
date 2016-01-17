@@ -1,6 +1,6 @@
 ! Developing a simple counter
 
-We want you to implement a simple counter by following the steps given below. In this exercise you will learn how to create packages classes, method, instances. You will learn how to define tests and more. This simple tutorial covers most of the important actions that we do when developing in Pharo. 
+To get started in Pharo, we invite you to implement a simple counter by following the steps given below. In this exercise you will learn how to create packages classes, method, instances. You will learn how to define tests and more. This simple tutorial covers most of the important actions that we do when developing in Pharo. 
 
 Note that the development flow promoted by this little tutorial is ''traditional'' in the sense that you will define a package, a class, ''then'' define its instance variable ''then'' define its methods ''and'' finally execute it. The companion video follows also such programming development flow. Now in Pharo, developers often follows a ''totally'' different style (that we call live coding) where they execute an expression that raises errors and they code in the debugger and let the system define some instance variables and methods on the fly for them. Once you will have finish this tutorial, you will feel more confident with Pharo and we strongly suggest you to try the other style by following the second video showing such different development practices.
 
@@ -20,7 +20,7 @@ counter count = 1
 
 Now we will develop all the mandatory class and methods to support this scenario.
 
-+Package created.>file://figures/CounterPackageCreated.png|label=figpackageCreated+
++Package created and class creation template.>file://figures/CounterPackageCreated.png|label=figpackageCreated+
 
 !! Create your own class
 
@@ -51,38 +51,41 @@ You should get the following class definition.
     package: 'MyCounter'
 ]]]
 
-Now we should compile it. We now have a filled-in class definition for the class ==Counter==. To define it, we still have to ''compile'' it. Therefore, select the accept menu. The class ==Counter== is now compiled and immediately added to the system.
+Now we should compile it. We now have a filled-in class definition for the class ==Counter==. To define it, we still have to ''compile'' it. Therefore, select the accept menu item. The class ==Counter== is now compiled and immediately added to the system.
 
 
 
 Figure *@figclassCreated* illustrates the resulting situation that the browser should show.
 +Class created.>file://figures/CounterClassCreated.png|label=figclassCreated+
 
-As we are disciplined developers, we provide a comment to ==Counter== class by clicking Comment button. You can write the following
-comment:
+As we are disciplined developers, we add a comment to ==Counter== class by clicking Comment button. You can write the following comment:
 
 [[[
-Counter is a concrete class which supports incrementing and decrementing a counter.
-It knows how to increment and decrement its value.
+Counter is a simple concrete class which supports incrementing and decrementing a counter.
+Its API is 
+- decrement, increment
+- count
+Its creation API is message withValue: 
 ]]]
 
-Select accept to store this class comment in the class.
+Select menu item 'accept' to store this class comment in the class.
 
 
 !! Define protocols and methods
 In this part you will use the browser to learn how to add protocols and methods.
 
-The class we have defined has one instance variable named ==count==. You should remember that in Pharo, everything is an object, that instance variables are private to the object and that the only way to interact with an object is by sending messages to it.
+The class we have defined has one instance variable named ==count==. You should remember that in Pharo, (1) everything is an object, (2) that instance variables are private to the object, and (3) that the only way to interact with an object is by sending messages to it.
 
-Therefore, there is no other mechanism to access the instance variables from outside an object than sending a message to the object. What you can do is to define messages that return the value of the instance variable of a class. Such methods are called ''accessors'', and it is a common practice to always define and use them. We start to create an accessor method for our instance variable ==count==.
+Therefore, there is no other mechanism to access the instance variable values from outside an object than sending a message to the object. What you can do is to define messages that return the value of the instance variable of a class. Such methods are called ''accessors'', and it is a common practice to always define and use them. We start to create an accessor method for our instance variable ==count==.
 
 Remember that every method belongs to a protocol. These protocols are just a group of methods without any language semantics, but convey important navigation information for the reader of your class. Although protocols can have any name, Pharo programmers follow certain conventions for naming these protocols. If you define a method and are not sure what protocol it should be in, first go through existing code and try to find a fitting name.
 
 !!! Create a method
 
-Now let us create the accessor methods for the instance variable ==value==. Start by selecting the class ==Counter== in a browser, and make sure the you are editing the instance side of the class (i.e., we define methods that will be sent to instances) by deselecting the Class side radiobutton.
+Now let us create the accessor methods for the instance variable ==count==. Start by selecting the class ==Counter== in a browser, and make sure the you are editing the instance side of the class (i.e., we define methods that will be sent to instances) by deselecting the Class side radiobutton.
 
-Create a new protocol by bringing the menu of methods protocol list. Select the newly created protocol. Then in the bottom pane, the edit field displays a method template laying out the default structure of a method. Replace the template with the following method definition:
+Create a new protocol by bringing the menu of methods protocol list. Select the newly created protocol. Then in the bottom pane, the edit field displays a method template laying out the default structure of a method. As a general hint, double click at the end of or beginning of the text and start typing your method.
+Replace the template with the following method definition:
 
 [[[
 count
@@ -98,10 +101,7 @@ This defines a method called ==count==, taking no arguments, having a method com
   > nil
 ]]]
 
-This expression first creates a new instance of ==Counter==, and then sends the message ==count== to it and retrieves the current value of the counter. This should return ==nil== (the default value for noninitialised instance variables; afterwards we will create instances with a reasonable default initialisation value.
-
-!!! Remarks
-Accessors can be defined in protocols accessing or private.  Use the accessing protocol when a client object (like an interface) really needs to access your data. Use private to clearly state that no client should use the accessor. This is purely a convention. There is no simple way in Pharo (as in many dynamically-typed languages) to enforce access rights like private in C\+\+ or Java. Note that this discussion does not seem to be very important in the context of this specific simple example. However, this question is central to the notion of object and encapsulation of the data. An important side effect of this discussion is that you should always ask yourself when you, as a client of an object, are using an accessor if the object is really well defined and if it does not need extra functionality.
+This expression first creates a new instance of ==Counter==, and then sends the message ==count== to it. It retrieves the current value of the counter. This should return ==nil== (the default value for noninitialised instance variables). Afterwards we will create instances with a reasonable default initialisation value.
 
 
 !!! Adding a setter method
