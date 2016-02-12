@@ -223,7 +223,7 @@ CounterTest >> testIncrement
 - Propose a definition for the method ==increment==.
 - Define a test and method for the method ==decrement==.
 - Implement the following methods ==increment== and ==decrement== in the protocol 'operation'.
-
+- Implement also a new test method for the method ==decrement==
 [[[
 Counter >> increment
    self count: self count + 1
