@@ -84,8 +84,10 @@ stream := 'hello.txt' asFileReference readStream.
 stream next.
 > $H
 
-stream upToEnd
+stream upToEnd.
 > 'ello Pharo!'
+
+stream close
 ]]]
 
 ${slide:title=Creating Collections from a Stream}$
