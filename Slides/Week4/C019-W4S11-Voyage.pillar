@@ -47,7 +47,7 @@ repository enableSingleton.
 ]]]
 
 - Really nice to prototype 
-- Then can eaily switch to a MongoDB
+- Then can easily switch to a MongoDB
 
 ${slide:title=A Simple Model}$
 
