@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="en">  <head>    <title>L'application TinyBlog : présentation et modèle</title>    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css" rel="stylesheet">    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>    <!--[if lt IE 9]>      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>    <![endif]-->  </head>  <body>    <div class="container">      <section>
+<h1>I. Présentation de TinyBlog</h1>
+
+<p>
+Tout au long de ce MOOC, nous allons vous guider pour développer et enrichir une application Web  pour gérer un ou plusieurs blogs. 
+Dans la suite appellerons cette application: TinyBlog.
+L'idée est qu'un visiteur du site Web puisse voir les posts et que l'auteur du blog puisse se connecter sur le site pour administrer le blog c'est-à-dire ajouter, supprimer ou modifier des posts.
+</p>
+<p>
+TinyBlog est application à but pédagogique qui va vous montrer comment définir et déployer une application en utilisant Pharo/Seaside/Mongo ainsi que des frameworks disponibles en Pharo comme NeoJSON. Nous exposerons aussi comment exposer votre application via un serveur REST. 
+Les solutions proposées dans ce tutoriel sont parfois non optimales afin de vous faire réagir et que vous puissiez proposer d'autres solutions et des améliorations.
+Notre objectif n'est pas d'être exhaustif. Nous montrons une façon de faire cependant nous invitons le lecteur à lire les références sur les autres chapitres, livres et tutoriaux Pharo afin d'approfondir son expertise et enrichir son application.
+</p>
+
+</section><section>
+<h1>II. Installation de Pharo</h1>
+
+<p>
+Vous pouvez télécharger Pharo (machine virtuelle et image) à l'adresse : <a href="http://pharo.org/download">http://pharo.org/download</a>.
+</p>
+<p>
+Attention, dans ce MOOC nous supposons que vous utiliser Pharo 5.0.
+Nous allons également utiliser des bibliothèques et frameworks supplémentaires pour le développement d'applications Web: Seaside, Magritte, Bootstrap, Voyage, VoyageMongo, ...
+</p>
+<p class="todo">Preparer l'image PharoWeb pour Pharo 5.0</p>
+<p>
+Il existe une image spécifique contenant déjà les bibliothèques courantes nécessaires au développement d'applications Web. 
+Vous pouvez la télécharger directement en utilisant Pharo Launcher et en cherchant le projet PharoWeb dans les contributions Pharo.
+Cette image se trouve également sur le serveur d'intégration <a href="https://ci.inria.fr/">https://ci.inria.fr/</a> dans les Pharo-Contributions et le projet PharoWeb. 
+</p>
+<p>
+Vous pouvez également recréer cette image manuellement :
+</p>
+<ul>
+<li>Télécharger Pharo 5.0 à partir du site pharo.org</li>
+<li>Dans l'outil &quot;Configuration Browser&quot;, installer les paquets:<ul>
+<li>Seaside3,</li>
+<li>VoyageMongo,</li>
+<li>BootstrapMagritte.</li>
+</ul>
+</li>
+</ul>
+
+</section><section>
+<h1>III. Le modèle des posts</h1>
+
+<p>
+Le modèle de TinyBlog est extrêmement simple.
+Nous commencerons ici par la classe <code>TBPost</code>.
+</p>
+<section>
+<h2>III.1. La classe TBPost</h2>
+<p>
+Définissez la classe <code>TBPost</code> comme suit:
+</p>
+<figure><pre><code>Object subclass: #TBPost
+   instanceVariableNames: 'title text date category visible'
+   classVariableNames: ''
+   package: 'TinyBlog'</code></pre><figcaption></figcaption></figure>
+
+</section><section>
+<h2>III.2. Description d'un post</h2>
+
+<p>
+Cinq variables d'instance pour décrire un post sur le blog.
+</p>
+<table style="border: solid thin"><tr><th>Variable</th>
+<th>Signification</th>
+<td></td>
+</tr>
+<tr><td>title</td>
+<td>Titre du post</td>
+<td></td>
+</tr>
+<tr><td>text</td>
+<td>Texte du post</td>
+<td></td>
+</tr>
+<tr><td>date</td>
+<td>Date de redaction</td>
+<td></td>
+</tr>
+<tr><td>category</td>
+<td>Rubrique contenant le post</td>
+<td></td>
+</tr>
+<tr><td>visible</td>
+<td>Post visible ou pas ?</td>
+<td></td>
+</tr>
+</table>
+
+
+<p>
+Ces variables ont des méthodes accesseurs dans le protocole 'accessing'.
+</p>
+<figure><pre><code>TBPost &gt;&gt; title
+   ^ title
+
+TBPost &gt;&gt; title: anObject
+   title := anObject
+
+TBPost &gt;&gt; text
+   ^ text
+
+TBPost &gt;&gt; text: anObject
+   text := anObject
+
+TBPost &gt;&gt; date
+   ^ date
+
+TBPost &gt;&gt; date: anObject
+   date := anObject
+
+TBPost &gt;&gt; visible
+   ^ visible
+
+TBPost &gt;&gt; visible: anObject
+   visible := anObject
+
+TBPost &gt;&gt; category
+   ^ category
+
+TBPost &gt;&gt; category: anObject
+   category := anObject</code></pre><figcaption></figcaption></figure>
+
+</section><section>
+<h2>III.3. Gérer la visibilité d'un post</h2>
+
+<p>
+Il faut avoir la possibilité d'indiquer qu'un post est visible ou pas. Il faut également pouvoir demander à un post s'il est visible. Les méthodes sont définies dans la protocole 'action'.
+</p>
+<figure><pre><code>TBPost &gt;&gt; beVisible
+   self visible: true
+
+TBPost &gt;&gt; notVisible
+   self visible: false
+
+TBPost &gt;&gt; isVisible
+   ^ self visible</code></pre><figcaption></figcaption></figure>
+
+
+</section><section>
+<h2>III.4. Initialisation</h2>
+
+<p>
+La méthode <code>initialize</code> (protocole 'initialize-release') fixe la date à celle du jour et la visibilité à faux (l'utilisateur devra par la suite activer la visibilité ce qui permet de rédiger des brouillons et de publier lorsque le post est terminé). Un post est également rangé par défaut dans la catégorie 'Unclassified' que l'on définit au niveau classe.  La méthode <code>unclassifiedTag</code> renvoie une valeur indiquant que le post n'est pas rangé dans une catégorie.
+</p><figure><pre><code>TBPost class &gt;&gt; unclassifiedTag
+   ^ 'Unclassified'</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>TBPost &gt;&gt; initialize
+  self category: TBPost unclassifiedTag.
+  self date: Date today.
+  self visible: false.</code></pre><figcaption></figcaption></figure>
+
+<p>
+Dans la solution proposée ci-dessus pour la méthode <code>initialize</code>, il serait préférable de ne pas faire une référence en dur à la classe <code>TBPost</code>. 
+Nous traiterons ce point ultérieurement dans le MOOC.
+</p>
+
+</section><section>
+<h2>III.5. Méthode de création</h2>
+<p>
+Coté classe, on spécifie des méthodes pour faciliter la création de post appartenant ou pas à une catégorie.
+</p>
+<figure><pre><code>TBPost class &gt;&gt; title: aTitle text: aText
+   ^ self new
+        title: aTitle;
+        text: aText;
+        yourself</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>TBPost class &gt;&gt; title: aTitle text: aText category: aCategory
+   ^ (self title: aTitle text: aText)
+            category: aCategory;
+            yourself</code></pre><figcaption></figcaption></figure>
+
+
+</section><section>
+<h2>III.6. Test</h2>
+
+<p>
+Savoir si un post est classé dans une catégorie.
+</p>
+<figure><pre><code>TBPost &gt;&gt; isUnclassified
+   ^ self category = TBPost unclassifiedTag</code></pre><figcaption></figcaption></figure>
+
+<p>
+De même il serait préférable de ne pas faire une référence en dur à la classe <code>TBPost</code>.
+</p>
+<p class="todo">Ajouter une classe Author?</p></section></section>    </div>    <script src="https://code.jquery.com/jquery.js"></script>    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>    <script>hljs.initHighlightingOnLoad();</script>  </body></html>

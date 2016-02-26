@@ -1,0 +1,13 @@
+{
+    "title":"L'application TinyBlog : présentation et modèle",
+	 "slidesid":"W3SX1"
+}
+
+
+!!Démarrer le serveur HTTP
+
+- Aller dans Tools pour ouvrir le Seaside Control Panel,
+- Faire un clic droit dans la partie supérieure et sélectionner le ZnZinServerAdaptor,
+- Choisir le port 8080,
+- Cliquer sur le serveur pour le sélectionner et cliquez sur le bouton "Start".
+
