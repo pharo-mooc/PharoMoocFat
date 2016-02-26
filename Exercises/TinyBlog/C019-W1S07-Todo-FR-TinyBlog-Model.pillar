@@ -3,7 +3,7 @@
 	 "slidesid":"W1S07"
 }
 
-!Présentation de TinyBlog
+!L'application TinyBlog
 
 Tout au long de ce MOOC, nous allons vous guider pour développer et enrichir une application Web  pour gérer un ou plusieurs blogs. 
 Dans la suite appellerons cette application: TinyBlog.
@@ -177,29 +177,29 @@ TBPost
 
 Si vous inspectez le code ci-dessus (clic droit sur l'expression et "inspect"), vous allez obtenir un inspecteur sur l'objet post nouvellement créé.
 
-!Le modèle des auteurs
-
-Un post est écrit par un auteur. 
-Ajouter maintenant une classe nommée ==TBAuthor== sachant qu'un auteur est caractérisé par son pseudo (affiché publiquement dans le post), son login et son mot de passe.
-
-De même que pour les posts, ajoutez des accesseurs et des méthodes de création côté classe.
-Nous souhaitons pouvoir écrire dans un playground :
-
-[[[
-	luc := TBAuthor pseudo: 'LucF' login: 'luc' password: 'topsecret'
-]]]
-
-Ajouter un champs ==author== dans la classe ==TBPost== ainsi que des accesseurs.
-Dans un playground, on souhaite pouvoir écrire :
-
-[[[
-	|luc|
-	luc := TBAuthor pseudo: 'LucF' login: 'luc' password: 'topsecret'.
-	(TBPost 
-		title: 'Welcome in TinyBlog' 
-		text: 'TinyBlog is a small blog engine made with Pharo.' 
-		category: 'TinyBlog')
-		author: luc ;
-		yourself
-]]]
+% !Le modèle des auteurs
+%
+% Un post est écrit par un auteur.
+% Ajouter maintenant une classe nommée ==TBAuthor== sachant qu'un auteur est caractérisé par son pseudo (affiché publiquement dans le post), son login et son mot de passe.
+%
+% De même que pour les posts, ajoutez des accesseurs et des méthodes de création côté classe.
+% Nous souhaitons pouvoir écrire dans un playground :
+%
+% [[[
+% 	luc := TBAuthor pseudo: 'LucF' login: 'luc' password: 'topsecret'
+% ]]]
+%
+% Ajouter un champs ==author== dans la classe ==TBPost== ainsi que des accesseurs.
+% Dans un playground, on souhaite pouvoir écrire :
+%
+% [[[
+% 	|luc|
+% 	luc := TBAuthor pseudo: 'LucF' login: 'luc' password: 'topsecret'.
+% 	(TBPost
+% 		title: 'Welcome in TinyBlog'
+% 		text: 'TinyBlog is a small blog engine made with Pharo.'
+% 		category: 'TinyBlog')
+% 		author: luc ;
+% 		yourself
+% ]]]
 

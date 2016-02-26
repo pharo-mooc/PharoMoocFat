@@ -1,13 +1,14 @@
 {
-    "title":"L'application TinyBlog : présentation et modèle",
+    "title":"Construire une interface Web avec Teapot pour TinyBlog",
 	 "slidesid":"W3SX1"
 }
 
+!Correction semaine précédente
 
-!!Démarrer le serveur HTTP
+@@todo la correction de la semaine précédente : code on sthub + vidéo?
 
-- Aller dans Tools pour ouvrir le Seaside Control Panel,
-- Faire un clic droit dans la partie supérieure et sélectionner le ZnZinServerAdaptor,
-- Choisir le port 8080,
-- Cliquer sur le serveur pour le sélectionner et cliquez sur le bouton "Start".
+Maintenant que vous avez vu la correction, vous pouvez compléter le code de votre application TinyBlog et committer une nouvelle version dans votre dépôt sur Smalltalkhub.
 
+!Une interface Web avec Teapot pour TinyBlog
+
+@@todo le faire...

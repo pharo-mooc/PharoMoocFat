@@ -299,10 +299,9 @@ You will also see that 4 kinds of activities are distinguished:
 
 - Redo: Refaire le dice 
 
-- [Todo] TinyBlog Model 
--- ESRepo / REST interface withTeapot
+- [Todo] TinyBlog 
+-- REST interface withTeapot
 -- send mail?
--- participation gratuite / payante?
 
 % ===============================================================================
 !!Week 4: Inheritance&Lookup and Web Development

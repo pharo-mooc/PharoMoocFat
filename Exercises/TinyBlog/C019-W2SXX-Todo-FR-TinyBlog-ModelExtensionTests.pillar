@@ -1,5 +1,5 @@
 {
-    "title":"L'application TinyBlog : présentation et modèle",
+    "title":"L'application TinyBlog : extension du modèle et tests unitaires",
 	 "slidesid":"W2SXX"
 }
 
@@ -9,11 +9,11 @@
 
 Maintenant que vous avez vu la correction, vous pouvez compléter le code de votre application TinyBlog si besoin.
 
-!Sauvegarder votre code sur Smalltalkhub
+!Sauvegarder sur Smalltalkhub
 
 Nous allons maintenant vous permettre de sauvegarder votre code sur Smalltalkhub.
 
-!!!Créer un dépôt sur SmalltalkHub
+!!Créer un dépôt de code
 
 - Créer un compte sur le site  *http://smalltalkhub.com/*
 - Se connecter au site
@@ -34,10 +34,11 @@ Dans votre image Pharo, ouvrez l'outil Versionner:
 Le code de votre application TinyBlog est maintenant sauvegardé dans votre dépôt sur Smalltalkhub. Il est donc maintenant possible de charger votre code dans une nouvelle image Pharo.  
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 !La classe TBBlog
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-La classe ==TBBlog== contient des posts. Nous allons développer ==TBBlog== en écrivant des tests puis en les implémentant.
+La classe ==TBBlog== contient des posts. 
+Nous allons développer ==TBBlog== en écrivant des tests puis en les implémentant.
 
 [[[
 Object subclass: #TBBlog
@@ -52,9 +53,9 @@ TBBlog >> initialize
    posts := OrderedCollection new. 
 ]]]
 
-!!!Une seule base
+!!Un seul blog
 
-Dans un premier temps nous supposons que nous allons gérer qu'un seul blog. Dans le futur, nous ajouterons la possibilité de gérer plusieurs blogs comme un par utilisateur de notre application. Pour l'instant nous utilisons donc un singleton pour la classe ==TBBlog==.
+Dans un premier temps nous supposons que nous allons gérer qu'un seul blog. Dans le futur, nous ajouterons la possibilité de gérer plusieurs blogs comme un par utilisateur de notre application. Pour cela, nous utilisons donc un singleton pour la classe ==TBBlog==.
 
 [[[
 TBBlog class
@@ -73,9 +74,10 @@ TBBlog class >> initialize
 
 
 !!Tester les règles métiers
-Nous allons écrire des tests pour les règles métiers et ceci en mode TDD (Test Driven Development) c'est-à-dire en développant les tests en premiers puis en définissant les fonctionalités jsuqu'à ce que les tests passent.
 
-Les tests unitaires sont regroupés dans le paquet ==TinyBlog-Tests== qui contient la classe ==TBBlogTest==.
+Nous allons écrire des tests pour les règles métiers et ceci en mode TDD (Test Driven Development) c'est-à-dire en développant les tests en premier puis en définissant les fonctionalités jsuqu'à ce que les tests passent.
+
+Les tests unitaires sont regroupés dans le package ==TinyBlog-Tests== qui contient la classe ==TBBlogTest==.
 
 [[[
 TestCase subclass: #TBBlogTest
@@ -84,7 +86,8 @@ TestCase subclass: #TBBlogTest
    category: 'TinyBlog-Tests'
 ]]]
 
-Avant le lancement des tests, la méthode ==setUp== initialise la connexion vers la base, efface son contenu, ajoute un post et en crée un autre qui provisoirement n'est pas enregistré.
+Avant le lancement des tests, la méthode ==setUp== initialise le contexte des tests.
+Par exemple, elle initialise la connexion vers la base, efface son contenu, ajoute un post et en créé un autre qui provisoirement n'est pas enregistré.
 
 [[[
 TBBlogTest >> setUp
@@ -107,7 +110,7 @@ TBBlogTest >> tearDown
    TBBlog reset
 ]]]
 
-Noter que si vous déployez un blog puis exécutez les tests vous perdrez les posts que vous avez crées car nous les remettons à zéro.
+Noter que si vous déployez un blog puis exécutez les tests vous perdrez les posts que vous avez créés car nous les remettons à zéro.
 
 Nous allons développer les tests d'abord puis ensuite passer à l'implémentation des fonctionnalités.
 
