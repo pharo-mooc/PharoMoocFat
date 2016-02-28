@@ -508,27 +508,48 @@ WAContactBook>>renderEditButtonForContact: aContact on: html
       with: 'Edit'
 ]]]
 
-In the edit button callback, the message ==call:== is sent to self to temporarily replace the contact book component by the contact editor. When the contact editor sends ==answer:== to itself, the control flow comes back to this callback.
+In the edit button callback, the message ==call:== is sent to self to temporarily replace the contact book component by the contact editor. When the contact editor sends ==answer:== to itself (in ==WAContact>>renderSubmitButtonOn:== and ==WAContact>>renderCancelButtonOn:==), the control flow comes back to this button's callback.
+
+The add new contact button is as simple:
+
+[[[
+WAContactBook>>renderContentOn: html
+   "Main entry point of the view. Render both a title and the list of contacts."
+
+   html tbsContainer: [
+      html heading
+         level: 1;
+         with: 'My Contact Book'.
+      html tbsForm: [
+         self renderContactsOn: html.
+         self renderGlobalButtonsOn: html ] ]
+
+WAContactBook>>renderGlobalButtonsOn: html
+   html tbsButtonGroup: [
+      html tbsButton
+         beSuccess;
+         callback: [ self addContact ];
+         with: 'New contact' ]
+
+WAContactBook>>addContact
+   (self call: WAContact new)
+      ifNotNil: [ :contact | contactBook addContact: contact ]
+]]]
+
+The message ==call:== returns the same object as what is passed to answer (in ==WAContact>>renderSubmitButtonOn:== and ==WAContact>>renderCancelButtonOn:==). Because pressing the cancel button in the contact editor passes ==nil== to ==answer:==, the message ==call:== may return ==nil==. If ==call:== returns something different, it will be a new contact which should be added to the contact book.
 
 You should now get the same result as in Figure *@fig:final*.
 
+!! Summary
+
+During this tutorial we defined a simple model and two simple web views. We could have written tests and implement methods in the debugger while the application is running. Pharo developers often prefer to write code in the debugger because they go faster and the execution provides objects to play with.
 
 !!! Further Development
 
-As you see the current functionality are rather limited, here is a list of possible extensions
+As you see the current functionality is rather limited, here is a list of possible extensions.
 
-- Define a new component to add a new contact.
-- This component could also support the edition of contacts information.
-- Add more information to describe a contact. For this we suggest that you use Magritte (Magritte is a framework to describe data and its Seaside extension defines automatically Seaside component). You can read the Magritte chapter in the book as well as the Magritte tutorial available at *https://github.com/SquareBracketAssociates/PharoInProgress*.
+- Add more information to describe a contact. For this we suggest that you use Magritte (Magritte is a framework to describe data and its Seaside extension defines automatically Seaside component). You can read the Magritte chapter in the book as well as the Magritte tutorial available at *https://github.com/SquareBracketAssociates/PharoInProgress*. With Magritte, the components such as our ==WAContact= are automatically generated.
 - Save and load contacts in an external format such as JSON or STON (STON is a Pharo object notation format. It is by default in Pharo 50).
-
-
-
-!! Summary
-
-During this tutorial we defined a simple model and one simple web view. We follow a traditional development style where we define methods upfront. 
-We could also have written tests are while they get executed define method directly in the debugger. Pharo developer often prefer this way because they go faster and the tests define more precise context. 
-
 
 % Local Variables:
 % compile-command: "cd .. && ./compile.sh Exercises/Exo-ContactManager.pillar"
