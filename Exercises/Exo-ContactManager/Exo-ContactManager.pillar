@@ -480,7 +480,7 @@ WAContact>>renderSubmitButtonOn: html
 WAContact>>renderCancelButtonOn: html
    html tbsButton
       beDanger;
-      callback: [ self answer: nil ];
+      cancelCallback: [ self answer: nil ];
       with: 'Cancel'
 ]]]
 
