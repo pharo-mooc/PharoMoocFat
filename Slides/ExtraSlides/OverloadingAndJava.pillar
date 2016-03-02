@@ -5,11 +5,12 @@
 
 ${slide:title=Goal}$
 
--what is overloading?
--why is it a problem?
--what can you do?
+-What is overloading?
+-Why is it a problem?
+-What can you do?
 
 This lecture is in the context of the Java programming language.
+- It is an incentive to understand for real double dispatch (without overloading)
 
 ${slide:title=Overloading}$
 
@@ -30,7 +31,7 @@ public class OverloadingSimple {
 }
 ]]]
 
-Seems nice to avoid thinking about names.
+Seems nice at first to avoid thinking about names.
 
 ${slide:title=Exercise}$
 
@@ -77,7 +78,7 @@ Overloading + sub-typing is confusing in Java.
 
 In the presence of a message send, the compiler searches a ''compatible signature'' and stores it. During execution, the lookup algorithm searches for a method with this exact signature, regardless of the dynamic types of arguments.
 
-${slide:title=In Particular}$
+${slide:title=Looking at a Real Case: a Visitor}$
 
 [[[language=java
 public class A {
@@ -97,7 +98,7 @@ new A().accept(visitor); // "Visitor.visit(A)"
 
 All is well in this perfect world...
 
-${slide:title=In Particular}$
+${slide:title=Uh! My Visitor is not Executed!}$
 
 [[[language=java
 public class SubA extends A {
@@ -117,7 +118,7 @@ new SubA().accept(visitor);  // "Visitor.visit(A)"
 
 When method ==SubA.accept()== is compiled, the message ==visitor.visit(this)== is bound to ==visit(A)==, the only compatible signature in ==Visitor==. During execution, ==visit(SubA)== is ignored.
 
-${slide:title=In Particular}$
+${slide:title=Possible Ugly 'Solutions'}$
 
 One way to fix that could be to add a ==visit(SubA)== method in ==Visitor== (if you can change it):
 
@@ -174,9 +175,9 @@ A subA = new SubA();
 visitor.visit(subA); // "Visitor.visit(A)"
 ]]]
 
-If you use the visitor directly (i.e., without going through ==accept()== methods), the static types becomes important to decide which ==visit()== method to execute.
+If you use the visitor directly (i.e., without going through ==accept()== methods), the static types become important to decide which ==visit()== method to execute.
 
-${slide:title=The Solution}$
+${slide:title=The Real Solution}$
 
 Don't use overloading and prefer dedicated method names:
 
