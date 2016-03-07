@@ -18,7 +18,7 @@ Object subclass: #Dice
 	package: 'Dice'
 ]]]
 
-In the ==initialize== category, define the method ==initialize== as follows. It simply set the default number of faces to 6. 
+In the ==initialization== protocol, define the method ==initialize== as follows. It simply sets the default number of faces to 6. 
 
 [[[
 Dice >> initialize 
@@ -61,7 +61,7 @@ Now we can create an instance ==Dice new== and send it the message  ==roll== and
 Do ==Dice new inspect== and then type in the bottom pane ==self roll==.
 You should get an inspector like the one shown in Figure *@figDiceNoDetail*. With it you can interact with the dice by writing expression in the bottom pane.
 
-+Inspecting and interacting with a Dice.>file://figures/DiceNoDetail.pdf|width=50|label=figDiceNoDetail+
++Inspecting and interacting with a Dice.>file://figures/DiceNoDetail.png|width=60|label=figDiceNoDetail+
 
  
 
@@ -132,7 +132,8 @@ DiceHandle new
 ]]]
 
 Of course we will define a test for this new class. We define the class ==DiceHandleTest== as follow. 
-!!! Testing Handle Dice
+
+
 [[[
 TestCase subclass: #DiceHandleTest
 	instanceVariableNames: ''
@@ -140,6 +141,7 @@ TestCase subclass: #DiceHandleTest
 	package: 'Dice'
 ]]]
 
+!!! Testing a Dice Handle
 We define a new test method as follows. 
 
 [[[
@@ -203,21 +205,19 @@ DiceHandle new
 	yourself
 ]]]
 
-+Inspecting a Dice.>file://figures/DiceHandleNoDetail.pdf|width=50|label=diceHandleNoDetail+
++Inspecting a DiceHandle.>file://figures/DiceHandleNoDetail.png|width=60|label=diceHandleNoDetail+
 
 
 
 Finally we should add the method ==diceNumber== to the ==DiceHandle== class to be able to get the number of dice of the handle. We just return the size of the dice collection.
 
 [[[
-DiceHandle>>diceNumber  
+DiceHandle >> diceNumber  
 
 	^ dice size
 ]]]
 
 Now your tests should run and this is good moment to save and publish your code. 
-
-
 
 
 !! Improving programmer experience
@@ -235,7 +235,7 @@ So we will enhance the ==printOn:== method of the Dice class to provide more inf
 
 
 [[[
-Dice>>printOn: aStream
+Dice >> printOn: aStream
 
 	super printOn: aStream.
 	aStream nextPutAll: ' (', faces printString, ')'
@@ -243,14 +243,15 @@ Dice>>printOn: aStream
 
 Now in your inspector you can see effectively the number of faces a dice handle has as shown by Figure *@diceDetail* and it is now easier to check the dice contained inside a handle (See Figure *@diceHandleDetail*).
 
-+Dice details>file://figures/DiceDetail.png|width=50|label=diceDetail+ 
++Dice details>file://figures/DiceDetail.png|width=60|label=diceDetail+ 
 
-+Dice Handle with more information>file://figures/DiceHandleDetail.png|width=50|label=diceHandleDetail+ 
++Dice Handle with more information>file://figures/DiceHandleDetail.png|width=100|label=diceHandleDetail+ 
+
 !! Rolling a dice handle
 
 Now we can define the rolling of a handle of dice by simply summing the dice rolls.
 [[[
-DiceHandle>>roll
+DiceHandle >> roll
 	
 	| res |
 	res := 0.
@@ -277,15 +278,15 @@ to always take  any opportunity to write tests.  When we execute ==2 D20== we  s
 dice and can verify that. This is what the method ==testSimpleHandle== is doing.
 
 [[[
-DiceHandleTest>>testSimpleHandle
+DiceHandleTest >> testSimpleHandle
 
 	self assert: 2 D20 diceNumber = 2.
 ]]]
 
-Verify that the test is not working! It is much more satisfactory to get a test running when it was not working before. Now define the method ==D20== with a category name that is ==*Dice== (if you named your package Dice). This method simply creates a new dice handle, add the correct number of dice to this handle and return it.
+Verify that the test is not working! It is much more satisfactory to get a test running when it was not working before. Now define the method ==D20== with a category name that is '*Dice' (if you named your package Dice). This method simply creates a new dice handle, add the correct number of dice to this handle and return it.
 
 [[[
-Integer>>D20
+Integer >> D20
 	
 	| handle |
 	handle := DiceHandle new.
@@ -299,7 +300,7 @@ Now we could do the same for the default dice with different faces number: 4, 6,
 But we should avoid duplicating logic and code. So first we will introduce a new method ==D:== and based on it we will define all the others
 
 [[[
-Integer>>D: anInteger
+Integer >> D: anInteger
 	
 	| handle |
 	handle := DiceHandle new.
@@ -308,25 +309,25 @@ Integer>>D: anInteger
 ]]]
 
 [[[
-Integer>>D4
+Integer >> D4
 	
 	^ self D: 4
 ]]]
 
 [[[
-Integer>>D6
+Integer >> D6
 	
 	^ self D: 6
 ]]]
 
 [[[
-Integer>>D10
+Integer >> D10
 	
 	^ self D: 10
 ]]]
 
 [[[
-Integer>>D20
+Integer >> D20
 	
 	^ self D: 20
 ]]]
@@ -338,7 +339,7 @@ We have now a compact form to create dice and we are ready for the last part: th
 Now we can simply support the addition of handles. But of course let's write a test first.
 
 [[[
-DiceHandleTest>>testSumming
+DiceHandleTest >> testSumming
 
 	| handle |
 	handle := 2 D20 + 3 D10.
@@ -352,7 +353,7 @@ Now we should ask ourself what is the semantics of adding two handles. Should we
 The method ==\+== creates a new handle then add to it the dice of the receiver and the one of the handle passed as argument to the message. Finally we return it. 
 
 [[[
-DiceHandle>>+ aDiceHandle
+DiceHandle >> + aDiceHandle
 
 	| handle |
 	handle := self class new.
