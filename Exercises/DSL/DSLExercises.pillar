@@ -109,8 +109,8 @@ Here is the API that we would like to offer for now. We create a new instance of
 
 [[[
 DiceHandle new
-    addDice: (Die faces: 6);
-    addDice: (Die faces: 10);
+    addDie: (Die faces: 6);
+    addDie: (Die faces: 10);
     yourself
 ]]]
 
@@ -131,8 +131,8 @@ We define a new test method as follows.
 DiceHandleTest >> testCreationAdding
     | handle |
     handle := DiceHandle new.
-    handle addDice: (Die faces: 6);
-    handle addDice: (Die faces: 10).
+    handle addDie: (Die faces: 6);
+    handle addDie: (Die faces: 10).
     self assert: handle diceNumber equals: 2.
 ]]]
 
@@ -144,9 +144,9 @@ With another test, we can make sure we can add two times a similar dice.
 DiceHandleTest >> testAddingTwiceTheSameDice
     | handle |
     handle := DiceHandle new.
-    handle addDice: (Die faces: 6);
+    handle addDie: (Die faces: 6);
     self assert: handle diceNumber equals: 1.
-    handle addDice: (Die faces: 6).
+    handle addDie: (Die faces: 6).
     self assert: handle diceNumber equals: 2.
 ]]]
 
@@ -160,7 +160,7 @@ When an instance is initialized, the instance variable ==dice== must contain an 
 Your code here
 ]]]
 
-Then we define a simple method (==addDice:==) to add a dice to the list of dice of the handle. You can do that from the code browser or from a debugger after having run a failing unit test.
+Then we define a simple method (==addDie:==) to add a dice to the list of dice of the handle. You can do that from the code browser or from a debugger after having run a failing unit test.
 
 [[[
 Your code here
@@ -170,8 +170,8 @@ Now you can execute the code snippet and inspect it (==ctrl i==):
 
 [[[
 DiceHandle new
-    addDice: (Die faces: 6);
-    addDice: (Die faces: 10);
+    addDie: (Die faces: 6);
+    addDie: (Die faces: 10);
     yourself
 ]]]
 
@@ -219,8 +219,8 @@ We can now send the message ==roll== to a dice handle.
 
 [[[
 handle := DiceHandle new
-    addDice: (Die faces: 6);
-    addDice: (Die faces: 10);
+    addDie: (Die faces: 6);
+    addDie: (Die faces: 10);
     yourself.
 handle roll
 ]]]

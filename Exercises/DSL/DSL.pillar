@@ -119,7 +119,7 @@ Die >> faces: aNumber
 
 Now your tests should run. 
 
-So even if the class ==Dice== could implement more behavior, we are ready to implement a dice handle. 
+So even if the class ==Die== could implement more behavior, we are ready to implement a dice handle. 
 
 !! First specification of a dice handle
 
@@ -128,8 +128,8 @@ Here is the API that we would like to offer for now. We create a new instance of
 
 [[[
 DiceHandle new 
-	addDice: (Die faces: 6);
-	addDice: (Die faces: 10);
+	addDie: (Die faces: 6);
+	addDie: (Die faces: 10);
 	yourself
 ]]]
 
@@ -151,8 +151,8 @@ DiceHandleTest >> testCreationAdding
 
 	| handle |
 	handle := DiceHandle new 
-			addDice: (Die faces: 6);
-			addDice: (Die faces: 10);
+			addDie: (Die faces: 6);
+			addDie: (Die faces: 10);
 			yourself.
 	self assert: handle diceNumber = 2.
 ]]]
@@ -165,9 +165,9 @@ DiceHandleTest >> testAddingTwiceTheSameDice
 
 	| handle |
 	handle := DiceHandle new. 
-	handle addDice: (Die faces: 6).
+	handle addDie: (Die faces: 6).
 	self assert: handle diceNumber = 1.
-	handle addDice: (Die faces: 6).
+	handle addDie: (Die faces: 6).
 	self assert: handle diceNumber = 2.
 ]]]
 
@@ -195,15 +195,15 @@ DiceHandle >> initialize
 Then we define a simple method to add a die to the list of dice of the handle.
 
 [[[
-DiceHandle >> addDice: aDie 
+DiceHandle >> addDie: aDie 
 	dice add: aDie
 ]]]
 
 Now you can execute the code snippet and inspect it. You should get an inspector as shown in Figure *@diceHandleNoDetail* 
 [[[
 DiceHandle new 
-	addDice: (Die faces: 6);
-	addDice: (Die faces: 10);
+	addDie: (Die faces: 6);
+	addDie: (Die faces: 10);
 	yourself
 ]]]
 
@@ -228,8 +228,8 @@ Now when you open an inspector you cannot see well the dice that compose the dic
 
 [[[
 DiceHandle new 
-	addDice: (Die faces: 6);
-	addDice: (Die faces: 10);
+	addDie: (Die faces: 6);
+	addDie: (Die faces: 10);
 	yourself
 ]]]
 
@@ -266,8 +266,8 @@ DiceHandle >> roll
 Now we can send the message ==roll== to a dice handle.
 [[[
 handle := DiceHandle new 
-		addDice: (Die faces: 6);
-		addDice: (Die faces: 10);
+		addDie: (Die faces: 6);
+		addDie: (Die faces: 10);
 		yourself.
 handle roll
 ]]]
@@ -293,7 +293,7 @@ Integer >> D20
 	
 	| handle |
 	handle := DiceHandle new.
-	self timesRepeat: [ handle addDice:  (Die faces: 20)].
+	self timesRepeat: [ handle addDie:  (Die faces: 20)].
 	^ handle
 ]]]
 
@@ -307,7 +307,7 @@ Integer >> D: anInteger
 	
 	| handle |
 	handle := DiceHandle new.
-	self timesRepeat: [ handle addDice:  (Die faces: anInteger)].
+	self timesRepeat: [ handle addDie:  (Die faces: anInteger)].
 	^ handle
 ]]]
 
@@ -360,8 +360,8 @@ DiceHandle >> + aDiceHandle
 
 	| handle |
 	handle := self class new.
-	self dice do: [ :each | handle addDice: each ].
-	aDiceHandle dice do: [ :each | handle addDice: each ].
+	self dice do: [ :each | handle addDie: each ].
+	aDiceHandle dice do: [ :each | handle addDie: each ].
 	^ handle
 ]]]
 
