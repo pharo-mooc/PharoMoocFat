@@ -40,19 +40,10 @@ Add the ==newNamed:email:== class method in the ==instance creation== protocol o
 [[[
 Contact class>>newNamed: aString email: aString2
    ^ self new
-      setFullname: aString email: aString2;
+      fullname: aString;
+      email: aString2;
       yourself
 ]]]
-
-You also need to define the ==setFullname:email:== instance method to initialize every new contact. Put this method in the ==initialization== protocol:
-
-[[[
-Contact>>setFullname: aString email: aString2
-   fullname := aString.
-   email := aString2
-]]]
-
-Note that this is just one way to initialize a new instance. Another way is to use multiple mutator messages (==fullname:== and ==email:==). We have to choose one of these two ways because, in Pharo, class methods cannot modify instance variables directly.
 
 You can now define a test (in the ==tests== protocol) to make sure that you can create an instance and that it contains the right information.
 
@@ -75,8 +66,14 @@ For this test to work you need to define the following methods (in the ==accessi
 Contact>>fullname
    ^ fullname
 
+Contact>>fullname: aString
+   fullname := aString
+
 Contact>>email
    ^ email
+
+Contact>>email: aString
+   email := aString
 ]]]
 
 Run the test to make sure it passes. If you inspect or print the ==contact== variable created above, you will see that the string representation of this ==Contact== instance is =="a Contact"== which says nothing about the contact itself. This is problematic when debugging and developers typically appreciate nicer string representations. You can change that by overriding the method ==Object>>printOn:== (in the ==printing== protocol) in the ==Contact== class and sending several ==nextPutAll:== messages to the stream argument as follows:
@@ -141,7 +138,7 @@ ContactBook class>>createDefault
    ^ self new
       addContact: (Contact newNamed: 'Damien Cassou' email: 'damien@cassou.me');
       addContact: (Contact newNamed: 'Marcus Denker' email: 'marcus.denker@inria.fr');
-      addContact: (Contact newNamed: 'Jorge Luis Ressia' email: 'ressia@iam.unibe.ch');
+      addContact: (Contact newNamed: 'Tudor Girba' email: 'tudor@tudorgirba.com');
       addContact: (Contact newNamed: 'Clara Allende' email: 'clari.allende@gmail.com');
       yourself
 ]]]
@@ -235,7 +232,7 @@ The method ==renderContact:on:== defines the rendering of a single contact in a 
 WAContactBook>>renderContact: aContact on: html
    html tableRow: [
       html
-        tableData: aContact name;
+        tableData: aContact fullname;
         tableData: aContact email ]
 ]]]
 
@@ -307,80 +304,68 @@ As you can see, the adaptation consisted in adding a container with ==tbsContain
 
 The result in Figure *@fig:with-bootstrap* already looks much nicer. In a real application, it is recommended to *avoid using Bootstrapspecific methods>http://ruby.bvision.com/blog/please-stop-embedding-bootstrap-classes-in-your-html* such as ==tbsContainer:== and ==tbsTable:== to use Bootstrap mixins instead. We will not cover that in our tutorial though.
 
-!!Finishing the Details
+!!Adding Photos
 
-We will now add photos and some buttons to our contact list to obtain the result in Figure *@fig:final*.
-
-!!!Adding Photos
-
-We will improve the contact book application by displaying photos next to each contact. We fetch these photos automatically fetched from the web using *Gravatar>http://gravatar.com/* or equivalent. Gravatar provides a *web API>http://en.gravatar.com/site/implement/* to retrieve a photo from an email address:
+We now improve the contact book application by displaying photos next to each contact. We fetch these photos automatically from the web using *Gravatar>http://gravatar.com/*. Gravatar provides a *web API>http://en.gravatar.com/site/implement/* to retrieve a photo from an email address:
 
 [[[
 Contact>>gravatarUrl
-    ^ 'http://www.gravatar.com/avatar/', (MD5 hashMessage: email trimBoth asLowercase) hex, '.jpg'
+   ^ 'http://www.gravatar.com/avatar/', (MD5 hashMessage: email trimBoth asLowercase) hex, '.jpg'
 ]]]
 
 For example, for *marcus.denker@inria.fr*, the Gravatar URL is:
 
 [[[
-    'http://www.gravatar.com/avatar/c147c32f94baa71afa9d7be0a289766d.jpg'
+'http://www.gravatar.com/avatar/c147c32f94baa71afa9d7be0a289766d.jpg'
 ]]]
 
 The web application must be adapted with a new column for the photos:
 
 [[[
 WAContactBook>>renderContactsOn: html
-  html
-    tbsTable: [
-      html
-        tableHead: [
-          html
+   html tbsTable: [
+      html tableHead: [
+         html
             tableHeading: 'Name';
             tableHeading: 'Email';
             tableHeading: 'Photo' ].
-      self contactBook contactsDo: [ :contact | self renderContact: contact on: html ] ]
-]]]
+      self contactsDo: [ :contact | self renderContact: contact on: html ] ]
 
-Then we display the photo on the third column.
-
-[[[
 WAContactBook>>renderContact: aContact on: html
-  html
-    tableRow: [
+   html tableRow: [
       html
-        tableData: aContact name;
-        tableData: aContact email;
-        tableData: [ self renderPhotoOf: aContact on: html ] ]
-]]]
+         tableData: aContact name;
+         tableData: aContact email;
+         tableData: [ self renderPhotoOf: aContact on: html ] ]
 
-[[[
 WAContactBook>>renderPhotoOf: aContact on: html
-  html image url: aContact gravatarUrl
+   html image url: aContact gravatarUrl
 ]]]
 
-!!!Adding Buttons
++Screenshot of the contact book application with photos>file://figures/contact-book-with-photos.png|width=100|label=fig:with-photos+
 
-Finally, we add buttons to remove contacts one by one and to reset the contact book to the default one.
+The result in Figure *@fig:with-photos* contains a new column for the contact photos, automatically fetched from a web service. In a real application, it is recommended to *avoid using Bootstrap-specific methods>http://ruby.bvision.com/blog/please-stop-embedding-bootstrap-classes-in-your-html* such as ==tbsContainer:== and ==tbsTable:==. You should better use Bootstrap mixins instead. We will not cover that in our tutorial though.
+
+!!Adding Actions
+
+We now add buttons to add a new contact and to remove and edit an existing contact.
 
 We first add a remove button on each contact line in the table:
 
 [[[
 WAContactBook>>renderContact: aContact on: html
-    html
-        tableRow: [
-            html
-                tableData: aContact name;
-                tableData: aContact email;
-                tableData: [ self renderPhotoOf: aContact on: html ];
-                tableData: [ self renderRemoveButtonForContact: aContact on: html ] ]
-]]]
+   html tableRow: [
+      html
+         tableData: aContact name;
+         tableData: aContact email;
+         tableData: [ self renderPhotoOf: aContact on: html ];
+         tableData: [ self renderRemoveButtonForContact: aContact on: html ] ]
 
-[[[
 WAContactBook>>renderRemoveButtonForContact: aContact on: html
-    html tbsButton
-        beDanger;
-        callback: [ self contactBook removeContact: aContact ];
-        with: 'Remove'
+   html tbsButton
+      beDanger;
+      callback: [ self contactBook removeContact: aContact ];
+      with: 'Remove'
 ]]]
 
 You can refresh the page in the web browser and you will see the remove buttons. However, none of them will work because an HTML form must wrap the buttons. This can be done by modifying the ==renderContentOn:== method again:
@@ -397,57 +382,174 @@ WAContactBook>>renderContentOn: html
       html tbsForm: [ self renderContactsOn: html ] ]
 ]]]
 
-The remove buttons should now work fine. To let the contact book user reset the contact book to its default state, we now add a reset button below the contact table:
+The remove buttons should now work fine.
+
+Implementing buttons to add a new contact or edit an existing one is a bit more involved because it requires creating a new component to edit the contact fields as in Figure *@fig:contact-book-edit*.
+
++Screenshot of the contact editor>file://figures/contact-book-edit.png|width=100|label=fig:contact-book-edit+
+
+Create a new subclass of ==WAComponent== which contains a lazy-initialized ==contact== instance variable.
+
+[[[
+WAComponent subclass: #WAContact
+   instanceVariableNames: 'contact
+   classVariableNames: ''
+   package: 'ContactBook'
+
+WAContact class>>editContact: aContact
+   ^ self new
+      setContact: aContact;
+      yourself
+
+WAContact>>setContact: aContact
+   contact := aContact
+
+WAContact>>contact
+   ^ contact ifNil: [ contact := Contact new ]
+
+WAContact>>renderContentOn: html
+   html tbsContainer: [
+      html heading with: Contact Editing'.
+      html tbsForm with: [
+         self renderFieldsOn: html ] ]
+
+WAContact>>renderFieldsOn: html
+    self renderFullnameFieldOn: html.
+    self renderEmailFieldOn: html
+]]]
+
+The method ==renderFullnameFieldOn:== and ==renderEmailFieldOn:== both render a label and an input field. Here is the ==renderFullnameFieldOn:== method:
+
+[[[
+WAContact>>renderFullnameFieldOn: html
+   html tbsFormGroup: [
+      html label: 'Fullname'.
+      html textInput
+         tbsFormControl;
+         placeholder: 'fullname';
+         callback: [ :value | self contact fullname: value ];
+         value: (self contact fullname ifNil: '') ]
+]]]
+
+The ==tbsFormGroup:== method is a Bootstrap method to visually group a label and an input field together. Sending the ==textInput== message to ==html== creates a new text input. The other messages configure it:
+
+- ==tbsFormControl== adds Bootstrap-specific HTML markup;
+- ==placeholder:== adds short hint (a word or short phrase) intended to aid the user with data entry when the input field is empty;
+- ==callback:== attaches some code to be executed when the form is validated: the first parameter of the block is the value typed in the input field;
+- ==value:== writes a default value in the field.
+
+The ==renderEmailFieldOn:== is very similar:
+
+[[[
+WAContact>>renderEmailFieldOn: html
+   html tbsFormGroup: [
+      html label: 'Email'.
+      html emailInput
+         tbsFormControl;
+         placeholder: 'your@email.eu';
+         callback: [ :email | self contact email: email address ];
+         value: (self contact email ifNil: '') ]
+]]]
+
+The only difference with ==renderFullnameFieldOn:== lies in the fact that the input field is dedicated to entering email addresses (the ==textInput== message has been replaced by the ==emailInput== message). In the ==callback:== block, the parameter ==email== is an instance of ==WAEmailAddress==: it is necessary to send the message ==address== to this object to get a string.
+
+We now need to add 2 buttons: one to save the changes and one to cancel the changes:
+
+[[[
+WAContact>>renderContentOn: html
+   html tbsContainer: [
+      html heading with: 'Contact Editing'.
+      html tbsForm with: [
+         self renderFieldsOn: html.
+         self renderButtonsOn: html ] ].
+
+WAContact>>renderButtonsOn: html
+   html tbsFormGroup: [
+      html tbsButtonGroup: [
+         self
+            renderSubmitButtonOn: html;
+            renderCancelButtonOn: html ] ]
+
+WAContact>>renderSubmitButtonOn: html
+   html tbsSubmitButton
+      beSuccess;
+      bePrimary;
+      callback: [ self answer: self contact ];
+      with: 'Save'
+
+WAContact>>renderCancelButtonOn: html
+   html tbsButton
+      beDanger;
+      cancelCallback: [ self answer: nil ];
+      with: 'Cancel'
+]]]
+
+The last piece of the puzzle is the addition of the add and edit buttons on the contact book component. We start with the edit button, at the end of each contact row in the table:
+
+[[[
+WAContactBook>>renderContact: aContact on: html
+   html tableRow: [
+      html
+         tableData: aContact fullname;
+         tableData: aContact email;
+         tableData: [ self renderPhotoOf: aContact on: html ];
+         tableData: [ self renderButtonsForContact: aContact on: html ] ]
+
+WAContactBook>>renderButtonsForContact: aContact on: html
+   html tbsButtonGroup: [
+         self
+            renderEditButtonForContact: aContact on: html;
+            renderRemoveButtonForContact: aContact on: html ]
+
+WAContactBook>>renderEditButtonForContact: aContact on: html
+   html tbsButton
+      beSuccess;
+      callback: [ self call: (WAContact editContact: aContact) ];
+      with: 'Edit'
+]]]
+
+In the edit button callback, the message ==call:== is sent to self to temporarily replace the contact book component by the contact editor. When the contact editor sends ==answer:== to itself (in ==WAContact>>renderSubmitButtonOn:== and ==WAContact>>renderCancelButtonOn:==), the control flow comes back to this button's callback.
+
+The add new contact button is as simple:
 
 [[[
 WAContactBook>>renderContentOn: html
-    "Main entry point of the view. Render both a title and the list of contacts."
+   "Main entry point of the view. Render both a title and the list of contacts."
 
-    html
-      tbsContainer: [
-        html heading
-          level: 1;
-          with: 'My Contact Book'.
-        html
-          tbsForm: [
-            self renderContactsOn: html.
-            self renderButtonsOn: html ] ]
-]]]
+   html tbsContainer: [
+      html heading
+         level: 1;
+         with: 'My Contact Book'.
+      html tbsForm: [
+         self renderContactsOn: html.
+         self renderGlobalButtonsOn: html ] ]
 
-[[[
-WAContactBook>>renderButtonsOn: html
-  html
-    tbsButtonGroup: [
+WAContactBook>>renderGlobalButtonsOn: html
+   html tbsButtonGroup: [
       html tbsButton
-        beDanger;
-        callback: [ self resetContactBook ];
-        with: 'Reset' ]
+         beSuccess;
+         callback: [ self addContact ];
+         with: 'New contact' ]
+
+WAContactBook>>addContact
+   (self call: WAContact new)
+      ifNotNil: [ :contact | contactBook addContact: contact ]
 ]]]
 
-[[[
-WAContactBook>>resetContactBook
-  contactBook := nil
-]]]
+The message ==call:== returns the same object as what is passed to answer (in ==WAContact>>renderSubmitButtonOn:== and ==WAContact>>renderCancelButtonOn:==). Because pressing the cancel button in the contact editor passes ==nil== to ==answer:==, the message ==call:== may return ==nil==. If ==call:== returns something different, it will be a new contact which should be added to the contact book.
 
 You should now get the same result as in Figure *@fig:final*.
 
+!! Summary
+
+During this tutorial we defined a simple model and two simple web views. We could have written tests and implement methods in the debugger while the application is running. Pharo developers often prefer to write code in the debugger because they go faster and the execution provides objects to play with.
 
 !!! Further Development
 
-As you see the current functionality are rather limited, here is a list of possible extensions
+As you see the current functionality is rather limited, here is a list of possible extensions.
 
-- Define a new component to add a new contact.
-- This component could also support the edition of contacts information.
-- Add more information to describe a contact. For this we suggest that you use Magritte (Magritte is a framework to describe data and its Seaside extension defines automatically Seaside component). You can read the Magritte chapter in the book as well as the Magritte tutorial available at *https://github.com/SquareBracketAssociates/PharoInProgress*.
+- Add more information to describe a contact. For this we suggest that you use Magritte (Magritte is a framework to describe data and its Seaside extension defines automatically Seaside component). You can read the Magritte chapter in the book as well as the Magritte tutorial available at *https://github.com/SquareBracketAssociates/PharoInProgress*. With Magritte, the components such as our ==WAContact= are automatically generated.
 - Save and load contacts in an external format such as JSON or STON (STON is a Pharo object notation format. It is by default in Pharo 50).
-
-
-
-!! Summary
-
-During this tutorial we defined a simple model and one simple web view. We follow a traditional development style where we define methods upfront. 
-We could also have written tests are while they get executed define method directly in the debugger. Pharo developer often prefer this way because they go faster and the tests define more precise context. 
-
 
 % Local Variables:
 % compile-command: "cd .. && ./compile.sh Exercises/Exo-ContactManager.pillar"
