@@ -1,0 +1,35 @@
+! Challenge 5
+
+Comment créer une fenêtre pour un simple jeu. Cette fenetre doit etre capable de contenir une image immense comme fond sur lequel on pourra déposer des pièces et que ce fond soit scrollable pour découvrir les parties non visibles directement. 
+
+!!!!Indices : 
+- Vous pouvez créer une morph à partir d'une image en utilisant ==AlphaImageMorph withForm:==
+- Vous pouvez downloader une image avec ==ZnEasy getJpeg: url==
+- Regardez ==PasteUpMorph==. Cette morph est une morph pour jetter des morphs dedans.
+- Vous allez avoir besoin d'ajouter des scrollbars: Utilisez un ==ScrollPane==: Utiliser ==aScrollPane scroller addMorph: aPasteUp== pour mettre des scrollbars atour de ==aPasteUp==.
+
+!! Solution
+
+[[[
+	| window pane board background |
+
+	background := AlphaImageMorph withForm: (ZnEasy getJpeg: 'http://i.imgur.com/K1QR9vA.jpg').
+	background lock.
+
+	board := PasteUpMorph new.
+	board 
+		color: Color gray;
+		borderWidth: 3;
+		borderColor: Color black;
+		extent: 2000@2000; 
+		backgroundMorph: background;
+		addMorph: (CircleMorph new color: Color cyan; position: 41@23; yourself);
+		addMorph: (Morph new color: Color orange; position: 1200@1200; yourself).
+
+	pane := ScrollPane new.
+	pane scroller addMorph: board.
+
+	window := pane openInWindow.
+	window position: 20@20; extent: 420@420.
+]]]
+
