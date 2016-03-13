@@ -1,0 +1,10 @@
+! Challenge 1
+
+Récupérer une photo à partir d'une adresse email via un service comme gravatar *http://www.gravatar.com/avatar/*. Convertissez cette phot en Morph et ouvrez la dans Pharo. Utilisez par exemple l'adresse stephane.ducasse@inria.fr de manière à être sure que vous obtenez un .jpg.
+
+!!!!Indices :
+- Le chemin pour accéder à une photo à partir d'une adresse électronique est  =http://www.gravatar.com/avatar/(MD5 email-based hex).jpg==
+- Construisez un cypher MD5 à partir de l'adresse electronique en utilisant ==MD5 hashMessage:== (Faites attention que vous devez convertir le resultat en hexadecimal.
+- Ne pas oubliez d'éliminer les espaces en début et fin ==trimBoth== et utilisez l'adresse en minuscule.
+- ==asMorph== convertit des images en Morphs
+- Le message ==openInHand== est fun.
