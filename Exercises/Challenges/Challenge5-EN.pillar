@@ -1,9 +1,23 @@
 ! Challenge 5
 
-How to set up a simple game window that uses a very large scrollable game board with a huge image as the background, so that game pieces placed on that background would scroll in and out of view? 
+The web site *http://nominatim.openstreetmap.org/* offers a search service *http://nominatim.openstreetmap.org/search/* that when given 
+a street name will return occurrences of such street name, each one with characterizing information such as longitude and latitude.
+In this challenge, you should write an expression that returns a collection of location using for example a pair whose key is the description
+of the location and the value its latitude and longitude.
 
-!!!!Hints:
-- You can create a morph from an image using ==AlphaImageMorph withForm:==
-- You can download a picture using ==ZnEasy getJpeg: url==
-- Have a look at ==PasteUpMorph== this is a morph to drop stuff in.
-- You will need to add Scrollbars so use a ScrollPane: Use ==aScrollPane scroller addMorph: aPasteUp== to put the scrollbar around the pasteUp. 
+For example we did a query with Rue de Paris and we selected two results and they are as follows:
+
+[[[
+{'La Rue de Paris, Lainsecq, Auxerre, Yonne, Bourgogne-Franche-Comté, France métropolitaine, 89520, France'->(47.5612874@3.2933713) .
+'Rue de Paris, Boulogne-Billancourt, Hauts-de-Seine, Île-de-France, France métropolitaine, 92100, France'->(48.8416645@2.236876) .
+}
+]]]
+
+
+!!! Hints: 
+- We suggest to ask the server to return JSON.
+- To specify the format, put 'jsonv2' to 'format' in the query.
+- You can also define a limit to the number of results using the parameter 'limit' and put it to '10'.
+- To parse JSON, have a look at the ==STON== class
+- Use the message ==->== to build a pair.
+
