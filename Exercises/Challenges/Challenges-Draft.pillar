@@ -1,61 +1,21 @@
 !Get world capitals:
 
-Get all the capitals
-
-[[[
-((STON fromString: (
-    ZnEasy
-        get: 'http://api.geonames.org/countryInfoJSON'
-        username: 'demo'
-        password: '') contents) at: #geonames) collect: [ : d | d at: #capital ]
-]]]
-
-
-Get poster of The Terminator movie:
-
-[[[
-(ZnEasy getJpeg: ((STON fromString:
-    (ZnClient new
-        url: 'http://www.omdbapi.com/';
-        queryAt: 't' put: 'The Terminator';
-        get;
-        contents)) at: #Poster)) inspect
-]]]
-
-
-
 
 
 [[[
-	| baseURL query settings result entries |
-	query := UIManager default request: 'Find location for' .
+| baseURL query settings result entries |
+query := UIManager default request: 'Find location for' .
+baseURL := 'http://nominatim.openstreetmap.org/search/'.
+settings := '?format=jsonv2&limit=10'.
 
-	baseURL := 'http://nominatim.openstreetmap.org/search/'.
-	settings := '?format=jsonv2&limit=10'.
+result := STON fromString: (baseURL , query , settings) asZnUrl retrieveContents.
 
-	result := STON fromString: (baseURL , query , settings) asZnUrl retrieveContents.
-
-	(result collect: [ :dct |
-		(dct at: 'display_name') -> 
-			((dct at: 'lat') asNumber @ (dct at: 'lon') asNumber)
-	]) inspect
+(result collect: [ :dct |
+	(dct at: 'display_name') -> 
+		((dct at: 'lat') asNumber @ (dct at: 'lon') asNumber)
+		]) inspect
 ]]]
 	
-	
-============================================================================================
-	
-	And that is a pity, IMHO, it sneaked in, while others have asked for NeoJSON to be included in the past ;-)
-
-	Anyway, STON, which is also part of the base image can parse JSON just as well.
-
-	  STON fromString: '[42, {"JSON":true}, -1.5]'.
-
-	You can also generate JSON.
-
-	  STON toJsonStringPretty: { 42. { 'JSON'->true } asDictionary. -1.5 }.
-
-	  STON toJsonString: { 42. { 'JSON'->true } asDictionary. -1.5 }.
-]]]
 
 
 Another one to WorldCat but this needs an API key (I cannot test it now)

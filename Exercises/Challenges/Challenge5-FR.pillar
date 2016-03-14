@@ -1,8 +1,8 @@
-! Challenge 5
+! Défi 5
 
-Comment créer une fenêtre pour un simple jeu. Cette fenetre doit etre capable de contenir une image immense comme fond sur lequel on pourra déposer des pièces et que ce fond soit scrollable pour découvrir les parties non visibles directement. 
+Comment créer une fenêtre pour un simple jeu. Cette fenêtre doit être capable de contenir une image immense comme fond sur lequel on pourra déposer des pièces et que ce fond soit scrollable pour découvrir les parties non visibles directement. 
 
-!!!!Indices : 
+!!! Indices : 
 - Vous pouvez créer une morph à partir d'une image en utilisant ==AlphaImageMorph withForm:==
 - Vous pouvez downloader une image avec ==ZnEasy getJpeg: url==
 - Regardez ==PasteUpMorph==. Cette morph est une morph pour jetter des morphs dedans.

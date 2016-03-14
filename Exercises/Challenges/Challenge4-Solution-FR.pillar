@@ -1,28 +1,40 @@
-! Challenge 4
+! Défi 4
 
-Comment extraire des sprites d'un grand png tel que ceux que l'on trouve sur 
- *http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/*
-
-!!! Indices :
-- Vous pouvez lire et convertir un PNG en une Form (un élément graphique de base de Pharo) en utilisant 
-==PNGReadWriter==. 
-- Regardez le message ==binaryReadStreamDo:==.
-- Utilisez ==asFileReference== ou ==FileSystem workingDirectory== si votre fichier se trouve à coté du fichier pharo.image.
-- Faites attention la stream pour lire le fichier doit être en binaire. 
-- Vous pouvez accéder à la taille d'une form en utilisant les messages ==width== and ==height==.
-- Vous pouvez copier une partie d'une form en utilisant le message ==form copy: aRectangle==.
-- Regardez les résultats d'expressions avec un inspecteur est une super idée. 
+Comment créer une fenêtre pour un simple jeu. Cette fenêtre doit être capable de contenir une image immense comme fond sur lequel on pourra déposer des pièces et que ce fond soit scrollable pour découvrir les parties non visibles directement. 
+Vous pouvez récupérer sur le site *http://imgur.com/* des images en utilisant l'url suivante: *http://i.imgur.com/*. Les images suivantes *http://imgur.com/gallery/OssbQN3.jpeg* et *http://i.imgur.com/XXxgr7x.jpeg* se prêtent particulièrement à des fonds de cartes.
 
 
-!!! Solution 
+
+!!! Indices : 
+
+- Vous pouvez créer une morph à partir d'une image en utilisant ==AlphaImageMorph withForm:==
+- Vous pouvez obtenir la taille de l'image (pratique pour créer une PasteUpMorph de bonne taille) vous pouvez utiliser les messages ==width== et ==height==.
+- Vous pouvez downloader une image avec ==ZnEasy getJpeg: url==
+- Regardez ==PasteUpMorph==. Cette morph est une morph pour jetter des morphs dedans. Pour définir la taille d'une paste up morph, utiliser le message ==extent:==. Pour définir une morph dans le fond d'une pasteUp, utiliser le message ==backgroundMorph:==
+- Vous allez avoir besoin d'ajouter des scrollbars: Utilisez une ==ScrollPane== morph: Utiliser ==aScrollPane scroller addMorph: aPasteUp== pour mettre des scrollbars autour de ==aPasteUp==.
+
+
+!! Solution
 
 [[[
-	| form sprites |
-	form := 'images/Sprites.png' asFileReference 
-		binaryReadStreamDo: [ :stream | PNGReadWriter formFromStream: stream ].
-	sprites := OrderedCollection new.
-	0 to: (form width - 64) by: 64 do: [ :x |
-	   0 to: (form height - 64) by: 64 do: [ :y |
-	      sprites add: (form copy: (x@y corner: (x+64)@(y+64)))]].
-	sprites
+	| window pane board background |
+
+	background := AlphaImageMorph withForm: (ZnEasy getJpeg: 'http://i.imgur.com/XXxgr7x.jpg').
+	background lock.
+
+	board := PasteUpMorph new.
+	board 
+		color: Color gray;
+		borderWidth: 3;
+		borderColor: Color black;
+		extent: background width@ background height; 
+		backgroundMorph: background;
+		addMorph: (CircleMorph new color: Color cyan; position: 41@23; yourself);
+		addMorph: (Morph new color: Color orange; position: 1200@1200; yourself).
+
+	pane := ScrollPane new.
+	pane scroller addMorph: board.
+
+	window := pane openInWindow.
+	window position: 20@20; extent: 420@420.
 ]]]

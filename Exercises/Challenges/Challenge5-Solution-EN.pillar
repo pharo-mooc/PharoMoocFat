@@ -1,8 +1,8 @@
-! Challenge 5
+! Challenge 4
 
 How to set up a simple game window that uses a very large scrollable game board with a huge image as the background, so that game pieces placed on that background would scroll in and out of view? 
 
-!!!Hints: 
+!!! Hints: 
 - You can create a morph from an image using ==AlphaImageMorph withForm:==
 - You can download a picture using ==ZnEasy getJpeg: url==
 - Have a look at ==PasteUpMorph== this is a morph to drop stuff in.

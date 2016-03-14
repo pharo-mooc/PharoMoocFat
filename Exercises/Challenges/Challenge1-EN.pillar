@@ -1,6 +1,6 @@
 ! Challenge 1
 
-Get a photo from an email address through gravatar *http://www.gravatar.com/avatar/*. Convert it into a morph and open it in Pharo. Using stephane.ducasse@inria.fr so that you are sure to get a .jpg.
+Using the Zinc HTTP library, get a photo from an email address through gravatar *http://www.gravatar.com/avatar/*. Convert it into a morph and open it in Pharo. Using stephane.ducasse@inria.fr so that you are sure to get a .jpg.
 
 !!!!Hints:
 - The path to the photo associated to an email is composed as follows: ==http://www.gravatar.com/avatar/(MD5 email-based hex).jpg==

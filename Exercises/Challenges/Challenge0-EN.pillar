@@ -1,6 +1,6 @@
 ! Challenge 0
 
-Get the pharo logo from *http://pharo.org/files/pharo.png*. Convert it into a morph and open it in Pharo. 
+Using the Zinc HTTP library, get the pharo logo from *http://pharo.org/files/pharo.png*. Convert it into a morph and open it in Pharo. 
 
 
 !!! Solution

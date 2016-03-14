@@ -1,6 +1,6 @@
-! Challenge 1
+! Défi 1
 
-Récupérer une photo à partir d'une adresse email via un service comme gravatar *http://www.gravatar.com/avatar/*. Convertissez cette phot en Morph et ouvrez la dans Pharo. Utilisez par exemple l'adresse stephane.ducasse@inria.fr de manière à être sure que vous obtenez un .jpg.
+En utilisant la bibliothèque Zinc HTTP, récupérer une photo à partir d'une adresse email via un service comme gravatar *http://www.gravatar.com/avatar/*. Convertissez cette phot en Morph et ouvrez la dans Pharo. Utilisez par exemple l'adresse stephane.ducasse@inria.fr de manière à être sure que vous obtenez un .jpg.
 
 !!!Indices :
 - Le chemin pour accéder à une photo à partir d'une adresse électronique est  ==http://www.gravatar.com/avatar/(MD5 email-based hex).jpg==
