@@ -9,8 +9,8 @@ Par exemple, nous avons fait une recherche avec 'Rue de Paris' et voici quelques
 
 [[[
 {
-'La Rue de Paris, Lainsecq, Auxerre, Yonne, Bourgogne-Franche-Comte, France métropolitaine, 89520, France'->(47.5612874@3.2933713) .
-'Rue de Paris, Boulogne-Billancourt, Hauts-de-Seine, Ile-de-France, France métropolitaine, 92100, France'->(48.8416645@2.236876) .
+'La Rue de Paris, Lainsecq, Auxerre, Yonne, Bourgogne-Franche-Comte, France metropolitaine, 89520, France'->(47.5612874@3.2933713) .
+'Rue de Paris, Boulogne-Billancourt, Hauts-de-Seine, Ile-de-France, France metropolitaine, 92100, France'->(48.8416645@2.236876) .
 }
 ]]]
 

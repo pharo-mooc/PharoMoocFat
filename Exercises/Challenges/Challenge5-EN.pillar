@@ -9,11 +9,10 @@ For example we did a query with Rue de Paris and we selected two results and the
 
 [[[
 {
-'La Rue de Paris, Lainsecq, Auxerre, Yonne, Bourgogne-Franche-Comte, France métropolitaine, 89520, France'->(47.5612874@3.2933713) .
-'Rue de Paris, Boulogne-Billancourt, Hauts-de-Seine, Ile-de-France, France métropolitaine, 92100, France'->(48.8416645@2.236876) .
+'La Rue de Paris, Lainsecq, Auxerre, Yonne, Bourgogne-Franche-Comte, France metropolitaine, 89520, France'->(47.5612874@3.2933713) .
+'Rue de Paris, Boulogne-Billancourt, Hauts-de-Seine, Ile-de-France, France metropolitaine, 92100, France'->(48.8416645@2.236876) .
 }
 ]]]
-
 
 !!! Hints: 
 - We suggest to ask the server to return JSON.
