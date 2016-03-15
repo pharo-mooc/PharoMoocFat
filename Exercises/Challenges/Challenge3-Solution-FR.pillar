@@ -1,9 +1,8 @@
 ! Défis 3
 
 Deux petits défis:
-- Le site *http://api.geonames.org/countryInfoJSON*  donne des informations au format JSON sur les pays. Dans ce défi vous devez récupérer les capitales des pays. Vous pouvez utiliser le compte 'demo'/'' pour login/mot de passe.
-
-- Deuxièmement, le site *http://www.omdbapi.com/* offre une API pour récupérer des informations sur les films.  Par exemple, en utilisant ==t== nous pouvons donner le titre du film que nous cherchons. Le défi est donc de définir une expression qui récupere le poster du film 'The Terminator'.
+- Le site *http://api.geonames.org/countryInfoJSON*  donne des informations au format JSON sur les pays. Dans ce défi vous devez récupérer les capitales des pays. Vous pouvez utiliser le compte =='demo'== et une chaine vide ==\'\'== comme login et mot de passe.
+- Deuxièmement, le site *http://www.omdbapi.com/* offre une API pour récupérer des informations sur les films.  Par exemple, en utilisant ==t== nous pouvons donner le titre du film que nous cherchons. Le défi est donc de définir une expression qui récupere le poster du film =='The Terminator'==.
 
 !!! Indices :
 - Jeter un oeil sur les classes ==ZnEasy== ou ==ZnClient==. 

@@ -1,9 +1,8 @@
 ! Challenge 3
 
 Two little challenges:
-- First, the web site *http://api.geonames.org/countryInfoJSON* gives information in JSON about countries and you should extract the capitals. You can use the 'demo'/'' login/password.
-
-- Second, the web site *http://www.omdbapi.com/* offers an api to get information about movies. For example using t allows one to specify the title of a movie. Define a query to get the poster of 'The Terminator'.
+- First, the web site *http://api.geonames.org/countryInfoJSON* gives information in JSON about countries and you should extract the capitals. You can use the =='demo'== and ==\'\'== as login and password.
+- Second, the web site *http://www.omdbapi.com/* offers an api to get information about movies. For example using ==t== allows one to specify the title of a movie. Define a query to get the poster of =='The Terminator'==.
 
 !!! Hints:
 - Have a look at ==ZnEasy== or ==ZnClient==. 
@@ -26,14 +25,14 @@ Two little challenges:
 
 !!!! Get poster of The Terminator movie
 
-	[[[
+[[[
 	(ZnEasy getJpeg: ((STON fromString:
 	    (ZnClient new
 	        url: 'http://www.omdbapi.com/';
 	        queryAt: 't' put: 'The Terminator';
 	        get;
 	        contents)) at: #Poster)) inspect
-	]]]
+]]]
 
 	
 ]]]
