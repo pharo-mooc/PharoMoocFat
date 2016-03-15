@@ -4,12 +4,28 @@
 
 ! Building A Simple Contact Book Application
 
-In this tutorial, you will develop a simple contact book application with a web interface. It consists of a couple of classes for the model and the UI of the application. 
-Figure *@fig:final* shows the resulting application. You will develop the web interface using Seaside (*http://ww.seaside.st>http://www.seaside.st*). Seaside is a powerful web framework
+In this tutorial, you will develop a simple contact book application with a web interface. It consists of a couple of classes for the model and the UI of the application. Figure *@fig:final* shows the resulting application. As you see it is simple but covers many aspects of defining and deploying a web applications. 
+
+You will develop the web interface using Seaside (*http://ww.seaside.st>http://www.seaside.st*). Seaside is a powerful web framework
 for developing highly dynamic and complex web application. For more information you can read the book: 'Dynamic Web Development with Seaside' which 
-is freely available at *http://book.seaside.st>http://book.seaside.st*. Now in this little tutorial we will only use some simple server side Seaside behavior. 
+is freely available at *http://book.seaside.st>http://book.seaside.st*. Now in this little tutorial we will only use some simple server side Seaside behavior. We will use the Twitter Bootstrap library that is fully integrated to Seaside.
+
+Note that the presented solution is often simple and we will list ideas of further improvements that you could add. For example, Pharo developers often use object descriptions to generate new web components instead of manually developing them. 
+
+!!!! About development style. 
+While we love coding test first and coding in the debugger (since it let us go much faster), in this tutorial we will not follow such style
+because it requires a lot of text to mention what to do with the user interface of the Pharo tools. We decided to take a neutral stand point and to let you decide if you code first the tests, if you prefer to go slowly or not. 
+
 
 +Screenshot of the finished contact book application.>file://figures/contact-book-final.png|width=80|label=fig:final+
+
+
+
+
+
+
+
+
 
 !!The Model
 
@@ -550,6 +566,8 @@ As you see the current functionality is rather limited, here is a list of possib
 
 - Add more information to describe a contact. For this we suggest that you use Magritte (Magritte is a framework to describe data and its Seaside extension defines automatically Seaside component). You can read the Magritte chapter in the book as well as the Magritte tutorial available at *https://github.com/SquareBracketAssociates/PharoInProgress*. With Magritte, the components such as our ==WAContact= are automatically generated.
 - Save and load contacts in an external format such as JSON or STON (STON is a Pharo object notation format. It is by default in Pharo 50).
+- Save the contacts in a MongoDB using the Voyage framework (Check the chapters available on *http://books.pharo.org*)
+- Deploy your application on *http://www.pharocloud.com* - It usually takes 3 min.
 
 % Local Variables:
 % compile-command: "cd .. && ./compile.sh Exercises/Exo-ContactManager.pillar"
