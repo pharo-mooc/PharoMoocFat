@@ -8,8 +8,9 @@ of the location and the value its latitude and longitude.
 For example we did a query with Rue de Paris and we selected two results and they are as follows:
 
 [[[
-{'La Rue de Paris, Lainsecq, Auxerre, Yonne, Bourgogne-Franche-Comté, France métropolitaine, 89520, France'->(47.5612874@3.2933713) .
-'Rue de Paris, Boulogne-Billancourt, Hauts-de-Seine, Île-de-France, France métropolitaine, 92100, France'->(48.8416645@2.236876) .
+{
+'La Rue de Paris, Lainsecq, Auxerre, Yonne, Bourgogne-Franche-Comte, France métropolitaine, 89520, France'->(47.5612874@3.2933713) .
+'Rue de Paris, Boulogne-Billancourt, Hauts-de-Seine, Ile-de-France, France métropolitaine, 92100, France'->(48.8416645@2.236876) .
 }
 ]]]
 

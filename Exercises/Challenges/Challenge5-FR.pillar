@@ -8,8 +8,9 @@ est une description et la valeur sa latitude et longitude.
 Par exemple, nous avons fait une recherche avec 'Rue de Paris' et voici quelques échantillons du résultat:
 
 [[[
-{'La Rue de Paris, Lainsecq, Auxerre, Yonne, Bourgogne-Franche-Comté, France métropolitaine, 89520, France'->(47.5612874@3.2933713) .
-'Rue de Paris, Boulogne-Billancourt, Hauts-de-Seine, Île-de-France, France métropolitaine, 92100, France'->(48.8416645@2.236876) .
+{
+'La Rue de Paris, Lainsecq, Auxerre, Yonne, Bourgogne-Franche-Comte, France métropolitaine, 89520, France'->(47.5612874@3.2933713) .
+'Rue de Paris, Boulogne-Billancourt, Hauts-de-Seine, Ile-de-France, France métropolitaine, 92100, France'->(48.8416645@2.236876) .
 }
 ]]]
 
