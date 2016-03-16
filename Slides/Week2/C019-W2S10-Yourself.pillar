@@ -62,7 +62,7 @@ Set new
 ${slide:title=Another Idiom}$
 
 [[[
-Set >> with: anObject
+Set class >> with: anObject
    "Answer an instance of me containing anObject."
    | instance |
    instance := self new.
@@ -73,7 +73,7 @@ Set >> with: anObject
 is equivalent to
 
 [[[
-Set >> with: anObject
+Set class >> with: anObject
    "Answer an instance of me containing anObject."
    ^ self new
       add: anObject;
