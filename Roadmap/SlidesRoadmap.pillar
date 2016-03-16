@@ -1,0 +1,110 @@
+{
+    "title":"Roadmap of the Pharo MOOC"
+}
+
+${slide:title=Global MOOC Roadmap}$
+
+# Week 1: Welcome on Board and Syntax Discovery
+# ""Week 2: Pharo Syntax, Blocks and Inspector""
+# Week 3: Design, Class Methods and Collections
+# Week 4: Inheritance&Lookup and Web Development
+# Week 5: Exception, Debugging and Reflection
+# Week 6: Rethink lookup and Advanced OO Design
+# Week 7: More on OO Design and Testing
+
+${slide:title=Different kind of Resources and Activities}$
+
+* ""Lecture"" ...
+* ""Live"" 
+* ""Todo"" 
+* ""Redo"" 
+
+${slide:title=Week 1: Welcome on Board and Syntax Discovery}$
+
+# [Lecture] Objectives
+# [Lecture] Pharo: an Immersive Object-Oriented System
+# [Lecture] Pharo Vision
+# [Lecture] Pharo Object Model in a Nutshell
+# [Lecture] Pharo Syntax in a Nutshell
+# [Lecture] Class and Method Definitions
+
+${slide:title=Week 2: Pharo Syntax, Blocks and Inspector}$
+
+# ""[Lecture] Messages""
+# [Lecture] Messages for Java programmer 
+# [Lecture] Messages Precedence
+# [Lecture] Messages Sequence
+# [Live] Inspector: Inspecting a Counter
+# [Live] Publishing Code on smalltalkhub.com
+# [Lecture] Blocks
+# [Lecture] Blocks for Loops
+# [Lecture] Booleans and Conditions
+# [Lecture] Parenthesis vs Square Brackets
+# [Lecture] Class and methods
+# [Lecture] SUnit
+# [Lecture] The Essence Of Dispatch through Exercices
+
+${slide:title=Week 2: Exercices}$
+
+# [Todo] Some Simple Exercices on the Syntax
+# [Todo] Some Simple Exercices on Loops
+# [Redo] Live Programming a Turtle in the Inspector
+# [Todo] Ticket Model (User/EventParticipant/Event)
+# [Todo] find how to
+
+${slide:title=Week 3: Design, Class Methods and Collections}$
+
+#[Lecture] Essence of Dispatch: Taking Pharo Booleans as Example
+#[Lecture] Essence of Dispatch
+#[Lecture] Variables
+#[Lecture] A Simple HTTP Application: a pretext to revisit Pharo Syntax
+#[Lecture] Class Methods
+#[Lecture] An Overview of Essential Collections
+#[Lecture] Iterators
+#[Lecture] Stream Overview
+#[Lecture] Understanding Return
+
+${slide:title=Week 4: Inheritance, Lookup and Web Development}$
+
+#[Lecture] Inheritance Basics
+#[Lecture] Inheritance & Lookup: Lookup
+#[Lecture] Inheritance & Lookup: Super
+#[Lecture] Inheritance & Lookup: DoesNotUnderstand:
+#[Lecture] Inheritance & Lookup: Lookup in Metaclasses
+#[Lecture] Class Methods at Work
+#[Lecture] Overview of Pharo Web Stack
+#[Lecture] Seaside: an Innovative Web Application Framework
+#[Lecture] Seaside: Rendering Components
+#[Lecture] Seaside: a Glance at MetaData and REST
+#[Lecture] Voyage: NoSql Object Database
+
+${slide:title=Week 5: Essential: Exceptions, Files, Debugging and SUnit}$
+#[Lecture] Seaside: Composing Components
+#[Lecture] Really Understanding Class Methods
+#[Lecture] Common Errors
+#[Lecture] Powerful Exceptions: an Overview
+#[Lecture] Debugging in Pharo
+#[Lecture] SUnit: Unit Tests in Pharo
+#[Lecture] Files in Pharo
+#[Lecture] Reflection: Basic Introspection
+#[Lecture] Benchmarking in Pharo
+
+${slide:title=Week 6: Rethinking Lookup and Advanced OO Design}$
+#[Lecture] Did You Really Understand Super?
+#[Lecture] Understanding the Implementation of ifTrue:ifFalse:
+#[Lecture] Dice new vs. self class new
+#[Lecture] Message sends are plans for reuse
+#[Lecture] Hooks and Templates
+#[Lecture] Runtime Architecture
+#[Lecture] Characters, Strings and Symbols
+#[Lecture] Dynamic Vs. Literal Arrays
+
+${slide:title=Week 7: Advanced Reflection and OO Design}$
+#[Lecture] Advanced Points on Classes
+#[Lecture] Variable Size Objects
+#[Lecture] Understanding Metaclasses
+#[Lecture] Reflective Operations for Live Programming
+#[Lecture] DoesNotUnderstand: a Precious Hook
+#[Lecture] Reflection: Stack as an Object
+#[Lecture] Avoid Null Checks
+#[Lecture] A Journey in Pharo: A Bright Future
