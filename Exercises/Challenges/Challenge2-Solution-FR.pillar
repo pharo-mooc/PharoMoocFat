@@ -1,7 +1,7 @@
 ! Challenge 2
 
 Extraire des sprites d'un grand png tel que ceux que l'on trouve sur 
- *http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/*
+ *http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/*. L'image ci-dessus montre un sprite une fois habillé. 
 
 !!! Indices :
 - Vous pouvez lire et convertir un PNG en une Form (un élément graphique de base de Pharo) en utilisant 
@@ -26,3 +26,5 @@ Extraire des sprites d'un grand png tel que ceux que l'on trouve sur
 	      sprites add: (form copy: (x@y corner: (x+64)@(y+64)))]].
 	sprites
 ]]]
+
++>file://figures/sprites.png|width=80+

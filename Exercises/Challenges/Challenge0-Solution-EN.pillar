@@ -1,6 +1,8 @@
 ! Challenge 0
 
 Using the Zinc HTTP library available by default in Pharo, get the pharo logo from *http://pharo.org/files/pharo.png*. Convert it into a morph and open it in Pharo. 
+You should obtain something similar than the picture below.
+
 
 !!! Hints:
 - The class ==ZnEasy== offers several handy messages to ease HTTP requests.
@@ -14,5 +16,5 @@ Using the Zinc HTTP library available by default in Pharo, get the pharo logo fr
 (ZnEasy getPng: 'http://pharo.org/files/pharo.png') asMorph openInWorld
 ]]]
 
-
++>file://figures/PharoLogo.png|width=80+
 
