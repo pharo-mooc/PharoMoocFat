@@ -1,0 +1,59 @@
+{
+    "title":"Roadmap of the Pharo MOOC"
+}
+
+${slide:title=Global MOOC Roadmap}$
+
+# Week 1: Welcome on Board and Syntax Discovery
+# ""Week 2: Pharo Syntax, Blocks and Inspector""
+# Week 3: Design, Class Methods and Collections
+# Week 4: Inheritance&Lookup and Web Development
+# Week 5: Exception, Debugging and Reflection
+# Week 6: Rethink lookup and Advanced OO Design
+# Week 7: More on OO Design and Testing
+
+${slide:title=Different kind of Resources and Activities}$
+
+* ""Lecture"" ...
+* ""Live"" 
+* ""Todo"" 
+* ""Redo"" 
+
+${slide:title=Week 1: Welcome on Board and Syntax Discovery}$
+
+${slide:title=Week 2: Pharo Syntax, Blocks and Inspector}$
+
+# ""[Lecture] Messages""
+# [Lecture] Messages for Java programmer 
+# [Lecture] Messages Precedence
+# [Lecture] Messages Sequence
+# [Live] Inspector: Inspecting a Counter
+# [Live] Publishing Code on smalltalkhub.com
+# [Lecture] Blocks
+# [Lecture] Blocks for Loops
+# [Lecture] Booleans and Conditions
+# [Lecture] Parenthesis vs Square Brackets
+# [Lecture] Class and methods
+# [Lecture] SUnit
+# [Lecture] The Essence Of Dispatch through Exercices
+
+${slide:title=Week 2: Exercices}$
+
+# [Todo] Some Simple Exercices on the Syntax
+# [Todo] Some Simple Exercices on Loops
+# [Redo] Live Programming a Turtle in the Inspector
+# [Todo] Ticket Model (User/EventParticipant/Event)
+# [Todo] find how to
+
+${slide:title=Week 3: Design, Class Methods and Collections}$
+
+${slide:title=Week 4:}
+
+${slide:title=Week 5:}
+
+${slide:title=Week 6:}
+
+${slide:title=Week 7:}
+
+
+
