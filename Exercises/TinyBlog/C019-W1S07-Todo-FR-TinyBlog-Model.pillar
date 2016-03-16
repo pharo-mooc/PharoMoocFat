@@ -22,6 +22,8 @@ Attention, dans ce MOOC nous supposons que vous utiliser Pharo 5.0.
 Nous allons également utiliser des bibliothèques et frameworks supplémentaires pour le développement d'applications Web: Seaside, Magritte, Bootstrap, Voyage, VoyageMongo, ...
 
 @@todo Preparer l'image PharoWeb pour Pharo 5.0
+@@todo Pharo Launcher est impossible à comprendre pour les nouveaux utilisateurs. non présent dans *http://pharo.org/download*. 
+@@todo Pour moi, il faut un lien!
 
 Il existe une image spécifique contenant déjà les bibliothèques courantes nécessaires au développement d'applications Web. 
 Vous pouvez la télécharger directement en utilisant Pharo Launcher et en cherchant le projet PharoWeb dans les contributions Pharo.
