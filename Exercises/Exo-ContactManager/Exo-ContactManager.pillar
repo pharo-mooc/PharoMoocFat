@@ -4,18 +4,37 @@
 
 ! Building A Simple Contact Book Application
 
-In this tutorial, you will develop a simple contact book application with a web interface. It consists of a couple of classes for the model and the UI of the application. 
-Figure *@fig:final* shows the resulting application. You will develop the web interface using Seaside (*http://ww.seaside.st>http://www.seaside.st*). Seaside is a powerful web framework
+In this tutorial, you will develop a simple contact book application with a web interface. It consists of a couple of classes for the model and the UI of the application. Figure *@fig:final* shows the resulting application. As you see it is simple but covers many aspects of defining and deploying a web applications. 
+
+You will develop the web interface using Seaside (*http://ww.seaside.st>http://www.seaside.st*). Seaside is a powerful web framework
 for developing highly dynamic and complex web application. For more information you can read the book: 'Dynamic Web Development with Seaside' which 
-is freely available at *http://book.seaside.st>http://book.seaside.st*. Now in this little tutorial we will only use some simple server side Seaside behavior. 
+is freely available at *http://book.seaside.st>http://book.seaside.st*. In this little tutorial we will only use some simple server side Seaside behavior. We will use the Twitter Bootstrap library that is fully integrated to Seaside.
+
+
+Note that the presented solution is often simple and we will list ideas of further improvements that you could add. In addition, it is worth to know that Pharo developers often use object descriptions (as done via the Magritte framework) to generate new web components instead of manually developing them. 
+
+!!!! About development style
+While we love coding test first and coding in the debugger (since it let us go much faster), in this tutorial we will not follow such style
+because it requires a lot of text to mention what to do with the user interface of the Pharo tools. We decided to take a neutral stand point and to let you decide if you code first the tests, if you prefer to go slowly or not. This tutorial presents the mandatory information so that you can get it done. Program it the way you want. 
+
 
 +Screenshot of the finished contact book application.>file://figures/contact-book-final.png|width=80|label=fig:final+
 
-!!The Model
+!!!! Seaside
+In this tutorial, we use the Seaside web framework to define the views of our application. Seaside must be loaded in the image to start using it.
+You have several ways to obtain Seaside
+- either you start coding in the default pharo image and when needed you  open the ''Catalog browser'' tool and search for Seaside. Install the stable version. Since Seaside is large it can take a moment. 
+-  You can also download a pre-installed version of Seaside available at *https://ci.inria.fr/pharo-contribution/job/Seaside/* but you will need to migrate your code to this new image. This is easy with the code versioning control system: save from the current image to a code repository and load from the Seaside ready image from this repository. We prefer the second version. 
+
+
+
+
+
+!! The model
 
 The contact book is composed of 2 model classes: ==Contact== and ==ContactBook==. Let us start with the ==Contact== class.
 
-!!!The Contact
+!!!The Contact class
 
 A contact has two instance variables ==fullname== and ==email==, both strings. Create the ==Contact== class with its instance variables:
 
@@ -33,18 +52,20 @@ It should be possible to create a new contact by executing the following code:
 contact := Contact newNamed: 'Marcus Denker' email: 'marcus.denker@inria.fr'.
 ]]]
 
-It means that we want to send a message (==newNamed:email:==) to the class ==Contact== itself and that it should return a ==Contact== instance.
+It means that we send a message (==newNamed:email:==) to the class ==Contact== itself and that it should return a ==Contact== instance.
 
 Add the ==newNamed:email:== class method in the ==instance creation== protocol of the ==Contact== class. To define a class method, pay attention that you should browse the ''class side'' of the ==Contact== class.
 
 [[[
-Contact class>>newNamed: aString email: aString2
+Contact class >> newNamed: aNameString email: anEmailString
    ^ self new
-      fullname: aString;
-      email: aString2;
-      yourself
+        fullname: aNameString;
+        email: anEmailString;
+        yourself
 ]]]
 
+
+!!! Adding a test
 You can now define a test (in the ==tests== protocol) to make sure that you can create an instance and that it contains the right information.
 
 [[[
@@ -53,7 +74,7 @@ TestCase subclass: #ContactTest
    classVariableNames: ''
    package: 'ContactBook'
 
-ContactTest>>testCreation
+ContactTest >> testCreation
    | contact |
    contact := Contact newNamed: 'Marcus Denker' email: 'marcus.denker@inria.fr'.
    self assert: contact fullname = 'Marcus Denker'.
@@ -63,23 +84,30 @@ ContactTest>>testCreation
 For this test to work you need to define the following methods (in the ==accessing== protocol).
 
 [[[
-Contact>>fullname
+Contact >> fullname
    ^ fullname
 
-Contact>>fullname: aString
+Contact >> fullname: aString
    fullname := aString
 
-Contact>>email
+Contact >> email
    ^ email
 
-Contact>>email: aString
+Contact >> email: aString
    email := aString
 ]]]
 
-Run the test to make sure it passes. If you inspect or print the ==contact== variable created above, you will see that the string representation of this ==Contact== instance is =="a Contact"== which says nothing about the contact itself. This is problematic when debugging and developers typically appreciate nicer string representations. You can change that by overriding the method ==Object>>printOn:== (in the ==printing== protocol) in the ==Contact== class and sending several ==nextPutAll:== messages to the stream argument as follows:
+Run the test to make sure it passes. 
+
+!!!!! Further extensions. 
+You can add some extra logic to make sure that the name is not surrounded by space. In addition handling whether you take care of note about lowercase and uppercase should be addressed. You can use messages such as ==asLowercase== to for example store only lowercased strings. 
+
+
+!!! Enhancing object textual interface
+If you inspect or print the ==contact== variable created above, you will see that the string representation of this ==Contact== instance is =="a Contact"== which says nothing about the contact itself. This is problematic when debugging and developers typically appreciate nicer string representations. You can change that by overriding the method ==Object>>printOn:== (in the ==printing== protocol) in the ==Contact== class and sending several ==nextPutAll:== messages to the stream argument as follows:
 
 [[[
-Contact>>printOn: aStream
+Contact >> printOn: aStream
    aStream
       nextPutAll: self fullname;
       nextPutAll: ' <';
@@ -93,17 +121,20 @@ The string representation of the above ==contact== variable will then be:
 'Marcus Denker <marcus.denker@inria.fr>'
 ]]]
 
-I hope you didn't forget to add a comment to the ==Contact== class. If you did, here is a possible one:
+
+!!!! Class comment and saving
+
+We hope you didn't forget to add a comment to the ==Contact== class. If you did, here is a possible one:
 
 [[[language=plain
-I represent a person with a name and an email address.
+I represent a person with a name and an email address. I'm usually part of a contact book.
 ]]]
 
 Note that in a real application, it might be better to use an ==Email== class to represent a contact's email address.
 
-Save your image.
+Save your image and save the code using the version control browser (Monticello Browser).
 
-!!!The Contact Book
+!!!The Contact Book class
 
 A contact book contains a collection of ==Contact== instances:
 
@@ -117,24 +148,31 @@ Object subclass: #ContactBook
 It should be possible to add and remove contacts from the collection. Add the necessary methods in the ==action== protocol:
 
 [[[
-ContactBook>>addContact: aContact
+ContactBook >> addContact: aContact
    self contacts add: aContact
 
-ContactBook>>removeContact: aContact
+ContactBook >> removeContact: aContact
     self contacts remove: aContact
 ]]]
 
 To initialize the ==contacts== variable to an empty collection, you can either define an ==initialize== method (that is automatically invoked at instance-creation time) or use lazy initialization. The following code uses lazy initialization. Add this method in the ==accessing== protocol.
+Pay attention that with lazy initialization, you should systematically use accessors else you could access to a variable not well-initialized.
 
 [[[
-ContactBook>>contacts
+ContactBook >> contacts
    ^ contacts ifNil: [ contacts := OrderedCollection new ]
 ]]]
 
-To simplify further development, we define a default contact book with predefined contacts inside. We do this by adding ==createDefault== as a class method to the ==default instance== protocol of ==ContactBook class==:
+!!!!! Add tests.
+Please define some tests to cover the addition and removal of contacts. 
+You will see in particular that the definition for removeContact: is not that robust when we want to remove a contact that is not in the collection. 
+
+!!! Providing a default contact book
+
+To simplify further development, we define a default contact book with predefined contacts inside. We do this by adding the method ==createDefault== as a class method to the ==default instance== protocol of ==ContactBook class==:
 
 [[[
-ContactBook class>>createDefault
+ContactBook class >> createDefault
    ^ self new
       addContact: (Contact newNamed: 'Damien Cassou' email: 'damien@cassou.me');
       addContact: (Contact newNamed: 'Marcus Denker' email: 'marcus.denker@inria.fr');
@@ -143,15 +181,15 @@ ContactBook class>>createDefault
       yourself
 ]]]
 
-Don't forget to comment the class and to save your image.
+Don't forget to comment the class and to save your image and version your code. 
 
-!!A First Web View
+!! A first web view
 
-Now that we have the model, we need a web view. In this tutorial, we use the Seaside web framework to define the views of our application.
+Now that we have the model, we need a web view. We will use Seaside for that. Seaside is a component framework: Seaside web applications are built by aggregating components. Typically, an application consists of a top-level component delegating parts of its rendering to sub-components. 
 
-Seaside must be loaded in the image to start using it. Open the ''Catalog browser'' tool and search for Seaside. Install the stable version. You can also download a pre-installed version of Seaside available at *https://ci.inria.fr/pharo-contribution/job/Seaside/* but you would need to migrate your code to this new image.
+!!! Defining WAContactBook component
 
-Seaside is a component framework: Seaside web applications are built by aggregating components. Typically, an application consists of a top-level component delegating part of its rendering to sub-components. Our simple application consists of a top-level component represented by the ==WAContactBook== class, subclass of ==WAComponent==. Create the ==WAContactBook== class with a ==contactBook== instance variable:
+Our simple application consists of a top-level component represented by the ==WAContactBook== class, subclass of ==WAComponent==. Create the ==WAContactBook== class with a ==contactBook== instance variable:
 
 [[[
 WAComponent subclass: #WAContactBook
@@ -160,7 +198,7 @@ WAComponent subclass: #WAContactBook
    package: 'ContactBook'
 ]]]
 
-!!!Rendering a Title
+!!!Rendering a title
 
 Every Seaside component class must override the ==renderContentOn:== method to specify how a component is rendered. Define this method in the ==rendering== protocol:
 
@@ -174,6 +212,11 @@ WAContactBook>>renderContentOn: html
 ]]]
 
 The method argument ==html== acts as a canvas that can emit adequate HTML code. Above code asks the heading brush to the canvas and use it to emit this HTML code: ==<h1>My Contact Book</h1>==.
+
+!!!!! Remark.
+It is not a good style to generate component UI using directly HTML commands. Usually developers emit tags that map with css tags provided by an application designer. 
+
+!!! Registering our 'App'
 
 The next step is to register the ==WAContactBook== class to the ==/contacts== URL path. This way you will be able to reach the application at *http://localhost:8080/contacts*. Do this by implementing an ==initialize== class method in ==WAContactBook class== (==class initialization== protocol):
 
@@ -550,6 +593,8 @@ As you see the current functionality is rather limited, here is a list of possib
 
 - Add more information to describe a contact. For this we suggest that you use Magritte (Magritte is a framework to describe data and its Seaside extension defines automatically Seaside component). You can read the Magritte chapter in the book as well as the Magritte tutorial available at *https://github.com/SquareBracketAssociates/PharoInProgress*. With Magritte, the components such as our ==WAContact= are automatically generated.
 - Save and load contacts in an external format such as JSON or STON (STON is a Pharo object notation format. It is by default in Pharo 50).
+- Save the contacts in a MongoDB using the Voyage framework (Check the chapters available on *http://books.pharo.org*)
+- Deploy your application on *http://www.pharocloud.com* - It usually takes 3 min.
 
 % Local Variables:
 % compile-command: "cd .. && ./compile.sh Exercises/Exo-ContactManager.pillar"
