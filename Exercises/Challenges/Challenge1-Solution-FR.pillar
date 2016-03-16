@@ -17,3 +17,5 @@ En utilisant la bibliothèque Zinc HTTP, récupérer une photo à partir d'une a
 	url := 'http://www.gravatar.com/avatar/', (MD5 hashMessage: email trimBoth asLowercase) hex, '.jpg'. 
 	(ZnEasy getJpeg: url) asMorph openInHand.  
 ]]]
+
++Récupérer le gravatar de stephane.ducasse@inria.fr .>file://figures/gravatar.png|width=80+
