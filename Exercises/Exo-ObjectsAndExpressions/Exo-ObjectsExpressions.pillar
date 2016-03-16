@@ -1,165 +1,89 @@
-!Expressions and Messages
+!Expressions Results
 
+In this exercise, we ask you to guess the results of the expressions by mentally simulating the execution of expressions. 
 
-This exercise is about reading and understanding Pharo expressions, and differentiating between different
-types of messages and receivers. Note that in the expressions you will be asked to read and executed, you
-can assume that the implementation of methods generally corresponds to what their message names imply
-(i.e., ==2 + 2 = 4==).
-Note that most of the expressions we use in the exercises are expressions that you can execute in Pharo, so do not hesitate.
-Some of the expressions explained in *https://medium.com/concerning-pharo/elegant-pharo-code-bb590f0856d0*
+!! Exercise: Results
 
-!!Exercises
-For each of the k expressions below, fill in the answers:
+Examine the following expressions. What is the value returned by the execution of the following expression?
 
-- What is the receiver object?
-- What is the message selector?
-- What is/are the argument (s)?
-- What is the message?
-- What is the result returned by evaluating this expression?
-
-[[[language=smalltalk
-    3 + 4
+[[[
+| anArray |
+anArray := #('first' 'second' 'third' 'fourth').
+anArray at: 2
 ]]]
 
-[[[language=smalltalk
-    Date today
+[[[
+#(2 3 -10 3) collect: [ :each | each * each]
 ]]]
 
-[[[language=smalltalk
-    anArray at: 1 put: 'hello'
+[[[
+6 + 4 / 2
 ]]]
 
-[[[language=smalltalk
-    anArray at: i 
+[[[
+1 + 3 negated
 ]]]
 
-[[[language=smalltalk
-    #(2 33 -4 67) collect: [ :each | each abs ]
+[[[
+1 + (3 negated)
 ]]]
 
-[[[language=smalltalk
-   25 @ 50
+[[[
+2 raisedTo: 3 + 2
 ]]]
 
-[[[language=smalltalk
-    SmallInteger maxVal
+[[[
+2 negated raisedTo: 3 + 2
 ]]]
 
-[[[language=smalltalk
-    #(a b c d e f) includesAll: #(f d b)
+[[[
+#(a b c d e f) includesAll: #(f d b)
 ]]]
 
-!!! Exercise: Literal objects
+!!! Exercise: unneeded parentheses 
+Putting more  parentheses than necessary is  a good way  to get started. Such  practice however leads to  less readable expressions.
 
-What kind of object does the following literal expressions refer to?
-
-
-[[[language=smalltalk
-    'Hello, Dave'
-]]]
-
-[[[language=smalltalk
-    #Node1
-]]]
-
-[[[language=smalltalk
-    #(2 33 4)
-]]]
-
-[[[language=smalltalk
-    [ :each | each scale: 1.5 ]
-]]]
-
-!!! Exercise: Scope
-
-- What can one assume about a variable named ==Transcript==?
-
-- What can one assume about a variable named ==rectangle==?
-
-
-!!! Exercise: 
-
-Examine the following expressions. What is the value returned by the execution of the snippet?
-
-[[[language=smalltalk
-    | anArray |
-    anArray := #('first' 'second' 'third' 'fourth').
-    anArray at: 2.
-]]]
-
-
-
-!!! Exercise:  unneeded parentheses 
-Putting more  parentheses than necessary is  a good way  to get started. Such  practice however leads to  less read
-
-[[[language=smalltalk
+[[[
     ((3 + 4) + (2 * 2) + (2 * 3))
 ]]]
 
-[[[language=smalltalk
+[[[
     x between: (pt1 x) and: (pt2 y)
 ]]]
 
-[[[language=smalltalk
+[[[
     (x isZero)
         ifTrue: [....]
     (x includes: y)
         ifTrue: [....]
 ]]]
 
-[[[language=smalltalk
+[[[
     (OrderedCollection new)
        add: 56; 
        add: 33; 
        yourself
 ]]]
 
-[[[language=smalltalk
+[[[
     (Integer primesUpTo: 64) sum
 ]]]
 
-[[[language=smalltalk
+[[[
     ('http://www.pharo.org' asUrl) retrieveContents
 ]]]
 
-[[[language=smalltalk
+[[[
     ('2014-07-01' asDate - '2013/2/1' asDate) days
 ]]]
 
-[[[language=smalltalk
+[[[
     (((ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
       asMorph) openInWindow)
 ]]]
 
-[[[language=smalltalk
+[[[
     ((#(a b c d e f) asSet) intersection: (#(f d b) asSet))
-]]]
-
-!! Exercise: Results
-Guess what are the results of the following expressions:
-
-[[[language=smalltalk
-    6 + 4 / 2
-]]]
-
-[[[language=smalltalk
-   1 + 3 negated
-]]]
-
-[[[language=smalltalk
-    1 + (3 negated)
-]]]
-
-[[[language=smalltalk
-    2 raisedTo: 3 + 2
-]]]
-
-[[[language=smalltalk
-    2 negated raisedTo: 3 + 2
-]]]
-
-[[[language=smalltalk
-    #(a b c d e f) includesAll: #(f d b)
 ]]]
 
 
@@ -178,78 +102,45 @@ Examine each of the following expression and write down the sequence of steps of
     Transcript show: (45 + 9) printString
 ]]]
 
-[[[language=smalltalk
+[[[
     ('2014-07-01' asDate - '2013/2/1' asDate) days
 ]]]
 
-[[[language=smalltalk
+[[[
    42 factorial decimalDigitLength
 ]]]
 
-[[[language=smalltalk
+[[[
     (ZnServer startDefaultOn: 8080) 
         onRequestRespond: [ :request | ZnResponse ok: (ZnEntity with: DateAndTime now printString) ]
 ]]]
 
-[[[language=smalltalk
+[[[
     (1914 to: 1945) count: [ :each | Year isLeapYear: each ].
 ]]]
 
-[[[language=smalltalk
+[[[
     $/ join: ($- split: '1969-07-20') reverse
 ]]]
 
-[[[language=smalltalk
+[[[
     DateAndTime fromUnixTime:
         ((ByteArray readHexFrom: 'CAFEBABE4422334400FF') 
            copyFrom: 5 to: 8) asInteger
 ]]]
 
-[[[language=smalltalk
+[[[
     (String new: 32) collect: [ :each | 'abcdef' atRandom ]
 ]]]
 
 
-[[[language=smalltalk
+[[[
     'http://www.pharo.org' asUrl saveContentsToFile: 'page.html'
 ]]]
 
-[[[language=smalltalk
+[[[
 '^.*.jpg' asRegex in: [ :regex |
   '/tmp/foo.txt' asFileReference contents lines 
     select: [ :line | regex matches: line ] ]
 ]]]
 
-!!! Exercise: Examine the block expressions
-
-[[[
-    | sum |
-    sum := 0.
-    #(21 23 53 66 87)do: [:item | sum := sum + item].
-    sum
-]]]
-
-What is the final result of sum? How could this piece of code be rewritten to use explicit array indexing
-(with the method at: ) to access the array elements1? Test your version. Rewrite this code using ==inject:into:==
-
-!!! Exercise: Comparing expressions
-
-[[[
-    | array |
-    array := #(2 4 4 4 5 5 7 9).
-    ((array - array average) squared sum / (array size - 1)) sqrt 
-]]]
-
-[[[
-    [ :input | ((input - input average) squared sum / (input size - 1)) sqrt ] 
-        value: #(2 4 4 4 5 5 7 9) 
-]]]
-
-[[[
-    #(2 4 4 4 5 5 7 9) in: [ :input |
-      ((input - input average) squared sum / (input size - 1)) sqrt ]
-]]]
-
-[[[
-    #(2 4 4 4 5 5 7 9) stddev
-]]]
