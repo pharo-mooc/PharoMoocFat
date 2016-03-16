@@ -10,3 +10,5 @@ Two little challenges:
 - To parse and convert a string representing JSON into Pharo collection, use the ==STON== class (check the class side).
 - To pass a binding to a request, use the message ==queryAt:put:==.
 - Using the inspector is a good idea to explore objects and query results.
+
++The Poster of Terminator in a Pharo Inspector.>file://figures/Terminator.png|width=80+

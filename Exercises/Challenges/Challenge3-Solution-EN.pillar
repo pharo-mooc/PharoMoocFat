@@ -11,6 +11,10 @@ Two little challenges:
 - To pass a binding to a request, use the message ==queryAt:put:==.
 - Using the inspector is a good idea to explore objects and query results.
 
+
++The Poster of Terminator in a Pharo Inspector.>file://figures/Terminator.png|width=80+
+
+
 !!! Solutions 
 
 !!!! Getting the Capitals
@@ -26,12 +30,12 @@ Two little challenges:
 !!!! Get poster of The Terminator movie
 
 [[[
-	(ZnEasy getJpeg: ((STON fromString:
-	    (ZnClient new
-	        url: 'http://www.omdbapi.com/';
-	        queryAt: 't' put: 'The Terminator';
-	        get;
-	        contents)) at: #Poster)) inspect
+(ZnEasy getJpeg: ((STON fromString:
+    (ZnClient new
+        url: 'http://www.omdbapi.com/';
+        queryAt: 't' put: 'The Terminator';
+        get;
+        contents)) at: #Poster)) inspect
 ]]]
 
 	
