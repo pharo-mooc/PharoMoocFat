@@ -1,0 +1,202 @@
+!Expressions and Messages
+
+This exercise is about reading and understanding Pharo expressions, and differentiating between different
+types of messages and receivers.
+
+Note that in the expressions you will be asked to read and executed, you
+can assume that the implementation of methods generally corresponds to what their message names imply (i.e., ==2 + 2 = 4==).
+
+In addition, most of the expressions we use in the exercises are expressions that you can execute in Pharo, so do not hesitate. 
+
+!!! Exercise: Literal objects
+
+What kind of object does the following literal expressions refer to?
+
+[[[
+'Hello, Dave'
+]]]
+
+[[[
+	a string
+]]]
+
+
+
+[[[
+1.3
+]]]
+
+[[[
+	a float
+]]]
+
+[[[
+#node1
+]]]
+
+[[[
+	a symbol (unique string)
+]]]
+
+
+[[[
+#(2 33 4)
+]]]
+
+[[[
+	an array
+]]]
+
+[[[
+[ :each | each scale: 1.5 ]
+]]]
+
+[[[
+	a block (lexical closure)
+]]]
+
+
+[[[
+$A 
+]]]
+
+[[[
+	a character
+]]]
+
+[[[
+true
+]]]
+
+[[[
+	a boolean
+]]]
+
+[[[
+1
+]]]
+
+[[[
+	a smallinteger
+]]]
+
+!!Exercise: Messages
+For each of the k expressions below, fill in the answers:
+
+- What is the receiver object?
+- What is the message selector?
+- What is/are the argument (s)?
+- What is the result returned by evaluating this expression?
+
+[[[
+3 + 4
+]]]
+
+[[[
+receiver: 3
+selector: +
+argument: 4
+]]]
+
+[[[
+Date today
+]]]
+
+[[[
+receiver: Date
+selector: today
+argument: none
+]]]
+
+[[[
+anArray at: 1 put: 'hello'
+]]]
+
+[[[
+receiver: anArray
+selector: at:put:
+argument: 1 and 'hello'
+]]]
+
+[[[
+anArray at: i 
+]]]
+
+[[[
+receiver: anArray
+selector: at:
+argument: i
+]]]
+
+
+[[[
+#(2 33 -4 67) collect: [ :each | each abs ]
+]]]
+
+[[[
+receiver: #(2 33 -4 67) 
+selector: collect:
+argument:  [ :each | each abs ]
+]]]
+
+[[[
+25 @ 50
+]]]
+
+[[[
+receiver: 25
+selector: @
+argument: 50
+]]]
+
+
+[[[
+SmallInteger maxVal
+]]]
+
+[[[
+receiver: SmallInteger
+selector: maxVal
+argument: none
+]]]
+
+
+[[[
+#(a b c d e f) includesAll: #(f d b)
+]]]
+
+[[[
+receiver: #(a b c d e f)
+selector: includesAll:
+argument: #(f d b)
+]]]
+
+
+[[[
+true | false
+]]]
+
+[[[
+receiver: true
+selector: | 
+argument: false
+]]]
+
+[[[
+Point selectors
+]]]
+
+[[[
+receiver: Point
+selector: selectors
+argument: 
+]]]
+!!! Exercise: Scope
+
+- What can one assume about a variable named ==Transcript==?
+
+- What can one assume about a variable named ==rectangle==?
+
+==Transcript== is a global variable: either a class, a global variable or a class variable.
+
+==rectangle== is a local variable: either a temporary, an instance variable, a method argument or an argument.
