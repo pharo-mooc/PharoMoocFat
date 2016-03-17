@@ -583,6 +583,49 @@ The message ==call:== returns the same object as what is passed to answer (in ==
 
 You should now get the same result as in Figure *@fig:final*.
 
+!! About using Bootstrap tags
+
+Now as we mentioned before when using the Seaside tags ==tbs== we are promoting a bad practice. We did so because we did not want to spend time explain CSS and HTML. But you should really change your code. 
+
+We are adding styling to the places where it should not be and we are breaking the idea that the code and its display should be separated. 
+You can read the following blog to get a deeper view on it:
+*http://ruby.bvision.com/blog/please-stop-embedding-bootstrap-classes-in-your-html*
+
+Here is a summary
+
+The argument is that having html code like this:
+[[[
+    <div class="row">
+      <div class="span6">...</div>
+      <div class="span6">...</div>
+    </div>
+]]]
+goes against the separation of rendering and content that CSS is
+supposed to bring. Adding all those bootstrap classes everywhere in the
+HTML is not better than adding ==\<table\>== tags to layout web pages.
+
+The solution is to use SCSS/SASS/Less mixins to add sanity to your html. Something like:
+
+[[[
+    <div class="book-previews">
+      <div class="book-preview">...</div>
+      <div class="book-preview">...</div>
+    </div>
+]]]
+
+and the SCSS/SASS/Less stylesheet:
+[[[
+    .book-previews {
+      .makeRow();        // Mixin provided by Bootstrap
+      ...
+    }
+]]]
+
+
+
+
+
+
 !! Summary
 
 During this tutorial we defined a simple model and two simple web views. We could have written tests and implement methods in the debugger while the application is running. Pharo developers often prefer to write code in the debugger because they go faster and the execution provides objects to play with.
