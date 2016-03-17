@@ -8,6 +8,7 @@ Extraire des sprites d'un grand png tel que ceux que l'on trouve sur
 ==PNGReadWriter==. 
 - Regardez le message ==binaryReadStreamDo:==.
 - Utilisez ==asFileReference== ou ==FileSystem workingDirectory== si votre fichier se trouve à coté du fichier pharo.image.
+- Vous pouvez utiliser le message ==/== pour indiquer le nom d'un fichier. 
 - Faites attention la stream pour lire le fichier doit être en binaire. 
 - Vous pouvez accéder à la taille d'une form en utilisant les messages ==width== and ==height==.
 - Vous pouvez copier une partie d'une form en utilisant le message ==form copy: aRectangle==.

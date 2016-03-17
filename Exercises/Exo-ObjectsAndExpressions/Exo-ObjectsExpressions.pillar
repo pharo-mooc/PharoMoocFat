@@ -74,7 +74,7 @@ Putting more  parentheses than necessary is  a good way  to get started. Such  p
 ]]]
 
 [[[
-    ('2014-07-01' asDate - '2013/2/1' asDate) days
+    (('2014-07-01' asDate) - '2013/2/1' asDate) days
 ]]]
 
 [[[
