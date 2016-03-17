@@ -1,4 +1,4 @@
-! Défi 0
+! Défi 0 - Solution
 
 En utilisant le server HTTP Zinc fournit avec Pharo récupérer le logo disponible à *http://pharo.org/files/pharo.png*. Convertissez le en une morph (un objet graphique Pharo) et affichez le dans Pharo. Vous devez obtenir une situation proche de l'image ci-dessous.
 

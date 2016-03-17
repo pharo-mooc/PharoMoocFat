@@ -1,4 +1,4 @@
-! Challenge 5
+! Challenge 5 - Solution
 
 The web site *http://nominatim.openstreetmap.org/* offers a search service *http://nominatim.openstreetmap.org/search/* that when given 
 a street name will return occurrences of such street name, each one with characterizing information such as longitude and latitude.

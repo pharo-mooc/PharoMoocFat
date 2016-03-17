@@ -1,4 +1,4 @@
-! Défi 5
+! Défi 5 - Solution
 
 Le site *http://nominatim.openstreetmap.org/* offre un service de recherche *http://nominatim.openstreetmap.org/search/* qui lorsqu'on lui donne
 un nom de rue rend toutes les occurrences de cette rue, chacune avec des informations la caractérisant telles que sa longitude et latitude.

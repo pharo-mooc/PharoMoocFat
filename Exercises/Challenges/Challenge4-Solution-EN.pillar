@@ -1,4 +1,4 @@
-! Challenge 4
+! Challenge 4 - Solution
 
 How to set up a simple game window that uses a very large scrollable game board with a huge image as the background, so that game pieces placed on that background would scroll in and out of view? 
 You can get some nice maps on the web site *http://imgur.com/*. Use the following url to fetch them: *http://i.imgur.com/*. The following images *http://imgur.com/gallery/OssbQN3.jpeg* and *http://i.imgur.com/XXxgr7x.jpeg* are particularly nice map background. The solution may look like the figure below. 

@@ -1,4 +1,4 @@
-! Challenge 3
+! Challenge 3 - Solution
 
 Two little challenges:
 - First, the web site *http://api.geonames.org/countryInfoJSON* gives information in JSON about countries and you should extract the capitals. You can use the =='demo'== and ==\'\'== as login and password.

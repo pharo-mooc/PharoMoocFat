@@ -1,4 +1,4 @@
-! Défi 4
+! Défi 4 - Solution
 
 Comment créer une fenêtre pour un simple jeu. Cette fenêtre doit être capable de contenir une image immense comme fond sur lequel on pourra déposer des pièces et que ce fond soit scrollable pour découvrir les parties non visibles directement. 
 Vous pouvez récupérer sur le site *http://imgur.com/* des images en utilisant l'url suivante: *http://i.imgur.com/*. Les images suivantes *http://imgur.com/gallery/OssbQN3.jpeg* et *http://i.imgur.com/XXxgr7x.jpeg* se prêtent particulièrement à des fonds de cartes.

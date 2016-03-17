@@ -1,4 +1,4 @@
-! Défis 3
+! Défis 3 - Solution
 
 Deux petits défis:
 - Le site *http://api.geonames.org/countryInfoJSON*  donne des informations au format JSON sur les pays. Dans ce défi vous devez récupérer les capitales des pays. Vous pouvez utiliser le compte =='demo'== et une chaine vide ==\'\'== comme login et mot de passe.

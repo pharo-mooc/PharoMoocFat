@@ -1,4 +1,4 @@
-! Challenge 0
+! Challenge 0 - Solution
 
 Using the Zinc HTTP library available by default in Pharo, get the pharo logo from *http://pharo.org/files/pharo.png*. Convert it into a morph and open it in Pharo. 
 You should obtain something similar than the picture below.
