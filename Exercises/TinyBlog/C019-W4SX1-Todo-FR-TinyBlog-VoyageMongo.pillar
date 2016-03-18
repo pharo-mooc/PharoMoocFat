@@ -5,9 +5,24 @@
 
 !Correction semaine précédente
 
-@@todo la correction de la semaine précédente : code on sthub + vidéo?
 
-Maintenant que vous avez vu la correction, vous pouvez compléter le code de votre application TinyBlog et committer une nouvelle version dans votre dépôt sur Smalltalkhub.
+Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
+
+[[[
+Gofer new 
+   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+   package: 'ConfigurationOfTinyBlog';
+   load. 
+#ConfigurationOfTinyBlog asClass loadWeek3Correction
+]]]
+
+Vous pouvez tester le code en exécutant:
+
+[[[
+	TBTeapotWebApp start
+]]]
+
+Attention, vérifiez d'abord que votre propre serveur ne soit pas déjà lancé sur le port 8081.
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !Préparation de sauvegarde extérieure avec Voyage
