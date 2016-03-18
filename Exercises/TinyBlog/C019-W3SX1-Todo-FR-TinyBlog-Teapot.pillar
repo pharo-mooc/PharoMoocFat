@@ -5,10 +5,208 @@
 
 !Correction semaine précédente
 
-@@todo la correction de la semaine précédente : code on sthub + vidéo?
+Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
 
-Maintenant que vous avez vu la correction, vous pouvez compléter le code de votre application TinyBlog et committer une nouvelle version dans votre dépôt sur Smalltalkhub.
+[[[
+Gofer new 
+   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+   package: 'ConfigurationOfTinyBlog';
+   load. 
+#ConfigurationOfTinyBlog asClass loadWeek2Correction
+]]]
+
+Après le chargement d'un package, il est recommandé d'exécuter les tests unitaire qu'il contient afin de vérifier le bon fonctionnement du code chargé.
+Pour cela, lancer l'outil TestRunner (World menu > Test Runner), chercher le package TinyBlog-Tests et lancer tous les tests unitaires de la classe ==TBBlogTest== en cliquant sur le bouton "Run Selected". Tous les tests doivent être verts. 
+
+Ouvrez maintenant un browser de code pour regarder le code des classes ==TBBlog== et ==TBBlogTest== et compléter votre propre code si nécessaire.
+Avant de poursuivre, n'oubliez pas de committer une nouvelle version dans votre dépôt sur Smalltalkhub si vous avez modifié votre application. 
 
 !Une interface Web avec Teapot pour TinyBlog
 
-@@todo le faire...
+Dans la suite, nous allons créer une première interface web pour TinyBlog en utilisant Teapot (*http://smalltalkhub.com/#!/~zeroflag/Teapot*). Nous verrons une solution bien plus complète avec Seaside par la suite.
+
+!!La classe TBTeapotWebApp
+
+Créer une classe nommée ==TBTeapotWebApp== ainsi:
+
+[[[
+Object subclass: #TBTeapotWebApp
+	instanceVariableNames: 'teapot'
+	classVariableNames: 'Server'
+	package: 'TinyBlog-Teapot'
+]]]
+
+Ajouter deux méthodes ==start== et ==stop== côté classe pour repsectivement démarrer et arrêter l'application:
+
+[[[
+TBTeapotWebApp class >> start
+	Server ifNil: [ Server := self new start ]	
+
+TBTeapotWebApp class >> stop
+	Server ifNotNil: [ Server stop. Server := nil ]
+]]]
+
+Ajouter une méthode côté instance pour créer et initialiser la variable d'instance  ==teapot== :
+
+[[[
+TBTeapotWebApp >> initialize
+   super initialize.
+   teapot := Teapot configure: {
+      #port -> 8081. 
+      #debugMode -> true }.
+]]]
+
+
+!!Déclarer les URLs (routes)
+
+Ajouter maintenant une méthode ==start== pour que l'objet teapot réponde à des URLs particulières. Commençons par répondre à l'URL ==/== lorsqu'elle est accédée en GET :
+
+[[[
+TBTeapotWebApp >> start
+	teapot
+		GET: '/' -> [ self homePage ];
+		start
+]]]
+
+!!La page d'accueil
+
+La méthode ==homePage== doit maintenant être définie et retourner du code HTML de la page d'accueil de notre application web. 
+Commençons par une version simple:
+
+[[[
+TBTeapotWebApp >> homePage
+	^ '<html><body><h1>TinyBlog Web App</h1></body></html>'
+]]]
+
+!!Tester votre application
+
+Exécuter le code suivant pour démarrer votre application:
+
+[[[
+TBTeapotWebApp start
+]]]
+
+Avec un navigateur web, vous pouvez accéder à l'application via l'URL *http://localhost:8081/*. Vous devriez voir s'afficher le texte "TinyBlog Web App".
+
+Ajouter également une méthode pour stopper l'application :
+
+[[[
+TBTeapotWebApp >> stop
+	teapot stop
+]]]
+
+!!Afficher la liste des posts
+
+On souhaite maintenant modifier le code de la méthode ==homePage== pour que la page d'accueil affiche la liste de tous les posts visibles.
+Pour rappel, tous les posts peuvent être obtenus via ==TBBlog current allVisibleBlogPosts==.
+Ajoutons une méthode d'accès aux posts et modifions la méthode ==homePage==.
+
+[[[
+TBTeapotWebApp >>	allPosts
+   ^ TBBlog current allVisibleBlogPosts 
+
+TBTeapotWebApp >>	homePage
+	^ String streamContents: [ :s | 
+			self renderPageHeaderOn: s.
+			s << '<h1>TinyBlog Web App</h1>'.
+			s << '<ul>'.
+			self allPosts do: [ :aPost |
+				s << ('<li>', aPost title, '</li>') ].
+			s << '</ul>'.
+			self renderPageFooterOn: s.
+		]
+
+TBTeapotWebApp >>	renderPageHeaderOn: aStream
+	aStream << '<html><body>' 
+
+TBTeapotWebApp >>	renderPageFooterOn: aStream
+	aStream << '</body></html>' 
+
+]]]
+
+Comme il faut générer une longue chaine de caractères contenant le code HTML de cette page, nous utilisons un stream dans la méthode ==homePage==.
+Nous avons également découpé le code en plusieurs méthodes dont ==renderPageHeaderOn:== et ==renderPageFooterOn:== qui permettent de générer l'en-tête et le pieds de la page html.
+
+Si vous testez l'application dans un navigateur web, vous devriez maintenant voir la liste des titres des posts.
+
+!!Détails d'un post
+
+!!!Ajouter une nouvelle page
+
+
+Par exemple, on souhaite que l'URL *http://localhost:8081/post/1* permette de voir le post numéro 1.
+Pour cela, modifions la méthode ==start== pour ajouter une nouvelle route à notre application permettant d'afficher le contenu d'un post.
+
+[[[
+TBTeapotWebApp >>	start
+		teapot
+			GET: '/' -> [ self homePage ];
+			GET: '/post/<id>' -> [ :request | self pageForPostNumber: (request at: #id) asNumber ];
+			start
+]]]
+
+Teapot permet de définir des routes avec des patterns comme '<id>' dont la valeur est ensuite accessible dans l'objet requête reçu en paramètre du bloc.
+
+Il faut maintenant définir la méthode ==pageForPostNumber:== qui affiche toutes les informations d'un post:
+
+[[[
+TBTeapotWebApp >>	pageForPostNumber: aPostNumber
+		|currentPost|
+		currentPost := self allPosts at: aPostNumber ifAbsent: [ ^ self errorPage ].
+		^ String streamContents: [ :s | 
+				self renderPageHeaderOn: s. 
+				s << ('<h1>', currentPost title, '</h1>').
+				s << ('<h3>', currentPost date mmddyyyy, '</h3>').
+				s << ('<p> Category: ', currentPost category, '</p>').
+				s << ('<p>', currentPost text, '</p>').
+				self renderPageFooterOn: s.
+			]
+]]]
+
+Dans le code ci-dessus, on peut voir que le nombre passée dans l'URL est utilisé comme la position du post à afficher dans la collection des posts. 
+Cette solution est simple mais fragile puisque si l'ordre des posts dans la collection change, une même URL ne désignera plus le même post.
+
+Vous pouvez tester cela en accédant à l'URL  *http://localhost:8081/post/1* par exemple.
+
+
+!!!Ajouter des liens vers les posts
+
+Modifions la méthode ==homePage== pour que les titres des posts soit des liens vers leur page respective.
+
+[[[
+TBTeapotWebApp >>	homePage
+	^ String streamContents: [ :s | 
+			self renderPageHeaderOn: s.
+			s << '<h1>TinyBlog Web App</h1>'.
+			s << '<ul>'.
+			self allPosts withIndexDo: [ :index :aPost |
+				s << '<li>';
+				  << ('<a href="/post/', index asString, '">');
+				  << aPost title ;
+				  << '</a></li>' ].
+			s << '</ul>'.
+			self renderPageFooterOn: s.
+		]
+]]]
+
+Maintenant, la page d'accueil de l'application affiche bien une liste de lien vers les posts.
+
+!!Extensions possibles
+
+Cette application est un exemple pédagogique à travers lequel vous avez manipulé des collections, des Streams, etc. 
+
+Plusieurs évolutions peuvent être apportées telles que: 
+- sur la page de détails d'un post, ajouter un lien pour revenir à la page d'accueil,
+- ajouter une page affichant la liste cliquable des catégories de posts
+- ajouter une page affichant tous les posts d'une catégorie donnée
+- ajouter des styles CSS pour avoir un rendu plus agréable
+
+
+
+
+
+
+
+
+
+ 

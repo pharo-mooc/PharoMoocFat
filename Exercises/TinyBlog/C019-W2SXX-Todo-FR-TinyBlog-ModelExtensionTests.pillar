@@ -5,9 +5,20 @@
 
 !Correction semaine précédente
 
-@@todo la correction de la semaine précédente : code on sthub + vidéo?
+@@todo vidéo?
 
-Maintenant que vous avez vu la correction, vous pouvez compléter le code de votre application TinyBlog si besoin.
+Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
+
+[[[
+Gofer new 
+   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+   package: 'ConfigurationOfTinyBlog';
+   load. 
+#ConfigurationOfTinyBlog asClass loadWeek1Correction
+]]]
+
+Vous pouvez ouvrir un browser de code sur la classe ==TBPost==.
+Maintenant que vous avez la correction, vous pouvez compléter le code de votre application TinyBlog si nécessaire.
 
 !Sauvegarder sur Smalltalkhub
 
@@ -32,6 +43,8 @@ Dans votre image Pharo, ouvrez l'outil Versionner:
 -- Cliquez sur le bouton "Save to development"
 
 Le code de votre application TinyBlog est maintenant sauvegardé dans votre dépôt sur Smalltalkhub. Il est donc maintenant possible de charger votre code dans une nouvelle image Pharo.  
+
+Il est d'ailleurs recommandé de récupérer régulièrement une image Pharo à jour et non modifiée et de rechager le code de votre application depuis smalltalkhub par exemple. Cela permet de vérifier que tout est bien sauvegardé dans votre dépôt de code.
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !La classe TBBlog
@@ -92,7 +105,7 @@ Par exemple, elle initialise la connexion vers la base, efface son contenu, ajou
 [[[
 TBBlogTest >> setUp
    blog := TBBlog current.
-   blog remove.
+   blog removeAllPosts.
    
    first := (TBPost title: 'A title' text: 'A text' category: 'First Category').
    blog writeBlogPost: first.
@@ -124,11 +137,11 @@ TBBlogTest >> testAddBlogPost
    self assert: blog size equals: 2
 ]]]
 
-Ce test ne marche pas (n'est pas vert) car nous n'avons pas défini les méthodes: ==writeBlogPost:== et ==remove==.
+Ce test ne marche pas (n'est pas vert) car nous n'avons pas défini les méthodes: ==writeBlogPost:== et ==removeAllPosts==.
 Ajoutons-les.
 
 [[[
-TBBlog >> remove
+TBBlog >> removeAllPosts
    posts := OrderedCollection new
 ]]]
 
@@ -261,3 +274,8 @@ TBBlog class >> createDemoPosts
       writeBlogPost: ((TBPost title: 'Working with Pharo on the Raspberry Pi' text: 'Hardware is getting cheaper and many new small devices like the famous Raspberry Pi provide new computation power that was one once only available on regular desktop computers.' category: 'Pharo') visible: true)
 ]]]
 
+Vous pouvez ensuite inspecter le résultat de l'évaluation du code suivant :
+
+[[[
+	TBBlog createDemoPosts ; current
+]]]
