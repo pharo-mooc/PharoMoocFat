@@ -6,19 +6,24 @@ In this exercise we ask you to rewrite some expressions or to understand the dif
 
 !!! Exercise: Examine the block expressions
 
+
 [[[
-| sum |
-sum := 0.
-#(21 23 53 66 87) do: [:item | sum := sum + item].
-sum
+	| sum |
+	sum := 0.
+	#(21 23 53 66 87) do: [:item | sum := sum + item].
+	sum
 ]]]
 
+!!!! Exercise:
 - What is the final result of sum?
 
+""Solution.""
 The sum of all the numbers of the array: 250
 
+!!!! Exercise:
 - Rewrite this piece of code to use explicit array indexing (with the method at: ) to access the array elements. Test your version. 
 
+""Solution.""
 [[[
 	| array sum |
 	array := #(21 23 53 66 87).
@@ -27,8 +32,10 @@ The sum of all the numbers of the array: 250
 	sum
 ]]]
 
+!!!! Exercise:
 - Rewrite this code using ==inject:into:== (check the implementation of inject:into: and its users in the system to understand how to use it).
 
+""Solution.""
 [[[
 #(21 23 53 66 87) inject: 0 into: [:item :sum | sum + item]
 ]]]
