@@ -1,0 +1,32 @@
+Week1
+- Exo-Expressions-LiteralObjects.html
+- Exo-Counter.html
+- Challenge0-EN.html
+- C019-W1S07-Todo-FR-TinyBlog-Model.html
+
+Week2
+- Exo-ObjectsExpressions.html
+- Exo-DSL.html
+- Challenge1-EN.html
+- C019-W2SXX-Todo-FR-TinyBlog-ModelExtensionTests.html
+
+Week3
+- Exo-Expressions-Rewriting.html
+- Challenge2-EN.html
+- C019-W3SX1-Todo-FR-TinyBlog-Teapot.html
+
+Week4
+- Exo-html.ContactManager
+- Challenge3-EN.html
+- C019-W4SX1-Todo-FR-TinyBlog-VoyageMongo.html
+- C019-W4SX2-Todo-FR-TinyBlog-Seaside.html
+
+Week5
+- Challenge4-EN.html
+- C019-W5SX1-Todo-FR-TinyBlog-Magritte.html
+
+Week6
+- Challenge5-EN.html
+- C019-W6SX1-Todo-FR-TinyBlog-Deployment.html
+
+Week7
