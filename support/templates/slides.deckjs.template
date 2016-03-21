@@ -26,6 +26,9 @@
   <!-- Basic black and white print styles -->
   <link rel="stylesheet" media="print" href="../../support/html/deckjs/print.css">
 
+  <!-- Pillar extended style theme. -->
+  <link rel="stylesheet" media="screen" href="../../support/html/deckjs/pillar.deckjs.css">
+
   <!-- Required Modernizr file -->
   <script src="../../support/html/deckjs/modernizr.custom.js"></script>
 </head>
