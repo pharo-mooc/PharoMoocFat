@@ -236,7 +236,7 @@ DiceHandleTest >> testSimpleHandle
     self assert: 2 D20 diceNumber equals: 2.
 ]]]
 
-Verify that the test is not passing! It is much more satisfactory to get a test running when it was not working before. Now define the method ==D20== with a protocol name ==*Dice==. The ==*== (star) prefixing the protocol name indicates that the protocol belongs to another package. You can define this method either from the debugger resulting from the execution of the failed test or in the code browser.
+Verify that the test is not passing! It is much more satisfactory to get a test running when it was not working before. Now define the method ==D20== with a protocol name ==\*Dice==. The ==\*== (star) prefixing the protocol name indicates that the protocol belongs to another package. You can define this method either from the debugger resulting from the execution of the failed test or in the code browser.
 
 The method ==D20== simply creates a new dice handle, adds the correct number of dice to this handle, and returns the handle.
 
