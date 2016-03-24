@@ -3,6 +3,20 @@
 	 "slidesid":"W5SX1"
 }
 
+!Correction semaine précédente
+
+Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
+
+[[[
+Gofer new 
+   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+   package: 'ConfigurationOfTinyBlog';
+   load. 
+#ConfigurationOfTinyBlog asClass loadWeek4Correction
+]]]
+
+Pour tester le code, vous devez lancer le serveur HTTP pour Seaside  avec l'outil Seaside Control Panel (cf. sujet semaine précédente).
+
 !Décrire les données avec Magritte
 
 Magritte est une bibliothèque qui permet une fois les données décrites de générer diverses représentations ou opérations (telles des requêtes). Couplée avec Seaside, Magritte permet de générer des formulaires et des rapports.  Le logiciel Quuve de la société Debris Publishing est un brillant exemple de la puissance de Magritte: tous les tableaux sont automatiquement générés (voir *http://www.pharo.org/success*). La validation des données est aussi définie au niveau de Magritte au lieu d'être dispersée dans le code de l'interface graphique. Ce chapitre ne montre pas cet aspect.

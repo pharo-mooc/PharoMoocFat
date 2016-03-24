@@ -5,11 +5,27 @@
 
 !Correction semaine précédente
 
-@@todo la correction de la semaine précédente : code on sthub + vidéo?
+Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
 
-Maintenant que vous avez vu la correction, vous pouvez compléter le code de votre application TinyBlog et committer une nouvelle version dans votre dépôt sur Smalltalkhub.
+[[[
+Gofer new 
+   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+   package: 'ConfigurationOfTinyBlog';
+   load. 
+#ConfigurationOfTinyBlog asClass loadWeek3Correction
+]]]
+
+Puis, testez le code en exécutant:
+
+[[[
+	TBTeapotWebApp start
+]]]
+
+Attention, vérifiez d'abord que votre propre serveur HTTP ne soit pas déjà lancé sur le port 8081.
 
 !Une interface Web pour TinyBlog en Seaside
+
+Le travail présenté dans la suite est indépendant de celui sur Voyage et sur la base de données MongoDB.
 
 Nous commençons par définir une interface telle que les utilisateurs la verrons. Dans un prochain chapitre nous développerons une interface d'administration que le possesseur du blog utilisera.
 Nous allons définir des composants Seaside *http://www.seaside.st* dont l'ouvrage de référence est disponible en ligne à *http://book.seaside.st*.
@@ -20,7 +36,8 @@ Nous allons définir des composants Seaside *http://www.seaside.st* dont l'ouvra
 
 !!Démarrer Seaside
 
-En utilisant le Seaside Control Panel et son menu, ajoutez un serveur ==ZnZincServerAdaptor==, puis définissez le port surlequel le serveur doit fonctionner (comme illustré dans la figure *@RunningSeaside* et *@SeasideWebStart*).
+Lancer l'outil le Seaside Control Panel (World Menu>Tools>Seaside Control Panel).
+Dans le menu contextuel de cet outil (clic droit), cliquez sur "add adaptor..." pour ajoutez un serveur ==ZnZincServerAdaptor==, puis définissez le port (e.g. 8080) sur lequel le serveur doit fonctionner (comme illustré dans la figure *@RunningSeaside*). En ouvrant un navigateur web à l'URL *http://localhost:8080*, vous devez voir s'afficher la page d'accueil de Seaside comme sur la figure *@SeasideWebStart*.
 
 +Vérification que Seaside fonctionne.>file://figures/SeasideWebStart.png|width=75|label=SeasideWebStart+
 
@@ -64,7 +81,7 @@ TBApplicationRootComponent class >> canBeRoot
 
 +TinyBlog est bien enregistrée.>file://figures/BrowseApplications.png|width=75|label=BrowseApplications+
 
-Une connexion sur le serveur Seaside ("Browse the applications installed in your image") permet de vérifier que l'application est bien enregistrée comme le montre la figure *@BrowseApplications*.
+Une connexion sur le serveur Seaside ("Browse the applications installed in your image") permet de vérifier que l'application TinyBlog est bien enregistrée comme le montre la figure *@BrowseApplications*.
 
 Ajoutons maintenant une méthode d'instance ==renderContentOn:== dans le protocole ==rendering== afin de vérifier que notre application répond bien.
 
@@ -98,7 +115,7 @@ Pour cela, nous avons décidé que le composant ==TBApplicationRootComponent== c
 !Composants Visuels pour TinyBlog
 
 Nous sommes maintenant prêts à définir les composants visuels de notre application Web.
-Les premiers chapitres de *http://book.seaside.st* peuvent vous y aider compléter efficacement ce tutoriel.
+Les premiers chapitres de *http://book.seaside.st* peuvent vous y aider et compléter efficacement ce tutoriel.
 
 
 La figure *@ComponentOverview* montre les différents composants que nous allons développer. 
@@ -107,7 +124,7 @@ La figure *@ComponentOverview* montre les différents composants que nous allons
 
 !!Le composant TBScreenComponent
 
-Le composant ==TBApplicationRootComponent== contiendra des composants sousclasses de la classe abstraite ==TBScreenComponent==. Cette classe nous permet de factoriser les comportements que nous souhaitons partager entre tous nos composants. 
+Le composant ==TBApplicationRootComponent== contiendra des composants sous-classes de la classe abstraite ==TBScreenComponent==. Cette classe nous permet de factoriser les comportements que nous souhaitons partager entre tous nos composants. 
 
 [[[
 WAComponent subclass: #TBScreenComponent
@@ -124,6 +141,8 @@ TBScreenComponent >> blog
    session to return the blog of the currently logged user."
    ^ TBBlog current
 ]]]
+
+En inspectant l'objet blog retourné par ==TBBlog current==, vérifier qu'il contient bien des posts. Si ce n'est pas le cas, exécuter ==createDemoPost==.
 
 Dans le futur, lorsque nous gérerons les utilisateurs et le fait qu'un utilisateurs puisse avoir plusieurs blogs nous modifierons cette méthode pour utiliser des informations stockées dans la session active (Voir TBSession plus loin). 
 
@@ -144,6 +163,7 @@ Le repository pour le source et la documentation est
 *http://smalltalkhub.com/#!/~TorstenBergmann/Bootstrap*.
 Une démo en ligne est disponible à l'adresse : *http://pharo.pharocloud.com/bootstrap*.
 
+Cette bibliothèque a déjà été chargée dans l'image PharoWeb utilisée dans ce MOOC.
 
 !!Définition du composant TBHeaderComponent
 
@@ -221,24 +241,23 @@ Ainsi nous l'instancions dans la méthode ==initialize== suivante.
 
 [[[
 TBApplicationRootComponent >> initialize
-
    super initialize.
    main := TBScreenComponent new. 
 ]]]
 
+Il faut ajouter ==main== comme variable d'instance dans la classe TBApplicationRootComponent.
+
 [[[
 TBApplicationRootComponent >> renderContentOn: html
-
    html render: main
 ]]]
 
 [[[
 TBApplicationRootComponent >> children
-
    ^ { main }
 ]]]
 
-Si vous faites un rafraichissement de l'application vous devez voir la Figure *@navBlog*.
+Si vous faites un rafraichissement de l'application dans votre navigateur web vous devez voir la Figure *@navBlog*.
 
 !!Liste des posts
 
@@ -266,7 +285,6 @@ Nous pouvons maintenant dire au composant de l'application d'utiliser ce composa
 
 [[[
 TBApplicationRootComponent >> initialize
-
    super initialize.
    main := TBPostsListComponent new. 
 ]]]
@@ -276,7 +294,6 @@ de changer dynamiquement de composant dans le futur tout en gardant le composant
 
 [[[
 TBApplicationRootComponent >> main: aComponent
-
    main := aComponent
 ]]]
 
@@ -350,9 +367,34 @@ TBPostsListComponent >> renderContentOn: html
       html render: (TBPostComponent new post: p) ]
 ]]]
 
-Rafraichissez la page et vous devez obtenir la Figure *@better*.
+Rafraichissez la page de votre navigateur et vous devez obtenir l'erreur suivante: 
+
+==Not Found /TinyBlog==
+
+!!Debugger les erreurs 
+
+Par défaut, lorsqu'une erreur se produit dans une application, Seaside retourne une page  HTML contenant un message d'erreur générique. Vous pouvez changer ce message mais le plus pratique pendant le développement de l'application est de configurer Seaside pour qu'il ouvre un debugger dans Pharo. Pour cela, exécuter le code suivant :
+
+[[[
+(WAAdmin defaultDispatcher handlerAt: 'TinyBlog') 
+    exceptionHandler: WADebugErrorHandler
+]]] 
+
+Rafraichissez la page de votre navigateur et vous devriez obtenir un debugger côté Pharo.
+L'analyse de la pile d'appels montre qu'il manque la méthode suivante :
+
+[[[
+TBPostComponent >> post: aPost
+	post := aPost
+]]]
+
+
+Rafraichissez à nouveau la page de votre navigateur et vous devez obtenir la Figure *@better*.
 
 +TinyBlog avec une liste de posts.>file://figures/betterListPosts.png|width=75|label=better+
+
+
+!!Affichage de la liste des posts avec Bootstrap
 
 Nous allons utiliser Bootstrap pour rendre la liste un peu plus jolie en utilisant un container. 
 
@@ -366,13 +408,6 @@ TBPostsListComponent >> renderContentOn: html
 
 Rafraichissez la page et vous devez obtenir la Figure *@container*.
 +TinyBlog avec une liste de posts élémentaire.>file://figures/ContainerList.png|width=75|label=container+
-   
-Les dates sont affichées de manière étrange. Ceci est dû au fait que les dates sont en fait des instance de ==DateAndTime== donc nous les convertissons dans date comme suit. 
-
-[[[
-TBPostComponent >> date
-   ^ post date asDate
-]]]
 
 
 !!Affichage des posts par catégorie
@@ -451,16 +486,19 @@ Reste maintenant à écrire la méthode de rendu du composant:
 [[[
 TBCategoriesComponent >> renderContentOn: html
    html tbsListGroup: [
-     html tbsLinkifyListGroupItem beActive; with: 'Categories'.
-     categories do: [ :cat | self renderCategoryLinkOn: html with: cat ]]
+      html tbsListGroupItem
+         with: [  html strong: 'Categories' ].
+      categories do: [ :cat | 
+         self renderCategoryLinkOn: html with: cat ]]
 ]]]
 
-Nous avons presque fini. En effet, l'affichage des posts ne tient pas en compte de la catégorie courante. 
+Nous avons presque fini mais il faut encore afficher la liste des catégories et mettre à jour la liste des posts en fonction de la catégorie courante. 
 
 !!!Mise à jour des Posts
-Nous devons aussi mettre à jour la liste des posts. Il faut gérer le rafraîchissement de la liste des posts en fonction de la catégorie choisie et donc modifier la méthode de rendu du composant ==TBPostsListComponent==.
 
-La méthode ==readSelectedPosts== récupère dans la base les posts à afficher. Si elle vaut ==nil==, l'utilisateur n'a pas encore sélectionner une catégorie et l'ensemble des posts visibles de la base est affiché. Si elle contient une valeur autre que ==nil==, l'utilisateur a sélectionné une catégorie et l'application affiche alors la liste des posts attachés à la catégorie.
+Pour cela, modifions la méthode de rendu du composant ==TBPostsListComponent==.
+
+La méthode ==readSelectedPosts== récupère dans la base les posts à afficher. Si elle vaut ==nil==, l'utilisateur n'a pas encore sélectionné une catégorie et l'ensemble des posts visibles de la base est affiché. Si elle contient une valeur autre que ==nil==, l'utilisateur a sélectionné une catégorie et l'application affiche alors la liste des posts attachés à la catégorie.
 
 [[[
 TBPostsListComponent >> readSelectedPosts
@@ -521,6 +559,17 @@ Vous devez obtenir une application proche de celle représentée figure *@nicer*
 
 +Avec un meilleur agencement.>file://figures/NicerCategories.png|width=75|label=nicer+
 
+Lorsqu'on sélectionne une catégorie, la liste des posts est bien mise à jour.
+Toutefois, l'entrée courante dans la liste des catégories n'est pas sélectionnée.
+Pour cela, on modifie la méthode suivante :
+
+[[[
+TBCategoriesComponent >> renderCategoryLinkOn: html with: aCategory
+   html tbsLinkifyListGroupItem
+      class: 'active' if: aCategory = self postsList currentCategory ;
+      callback: [ self selectCategory: aCategory ]; 
+      with: aCategory
+]]]
 
 Bien que le code fonctionne, on ne doit pas laisser la méthode ==TBPostsListComponent >> renderContentOn: html== dans un tel état. Elle est bien trop longue et difficilement réutilisable. 
 Proposer une solution. 
@@ -564,7 +613,7 @@ TBPostsListComponent >> renderPostColumnOn: html
 ]]]
 
 [[[
-basicRenderPostsOn: html
+TBPostsListComponent >> basicRenderPostsOn: html
    ^ self readSelectedPosts do: [ :p | 
         html render: (TBPostComponent new post: p) ]
 ]]]
@@ -572,3 +621,12 @@ basicRenderPostsOn: html
 
 Nous voici prêts à définir la partie administrative de l'application.
 
+!!Futures évolutions
+
+A titre d'exercice, vous pouvez :
+- trier les catégories par ordre alphabétique
+- ajouter un lien nommé 'All' dans la liste des catégories permettant d'afficher toutes les posts visible quelque soit leur catégorie
+
+L'application finale devrait ressembler à la figure *@final*.
+
++L'application finale.>file://figures/finalPublicWebPage.png|width=85|label=final+
