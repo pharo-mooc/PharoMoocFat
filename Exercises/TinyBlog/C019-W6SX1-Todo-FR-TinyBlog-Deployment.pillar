@@ -18,3 +18,45 @@ Gofer new
 Pour tester le code, vous devez lancer le serveur HTTP pour Seaside  avec l'outil Seaside Control Panel.
 
 !Déploiement
+
+- Créer un compte sur *http://pharocloud.com*
+
+- Télécharger une image PharoWeb 4 *https://ci.inria.fr/pharo-contribution/job/PharoWeb/PHARO=40,VERSION=stable,VM=vm/lastSuccessfulBuild/artifact/PharoWeb.zip*
+
+- Configurer cette image en exécutant le code suivant : 
+
+[[[
+	"Seaside Deployment configuration"
+	WAAdmin clearAll.
+	WAFileHandler default: WAFileHandler new.
+	WAFileHandler default 
+		preferenceAt: #fileHandlerListingClass
+		put: WAHtmlFileHandlerListing.
+	WAAdmin defaultDispatcher 
+		register: WAFileHandler default
+		at: 'files'.
+
+	"Load TinyBlog"
+	Gofer new 
+	   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+	   package: 'ConfigurationOfTinyBlog';
+	   load. 
+	#ConfigurationOfTinyBlog asClass loadFinalApp.
+
+	"Create Demo posts if needed"
+	#TBBlog asClass createDemoPosts.
+
+	"Tell Seaside to use TinyBlog as default app"
+	WADispatcher default defaultName: 'TinyBlog'.
+
+	"Start HTTP server"
+	ZnZincServerAdaptor startOn: 8080.
+]]]
+
+- Tester en local dans votre navigateur *http://localhost:8080*
+
+- Zipper PharoWeb.image et PharoWeb.changes
+
+- Envoyer l'archive zip sur le Ephemeric Cloud de Pharo cloud
+
+
