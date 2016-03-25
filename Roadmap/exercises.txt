@@ -1,52 +1,52 @@
 Week1
-- Exo-Expressions-LiteralObjects.html
-- Exo-Counter.html
-- Challenge0-EN.html
-- Challenge0-FR.html
-- C019-W1S07-Todo-FR-TinyBlog-Model.html
+- Exo-Expressions-LiteralObjects.pdf
+- Exo-Counter.pdf
+- Challenge0-EN.pdf
+- Challenge0-FR.pdf
+- C019-W1S07-Todo-FR-TinyBlog-Model.pdf
 
 Week2
-- Exo-ObjectsExpressions.html
-- Challenge0-Solution-EN.html
-- Challenge0-Solution-FR.html
-- Challenge1-EN.html
-- Challenge1-FR.html
-- Exo-DSL.html
-- C019-W2SXX-Todo-FR-TinyBlog-ModelExtensionTests.html
+- Exo-ObjectsExpressions.pdf
+- Challenge0-Solution-EN.pdf
+- Challenge0-Solution-FR.pdf
+- Challenge1-EN.pdf
+- Challenge1-FR.pdf
+- Exo-DSL.pdf
+- C019-W2SXX-Todo-FR-TinyBlog-ModelExtensionTests.pdf
 
 Week3
-- Exo-Expressions-Rewriting.html
-- Challenge1-Solution-EN.html
-- Challenge1-Solution-FR.html
-- Challenge2-EN.html
-- Challenge2-FR.html
-- C019-W3SX1-Todo-FR-TinyBlog-Teapot.html
+- Exo-Expressions-Rewriting.pdf
+- Challenge1-Solution-EN.pdf
+- Challenge1-Solution-FR.pdf
+- Challenge2-EN.pdf
+- Challenge2-FR.pdf
+- C019-W3SX1-Todo-FR-TinyBlog-Teapot.pdf
 
 Week4
-- Challenge2-Solution-EN.html
-- Challenge2-Solution-FR.html
-- Challenge3-EN.html
-- Challenge3-FR.html
-- Exo-ContactManager.html
-- C019-W4SX1-Todo-FR-TinyBlog-VoyageMongo.html
-- C019-W4SX2-Todo-FR-TinyBlog-Seaside.html
+- Challenge2-Solution-EN.pdf
+- Challenge2-Solution-FR.pdf
+- Challenge3-EN.pdf
+- Challenge3-FR.pdf
+- Exo-ContactManager.pdf
+- C019-W4SX1-Todo-FR-TinyBlog-VoyageMongo.pdf
+- C019-W4SX2-Todo-FR-TinyBlog-Seaside.pdf
 
 Week5
-- Challenge3-Solution-EN.html
-- Challenge3-Solution-FR.html
-- Challenge4-EN.html
-- Challenge4-FR.html
-- Exo-TinyChat-FR.html
-- Exo-TinyChat-EN.html
-- C019-W5SX1-Todo-FR-TinyBlog-Magritte.html
+- Challenge3-Solution-EN.pdf
+- Challenge3-Solution-FR.pdf
+- Challenge4-EN.pdf
+- Challenge4-FR.pdf
+- Exo-TinyChat-FR.pdf
+- Exo-TinyChat-EN.pdf
+- C019-W5SX1-Todo-FR-TinyBlog-Magritte.pdf
 
 Week6
-- Challenge4-Solution-EN.html
-- Challenge4-Solution-FR.html
-- Challenge5-EN.html
-- Challenge5-FR.html
-- C019-W6SX1-Todo-FR-TinyBlog-Deployment.html
+- Challenge4-Solution-EN.pdf
+- Challenge4-Solution-FR.pdf
+- Challenge5-EN.pdf
+- Challenge5-FR.pdf
+- C019-W6SX1-Todo-FR-TinyBlog-Deployment.pdf
 
 Week7
-- Challenge5-Solution-EN.html
-- Challenge5-Solution-FR.html
+- Challenge5-Solution-EN.pdf
+- Challenge5-Solution-FR.pdf
