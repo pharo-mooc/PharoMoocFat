@@ -7,11 +7,11 @@ Week1
 
 Week2
 - Exo-ObjectsExpressions.html
-- Exo-DSL.html
 - Challenge0-Solution-EN.html
 - Challenge0-Solution-FR.html
 - Challenge1-EN.html
 - Challenge1-FR.html
+- Exo-DSL.html
 - C019-W2SXX-Todo-FR-TinyBlog-ModelExtensionTests.html
 
 Week3
@@ -23,11 +23,11 @@ Week3
 - C019-W3SX1-Todo-FR-TinyBlog-Teapot.html
 
 Week4
-- Exo-html.ContactManager
 - Challenge2-Solution-EN.html
 - Challenge2-Solution-FR.html
 - Challenge3-EN.html
 - Challenge3-FR.html
+- Exo-ContactManager.html
 - C019-W4SX1-Todo-FR-TinyBlog-VoyageMongo.html
 - C019-W4SX2-Todo-FR-TinyBlog-Seaside.html
 
