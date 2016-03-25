@@ -154,15 +154,11 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week2/C019-W2S04-Messages-Sequence.pdf* *SlidesHandout>../Slides/Handout/C019-W2S04-Messages-Sequence.pdf* *SlidesHtml>../Slides/Week2/C019-W2S04-Messages-Sequence.html*
 
-- W2S05 [Live 6min] Finder... selector + 
--- Author: Luc
--- Status: To be done
--- Files: 
+- W2S05 [Live 6min] Finder...
+-- Files: C019-W1S-Videos-Finder-FR-V2-HD_720p_4Mbs.mov
 
-- W2S05 [Live 6min] Publishing Code on smalltalkhub.com
--- Author:
--- Status: To be done
--- Files: 
+- W2S05 [Live 6min] GT-Inpector 1
+-- Files: C019-Videos-GTInspector1-Introduction-V2-HD_720p_4Mbs.mov
 
 - W2S06 [Lecture 6min] Blocks
 -- Presenter: Luc
@@ -239,18 +235,9 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S05-TeapotAsAPretext.pdf* *SlidesHTML>../Slides/Week3/C019-W3S05-TeapotAsAPretext.html*
 
-- W3S05 [Live] Tools to find information: implementors, senders Shortcut		
--- Author: ?
--- Status: TBD
--- comment on peut lire un fichier png
-
-- W3S05 [Live] GTSpotter		
--- Author: ?
--- Status: TBD
--- method
--- class
--- examples
--- scan all code About...
+- W3S05 [Live] Tools to find information: implementors, senders Shortcut
+-- Files: C019-Videos-Nautilus4-SendersImplementors-HD_720p_4Mbs.mov
+          C019-Videos-Nautilus5-Queries-HD_720p_4Mbs.mov
 
 - W3S06 [Lecture 6min] BasicClassMethods
 -- Presenter: Damien
@@ -262,13 +249,9 @@ You will also see that 4 kinds of activities are distinguished:
 -- Status: Reviewed after Yaounde
 -- Files: *SlidesPdf>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.pdf* *SlidesHTML>../Slides/Week3/C019-W3S09-Basic-ArraySetOrderedCollection.html*
 
-- W3S08 [Live] GTInspector 	
--- Author: ?
--- Status: TBD 3 videos
-
-- W3S08 [Live] coder n'import ou 	
--- Author: ?
--- Status: TBD
+- W3S08 [Live] GTSpotter
+-- Files: C019-Videos-Spotter1-BrowsingAClassWithSpotter-V2-HD_720p_4Mbs.mov
+          C019-Videos-Spotter2-Categories-V2-HD_720p_4Mbs.mov
 
 - W3S09 [Lecture 6min] Iterators
 -- Presenter: Luc
