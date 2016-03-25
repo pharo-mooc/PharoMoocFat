@@ -177,7 +177,7 @@ DiceHandle new
 
 You should get an inspector as shown in Figure *@diceHandleNoDetail*.
 
-+Inspecting a dice handle>file://figures/DiceHandleNoDetail.pdf|width=50|label=diceHandleNoDetail+
++Inspecting a dice handle>file://figures/DiceHandleNoDetail.png|width=50|label=diceHandleNoDetail+
 
 Finally we should add the method ==diceNumber== to the ==DiceHandle== class to get the number of dice of the handle. The method returns the size of the ==dice== collection.
 
