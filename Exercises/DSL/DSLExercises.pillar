@@ -55,7 +55,7 @@ Your code here
 Now we can create a new instance of ==Die==, send it the message  ==roll==, and get a result.
 Open a workspace (==World menu==, ==Workspace==). Write ==Die new inspect== and execute the expression (==ctrl d==). You should get an inspector like the one shown in Figure *@figDiceNoDetail*. With it you can interact with the die by writing expressions in the bottom pane. In this pane, type ==self roll== and print the result (==ctrl p==). You should get a random number.
 
-+Inspecting and interacting with a Die.>file://figures/DiceNoDetail.pdf|width=50|label=figDiceNoDetail+
++Inspecting and interacting with a Die.>file://figures/DiceNoDetail.png|width=50|label=figDiceNoDetail+
 
 !!! Creating Another Test
 
