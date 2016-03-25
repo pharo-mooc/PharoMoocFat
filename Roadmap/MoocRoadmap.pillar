@@ -5,7 +5,7 @@
 ${slide:title=Global MOOC Roadmap}$
 
 # Week 1: Welcome on Board and Syntax Discovery
-# ""Week 2: Pharo Syntax, Blocks and Inspector""
+# Week 2: Pharo Syntax, Blocks and Inspector
 # Week 3: Design, Class Methods and Collections
 # Week 4: Inheritance&Lookup and Web Development
 # Week 5: Exception, Debugging and Reflection
@@ -14,10 +14,16 @@ ${slide:title=Global MOOC Roadmap}$
 
 ${slide:title=Different kind of Resources and Activities}$
 
-* ""Lecture"" ...
-* ""Live"" 
-* ""Todo"" 
-* ""Redo"" 
+This document summarizes the whole MOOC planning week by week.
+It is best to do the activities exactly in the order they are presented.
+There are several kinds of activities:
+
+- [""Lecture""] means that you should watch a video explaining some notions described in slides. You will find a handout version of all slides in this document. We invite you to always watch videos while taking notes on the slides.
+- [""Live""] means that you should watch a video demonstrating a coding ession in Pharo.
+- [""Redo""] means that you should watch a Live video and apply, in your Pharo installation, what is demonstrated.
+- [""Exercises""] means that you should do a guided projects in your Pharo installation. The exercise is described by a document.
+- [""Quiz""] means that you should answer a sequence of small questions. Watching the lectures will most of the time be enough to answer. Some questions will explicitly ask you to check in Pharo.
+- [""Challenge""] means that you have to solve a little challenge by poking in Pharo.
 
 ${slide:title=Week 1: Welcome on Board and Syntax Discovery}$
 
@@ -31,11 +37,9 @@ ${slide:title=Week 1: Welcome on Board and Syntax Discovery}$
 ${slide:title=Week 2: Pharo Syntax, Blocks and Inspector}$
 
 # ""[Lecture] Messages""
-# [Lecture] Messages for Java programmer 
+# [Lecture] Messages for Java programmer
 # [Lecture] Messages Precedence
 # [Lecture] Messages Sequence
-# [Live] Inspector: Inspecting a Counter
-# [Live] Publishing Code on smalltalkhub.com
 # [Lecture] Blocks
 # [Lecture] Blocks for Loops
 # [Lecture] Booleans and Conditions
@@ -43,14 +47,6 @@ ${slide:title=Week 2: Pharo Syntax, Blocks and Inspector}$
 # [Lecture] Class and methods
 # [Lecture] SUnit
 # [Lecture] The Essence Of Dispatch through Exercices
-
-${slide:title=Week 2: Exercices}$
-
-# [Todo] Some Simple Exercices on the Syntax
-# [Todo] Some Simple Exercices on Loops
-# [Redo] Live Programming a Turtle in the Inspector
-# [Todo] Ticket Model (User/EventParticipant/Event)
-# [Todo] find how to
 
 ${slide:title=Week 3: Design, Class Methods and Collections}$
 
