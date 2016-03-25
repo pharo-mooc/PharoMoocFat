@@ -88,7 +88,7 @@ La variable ==uniqueInstance== qui servait auparavant à stocker le singleton ==
 
 On va modifier le test unitaire ==testAddBlogPost== de la classe ==TBBlogTest== pour vérifier que lors de l'ajout d'un post, ce dernier est bien ajouté dans la base de donnée par Voyage.
 
-@@Todo HERE
+@@todo HERE
 
 [[[
 TBBlogTest >> testAddBlogPost
@@ -173,7 +173,7 @@ La réinitialisation se fait comme suit:
 	VOMongoRepository current reset
 ]]]
 
-@@Todo Luc: ça ne fonctionne pas, reset n'est pas implémenté
+@@todo Luc: ça ne fonctionne pas, reset n'est pas implémenté
 
 !!Si nous devions sauvegarder les posts
 
