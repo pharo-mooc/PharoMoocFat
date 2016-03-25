@@ -36,6 +36,8 @@ Week5
 - Challenge3-Solution-FR.html
 - Challenge4-EN.html
 - Challenge4-FR.html
+- Exo-TinyChat-FR.html
+- Exo-TinyChat-EN.html
 - C019-W5SX1-Todo-FR-TinyBlog-Magritte.html
 
 Week6
