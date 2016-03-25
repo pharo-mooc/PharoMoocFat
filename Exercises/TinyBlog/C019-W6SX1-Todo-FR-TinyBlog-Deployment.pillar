@@ -3,3 +3,18 @@
 	 "slidesid":"W6SXX"
 }
 
+!Correction semaine précédente
+
+Vous pouvez charger l'application complète TinyBlog en exécutant :
+
+[[[
+Gofer new 
+   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+   package: 'ConfigurationOfTinyBlog';
+   load. 
+#ConfigurationOfTinyBlog asClass loadFinalApp
+]]]
+
+Pour tester le code, vous devez lancer le serveur HTTP pour Seaside  avec l'outil Seaside Control Panel.
+
+!Déploiement

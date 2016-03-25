@@ -19,7 +19,7 @@ Pour tester le code, vous devez lancer le serveur HTTP pour Seaside  avec l'outi
 
 !Décrire les données avec Magritte
 
-Magritte est une bibliothèque qui permet une fois les données décrites de générer diverses représentations ou opérations (telles des requêtes). Couplée avec Seaside, Magritte permet de générer des formulaires et des rapports.  Le logiciel Quuve de la société Debris Publishing est un brillant exemple de la puissance de Magritte: tous les tableaux sont automatiquement générés (voir *http://www.pharo.org/success*). La validation des données est aussi définie au niveau de Magritte au lieu d'être dispersée dans le code de l'interface graphique. Ce chapitre ne montre pas cet aspect.
+Magritte est une bibliothèque qui permet une fois les données décrites de générer diverses représentations ou opérations (telles des requêtes). Couplé avec Seaside, Magritte permet de générer des formulaires et des rapports.  Le logiciel Quuve de la société Debris Publishing est un brillant exemple de la puissance de Magritte: tous les tableaux sont automatiquement générés (voir *http://www.pharo.org/success*). La validation des données est aussi définie au niveau de Magritte au lieu d'être dispersée dans le code de l'interface graphique. Ce chapitre ne montre pas cet aspect.
 
 Un chapitre dans le livre sur Seaside (*http://book.seaside.st*) est disponible sur Magritte ainsi qu'un tutoriel sur *https://github.com/SquareBracketAssociates/Magritte*.
 
@@ -27,7 +27,7 @@ Dans ce chapitre, nous allons décrire les cinq variables d'instance de l'objet 
 
 !!Descriptions
 
-Les cinq méthodes sont dans le protocole 'descriptions' de la classe ==TBPost==.
+Les cinq méthodes suivantes sont dans le protocole 'descriptions' de la classe ==TBPost==.
 Noter que le nom des méthodes n'est pas important mais que nous suivons une convention. C'est le pragma ==<magritteDescription>== qui permet à Magritte d'identifier les descriptions. 
 
 Le titre d'un post est une chaine de caractères devant être obligatoirement complétée.

@@ -12,7 +12,7 @@ Le scénario assez classique que nous allons développer est le suivant : l'util
 
 !!Composant d'identification
 
-Nous allons commencer par développer un petit composant d'identification qui lorsqu'il sera invoqué ouvrira une petite boite de dialogue pour demander les informations d'identification. Remarquer qu'une telle fonctionnalité devrait faire partie d'une bibliothèque de composants de base en Seaside.
+Nous allons commencer par développer un composant d'identification qui lorsqu'il sera invoqué ouvrira une boite de dialogue pour demander les informations d'identification. Remarquer qu'une telle fonctionnalité devrait faire partie d'une bibliothèque de composants de base en Seaside.
 
 Ce composant va nous permettre d'illustrer comment la saisie de champs utilise de manière élégante les variables d'instances du composant. 
 
@@ -138,11 +138,14 @@ TBAuthentificationComponent >> renderInputPasswordOn: html
 
 [[[
 TBAuthentificationComponent >> renderOkCancelOn: html
-   html tbsSubmitButton value: 'Cancel'.
-   html tbsSubmitButton
-      bePrimary;
-      callback: [ self validate ];
-      value: 'SignIn'
+   renderOkCancelOn: html
+      html tbsButton 
+		   attributeAt: 'type' put: 'button';
+		   value: 'Cancel'.
+      html tbsSubmitButton
+         bePrimary;
+         callback: [ self validate ];
+         value: 'SignIn'
 ]]]
 
 Lorsque l'utilisateur clique sur le bouton 'SignIn', le message ==validate== est envoyé et vérifie que l'utilisateur a bien le compte 'admin' et a saisi le mot de passe 'password'.
@@ -190,8 +193,9 @@ TBPostsListComponent >> renderCategoryColumnOn: html
       extraSmallSize: 12;
       smallSize: 2;
       mediumSize: 4;
-      with: [ self basicRenderCategoriesOn: html.
-            self renderSignInOn: html.]
+      with: [ 
+		   self basicRenderCategoriesOn: html.
+         self renderSignInOn: html ]
 ]]]
 
 
@@ -265,20 +269,6 @@ TBPostsReport class >> from: aBlog
    ^ self rows: allBlogs description: allBlogs anyOne magritteDescription
 ]]]
 
-Par défaut, le rapport affiche l'intégralité des données présentes dans chaque posts mais certaines colonnes ne sont pas utiles. Il faut donc filtrer les colonnes. Nous ne retiendrons ici que le titre, la catégorie et la date de rédaction.
-
-Nous ajoutons une méthode de classe pour la sélection des colonnes et modifier ensuite la méthode ==from:== pour en tirer parti.
-
-[[[
-TBPostsReport class >> filteredDescriptionsFrom: aBlogPost
-   ^ aBlogPost magritteDescription select: [ :each | #(title category date) includes: each accessor selector ]
-   
-TBPostsReport class >> from: aBlog
-   | allBlogs |
-   allBlogs := aBlog allBlogPosts.
-   ^ self rows: allBlogs description: (self filteredDescriptionsFrom: allBlogs anyOne magritteDescription)
-]]]
-
 On ajoute un rapport au composant admin ==TBAdminComponent==.
 
 [[[
@@ -297,9 +287,10 @@ TBAdminComponent >> report: aReport
 ]]]
 
 Comme le rapport est un composant fils du composant admin nous n'oublions pas de redéfinir la méthode ==children== comme suit.
+
 [[[
 TBAdminComponent >> children
-   ^ OrderedCollection with: self report
+   ^ super children copyWith: self report 
 ]]]
 
 La méthode ==initialize== permet d'initialiser la définition du rapport. Nous fournissons au composant ==TBPostReport== l'accès aux données.
@@ -321,10 +312,19 @@ TBAdminComponent >> renderContentOn: html
       html render: self report ]
 ]]]
 
+Par défaut, le rapport affiche l'intégralité des données présentes dans chaque posts mais certaines colonnes ne sont pas utiles. Il faut donc filtrer les colonnes. Nous ne retiendrons ici que le titre, la catégorie et la date de rédaction.
 
+Nous ajoutons une méthode de classe pour la sélection des colonnes et modifier ensuite la méthode ==from:== pour en tirer parti.
 
-Enregistrez-vous et vous devez obtenir la situation telle que représentée par la figure *@adminReportDraft*.
-+Administration avec un rapport.>file://figures/ReportDraft.png|width=75|label=adminReportDraft+
+[[[
+TBPostsReport class >> filteredDescriptionsFrom: aBlogPost
+   ^ aBlogPost magritteDescription select: [ :each | #(title category date) includes: each accessor selector ]
+   
+TBPostsReport class >> from: aBlog
+   | allBlogs |
+   allBlogs := aBlog allBlogPosts.
+   ^ self rows: allBlogs description: (self filteredDescriptionsFrom: allBlogs anyOne)
+]]]
 
 
 !!!Amélioration des rapports
@@ -382,17 +382,27 @@ TBPost >> descriptionVisible
 ]]]
 
 
+Identifiez-vous et vous devez obtenir la situation telle que représentée par la figure *@adminReportDraft*.
++Administration avec un rapport.>file://figures/ReportDraft.png|width=85|label=adminReportDraft+
+
+
 !!!Gestion des posts
 
-Nous pouvons mettre en place un CRUD (Create Read Update Delete) permettant de gérer les posts. Pour cela, nous allons ajouter une colonne (instance ==MACommandColumn==) au rapport qui regroupera les différentes opérations utilisant ==addCommandOn:==.
+Nous pouvons maintenant mettre en place un CRUD (Create Read Update Delete) permettant de gérer les posts. Pour cela, nous allons ajouter une colonne (instance ==MACommandColumn==) au rapport qui regroupera les différentes opérations utilisant ==addCommandOn:==.
 
 Ceci se fait lors de la création du rapport. En particulier nous donnons un accès au blog depuis le rapport. 
 
 [[[
 TBSMagritteReport subclass: #TBPostsReport
-	instanceVariableNames: 'report'
+	instanceVariableNames: 'report blog'
 	classVariableNames: ''
 	category: 'TinyBlog-Components'
+
+TBSMagritteReport >> blog
+   ^ blog
+
+TBSMagritteReport >> blog: aTBBlog
+   blog := aTBBlog
 ]]]
 
 [[[
@@ -420,7 +430,7 @@ TBPostsReport >> renderContentOn: html
    super renderContentOn: html
 ]]]
 
-Enregistrez-vous et vous devez obtenir la situation telle que représentée par la figure *@RapportNewLookActions*.
+Identifiez-vous à nouveau et vous devez obtenir la situation telle que représentée par la figure *@RapportNewLookActions*.
 +Ajout d'un post.>file://figures/RapportNewLookActions.png|width=75|label=RapportNewLookActions+
 
 
@@ -483,7 +493,6 @@ TBPostsReport >> renderViewPostForm: aPost
 		yourself
 ]]]
 
-@@todo we should edit in readonly!
 
 !!!!Effacer un post
 
@@ -502,8 +511,14 @@ TBBlog >> removeBlogPost: aPost
 	self save.
 ]]]
 
-Cette dernière méthode est à ajouter dans une classe de la partie métier de notre application.
-Il faut donc d'ajouter un test unitaire.
+Cette dernière méthode est à ajouter dans une classe de la partie métier de notre application. Il faut donc ajouter un test unitaire.
+
+[[[
+TBBlogTest >> testRemoveBlogPost
+	self assert: blog size equals: 1.
+	blog removeBlogPost: blog allBlogPosts anyOne.
+	self assert: blog size equals: 0
+]]]
 
 !!!Gérer le problème du rafraîchissement des données
 
@@ -511,7 +526,7 @@ Les méthodes ==TBPostsReport >> addPost:== et ==TBPostsReport >> deletePost:== 
 
 [[[
 TBPostsReport >> refreshReport
-	self rows: (blog allBlogPosts).
+	self rows: blog allBlogPosts.
 	self refresh.
 ]]]
 
@@ -600,10 +615,11 @@ TBPost >> descriptionVisible
 		yourself
 ]]]
 
+Le formulaire d'édition d'un post doit maintenant ressembler à celui de la figure *@addAPostBootstrap*.
++Formulaire d'ajout d'un post avec Bootstrap.>file://figures/AddAPostBootstrap.png|width=85|label=addAPostBootstrap+
+
 
 !!Gestion de Session
-
-@@todo Should revisit this part.
 
 Un objet session est attribué à chaque instance de l'application. Il permet de conserver principalement des informations qui sont partagées et accessible entre les composants. Une session est pratique pour gérer les informations de l'utilisateur en cours (identifié).  Nous allons voir comment nous l'utilisons pour gérer une connexion.
 
@@ -615,7 +631,7 @@ Nous définissons une nouvelle sous-classe de ==WASession== nommée ==TBSession=
 WASession subclass: #TBSession
 	instanceVariableNames: 'logged'
 	classVariableNames: ''
-	category: 'TinyBlog'
+	category: 'TinyBlog-Components'
 
 TBSession >> logged
 	^ logged
@@ -654,7 +670,7 @@ TBAdminComponent >> renderContentOn: html
 Dans l'espace public, il nous faut modifier le comportement du lien permettant d'accéder à l'administration. Il doit provoquer l'affichage de la boite d'authentification uniquement si l'utilisateur ne s'est pas encore connecté.
 
 [[[
-TBPublicPostsListComponent >> renderSignInOn: html
+TBPostsListComponent >> renderSignInOn: html
 	self session isLogged
 		ifFalse: [
 			html tbsGlyphIcon perform: #iconLock.
@@ -670,7 +686,7 @@ Enfin, le composant ==TBAuthentificationComponent== doit mettre à jour la varia
 TBauthentificationComponent >> validate
 	(self account = 'admin' and: [ self password = 'password' ]) 
 		ifTrue: [ self session logged: true.
-		component gotoAdministrationScreen ]
+		component gotoAdministration ]
 ]]]
 
 
@@ -690,8 +706,10 @@ TBApplicationRootComponent class >> initialize
          addLibrary: TBSDeploymentLibrary
 ]]]
 
-!!Améliorations possibles
- 
-Proposer l'ajout d'un bouton "Déconnexion".
-La gestion de plusieurs blogs pourra aussi passer par une amélioration des sessions qui devront conserver l'identification de l'utilisateur courant. 
+Pensez à exécuter cette méthode via ==TBApplicationRootComponent initialize== avant de tester à nouveau l'application.
 
+!!Améliorations possibles
+
+- Ajouter un bouton "Déconnexion"
+- gérer plusieurs comptes administrateur ce qui nécessite une amélioration des sessions qui devront conserver l'identification de l'utilisateur courant
+- gérer plusieurs blogs 
