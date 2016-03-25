@@ -15,19 +15,42 @@ Gofer new
 #ConfigurationOfTinyBlog asClass loadFinalApp
 ]]]
 
-Pour tester le code, vous devez lancer le serveur HTTP pour Seaside  avec l'outil Seaside Control Panel.
+Pour tester le code, vous devez lancer le serveur HTTP pour Seaside  avec l'outil Seaside Control Panel. Complétez ou terminez ""votre"" application et commitez votre code dans votre dépôt sur Smalltalkhub. 
 
-!Déploiement
+!Déployer dans le cloud
 
-- Créer un compte sur *http://pharocloud.com*
+Maintenant que vous avez développé votre application web TinyBlog, nous allons voir comment la déployer sur un serveur dans le cloud.
+Si vous souhaitez déployer votre application sur un serveur que vous administrez, nous conseillons la lecture du dernier chapitre du livre "Enterprise Pharo: a Web Perspective" (*http://books.pharo.org*).
+Dans la suite, nous détaillons une solution plus simple fournie par PharoCloud.
 
-- Télécharger une image PharoWeb 4 *https://ci.inria.fr/pharo-contribution/job/PharoWeb/PHARO=40,VERSION=stable,VM=vm/lastSuccessfulBuild/artifact/PharoWeb.zip*
+!!Hébergement sur PharoCloud
 
-- Configurer cette image en exécutant le code suivant : 
+PharoCloud est un hébergeur dédié aux applications Pharo et qui offre la possibilité de tester gratuitement ses services (ephemeric cloud subscription).
+
+Préparer son compte PharoCloud :
+
+- créer un compte sur *http://pharocloud.com*
+- activer son compte
+- se connecter
+- activer "Ephemeric Cloud" afin d'obtenir un identifiant (""API User ID"") et un mot de passe (""API Auth Token"")
+- clicker sur "Open Cloud Client" et identifiez-vous avec les identifiants ci-dessus
+- une fois connecté, vous devez obtenir une page web permettant d'uploader un fichier archive (zip) contenant un fichier image Pharo et son fichier changes
+
+!!Préparation de l'image Pharo pour PharoCloud
+
+Actuellement, PharoCloud ne supporte que les images Pharo 4. 
+
+Télécharger une image PharoWeb 4 
+*https://ci.inria.fr/pharo-contribution/job/PharoWeb/PHARO=40,VERSION=stable,VM=vm/lastSuccessfulBuild/artifact/PharoWeb.zip*. 
+Télécharger également la VM pour les images Pharo 4 *http://get.pharo.org/vm40*.
+Lancer cette image avec la VM et nous allons maintenant la configurer.
+
+Commençons par configurer Seaside en enlevant les applications de démonstration et les outils de développement:
 
 [[[
 	"Seaside Deployment configuration"
 	WAAdmin clearAll.
+	WAAdmin applicationDefaults removeParent: WADevelopmentConfiguration instance.
 	WAFileHandler default: WAFileHandler new.
 	WAFileHandler default 
 		preferenceAt: #fileHandlerListingClass
@@ -35,7 +58,12 @@ Pour tester le code, vous devez lancer le serveur HTTP pour Seaside  avec l'outi
 	WAAdmin defaultDispatcher 
 		register: WAFileHandler default
 		at: 'files'.
+]]]
 
+Chargeons maintenant l'application TinyBlog. 
+Pour charger l'application corrigée vous pouvez utiliser :
+
+[[[
 	"Load TinyBlog"
 	Gofer new 
 	   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
@@ -45,7 +73,24 @@ Pour tester le code, vous devez lancer le serveur HTTP pour Seaside  avec l'outi
 
 	"Create Demo posts if needed"
 	#TBBlog asClass createDemoPosts.
+]]]
 
+Mais vous pouvez aussi charger ""votre"" application TinyBlog depuis votre dépôt sur Smalltalkhub. Par exemple :
+
+[[[
+	"Load TinyBlog"
+	Gofer new 
+	   smalltalkhubUser: 'XXXX' project: 'TinyBlog';
+	   package: 'TinyBlog';
+	   load. 
+
+	"Create Demo posts if needed"
+	#TBBlog asClass createDemoPosts.
+]]]
+
+Indiquons maintenant à Seaside que l'application par défaut est TinyBlog et lançons le serveur HTTP.
+
+[[[
 	"Tell Seaside to use TinyBlog as default app"
 	WADispatcher default defaultName: 'TinyBlog'.
 
@@ -53,10 +98,21 @@ Pour tester le code, vous devez lancer le serveur HTTP pour Seaside  avec l'outi
 	ZnZincServerAdaptor startOn: 8080.
 ]]]
 
-- Tester en local dans votre navigateur *http://localhost:8080*
+Sauvegarder maintenant votre image Pharo (Menu World > save).
 
-- Zipper PharoWeb.image et PharoWeb.changes
+Puis, tester en local dans votre navigateur via l'URL *http://localhost:8080*.
 
-- Envoyer l'archive zip sur le Ephemeric Cloud de Pharo cloud
+!!Déploiement sur Ephemeric Cloud de PharoCloud 
+
+Créer une archive (fichier zip) contenant les deux fichiers : ==PharoWeb.image== et ==PharoWeb.changes==.
+
+Glisser/déposer ce fichier zip sur le Ephemeric Cloud de Pharo cloud et activer cette image (bouton play) comme indiqué sur la figure *@activeEphemerics*.
+
++Administration des images Pharo sur Ephemeric Cloud.>file://figures/ActiveEphemerics.png|width=85|label=activeEphemerics+
+
+En cliquant sur l'URL publique fournie vous voir s'afficher votre application TinyBlog comme sur la figure *@tinyBlogOnPharoCloud*.
+
++Votre application TinyBlog sur PharoCloud.>file://figures/TinyBlogOnPharoCloud.png|width=85|label=tinyBlogOnPharoCloud+
+
 
 
