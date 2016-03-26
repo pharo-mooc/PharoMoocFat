@@ -1,0 +1,212 @@
+{
+    "title":"TinyBlog: Presentation and Model",
+	 "slidesid":"W1S07"
+}
+
+!TinyBlog: a Small App
+
+Over the complete lecture, we will guide you to develop a mini project: a small web application, named TinyBlog, that manages a blog system.
+The idea is that a visitor of the web site can read the posts and that the post author could connect to the web site to admin the application and 
+manage its postes (add, remove and modify existing ones). 
+
+TinyBlog is a small pedagogical application 
+
+TinyBlog est application à but pédagogique qui va vous montrer comment définir et déployer une application en utilisant Pharo/Seaside/Mongo ainsi que des frameworks disponibles en Pharo comme NeoJSON. Nous exposerons aussi comment exposer votre application via un serveur REST. 
+Les solutions proposées dans ce tutoriel sont parfois non optimales afin de vous faire réagir et que vous puissiez proposer d'autres solutions et des améliorations.
+Notre objectif n'est pas d'être exhaustif. Nous montrons une façon de faire cependant nous invitons le lecteur à lire les références sur les autres chapitres, livres et tutoriaux Pharo afin d'approfondir son expertise et enrichir son application.
+
+
+!Installation de Pharo
+
+Vous pouvez télécharger Pharo (machine virtuelle et image) à l'adresse : *http://pharo.org/download*.
+
+Attention, dans ce MOOC nous supposons que vous utiliser Pharo 5.0.
+Nous allons également utiliser des bibliothèques et frameworks supplémentaires pour le développement d'applications Web: Seaside, Magritte, Bootstrap, Voyage, VoyageMongo, ...
+
+Il existe une image spécifique contenant déjà les bibliothèques courantes nécessaires au développement d'applications Web. 
+Vous pouvez la télécharger directement en utilisant Pharo Launcher ou depuis *http://mooc.pharo.org*.
+
+% et en cherchant le projet PharoWeb dans les contributions Pharo.
+% Cette image se trouve également sur le serveur d'intégration *https://ci.inria.fr/* dans les Pharo-Contributions et le projet PharoWeb.
+%
+% Vous pouvez également recréer cette image manuellement :
+%
+% - Télécharger Pharo 5.0 à partir du site pharo.org
+% - Dans l'outil "Configuration Browser", installer les paquets:
+% -- Seaside3,
+% -- VoyageMongo,
+% -- BootstrapMagritte.
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!Le modèle des posts
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Le modèle de TinyBlog est extrêmement simple.
+Nous commencerons ici par la classe ==TBPost==.
+
+!!La classe TBPost
+
+Dans la suite, nous préfixons tous les noms de classe par ==TB== (pour TinyBlog).
+Il serait préférable que choisissiez un autre préfixe (par exemple ==TBM==) afin de pouvoir ensuite charger la correction dans la même image Pharo et la comparer à votre propre classe.
+
+Définissez la classe ==TBPost== comme suit:
+
+[[[
+Object subclass: #TBPost
+   instanceVariableNames: 'title text date category visible'
+   classVariableNames: ''
+   package: 'TinyBlog'
+]]]
+
+!!Description d'un post
+
+Cinq variables d'instance pour décrire un post sur le blog.
+
+|!Variable |!Signification |
+|title         |Titre du post                |
+|text          |Texte du post                |
+|date          |Date de redaction            |
+|category      |Rubrique contenant le post   |
+|visible       |Post visible ou pas ?        |
+
+
+Ces variables ont des méthodes accesseurs dans le protocole 'accessing'.
+
+[[[
+TBPost >> title
+   ^ title
+
+TBPost >> title: anObject
+   title := anObject
+
+TBPost >> text
+   ^ text
+
+TBPost >> text: anObject
+   text := anObject
+
+TBPost >> date
+   ^ date
+
+TBPost >> date: anObject
+   date := anObject
+
+TBPost >> visible
+   ^ visible
+
+TBPost >> visible: anObject
+   visible := anObject
+
+TBPost >> category
+   ^ category
+
+TBPost >> category: anObject
+   category := anObject
+]]]
+
+!!Gérer la visibilité d'un post
+
+Il faut avoir la possibilité d'indiquer qu'un post est visible ou pas. Il faut également pouvoir demander à un post s'il est visible. Les méthodes sont définies dans la protocole 'action'.
+
+[[[
+TBPost >> beVisible
+   self visible: true
+
+TBPost >> notVisible
+   self visible: false
+
+TBPost >> isVisible
+   ^ self visible
+]]]
+
+
+!!Initialisation
+
+La méthode ==initialize== (protocole 'initialize-release') fixe la date à celle du jour et la visibilité à faux (l'utilisateur devra par la suite activer la visibilité ce qui permet de rédiger des brouillons et de publier lorsque le post est terminé). Un post est également rangé par défaut dans la catégorie 'Unclassified' que l'on définit au niveau classe.  La méthode ==unclassifiedTag== renvoie une valeur indiquant que le post n'est pas rangé dans une catégorie.
+[[[
+TBPost class >> unclassifiedTag
+   ^ 'Unclassified'
+]]]
+
+[[[
+TBPost >> initialize
+   self category: self class unclassifiedTag.
+   self date: Date today.
+   self notVisible
+]]]
+
+Dans la solution proposée ci-dessus pour la méthode ==initialize==, il serait préférable de ne pas faire une référence en dur à la classe ==TBPost==. 
+Nous traiterons ce point ultérieurement dans le MOOC.
+
+
+!!Méthode de création
+
+Coté classe, on spécifie des méthodes pour faciliter la création de post appartenant ou pas à une catégorie.
+
+[[[
+TBPost class >> title: aTitle text: aText
+   ^ self new
+        title: aTitle;
+        text: aText;
+        yourself
+]]]
+
+[[[
+TBPost class >> title: aTitle text: aText category: aCategory
+   ^ (self title: aTitle text: aText)
+            category: aCategory;
+            yourself
+]]]
+
+
+!!Test
+
+Savoir si un post est classé dans une catégorie.
+
+[[[
+TBPost >> isUnclassified
+   ^ self category = TBPost unclassifiedTag
+]]]
+
+De même il serait préférable de ne pas faire une référence en dur à la classe ==TBPost==.
+
+!!Créer des posts
+
+Vous pouvez dès maintenant créer des posts.
+Ouvrez l'outil Playground et exécuter l'expression suivante :
+
+[[[
+TBPost 
+	title: 'Welcome in TinyBlog' 
+	text: 'TinyBlog is a small blog engine made with Pharo.' 
+	category: 'TinyBlog'
+]]]
+
+Si vous inspectez le code ci-dessus (clic droit sur l'expression et "inspect"), vous allez obtenir un inspecteur sur l'objet post nouvellement créé.
+
+% !Le modèle des auteurs
+%
+% Un post est écrit par un auteur.
+% Ajouter maintenant une classe nommée ==TBAuthor== sachant qu'un auteur est caractérisé par son pseudo (affiché publiquement dans le post), son login et son mot de passe.
+%
+% De même que pour les posts, ajoutez des accesseurs et des méthodes de création côté classe.
+% Nous souhaitons pouvoir écrire dans un playground :
+%
+% [[[
+% 	luc := TBAuthor pseudo: 'LucF' login: 'luc' password: 'topsecret'
+% ]]]
+%
+% Ajouter un champs ==author== dans la classe ==TBPost== ainsi que des accesseurs.
+% Dans un playground, on souhaite pouvoir écrire :
+%
+% [[[
+% 	|luc|
+% 	luc := TBAuthor pseudo: 'LucF' login: 'luc' password: 'topsecret'.
+% 	(TBPost
+% 		title: 'Welcome in TinyBlog'
+% 		text: 'TinyBlog is a small blog engine made with Pharo.'
+% 		category: 'TinyBlog')
+% 		author: luc ;
+% 		yourself
+% ]]]
+
