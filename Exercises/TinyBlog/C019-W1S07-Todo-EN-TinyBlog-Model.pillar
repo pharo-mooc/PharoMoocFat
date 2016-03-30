@@ -1,55 +1,40 @@
 {
-    "title":"TinyBlog: Presentation and Model",
-	 "slidesid":"W1S07"
+    "title":"TinyBlog: Presentation and Model"
 }
 
-!TinyBlog: a Small App
+!TinyBlog: a Small Web App
 
-Over the complete lecture, we will guide you to develop a mini project: a small web application, named TinyBlog, that manages a blog system.
-The idea is that a visitor of the web site can read the posts and that the post author could connect to the web site to admin the application and 
-manage its postes (add, remove and modify existing ones). 
+Along this MOOC, we will guide you to develop a mini project: a small web application, named TinyBlog, that manages a blog system.
+The idea is that a visitor of the web site can read the posts and that the post author could connect to the web site to admin the application and manage its posts (add, remove and modify existing ones). 
 
-TinyBlog is a small pedagogical application 
-
-TinyBlog est application à but pédagogique qui va vous montrer comment définir et déployer une application en utilisant Pharo/Seaside/Mongo ainsi que des frameworks disponibles en Pharo comme NeoJSON. Nous exposerons aussi comment exposer votre application via un serveur REST. 
-Les solutions proposées dans ce tutoriel sont parfois non optimales afin de vous faire réagir et que vous puissiez proposer d'autres solutions et des améliorations.
-Notre objectif n'est pas d'être exhaustif. Nous montrons une façon de faire cependant nous invitons le lecteur à lire les références sur les autres chapitres, livres et tutoriaux Pharo afin d'approfondir son expertise et enrichir son application.
+TinyBlog is a small pedagogical application that will show you how to define and deploy a web application using Pharo / Seaside / Mongo and frameworks available in Pharo such as NeoJSON. We will show you how to expose your application via a REST server.
+Presented solutions are sometimes not the best to offer you a room for improvement.
+Our goal is not to be exhaustive. We present one way to develop TinyBlog nevertheless we invite the reader to read further references such as books or tutorials on Pharo to deepen its expertise and enhance its application.
 
 
-!Installation de Pharo
+!Installing Pharo
 
-Vous pouvez télécharger Pharo (machine virtuelle et image) à l'adresse : *http://pharo.org/download*.
+You can download Pharo (the image and its virtual machine) here: *http://pharo.org/download*.
 
-Attention, dans ce MOOC nous supposons que vous utiliser Pharo 5.0.
-Nous allons également utiliser des bibliothèques et frameworks supplémentaires pour le développement d'applications Web: Seaside, Magritte, Bootstrap, Voyage, VoyageMongo, ...
+In this MOOC, we assume that you use Pharo 5.0.
+We will also use some extra libraries and frameworks dedicated to web development such as: Seaside, Magritte, Bootstrap, Voyage, VoyageMongo, ...
 
-Il existe une image spécifique contenant déjà les bibliothèques courantes nécessaires au développement d'applications Web. 
-Vous pouvez la télécharger directement en utilisant Pharo Launcher ou depuis *http://mooc.pharo.org*.
-
-% et en cherchant le projet PharoWeb dans les contributions Pharo.
-% Cette image se trouve également sur le serveur d'intégration *https://ci.inria.fr/* dans les Pharo-Contributions et le projet PharoWeb.
-%
-% Vous pouvez également recréer cette image manuellement :
-%
-% - Télécharger Pharo 5.0 à partir du site pharo.org
-% - Dans l'outil "Configuration Browser", installer les paquets:
-% -- Seaside3,
-% -- VoyageMongo,
-% -- BootstrapMagritte.
+We provide a specific Pharo web image that already includes all of these libraries.
+You  can download it using  Pharo Launcher or directly here: *http://pharo.org/mooc*.
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-!Le modèle des posts
+!The Model of Posts
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Le modèle de TinyBlog est extrêmement simple.
-Nous commencerons ici par la classe ==TBPost==.
+The model part of TinyBlog is really simple.
+We start here with the ==TBPost== class.
 
-!!La classe TBPost
+!!TBPost class
 
-Dans la suite, nous préfixons tous les noms de classe par ==TB== (pour TinyBlog).
-Il serait préférable que choisissiez un autre préfixe (par exemple ==TBM==) afin de pouvoir ensuite charger la correction dans la même image Pharo et la comparer à votre propre classe.
+We adopt the followind naming convention: all class names will be prefixed by ==TB== (pour TinyBlog).
+You must choose another prefix (e.g. ==TBM==) if you want to be able to load the correction code in the same Pharo image as your code to compare both implementations. 
 
-Définissez la classe ==TBPost== comme suit:
+Define the ==TBPost== class using:
 
 [[[
 Object subclass: #TBPost
@@ -58,19 +43,18 @@ Object subclass: #TBPost
    package: 'TinyBlog'
 ]]]
 
-!!Description d'un post
+!!Description of a post
 
-Cinq variables d'instance pour décrire un post sur le blog.
+A blog post is described by 5 instance variables.
 
 |!Variable |!Signification |
-|title         |Titre du post                |
-|text          |Texte du post                |
-|date          |Date de redaction            |
-|category      |Rubrique contenant le post   |
-|visible       |Post visible ou pas ?        |
+|title         |post title               |
+|text          |post text                |
+|date          |date of writing             |
+|category      |name of the category of the post |
+|visible       |is the post publicly visible or not? |
 
-
-Ces variables ont des méthodes accesseurs dans le protocole 'accessing'.
+All of these variables have corresponding accessor methods in the 'accessing' protocol.
 
 [[[
 TBPost >> title
@@ -104,9 +88,9 @@ TBPost >> category: anObject
    category := anObject
 ]]]
 
-!!Gérer la visibilité d'un post
+!!Post visibility
 
-Il faut avoir la possibilité d'indiquer qu'un post est visible ou pas. Il faut également pouvoir demander à un post s'il est visible. Les méthodes sont définies dans la protocole 'action'.
+We should add methods to make a post visible or not and also test if it is visible. Those methods are defined in the 'action' protocol.
 
 [[[
 TBPost >> beVisible
@@ -122,7 +106,8 @@ TBPost >> isVisible
 
 !!Initialisation
 
-La méthode ==initialize== (protocole 'initialize-release') fixe la date à celle du jour et la visibilité à faux (l'utilisateur devra par la suite activer la visibilité ce qui permet de rédiger des brouillons et de publier lorsque le post est terminé). Un post est également rangé par défaut dans la catégorie 'Unclassified' que l'on définit au niveau classe.  La méthode ==unclassifiedTag== renvoie une valeur indiquant que le post n'est pas rangé dans une catégorie.
+The ==initialize== method ('initialize-release' protocol) set the date to the current day and the visibility to false (the user must explicitly make a post visible which allow him to write drafts and only publish when the post is finished). By default, a post belongs the 'Unclassified' category. This category name is defined on class-side by the ==unclassifiedTag==  method.
+
 [[[
 TBPost class >> unclassifiedTag
    ^ 'Unclassified'
@@ -135,13 +120,12 @@ TBPost >> initialize
    self notVisible
 ]]]
 
-Dans la solution proposée ci-dessus pour la méthode ==initialize==, il serait préférable de ne pas faire une référence en dur à la classe ==TBPost==. 
-Nous traiterons ce point ultérieurement dans le MOOC.
+In the above solution, it would be better that the ==initialize== method does not hard code the reference to the ==TBPost== class. We will present and discuss this point later in the MOOC.
 
 
-!!Méthode de création
+!!Posts creation methods
 
-Coté classe, on spécifie des méthodes pour faciliter la création de post appartenant ou pas à une catégorie.
+On class-side, we add methods to ease posts creation that belongs to a category or not.
 
 [[[
 TBPost class >> title: aTitle text: aText
@@ -159,21 +143,21 @@ TBPost class >> title: aTitle text: aText category: aCategory
 ]]]
 
 
-!!Test
+!!Testing post classification
 
-Savoir si un post est classé dans une catégorie.
+Testing if a post has a category or not.
 
 [[[
 TBPost >> isUnclassified
    ^ self category = TBPost unclassifiedTag
 ]]]
 
-De même il serait préférable de ne pas faire une référence en dur à la classe ==TBPost==.
+Similarly to ==initialize==, it would be better to not hard code the reference to the ==TBPost== class.
 
-!!Créer des posts
+!!Creating posts
 
-Vous pouvez dès maintenant créer des posts.
-Ouvrez l'outil Playground et exécuter l'expression suivante :
+You can now create some posts.
+Open the Playground tool and execute the following snippet:
 
 [[[
 TBPost 
@@ -182,14 +166,14 @@ TBPost
 	category: 'TinyBlog'
 ]]]
 
-Si vous inspectez le code ci-dessus (clic droit sur l'expression et "inspect"), vous allez obtenir un inspecteur sur l'objet post nouvellement créé.
+If you inspect the resulting object of the above expression (right clic on the expression and select the "inspect it" menu entry), you will get an inspector on the newly created ==TBPost== object.
 
 % !Le modèle des auteurs
 %
 % Un post est écrit par un auteur.
 % Ajouter maintenant une classe nommée ==TBAuthor== sachant qu'un auteur est caractérisé par son pseudo (affiché publiquement dans le post), son login et son mot de passe.
 %
-% De même que pour les posts, ajoutez des accesseurs et des méthodes de création côté classe.
+% De même que pour les posts, ajoutez des accesseurs et des methods de création côté classe.
 % Nous souhaitons pouvoir écrire dans un playground :
 %
 % [[[

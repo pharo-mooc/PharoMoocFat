@@ -2,7 +2,7 @@
     "title":"Roadmap of the Pharo MOOC"
 }
 
-${slide:title=Global MOOC Roadmap}$
+!Global MOOC Roadmap
 
 # Week 1: Welcome on Board and Syntax Discovery
 # Week 2: Pharo Syntax, Blocks and Inspector
@@ -12,7 +12,7 @@ ${slide:title=Global MOOC Roadmap}$
 # Week 6: Rethink lookup and Advanced OO Design
 # Week 7: More on OO Design and Testing
 
-${slide:title=Different kind of Resources and Activities}$
+!!Different kind of Resources and Activities
 
 This document summarizes the whole MOOC planning week by week.
 It is best to do the activities exactly in the order they are presented.
@@ -20,12 +20,12 @@ There are several kinds of activities:
 
 - [""Lecture""] means that you should watch a video explaining some notions described in slides. You will find a handout version of all slides in this document. We invite you to always watch videos while taking notes on the slides.
 - [""Live""] means that you should watch a video demonstrating a coding ession in Pharo.
-- [""Redo""] means that you should watch a Live video and apply, in your Pharo installation, what is demonstrated.
-- [""Exercises""] means that you should do a guided projects in your Pharo installation. The exercise is described by a document.
 - [""Quiz""] means that you should answer a sequence of small questions. Watching the lectures will most of the time be enough to answer. Some questions will explicitly ask you to check in Pharo.
+- [""Redo""] means that you should watch a Live video and apply, in your Pharo installation, what is demonstrated.
+- [""Exercise""] means that you should do a guided project in your Pharo installation. The exercise is described by a document.
 - [""Challenge""] means that you have to solve a little challenge by poking in Pharo.
 
-${slide:title=Week 1: Welcome on Board and Syntax Discovery}$
+!!Week 1: Welcome on Board and Syntax Discovery
 
 # [Lecture] Objectives of this MOOC
 # [Lecture] Pharo: an Immersive Object-Oriented System
@@ -38,9 +38,9 @@ ${slide:title=Week 1: Welcome on Board and Syntax Discovery}$
 # [Live] Syntax Highlighting gives Feedback
 # [Live] Learn Keyboard Shortcuts
 # [Redo] Coding a Counter
-# [Todo] TinyBlog: the Model Part
+# [Exercise] TinyBlog: Presentation and Model
 
-${slide:title=Week 2: Pharo Syntax, Blocks and Inspector}$
+!!Week 2: Pharo Syntax, Blocks and Inspector
 
 # [Lecture] Understanding Messages
 # [Lecture] Messages for Java programmer
@@ -53,20 +53,20 @@ ${slide:title=Week 2: Pharo Syntax, Blocks and Inspector}$
 # [Lecture] Booleans and Conditions
 # [Lecture] Parenthesis vs Square Brackets
 # [Lecture] Yourself
-# [Todo] The Essence of Dispatch through an Exercise
+# [Exercise] The Essence of Dispatch through an Exercise
 # [Live] Nautilus 1: First Meet with the Code Browser
 # [Live] Nautilus 2: Packages, Tags and Groups
 # [Live] Nautilus 3: Inheritance view
 # [Redo] Coding a Counter in the Debugger
-# [Todo] TinyBlog: Extending the Model
+# [Exercise] TinyBlog: Extending the Model
 
-${slide:title=Week 3: Design, Class Methods and Collections}$
+!!Week 3: Design, Class Methods and Collections
 
 # [Lecture] Essence of Dispatch: Taking Pharo Booleans as Example
 # [Lecture] Essence of Dispatch
 # [Lecture] Variables
 # [Lecture] A Simple HTTP Application: a Pretext to Revisit Pharo Syntax
-# [Live] How to Become a Super Pharo Developer: Understanding Sender and Implementors
+# [Live] Nautilus 4: How to Become a Super Pharo Developer: Understanding Sender and Implementors
 # [Live] Nautilus 5: Navigating Fast Inside Classes
 # [Lecture] Class Methods
 # [Lecture] An Overview of Essential Collections
@@ -76,9 +76,9 @@ ${slide:title=Week 3: Design, Class Methods and Collections}$
 # [Lecture] Stream Overview
 # [Lecture] Understanding Return
 # [Redo] Coding a Little Domain Specific Language 
-# [Todo] TinyBlog: A Simple Teapot Web Interface
+# [Exercise] TinyBlog: A Simple Teapot Web Interface
 
-${slide:title=Week 4: Inheritance, Lookup and Web Development}$
+!!Week 4: Inheritance, Lookup and Web Development
 
 # [Lecture] Inheritance Basics
 # [Lecture] Inheritance & Lookup: Lookup
@@ -95,10 +95,10 @@ ${slide:title=Week 4: Inheritance, Lookup and Web Development}$
 # [Live] How to load projects
 # [Live] Nautilus 6: An overview of Refactorings
 # [Live] Nautilus 7: Using the Quality Assistant and Code Critic
-# [Todo] TinyBlog: Data Persitency using Voyage and Mongo
-# [Todo] TinyBlog: Building a Web Interface with Seaside
+# [Exercise] TinyBlog: Data Persitency using Voyage and Mongo
+# [Exercise] TinyBlog: Building a Web Interface with Seaside
 
-${slide:title=Week 5: Exceptions, Debugging and Reflection}$
+!!Week 5: Exceptions, Debugging and Reflection
 # [Lecture] Seaside: Composing Components
 # [Lecture] Really Understanding Class Methods
 # [Lecture] Common Errors
@@ -113,9 +113,9 @@ ${slide:title=Week 5: Exceptions, Debugging and Reflection}$
 # [Live] Learning the Debugger
 # [Live] How to find a bug?
 # [Live] GTInspector 2: Inspect Files and Directories
-# [Todo] TinyBlog: Building an Admin Seaside Web Interface with Magritte
+# [Exercise] TinyBlog: Building an Admin Seaside Web Interface with Magritte
 
-${slide:title=Week 6: Rethink Lookup and Advanced OO Design}$
+!!Week 6: Rethink Lookup and Advanced OO Design
 # [Lecture] Did You Really Understand Super?
 # [Lecture] Understanding the Implementation of ifTrue:ifFalse:
 # [Lecture] Dice new vs. self class new
@@ -128,9 +128,9 @@ ${slide:title=Week 6: Rethink Lookup and Advanced OO Design}$
 # [Live] Using the Pharo Launcher to manage your Pharo images
 # [Live] Diffing and Merging in Pharo
 # [Live] GTInspector 4: Build Custom Tab Views for your Objects
-# [Todo] TinyBlog: Deployment
+# [Exercise] TinyBlog: Deployment
 
-${slide:title=Week 7: More on OO Design and Testing}$
+!!Week 7: More on OO Design and Testing
 # [Lecture] Advanced Points on Classes
 # [Lecture] Variable Size Objects
 # [Lecture] Understanding Metaclasses
@@ -142,4 +142,3 @@ ${slide:title=Week 7: More on OO Design and Testing}$
 # [Live] Spotter 4: The Preview pane
 # [Live] Spotter 5: Search in Playground History
 # [Live] GTInspector 3: Understand Pharo Internals by Inspection
-
