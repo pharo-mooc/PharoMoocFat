@@ -15,7 +15,18 @@ Gofer new
 #ConfigurationOfTinyBlog asClass loadWeek4Correction
 ]]]
 
-Pour tester le code, vous devez lancer le serveur HTTP pour Seaside  avec l'outil Seaside Control Panel (cf. sujet semaine précédente).
+Pour tester le code, vous devez lancer le serveur HTTP pour Seaside  avec l'outil Seaside Control Panel (cf. sujet semaine précédente) ou avec le code suivant :
+
+[[[
+ZnZincServerAdaptor startOn: 8080.
+]]]
+
+Vous devrez également faire :
+
+[[[
+TBBlog reset ; 
+	createDemoPosts
+]]]
 
 !Décrire les données métiers avec Magritte
 

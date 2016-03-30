@@ -36,10 +36,18 @@ Nous allons définir des composants Seaside *http://www.seaside.st* dont l'ouvra
 
 !!Démarrer Seaside
 
-Lancer l'outil le Seaside Control Panel (World Menu>Tools>Seaside Control Panel).
+Il existe deux façons pour démarrer Seaside. La première consiste à exécuter le code suivant :
+
+[[[
+ZnZincServerAdaptor startOn: 8080.
+]]]
+
+La deuxième façon est graphique via l'outil Seaside Control Panel (World Menu>Tools>Seaside Control Panel).
 Dans le menu contextuel de cet outil (clic droit), cliquez sur "add adaptor..." pour ajoutez un serveur ==ZnZincServerAdaptor==, puis définissez le port (e.g. 8080) sur lequel le serveur doit fonctionner (comme illustré dans la figure *@RunningSeaside*). En ouvrant un navigateur web à l'URL *http://localhost:8080*, vous devez voir s'afficher la page d'accueil de Seaside comme sur la figure *@SeasideWebStart*.
 
 +Vérification que Seaside fonctionne.>file://figures/SeasideWebStart.png|width=75|label=SeasideWebStart+
+
+
 
 !!Initialisation de l'application
 
