@@ -49,7 +49,7 @@ There are several kinds of activities:
 # [Lecture] Messages for Java programmer
 # [Lecture] Messages: Composition and Precedence
 # [Lecture] Understanding Messages: Sequence and Cascade
-# [Live]	Finding Methods with Finder
+# [Live] Finding Methods with Finder
 # [Live] GTInspector 1: Inspect and Interact with Objects
 # [Lecture] Introduction to Blocks
 # [Lecture] Loops
@@ -62,10 +62,10 @@ There are several kinds of activities:
 # [Live] Nautilus 3: Inheritance view
 # [Redo] Coding a Counter in the Debugger
 # [Exercise] Solution: Expressions and Messages
-# [Exercise] Expressions Results
+# [Exercise] Expression Results
 # [Exercise] Creating a Simple Embedded DSL with Pharo
 # [Exercise] TinyBlog: Extending and Testing the Model
-# [Exercise] Solution: Challenge 0 
+# [Exercise] Solution: Challenge 0
 # [Exercise] Challenge 1
 
 
@@ -84,8 +84,8 @@ There are several kinds of activities:
 # [Lecture] Iterators
 # [Lecture] Stream Overview
 # [Lecture] Understanding Return
-# [Redo] Coding a Little Domain Specific Language 
-# [Exercise] Solution: Expressions Results
+# [Redo] Coding a Little Domain Specific Language
+# [Exercise] Solution: Expression Results
 # [Exercise] Rewriting Expressions
 # [Exercise] TinyBlog: A Simple Teapot Web Interface
 # [Exercise] Solution: Challenge 1
