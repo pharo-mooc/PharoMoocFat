@@ -56,6 +56,7 @@ $CPMV $SRC/Exercises/Challenge3-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-ContactManager.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W4-TinyBlog-Seaside-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W4-TinyBlog-VoyageMongo-FR.pdf  $DEST
+$CPMV $SRC/Exercises/Exo-W4-TinyBlog-VoyageMongo-EN.pdf  $DEST
 
 DEST=PharoMooc/Week5
 mkdir -p $DEST

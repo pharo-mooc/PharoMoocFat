@@ -100,7 +100,7 @@ Nous pouvons aussi modifier la méthode ==remove== afin de sauver le nouvel éta
 [[[
 TBBlog >> removeAllPosts
    posts := OrderedCollection new.
-   super remove.
+   self save.
 ]]]
 
 
@@ -130,7 +130,7 @@ TBBlog selectAll
 On peut supprimer un objet racine.
 
 [[[
-TBBlog remove
+TBBlog current remove
 ]]]
 
 
@@ -144,11 +144,10 @@ Ces queries sont plus pertinentes quand on a plus d'objets comme lorsque nous aj
 
 Cette section n'est pas à implémenter et elle est juste donnée à titre d'exemple. Nous pourrions aussi définir qu'un post est un élément qui peut être sauvegardé de manière autonome. Cela  permettrait de sauver des posts de manière indépendante d'un blog. Si nous représentions les commentaires d'un post nous ne les déclarerions pas non plus comme racine car sauver ou manipuler un commentaire en dehors du contexte de son post ne fait pas beaucoup de sens. 
 
-Déclarer les posts comme racine aurait pour conséquence que les blogs sauvés aurait une référence à un objet TBPost alors que sans cela le post est inclus dans la sauvegarde du blog. Notez aussi que lorsqu'un post n'est pas un root, vous n'avez pas la certitude d'unicité de celui-ci lors du chargement depuis la base. En effet, lors du chargement (et ce qui peut être contraire à la situation du graphe d'objet avant la sauvegarde) un post n'est alors pas partagé entre deux instances de blogs. 
+Lorsqu'un post n'est pas une racine, vous n'avez pas la certitude d'unicité de celui-ci lors du chargement depuis la base. En effet, lors du chargement (et ce qui peut être contraire à la situation du graphe d'objet avant la sauvegarde) un post n'est alors pas partagé entre deux instances de blogs. 
 Si avant la sauvegarde en base un post était partagé, après le chargement depuis la base, ce post sera dupliqué car recréé à partir de la définition du blog (et le blog contient alors complètement le post).
 
-Si vous désirez qu'un post soit partagé et unique entre plusieurs instances de blog, alors la classe TBPost doit être déclarée une racine dans la base. 
-Lorsque la classe TBPost est déclarée comme une racine, les posts sont sauvés comme des entités autonomes et les instances de TBBlog feront des références sur ces entités au lieu que leurs définitions soient incluses dans celle des blogs. Cela a pour effet qu'un post donné devient unique et partageable via une référence depuis le blog. 
+Si vous désirez qu'un post soit partagé et unique entre plusieurs instances de blog, alors les objets ==TBPost== doivent être déclarée comme une racine dans la base. Lorsque c'est le cas, les posts sont sauvés comme des entités autonomes et les instances de ==TBBlog== feront référence à ces entités au lieu que leurs définitions soient incluses dans celle des blogs. Cela a pour effet qu'un post donné devient unique et partageable via une référence depuis le blog. 
 
 Pour cela on nous définirions les méthodes suivantes:
 
@@ -212,7 +211,7 @@ Nous allons maintenant utiliser une base Mongo externe à Pharo.
 
 !Tester avec une base Mongo
 
-En utilisant Voyage nous pouvons rapidement sauver nos posts dans une base de données Mongo. Ce chapitre explique rapidement la mise en oeuvre et les quelques modifications que nous devons apporter à notre projet Pharo pour y parvenir. 
+En utilisant Voyage nous pouvons rapidement sauver nos posts dans une base de données Mongo. Cette section explique rapidement la mise en oeuvre et les quelques modifications que nous devons apporter à notre projet Pharo pour y parvenir. 
 
 
 !!Installation de Mongo
