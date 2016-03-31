@@ -1,10 +1,10 @@
-!Expressions Results
+!Expression Results
 
-In this exercise, we ask you to guess the results of the expressions by mentally simulating the execution of expressions. 
+In this exercise, we ask you to guess the results of the expressions by mentally simulating the execution of expressions.
 
 !! Exercise: Results
 
-Examine the following expressions. What is the value returned by the execution of the following expression?
+Examine the following expressions. What is the value returned by the execution of the following expressions?
 
 [[[
 | anArray |
