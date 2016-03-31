@@ -111,7 +111,7 @@ TBBlogTest >> setUp
    post := (TBPost title: 'Another title' text: 'Another text' category: 'Second Category') beVisible
 ]]]
 
-On en profite pour tester différentes configuration. 
+On en profite pour tester différentes configurations. 
 Les posts ne sont pas dans la même catégorie, l'un est visible, l'autre pas.
 
 La méthode ==tearDown== exécutée au terme des tests remet à zéro la connexion.

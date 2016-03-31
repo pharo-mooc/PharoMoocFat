@@ -38,7 +38,10 @@ There are several kinds of activities:
 # [Live] Syntax Highlighting gives Feedback
 # [Live] Learn Keyboard Shortcuts
 # [Redo] Coding a Counter
+# [Exercise] Expressions and Messages
+# [Exercise] Developing a Simple Counter
 # [Exercise] TinyBlog: Presentation and Model
+# [Exercise] Challenge 0
 
 !!Week 2: Pharo Syntax, Blocks and Inspector
 
@@ -58,7 +61,13 @@ There are several kinds of activities:
 # [Live] Nautilus 2: Packages, Tags and Groups
 # [Live] Nautilus 3: Inheritance view
 # [Redo] Coding a Counter in the Debugger
-# [Exercise] TinyBlog: Extending the Model
+# [Exercise] Solution: Expressions and Messages
+# [Exercise] Expressions Results
+# [Exercise] Creating a Simple Embedded DSL with Pharo
+# [Exercise] TinyBlog: Extending and Testing the Model
+# [Exercise] Solution: Challenge 0 
+# [Exercise] Challenge 1
+
 
 !!Week 3: Design, Class Methods and Collections
 
@@ -76,7 +85,12 @@ There are several kinds of activities:
 # [Lecture] Stream Overview
 # [Lecture] Understanding Return
 # [Redo] Coding a Little Domain Specific Language 
+# [Exercise] Solution: Expressions Results
+# [Exercise] Rewriting Expressions
 # [Exercise] TinyBlog: A Simple Teapot Web Interface
+# [Exercise] Solution: Challenge 1
+# [Exercise] Challenge 2
+
 
 !!Week 4: Inheritance, Lookup and Web Development
 
@@ -95,8 +109,12 @@ There are several kinds of activities:
 # [Live] How to load projects
 # [Live] Nautilus 6: An overview of Refactorings
 # [Live] Nautilus 7: Using the Quality Assistant and Code Critic
+# [Exercise] Solution: Rewriting Expressions
 # [Exercise] TinyBlog: Data Persitency using Voyage and Mongo
 # [Exercise] TinyBlog: Building a Web Interface with Seaside
+# [Exercise] Building a Simple Contact Book Application
+# [Exercise] Solution: Challenge 2
+# [Exercise] Challenge 3
 
 !!Week 5: Exceptions, Debugging and Reflection
 # [Lecture] Seaside: Composing Components
@@ -114,6 +132,9 @@ There are several kinds of activities:
 # [Live] How to find a bug?
 # [Live] GTInspector 2: Inspect Files and Directories
 # [Exercise] TinyBlog: Building an Admin Seaside Web Interface with Magritte
+# [Exercise] Solution: Challenge 3
+# [Exercise] Challenge 4
+# [Exercise] TinyChat
 
 !!Week 6: Rethink Lookup and Advanced OO Design
 # [Lecture] Did You Really Understand Super?
@@ -129,6 +150,9 @@ There are several kinds of activities:
 # [Live] Diffing and Merging in Pharo
 # [Live] GTInspector 4: Build Custom Tab Views for your Objects
 # [Exercise] TinyBlog: Deployment
+# [Exercise] Solution: Challenge 4
+# [Exercise] Challenge 5
+
 
 !!Week 7: More on OO Design and Testing
 # [Lecture] Advanced Points on Classes
@@ -142,3 +166,4 @@ There are several kinds of activities:
 # [Live] Spotter 4: The Preview pane
 # [Live] Spotter 5: Search in Playground History
 # [Live] GTInspector 3: Understand Pharo Internals by Inspection
+# [Exercise] Solution: Challenge 5

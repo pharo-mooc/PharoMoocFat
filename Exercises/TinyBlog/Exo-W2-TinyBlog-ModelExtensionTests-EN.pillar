@@ -1,0 +1,274 @@
+{
+    "title":"Extending and Testing the Model"
+}
+
+!Previous Week Solution
+
+You can load the solution of the previous week using the following snippet:
+
+[[[
+Gofer new 
+   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+   package: 'ConfigurationOfTinyBlog';
+   load. 
+#ConfigurationOfTinyBlog asClass loadWeek1Correction
+]]]
+
+Then, you can browse the code of the ==TBPost== class.
+With this solution, you can complete the code of ""your"" TinyBlog application if needed before continuing.
+
+!Save you Code on Smalltalkhub
+
+This section explains how to save your Pharo code on Smalltalkhub.
+
+!!Create a Repository
+
+- Create an account on  *http://smalltalkhub.com/*
+- Log yourself on the web site
+- Create a project
+-- named "TinyBlog",
+-- the project URL should look like: 'http://smalltalkhub.com/mc/XXX/TinyBlog/main'
+
+!!Create a Project Configuration
+
+In your Pharo image, open the Versionner tool:
+
+- Create a new project named "TinyBlog",
+- Indicate that this project depends on PharoWeb,
+- In packages, add the TinyBlog package,
+-- Define projet repository URL to 'http://smalltalkhub.com/mc/XXX/TinyBlog/main'
+-- And finally click on the "Save to development" button
+
+Your TinyBlog application code is now saved in your code repository on Smalltalkhub. It is now possible to load your code in a new Pharo image. In fact, we advise you to regularly load your code from Smalltalkhub in a fresh and up-to-date Pharo image. This practice helps to ensure that your code correctly saved in your repository.
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!TBBlog class
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A ==TBBlog== contains posts. We will now, develop this ==TBBlog== class and its unit tests.
+
+[[[
+Object subclass: #TBBlog
+   instanceVariableNames: 'posts'
+   classVariableNames: ''
+   package: 'TinyBlog'
+]]]
+
+[[[
+TBBlog >> initialize
+   super initialize.
+   posts := OrderedCollection new. 
+]]]
+
+!!Only one Blog Object
+
+In the rest of this MOOC, we assume that we will manage only one blog. Later, you may add the possibility to manage multiple blogs such as one per user of the TinyBlog application.
+Currently, we use a Singleton design pattern on the ==TBBlog== class.
+
+[[[
+TBBlog class
+   instanceVariableNames: 'uniqueInstance'
+
+TBBlog class >> reset
+   uniqueInstance := nil
+
+TBBlog class >> current
+   "answer the instance of the TBRepository"
+   ^ uniqueInstance ifNil: [ uniqueInstance := self new ]
+
+TBBlog class >> initialize
+   self reset
+]]]
+
+
+!!Testing the Model
+
+We now adopt a Test Driven Development approach i.e. we will write a unit test first and then develop the business functionality until the test is green. We will repeat thi process for each functionality of the model.
+
+We create unit tests in the ==TBBlogTest== class that belongs to the ==TinyBlog-Tests==  package.
+
+[[[
+TestCase subclass: #TBBlogTest
+   instanceVariableNames: 'blog post first'
+   classVariableNames: ''
+   category: 'TinyBlog-Tests'
+]]]
+
+Before each test execution, the ==setUp== method initializes the context of tests.
+For example, it establishes a database connection, erases its content, adds one post and creates another temporary post that is not saved.
+
+[[[
+TBBlogTest >> setUp
+   blog := TBBlog current.
+   blog removeAllPosts.
+   
+   first := (TBPost title: 'A title' text: 'A text' category: 'First Category').
+   blog writeBlogPost: first.
+   
+   post := (TBPost title: 'Another title' text: 'Another text' category: 'Second Category') beVisible
+]]]
+
+As you may notice, we test different configurations. 
+Posts do not belong to the same category, one is visible and the other is not visible.
+
+At the end of each test, the ==tearDown==  method is executed and reset the connection.
+
+[[[
+TBBlogTest >> tearDown
+   TBBlog reset
+]]]
+
+Note that if you deploy a blog and then execute the tests, you will lose all posts that have been created because we reset the Blog singleton.
+
+We will now develop tests first and then implement all functionalities to make them green.
+
+!!!First Test
+
+The first test add a post in the blog.
+
+[[[
+TBBlogTest >> testAddBlogPost
+   blog writeBlogPost: post.
+   self assert: blog size equals: 2
+]]]
+
+If you try to execute it, you will notice that this test is not green because we did not define the following methods: ==writeBlogPost:== and ==removeAllPosts==. Let's add them:
+
+[[[
+TBBlog >> removeAllPosts
+   posts := OrderedCollection new
+]]]
+
+[[[
+TBBlog >> writeBlogPost: aPost
+   "Write the blog post in database"
+   posts add: aPost
+]]]
+
+[[[
+TBBlog >> size
+   ^ posts size
+]]]
+
+The previous test should now pass (i.e. be green).
+We should also add tests to cover all functionalities that we introduced. 
+
+!!!Test the Number of Post in a Blog
+
+[[[
+TBBlogTest >> testSize
+   self assert: blog size equals: 1
+]]]
+
+!!!Remove all Posts
+
+[[[
+TBBlogTest >> testRemoveAllBlogPosts
+   blog remove.
+   self assert: blog size equals: 0
+]]]
+
+
+!!Other Functionalities
+
+We now develop new functionalities as methods in the 'action' protocol of the  ==TBBlog==.
+While doing that, we regularly ensure that tests pass.
+
+!!!Retrieve all Posts (visibles et invisibles)
+
+[[[
+TBBlogTest >> testAllBlogPosts
+   blog writeBlogPost: post.
+   self assert: (blog allBlogPosts) size equals: 2
+]]]
+
+[[[
+TBBlog >> allBlogPosts
+   ^ posts
+]]]
+
+
+!!!Retrieve Visibles Posts 
+
+[[[
+TBBlogTest >> testAllVisibleBlogPosts
+   blog writeBlogPost: post.
+   self assert: (blog allVisibleBlogPosts) size equals: 1
+]]]
+
+[[[
+TBBlog >> allVisibleBlogPosts
+   ^ posts select: [ :p | p isVisible ]
+]]]
+
+
+!!!Retrieve all Posts of one Category
+
+[[[
+TBBlogTest >> testAllBlogPostsFromCategory
+   self assert: (blog allBlogPostsFromCategory: 'First Category') size equals: 1
+]]]
+
+[[[
+TBBlog >> allVisibleBlogPostsFromCategory: aCategory
+   ^ posts select: [ :p | p category = aCategory and: [ p isVisible ] ]
+]]]
+
+
+!!!Retrieve all Visible Posts of one Category
+
+[[[
+TBBlogTest >> testAllVisibleBlogPostsFromCategory
+   blog writeBlogPost: post.
+   self assert: (blog allVisibleBlogPostsFromCategory: 'First Category') size equals: 0.
+   self assert: (blog allVisibleBlogPostsFromCategory: 'Second Category') size equals: 1
+]]]
+
+[[[
+TBBlog >> allBlogPostsFromCategory: aCategory
+   ^ posts select: [ :p | p category = aCategory ]
+]]]
+
+!!!Ensure Unclassified Management
+
+[[[
+TBBlogTest >> testUnclassifiedBlogPosts
+   self assert: (blog allBlogPosts select: [ :p | p isUnclassified ]) size equals: 0
+]]]
+
+!!!Retrieve all Categories
+
+[[[
+TBBlogTest >> testAllCategories
+   blog writeBlogPost: post.
+   self assert: (blog allCategories) size equals: 2
+]]]
+
+[[[
+TBBlog >> allCategories
+   ^ (self allBlogPosts collect: [ :p | p category ]) asSet
+]]]
+
+!!Possible Extensions
+
+Many extensions can be made such as: retrieve the list of categories that contains at least one visible post, delete a category and all posts that it contains, rename a category, move a post from one category to another, make (in)visible one category and all its content, etc. We encourage you to develop some of them. 
+
+To help you testing the application, you can add the following method that creates multiple posts.
+
+[[[
+TBBlog class >> createDemoPosts
+   "TBBlog createDemoPosts"
+   self current 
+      writeBlogPost: ((TBPost title: 'Welcome in TinyBlog' text: 'TinyBlog is a small blog engine made with Pharo.' category: 'TinyBlog') visible: true);
+      writeBlogPost: ((TBPost title: 'Report Pharo Sprint' text: 'Friday, June 12 there was a Pharo sprint / Moose dojo. It was a nice event with more than 15 motivated sprinters. With the help of candies, cakes and chocolate, huge work has been done' category: 'Pharo') visible: true);
+      writeBlogPost: ((TBPost title: 'Brick on top of Bloc - Preview' text: 'We are happy to announce the first preview version of Brick, a new widget set created from scratch on top of Bloc. Brick is being developed primarily by Alex Syrel (together with Alain Plantec, Andrei Chis and myself), and the work is sponsored by ESUG. 
+      Brick is part of the Glamorous Toolkit effort and will provide the basis for the new versions of the development tools.' category: 'Pharo') visible: true);
+      writeBlogPost: ((TBPost title: 'The sad story of unclassified blog posts' text: 'So sad that I can read this.') visible: true);
+      writeBlogPost: ((TBPost title: 'Working with Pharo on the Raspberry Pi' text: 'Hardware is getting cheaper and many new small devices like the famous Raspberry Pi provide new computation power that was one once only available on regular desktop computers.' category: 'Pharo') visible: true)
+]]]
+
+If you inspect the result of the following snippet, you will see that the current blog contains 5 posts:
+
+[[[
+	TBBlog createDemoPosts ; current
+]]]
