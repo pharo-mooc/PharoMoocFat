@@ -43,6 +43,7 @@ $CPMV $SRC/Exercises/Challenge1-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge2-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge2-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W3-TinyBlog-Teapot-FR.pdf $DEST
+$CPMV $SRC/Exercises/Exo-W3-TinyBlog-Teapot-EN.pdf $DEST
 
 DEST=PharoMooc/Week4
 mkdir -p $DEST
