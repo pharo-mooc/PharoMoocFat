@@ -19,7 +19,7 @@ It is best to do the activities in the order they are presented but you can mix 
 There are several kinds of activities (that you can identify also based on the their names and/or tags):
 
 
-- [""Lecture""] means that you should watch a video explaining some notions described in slides. You will find a handout version in PDF of all slides in this document. We invite you to always watch videos while taking notes on the slides.
+- [""Lecture""] means that you should watch a video explaining some notions described in slides. You will find a handout version in PDF of all slides in this document. We invite you to always watch videos while taking notes on the slides. All the code snippets presented in the slides are normally fully executable in Pharo and we suggest you execute them. 
 - [""Live""] means that you should watch a video demonstrating a certain interactive aspect of the Pharo IDE. We suggest to reproduce what is shown in the video.
 - [""Quiz""] means that you should answer a sequence of small questions. Watching the lectures will most of the time be enough to answer. Some questions will explicitly ask you to check in Pharo. This is based on the Quiz success that you will get your Pharo Mooc certificate. 
 - [""Redo""] means that you should 

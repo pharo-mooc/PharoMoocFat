@@ -14,25 +14,28 @@
 
 !!Differentes ressources et activités
 
-Ce document résume...
-This document summarizes the whole MOOC planning Semaine by Semaine.
-It is best to do the activities in the order they are presented but you can mix if you feel that this is better for you. 
-There are several kinds of activities (that you can identify also based on the their names and/or tags):
+Ce document résume le déroulé du Mooc semaine par semaine. 
+Nous pensons qu'il est préférbale de faire les activités proposer dans l'ordre que nous avons conçu. Maintenant il est fort possible que pour certains lecteurs un autre ordre ne pose pas de difficultés particulières. 
+
+Nous proposons plusieurs activités (identifiable par leur nom ou étiquette accolée):
+
+- [""Lecture""] signifie que vous devez suivre la vidéo qui contient le cours décrit dans les diapositives du cours. Tous les PDFs des diapositives sont fournis. De manière générale tous les morceaux de code présentés sont executables directement dans Pharo donc n'hésitez pas à le faire.
+- [""Live""] signifie que vous devez suivre une vidéo qui démontre certains aspects de l'IDE interactif de Pharo. Nous suggérons de répéter les points qui vous semblent opportun. 
+- [""Quiz""] signifie que vous devez répondre a des séquences de questions. Regardez les cours doit suffir pour trouver les bonnes réponses. Ce sont les résultats des quiz qui vous permettront d'obtenir un certificat de réussite. 
+- [""Redo""] signifie que vous devez 
+-- (1) suivre les videos et  
+-- (2) reproduire ce qui est démontré pas à pas en utilisant votre installation de Pharo.
+Durant le premier redo, vous devez vraiment suivre et reproduire ce que vous voyez. 
+- [""Exercise""] signifie que vous devez suivre un exercice guidé et le reproduire en utilisant Pharo. L'exercice est décrit dans un document. Certains exercices proposent deux versions : une complète et une à trous. Nous vous conseillons de commencer par la version à trous. Nous ne donnerons pas de notes pour ces exercices mais ils sont importants pour vous entrainer.  
+- [""Mini project""] signifie que vous avez un exercice plus long nommé TinyBlog. Il va durer toutes la durée du Mooc. Chaque semaine nous allons ajoutr des fonctionalités. Chaque semaine vous aurez acces à une version complète de la solution de la semaine précédente de manière à ce que vous puissiez continuer en cas de problèmes. 
+
+- [""Challenge""] signifie que vous avez un petit défi à résoudre en farfouillant dans Pharo. 
+L'idée est que vous devez vous débrouiller pour trouver des informations et ne pas avoir peur de vous perdre. Vous pouvez poser des questions sur la mailing-list Pharo-users. 
+Vous devez faire le challenge pour vous. Nous n'allons pas le noter car il y a souvent plusieurs façons de résoudre un challenge. Chaque semaine vous aurez la solution du challenge et nous vous encourageons à lire les messages et les classes utilisées dans la solution. 
+De plus les challenges sont souvent marrants et des petits défis. Donc ne boudez pas ce petit plaisir
 
 
-- [""Lecture""] means that you should watch a video explaining some notions described in slides. You will find a handout version in PDF of all slides in this document. We invite you to always watch videos while taking notes on the slides.
-- [""Live""] means that you should watch a video demonstrating a certain interactive aspect of the Pharo IDE. We suggest to reproduce what is shown in the video.
-- [""Quiz""] means that you should answer a sequence of small questions. Watching the lectures will most of the time be enough to answer. Some questions will explicitly ask you to check in Pharo. This is based on the Quiz success that you will get your Pharo Mooc certificate. 
-- [""Redo""] means that you should 
--- (1) watch a Live coding video session and 
--- (2) redo what is demonstrated step by step using your Pharo installation.
-During the first redo you should act as a monkey just reproducing what you see. 
-- [""Exercise""] means that you should do a guided project using your Pharo installation. The exercise is described by a document. Sometimes you have version with holes and full versions. It is best to start with a version without the solution, but this is up to you to decide. We will not grade you on such exercises but they are key to train yourself. 
-- [""Mini project""] means that you get a longer exercise named TinyBlog that will last the complete Mooc. Each Semaine we will add new functionality. Each Semaine you will get a complete code version of the previous Semaine so that if you failed the Semaine before you can still continue during the new Semaine. 
-- [""Challenge""] means that you have to solve a little challenge by poking in Pharo. The idea is that you should look around. mess up and not be afraid to get lost. You can ask questions in the Pharo-user mailing-list. You should do the challenge for yourself, we will not grade it because there are several ways to solve it. Every Semaine you will get the solution of the previous challenge and we strongly encourage you to read the messages and classes we use in the solution. Challenges are usually fun and challenging a bit, of course.
-
-
-!!Semaine 1: Welcome on Board and Syntax Discovery
+!!Semaine 1 : Démarrage et Découverte de la Syntaxe 
 
 # [Lecture] Objectives of this MOOC
 # [Lecture] Pharo: an Immersive Object-Oriented System
@@ -50,7 +53,7 @@ During the first redo you should act as a monkey just reproducing what you see.
 # [Exercise] TinyBlog: Presentation and Model
 # [Challenge] Challenge 0
 
-!!Semaine 2: Pharo Syntax, Blocks and Inspector
+!!Semaine 2 : Syntaxe Pharo, Blocks et Inspecteur
 
 # [Lecture] Understanding Messages
 # [Lecture] Messages for Java programmer
@@ -76,7 +79,7 @@ During the first redo you should act as a monkey just reproducing what you see.
 # [Challenge] Challenge 1
 
 
-!!Semaine 3: Design, Class Methods and Collections
+!!Semaine 3 : Conception, Méthodes de classes et Collections
 
 # [Lecture] Essence of Dispatch: Taking Pharo Booleans as Example
 # [Lecture] Essence of Dispatch
@@ -99,7 +102,7 @@ During the first redo you should act as a monkey just reproducing what you see.
 # [Challenge] Challenge 2
 
 
-!!Semaine 4: Inheritance, Lookup and Web Development
+!!Semaine 4 : Héritage et Recherche de Méthode et Développement Web
 
 # [Lecture] Inheritance Basics
 # [Lecture] Inheritance & Lookup: Lookup
@@ -123,7 +126,7 @@ During the first redo you should act as a monkey just reproducing what you see.
 # [Challenge] Solution: Challenge 2
 # [Challenge] Challenge 3
 
-!!Semaine 5: Exceptions, Debugging and Reflection
+!!Semaine 5 : Exception, Debuggage et Réflexion
 # [Lecture] Seaside: Composing Components
 # [Lecture] Really Understanding Class Methods
 # [Lecture] Common Errors
@@ -144,7 +147,7 @@ During the first redo you should act as a monkey just reproducing what you see.
 # [Challenge] Challenge 4
 
 
-!!Semaine 6: Rethink Lookup and Advanced OO Design
+!!Semaine 6 : Repenser la recherche de méthode et points avancés 
 # [Lecture] Did You Really Understand Super?
 # [Lecture] Understanding the Implementation of ifTrue:ifFalse:
 # [Lecture] Dice new vs. self class new
@@ -162,7 +165,7 @@ During the first redo you should act as a monkey just reproducing what you see.
 # [Challenge] Challenge 5
 
 
-!!Semaine 7: More on OO Design and Testing
+!!Semaine 7 : Conception OO et Tests
 # [Lecture] Advanced Points on Classes
 # [Lecture] Variable Size Objects
 # [Lecture] Understanding Metaclasses
