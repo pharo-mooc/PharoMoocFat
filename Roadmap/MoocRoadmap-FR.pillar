@@ -1,20 +1,21 @@
 {
-    "title":"Roadmap of the Pharo MOOC"
+    "title":"Déroulé du Mooc Pharo"
 }
 
-!Global MOOC Roadmap
+!Déroulé Globale du MOOC
 
-# Week 1: Welcome on Board and Syntax Discovery
-# Week 2: Pharo Syntax, Blocks and Inspector
-# Week 3: Design, Class Methods and Collections
-# Week 4: Inheritance&Lookup and Web Development
-# Week 5: Exception, Debugging and Reflection
-# Week 6: Rethink lookup and Advanced OO Design
-# Week 7: More on OO Design and Testing
+# Semaine 1: Démarrage et Découverte de la Syntaxe (Welcome on Board and Syntax Discovery)
+# Semaine 2: Syntaxe Pharo, Blocks et Inspecteur (Pharo Syntax, Blocks and Inspector)
+# Semaine 3: Conception, Méthodes de classes et Collections (Design, Class Methods and Collections)
+# Semaine 4: Héritage et Recherche de Méthode et Developpement Web (Inheritance&Lookup and Web Development)
+# Semaine 5: Exception, Debuggage et Réflexion (Exception, Debugging and Reflection)
+# Semaine 6: Repenser la recherche de méthode et points avancés (Rethink lookup and Advanced OO Design)
+# Semaine 7: Conception OO et Tests (More on OO Design and Testing)
 
-!!Different kind of Resources and Activities
+!!Differentes ressources et activités
 
-This document summarizes the whole MOOC planning week by week.
+Ce document résume...
+This document summarizes the whole MOOC planning Semaine by Semaine.
 It is best to do the activities in the order they are presented but you can mix if you feel that this is better for you. 
 There are several kinds of activities (that you can identify also based on the their names and/or tags):
 
@@ -27,11 +28,11 @@ There are several kinds of activities (that you can identify also based on the t
 -- (2) redo what is demonstrated step by step using your Pharo installation.
 During the first redo you should act as a monkey just reproducing what you see. 
 - [""Exercise""] means that you should do a guided project using your Pharo installation. The exercise is described by a document. Sometimes you have version with holes and full versions. It is best to start with a version without the solution, but this is up to you to decide. We will not grade you on such exercises but they are key to train yourself. 
-- [""Mini project""] means that you get a longer exercise named TinyBlog that will last the complete Mooc. Each week we will add new functionality. Each week you will get a complete code version of the previous week so that if you failed the week before you can still continue during the new week. 
-- [""Challenge""] means that you have to solve a little challenge by poking in Pharo. The idea is that you should look around. mess up and not be afraid to get lost. You can ask questions in the Pharo-user mailing-list. You should do the challenge for yourself, we will not grade it because there are several ways to solve it. Every week you will get the solution of the previous challenge and we strongly encourage you to read the messages and classes we use in the solution. Challenges are usually fun and challenging a bit, of course.
+- [""Mini project""] means that you get a longer exercise named TinyBlog that will last the complete Mooc. Each Semaine we will add new functionality. Each Semaine you will get a complete code version of the previous Semaine so that if you failed the Semaine before you can still continue during the new Semaine. 
+- [""Challenge""] means that you have to solve a little challenge by poking in Pharo. The idea is that you should look around. mess up and not be afraid to get lost. You can ask questions in the Pharo-user mailing-list. You should do the challenge for yourself, we will not grade it because there are several ways to solve it. Every Semaine you will get the solution of the previous challenge and we strongly encourage you to read the messages and classes we use in the solution. Challenges are usually fun and challenging a bit, of course.
 
 
-!!Week 1: Welcome on Board and Syntax Discovery
+!!Semaine 1: Welcome on Board and Syntax Discovery
 
 # [Lecture] Objectives of this MOOC
 # [Lecture] Pharo: an Immersive Object-Oriented System
@@ -49,7 +50,7 @@ During the first redo you should act as a monkey just reproducing what you see.
 # [Exercise] TinyBlog: Presentation and Model
 # [Challenge] Challenge 0
 
-!!Week 2: Pharo Syntax, Blocks and Inspector
+!!Semaine 2: Pharo Syntax, Blocks and Inspector
 
 # [Lecture] Understanding Messages
 # [Lecture] Messages for Java programmer
@@ -75,7 +76,7 @@ During the first redo you should act as a monkey just reproducing what you see.
 # [Challenge] Challenge 1
 
 
-!!Week 3: Design, Class Methods and Collections
+!!Semaine 3: Design, Class Methods and Collections
 
 # [Lecture] Essence of Dispatch: Taking Pharo Booleans as Example
 # [Lecture] Essence of Dispatch
@@ -98,7 +99,7 @@ During the first redo you should act as a monkey just reproducing what you see.
 # [Challenge] Challenge 2
 
 
-!!Week 4: Inheritance, Lookup and Web Development
+!!Semaine 4: Inheritance, Lookup and Web Development
 
 # [Lecture] Inheritance Basics
 # [Lecture] Inheritance & Lookup: Lookup
@@ -122,7 +123,7 @@ During the first redo you should act as a monkey just reproducing what you see.
 # [Challenge] Solution: Challenge 2
 # [Challenge] Challenge 3
 
-!!Week 5: Exceptions, Debugging and Reflection
+!!Semaine 5: Exceptions, Debugging and Reflection
 # [Lecture] Seaside: Composing Components
 # [Lecture] Really Understanding Class Methods
 # [Lecture] Common Errors
@@ -143,7 +144,7 @@ During the first redo you should act as a monkey just reproducing what you see.
 # [Challenge] Challenge 4
 
 
-!!Week 6: Rethink Lookup and Advanced OO Design
+!!Semaine 6: Rethink Lookup and Advanced OO Design
 # [Lecture] Did You Really Understand Super?
 # [Lecture] Understanding the Implementation of ifTrue:ifFalse:
 # [Lecture] Dice new vs. self class new
@@ -161,7 +162,7 @@ During the first redo you should act as a monkey just reproducing what you see.
 # [Challenge] Challenge 5
 
 
-!!Week 7: More on OO Design and Testing
+!!Semaine 7: More on OO Design and Testing
 # [Lecture] Advanced Points on Classes
 # [Lecture] Variable Size Objects
 # [Lecture] Understanding Metaclasses
