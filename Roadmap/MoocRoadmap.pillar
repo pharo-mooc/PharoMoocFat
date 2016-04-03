@@ -15,15 +15,21 @@
 !!Different kind of Resources and Activities
 
 This document summarizes the whole MOOC planning week by week.
-It is best to do the activities exactly in the order they are presented.
-There are several kinds of activities:
+It is best to do the activities in the order they are presented but you can mix if you feel that this is better for you. 
+There are several kinds of activities (that you can identify also based on the their names and/or tags):
 
-- [""Lecture""] means that you should watch a video explaining some notions described in slides. You will find a handout version of all slides in this document. We invite you to always watch videos while taking notes on the slides.
-- [""Live""] means that you should watch a video demonstrating a coding ession in Pharo.
-- [""Quiz""] means that you should answer a sequence of small questions. Watching the lectures will most of the time be enough to answer. Some questions will explicitly ask you to check in Pharo.
-- [""Redo""] means that you should watch a Live video and apply, in your Pharo installation, what is demonstrated.
-- [""Exercise""] means that you should do a guided project in your Pharo installation. The exercise is described by a document.
-- [""Challenge""] means that you have to solve a little challenge by poking in Pharo.
+
+- [""Lecture""] means that you should watch a video explaining some notions described in slides. You will find a handout version in PDF of all slides in this document. We invite you to always watch videos while taking notes on the slides.
+- [""Live""] means that you should watch a video demonstrating a certain interactive aspect of the Pharo IDE. We suggest to reproduce what is shown in the video.
+- [""Quiz""] means that you should answer a sequence of small questions. Watching the lectures will most of the time be enough to answer. Some questions will explicitly ask you to check in Pharo. This is based on the Quiz success that you will get your Pharo Mooc certificate. 
+- [""Redo""] means that you should 
+-- (1) watch a Live coding video session and 
+-- (2) redo what is demonstrated step by step using your Pharo installation.
+During the first redo you should act as a monkey just reproducing what you see. 
+- [""Exercise""] means that you should do a guided project using your Pharo installation. The exercise is described by a document. Sometimes you have version with holes and full versions. It is best to start with a version without the solution, but this is up to you to decide. We will not grade you on such exercises but they are key to train yourself. 
+- [""Mini project""] means that you get a longer exercise named TinyBlog that will last the complete Mooc. Each week we will add new functionality. Each week you will get a complete code version of the previous week so that if you failed the week before you can still continue during the new week. 
+- [""Challenge""] means that you have to solve a little challenge by poking in Pharo. The idea is that you should look around. mess up and not be afraid to get lost. You can ask questions in the Pharo-user mailing-list. You should do the challenge for yourself, we will not grade it because there are several ways to solve it. Every week you will get the solution of the previous challenge and we strongly encourage you to read the messages and classes we use in the solution. Challenges are usually fun and challenging a bit, of course.
+
 
 !!Week 1: Welcome on Board and Syntax Discovery
 
