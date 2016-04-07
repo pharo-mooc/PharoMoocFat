@@ -74,6 +74,7 @@ DEST=PharoMooc/Week6
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week6/*.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W6-TinyBlog-Deployment-FR.pdf $DEST
+$CPMV $SRC/Exercises/Exo-W6-TinyBlog-Deployment-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge4-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge4-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge5-EN.pdf $DEST
