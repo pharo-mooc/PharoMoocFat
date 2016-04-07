@@ -55,6 +55,7 @@ $CPMV $SRC/Exercises/Challenge3-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge3-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-ContactManager.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W4-TinyBlog-Seaside-FR.pdf $DEST
+$CPMV $SRC/Exercises/Exo-W4-TinyBlog-Seaside-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W4-TinyBlog-VoyageMongo-FR.pdf  $DEST
 $CPMV $SRC/Exercises/Exo-W4-TinyBlog-VoyageMongo-EN.pdf  $DEST
 
@@ -84,6 +85,6 @@ $CPMV $SRC/Slides/Week7/*.pdf $DEST
 $CPMV $SRC/Exercises/Challenge5-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge5-Solution-FR.pdf $DEST
 
-DEST=PharoMooc/ExtraSlides
-mkdir -p $DEST
-$CPMV $SRC/Slides/ExtraSlides/*.pdf $DEST
+# DEST=PharoMooc/ExtraSlides
+# mkdir -p $DEST
+# $CPMV $SRC/Slides/ExtraSlides/*.pdf $DEST

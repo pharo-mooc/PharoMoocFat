@@ -242,7 +242,7 @@ TBScreenComponent >> renderContentOn: html
 
 !!Utilisation du composant Screen
 
-Bien que le composant ==TBScreenComposant== n'ait pas vocation à être utilisé directement, nous allons l'utiliser de manière temporaire pendant que nous développons les autres composants. 
+Bien que le composant ==TBScreenComponent== n'ait pas vocation à être utilisé directement, nous allons l'utiliser de manière temporaire pendant que nous développons les autres composants. 
 
 Ainsi nous l'instancions dans la méthode ==initialize== suivante. 
 
