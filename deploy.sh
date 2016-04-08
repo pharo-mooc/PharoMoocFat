@@ -9,6 +9,7 @@ DEST=PharoMooc
 rm -fr $DEST
 mkdir -p $DEST
 $CPMV $SRC/Roadmap/MoocRoadmap.pdf $DEST/PharoMoocRoadmap.pdf
+$CPMV $SRC/Roadmap/MoocRoadmap-FR.pdf $DEST/PharoMoocRoadmap-FR.pdf
 
 DEST=PharoMooc/Week1
 mkdir -p $DEST
@@ -69,6 +70,7 @@ $CPMV $SRC/Exercises/Challenge4-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-TinyChat-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-TinyChat-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W5-TinyBlog-SeasideAdmin-FR.pdf $DEST
+$CPMV $SRC/Exercises/Exo-W5-TinyBlog-SeasideAdmin-EN.pdf $DEST
 
 DEST=PharoMooc/Week6
 mkdir -p $DEST
