@@ -37,114 +37,113 @@ De plus les challenges sont souvent marrants et des petits défis. Donc ne boude
 
 !!Semaine 1 : Démarrage et Découverte de la Syntaxe 
 
-# [Lecture] Objectives of this MOOC
-# [Lecture] Pharo: an Immersive Object-Oriented System
-# [Lecture] Pharo Vision
-# [Lecture] Pharo Object Model in a Nutshell
-# [Lecture] Pharo Syntax in a Nutshell
-# [Lecture] Class and Method Definitions
-# [Live] Selecting and executing expressions
-# [Live] Learn Pharo with Prof Stef
-# [Live] Syntax Highlighting gives Feedback
-# [Live] Learn Keyboard Shortcuts
-# [Redo] Coding a Counter
-# [Exercise] Expressions and Messages
-# [Exercise] Developing a Simple Counter
-# [Exercise] TinyBlog: Presentation and Model
-# [Challenge] Challenge 0
+# [Lecture] Objectifs (Objectives of this MOOC)
+# [Lecture] Pharo: un système objet immersif (Pharo: an Immersive Object-Oriented System)
+# [Lecture] Vision (Pharo Vision)
+# [Lecture] Modèle objet de Pharo en 5 min (Pharo Object Model in a Nutshell)
+# [Lecture] Syntaxe Pharo en 5 min (Pharo Syntax in a Nutshell)
+# [Lecture] Définition de classe et méthodes (Class and Method Definitions)
+# [Live] Selectionner et exécuter des expressions (Selecting and executing expressions)
+# [Live] Apprendre Pharo avec Prof Stef (Learn Pharo with Prof Stef)
+# [Live] Colorisation de syntaxe (Syntax Highlighting gives Feedback)
+# [Live] Apprendre les raccourcis claviers (Learn Keyboard Shortcuts)
+# [Redo] Développer un compteur (Coding a Counter)
+# [Exercise] Expressions et Messages (Expressions and Messages)
+# [Exercise] Développer un simple compteur (Developing a Simple Counter)
+# [Exercise] TinyBlog: présentation et modèle (TinyBlog: Presentation and Model)
+# [Challenge] Défi 0: (Challenge 0)
 
 !!Semaine 2 : Syntaxe Pharo, Blocks et Inspecteur
 
-# [Lecture] Understanding Messages
-# [Lecture] Messages for Java programmer
-# [Lecture] Messages: Composition and Precedence
-# [Lecture] Understanding Messages: Sequence and Cascade
-# [Live] Finding Methods with Finder
-# [Live] GTInspector 1: Inspect and Interact with Objects
-# [Lecture] Introduction to Blocks
-# [Lecture] Loops
-# [Lecture] Booleans and Conditions
-# [Lecture] Parenthesis vs Square Brackets
-# [Lecture] Yourself
-# [Lecture] The Essence of Dispatch through an Exercise
-# [Live] Nautilus 1: First Meet with the Code Browser
-# [Live] Nautilus 2: Packages, Tags and Groups
-# [Live] Nautilus 3: Inheritance view
-# [Redo] Coding a Counter in the Debugger
-# [Exercise] Solution: Expressions and Messages
-# [Exercise] Expression Results
-# [Exercise] Creating a Simple Embedded DSL with Pharo
-# [Exercise] TinyBlog: Extending and Testing the Model
-# [Challenge] Solution: Challenge 0
-# [Challenge] Challenge 1
+# [Lecture] Comprendre les messages (Understanding Messages)
+# [Lecture] Messages pour les programmeurs Java (Messages for Java programmer)
+# [Lecture] Messages : Composition et Précédence (Messages: Composition and Precedence)
+# [Lecture] Comprendre les messages : Séquence et Cascade (Understanding Messages: Sequence and Cascade)
+# [Live] Trouver des méthodes avec le Finder (Finding Methods with Finder)
+# [Live] GTInspector 1 : Inspecter et intéragir avec les objets (GTInspector 1: Inspect and Interact with Objects)
+# [Lecture] Introduction aux Blocks (Introduction to Blocks)
+# [Lecture] Boucles (Loops)
+# [Lecture] Booléens et conditions (Booleans and Conditions)
+# [Lecture] Parenthese contre Crochets (Parenthesis vs Square Brackets)
+# [Lecture] Yourself (Yourself)
+# [Lecture] Essence du Dispatch: Un Exemple (The Essence of Dispatch through an Exercise)
+# [Live] Nautilus 1 : Premier contact (Nautilus 1: First Meet with the Code Browser)
+# [Live] Nautilus 2 : Packages, Etiquettes et Groupes (Nautilus 2: Packages, Tags and Groups)
+# [Live] Nautilus 3 : Heritage (Nautilus 3: Inheritance view)
+# [Redo] Coder un compteur dans le debogueur (Coding a Counter in the Debugger)
+# [Exercise] Solution : Expressions et Messages (Solution: Expressions and Messages)
+# [Exercise] Solution : Résultats (Expression Results)
+# [Exercise] TinyBlog : Etension et Tests (TinyBlog: Extending and Testing the Model)
+# [Challenge] Solution : Défi 0 (Solution: Challenge 0)
+# [Challenge] Défi 1 (Challenge 1)
 
 
 !!Semaine 3 : Conception, Méthodes de classes et Collections
 
-# [Lecture] Essence of Dispatch: Taking Pharo Booleans as Example
-# [Lecture] Essence of Dispatch
-# [Lecture] Variables
-# [Lecture] A Simple HTTP Application: a Pretext to Revisit Pharo Syntax
-# [Live] Nautilus 4: How to Become a Super Pharo Developer: Understanding Sender and Implementors
-# [Live] Nautilus 5: Navigating Fast Inside Classes
-# [Lecture] Class Methods
-# [Lecture] An Overview of Essential Collections
-# [Live] Spotter 1: Find and Browse a Class
-# [Live] Spotter 2: Filter Results by Category
-# [Lecture] Iterators
-# [Lecture] Stream Overview
-# [Lecture] Understanding Return
-# [Redo] Coding a Little Domain Specific Language
-# [Exercise] Solution: Expression Results
-# [Exercise] Rewriting Expressions
-# [Exercise] TinyBlog: A Simple Teapot Web Interface
-# [Challenge] Solution: Challenge 1
-# [Challenge] Challenge 2
+# [Lecture] Sélection de méthode: Booléens Pharo comme exemple (Essence of Dispatch: Taking Pharo Booleans as Example)
+# [Lecture] Essence de sélection méthode (Essence of Dispatch)
+# [Lecture] Variables (Variables)
+# [Lecture] Une petite application HTTP: Revisitons la Syntaxe Pharo (A Simple HTTP Application: a Pretext to Revisit Pharo Syntax)
+# [Live] Nautilus 4 : Comment devenir un super Pharoer: comprendre sender/implementeurs (Nautilus 4: How to Become a Super Pharo Developer: Understanding Sender and Implementors)
+# [Live] Nautilus 5 : Naviguer rapidement à l'intérieur d'une classe (Nautilus 5: Navigating Fast Inside Classes)
+# [Lecture] Méthodes de classe (Class Methods)
+# [Lecture] Un survol des principales collections (An Overview of Essential Collections)
+# [Live] Spotter 1 : Trouver et browser une classe (Spotter 1: Find and Browse a Class)
+# [Live] Spotter 2 : Filtrer les résultats par catégories (Spotter 2: Filter Results by Category)
+# [Lecture] Itérateurs (Iterators)
+# [Lecture] Survol des Streams (Stream Overview)
+# [Lecture] Comprendre Return (Understanding Return)
+# [Redo] Développer un petit langage spécifique (Coding a Little Domain Specific Language)
+# [Exercise] Solution : Résultats d'expressions (Solution: Expression Results)
+# [Exercise] Réécrire des expressions (Rewriting Expressions)
+# [Exercise] TinyBlog : a simple interface web avec TeaPot (TinyBlog: A Simple Teapot Web Interface)
+# [Challenge] Solution : Défi 1 (Solution: Challenge 1)
+# [Challenge] Défi 2 (Challenge 2)
 
 
 !!Semaine 4 : Héritage et Recherche de Méthode et Développement Web
 
-# [Lecture] Inheritance Basics
-# [Lecture] Inheritance & Lookup: Lookup
-# [Lecture] Inheritance & Lookup: Super
-# [Lecture] Inheritance & Lookup: DoesNotUnderstand:
-# [Lecture] Inheritance & Lookup: Lookup in Metaclasses
-# [Lecture] Class Methods at Work
-# [Lecture] Overview of Pharo Web Stack
-# [Lecture] Seaside: an Innovative Web Application Framework
-# [Lecture] Seaside: Rendering Components
-# [Lecture] Seaside: a Glance at MetaData and REST
-# [Lecture] Voyage: NoSql Object Database
-# [Live] How to load code from repository
-# [Live] How to load projects
-# [Live] Nautilus 6: An overview of Refactorings
-# [Live] Nautilus 7: Using the Quality Assistant and Code Critic
-# [Exercise] Solution: Rewriting Expressions
-# [Exercise] TinyBlog: Data Persitency using Voyage and Mongo
-# [Exercise] TinyBlog: Building a Web Interface with Seaside
-# [Exercise] Building a Simple Contact Book Application
-# [Challenge] Solution: Challenge 2
-# [Challenge] Challenge 3
+# [Lecture] Héritage (Inheritance Basics)
+# [Lecture] Héritage et Recherche de Méthode (Inheritance & Lookup: Lookup)
+# [Lecture] Héritage : Super (Inheritance & Lookup: Super)
+# [Lecture] Héritgae : doesNotUnderstand: (Inheritance & Lookup: DoesNotUnderstand:)
+# [Lecture] Recherche de Méthode et Métaclasses (Inheritance & Lookup: Lookup in Metaclasses)
+# [Lecture] Méthodes de classes comme mecanisme d'enregistrement (Class Methods at Work)
+# [Lecture] Survol de la Pile Web Pharo (Overview of Pharo Web Stack)
+# [Lecture] Seaside : Un framework web innovant (Seaside: an Innovative Web Application Framework)
+# [Lecture]  Seaside : Rendu des composants (Seaside: Rendering Components)
+# [Lecture] Seaside : Un oeil sur MetaDonnees et REST (Seaside: a Glance at MetaData and REST)
+# [Lecture] Voyage : Base de données objet noSQL (Voyage: NoSql Object Database)
+# [Live] Comment charger du code d'un repositoire (How to load code from repository)
+# [Live] Comment charger un projet (How to load projects)
+# [Live] Nautilus 6 : Un survol des refactorings (Nautilus 6: An overview of Refactorings)
+# [Live] Nautilus 7 : Utiliser l'assistant de qualité et code critique (Nautilus 7: Using the Quality Assistant and Code Critic)
+# [Exercise] Solution : Réécrire des expressions (Solution: Rewriting Expressions)
+# [Exercise] TinyBlog : Persistance avec Voyage et Mongo (TinyBlog: Data Persitency using Voyage and Mongo)
+# [Exercise] TinyBlog : Une Interface Web avec Seaside (TinyBlog: Building a Web Interface with Seaside)
+# [Exercise] Construisons une gestion de contacts (Building a Simple Contact Book Application)
+# [Challenge] Solution : Défi 2 (Solution: Challenge 2)
+# [Challenge] Défi 3 (Challenge 3)
 
 !!Semaine 5 : Exception, Debuggage et Réflexion
 # [Lecture] Seaside: Composing Components
 # [Lecture] Really Understanding Class Methods
-# [Lecture] Common Errors
-# [Lecture] Powerful Exceptions: an Overview
-# [Lecture] Debugging in Pharo
-# [Lecture] SUnit: Unit Tests in Pharo
-# [Lecture] Files in Pharo
-# [Lecture] Reflection: Basic Introspection
-# [Lecture] Benchmarking in Pharo
-# [Live] Spotter 3: Scoping and Reducing Search
-# [Live] Spotter 6: Search, Navigate and Preview Files
-# [Live] Learning the Debugger
-# [Live] How to find a bug?
-# [Live] GTInspector 2: Inspect Files and Directories
-# [Exercise] TinyBlog: Building an Admin Seaside Web Interface with Magritte
-# [Exercise] TinyChat
-# [Challenge] Solution: Challenge 3
-# [Challenge] Challenge 4
+# [Lecture] Erreurs communes (Common Errors)
+# [Lecture] Exceptions: un survol (Powerful Exceptions: an Overview)
+# [Lecture] Debugger avec Pharo (Debugging in Pharo)
+# [Lecture] SUnit: tests unitaire en Pharo (SUnit: Unit Tests in Pharo)
+# [Lecture] Fichiers en Pharo (Files in Pharo)
+# [Lecture] Réflexion : Simple Introspection (Reflection: Basic Introspection()
+# [Lecture] Optimisation en Pharo (Benchmarking in Pharo)
+# [Live] Spotter 3 : réduire les recherches (Spotter 3: Scoping and Reducing Search)
+# [Live] Spotter 6 : Chercher, naviguer et prévisualisation (Spotter 6: Search, Navigate and Preview Files)
+# [Live] Comprendre le débuggeur (Learning the Debugger)
+# [Live] Comment trouver un bug (How to find a bug?)
+# [Live] GTInspector 2 : inspecter fichiers et dossiers (GTInspector 2: Inspect Files and Directories)
+# [Exercise] TinyBlog : Admin Interface avec Magritte (TinyBlog: Building an Admin Seaside Web Interface with Magritte)
+# [Exercise] TinyChat (TinyChat)
+# [Challenge] Solution : Défi 3 (Solution: Challenge 3)
+# [Challenge] Défi 4 (Challenge 4)
 
 
 !!Semaine 6 : Repenser la recherche de méthode et points avancés 
