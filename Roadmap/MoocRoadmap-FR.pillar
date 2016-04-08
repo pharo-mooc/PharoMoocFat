@@ -147,33 +147,33 @@ De plus les challenges sont souvent marrants et des petits défis. Donc ne boude
 
 
 !!Semaine 6 : Repenser la recherche de méthode et points avancés 
-# [Lecture] Did You Really Understand Super?
-# [Lecture] Understanding the Implementation of ifTrue:ifFalse:
-# [Lecture] Dice new vs. self class new
-# [Lecture] Message sends are plans for reuse
-# [Lecture] Hooks and Templates
-# [Lecture] Runtime Architecture
-# [Lecture] Characters, Strings and Symbols
-# [Lecture] Dynamic Vs. Literal Arrays
-# [Live] Understanding Images and Changes Files
-# [Live] Using the Pharo Launcher to manage your Pharo images
-# [Live] Diffing and Merging in Pharo
-# [Live] GTInspector 4: Build Custom Tab Views for your Objects
-# [Exercise] TinyBlog: Deployment
-# [Challenge] Solution: Challenge 4
-# [Challenge] Challenge 5
+# [Lecture] Avez-vous vraiment compris super ? (Did You Really Understand Super?)
+# [Lecture] Comprendre l'implementation de ifTrue:ifFalse: (Understanding the Implementation of ifTrue:ifFalse:)
+# [Lecture] Dice new et self class new (Dice new vs. self class new)
+# [Lecture] Envoi de messages : planification pour la réutilisation (Message sends are plans for reuse)
+# [Lecture] Crochets et Templates (Hooks and Templates)
+# [Lecture] Architecture d'execution (Runtime Architecture)
+# [Lecture] Caractères, chaines et symboles (Characters, Strings and Symbols)
+# [Lecture] Tableaux dynamiques et de litéraux (Dynamic Vs. Literal Arrays)
+# [Live] Comprendre le fichier image et changes (Understanding Images and Changes Files)
+# [Live] Utiliser le Launcher pour gérer vos images (Using the Pharo Launcher to manage your Pharo images)
+# [Live] Obtenir une différence et fusionner du code en Pharo (Diffing and Merging in Pharo)
+# [Live] GTInspector 4 : Construire une view dédiée (GTInspector 4: Build Custom Tab Views for your Objects)
+# [Exercise] TinyBlog : Deployment (TinyBlog: Deployment) 
+# [Challenge] Solution : Défi 4 (Solution: Challenge 4)
+# [Challenge] Défi 5 (Challenge 5)
 
 
 !!Semaine 7 : Conception OO et Tests
-# [Lecture] Advanced Points on Classes
-# [Lecture] Variable Size Objects
-# [Lecture] Understanding Metaclasses
-# [Lecture] Reflective Operations for Live Programming
-# [Lecture] DoesNotUnderstand: a Precious Hook
-# [Lecture] Reflection: Stack as an Object
-# [Lecture] Avoid Null Checks
-# [Lecture] A Journey in Pharo: A Bright Future
-# [Live] Spotter 4: The Preview pane
-# [Live] Spotter 5: Search in Playground History
-# [Live] GTInspector 3: Understand Pharo Internals by Inspection
-# [Challenge] Solution: Challenge 5
+# [Lecture] Points avancés sur les classes (Advanced Points on Classes)
+# [Lecture] Objets à taille variables (Variable Size Objects)
+# [Lecture] Comprendre les métaclasses (Understanding Metaclasses)
+# [Lecture] Opérations réflexives pour la programmation live (Reflective Operations for Live Programming)
+# [Lecture] DoesNotUnderstand: un point d'entrée précieux (DoesNotUnderstand: a Precious Hook)
+# [Lecture] Réflexion : la pile comme un objet (Reflection: Stack as an Object)
+# [Lecture] Evitons les tests nil (Avoid Null Checks)
+# [Lecture] Future Radieux (A Journey in Pharo: A Bright Future)
+# [Live] Spotter 4 : Le panneau de prévisualisation (Spotter 4: The Preview pane)
+# [Live] Spotter 5 : Rechercher dans l'historique de Playground (Spotter 5: Search in Playground History)
+# [Live] GTInspector : Comprendre l'implémentation interne de Pharo avec l'inspecteur (GTInspector 3: Understand Pharo Internals by Inspection)
+# [Challenge] Solution : Défi 5 (Solution: Challenge 5)
