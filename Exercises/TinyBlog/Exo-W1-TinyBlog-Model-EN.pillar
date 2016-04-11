@@ -31,8 +31,7 @@ We start here with the ==TBPost== class.
 
 !!TBPost Class
 
-We adopt the followind naming convention: all class names will be prefixed by ==TB== (pour TinyBlog).
-You must choose another prefix (e.g. ==TBM==) if you want to be able to load the correction code in the same Pharo image as your code to compare both implementations. 
+We adopt the followind naming convention: all class names will be prefixed by ==TB== (pour TinyBlog). You must choose another prefix (e.g. ==TBM==) if you want to be able to load the correction code in the same Pharo image as your code to compare both implementations. If you are familiar with the concept of source merging, you can also use the prefix TB and merge the solutions we will give you. By merging you will be able to identify the differences and learn from the solution. 
 
 Define the ==TBPost== class using:
 
