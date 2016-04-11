@@ -43,9 +43,9 @@ Object subclass: #TBPost
    package: 'TinyBlog'
 ]]]
 
-!!Description d'un post
+!!Description d'un Post
 
-Cinq variables d'instance pour décrire un post sur le blog.
+Nous utilisons cinq variables d'instance pour décrire un post sur le blog.
 
 |!Variable |!Signification |
 |title         |Titre du post                |
@@ -107,11 +107,14 @@ TBPost >> isVisible
 
 !!Initialisation
 
-La méthode ==initialize== (protocole 'initialize-release') fixe la date à celle du jour et la visibilité à faux (l'utilisateur devra par la suite activer la visibilité ce qui permet de rédiger des brouillons et de publier lorsque le post est terminé). Un post est également rangé par défaut dans la catégorie 'Unclassified' que l'on définit au niveau classe.  La méthode ==unclassifiedTag== renvoie une valeur indiquant que le post n'est pas rangé dans une catégorie.
+La méthode ==initialize== (protocole 'initialization') fixe la date à celle du jour et la visibilité à faux. L'utilisateur devra par la suite activer la visibilité ce qui permet de rédiger des brouillons et de publier lorsque le post est terminé. Un post est également rangé par défaut dans la catégorie 'Unclassified' que l'on définit au niveau classe.  La méthode ==unclassifiedTag== renvoie une valeur indiquant que le post n'est pas rangé dans une catégorie.
+
 [[[
 TBPost class >> unclassifiedTag
    ^ 'Unclassified'
 ]]]
+
+Attention la méthode ==unclassifiedTag== est définie au niveau de la classe (cliquer le bouton classe pour la définir). Les autres méthodes sont des méthodes d'instances c'est-à-dire qu'elles seront exécutées sur des instances de la classe ==TBPost==. 
 
 [[[
 TBPost >> initialize
@@ -144,17 +147,6 @@ TBPost class >> title: aTitle text: aText category: aCategory
 ]]]
 
 
-!!Test
-
-Savoir si un post est classé dans une catégorie.
-
-[[[
-TBPost >> isUnclassified
-   ^ self category = TBPost unclassifiedTag
-]]]
-
-De même il serait préférable de ne pas faire une référence en dur à la classe ==TBPost==.
-
 !!Créer des posts
 
 Vous pouvez dès maintenant créer des posts.
@@ -167,7 +159,20 @@ TBPost
 	category: 'TinyBlog'
 ]]]
 
-Si vous inspectez le code ci-dessus (clic droit sur l'expression et "inspect"), vous allez obtenir un inspecteur sur l'objet post nouvellement créé.
+Si vous inspectez le code ci-dessus (clique droit sur l'expression et "inspect"), vous allez obtenir un inspecteur sur l'objet post nouvellement créé.
+
+!!Test
+
+Nous définissons une méthode afin de savoir si un post est classé dans une catégorie.
+
+[[[
+TBPost >> isUnclassified
+   ^ self category = TBPost unclassifiedTag
+]]]
+
+De même il serait préférable de ne pas faire une référence en dur à la classe ==TBPost==.
+
+
 
 % !Le modèle des auteurs
 %

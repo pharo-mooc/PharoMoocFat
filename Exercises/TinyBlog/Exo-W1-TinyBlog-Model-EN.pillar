@@ -113,7 +113,7 @@ TBPost class >> unclassifiedTag
    ^ 'Unclassified'
 ]]]
 
-Pay attention the method ==unclassifiedTag== should be defined on the class-side of the class ==TBPost==. The other methods are defined on the instance-side: it means that they will be applied to ==TBBlog== instances. 
+Pay attention the method ==unclassifiedTag== should be defined on the class-side of the class ==TBPost== (click on the class button to define it). The other methods are defined on the instance-side: it means that they will be applied to ==TBBlog== instances. 
 
 [[[
 TBPost >> initialize
@@ -144,18 +144,6 @@ TBPost class >> title: aTitle text: aText category: aCategory
             yourself
 ]]]
 
-
-!!Testing Post Classification
-
-We define a method for testing if a post has a category or not.
-
-[[[
-TBPost >> isUnclassified
-   ^ self category = TBPost unclassifiedTag
-]]]
-
-Similarly to ==initialize==, it would be better to not hard code the reference to the ==TBPost== class.
-
 !!Creating Posts
 
 You can now create some posts.
@@ -169,6 +157,20 @@ TBPost
 ]]]
 
 If you inspect the resulting object of the above expression (right click on the expression and select the "inspect it" menu entry), you will get an inspector on the newly created ==TBPost== object.
+
+
+!!Testing Post Classification
+
+We define a method for testing if a post has a category or not.
+
+[[[
+TBPost >> isUnclassified
+   ^ self category = TBPost unclassifiedTag
+]]]
+
+Similarly to ==initialize==, it would be better to not hard code the reference to the ==TBPost== class.
+
+
 
 % !Le modèle des auteurs
 %
