@@ -182,7 +182,9 @@ TBPost >> isUnclassified
 
 Similarly to ==initialize==, it would be better to not hard code the reference to the ==TBPost== class.
 
+!! Conclusion
 
+We have now a first part of the model and it is a good time to save your Pharo image (menu item 'save'). In the next session we will show you how to save your code (package) with the Pharo versioning system.
 
 % !Le modèle des auteurs
 %

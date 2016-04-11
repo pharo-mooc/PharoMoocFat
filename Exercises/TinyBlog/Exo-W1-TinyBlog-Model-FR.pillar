@@ -185,6 +185,11 @@ TBPost >> isUnclassified
 
 De même il serait préférable de ne pas faire une référence en dur à la classe ==TBPost==.
 
+!! Conclusion
+
+Nous avons maintenant une première partie du modèle et nous vous suggèrons 
+de sauver votre image Pharo (menu item 'save'). Lors de la prochaine séance nous vous montrerons 
+comment sauver votre code (package) avec le système de version de Pharo. 
 
 
 % !Le modèle des auteurs
