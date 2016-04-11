@@ -28,7 +28,7 @@ ${slide:title=Books and Tutorials}$
 
 ${slide:title=Seaside Little History}$
 
-- Developed by A. Briant and J. Fitzell
+- Developed by A. Bryant and J. Fitzell
 - Enhanced by L. Renggli and P. Marshall
 - In production since 2002
 - Actively maintained by J. Brichau, S. Eggermont (web site under full rewrite) 
@@ -72,7 +72,7 @@ ${slide:title=Seaside Components}$
 -A Web application has a root component
 
 [[[
-WAAdmin register: WACounter asApplicationAt: 'Counter'.
+WAAdmin register: WACounter asApplicationAt: 'counter'.
 ]]]
 
 ${slide:title=The Counter Web Application}$
