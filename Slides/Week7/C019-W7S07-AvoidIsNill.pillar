@@ -10,7 +10,7 @@ Main >> showHappiness: animal
    animal isDog
       ifTrue: [ animal shakeTail ].
    animal isDuck
-      ifTrue: [ duck quack ].
+      ifTrue: [ animal quack ].
    animal isCat: [ ... ].
 ]]]
 
