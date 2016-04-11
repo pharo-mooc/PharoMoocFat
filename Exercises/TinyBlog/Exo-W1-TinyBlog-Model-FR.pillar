@@ -32,8 +32,8 @@ Nous commencerons ici par la classe ==TBPost==.
 !!La classe TBPost
 
 Dans la suite, nous préfixons tous les noms de classe par ==TB== (pour TinyBlog).
-Il serait préférable que choisissiez un autre préfixe (par exemple ==TBM==) afin de pouvoir ensuite charger la correction dans la même image Pharo et la comparer à votre propre classe. Si vous êtes familier avec la fusion (merge) de code, vous pouvez utiliser le préfixe TB et fusionner les solutions avec votre code. L'outil de merge 
-vous montrera les différences et vous permettra d'apprendre des changements.
+Il serait préférable que choisissiez un autre préfixe (par exemple ==TBM==) afin de pouvoir ensuite charger la correction dans la même image Pharo et la comparer à votre propre classe. 
+%Si vous êtes familier avec la fusion (merge) de code, vous pouvez utiliser le préfixe TB et fusionner les solutions avec votre code. L'outil de merge vous montrera les différences et vous permettra d'apprendre des changements.
 
 Définissez la classe ==TBPost== comme suit:
 
