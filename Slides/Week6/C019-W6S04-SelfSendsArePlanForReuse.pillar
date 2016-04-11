@@ -173,7 +173,7 @@ Node >> uiNode
 
 [[[
 Node >> uiNodeClass
-   ^ UINodeClass
+   ^ UINode
 ]]]
 
 ${slide:title=Many Small Messages}$
