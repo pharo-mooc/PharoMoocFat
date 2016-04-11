@@ -10,7 +10,7 @@ La solution peut ressembler à la figure ci-dessous.
 - Vous pouvez créer une morph à partir d'une image en utilisant ==AlphaImageMorph withForm:==
 - Vous pouvez obtenir la taille de l'image (pratique pour créer une PasteUpMorph de bonne taille) vous pouvez utiliser les messages ==width== et ==height==.
 - Vous pouvez downloader une image avec ==ZnEasy getJpeg: url==
-- Regardez ==PasteUpMorph==. Cette morph est une morph pour jetter des morphs dedans. Pour définir la taille d'une paste up morph, utiliser le message ==extent:==. Pour définir une morph dans le fond d'une pasteUp, utiliser le message ==backgroundMorph:==
+- Regardez ==PasteUpMorph==. Cette morph est une morph pour déposer des morphs dedans. Pour définir la taille d'une paste up morph, utiliser le message ==extent:==. Pour définir une morph dans le fond d'une pasteUp, utiliser le message ==backgroundMorph:==
 - Vous allez avoir besoin d'ajouter des scrollbars: Utilisez une ==ScrollPane== morph: Utiliser ==aScrollPane scroller addMorph: aPasteUp== pour mettre des scrollbars autour de ==aPasteUp==.
 
 +Une superbe carte avec une morph orange. >file://figures/map.png|width=80+
