@@ -9,7 +9,7 @@ The idea is that a visitor of the web site can read the posts and that the post 
 
 TinyBlog is a small pedagogical application that will show you how to define and deploy a web application using Pharo / Seaside / Mongo and frameworks available in Pharo such as NeoJSON. We will show you how to expose your application via a REST server.
 Presented solutions are sometimes not the best to offer you a room for improvement.
-Our goal is not to be exhaustive. We present one way to develop TinyBlog nevertheless we invite the reader to read further references such as books or tutorials on Pharo to deepen its expertise and enhance its application.
+Our goal is not to be exhaustive. We present one way to develop TinyBlog nevertheless we invite the reader to read further references such as books or tutorials on Pharo to deepen his expertise and enhance his application.
 
 
 !Installing Pharo
@@ -20,7 +20,7 @@ In this MOOC, we assume that you use Pharo 5.0.
 We will also use some extra libraries and frameworks dedicated to web development such as: Seaside, Magritte, Bootstrap, Voyage, VoyageMongo, ...
 
 We provide a specific Pharo web image that already includes all of these libraries.
-You  can download it using  Pharo Launcher or directly here: *http://pharo.org/mooc*.
+You can download it using Pharo Launcher or directly here: *http://pharo.org/mooc*.
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !The Model of Posts
@@ -106,12 +106,14 @@ TBPost >> isVisible
 
 !!Initialisation
 
-The ==initialize== method ('initialize-release' protocol) set the date to the current day and the visibility to false (the user must explicitly make a post visible which allow him to write drafts and only publish when the post is finished). By default, a post belongs the 'Unclassified' category. This category name is defined on class-side by the ==unclassifiedTag==  method.
+The ==initialize== method ('initialization' protocol) sets the date to the current day and the visibility to false: the user must explicitly make a post visible. This allows him to write drafts and only publish when the post is finished. By default, a post belongs the 'Unclassified' category. This category name is defined on class-side by the ==unclassifiedTag==  method.
 
 [[[
 TBPost class >> unclassifiedTag
    ^ 'Unclassified'
 ]]]
+
+Pay attention the method ==unclassifiedTag== should be defined on the class-side of the class ==TBPost==. The other methods are defined on the instance-side: it means that they will be applied to ==TBBlog== instances. 
 
 [[[
 TBPost >> initialize
@@ -125,7 +127,7 @@ In the above solution, it would be better that the ==initialize== method does no
 
 !!Posts Creation Methods
 
-On class-side, we add methods to ease posts creation that belongs to a category or not.
+On class-side, we add methods to ease posts creation for blogs that belong to a category or not.
 
 [[[
 TBPost class >> title: aTitle text: aText
@@ -145,7 +147,7 @@ TBPost class >> title: aTitle text: aText category: aCategory
 
 !!Testing Post Classification
 
-Testing if a post has a category or not.
+We define a method for testing if a post has a category or not.
 
 [[[
 TBPost >> isUnclassified
@@ -166,7 +168,7 @@ TBPost
 	category: 'TinyBlog'
 ]]]
 
-If you inspect the resulting object of the above expression (right clic on the expression and select the "inspect it" menu entry), you will get an inspector on the newly created ==TBPost== object.
+If you inspect the resulting object of the above expression (right click on the expression and select the "inspect it" menu entry), you will get an inspector on the newly created ==TBPost== object.
 
 % !Le modèle des auteurs
 %
