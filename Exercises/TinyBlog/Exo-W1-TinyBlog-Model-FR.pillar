@@ -61,31 +61,40 @@ Ces variables ont des méthodes accesseurs dans le protocole 'accessing'.
 [[[
 TBPost >> title
    ^ title
-
+]]]
+[[[
 TBPost >> title: anObject
    title := anObject
-
+]]]
+[[[
 TBPost >> text
    ^ text
-
+]]]
+[[[
 TBPost >> text: anObject
    text := anObject
-
+]]]
+[[[
 TBPost >> date
    ^ date
-
+]]]
+[[[
 TBPost >> date: anObject
    date := anObject
-
+]]]
+[[[
 TBPost >> visible
    ^ visible
-
+]]]
+[[[
 TBPost >> visible: anObject
    visible := anObject
-
+]]]
+[[[
 TBPost >> category
    ^ category
-
+]]]
+[[[
 TBPost >> category: anObject
    category := anObject
 ]]]
@@ -97,10 +106,13 @@ Il faut avoir la possibilité d'indiquer qu'un post est visible ou pas. Il faut 
 [[[
 TBPost >> beVisible
    self visible: true
-
+]]]
+[[[
 TBPost >> notVisible
    self visible: false
+]]]
 
+[[[
 TBPost >> isVisible
    ^ self visible
 ]]]

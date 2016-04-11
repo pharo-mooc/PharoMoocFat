@@ -60,31 +60,40 @@ All of these variables have corresponding accessor methods in the 'accessing' pr
 [[[
 TBPost >> title
    ^ title
-
+]]]
+[[[
 TBPost >> title: anObject
    title := anObject
-
+]]]
+[[[
 TBPost >> text
    ^ text
-
+]]]
+[[[
 TBPost >> text: anObject
    text := anObject
-
+]]]
+[[[
 TBPost >> date
    ^ date
-
+]]]
+[[[
 TBPost >> date: anObject
    date := anObject
-
+]]]
+[[[
 TBPost >> visible
    ^ visible
-
+]]]
+[[[
 TBPost >> visible: anObject
    visible := anObject
-
+]]]
+[[[
 TBPost >> category
    ^ category
-
+]]]
+[[[
 TBPost >> category: anObject
    category := anObject
 ]]]
@@ -96,10 +105,12 @@ We should add methods to make a post visible or not and also test if it is visib
 [[[
 TBPost >> beVisible
    self visible: true
-
+]]]
+[[[
 TBPost >> notVisible
    self visible: false
-
+]]]
+[[[
 TBPost >> isVisible
    ^ self visible
 ]]]
