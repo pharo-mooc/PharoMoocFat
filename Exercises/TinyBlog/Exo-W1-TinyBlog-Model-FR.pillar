@@ -14,13 +14,13 @@ Notre objectif n'est pas d'être exhaustif. Nous montrons une façon de faire ce
 
 !Installation de Pharo
 
-Vous pouvez télécharger Pharo (machine virtuelle et image) à l'adresse : *http://pharo.org/download*.
+Vous pouvez télécharger Pharo (machine virtuelle et image) à l'adresse : *http://mooc.pharo.org/*.
 
 Attention, dans ce MOOC nous supposons que vous utiliser Pharo 5.0.
 Nous allons également utiliser des bibliothèques et frameworks supplémentaires pour le développement d'applications Web: Seaside, Magritte, Bootstrap, Voyage, VoyageMongo, ...
 
 Il existe une image spécifique contenant déjà les bibliothèques courantes nécessaires au développement d'applications Web. 
-Vous pouvez la télécharger directement en utilisant Pharo Launcher ou depuis *http://pharo.org/mooc*.
+Vous pouvez la télécharger directement en utilisant Pharo Launcher ou depuis *http://mooc.pharo.org/*.
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !Le modèle des posts

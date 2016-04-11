@@ -14,13 +14,13 @@ Our goal is not to be exhaustive. We present one way to develop TinyBlog neverth
 
 !Installing Pharo
 
-You can download Pharo (the image and its virtual machine) here: *http://pharo.org/download*.
+You can download Pharo (the image and its virtual machine) here: *http://mooc.pharo.org/*.
 
 In this MOOC, we assume that you use Pharo 5.0.
 We will also use some extra libraries and frameworks dedicated to web development such as: Seaside, Magritte, Bootstrap, Voyage, VoyageMongo, ...
 
 We provide a specific Pharo web image that already includes all of these libraries.
-You can download it using Pharo Launcher or directly here: *http://pharo.org/mooc*.
+You can download it here: *http://mooc.pharo.org/*.
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !The Model of Posts
