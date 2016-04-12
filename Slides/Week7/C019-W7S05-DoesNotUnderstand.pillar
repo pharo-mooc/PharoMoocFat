@@ -33,7 +33,7 @@ Delegating >> doesNotUnderstand: aMessage
    ^ aMessage sendTo: self target
 ]]]
 
-- Pay attention it blurs code understandibility
+- Pay attention it blurs code understandability
 - Only tools and specific parts should use such tricks
 
 
