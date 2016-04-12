@@ -19,17 +19,27 @@ Maintenant que vous avez la correction, vous pouvez compléter le code de votre 
 
 !Sauvegarder sur Smalltalkhub
 
-Nous allons maintenant vous permettre de sauvegarder votre code sur Smalltalkhub.
+Nous allons maintenant vous permettre de sauvegarder votre code sous forme de packages sur Smalltalkhub. Smalltalkhub *http://smalltalkhub.com* est une des forges pour sauver le code Pharo, vous pouvez aussi utiliser *http://ss3.gemstone.com*. 
+
 
 !!Créer un dépôt de code
 
 - Créer un compte sur le site  *http://smalltalkhub.com/*
-- Se connecter au site
-- Créer un projet
--- Nommez le "TinyBlog",
--- Récupérer l'URL du projet: 'http://smalltalkhub.com/mc/XXX/TinyBlog/main'
+- Se connecter au site 
+- Créer un projet (il se peut que vous ayez des problèmes de connexion auquel cas changez de navigateur, si les problèmes persistent utiliser *http://ss3.gemstone.com*).
+-- Nommez le "TinyBlog"
 
-!!Créer la configuration du projet
+!!Sauver Votre Package
+
+- Dans Pharo, ouvrez le Monticello Browser
+- Ajoutez un repository (soit SmalltalkHub soit HTTP)
+- Sélectionner le repository et sélectionner l'item 'Add to package...' pour ajouter ce repository au package TinyBlog
+- Sélectionner votre package et pressez le bouton 'Save'. 
+- Editer l'information de description et sauver. Votre code vient d'être sauvé sur le serveur.
+
+Dans le cadre de ce cours, nous vous suggérons de toujours utiliser l'image avec tous les packages web chargés que vous trouvez sur *http://mooc.pharo.org*
+
+!![Optionel] Créer la configuration du projet
 
 Dans votre image Pharo, ouvrez l'outil Versionner:
 
@@ -57,6 +67,7 @@ Object subclass: #TBBlog
    package: 'TinyBlog'
 ]]]
 
+Nous initialisons les postes sur une collection vide.
 [[[
 TBBlog >> initialize
    super initialize.
@@ -65,8 +76,9 @@ TBBlog >> initialize
 
 !!Un seul blog
 
-Dans un premier temps nous supposons que nous allons gérer qu'un seul blog. Dans le futur, nous ajouterons la possibilité de gérer plusieurs blogs comme un par utilisateur de notre application. Pour cela, nous utilisons donc un singleton pour la classe ==TBBlog==.
+Dans un premier temps nous supposons que nous allons gérer qu'un seul blog. Dans le futur, vous pourrez ajouter la possibilité de gérer plusieurs blogs comme un par utilisateur de notre application. Pour l'instant, nous utilisons donc un singleton pour la classe ==TBBlog==.
 
+Comme toutes les méthodes de gestion du singleton sont un comportement de classe, ces méthodes sont définies sur le coté class de la classe ==TBBlog==. 
 [[[
 TBBlog class
    instanceVariableNames: 'uniqueInstance'
