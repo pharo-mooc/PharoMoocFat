@@ -100,7 +100,7 @@ ${slide:title=Another Application}$
 Scaffolding patterns: Generate code on the fly based of patterns
 
 [[[
-DynamicAccsssors >> doesNotUnderstand: aMessage
+DynamicAccessors >> doesNotUnderstand: aMessage
    | messageName |
    messageName := aMessage selector asString.
    (self class instVarNames includes: messageName)
