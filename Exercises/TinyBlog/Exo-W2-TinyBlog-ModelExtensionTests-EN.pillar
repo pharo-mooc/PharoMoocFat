@@ -1,8 +1,10 @@
 {
-    "title":"Extending and Testing the Model"
+    "title":"TinyBlog: Extending and Testing the Model"
 }
 
-!Previous Week Solution
+! TinyBlog: Extending and testing the model
+
+!! Previous week solution
 
 You can load the solution of the previous week using the following snippet:
 
@@ -17,32 +19,48 @@ Gofer new
 Then, you can browse the code of the ==TBPost== class.
 With this solution, you can complete the code of ""your"" TinyBlog application if needed before continuing.
 
-!Save you Code on Smalltalkhub
+!! Save your code
+Even if you can save the Pharo image which contains all the objects of the system
+(and as such the classes you wrote), this section explains how Pharoers usually save their code as packages on dedicated servers with the Pharo versioning system named Monticello. Smalltalkhub *http://smalltalkhub.com* is one of this server to host saved Pharo code. You can also use SS3 at *http://ss3.gemstone.com*. 
 
-This section explains how to save your Pharo code on Smalltalkhub.
+!!!Create a repository
 
-!!Create a Repository
-
-- Create an account on  *http://smalltalkhub.com/*
+- Create an account on  *http://smalltalkhub.com/*.
 - Log yourself on the web site
-- Create a project (it may happen that you get a connection problem, in such case retry with a different web browser)
--- named "TinyBlog",
--- the project URL should look like: 'http://smalltalkhub.com/mc/XXX/TinyBlog/main'
+- Create a project (it may happen that you get a connection problem because the web site is still in beta, in such a case retry with a different web browser. If the problems persist use *http://ss3.gemstone.com*).
+-- Name it the way you want. For example "TinyBlog",
 
-!!Create a Project Configuration
 
-In your Pharo image, open the Versionner tool:
+!!! Save your package
+- In Pharo, open the Monticello Browser available in the main menu.
+- Add a repository (of type either SmalltalkHub or HTTP for SS3)
+- Select the repository and the menu item 'Add to package...' to add this repository to the package TinyBlog. 
+- Select your package and press the 'Save' button.
+- Enter a log describing the changes you did. 
 
-- Create a new project named "TinyBlog",
-- Indicate that this project depends on PharoWeb,
-- In packages, add the TinyBlog package,
--- Define projet repository URL to 'http://smalltalkhub.com/mc/XXX/TinyBlog/main'
--- And finally click on the "Save to development" button
+In this project, we encourgae you to always use the image we gave with the preloaded packages and that you can find at *http://mooc.pharo.org*. This will let you load new code without having to take care about package dependencies. 
 
-Your TinyBlog application code is now saved in your code repository on Smalltalkhub. It is now possible to load your code in a new Pharo image. In fact, we advise you to regularly load your code from Smalltalkhub in a fresh and up-to-date Pharo image. This practice helps to ensure that your code correctly saved in your repository.
+@@here
+!!A propos de dépendances
+
+Les bonnes pratiques lors de développements en Pharo sont de spécifier clairement les dépendances sur les packages utilisés afin d'avoir une reproductibilité complète d'un projet et l'utilisation de processus de construction tel travis ou jenkins. 
+Pour cela, une configuration (une classe spéciale) définit d'une part l'architecture du projet (dependances et packages du projet) et les versions des packages versionnés. 
+
+Dans le cadre de ce projet, nous n'abordons pas ce point plus avancé. Un chapitre entier dans Deep Into Pharo est consacré à ce point. 
+ 
+!!!!! Optionel. 
+Si vous voulez essayer de créer une configuration, vous pouvez utiliser Versionner. 
+Dans votre image Pharo, ouvrez l'outil Versionner:
+- Créez un nouveau projet nommé "TinyBlog",
+- Indiquez que votre projet dépend de PharoWeb (dépendance entre projets),
+- Dans Packages, ajoutez le paquet TinyBlog,
+- Définissez le dépôt de votre projet: 'http://smalltalkhub.com/mc/XXX/TinyBlog/main'
+- Cliquez sur le bouton "Save to development" (pour générer la nouvelle structure d'architecture et dépendances), "Release" (pour créer une nouvelle vetsion) et Commit (pour sauver le code sur le serveur).
+
+Le code de votre application TinyBlog est maintenant sauvegardé dans votre dépôt sur Smalltalkhub. Il est donc maintenant possible de charger votre code dans une nouvelle image Pharo. Par contre, cela va prendre un certain temps à charger car vous allez charger Seaside et plusieurs autres projets. 
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-!TBBlog class
+!!TBBlog class
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A ==TBBlog== contains posts. We will now, develop this ==TBBlog== class and its unit tests.

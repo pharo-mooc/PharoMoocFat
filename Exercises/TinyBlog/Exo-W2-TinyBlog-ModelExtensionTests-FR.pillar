@@ -6,7 +6,7 @@
 
 !! Correction semaine précédente
 
-Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
+Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant :
 
 [[[
 Gofer new 
@@ -21,7 +21,7 @@ Maintenant que vous avez la correction, vous pouvez compléter le code de votre 
 
 !!Sauvegarder votre code 
 
-Alors que vous pouvez sauver l'image Pharo qui contient tous les objets du système et donc les classes elles-même, nous allons vous montrer comment les pharoers sauvent leur code: Vous allez sauver votre code sous forme de packages sur un serveur dédié à l'aide de Monticello le gestionnaire de versions de Pharo. Smalltalkhub *http://smalltalkhub.com* est une des forges pour sauver le code Pharo, vous pouvez aussi utiliser *http://ss3.gemstone.com*. 
+Alors que vous pouvez sauver l'image Pharo qui contient tous les objets du système et donc les classes elles-même, nous allons vous montrer comment les pharoers sauvent leur code: Vous allez sauver votre code sous forme de packages sur un serveur dédié à l'aide de Monticello le gestionnaire de versions de Pharo. Smalltalkhub *http://smalltalkhub.com* est une des forges pour sauver le code Pharo, vous pouvez aussi utiliser SS3 à *http://ss3.gemstone.com*. 
 
 
 !!!Créer un dépôt de code
@@ -34,8 +34,8 @@ Alors que vous pouvez sauver l'image Pharo qui contient tous les objets du syst�
 !!!Sauver votre package
 
 - Dans Pharo, ouvrez le Monticello Browser via le menu du monde.
-- Ajouter un repository (de type soit SmalltalkHub soit HTTP pour *http://ss3.gemstone.com*)
-- Sélectionner le repository et sélectionner l'item 'Add to package...' pour ajouter ce repository au package TinyBlog
+- Ajouter un repository (de type soit SmalltalkHub soit HTTP pour *http://ss3.gemstone.com*).
+- Sélectionner le repository et sélectionner l'item 'Add to package...' pour ajouter ce repository au package TinyBlog.
 - Sélectionner votre package et pressez le bouton 'Save'. 
 - Editer l'information de description et sauver. Votre code vient d'être sauvé sur le serveur.
 
@@ -149,7 +149,7 @@ L'utilisation d'un Singleton montre ses limites. En effet, si vous déployez un 
 
 Nous allons développer les tests d'abord puis ensuite passer à l'implémentation des fonctionnalités.
 
-!!!Un premier test
+!!Un premier test
 
 Commençons par écrire un premier test qui ajoute un post.
 
