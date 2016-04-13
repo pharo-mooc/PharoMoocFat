@@ -2,7 +2,7 @@
     "title":"TinyBlog: Presentation and Model"
 }
 
-!TinyBlog: a small web app
+!TinyBlog: presentation and model
 
 In this project, we will guide you to develop a mini project: a small web application, named TinyBlog, that manages a blog system.
 The idea is that a visitor of the web site can read the posts and that the post author could connect to the web site to admin the application and manage its posts (add, remove and modify existing ones). 
@@ -12,7 +12,7 @@ Presented solutions are sometimes not the best to offer you a room for improveme
 Our goal is not to be exhaustive. We present one way to develop TinyBlog nevertheless we invite the reader to read further references such as books or tutorials on Pharo to deepen his expertise and enhance his application.
 
 
-!Installing Pharo
+!!Installing Pharo
 
 
 In this project, we assume that you use Pharo 5.0 and since we will also use some extra libraries and frameworks dedicated to web development such as: Seaside, Magritte, Bootstrap, Voyage, VoyageMongo, ... we provide a specific Pharo web image that already includes all of these libraries.
@@ -21,13 +21,13 @@ You can download it at the following address: *http://mooc.pharo.org/*. For this
 
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-!The Model of Posts
+!!The model of posts
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The model part of TinyBlog is really simple.
 We start here with the ==TBPost== class.
 
-!!TBPost Class
+!!!TBPost Class
 
 We adopt the followind naming convention: all class names will be prefixed by ==TB== (pour TinyBlog). You must choose another prefix (e.g. ==TBM==) if you want to be able to load the correction code in the same Pharo image as your code to compare both implementations. 
 
@@ -42,7 +42,7 @@ Object subclass: #TBPost
    package: 'TinyBlog'
 ]]]
 
-!!Description of a Post
+!!!Description of a post
 
 A blog post is described by 5 instance variables.
 
@@ -135,7 +135,7 @@ TBPost >> initialize
 In the above solution, it would be better that the ==initialize== method does not hard code the reference to the ==TBPost== class. We will present and discuss this point later in the MOOC.
 
 
-!!Posts Creation Methods
+!!Posts creation methods
 
 On class-side, we add methods to ease posts creation for blogs that belong to a category or not.
 
@@ -154,7 +154,7 @@ TBPost class >> title: aTitle text: aText category: aCategory
             yourself
 ]]]
 
-!!Creating Posts
+!!Creating posts
 
 You can now create some posts.
 Open the Playground tool and execute the following snippet:
@@ -169,7 +169,7 @@ TBPost
 If you inspect the resulting object of the above expression (right click on the expression and select the "inspect it" menu entry), you will get an inspector on the newly created ==TBPost== object.
 
 
-!!Testing Post Classification
+!!Testing post classification
 
 We define a method for testing if a post has a category or not.
 

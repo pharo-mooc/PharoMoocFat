@@ -4,7 +4,7 @@
 
 ! L'application TinyBlog : présentation et modèle
 
-!!L'application TinyBlog
+
 
 Tout au long de ce projet, nous allons vous guider pour développer et enrichir une application Web  pour gérer un ou plusieurs blogs.  Dans la suite appellerons cette application: TinyBlog. L'idée est qu'un visiteur du site Web puisse voir les posts et que l'auteur du blog puisse se connecter sur le site pour administrer le blog c'est-à-dire ajouter, supprimer ou modifier des posts.
 
