@@ -1,8 +1,10 @@
 {
-    "title":"L'application TinyBlog : extension du modèle et tests unitaires"
+"title":"L'application TinyBlog : extension du modèle et tests unitaires"
 }
 
-!Correction semaine précédente
+! TinyBlog : Extension du modèle et tests unitaires
+
+!! Correction semaine précédente
 
 Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
 
@@ -17,19 +19,19 @@ Gofer new
 Vous pouvez ouvrir un browser de code sur la classe ==TBPost==.
 Maintenant que vous avez la correction, vous pouvez compléter le code de votre application TinyBlog si nécessaire.
 
-!Sauvegarder Votre Code 
+!!Sauvegarder votre code 
 
 Alors que vous pouvez sauver l'image Pharo qui contient tous les objets du système et donc les classes elles-même, nous allons vous montrer comment les pharoers sauvent leur code: Vous allez sauver votre code sous forme de packages sur un serveur dédié à l'aide de Monticello le gestionnaire de versions de Pharo. Smalltalkhub *http://smalltalkhub.com* est une des forges pour sauver le code Pharo, vous pouvez aussi utiliser *http://ss3.gemstone.com*. 
 
 
-!!Créer un Dépôt de Code
+!!!Créer un dépôt de code
 
 - Créer un compte sur le site  *http://smalltalkhub.com/*.
 - Se connecter au site. 
 - Créer un projet (il se peut que vous ayez des problèmes de connexion car le site est en beta version auquel cas essayez de changer de navigateur, si les problèmes persistent utiliser *http://ss3.gemstone.com*).
 -- Nommez le "TinyBlog".
 
-!!Sauver Votre Package
+!!!Sauver votre package
 
 - Dans Pharo, ouvrez le Monticello Browser via le menu du monde.
 - Ajouter un repository (de type soit SmalltalkHub soit HTTP pour *http://ss3.gemstone.com*)
@@ -39,7 +41,7 @@ Alors que vous pouvez sauver l'image Pharo qui contient tous les objets du syst�
 
 Dans le cadre de ce cours, nous vous suggérons de toujours utiliser l'image avec tous les packages web chargés que vous trouvez sur *http://mooc.pharo.org*. Cela vous permettra de pouvoir recharger votre package sans devoir vous soucier des dépendances sur d'autres packages. 
 
-!!A Propos de Dépendances
+!!A propos de dépendances
 
 Les bonnes pratiques lors de développements en Pharo sont de spécifier clairement les dépendances sur les packages utilisés afin d'avoir une reproductibilité complète d'un projet et l'utilisation de processus de construction tel travis ou jenkins. 
 Pour cela, une configuration (une classe spéciale) définit d'une part l'architecture du projet (dependances et packages du projet) et les versions des packages versionnés. 
@@ -59,7 +61,7 @@ Le code de votre application TinyBlog est maintenant sauvegardé dans votre dép
 
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-!La classe TBBlog
+!!La classe TBBlog
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La classe ==TBBlog== contient des posts. 
@@ -196,12 +198,12 @@ TBBlogTest >> testRemoveAllBlogPosts
 ]]]
 
 
-!!Quelques Autres Fonctionnalités
+!!Quelques autres fonctionnalités
 
 Nous définissons les fonctionnalités et nous assurons que les tests passent. 
 Les règles métiers sont regroupées dans le protocole 'action' de la classe ==TBBlog==.
 
-!!!Obtenir l'Ensemble des Posts (visibles et invisibles)
+!!!Obtenir l'ensemble des posts (visibles et invisibles)
 
 [[[
 TBBlogTest >> testAllBlogPosts
@@ -215,7 +217,7 @@ TBBlog >> allBlogPosts
 ]]]
 
 
-!!!Obtenir Tous les Posts Visibles
+!!!Obtenir tous les posts visibles
 
 [[[
 TBBlogTest >> testAllVisibleBlogPosts
@@ -229,7 +231,7 @@ TBBlog >> allVisibleBlogPosts
 ]]]
 
 
-!!!Obtenir Tous les Posts d'une Catégorie
+!!!Obtenir tous les posts d'une catégorie
 
 [[[
 TBBlogTest >> testAllBlogPostsFromCategory
@@ -242,7 +244,7 @@ TBBlog >> allVisibleBlogPostsFromCategory: aCategory
 ]]]
 
 
-!!!Obtenir Tous les Posts Visibles d'une Catégorie
+!!!Obtenir tous les posts visibles d'une catégorie
 
 [[[
 TBBlogTest >> testAllVisibleBlogPostsFromCategory
@@ -256,14 +258,14 @@ TBBlog >> allBlogPostsFromCategory: aCategory
    ^ posts select: [ :p | p category = aCategory ]
 ]]]
 
-!!!Vérifier la Gestion des Posts non Classés
+!!!Vérifier la gestion des posts non classés
 
 [[[
 TBBlogTest >> testUnclassifiedBlogPosts
    self assert: (blog allBlogPosts select: [ :p | p isUnclassified ]) size equals: 0
 ]]]
 
-!!!Obtenir la Liste des Catégories
+!!!Obtenir la liste des catégories
 
 [[[
 TBBlogTest >> testAllCategories
@@ -276,7 +278,7 @@ TBBlog >> allCategories
    ^ (self allBlogPosts collect: [ :p | p category ]) asSet
 ]]]
 
-!!Futures Evolutions
+!!Futures évolutions
 
 Plusieurs évolutions peuvent être apportées telles que: obtenir uniquement la liste des catégories contenant au moins un post visible, effacer une catégorie et les posts contenus, renommer une catégorie, déplacer un post d'une catégorie à une autre, rendre visible ou invisible une catégorie et son contenu, etc. Nous vous encourageons à les développer.
 
