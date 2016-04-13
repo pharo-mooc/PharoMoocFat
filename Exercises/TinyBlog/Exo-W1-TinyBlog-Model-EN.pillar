@@ -20,7 +20,8 @@ In this MOOC, we assume that you use Pharo 5.0.
 We will also use some extra libraries and frameworks dedicated to web development such as: Seaside, Magritte, Bootstrap, Voyage, VoyageMongo, ...
 
 We provide a specific Pharo web image that already includes all of these libraries.
-You can download it here: *http://mooc.pharo.org/*.
+You can download it here: *http://mooc.pharo.org/*. For this project, we suggest to always use this image because it contains all the packages you need.
+
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !The Model of Posts

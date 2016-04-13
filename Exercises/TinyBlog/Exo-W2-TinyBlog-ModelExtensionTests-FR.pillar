@@ -17,9 +17,9 @@ Gofer new
 Vous pouvez ouvrir un browser de code sur la classe ==TBPost==.
 Maintenant que vous avez la correction, vous pouvez compléter le code de votre application TinyBlog si nécessaire.
 
-!Sauvegarder sur Smalltalkhub
+!Sauvegarder Votre Code 
 
-Nous allons maintenant vous permettre de sauvegarder votre code sous forme de packages sur Smalltalkhub. Smalltalkhub *http://smalltalkhub.com* est une des forges pour sauver le code Pharo, vous pouvez aussi utiliser *http://ss3.gemstone.com*. 
+Alors que vous pouvez sauver l'image Pharo qui contient tous les objets du système et donc les classes elles-même, nous allons vous montrer comment les pharoers sauvent leur code: Vous allez sauver votre code sous forme de packages sur un serveur dédié à l'aide de Monticello le gestionnaire de versions de Pharo. Smalltalkhub *http://smalltalkhub.com* est une des forges pour sauver le code Pharo, vous pouvez aussi utiliser *http://ss3.gemstone.com*. 
 
 
 !!Créer un dépôt de code

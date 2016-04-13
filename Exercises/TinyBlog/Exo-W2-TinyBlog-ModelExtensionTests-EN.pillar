@@ -25,7 +25,7 @@ This section explains how to save your Pharo code on Smalltalkhub.
 
 - Create an account on  *http://smalltalkhub.com/*
 - Log yourself on the web site
-- Create a project
+- Create a project (it may happen that you get a connection problem, in such case retry with a different web browser)
 -- named "TinyBlog",
 -- the project URL should look like: 'http://smalltalkhub.com/mc/XXX/TinyBlog/main'
 
