@@ -22,36 +22,41 @@ Maintenant que vous avez la correction, vous pouvez compléter le code de votre 
 Alors que vous pouvez sauver l'image Pharo qui contient tous les objets du système et donc les classes elles-même, nous allons vous montrer comment les pharoers sauvent leur code: Vous allez sauver votre code sous forme de packages sur un serveur dédié à l'aide de Monticello le gestionnaire de versions de Pharo. Smalltalkhub *http://smalltalkhub.com* est une des forges pour sauver le code Pharo, vous pouvez aussi utiliser *http://ss3.gemstone.com*. 
 
 
-!!Créer un dépôt de code
+!!Créer un Dépôt de Code
 
-- Créer un compte sur le site  *http://smalltalkhub.com/*
-- Se connecter au site 
-- Créer un projet (il se peut que vous ayez des problèmes de connexion auquel cas changez de navigateur, si les problèmes persistent utiliser *http://ss3.gemstone.com*).
--- Nommez le "TinyBlog"
+- Créer un compte sur le site  *http://smalltalkhub.com/*.
+- Se connecter au site. 
+- Créer un projet (il se peut que vous ayez des problèmes de connexion car le site est en beta version auquel cas essayez de changer de navigateur, si les problèmes persistent utiliser *http://ss3.gemstone.com*).
+-- Nommez le "TinyBlog".
 
 !!Sauver Votre Package
 
-- Dans Pharo, ouvrez le Monticello Browser
-- Ajoutez un repository (soit SmalltalkHub soit HTTP)
+- Dans Pharo, ouvrez le Monticello Browser via le menu du monde.
+- Ajouter un repository (de type soit SmalltalkHub soit HTTP pour *http://ss3.gemstone.com*)
 - Sélectionner le repository et sélectionner l'item 'Add to package...' pour ajouter ce repository au package TinyBlog
 - Sélectionner votre package et pressez le bouton 'Save'. 
 - Editer l'information de description et sauver. Votre code vient d'être sauvé sur le serveur.
 
-Dans le cadre de ce cours, nous vous suggérons de toujours utiliser l'image avec tous les packages web chargés que vous trouvez sur *http://mooc.pharo.org*
+Dans le cadre de ce cours, nous vous suggérons de toujours utiliser l'image avec tous les packages web chargés que vous trouvez sur *http://mooc.pharo.org*. Cela vous permettra de pouvoir recharger votre package sans devoir vous soucier des dépendances sur d'autres packages. 
 
-!![Optionel] Créer la configuration du projet
+!!A Propos de Dépendances
 
+Les bonnes pratiques lors de développements en Pharo sont de spécifier clairement les dépendances sur les packages utilisés afin d'avoir une reproductibilité complète d'un projet et l'utilisation de processus de construction tel travis ou jenkins. 
+Pour cela, une configuration (une classe spéciale) définit d'une part l'architecture du projet (dependances et packages du projet) et les versions des packages versionnés. 
+
+Dans le cadre de ce projet, nous n'abordons pas ce point plus avancé. Un chapitre entier dans Deep Into Pharo est consacré à ce point. 
+ 
+!!!!! Optionel. 
+Si vous voulez essayer de créer une configuration, vous pouvez utiliser Versionner. 
 Dans votre image Pharo, ouvrez l'outil Versionner:
-
 - Créez un nouveau projet nommé "TinyBlog",
-- Indiquez que votre projet dépend de PharoWeb,
+- Indiquez que votre projet dépend de PharoWeb (dépendance entre projets),
 - Dans Packages, ajoutez le paquet TinyBlog,
--- Définissez le dépôt de votre projet: 'http://smalltalkhub.com/mc/XXX/TinyBlog/main'
--- Cliquez sur le bouton "Save to development"
+- Définissez le dépôt de votre projet: 'http://smalltalkhub.com/mc/XXX/TinyBlog/main'
+- Cliquez sur le bouton "Save to development" (pour générer la nouvelle structure d'architecture et dépendances), "Release" (pour créer une nouvelle vetsion) et Commit (pour sauver le code sur le serveur).
 
-Le code de votre application TinyBlog est maintenant sauvegardé dans votre dépôt sur Smalltalkhub. Il est donc maintenant possible de charger votre code dans une nouvelle image Pharo.  
+Le code de votre application TinyBlog est maintenant sauvegardé dans votre dépôt sur Smalltalkhub. Il est donc maintenant possible de charger votre code dans une nouvelle image Pharo. Par contre, cela va prendre un certain temps à charger car vous allez charger Seaside et plusieurs autres projets. 
 
-Il est d'ailleurs recommandé de récupérer régulièrement une image Pharo à jour et non modifiée et de rechager le code de votre application depuis smalltalkhub par exemple. Cela permet de vérifier que tout est bien sauvegardé dans votre dépôt de code.
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !La classe TBBlog
@@ -74,7 +79,7 @@ TBBlog >> initialize
    posts := OrderedCollection new. 
 ]]]
 
-!!Un seul blog
+!!Un seul Blog
 
 Dans un premier temps nous supposons que nous allons gérer qu'un seul blog. Dans le futur, vous pourrez ajouter la possibilité de gérer plusieurs blogs comme un par utilisateur de notre application. Pour l'instant, nous utilisons donc un singleton pour la classe ==TBBlog==.
 
@@ -82,24 +87,30 @@ Comme toutes les méthodes de gestion du singleton sont un comportement de class
 [[[
 TBBlog class
    instanceVariableNames: 'uniqueInstance'
-
+]]]
+[[[
 TBBlog class >> reset
    uniqueInstance := nil
-
+]]]
+[[[
 TBBlog class >> current
    "answer the instance of the TBRepository"
    ^ uniqueInstance ifNil: [ uniqueInstance := self new ]
+]]]
 
+Quand la classe est chargée, le singleton est réinitialisé. 
+
+[[[
 TBBlog class >> initialize
    self reset
 ]]]
 
 
-!!Tester les règles métiers
+!!Tester les Règles Métiers
 
-Nous allons écrire des tests pour les règles métiers et ceci en mode TDD (Test Driven Development) c'est-à-dire en développant les tests en premier puis en définissant les fonctionalités jsuqu'à ce que les tests passent.
+Nous allons écrire des tests pour les règles métiers et ceci en mode TDD (Test Driven Development) c'est-à-dire en développant les tests en premier puis en définissant les fonctionalités jusqu'à ce que les tests passent.
 
-Les tests unitaires sont regroupés dans le package ==TinyBlog-Tests== qui contient la classe ==TBBlogTest==.
+Les tests unitaires sont regroupés dans le tag ==TinyBlog-Tests== qui contient la classe ==TBBlogTest== menu item "Add Tag...". Nous utilisons un tag pour ne pas avoir à gérer deux packages différents mais dans une réelle solution vous définirions une package séparé pour les tests.
 
 [[[
 TestCase subclass: #TBBlogTest
@@ -109,7 +120,7 @@ TestCase subclass: #TBBlogTest
 ]]]
 
 Avant le lancement des tests, la méthode ==setUp== initialise le contexte des tests.
-Par exemple, elle initialise la connexion vers la base, efface son contenu, ajoute un post et en créé un autre qui provisoirement n'est pas enregistré.
+Par exemple, elle efface son contenu, ajoute un post et en créé un autre qui provisoirement n'est pas enregistré.
 
 [[[
 TBBlogTest >> setUp
@@ -125,14 +136,14 @@ TBBlogTest >> setUp
 On en profite pour tester différentes configurations. 
 Les posts ne sont pas dans la même catégorie, l'un est visible, l'autre pas.
 
-La méthode ==tearDown== exécutée au terme des tests remet à zéro la connexion.
+La méthode ==tearDown== exécutée au terme des tests remet à zéro le blog. 
 
 [[[
 TBBlogTest >> tearDown
    TBBlog reset
 ]]]
 
-Noter que si vous déployez un blog puis exécutez les tests vous perdrez les posts que vous avez créés car nous les remettons à zéro.
+L'utilisation d'un Singleton montre ses limites. En effet, si vous déployez un blog puis exécutez les tests vous perdrez les posts que vous avez créés car nous les remettons à zéro.
 
 Nous allons développer les tests d'abord puis ensuite passer à l'implémentation des fonctionnalités.
 
@@ -169,7 +180,7 @@ Le test précédent doit maintenant passer.
 
 Ecrivons un test pour couvrir les fonctionalités que nous venons de développer. 
 
-!!!Obtenir le nombre de posts dans la base
+!!!Obtenir le nombre de posts dans le blog
 
 [[[
 TBBlogTest >> testSize
@@ -185,12 +196,12 @@ TBBlogTest >> testRemoveAllBlogPosts
 ]]]
 
 
-!!Quelques autres fonctionnalités
+!!Quelques Autres Fonctionnalités
 
 Nous définissons les fonctionnalités et nous assurons que les tests passent. 
 Les règles métiers sont regroupées dans le protocole 'action' de la classe ==TBBlog==.
 
-!!!Obtenir l'ensemble des posts (visibles et invisibles)
+!!!Obtenir l'Ensemble des Posts (visibles et invisibles)
 
 [[[
 TBBlogTest >> testAllBlogPosts
@@ -204,7 +215,7 @@ TBBlog >> allBlogPosts
 ]]]
 
 
-!!!Obtenir tous les posts visibles
+!!!Obtenir Tous les Posts Visibles
 
 [[[
 TBBlogTest >> testAllVisibleBlogPosts
@@ -218,7 +229,7 @@ TBBlog >> allVisibleBlogPosts
 ]]]
 
 
-!!!Obtenir tous les posts d'une catégorie
+!!!Obtenir Tous les Posts d'une Catégorie
 
 [[[
 TBBlogTest >> testAllBlogPostsFromCategory
@@ -231,7 +242,7 @@ TBBlog >> allVisibleBlogPostsFromCategory: aCategory
 ]]]
 
 
-!!!Obtenir tous les posts visibles d'une catégorie
+!!!Obtenir Tous les Posts Visibles d'une Catégorie
 
 [[[
 TBBlogTest >> testAllVisibleBlogPostsFromCategory
@@ -245,14 +256,14 @@ TBBlog >> allBlogPostsFromCategory: aCategory
    ^ posts select: [ :p | p category = aCategory ]
 ]]]
 
-!!!Vérifier la gestion des posts non classés
+!!!Vérifier la Gestion des Posts non Classés
 
 [[[
 TBBlogTest >> testUnclassifiedBlogPosts
    self assert: (blog allBlogPosts select: [ :p | p isUnclassified ]) size equals: 0
 ]]]
 
-!!!Obtenir la liste des catégories
+!!!Obtenir la Liste des Catégories
 
 [[[
 TBBlogTest >> testAllCategories
@@ -265,7 +276,7 @@ TBBlog >> allCategories
    ^ (self allBlogPosts collect: [ :p | p category ]) asSet
 ]]]
 
-!!Futures évolutions
+!!Futures Evolutions
 
 Plusieurs évolutions peuvent être apportées telles que: obtenir uniquement la liste des catégories contenant au moins un post visible, effacer une catégorie et les posts contenus, renommer une catégorie, déplacer un post d'une catégorie à une autre, rendre visible ou invisible une catégorie et son contenu, etc. Nous vous encourageons à les développer.
 
@@ -288,3 +299,10 @@ Vous pouvez ensuite inspecter le résultat de l'évaluation du code suivant :
 [[[
 	TBBlog createDemoPosts ; current
 ]]]
+
+!! Conclusion
+
+Vous devez avoir le modèle complet de TinyBlog ainsi que des tests et maintenant vous êtes prêt pour des fonctionalités plus avancées comme le stockage ou un premier serveur HTTP. 
+
+
+
