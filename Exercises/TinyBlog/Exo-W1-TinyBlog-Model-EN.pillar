@@ -2,9 +2,9 @@
     "title":"TinyBlog: Presentation and Model"
 }
 
-!TinyBlog: a Small Web App
+!TinyBlog: a small web app
 
-Along this MOOC, we will guide you to develop a mini project: a small web application, named TinyBlog, that manages a blog system.
+In this project, we will guide you to develop a mini project: a small web application, named TinyBlog, that manages a blog system.
 The idea is that a visitor of the web site can read the posts and that the post author could connect to the web site to admin the application and manage its posts (add, remove and modify existing ones). 
 
 TinyBlog is a small pedagogical application that will show you how to define and deploy a web application using Pharo / Seaside / Mongo and frameworks available in Pharo such as NeoJSON. We will show you how to expose your application via a REST server.
@@ -14,13 +14,10 @@ Our goal is not to be exhaustive. We present one way to develop TinyBlog neverth
 
 !Installing Pharo
 
-You can download Pharo (the image and its virtual machine) here: *http://mooc.pharo.org/*.
 
-In this MOOC, we assume that you use Pharo 5.0.
-We will also use some extra libraries and frameworks dedicated to web development such as: Seaside, Magritte, Bootstrap, Voyage, VoyageMongo, ...
+In this project, we assume that you use Pharo 5.0 and since we will also use some extra libraries and frameworks dedicated to web development such as: Seaside, Magritte, Bootstrap, Voyage, VoyageMongo, ... we provide a specific Pharo web image that already includes all of these libraries.
+You can download it at the following address: *http://mooc.pharo.org/*. For this project, we suggest to always use this image because it contains all the packages you need.
 
-We provide a specific Pharo web image that already includes all of these libraries.
-You can download it here: *http://mooc.pharo.org/*. For this project, we suggest to always use this image because it contains all the packages you need.
 
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
