@@ -38,26 +38,32 @@ Even if you can save the Pharo image which contains all the objects of the syste
 - Select your package and press the 'Save' button.
 - Enter a log describing the changes you did. 
 
-In this project, we encourgae you to always use the image we gave with the preloaded packages and that you can find at *http://mooc.pharo.org*. This will let you load new code without having to take care about package dependencies. 
 
-@@here
-!!A propos de dépendances
-
-Les bonnes pratiques lors de développements en Pharo sont de spécifier clairement les dépendances sur les packages utilisés afin d'avoir une reproductibilité complète d'un projet et l'utilisation de processus de construction tel travis ou jenkins. 
-Pour cela, une configuration (une classe spéciale) définit d'une part l'architecture du projet (dependances et packages du projet) et les versions des packages versionnés. 
-
-Dans le cadre de ce projet, nous n'abordons pas ce point plus avancé. Un chapitre entier dans Deep Into Pharo est consacré à ce point. 
- 
-!!!!! Optionel. 
-Si vous voulez essayer de créer une configuration, vous pouvez utiliser Versionner. 
-Dans votre image Pharo, ouvrez l'outil Versionner:
-- Créez un nouveau projet nommé "TinyBlog",
-- Indiquez que votre projet dépend de PharoWeb (dépendance entre projets),
-- Dans Packages, ajoutez le paquet TinyBlog,
-- Définissez le dépôt de votre projet: 'http://smalltalkhub.com/mc/XXX/TinyBlog/main'
-- Cliquez sur le bouton "Save to development" (pour générer la nouvelle structure d'architecture et dépendances), "Release" (pour créer une nouvelle vetsion) et Commit (pour sauver le code sur le serveur).
 
 Le code de votre application TinyBlog est maintenant sauvegardé dans votre dépôt sur Smalltalkhub. Il est donc maintenant possible de charger votre code dans une nouvelle image Pharo. Par contre, cela va prendre un certain temps à charger car vous allez charger Seaside et plusieurs autres projets. 
+
+In this project, we encourage you to always use the image we gave with the preloaded packages and that you can find at *http://mooc.pharo.org*. This will let you load new code without having to take care about package dependencies. 
+
+!!About dependencies
+
+Good practices in Pharo developments are to clearly specify the dependencies of used packages. The idea is to ensure that the building of a project is fully reproducible.
+It is important because once we have such reprocible process we can take advantage about automatic build servers such as Jenkins or Travis. 
+
+To express dependencies between projects and packages within a project
+Pharo offers special classes called Configurations. Such configurations express the architecture (main repository, dependencies to other projects, structure of the projects) as well as versionned packages. 
+
+In the context of the TinyBlog project, we do not got any further on this posing. Note that a full chapter on dependency expression is available in Deep In Pharo. 
+ 
+%!!!!! Optionel. 
+%If you want to create a configuration, you can use the Versionner tool.
+%In Pharo, open Versionner (Tools menu)
+%Dans votre image Pharo, ouvrez l'outil Versionner:
+%- Create a new project named "TinyBlog",
+%- Indiquez que votre projet dépend de PharoWeb (dépendance entre projets),
+%- Dans Packages, ajoutez le paquet TinyBlog,
+%- Définissez le dépôt de votre projet: 'http://smalltalkhub.com/mc/XXX/TinyBlog/main'
+%- Cliquez sur le bouton "Save to development" (pour générer la nouvelle structure %d'architecture et dépendances), "Release" (pour créer une nouvelle vetsion) et Commit (pour sauver le code sur le serveur).
+
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !!TBBlog class
@@ -72,28 +78,35 @@ Object subclass: #TBBlog
    package: 'TinyBlog'
 ]]]
 
+We initialize the posts to hold an empty collection.
+
 [[[
 TBBlog >> initialize
    super initialize.
    posts := OrderedCollection new. 
 ]]]
 
-!!Only one Blog Object
+!!Only one blog object
 
-In the rest of this MOOC, we assume that we will manage only one blog. Later, you may add the possibility to manage multiple blogs such as one per user of the TinyBlog application.
+In the rest of this project, we assume that we will manage only one blog. Later, you may add the possibility to manage multiple blogs such as one per user of the TinyBlog application.
 Currently, we use a Singleton design pattern on the ==TBBlog== class.
 
+Since all the management of a singleton is a class behavior, we define such methods at the class level. 
+ 
 [[[
 TBBlog class
    instanceVariableNames: 'uniqueInstance'
-
+]]]
+[[[
 TBBlog class >> reset
    uniqueInstance := nil
-
+]]]
+[[[
 TBBlog class >> current
    "answer the instance of the TBRepository"
    ^ uniqueInstance ifNil: [ uniqueInstance := self new ]
-
+]]]
+[[[
 TBBlog class >> initialize
    self reset
 ]]]
@@ -101,9 +114,9 @@ TBBlog class >> initialize
 
 !!Testing the Model
 
-We now adopt a Test Driven Development approach i.e. we will write a unit test first and then develop the business functionality until the test is green. We will repeat thi process for each functionality of the model.
+We now adopt a Test Driven Development approach i.e., we will write a unit test first and then develop the business functionality until the test is green. We will repeat thi process for each functionality of the model.
 
-We create unit tests in the ==TBBlogTest== class that belongs to the ==TinyBlog-Tests==  package.
+We create unit tests in the ==TBBlogTest== class that belongs to the ==TinyBlog-Tests== tag. A tag is just a label to sort class inside a package (See menu item 'Add Tag...'). We use a tag because using two packages will make this project more complex. However, in normal development this is a current package to have a separate package for the tests. 
 
 [[[
 TestCase subclass: #TBBlogTest
@@ -113,7 +126,7 @@ TestCase subclass: #TBBlogTest
 ]]]
 
 Before each test execution, the ==setUp== method initializes the context of tests.
-For example, it establishes a database connection, erases its content, adds one post and creates another temporary post that is not saved.
+For example, it erases the blog content, adds one post and creates another temporary post that is not saved.
 
 [[[
 TBBlogTest >> setUp
@@ -136,13 +149,13 @@ TBBlogTest >> tearDown
    TBBlog reset
 ]]]
 
-Note that if you deploy a blog and then execute the tests, you will lose all posts that have been created because we reset the Blog singleton.
+Here we see the limits of using a Singleton. Indeed, if you deploy a blog and then execute the tests, you will lose all posts that have been created because we reset the Blog singleton.
 
 We will now develop tests first and then implement all functionalities to make them green.
 
-!!!First Test
+!!!First test
 
-The first test add a post in the blog.
+The first test adds a post in the blog and verifies that this post is effectivly added.
 
 [[[
 TBBlogTest >> testAddBlogPost
@@ -171,14 +184,14 @@ TBBlog >> size
 The previous test should now pass (i.e. be green).
 We should also add tests to cover all functionalities that we introduced. 
 
-!!!Test the Number of Post in a Blog
+!!!Test the number of blog posts
 
 [[[
 TBBlogTest >> testSize
    self assert: blog size equals: 1
 ]]]
 
-!!!Remove all Posts
+!!!Remove all posts
 
 [[[
 TBBlogTest >> testRemoveAllBlogPosts
@@ -187,12 +200,12 @@ TBBlogTest >> testRemoveAllBlogPosts
 ]]]
 
 
-!!Other Functionalities
+!!Other functionalities
 
 We now develop new functionalities as methods in the 'action' protocol of the  ==TBBlog==.
 While doing that, we regularly ensure that tests pass.
 
-!!!Retrieve all Posts (visibles et invisibles)
+!!!Retrieve all posts (visibles and invisibles)
 
 [[[
 TBBlogTest >> testAllBlogPosts
@@ -206,7 +219,7 @@ TBBlog >> allBlogPosts
 ]]]
 
 
-!!!Retrieve Visibles Posts 
+!!!Retrieve visibles posts 
 
 [[[
 TBBlogTest >> testAllVisibleBlogPosts
@@ -220,7 +233,7 @@ TBBlog >> allVisibleBlogPosts
 ]]]
 
 
-!!!Retrieve all Posts of one Category
+!!!Retrieve all posts of one category
 
 [[[
 TBBlogTest >> testAllBlogPostsFromCategory
@@ -233,7 +246,7 @@ TBBlog >> allVisibleBlogPostsFromCategory: aCategory
 ]]]
 
 
-!!!Retrieve all Visible Posts of one Category
+!!!Retrieve all visible posts of one category
 
 [[[
 TBBlogTest >> testAllVisibleBlogPostsFromCategory
@@ -247,14 +260,14 @@ TBBlog >> allBlogPostsFromCategory: aCategory
    ^ posts select: [ :p | p category = aCategory ]
 ]]]
 
-!!!Ensure Unclassified Management
+!!!Check unclassified posts
 
 [[[
 TBBlogTest >> testUnclassifiedBlogPosts
    self assert: (blog allBlogPosts select: [ :p | p isUnclassified ]) size equals: 0
 ]]]
 
-!!!Retrieve all Categories
+!!!Retrieve all categories
 
 [[[
 TBBlogTest >> testAllCategories
@@ -267,7 +280,7 @@ TBBlog >> allCategories
    ^ (self allBlogPosts collect: [ :p | p category ]) asSet
 ]]]
 
-!!Possible Extensions
+!!Possible extensions
 
 Many extensions can be made such as: retrieve the list of categories that contains at least one visible post, delete a category and all posts that it contains, rename a category, move a post from one category to another, make (in)visible one category and all its content, etc. We encourage you to develop some of them. 
 
@@ -290,3 +303,6 @@ If you inspect the result of the following snippet, you will see that the curren
 [[[
 	TBBlog createDemoPosts ; current
 ]]]
+
+!! Conclusion
+You get now the full model of TinyBlog as well as some tests. You are now ready to implement more advanced functionality such as the database storage or a first HTTP server. Do not forget to save your code. 
