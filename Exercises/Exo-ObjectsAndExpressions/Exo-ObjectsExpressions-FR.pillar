@@ -1,10 +1,10 @@
-!Expression Results
+! Résultats d'Expressions
 
-In this exercise, we ask you to guess the results of the expressions by mentally simulating the execution of expressions.
+Dans ces exercices vous devez devinez les résultats des expressions en simulant mentalement l'exécution des expressions. 
 
-!! Exercise: Results
+!! Exercice : Résultats
 
-Examine the following expressions. What is the value returned by the execution of the following expressions?
+Examinez les expressions suivantes. Quel est la valeur retournée par l'exécution des expressions suivantes ?
 
 [[[
 | anArray |
@@ -40,9 +40,9 @@ anArray at: 2
 #(a b c d e f) includesAll: #(f d b)
 ]]]
 
-!!! Exercise: unneeded parentheses 
-Putting more  parentheses than necessary is  a good way  to get started. Such  practice however leads to  less readable expressions.
-Rewrite the following expressions using the least number of parentheses. 
+!!! Exercice : Parenthèses superflues
+Mettre plus de parenthèses que nécessaire est une bonne manière pour commencer. Cependant une telle pratique rend le code moins lisible.
+Réécrivez les expressions avec le minimum de parenthèses. 
 [[[
     ((3 + 4) + (2 * 2) + (2 * 3))
 ]]]
@@ -87,8 +87,8 @@ Rewrite the following expressions using the least number of parentheses.
 ]]]
 
 
-!!! Exercise: Execution sequence
-Examine each of the following expression and write down the sequence of steps of their execution (which message is executed first and so on).
+!!! Exercice : Séquence d'Execution
+Examinez chacune des expressions suivantes et décrivez la séquence des étapes de leur exécution (quel message est exécuté en premier).
 
 [[[
     Date today daysInMonth

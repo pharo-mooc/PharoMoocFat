@@ -15,9 +15,9 @@ sum
 
 - What is the final result of sum?
 
-- Rewrite this piece of code to use explicit array indexing (with the method at: ) to access the array elements. Test your version. 
+- Rewrite this piece of code to use explicit array indexing (with the message ==at:== ) to access the array elements. Test your version. 
 
-- Rewrite this code using ==inject:into:== (check the implementation of inject:into: and its users in the system to understand how to use it).
+- Rewrite this code using ==inject:into:== (Look at the implementation of ==inject:into:== and its users in the system to understand how to use it).
 
 
 !!! Exercise: Comparing expressions

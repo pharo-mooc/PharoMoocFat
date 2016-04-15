@@ -45,12 +45,12 @@ true
 ]]]
 
 !!Exercise: Messages
-For each of the k expressions below, fill in the answers:
+For each of the expressions below, fill in the answers:
 
 - What is the receiver object?
 - What is the message selector?
 - What is/are the argument (s)?
-- What is the result returned by evaluating this expression?
+- What is the result returned by this expression execution?
 
 [[[
 3 + 4
