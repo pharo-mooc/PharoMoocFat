@@ -121,10 +121,6 @@ TBTeapotWebApp >> allPosts
 ]]]
 
 Comme il faut générer une longue chaine de caractères contenant le code HTML de cette page, nous utilisons un flôt (stream) dans la méthode ==homePage==.
-
-
-
-
 Nous avons également découpé le code en plusieurs méthodes dont ==renderPageHeaderOn:== et ==renderPageFooterOn:== qui permettent de générer l'en-tête et le pieds de la page html.
 [[[
 TBTeapotWebApp >> homePage
@@ -139,7 +135,7 @@ TBTeapotWebApp >> homePage
         ]
 ]]]
 
-Notez que le message ==\<\<== est un synonime du message ==nextPutAll:== qui ajoute une collection d'éléments dans un flôt (stream). 
+Notez que le message ==\<\<== est un synonyme du message ==nextPutAll:== qui ajoute une collection d'éléments dans un flôt (stream). 
 
 [[[
 TBTeapotWebApp >> renderPageHeaderOn: aStream
@@ -151,7 +147,7 @@ TBTeapotWebApp >> renderPageFooterOn: aStream
 ]]]
 
 
-Tester l'application dans un navigateur web, vous devez maintenant voir la liste des titres des posts comme dans la Figure *@figposts*. Si ce n'est pas le cas, assurez vous que votre blog a bien des posts. Vous pouvez utiliser le message ==createDemoPosts== pour ajouter quelques postes.
+Tester l'application dans un navigateur web, vous devez maintenant voir la liste des titres des posts comme dans la figure *@figposts*. Si ce n'est pas le cas, assurez vous que votre blog a bien des posts. Vous pouvez utiliser le message ==createDemoPosts== pour ajouter quelques postes génériques.
 
 [[[
 TBBlog createDemoPosts
@@ -164,6 +160,7 @@ TBBlog createDemoPosts
 Améliorons notre application. On souhaite que l'URL *http://localhost:8081/post/1* permette de voir le post numéro 1. 
 
 Commençons par penser au pire, et définissons une méthode pour les erreurs. 
+Nous définissons la méthode ==errorPage== comme suit : 
 
 [[[
 TBTeapotWebApp >> errorPage 
@@ -174,7 +171,9 @@ TBTeapotWebApp >> errorPage
         ]
 ]]]
 
-Maintenant nous modifions la méthode ==start== pour ajouter une nouvelle route à notre application permettant d'afficher le contenu d'un post.
+Teapot permet de définir des routes avec des patterns comme '<id>' dont la valeur est ensuite accessible dans l'objet requête reçu en paramètre du bloc.
+
+Nous modifions donc la méthode ==start== pour ajouter une nouvelle route à notre application permettant d'afficher le contenu d'un post.
 
 [[[
 TBTeapotWebApp >> start
@@ -183,8 +182,6 @@ TBTeapotWebApp >> start
        GET: '/post/<id>' -> [ :request | self pageForPostNumber: (request at: #id) asNumber ];
        start
 ]]]
-
-Teapot permet de définir des routes avec des patterns comme '<id>' dont la valeur est ensuite accessible dans l'objet requête reçu en paramètre du bloc.
 
 Il faut maintenant définir la méthode ==pageForPostNumber:== qui affiche toutes les informations d'un post:
 
@@ -203,7 +200,7 @@ TBTeapotWebApp >> pageForPostNumber: aPostNumber
 ]]]
 
 
-Vous pouvez tester cela en accédant à l'URL  *http://localhost:8081/post/1* par exemple.
+
 
 Dans le code ci-dessus, on peut voir que le nombre passé dans l'URL est utilisé comme la position du post à afficher dans la collection des posts. 
 Cette solution est simple mais fragile puisque si l'ordre des posts dans la collection change, une même URL ne désignera plus le même post.
@@ -211,7 +208,7 @@ Cette solution est simple mais fragile puisque si l'ordre des posts dans la coll
 
 !!!Ajouter des liens vers les posts
 
-Modifions la méthode ==homePage== pour que les titres des posts soit des liens vers leur page respective.
+Modifions la méthode ==homePage== pour que les titres des posts soient des liens vers leur page respective.
 
 [[[
 TBTeapotWebApp >> homePage
@@ -237,9 +234,9 @@ Cette application est un exemple pédagogique à travers lequel vous avez manipu
 
 Plusieurs évolutions peuvent être apportées telles que: 
 - sur la page de détails d'un post, ajouter un lien pour revenir à la page d'accueil,
-- ajouter une page affichant la liste cliquable des catégories de posts
-- ajouter une page affichant tous les posts d'une catégorie donnée
-- ajouter des styles CSS pour avoir un rendu plus agréable
+- ajouter une page affichant la liste cliquable des catégories de posts,
+- ajouter une page affichant tous les posts d'une catégorie donnée,
+- ajouter des styles CSS pour avoir un rendu plus agréable.
 
 
 
