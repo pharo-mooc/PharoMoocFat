@@ -16,10 +16,10 @@ Gofer new
 #ConfigurationOfTinyBlog asClass loadWeek2Correction
 ]]]
 
-After a loading a package, you shall run the unit tests to enesure that the loaded code is correctly working.
-Open the TestRunner (World menu > Test Runner), find the 'TinyBlog-Tests package and run all unit tests of the ==TBBlogTest== class by clicking on the 'Run Selected' button. All tests should be green. One alternative is to press the green icon on the side of the class ==TBBlogTest==.
+After a loading a package, you shall run the unit tests to ensure that the loaded code is correctly working.
+Open the TestRunner (World menu > Test Runner), find the 'TinyBlog-Tests' package and run all unit tests of the ==TBBlogTest== class by clicking on the 'Run Selected' button. All tests should be green. One alternative is to press the green icon on the side of the class ==TBBlogTest==.
 
-Open a code browse to look at the code of both classes ==TBBlog== and ==TBBlogTest==. You can now  complete you own implementation if needed. Before continuing, do not forget to commit a new version in your repository on Smalltalkhub or SS3 if you modified your code.
+Open a code browser to look at the code of both classes ==TBBlog== and ==TBBlogTest==. You can now  complete you own implementation if needed. Before continuing, do not forget to commit a new version in your repository on Smalltalkhub or SS3 if you modified your code.
 
 !! A Web Interface for TinyBlog with Teapot
 
@@ -31,44 +31,44 @@ Create a new class named ==TBTeapotWebApp==:
 
 [[[
 Object subclass: #TBTeapotWebApp
-	instanceVariableNames: 'teapot'
-	classVariableNames: 'Server'
-	package: 'TinyBlog-Teapot'
+   instanceVariableNames: 'teapot'
+   classVariableNames: 'Server'
+   package: 'TinyBlog-Teapot'
 ]]]
 
 The variable ==teapot== will refer to a little Teapot HTTP server. 
-Here we use a differente implementation of the Singleton Design Pattern by using a
+Here we use a different implementation of the Singleton Design Pattern by using a
 class variable named ==Server==. We use a Singleton to avoid to have two servers listening to the same port.
 
 Add the instance method ==initialize== to initialize the instance variable ==teapot==:
 
 [[[
 TBTeapotWebApp >> initialize
-    super initialize.
-    teapot := Teapot configure: {
-       #port -> 8081. 
-       #debugMode -> true }.
+   super initialize.
+   teapot := Teapot configure: {
+      #port -> 8081.
+      #debugMode -> true }.
 ]]]
 
 !!!The Home Page
 
-The ==homePage== method define inside in the 'html' protocol should be defined. It returns the HTML code of the home page of our web application as a String. Let's start with a simple version:
+The ==homePage== method defined inside in the 'html' protocol should return the HTML code of the home page of our web application as a String. Let's start with a simple version:
 
 [[[
 TBTeapotWebApp >> homePage
-	^ '<html><body><h1>TinyBlog Web App</h1></body></html>'
+   ^ '<html><body><h1>TinyBlog Web App</h1></body></html>'
 ]]]
 
 !!!Declare Routes
 
-Add one a ==start== method to declare to the ==teapot== object the URLs it must answer to. 
+Add a ==start== method to declare to the ==teapot== object the URLs it must answer to. 
 So far, we only add the route ==/== accessed via a GET Http method:
 
 [[[
 TBTeapotWebApp >> start
-	teapot
-		GET: '/' -> [ self homePage ];
-		start
+   teapot
+      GET: '/' -> [ self homePage ];
+      start
 ]]]
 
 !!!Stop the Application
@@ -77,7 +77,7 @@ Add also a method ==stop== to stop the application.
 
 [[[
 TBTeapotWebApp >> stop
-    teapot stop
+   teapot stop
 ]]]
 
 
@@ -89,15 +89,11 @@ Add two class-side methods ==start== and ==stop== to start and stop the web appl
 
 [[[
 TBTeapotWebApp class >> start
-	Server ifNil: [ Server := self new start ]	
+   Server ifNil: [ Server := self new start ]
 
 TBTeapotWebApp class >> stop
-	Server ifNotNil: [ Server stop. Server := nil ]
+   Server ifNotNil: [ Server stop. Server := nil ]
 ]]]
-
-
-+A first page served by our application.>file://figures/homepage.png|width=60|label=fighome+
-
 
 !!Test your Application
 
@@ -109,8 +105,7 @@ TBTeapotWebApp start
 
 In a web browser, try to access the application with this URL: *http://localhost:8081/*. You should see the text: "TinyBlog Web App" as in Figure *@fighome*.
 
-+Showing post titles.>file://figures/withPosts.png|width=60|label=figposts+
-
++A first page served by our application.>file://figures/homepage.png|width=60|label=fighome+
 
 !!Display the List of All Visible Posts
 
@@ -119,36 +114,35 @@ Modify now the code of the ==homePage== method to display the list of all visibl
 [[[
 TBTeapotWebApp >> allPosts
    ^ TBBlog current allVisibleBlogPosts 
+]]]
 
 Since we need to generate a long String that contains the HTML code of the home page, we 
 decided to use a Stream in the ==homePage== method. We also factored out the HTML generation of the HTML page header and footer in two 
 different methods: ==renderPageHeaderOn:== and ==renderPageFooterOn:==.
 
+[[[
 TBTeapotWebApp >> homePage
-	^ String streamContents: [ :s | 
-			self renderPageHeaderOn: s.
-			s << '<h1>TinyBlog Web App</h1>'.
-			s << '<ul>'.
-			self allPosts do: [ :aPost |
-				s << ('<li>', aPost title, '</li>') ].
-			s << '</ul>'.
-			self renderPageFooterOn: s.
-		]
+   ^ String streamContents: [ :s | 
+         self renderPageHeaderOn: s.
+         s << '<h1>TinyBlog Web App</h1>'.
+         s << '<ul>'.
+         self allPosts do: [ :aPost |
+            s << ('<li>', aPost title, '</li>') ].
+         s << '</ul>'.
+         self renderPageFooterOn: s.
+      ]
 ]]]
 Note that the message ==\<\<== is a different name for the message ==nextPutAll:== that adds a collection of elements to a stream.
 
 [[[
-TBTeapotWebApp >>	renderPageHeaderOn: aStream
-	aStream << '<html><body>' 
+TBTeapotWebApp >> renderPageHeaderOn: aStream
+   aStream << '<html><body>' 
+
+TBTeapotWebApp >> renderPageFooterOn: aStream
+   aStream << '</body></html>' 
 ]]]
-[[[
-TBTeapotWebApp >>	renderPageFooterOn: aStream
-	aStream << '</body></html>' 
-]]]
 
-
-
-Test your application in a web browser, you should now see a list of posts titles as in
+Test your application in a web browser, you should now see a list of post titles as in
 Figure *@figposts*. If this is not the case make sure that your blog contains some post.
 You can use the message ==createDemoPosts== to add some generic blog posts.
 
@@ -156,8 +150,7 @@ You can use the message ==createDemoPosts== to add some generic blog posts.
 TBBlog createDemoPosts
 ]]]
 
-
-
++Showing post titles.>file://figures/withPosts.png|width=60|label=figposts+
 
 !!Details of a Post
 
@@ -165,43 +158,41 @@ TBBlog createDemoPosts
 
 We would like that the following URL *http://localhost:8081/post/1* displays the whole post number 1.
 
-To start, let us think about the worse case and define what should happen in case of errors. 
+To start, let us think about the worst case and define what should happen in case of errors. 
 We define the method ==errorPage==. 
 
 [[[
-TBTeapotWebApp >> errorPage 
-    ^ String streamContents: [ :s | 
-        self renderPageHeaderOn: s. 
-        s << '<p>Oups, an error occurred</p>'.
-        self renderPageFooterOn: s.
-        ]
+TBTeapotWebApp >> errorPage
+   ^ String streamContents: [ :s | 
+      self renderPageHeaderOn: s.
+      s << '<p>Oups, an error occurred</p>'.
+      self renderPageFooterOn: s ]
 ]]]
 
 
-Teapot supports patterns such as '<id>' in route definitions. The corresponding value of '<id>' in the incoming URL is then accessible through the ==request== object passed as a bloc parameter. 
+Teapot supports patterns such as '<id>' in route definitions. The corresponding value of '<id>' in the incoming URL is then accessible through the ==request== object passed as a block parameter. 
 Now we modify the ==start== method and introduce a new route into the application to display the content of a post.
 [[[
-TBTeapotWebApp >>	start
-		teapot
-			GET: '/' -> [ self homePage ];
-			GET: '/post/<id>' -> [ :request | self pageForPostNumber: (request at: #id) asNumber ];
-			start
+TBTeapotWebApp >> start
+   teapot
+      GET: '/' -> [ self homePage ];
+      GET: '/post/<id>' -> [ :request | self pageForPostNumber: (request at: #id) asNumber ];
+      start
 ]]]
 
-We now add a new method named ==pageForPostNumber:== that display the whole content of a post:
+We now add a new method named ==pageForPostNumber:== displaying the whole content of a post:
 
 [[[
-TBTeapotWebApp >>	pageForPostNumber: aPostNumber
-		|currentPost|
-		currentPost := self allPosts at: aPostNumber ifAbsent: [ ^ self errorPage ].
-		^ String streamContents: [ :s | 
-				self renderPageHeaderOn: s. 
-				s << ('<h1>', currentPost title, '</h1>').
-				s << ('<h3>', currentPost date mmddyyyy, '</h3>').
-				s << ('<p> Category: ', currentPost category, '</p>').
-				s << ('<p>', currentPost text, '</p>').
-				self renderPageFooterOn: s.
-			]
+TBTeapotWebApp >> pageForPostNumber: aPostNumber
+   | currentPost |
+   currentPost := self allPosts at: aPostNumber ifAbsent: [ ^ self errorPage ].
+   ^ String streamContents: [ :s | 
+         self renderPageHeaderOn: s. 
+         s << ('<h1>', currentPost title, '</h1>').
+         s << ('<h3>', currentPost date mmddyyyy, '</h3>').
+         s << ('<p> Category: ', currentPost category, '</p>').
+         s << ('<p>', currentPost text, '</p>').
+         self renderPageFooterOn: s ]
 ]]]
 You can now test your application directly with the following URL:  *http://localhost:8081/post/1*
 
@@ -210,26 +201,26 @@ The parameter of ==pageForPostNumber:== is the integer passed in the URL and it 
 
 !!!Add Links to Posts
 
-Modify the ==homePage== method so that posts titles in the list will be links to their own web page.
+Modify the ==homePage== method so that post titles in the list will be links to their own web page.
 
 [[[
-TBTeapotWebApp >>	homePage
-	^ String streamContents: [ :s | 
-			self renderPageHeaderOn: s.
-			s << '<h1>TinyBlog Web App</h1>'.
-			s << '<ul>'.
-			self allPosts withIndexDo: [ :index :aPost |
-				s << '<li>';
-				  << ('<a href="/post/', index asString, '">');
-				  << aPost title ;
-				  << '</a></li>' ].
-			s << '</ul>'.
-			self renderPageFooterOn: s.
-		]
+TBTeapotWebApp >> homePage
+   ^ String streamContents: [ :s | 
+         self renderPageHeaderOn: s.
+         s << '<h1>TinyBlog Web App</h1>'.
+         s << '<ul>'.
+         self allPosts withIndexDo: [ :index :aPost |
+            s << '<li>';
+              << ('<a href="/post/', index asString, '">');
+              << aPost title ;
+              << '</a></li>' ].
+         s << '</ul>'.
+         self renderPageFooterOn: s.
+      ]
 ]]]
 
 
-Now, the home page of the application displays a list of clickable posts titles and if you click on a post title, you will see the content of this post. 
+Now, the home page of the application displays a list of clickable post titles and if you click on a post title, you will see the content of this post. 
 
 !!Possible Extensions
 
@@ -241,12 +232,6 @@ You can improve this web application and implement new functionalities such as:
 - adding a new page that displays all posts that belong to one specific category,
 - adding CSS styles to make this web application more appealing. 
 
-
-
-
-
-
-
-
-
- 
+% Local Variables:
+% compile-command: "cd .. && ./compile.sh --to='latex' Exercises/Exo-W3-TinyBlog-Teapot-EN.pillar"
+% End:
