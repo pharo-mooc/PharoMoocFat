@@ -149,12 +149,15 @@ Ces queries sont plus pertinentes quand on a plus d'objets mais nous ferions exa
 
 !!Si nous devions sauvegarder les posts
 
-Cette section n'est pas à implémenter et elle est juste donnée à titre d'exemple. Nous pourrions aussi définir qu'un post est un élément qui peut être sauvegardé de manière autonome. Cela  permettrait de sauver des posts de manière indépendante d'un blog. Si nous représentions les commentaires d'un post nous ne les déclarerions pas non plus comme racine car sauver ou manipuler un commentaire en dehors du contexte de son post ne fait pas beaucoup de sens. 
+Cette section n'est pas à implémenter et elle est juste donnée à titre d'exemple plus d'explications sont données dans le chapitre sur Voyage dans Enterprise Pharo disponible a *http://www.pharo.org*. Nous voulons illustrer que déclarer une classe comme une racine Voyage a une influence sur comment une instance de cette classe est sauvée et rechargée. En particulier car elle ne fait plus partie de l'objet qui lui faisait référence : dans la base elle n'est plus une souspartie du document représentant l'objet qui la référence mais un document autonome.  
 
-Lorsqu'un post n'est pas une racine, vous n'avez pas la certitude d'unicité de celui-ci lors du chargement depuis la base. En effet, lors du chargement (et ce qui peut être contraire à la situation du graphe d'objet avant la sauvegarde) un post n'est alors pas partagé entre deux instances de blogs. 
-Si avant la sauvegarde en base un post était partagé, après le chargement depuis la base, ce post sera dupliqué car recréé à partir de la définition du blog (et le blog contient alors complètement le post).
 
-Si vous désirez qu'un post soit partagé et unique entre plusieurs instances de blog, alors les objets ==TBPost== doivent être déclarée comme une racine dans la base. Lorsque c'est le cas, les posts sont sauvés comme des entités autonomes et les instances de ==TBBlog== feront référence à ces entités au lieu que leurs définitions soient incluses dans celle des blogs. Cela a pour effet qu'un post donné devient unique et partageable via une référence depuis le blog. 
+Nous pourrions définir qu'un post soit un élément qui peut être sauvegardé de manière autonome. Cela  permettrait de sauver des posts de manière indépendante d'un blog. Par contre, si nous représentions les commentaires d'un post nous ne les déclarerions pas non plus comme racine car sauver ou manipuler un commentaire en dehors du contexte de son post ne fait pas beaucoup de sens. 
+
+Lorsqu'un post n'est pas une racine, vous n'avez pas la certitude d'unicité de celui-ci lors du chargement depuis la base. En effet, lors du chargement (et ce qui peut être contraire à la situation du graphe d'objet avant la sauvegarde) un post n'est alors pas partagé entre deux instances de blogs. Si avant la sauvegarde en base un post était partagé entre deux blogs, après le chargement depuis la base, ce post sera dupliqué car recréé à partir de la définition du blog (et le blog contient alors complètement le post).
+
+!!! Post comme racine = Unicité
+Si vous désirez qu'un post soit partagé et unique entre plusieurs instances de blog, alors les objets ==TBPost== doivent être déclarés comme une racine dans la base. Lorsque c'est le cas, les posts sont sauvés comme des entités autonomes et les instances de ==TBBlog== feront référence à ces entités au lieu que leurs définitions soient incluses dans celle des blogs. Cela a pour effet qu'un post donné devient unique et partageable via une référence depuis le blog. 
 
 Pour cela on nous définirions les méthodes suivantes:
 
@@ -185,39 +188,11 @@ TBBlog >> removeAllPosts
 Ici dans la méthode ==removeAllPosts== nous enlevons chaque posts puis nous remettons à jour la collection.
 
 
-!!!D'autres requêtes
 
 
-Nous illustrons maintenant comment nous pouvons faire des requêtes sur la base en mémoire en incluant les posts. 
 
-[[[
-   TBBlog reset.
-   TBBlog current allBlogPosts size.
-   > 0
-
-   TBBlog createDemoPosts.
-   TBBlog current allBlogPosts size.
-   > 5
-
-   "Via repository"
-   TBBlog count.
-   > 1 
-   TBPost count.
-   > 5
-
-   TBPost selectAll.
-   TBPost selectAll do: [:each | Transcript show: each text; cr]
-
-   TBBlog current remove.
-   TBPost removeAll.
-   TBPost count.
-   > 0
-]]]
-
+!!Tester avec une base Mongo
 Nous allons maintenant utiliser une base Mongo externe à Pharo. 
-
-!Tester avec une base Mongo
-
 En utilisant Voyage nous pouvons rapidement sauver nos posts dans une base de données Mongo. Cette section explique rapidement la mise en oeuvre et les quelques modifications que nous devons apporter à notre projet Pharo pour y parvenir. 
 
 

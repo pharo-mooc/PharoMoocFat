@@ -144,9 +144,18 @@ You can discover more about the Voyage API by looking at:
 
 Those queries will be more relevant when there will more objects but they would be similar.
 
-!!If we would Save Posts
+!!If we would save Posts
 
-This section should not be implemented. It is only described as an example. We could define that a post can be saved independently of a blog. If we represent comments on a post, we would not define them as root objects too because manipulating a comment outside of its context (a post) does not make sense. 
+This section should not be implemented. It is only described as an example. More information about Voyage can be found in the Entreprise Pharo book *http://books.pharo.org*. We want to illustrate that declaring a class as Voyage root has an influence on how an instance of this class is saved and reloaded since it is not part anymore of the object that refers to it. In the database this object is not nested anymore inside the document representing the object referencing it but it is saved as an autonomous document. 
+
+
+We could define that a post can be saved independently from a blog. However, if we represent post comments, we would not define them as root objects too because manipulating a comment outside of its context (a post) does not make sense. 
+
+
+When a post is not declared as voyage root, you are not sure that this post is unique in the sense that you have only one object representing it when loaded from the base.
+Indeed, when loading (and this can be different from the situation before the saving) a post is included inside the document representing the blog and as such it cannot be shared between two blog instances
+
+
 
 Declaring posts as root objects would imply that saved blogs have a reference to a ==TBPost== object. Otherwise, a post is included into its blog. 
 When posts are not root objects, they are not guaranteed to be unique after loading from the database. Indeed, after loading each blog object will have its own posts objects even if some posts were shared before saving. Shared objects before saving will be duplicated for each root objects after loading. 
@@ -212,7 +221,7 @@ We illustrate how to query the database in memory to retrieve posts through the 
 ]]]
 
 
-!Test with an External Mongo Database
+!!Test with an External Mongo Database
 
 By using Voyage, we can easily save our model objects into a Mongo database. This section explains how to proceed and the few modifications to make into our code. 
 
