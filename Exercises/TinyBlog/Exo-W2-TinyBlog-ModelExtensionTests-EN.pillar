@@ -21,14 +21,14 @@ With this solution, you can complete the code of ""your"" TinyBlog application i
 
 !! Save your code
 Even if you can save the Pharo image which contains all the objects of the system
-(and as such the classes you wrote), this section explains how Pharoers usually save their code as packages on dedicated servers with the Pharo versioning system named Monticello. Smalltalkhub *http://smalltalkhub.com* is one of this server to host saved Pharo code. You can also use SS3 at *http://ss3.gemstone.com*. 
+(and as such the classes you wrote), this section explains how Pharoers usually save their code as packages on dedicated servers with the Pharo versioning system named Monticello. Smalltalkhub *http://smalltalkhub.com* is one of these servers to host saved Pharo code. You can also use SS3 at *http://ss3.gemstone.com*. 
 
 !!!Create a repository
 
 - Create an account on  *http://smalltalkhub.com/*.
-- Log yourself on the web site
+- Log yourself on the web site.
 - Create a project (it may happen that you get a connection problem because the web site is still in beta, in such a case retry with a different web browser. If the problems persist use *http://ss3.gemstone.com*).
--- Name it the way you want. For example "TinyBlog",
+-- Name it the way you want. For example "TinyBlog"
 
 
 !!! Save your package
@@ -38,21 +38,19 @@ Even if you can save the Pharo image which contains all the objects of the syste
 - Select your package and press the 'Save' button.
 - Enter a log describing the changes you did. 
 
-
-
-Le code de votre application TinyBlog est maintenant sauvegardé dans votre dépôt sur Smalltalkhub. Il est donc maintenant possible de charger votre code dans une nouvelle image Pharo. Par contre, cela va prendre un certain temps à charger car vous allez charger Seaside et plusieurs autres projets. 
+The code of your application is now in your SmalltalkHub repository. You should now be able to load your code in a new Pharo image. Nevertheless, if you use a stock Pharo image, you must also load Seaside and other libraries and frameworks.
 
 In this project, we encourage you to always use the image we gave with the preloaded packages and that you can find at *http://mooc.pharo.org*. This will let you load new code without having to take care about package dependencies. 
 
 !!About dependencies
 
 Good practices in Pharo developments are to clearly specify the dependencies of used packages. The idea is to ensure that the building of a project is fully reproducible.
-It is important because once we have such reprocible process we can take advantage about automatic build servers such as Jenkins or Travis. 
+It is important because once we have such reproducible process we can take advantage about automatic build servers such as Jenkins or Travis. 
 
 To express dependencies between projects and packages within a project
 Pharo offers special classes called Configurations. Such configurations express the architecture (main repository, dependencies to other projects, structure of the projects) as well as versionned packages. 
 
-In the context of the TinyBlog project, we do not got any further on this posing. Note that a full chapter on dependency expression is available in Deep In Pharo. 
+In the context of the TinyBlog project, we do not got any further on this. Note that a full chapter on dependency expression is available in the ''Deep In Pharo'' book.
  
 %!!!!! Optionel. 
 %If you want to create a configuration, you can use the Versionner tool.
@@ -69,7 +67,7 @@ In the context of the TinyBlog project, we do not got any further on this posing
 !!TBBlog class
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A ==TBBlog== contains posts. We will now, develop this ==TBBlog== class and its unit tests.
+A ==TBBlog== contains posts. We will now develop this ==TBBlog== class and its unit tests.
 
 [[[
 Object subclass: #TBBlog
@@ -114,9 +112,9 @@ TBBlog class >> initialize
 
 !!Testing the Model
 
-We now adopt a Test Driven Development approach i.e., we will write a unit test first and then develop the business functionality until the test is green. We will repeat thi process for each functionality of the model.
+We now adopt a Test Driven Development approach i.e., we will write a unit test first and then develop the business functionality until the test is green. We will repeat this process for each functionality of the model.
 
-We create unit tests in the ==TBBlogTest== class that belongs to the ==TinyBlog-Tests== tag. A tag is just a label to sort class inside a package (See menu item 'Add Tag...'). We use a tag because using two packages will make this project more complex. However, in normal development this is a current package to have a separate package for the tests. 
+We create unit tests in the ==TBBlogTest== class that belongs to the ==TinyBlog-Tests== tag. A tag is just a label to sort classes inside a package (See menu item 'Add Tag...'). We use a tag because using two packages will make this project more complex. However, while implementing a real application, it is recommended to have a separate package for the tests.
 
 [[[
 TestCase subclass: #TBBlogTest
@@ -132,17 +130,17 @@ For example, it erases the blog content, adds one post and creates another tempo
 TBBlogTest >> setUp
    blog := TBBlog current.
    blog removeAllPosts.
-   
-   first := (TBPost title: 'A title' text: 'A text' category: 'First Category').
+
+   first := TBPost title: 'A title' text: 'A text' category: 'First Category'.
    blog writeBlogPost: first.
-   
+
    post := (TBPost title: 'Another title' text: 'Another text' category: 'Second Category') beVisible
 ]]]
 
 As you may notice, we test different configurations. 
 Posts do not belong to the same category, one is visible and the other is not visible.
 
-At the end of each test, the ==tearDown==  method is executed and reset the connection.
+At the end of each test, the ==tearDown==  method is executed and resets the blog.
 
 [[[
 TBBlogTest >> tearDown
@@ -163,7 +161,7 @@ TBBlogTest >> testAddBlogPost
    self assert: blog size equals: 2
 ]]]
 
-If you try to execute it, you will notice that this test is not green because we did not define the following methods: ==writeBlogPost:== and ==removeAllPosts==. Let's add them:
+If you try to execute it, you will notice that this test is not green because we did not define the methods ==writeBlogPost:==, ==removeAllPosts== and ==size==. Let's add them:
 
 [[[
 TBBlog >> removeAllPosts
@@ -182,7 +180,7 @@ TBBlog >> size
 ]]]
 
 The previous test should now pass (i.e. be green).
-We should also add tests to cover all functionalities that we introduced. 
+We should also add tests to cover all functionalities that we introduced.
 
 !!!Test the number of blog posts
 
@@ -195,7 +193,7 @@ TBBlogTest >> testSize
 
 [[[
 TBBlogTest >> testRemoveAllBlogPosts
-   blog remove.
+   blog removeAllPosts.
    self assert: blog size equals: 0
 ]]]
 
@@ -205,12 +203,12 @@ TBBlogTest >> testRemoveAllBlogPosts
 We now develop new functionalities as methods in the 'action' protocol of the  ==TBBlog==.
 While doing that, we regularly ensure that tests pass.
 
-!!!Retrieve all posts (visibles and invisibles)
+!!!Retrieve all posts (visible and invisible)
 
 [[[
 TBBlogTest >> testAllBlogPosts
    blog writeBlogPost: post.
-   self assert: (blog allBlogPosts) size equals: 2
+   self assert: blog allBlogPosts size equals: 2
 ]]]
 
 [[[
@@ -219,12 +217,12 @@ TBBlog >> allBlogPosts
 ]]]
 
 
-!!!Retrieve visibles posts 
+!!!Retrieve visible posts
 
 [[[
 TBBlogTest >> testAllVisibleBlogPosts
    blog writeBlogPost: post.
-   self assert: (blog allVisibleBlogPosts) size equals: 1
+   self assert: blog allVisibleBlogPosts size equals: 1
 ]]]
 
 [[[
@@ -241,10 +239,9 @@ TBBlogTest >> testAllBlogPostsFromCategory
 ]]]
 
 [[[
-TBBlog >> allVisibleBlogPostsFromCategory: aCategory
-   ^ posts select: [ :p | p category = aCategory and: [ p isVisible ] ]
+TBBlog >> allBlogPostsFromCategory: aCategory
+   ^ posts select: [ :p | p category = aCategory ]
 ]]]
-
 
 !!!Retrieve all visible posts of one category
 
@@ -256,8 +253,8 @@ TBBlogTest >> testAllVisibleBlogPostsFromCategory
 ]]]
 
 [[[
-TBBlog >> allBlogPostsFromCategory: aCategory
-   ^ posts select: [ :p | p category = aCategory ]
+TBBlog >> allVisibleBlogPostsFromCategory: aCategory
+   ^ posts select: [ :p | p category = aCategory and: [ p isVisible ] ]
 ]]]
 
 !!!Check unclassified posts
@@ -272,7 +269,7 @@ TBBlogTest >> testUnclassifiedBlogPosts
 [[[
 TBBlogTest >> testAllCategories
    blog writeBlogPost: post.
-   self assert: (blog allCategories) size equals: 2
+   self assert: blog allCategories size equals: 2
 ]]]
 
 [[[
@@ -306,3 +303,7 @@ If you inspect the result of the following snippet, you will see that the curren
 
 !! Conclusion
 You get now the full model of TinyBlog as well as some tests. You are now ready to implement more advanced functionality such as the database storage or a first HTTP server. Do not forget to save your code. 
+
+% Local Variables:
+% compile-command: "cd .. && ./compile.sh --to='latex' Exercises/Exo-W2-TinyBlog-ModelExtensionTests-EN.pillar"
+% End:
