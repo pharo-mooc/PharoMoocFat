@@ -1,9 +1,9 @@
 {
     "title":"Persistance des données de TinyBlog avec Voyage et Mongo"
 }
+!Persistance des données de TinyBlog avec Voyage et Mongo
 
-!Correction semaine précédente
-
+!!Correction semaine précédente
 
 Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
 
@@ -21,19 +21,26 @@ Puis, testez le code en exécutant:
 	TBTeapotWebApp start
 ]]]
 
-Attention, vérifiez d'abord que votre propre serveur HTTP ne soit pas déjà lancé sur le port 8081.
+Attention, vérifiez d'abord que votre propre serveur HTTP ne soit pas déjà lancé sur le même port . Si c'est le cas, arrêtez votre application ou changez son port. 
+
+Vous devez ajouter des posts dans le blog pour voir quelquechose. 
+
+[[[
+	TBBlog reset ; createDemoPosts
+]]]
+
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-!Préparation de sauvegarde extérieure avec Voyage
+!!Préparation de sauvegarde extérieure avec Voyage
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Avoir un modèle d'objets en mémoire fonctionne bien, et sauvegarder l'image Pharo sauve aussi ces objets. Toutefois, il est préférable de pouvoir sauver les objets dans une base de données extérieure. Voyage permet de sauver les objets dans une base de donnée Mongo. 
+Avoir un modèle d'objets en mémoire fonctionne bien, et sauvegarder l'image Pharo sauve aussi ces objets. Toutefois, il est préférable de pouvoir sauver les objets dans une base de données extérieure. Voyage permet de sauver les objets dans une base de donnée Mongo. Voyage est un frameworks qui propose la même API a plusieurs bases de données documents comme Mongo ou UnQLite.
 C'est ce que nous allons voir. Dans un premier temps, nous allons utiliser la capacité de Voyage à simuler une base extérieure. Ceci est très pratique en phase de développement. Dans un second temps, nous installerons une base de données Mongo et nous y accéderons à travers Voyage. 
 
 
 !!Configurer Voyage pour sauvegarder des objets TBBlog
 
-Grâce à la méthode de classe ==isVoyageRoot==, nous allons déclarer que les objets de la classe ==TBBlog== doivent être sauvés dans la base en tant qu'objets racines.
+Grâce à la méthode de classe ==isVoyageRoot==, nous déclarons que les objets de la classe ==TBBlog== doivent être sauvés dans la base en tant qu'objets racines.
 
 [[[
 TBBlog class >> isVoyageRoot
@@ -58,7 +65,7 @@ TBBlog class >> initializeVoyageOnMemoryDB
 
 Ici nous n'avons pas besoin de stocker la base dans une variable d'instance car nous n'avons qu'une seule base de donnée en mode singleton. 
 
-Nous redéfinissons la méthode ==reset== et la méthode ==initialize== pour nous assurer que l'endroit où la base est sauvée est réinitialisé lorsque l'on charge le code. 
+Nous redéfinissons les méthodes de classe ==reset== et ==initialize== pour nous assurer que l'endroit où la base est sauvée est réinitialisé lorsque l'on charge le code. 
 
 La méthode ==reset== réinitialize la base. 
 [[[
@@ -138,7 +145,7 @@ Vous pouvez voir l'API de Voyage en parcourant
 - la classe ==Class==, et 
 - la classe ==VORepository== qui est la racine d'héritage des bases de données en mémoire ou extérieure.
 
-Ces queries sont plus pertinentes quand on a plus d'objets comme lorsque nous ajouterons plusieurs blogs.
+Ces queries sont plus pertinentes quand on a plus d'objets mais nous ferions exactement les mêmes. 
 
 !!Si nous devions sauvegarder les posts
 

@@ -1,8 +1,8 @@
 {
     "title":"TinyBlog: Data Persitency using Voyage and Mongo"
 }
-
-!Previous Week Solution
+!TinyBlog: Data Persitency using Voyage and Mongo
+!!Previous Week Solution
 
 
 You can load the solution of the previous week using the following snippet:
@@ -21,7 +21,7 @@ Then, test it with:
 	TBTeapotWebApp start
 ]]]
 
-You should not have your own web application running on the 8080 port. Stop it or run the solution on the 8081 port.
+Pay attention that you should not have your own web application running on the same port. If this is the case stop it or run the solution on a different port.
 You should also create posts in the blog to be able to see data. 
 
 [[[
@@ -29,15 +29,15 @@ You should also create posts in the blog to be able to see data.
 ]]]
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-!Saving in an External Database with Voyage
+!!Saving in an External Database with Voyage
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Until now we used model objects stored in memory and it works well because saving the Pharo image also save these objects.
-Nevertheless, it would be better to save these model data into an external database. Voyage provides a mean to store objects into a Mongo database. It is what we will discover in this exercise. First, we will use Voyage and its capacity to simulate an external database. This is really useful during development. Then, we will install a Mongo database and access it through Voyage. This second step will have a really little impact on the code of our code. 
+Nevertheless, it would be better to save these model data into an external database. Voyage provides a mean to store objects into a Mongo database. In fact Voyage is a framework that offers the same API to  document-based databases such as Mongo or UnQLite. It is what we will discover in this exercise. First, we will use Voyage and its capacity to simulate an external database. This is really useful during development. Then, we will install a Mongo database and access it through Voyage. This second step will have a really little impact on the code of our code. 
 
 !!Configure Voyage to Save TBBlog Objects
 
-By defining the class method ==isVoyageRoot==, we will declare that objects of this class must be saved into the database as root objects.
+By defining the class method ==isVoyageRoot==, we declare that objects of this class must be saved into the database as root objects.
 
 [[[
 TBBlog class >> isVoyageRoot
@@ -63,7 +63,7 @@ TBBlog class >> initializeVoyageOnMemoryDB
 
 We do not need to save the database into an instance variable because we will have only one database accessible through Voyage configured in singleton  mode. 
 
-We now define the ==reset== and ==initialize== methods to ensure that the databse is initialized we will load the TinyBlog code. 
+We now define the ==reset== and ==initialize== class methods to ensure that the databse is initialized when we will load TinyBlog's code. 
 
 La méthode ==reset== réinitialize la base. 
 [[[
@@ -76,7 +76,7 @@ TBBlog class >> initialize
 
 The class-side ==current== method is more tricky. Before using Voyage, we implemented a simple singleton pattern. However, it does not work anymore because imagine that we saved our blog and then the server stop by accident. When we would reload a new version of the code, it would re-initializes the connection and create a new instance. It would then be possible to end up with a different instance than the saved one.
 
-So we change the implementation of the  ==current== method  to make a database request and retrieve saved objects. Since we only save one blog object, it only consists in doing:  ==self selectOne: [ :each | true ]== or ==self selectAll anyOne==. If the database contains no instance, we create a new one and save it. 
+So we change the implementation of the  ==current== method to make a database request and retrieve saved objects. Since we only save one blog object, it only consists in doing:  ==self selectOne: [ :each | true ]== or ==self selectAll anyOne==. If the database contains no instance, we create a new one and save it. 
 
 [[[
 TBBlog class >> current
@@ -132,7 +132,7 @@ Similarly, you can retrieve all saved root objects of one kind.
 TBBlog selectAll
 ]]]
 
-You can also remove onr root objet.
+You can also remove one root objet.
 
 [[[
 TBBlog current remove
@@ -142,7 +142,7 @@ You can discover more about the Voyage API by looking at:
 - the ==Class== class,  
 - the ==VORepository== class which is the root of the hierachy of all databases either in memory or external.
 
-Those queries will be more relevant when there will more objects or when we will add multiple blogs.
+Those queries will be more relevant when there will more objects but they would be similar.
 
 !!If we would Save Posts
 
