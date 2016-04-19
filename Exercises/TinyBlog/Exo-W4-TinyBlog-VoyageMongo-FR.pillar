@@ -201,7 +201,6 @@ En utilisant Voyage nous pouvons rapidement sauver nos posts dans une base de do
 Quel que soit votre système d'exploitation (Linux, Mac OSX ou Windows), vous pouvez installer un serveur Mongo localement sur votre machine. Cela est pratique pour tester votre application sans avoir besoin d'une connexion Internet. Nous ne détaillons pas ici comment installer Mongo sur votre système, référez-vous à la documentation Mongo. 
 Lorsque, vous avez installé et lancé un serveur Mongo localement, vous pouvez y accéder depuis Pharo.
 
-
 !!Connexion à un serveur local
 
 Nous définissions les méthodes ==initializeLocalhostMongoDB== pour établir la connexion vers la base de données.
@@ -209,14 +208,21 @@ Nous définissions les méthodes ==initializeLocalhostMongoDB== pour établir la
 [[[
 TBBlog class >> initializeLocalhostMongoDB
    | repository |
-   repository := VOMongoRepository
-      database: 'tinyblog'.
+   repository := VOMongoRepository database: 'tinyblog'.
    repository enableSingleton.
 ]]]
 
 
 @@note Le serveur Mongo ne doit pas utiliser d'authentification car la nouvelle méthode de chiffrement SCRAM utilisée par MongoDB 3.0 n'est actuellement pas supportée par Pharo.
 
+Now we make sure that resetting the class will set a connection to the database. 
+
+[[[
+TBBlog class >> reset
+   self initializeLocalhostMongoDB
+]]]
+
+!!! A cas de problème
 Notez que si vous avez besoin de réinitialiser la base extérieure complètement, vous pouvez utiliser la méthode ==dropDatabase==.
 
 [[[
@@ -226,7 +232,7 @@ Notez que si vous avez besoin de réinitialiser la base extérieure complètemen
 ]]]
 
 
-!!Changement de TBBlog
+!!! Attention : Changements de TBBlog
 
 Si vous utilisez une base locale plutôt qu'une base en mémoire, à chaque fois que vous ajoutez une nouvelle racine d'objets ou modifiez la définition d'une classe racine (ajout, retrait, modification d'attribut) il est capital de réinitializer le cache maintenu par Voyage.  La réinitialisation se fait comme suit:
 

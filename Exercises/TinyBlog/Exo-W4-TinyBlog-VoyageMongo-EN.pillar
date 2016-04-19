@@ -68,10 +68,11 @@ We now define the ==reset== and ==initialize== class methods to ensure that the 
 La méthode ==reset== réinitialize la base. 
 [[[
 TBBlog class >> reset
-      self initializeVoyageOnMemoryDB
-      
+   self initializeVoyageOnMemoryDB
+]]]
+[[[
 TBBlog class >> initialize
-      self reset
+   self reset
 ]]]
 
 The class-side ==current== method is more tricky. Before using Voyage, we implemented a simple singleton pattern. However, it does not work anymore because imagine that we saved our blog and then the server stop by accident. When we would reload a new version of the code, it would re-initializes the connection and create a new instance. It would then be possible to end up with a different instance than the saved one.
@@ -149,14 +150,15 @@ Those queries will be more relevant when there will more objects but they would 
 This section should not be implemented. It is only described as an example. More information about Voyage can be found in the Entreprise Pharo book *http://books.pharo.org*. We want to illustrate that declaring a class as Voyage root has an influence on how an instance of this class is saved and reloaded since it is not part anymore of the object that refers to it. In the database this object is not nested anymore inside the document representing the object referencing it but it is saved as an autonomous document. 
 
 
+
 We could define that a post can be saved independently from a blog. However, if we represent post comments, we would not define them as root objects too because manipulating a comment outside of its context (a post) does not make sense. 
 
 
 When a post is not declared as voyage root, you are not sure that this post is unique in the sense that you have only one object representing it when loaded from the base.
-Indeed, when loading (and this can be different from the situation before the saving) a post is included inside the document representing the blog and as such it cannot be shared between two blog instances
+Indeed, when loading (and this can be different from the situation before the saving) a post is nested inside the document representing the blog and as such it cannot be shared between two blog instances therefore it may be duplicated. 
 
 
-
+!!! Post as Root = Uniqueness
 Declaring posts as root objects would imply that saved blogs have a reference to a ==TBPost== object. Otherwise, a post is included into its blog. 
 When posts are not root objects, they are not guaranteed to be unique after loading from the database. Indeed, after loading each blog object will have its own posts objects even if some posts were shared before saving. Shared objects before saving will be duplicated for each root objects after loading. 
 
@@ -192,34 +194,6 @@ TBBlog >> removeAllPosts
 In the ==removeAllPosts==  method, we first remove all posts, then update the collection and finally save the blog.
 
 
-!!!More Requests
-
-We illustrate how to query the database in memory to retrieve posts through the blog singleton.
-
-[[[
-   TBBlog reset.
-   TBBlog current allBlogPosts size.
-   > 0
-
-   TBBlog createDemoPosts.
-   TBBlog current allBlogPosts size.
-   > 5
-
-   "Via repository"
-   TBBlog count.
-   > 1 
-   TBPost count.
-   > 5
-
-   TBPost selectAll.
-   TBPost selectAll do: [:each | Transcript show: each text; cr]
-
-   TBBlog current remove.
-   TBPost removeAll.
-   TBPost count.
-   > 0
-]]]
-
 
 !!Test with an External Mongo Database
 
@@ -228,10 +202,9 @@ By using Voyage, we can easily save our model objects into a Mongo database. Thi
 
 !!Installing Mongo
 
-Regardless of your operating system (Linux, Mac OSX ou Windows), you can install a local Mongo serveur on your machine. This is useful to test your application without requiring an internet connection. We will not describe here the process to install Mongo on various systems, please read the Mongo documentation. 
+Regardless of your operating system (Linux, Mac OSX ou Windows), you can install a local Mongo server on your machine. This is useful to test your application without requiring an internet connection. We will not describe here the process to install Mongo on various systems, please read the Mongo documentation. 
 
 Once you successfully installed Mongo locally, you can access it from Pharo.
-
 
 !!Connecting a Local Server
 
@@ -240,14 +213,25 @@ We define the method named ==initializeLocalhostMongoDB== to establish the conne
 [[[
 TBBlog class >> initializeLocalhostMongoDB
    | repository |
-   repository := VOMongoRepository
-      database: 'tinyblog'.
+   repository := VOMongoRepository database: 'tinyblog'.
    repository enableSingleton.
 ]]]
 
 @@note The running Mongo server must not use authentication because the new SCRAM mechanism used by Mongo 3.0 is currently not supported by Pharo.  
 
-If you need to re-initalize completly an external database, you can use the ==dropDatabase== methode.
+Now we make sure that resetting the class will set a connection to the database. 
+
+[[[
+TBBlog class >> reset
+   self initializeLocalhostMongoDB
+]]]
+
+Now you can use your application. For example add new posts. They will be saved directly in the Mongo database. 
+
+
+!! In case of trouble
+
+If you need to re-initalize completely an external database, you can use the ==dropDatabase== method.
 
 [[[
 (VOMongoRepository
@@ -256,11 +240,12 @@ If you need to re-initalize completly an external database, you can use the ==dr
 ]]]
 
 
-!!Changing TBBlog Definition
+!!Points of Attention: Changing TBBlog Definition
 
-If you use an external Mongo database instead of a memory one, each time you add new root objects or modify the definition of some root objects, it is important to reset the cache maintained by Voyage. It can be done using:
+When you use an external Mongo database instead of a memory one, each time you add new root objects or modify the definition of some root objects, it is important to reset the cache maintained by Voyage. It can be done using:
 
 [[[
 	VORepository current reset
 ]]]
 
+!! Conclusion
