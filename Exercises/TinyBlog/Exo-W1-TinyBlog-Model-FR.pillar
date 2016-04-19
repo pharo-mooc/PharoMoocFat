@@ -127,7 +127,7 @@ Attention la méthode ==unclassifiedTag== est définie au niveau de la classe (c
 
 [[[
 TBPost >> initialize
-   self category: self class unclassifiedTag.
+   self category: TBPost unclassifiedTag.
    self date: Date today.
    self notVisible
 ]]]

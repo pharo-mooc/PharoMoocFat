@@ -29,7 +29,7 @@ We start here with the ==TBPost== class.
 
 !!!TBPost Class
 
-We adopt the followind naming convention: all class names will be prefixed by ==TB== (pour TinyBlog). You must choose another prefix (e.g. ==TBM==) if you want to be able to load the correction code in the same Pharo image as your code to compare both implementations. 
+We adopt the following naming convention: all class names will be prefixed by ==TB== (for TinyBlog). You must choose another prefix (e.g. ==TBM==) if you want to be able to load the correction code in the same Pharo image as your code to compare both implementations. 
 
 %If you are familiar with the concept of source merging, you can also use the prefix TB and merge the solutions we will give you. By merging you will be able to identify the differences and learn from the solution. 
 
@@ -46,12 +46,12 @@ Object subclass: #TBPost
 
 A blog post is described by 5 instance variables.
 
-|!Variable |!Signification |
-|title         |post title               |
-|text          |post text                |
-|date          |date of writing             |
-|category      |name of the category of the post |
-|visible       |is the post publicly visible or not? |
+|!Variable         |!Signification                       |
+|==title==         |post title                           |
+|==text==          |post text                            |
+|==date==          |date of writing                      |
+|==category==      |name of the category of the post     |
+|==visible==       |is the post publicly visible or not? |
 
 All of these variables have corresponding accessor methods in the 'accessing' protocol.
 
@@ -114,20 +114,20 @@ TBPost >> isVisible
 ]]]
 
 
-!!Initialisation
+!!Initialization
 
-The ==initialize== method ('initialization' protocol) sets the date to the current day and the visibility to false: the user must explicitly make a post visible. This allows him to write drafts and only publish when the post is finished. By default, a post belongs the 'Unclassified' category. This category name is defined on class-side by the ==unclassifiedTag==  method.
+The ==initialize== method ('initialization' protocol) sets the date to the current day and the visibility to false: the user must explicitly make a post visible. This allows him to write drafts and only publish when the post is finished. By default, a post belongs to the 'Unclassified' category. This category name is defined on class-side by the ==unclassifiedTag==  method.
 
 [[[
 TBPost class >> unclassifiedTag
    ^ 'Unclassified'
 ]]]
 
-Pay attention the method ==unclassifiedTag== should be defined on the class-side of the class ==TBPost== (click on the class button to define it). The other methods are defined on the instance-side: it means that they will be applied to ==TBBlog== instances. 
+Pay attention the method ==unclassifiedTag== should be defined on the class-side of the class ==TBPost== (click on the ==class== button to define it). The other methods are defined on the instance-side: it means that they will be applied to ==TBBlog== instances. 
 
 [[[
 TBPost >> initialize
-   self category: self class unclassifiedTag.
+   self category: TBPost unclassifiedTag.
    self date: Date today.
    self notVisible
 ]]]
@@ -210,3 +210,6 @@ We have now a first part of the model and it is a good time to save your Pharo i
 % 		yourself
 % ]]]
 
+% Local Variables:
+% compile-command: "cd .. && ./compile.sh --to='latex' Exercises/Exo-W1-TinyBlog-Model-EN.pillar"
+% End:
