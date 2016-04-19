@@ -130,10 +130,10 @@ Par exemple, elle efface son contenu, ajoute un post et en créé un autre qui p
 TBBlogTest >> setUp
    blog := TBBlog current.
    blog removeAllPosts.
-   
-   first := (TBPost title: 'A title' text: 'A text' category: 'First Category').
+
+   first := TBPost title: 'A title' text: 'A text' category: 'First Category'.
    blog writeBlogPost: first.
-   
+
    post := (TBPost title: 'Another title' text: 'Another text' category: 'Second Category') beVisible
 ]]]
 
@@ -195,7 +195,7 @@ TBBlogTest >> testSize
 
 [[[
 TBBlogTest >> testRemoveAllBlogPosts
-   blog remove.
+   blog removeAllPosts.
    self assert: blog size equals: 0
 ]]]
 
@@ -210,7 +210,7 @@ Les règles métiers sont regroupées dans le protocole 'action' de la classe ==
 [[[
 TBBlogTest >> testAllBlogPosts
    blog writeBlogPost: post.
-   self assert: (blog allBlogPosts) size equals: 2
+   self assert: blog allBlogPosts size equals: 2
 ]]]
 
 [[[
@@ -224,7 +224,7 @@ TBBlog >> allBlogPosts
 [[[
 TBBlogTest >> testAllVisibleBlogPosts
    blog writeBlogPost: post.
-   self assert: (blog allVisibleBlogPosts) size equals: 1
+   self assert: blog allVisibleBlogPosts size equals: 1
 ]]]
 
 [[[
@@ -241,10 +241,9 @@ TBBlogTest >> testAllBlogPostsFromCategory
 ]]]
 
 [[[
-TBBlog >> allVisibleBlogPostsFromCategory: aCategory
-   ^ posts select: [ :p | p category = aCategory and: [ p isVisible ] ]
+TBBlog >> allBlogPostsFromCategory: aCategory
+   ^ posts select: [ :p | p category = aCategory ]
 ]]]
-
 
 !!!Obtenir tous les posts visibles d'une catégorie
 
@@ -256,8 +255,8 @@ TBBlogTest >> testAllVisibleBlogPostsFromCategory
 ]]]
 
 [[[
-TBBlog >> allBlogPostsFromCategory: aCategory
-   ^ posts select: [ :p | p category = aCategory ]
+TBBlog >> allVisibleBlogPostsFromCategory: aCategory
+   ^ posts select: [ :p | p category = aCategory and: [ p isVisible ] ]
 ]]]
 
 !!!Vérifier la gestion des posts non classés
@@ -272,7 +271,7 @@ TBBlogTest >> testUnclassifiedBlogPosts
 [[[
 TBBlogTest >> testAllCategories
    blog writeBlogPost: post.
-   self assert: (blog allCategories) size equals: 2
+   self assert: blog allCategories size equals: 2
 ]]]
 
 [[[
