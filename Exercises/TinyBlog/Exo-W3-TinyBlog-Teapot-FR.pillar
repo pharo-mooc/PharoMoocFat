@@ -2,10 +2,10 @@
     "title":"Construire une interface Web avec Teapot pour TinyBlog"
 }
 
-! Construire une Interface Web avec Teapot pour TinyBlog
+!Une Interface Web avec Teapot pour TinyBlog
 
 
-!! Correction Semaine Précédente
+!!Correction semaine précédente
 
 Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
 
@@ -23,7 +23,7 @@ Pour cela, vous pouvez lancer l'outil TestRunner (World menu > Test Runner), che
 Ouvrez maintenant un browser de code pour regarder le code des classes ==TBBlog== et ==TBBlogTest== et compléter votre propre code si nécessaire.
 Avant de poursuivre, n'oubliez pas de committer une nouvelle version dans votre dépôt sur Smalltalkhub ou SS3 si vous avez modifié votre application. 
 
-!!Une Interface Web avec Teapot pour TinyBlog
+!!Une interface web avec Teapot
 
 Dans la suite, nous allons créer une première interface web pour TinyBlog en utilisant Teapot (*http://smalltalkhub.com/#!/~zeroflag/Teapot*). Nous verrons une solution bien plus complète avec Seaside par la suite.
 
@@ -39,7 +39,7 @@ Object subclass: #TBTeapotWebApp
 ]]]
 
 La variable ==teapot== contiendra un petit server HTTP Teapot.
-Ici on utilise une variante du singleton en utilisant une variable de classe nommée ==Server== afin de ne pas avoir deux serveurs gérant les connexions. 
+Ici on utilise une implémentation différente du Design Pattern Singleton en utilisant une variable de classe nommée ==Server==. Nous faison cela afin de ne pas avoir deux serveurs gérant les connexions sur le même port. 
 
 
 Ajouter la méthode d'instance ==initialize== pour initialiser la variable d'instance  ==teapot== :
@@ -52,7 +52,7 @@ TBTeapotWebApp >> initialize
        #debugMode -> true }.
 ]]]
 
-!!!La Page d'Accueil
+!!!La Page d'accueil
 Définissons une méthode ==homePage== dans le protocol 'html' qui retourne le code HTML de la page d'accueil de notre application web. Commençons par une version simple :
 
 [[[
@@ -72,7 +72,7 @@ TBTeapotWebApp >> start
         start
 ]]]
 
-!!!Stopper l'Application
+!!!Stopper l'application
 
 Ajouter également une méthode pour stopper l'application :
 
@@ -81,9 +81,9 @@ TBTeapotWebApp >> stop
     teapot stop
 ]]]
 
-!!!Démarrage Application 
+!!!Démarrage l'application 
 
-Ajouter deux méthodes ==start== et ==stop== côté classe pour respectivement démarrer et arrêter l'application dans le protocol 'start/stop'. Ces méthodes utilisent la variable de class ==Server==. 
+Ajouter deux méthodes ==start== et ==stop== côté classe pour respectivement démarrer et arrêter l'application dans le protocol 'start/stop'. Ces méthodes utilisent la variable de class ==Server== pour implanter un Singleton. 
 
 [[[
 TBTeapotWebApp class >> start
@@ -95,21 +95,21 @@ TBTeapotWebApp class >> stop
     Server ifNotNil: [ Server stop. Server := nil ]
 ]]]
 
-+A first page served by our application.>file://figures/homepage.png|width=60|label=fighome+
++Une première page servie par notre application.>file://figures/homepage.png|width=60|label=fighome+
 
-!!Tester votre Application
+!!Tester votre application
 Maintenant nous pouvons lancer notre application en exécutant le code suivant pour démarrer votre application :
 
 [[[
 TBTeapotWebApp start
 ]]]
 
-Avec un navigateur web, vous pouvez accéder à l'application via l'URL *http://localhost:8081/*. Vous devriez voir s'afficher le texte "TinyBlog Web App" comme la Figure *@fighome*.
+Avec un navigateur web, vous pouvez accéder à l'application via l'URL *http://localhost:8081/*. Vous devriez voir s'afficher le texte "TinyBlog Web App" comme la figure *@fighome*.
 
 
-+Showing post titles.>file://figures/withPosts.png|width=60|label=figposts+
++Afficher la liste des titres de posts.>file://figures/withPosts.png|width=60|label=figposts+
 
-!!Afficher la Liste des Posts
+!!Afficher la liste des posts
 
 On souhaite maintenant modifier le code de la méthode ==homePage== pour que la page d'accueil affiche la liste de tous les posts visibles.
 Pour rappel, tous les posts peuvent être obtenus via ==TBBlog current allVisibleBlogPosts==.
