@@ -245,7 +245,9 @@ If you need to re-initalize completely an external database, you can use the ==d
 When you use an external Mongo database instead of a memory one, each time you add new root objects or modify the definition of some root objects, it is important to reset the cache maintained by Voyage. It can be done using:
 
 [[[
-	VORepository current reset
+   VORepository current reset
 ]]]
 
 !! Conclusion
+Voyage proposes a nice API to manage transparently storage of objects either into memory or in document database. 
+Your application can now be saved into a database and we are now ready for its web user interface. 

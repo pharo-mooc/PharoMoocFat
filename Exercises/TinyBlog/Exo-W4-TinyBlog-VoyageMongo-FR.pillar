@@ -237,6 +237,10 @@ Notez que si vous avez besoin de réinitialiser la base extérieure complètemen
 Si vous utilisez une base locale plutôt qu'une base en mémoire, à chaque fois que vous ajoutez une nouvelle racine d'objets ou modifiez la définition d'une classe racine (ajout, retrait, modification d'attribut) il est capital de réinitializer le cache maintenu par Voyage.  La réinitialisation se fait comme suit:
 
 [[[
-	VORepository current reset
+   VORepository current reset
 ]]]
 
+
+!! Conclusion
+
+Voyage propose une API sympathique pour gérer de manière transparente la sauvegarde d'objets soit en mémoire soit dans une base de données document. Votre application peut maintenant être sauvée dans la base et vous êtes donc prêt pour construire son interface web. 
