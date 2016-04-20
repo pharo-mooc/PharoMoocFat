@@ -35,6 +35,8 @@ Vous devez ajouter des posts dans le blog pour voir quelquechose.
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Avoir un modèle d'objets en mémoire fonctionne bien, et sauvegarder l'image Pharo sauve aussi ces objets. Toutefois, il est préférable de pouvoir sauver les objets dans une base de données extérieure. Voyage permet de sauver les objets dans une base de donnée Mongo. Voyage est un frameworks qui propose la même API a plusieurs bases de données documents comme Mongo ou UnQLite.
+
+
 C'est ce que nous allons voir. Dans un premier temps, nous allons utiliser la capacité de Voyage à simuler une base extérieure. Ceci est très pratique en phase de développement. Dans un second temps, nous installerons une base de données Mongo et nous y accéderons à travers Voyage. 
 
 
@@ -199,6 +201,9 @@ En utilisant Voyage nous pouvons rapidement sauver nos posts dans une base de do
 !!Installation de Mongo
 
 Quel que soit votre système d'exploitation (Linux, Mac OSX ou Windows), vous pouvez installer un serveur Mongo localement sur votre machine. Cela est pratique pour tester votre application sans avoir besoin d'une connexion Internet. Nous ne détaillons pas ici comment installer Mongo sur votre système, référez-vous à la documentation Mongo. 
+
+@@note Le serveur Mongo ne doit pas utiliser d'authentification car la nouvelle méthode de chiffrement SCRAM utilisée par MongoDB 3.0 n'est actuellement pas supportée par Voyage.
+
 Cependant vous devez créer une base de données nommée 'tinyblog'. 
 Lorsque, vous avez installé et lancé un serveur Mongo localement, vous pouvez y accéder depuis Pharo.
 
@@ -214,7 +219,7 @@ TBBlog class >> initializeLocalhostMongoDB
 ]]]
 
 
-@@note Le serveur Mongo ne doit pas utiliser d'authentification car la nouvelle méthode de chiffrement SCRAM utilisée par MongoDB 3.0 n'est actuellement pas supportée par Pharo.
+
 
 Now we make sure that resetting the class will set a connection to the database. 
 

@@ -204,6 +204,9 @@ By using Voyage, we can easily save our model objects into a Mongo database. Thi
 
 Regardless of your operating system (Linux, Mac OSX ou Windows), you can install a local Mongo server on your machine. This is useful to test your application without requiring an internet connection. We will not describe here the process to install Mongo on various systems, please read the Mongo documentation. 
 
+@@note The running Mongo server must not use authentication because the new SCRAM mechanism used by Mongo 3.0 is currently not supported by Voyage.
+
+
 Once you successfully installed Mongo locally, you can access it from Pharo.
 You should create a database named 'tinyblog'. It will be used to save our objects.
 
@@ -218,7 +221,6 @@ TBBlog class >> initializeLocalhostMongoDB
    repository enableSingleton.
 ]]]
 
-@@note The running Mongo server must not use authentication because the new SCRAM mechanism used by Mongo 3.0 is currently not supported by Pharo.  
 
 Now we make sure that resetting the class will set a connection to the database. 
 
