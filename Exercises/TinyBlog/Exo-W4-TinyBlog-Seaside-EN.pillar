@@ -1,8 +1,9 @@
 {
     "title":"TinyBlog: Building a Web Interface with Seaside"
 }
+!TinyBlog: Building a Web Interface with Seaside
 
-!Previous Week Solution
+!!Previous Week Solution
 
 You can load the solution of the previous week using the following snippet:
 
@@ -14,14 +15,19 @@ Gofer new
 #ConfigurationOfTinyBlog asClass loadWeek3Correction
 ]]]
 
-Before testing it, ensure that you do not have an HTTP server already running on port 8080.
-Then, test it with:
+%Before testing it, ensure that you do not have an HTTP server already running on port 8080.
+%Then, test it with:
+%[[[
+%	TBTeapotWebApp start
+%]]]
 
+Make sure that you Teapot server is stopped. 
 [[[
-	TBTeapotWebApp start
+	TBTeapotWebApp stop
 ]]]
 
-!A Web UI for TinyBlog with Seaside
+
+!!A Web UI for TinyBlog with Seaside
 
 The work presented in this exercise does not require the one on Voyage and MongoDB.
 
@@ -29,7 +35,7 @@ This week, we start with a web UI dedicated to display posts to users. Next week
 
 +Start Seaside Server.>file://figures/RunningSeaside.png|width=50|label=RunningSeaside+
 
-
++Accessing Seaside Home Page.>file://figures/SeasideWebStart.png|width=75|label=SeasideWebStart+
 !!Start Seaside
 
 There are two ways to start Seaside. The first one consists in executing the following code:
@@ -39,12 +45,12 @@ ZnZincServerAdaptor startOn: 8080.
 ]]]
 
 The second one uses the graphical tool named "Seaside Control Panel" (World Menu>Tools>Seaside Control Panel).
-In the contextual menu (right clic) of this tool, select "add adaptor..." and add a server of type ==ZnZincServerAdaptor==, then define the port number (e.g. 8080) it should run on (cf. figure *@RunningSeaside*). By openning a web browser on the URL *http://localhost:8080*, you should see the Seaside home page as displayed on figure *@SeasideWebStart*.
-
-+Accessing Seaside Home Page.>file://figures/SeasideWebStart.png|width=75|label=SeasideWebStart+
+In the contextual menu (right clic) of this tool, select "add adaptor..." and add a server of type ==ZnZincServerAdaptor==, then define the port number (e.g. 8080) it should run on (cf. figure *@RunningSeaside*). By opening a web browser on the URL *http://localhost:8080*, you should see the Seaside home page as displayed on Figure *@SeasideWebStart*.
 
 
-!!Initializing TinyBlog web UI
+
+
+!!Entry Point for TinyBlog Web UI
 
 Create a class named ==TBApplicationRootComponent== which will be the entry point of the application.
 
@@ -52,9 +58,8 @@ Create a class named ==TBApplicationRootComponent== which will be the entry poin
 WAComponent subclass: #TBApplicationRootComponent
    instanceVariableNames: ''
    classVariableNames: ''
-   category: 'TinyBlog-Components'
+   package: 'TinyBlog-Components'
 ]]]
-
 
 On class-side, we implement the ==initialize== method in the =='initialization'== protocol to declare the application to Seaside. We also integrate dependencies to the Bootstrap framework (CSS and JS files will be embedded in the application).
 
@@ -71,7 +76,7 @@ TBApplicationRootComponent class >> initialize
 
 Once declared, you should execute this method with ==TBApplicationRootComponent initialize==. Indeed, class-side ==initialize== methods are executed at loading-time of a class but since the class already exists, we must execute it by hand.
 
-We also add a method named ==canBeRoot== to specify that ==TBApplicationRootComponent== is not a simple Seaside component but a complete application. This component will be automatically instanciated when a user connects to the application.
+We also add a method named ==canBeRoot== to specify that ==TBApplicationRootComponent== is not a simple Seaside component but a complete application. This component will be automatically instantiated when a user connects to the application.
 
 [[[
 TBApplicationRootComponent class >> canBeRoot
@@ -82,7 +87,9 @@ TBApplicationRootComponent class >> canBeRoot
 
 You can verify that your application is correctly registered by Seaside by connecting to the Seaside server through your web browser, click on "Browse the applications installed in your image" and then see that TinyBlog appears in the list.
 
-Let's add an instance-side method named ==renderContentOn:== in ==rendering==  protocol to make our application displaying something.
+!! First Simple Rendering
+
+Let's add an instance  method named ==renderContentOn:== in ==rendering==  protocol to make our application displaying something.
 
 [[[
 TBApplicationRootComponent >> renderContentOn: html
@@ -91,9 +98,9 @@ TBApplicationRootComponent >> renderContentOn: html
 
 If you open *http://localhost:8080/TinyBlog* in your web browser, the displayed a web should look like to the one on figure *@EmptyPage*.
 
-+Your First Seaside Web Page.>file://figures/EmptyPage.png|width=75|label=EmptyPage+
++Your First Seaside Web Page.>file://figures/TinyBlog-EmptyPage2.png|width=75|label=EmptyPage+
 
-You can customize the web page header and declare it HTML 5 compliant by redefining the ==updateRoot:== method.
+You can customize the web page header and declare it as HTML 5 compliant by redefining the ==updateRoot:== method.
 
 [[[
 TBApplicationRootComponent >> updateRoot: anHtmlRoot
@@ -104,17 +111,17 @@ TBApplicationRootComponent >> updateRoot: anHtmlRoot
 
 The ==TBApplicationRootComponent== component is the root component of our application.  It will not display a lot of things but will contain and display other components. For example, a component to display posts to the blog readers, a component to administrate the blog and its posts, ... Therefore, we decided that the ==TBApplicationRootComponent== component will contain components inheriting from the abstract class named ==TBScreenComponent== that we will now define.
 
-!Visual Components for TinyBlog
+!!Visual Components for TinyBlog
 
-We are now ready to define multiple visual components for our application. The firsts chapters of *http://book.seaside.st* can help you and give more details than this tutorial if needed.
+We are now ready to define multiple visual components for our application. The first chapters of *http://book.seaside.st* can help you and give more details than this tutorial if needed.
 
-Figure *@ComponentOverview* shows the different components to develop.
+Figure *@ComponentOverview* shows the different components to develop and where they are taking place.
 
 +TinyBlog Components.>file://figures/ComponentOverview.pdf|width=75|label=ComponentOverview+
 
-!!TBScreenComponent Component 
+!!!TBScreenComponent Component 
 
-All components contained in ==TBApplicationRootComponent== will be subclasses of the abstract class ==TBScreenComponent==. This class allows us to factorize shared behaviors of all our components.  
+All components contained in ==TBApplicationRootComponent== will be subclasses of the abstract class ==TBScreenComponent==. This class allows us to factorize shared behaviors between all our components.  
 
 [[[
 WAComponent subclass: #TBScreenComponent
@@ -123,7 +130,7 @@ WAComponent subclass: #TBScreenComponent
    package: 'TinyBlog-Components'
 ]]]
 
-All components need to access the model of our application. Therefore, in the 'accessing' protocol, we add a ==blog== method that returns the current ==TBBlog== instance. 
+All components need to access the model of our application. Therefore, in the 'accessing' protocol, we add a ==blog== method that returns an instance of ==TBBlog== (here the singleton). 
 
 [[[
 TBScreenComponent >> blog
@@ -132,11 +139,11 @@ TBScreenComponent >> blog
    ^ TBBlog current
 ]]]
 
-Inscept now the blog object returned  by ==TBBlog current== and verify that it contains some posts.  If it does not, execute: ==TBBlog current createDemoPost==.
+Inspect now the blog object returned  by ==TBBlog current== and verify that it contains some posts.  If it does not, execute: ==TBBlog current createDemoPost==.
 
 In the future, if you want to manage multiple blogs, you will need to modify this method and use information stored in the active session to retrieve the current user/blog (cf. ==TBSession== later on). 
 
-+The Bootstrap Library.>file://figures/SeasideBootstrap.png|width=75|label=bootstrap+
++Bootstrap Library.>file://figures/SeasideBootstrap.png|width=75|label=bootstrap+
 
 !!Bootstrap for Seaside
 
@@ -149,9 +156,7 @@ If you click on the ""Examples"" link at the bottom of the web page you can see 
 !!!Bootstrap
 
 The Seaside Bootstrap library code and documentation is available here: *http://smalltalkhub.com/#!/~TorstenBergmann/Bootstrap*.
-There is also an online demo here: *http://pharo.pharocloud.com/bootstrap*.
-
-This library is already loaded in the PharoWeb image used in this MOOC.
+There is also an online demo here: *http://pharo.pharocloud.com/bootstrap*. This library is already loaded in the PharoWeb image used in this tutorial.
 
 !!Definition of TBHeaderComponent
 
@@ -174,15 +179,15 @@ TBHeaderComponent >> renderContentOn: html
          with: 'TinyBlog' ]
 ]]]
 
-Our header is a simple navigation bar of Bootstrap (cf. figure *@navBlog*)
+Our header is a simple navigation bar of Bootstrap (See Figure *@navBlog*)
 
 By default, in Bootstrap navigation bars, there is a link on tbsNavbarBrand. Since we consider that useless in our application, we used a =='#'== anchor. Now, when the user click on the title link, nothing happen.
 
 Usually, clicking on an application title bring back the user to the web application home page.
 
-!!Utilisation du Header
+!!Header Use
 
-It is not desirable to instanciate the ==TBHeaderComponent== each time a component is called. 
+It is not desirable to instantiate the ==TBHeaderComponent== each time a component is called. 
 So, we add an instance variable named ==header== in the ==TBScreenComponent== component and initializes it in its ==initialize== method.
 
 [[[
@@ -200,8 +205,8 @@ TBScreenComponent >> initialize
 
 !!!Composite-Component relationship
 
-In Seaside, subcomponents of a component must be returned by the composite when sending it the ==children==  message. 
-So, we must define that the ==TBHeaderComponent== instance is a children of the ==TBScreenComponent== component in the Seaside component hierachy (and not in the Pharo classes hierarchy). 
+In Seaside, subcomponents of a component must be returned by the composite when sending it the ==children== message. 
+So, we must define that the ==TBHeaderComponent== instance is a children of the ==TBScreenComponent== component in the Seaside component hierachy (and not in the Pharo classes hierarchy). We do so by specializing the method ==children==.
 
 [[[
 TBScreenComponent >> children
@@ -219,7 +224,7 @@ TBScreenComponent >> renderContentOn: html
 !!Using the Screen Component in our Application
 
 Temporarily, we will directly use the ==TBScreenComponent== while we develop other components.
-So, we instanciate it in ==initialize== method and store it in an instance variable. 
+So, we instantiate it in ==initialize== method and store it in the instance variable ==main==. 
 
 [[[
 TBApplicationRootComponent >> initialize
@@ -231,6 +236,8 @@ TBApplicationRootComponent >> initialize
 TBApplicationRootComponent >> renderContentOn: html
    html render: main
 ]]]
+
+We declare the containment relationship by returning ==main== as children of ==TBApplicationRootComponent==.
 
 [[[
 TBApplicationRootComponent >> children
@@ -272,7 +279,7 @@ TBApplicationRootComponent >> initialize
    main := TBPostsListComponent new. 
 ]]]
 
-Modify this method is not a good practice so we add a setter to dynamically change the component to display in the future.
+Modify this method is not a good practice so we add a setter method to dynamically change the component to display in the future.
 But, we keep that by default the ==TBPostsListComponent== component will be displayed.
 
 [[[
@@ -285,7 +292,7 @@ TBApplicationRootComponent >> main: aComponent
 
 !!A Post Component
 
-We will now define ==TBPostComponent== to display the deatils of a Post.
+Now e will define ==TBPostComponent== to display the deatils of a Post.
 Each post will be graphically displayed by an instance of ==TBPostComponent== which will show the post title, its date and its content.
 
 [[[
@@ -316,7 +323,7 @@ TBPostComponent >> date
    ^ post date
 ]]]
 
-The ==renderContentOn:== method defines the HTML rendenring of a post.
+The ==renderContentOn:== method defines the HTML rendering of a post.
 
 [[[
 TBPostComponent >> renderContentOn: html
@@ -408,13 +415,19 @@ WAComponent subclass: #TBCategoriesComponent
 [[[
 TBCategoriesComponent >> categories
    ^ categories
+]]]
 
+[[[
 TBCategoriesComponent >> categories: aCollection
    categories := aCollection
+]]]
 
+[[[
 TBCategoriesComponent >> postsList: aComponent
       postsList := aComponent
+]]]
 
+[[[
 TBCategoriesComponent >> postsList
    ^ postsList
 ]]]
@@ -426,7 +439,7 @@ TBCategoriesComponent class >> categories: aCollectionOfCategories postsList: aT
    ^ self new categories: aCollectionOfCategories; postsList: aTBScreen 
 ]]]
 
-The ==selectCategory:== method (protocol 'action') communicate the currently selected category to the ==TBPostsListComponent==.
+The ==selectCategory:== method (protocol 'action') communicates the currently selected category to the ==TBPostsListComponent==.
 
 [[[
 TBCategoriesComponent >> selectCategory: aCategory
@@ -450,6 +463,7 @@ TBScreenComponent >> currentCategory: anObject
    currentCategory := anObject
 ]]]
 
+!!! Category Rendering 
 We add a rendering method ('rendering' protocol) to display one category.
 A category is rendered as a link and that make this category the current one if the user click on it.
 
@@ -503,7 +517,7 @@ TBPostsListComponent >> renderContentOn: html
          html render: (TBPostComponent new post: p) ] ]
 ]]]
 
-An instance of ==TBCategoriesComponent== is rendered on the web page and allows users to select a category (cf. figure *@ugly*).
+An instance of ==TBCategoriesComponent== is rendered on the web page and allows users to select a category (See Figure *@ugly*).
 
 +Select a Category to Filter Posts.>file://figures/categoriesUgly.png|width=75|label=ugly+
 

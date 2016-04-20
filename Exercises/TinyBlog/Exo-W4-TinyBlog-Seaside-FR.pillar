@@ -2,7 +2,8 @@
     "title":"Construction d'une interface Web en Seaside pour TinyBlog"
 }
 
-!Correction semaine précédente
+!Construction d'une interface Web en Seaside pour TinyBlog
+!!Correction semaine précédente
 
 Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
 
@@ -14,15 +15,17 @@ Gofer new
 #ConfigurationOfTinyBlog asClass loadWeek3Correction
 ]]]
 
-Puis, testez le code en exécutant:
-
+Assurez vous que votre serveur Teapot est bien stoppé.
 [[[
-	TBTeapotWebApp start
+	TBTeapotWebApp stop
 ]]]
+%Puis, testez le code en exécutant:
+%[[[
+%	TBTeapotWebApp start
+%]]]
+% Attention, vérifiez d'abord que votre propre serveur HTTP ne soit pas déjà lancé sur le port 8081.
 
-Attention, vérifiez d'abord que votre propre serveur HTTP ne soit pas déjà lancé sur le port 8081.
-
-!Une interface Web pour TinyBlog en Seaside
+!!Une interface Web pour TinyBlog en Seaside
 
 Le travail présenté dans la suite est indépendant de celui sur Voyage et sur la base de données MongoDB.
 
@@ -48,20 +51,21 @@ Dans le menu contextuel de cet outil (clic droit), cliquez sur "add adaptor..." 
 
 
 
-!!Initialisation de l'application
+!!Point d'entrée de l'application
 
-Création d'une classe ==TBApplicationRootComponent== qui est le point d'entrée de l'application. Il sert à l'initialisation de l'application.
+Créez la classe ==TBApplicationRootComponent== qui est le point d'entrée de l'application. Elle sert à l'initialisation de l'application.
 
 [[[
 WAComponent subclass: #TBApplicationRootComponent
    instanceVariableNames: ''
    classVariableNames: ''
-   category: 'TinyBlog-Components'
+   package: 'TinyBlog-Components'
 ]]]
 
 
 
-On déclare l'application au serveur Seaside, coté classe, dans le protocole =='initialization'==. On en profite pour intégrer les dépendances du framework Bootstrap (les fichiers css et js seront stockés dans l'application).
+
+Nous déclarons l'application au serveur Seaside, en définissant coté classe, dans le protocole =='initialization'== la méthode ==initialize== suivante. On en profite pour intégrer les dépendances du framework Bootstrap (les fichiers css et js seront stockés dans l'application).
 
 [[[
 TBApplicationRootComponent class >> initialize
@@ -74,7 +78,7 @@ TBApplicationRootComponent class >> initialize
       addLibrary: TBSDeploymentLibrary
 ]]]
 
-Exécuter ==TBApplicationRootComponent initialize== pour forcer l'exécution de la méthode ==initialize==. Notez que nous venons de la définir et donc il est nécessaire de l'exécuter pour en voir les bénéfices.
+Exécuter ==TBApplicationRootComponent initialize== pour forcer l'exécution de la méthode ==initialize==. En effet les méthodes ==initialize== de classe ne sont automatiquement exécutées que l'on du chargement de la classe. Ici nous venons juste de la définir et donc il est nécessaire de l'exécuter pour en voir les bénéfices.
 
 Les méthodes de classe ==initialize== sont invoquées automatiquement lors du chargement de la classe.
 
@@ -89,6 +93,8 @@ TBApplicationRootComponent class >> canBeRoot
 +TinyBlog est bien enregistrée.>file://figures/BrowseApplications.png|width=75|label=BrowseApplications+
 
 Une connexion sur le serveur Seaside ("Browse the applications installed in your image") permet de vérifier que l'application TinyBlog est bien enregistrée comme le montre la figure *@BrowseApplications*.
+
+!! Premier rendu simple 
 
 Ajoutons maintenant une méthode d'instance ==renderContentOn:== dans le protocole ==rendering== afin de vérifier que notre application répond bien.
 
@@ -119,17 +125,17 @@ Par exemple, les composants principaux de l'application permettant l'affichage d
 Pour cela, nous avons décidé que le composant ==TBApplicationRootComponent== contiendra des composants héritant tous de la classe abstraite ==TBScreenComponent== que nous allons définir dans le prochain chapitre. 
 
 
-!Composants Visuels pour TinyBlog
+!!Composants visuels pour TinyBlog
 
 Nous sommes maintenant prêts à définir les composants visuels de notre application Web.
 Les premiers chapitres de *http://book.seaside.st* peuvent vous y aider et compléter efficacement ce tutoriel.
 
 
-La figure *@ComponentOverview* montre les différents composants que nous allons développer. 
+La figure *@ComponentOverview* montre les différents composants que nous allons développer et ou ils se situent. 
 
 +Les composants composant l'application TinyBlog.>file://figures/ComponentOverview.pdf|width=75|label=ComponentOverview+
 
-!!Le composant TBScreenComponent
+!!!Le composant TBScreenComponent
 
 Le composant ==TBApplicationRootComponent== contiendra des composants sous-classes de la classe abstraite ==TBScreenComponent==. Cette classe nous permet de factoriser les comportements que nous souhaitons partager entre tous nos composants. 
 
@@ -140,7 +146,7 @@ WAComponent subclass: #TBScreenComponent
    package: 'TinyBlog-Components'
 ]]]
 
-Les différents composants d'interface de TinyBlog auront besoin d'accéder aux règles métier de l'application. Dans le protocole 'accessing', créons une méthode ==blog== qui retourne l'instance de ==TBBlog==. 
+Les différents composants d'interface de TinyBlog auront besoin d'accéder aux règles métier de l'application. Dans le protocole 'accessing', créons une méthode ==blog== qui retourne une instance de ==TBBlog== (ici notre singleton).
 
 [[[
 TBScreenComponent >> blog
@@ -151,7 +157,7 @@ TBScreenComponent >> blog
 
 En inspectant l'objet blog retourné par ==TBBlog current==, vérifier qu'il contient bien des posts. Si ce n'est pas le cas, exécuter ==createDemoPost==.
 
-Dans le futur, lorsque nous gérerons les utilisateurs et le fait qu'un utilisateurs puisse avoir plusieurs blogs nous modifierons cette méthode pour utiliser des informations stockées dans la session active (Voir TBSession plus loin). 
+Dans le futur, lorsque nous gérerons les utilisateurs et le fait qu'un utilisateurs puisse avoir plusieurs blogs nous modifierons cette méthode pour utiliser des informations stockées dans la session active (Voir ==TBSession== plus loin). 
 
 +Accès à la bibliothèque Bootstrap.>file://figures/SeasideBootstrap.png|width=75|label=bootstrap+
 
@@ -168,9 +174,7 @@ Cliquer sur le lien ""Examples"" au bas de la page et vous pouvez ainsi voir les
 
 Le repository pour le source et la documentation est 
 *http://smalltalkhub.com/#!/~TorstenBergmann/Bootstrap*.
-Une démo en ligne est disponible à l'adresse : *http://pharo.pharocloud.com/bootstrap*.
-
-Cette bibliothèque a déjà été chargée dans l'image PharoWeb utilisée dans ce MOOC.
+Une démo en ligne est disponible à l'adresse : *http://pharo.pharocloud.com/bootstrap*. Cette bibliothèque a déjà été chargée dans l'image PharoWeb utilisée dans ce tutoriel.
 
 !!Définition du composant TBHeaderComponent
 
@@ -202,7 +206,7 @@ Le nom du blog devrait être paramétrable à l'aide d'une variable d'instance d
 et le header pourrait afficher ce titre.
 
 
-!!Utilisation du Header
+!!Utilisation du header
 
 Il n'est pas souhaitable d'instancier systématiquement le composant à chaque fois qu'un composant est appelé. Créons une variable d'instance ==header== dans ==TBScreenComponent== que nous initialisons.
 
@@ -225,7 +229,7 @@ TBScreenComponent >> initialize
 
 !!!Relation composite-composant
 
-En Seaside, les sous-composants d'un composant doivent être retournés par le composite en réponse au message ==children==. Définissons que l'instance du composant ==TBHeaderComponent== est un enfant de ==TBScreenComponent== dans la hiérarchie des composants Seaside (et non entre classes Pharo). 
+En Seaside, les sous-composants d'un composant doivent être retournés par le composite en réponse au message ==children==. Définissons que l'instance du composant ==TBHeaderComponent== est un enfant de ==TBScreenComponent== dans la hiérarchie des composants Seaside (et non entre classes Pharo). Nous faisons cela en spécialisant la méthode ==children==.
 
 [[[
 TBScreenComponent >> children
@@ -243,8 +247,7 @@ TBScreenComponent >> renderContentOn: html
 !!Utilisation du composant Screen
 
 Bien que le composant ==TBScreenComponent== n'ait pas vocation à être utilisé directement, nous allons l'utiliser de manière temporaire pendant que nous développons les autres composants. 
-
-Ainsi nous l'instancions dans la méthode ==initialize== suivante. 
+Nous ajoutons ==main== comme variable d'instance dans la classe ==TBApplicationRootComponent==. Nous l'initialisons dans la méthode ==initialize== suivante. 
 
 [[[
 TBApplicationRootComponent >> initialize
@@ -252,19 +255,24 @@ TBApplicationRootComponent >> initialize
    main := TBScreenComponent new. 
 ]]]
 
-Il faut ajouter ==main== comme variable d'instance dans la classe TBApplicationRootComponent.
 
 [[[
 TBApplicationRootComponent >> renderContentOn: html
    html render: main
 ]]]
 
+Nous déclarons aussi la relation de contenu en retournant main parmi les enfants de ==TBApplicationRootComponent==.
 [[[
 TBApplicationRootComponent >> children
    ^ { main }
 ]]]
 
 Si vous faites un rafraichissement de l'application dans votre navigateur web vous devez voir la Figure *@navBlog*.
+
+!!!!Amélioration possibles
+
+Le nom du blog doit être particularisable en utilisant par exemple une variable d'instance de la classe ==TBBlog==
+et l'entête (header) pour afficher ce titre. 
 
 !!Liste des posts
 
@@ -296,7 +304,7 @@ TBApplicationRootComponent >> initialize
    main := TBPostsListComponent new. 
 ]]]
 
-Editer cette méthode n'est guère propre. Nous ajoutons un setter qui nous permettra
+Editer cette méthode n'est pas une bonne pratique. Nous ajoutons une méthode setter qui nous permettra
 de changer dynamiquement de composant dans le futur tout en gardant le composant actuel pour une initialisation par défaut. 
 
 [[[
@@ -341,7 +349,7 @@ TBPostComponent >> date
    ^ post date
 ]]]
 
-Ajoutons la méthode ==renderContentOn:== qui définie l'affichage du post.
+Ajoutons la méthode ==renderContentOn:== qui définit l'affichage du post.
 
 [[[
 TBPostComponent >> renderContentOn: html
@@ -353,7 +361,7 @@ TBPostComponent >> renderContentOn: html
 
 !!!!A propos des formulaires
 
-Dans les chapitres sur Magritte et celui sur l'interface d'administration, nous montrerons qu'il est rare de définir un composant de manière aussi manuelle. En effet, Magritte permet de décrire les données manipulées et offre ensuite la possibilité de générer automatiquement des composants Seaside. Le code équivalent serait comme suit: 
+Dans le chapitre et celui sur l'interface d'administration et qui utilise Magritte , nous montrerons qu'il est rare de définir un composant de manière aussi manuelle. En effet, Magritte permet de décrire les données manipulées et offre ensuite la possibilité de générer automatiquement des composants Seaside. Le code équivalent serait comme suit: 
 
 [[[
 TBPostComponent >> renderContentOn: html
@@ -387,7 +395,7 @@ Par défaut, lorsqu'une erreur se produit dans une application, Seaside retourne
     exceptionHandler: WADebugErrorHandler
 ]]] 
 
-Rafraichissez la page de votre navigateur et vous devriez obtenir un debugger côté Pharo.
+Rafraichissez la page de votre navigateur et vous devez obtenir un debugger côté Pharo.
 L'analyse de la pile d'appels montre qu'il manque la méthode suivante :
 
 [[[
@@ -437,13 +445,19 @@ WAComponent subclass: #TBCategoriesComponent
 [[[
 TBCategoriesComponent >> categories
    ^ categories
+]]]
 
+[[[
 TBCategoriesComponent >> categories: aCollection
    categories := aCollection
+]]]
 
+[[[
 TBCategoriesComponent >> postsList: aComponent
       postsList := aComponent
+]]]
 
+[[[
 TBCategoriesComponent >> postsList
    ^ postsList
 ]]]
@@ -462,7 +476,7 @@ TBCategoriesComponent >> selectCategory: aCategory
    postsList currentCategory: aCategory
 ]]]
 
-Nous avons donc besoin d'ajouter une variable d'instance dans ==TBPostsListComponent==.
+Nous avons donc besoin d'ajouter une variable d'instance pour stocker la catégorie courante dans ==TBPostsListComponent==.
 
 [[[
 TBScreenComponent subclass: #TBPostsListComponent
@@ -479,6 +493,7 @@ TBScreenComponent >> currentCategory: anObject
    currentCategory := anObject
 ]]]
 
+!!! Rendu des catégories
 Nous pouvons maintenant ajouter une méthode (protocole 'rendering') pour afficher les catégories sur la page. En particulier pour chaque catégorie nous définissons le fait que cliquer sur la catégorie la sélectionne comme la catégorie courante.
 
 [[[
@@ -488,7 +503,7 @@ TBCategoriesComponent >> renderCategoryLinkOn: html with: aCategory
       with: aCategory
 ]]]
 
-Reste maintenant à écrire la méthode de rendu du composant:
+Reste maintenant à écrire la méthode de rendu du composant: On itère sur toutes les catégories et on les affiche
 
 [[[
 TBCategoriesComponent >> renderContentOn: html
@@ -528,7 +543,7 @@ TBPostsListComponent >> renderContentOn: html
          html render: (TBPostComponent new post: p) ] ]
 ]]]
 
-Une instance du composant ==TBCategoriesComponent== est ajoutée sur la page et permet de sélectionner la catégorie courante (voir figure *@ugly*).
+Une instance du composant ==TBCategoriesComponent== est ajoutée sur la page et permet de sélectionner la catégorie courante (voir la figure *@ugly*).
 
 +Catégories afin de sélectionner les posts.>file://figures/categoriesUgly.png|width=75|label=ugly+
 
