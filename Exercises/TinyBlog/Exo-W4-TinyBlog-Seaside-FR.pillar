@@ -550,9 +550,9 @@ Une instance du composant ==TBCategoriesComponent== est ajoutée sur la page et 
 
 !!Look et agencement
 
-Nous allons maintenant agencer le composant ==TBPostsListComponent==.
+Nous allons maintenant agencer le composant ==TBPostsListComponent== en utilisant une mise en place d'un 'responsive design' pour la liste des posts. Cela veut dire que le style CSS va adapter les composants à l'espace disponible.
 
-Mise en place d'un responsive design pour la liste des posts. Les composants sont placés dans un container Bootstrap puis agencés sur une ligne avec deux colonnes. La dimension des colonnes est déterminée en fonction de la résolution (viewport) du terminal utilisé. Les 12 colonnes de Bootstrap sont réparties entre la liste des catégories et la liste des posts. Dans le cas d'une résolution faible, la liste des catégories est placée au dessus de la liste des posts (chaque élément occupant 100\% de la largeur du container).
+ Les composants sont placés dans un container Bootstrap puis agencés sur une ligne avec deux colonnes. La dimension des colonnes est déterminée en fonction de la résolution (viewport) du terminal utilisé. Les 12 colonnes de Bootstrap sont réparties entre la liste des catégories et la liste des posts. Dans le cas d'une résolution faible, la liste des catégories est placée au dessus de la liste des posts (chaque élément occupant 100\% de la largeur du container).
 
 [[[
 TBPostsListComponent >> renderContentOn: html
@@ -643,6 +643,8 @@ TBPostsListComponent >> basicRenderPostsOn: html
 
 Nous voici prêts à définir la partie administrative de l'application.
 
++Final TinyBlog Public UI.>file://figures/finalPublicWebPage.png|width=85|label=final+
+
 !!Futures évolutions
 
 A titre d'exercice, vous pouvez :
@@ -651,4 +653,4 @@ A titre d'exercice, vous pouvez :
 
 L'application finale devrait ressembler à la figure *@final*.
 
-+L'application finale.>file://figures/finalPublicWebPage.png|width=85|label=final+
+

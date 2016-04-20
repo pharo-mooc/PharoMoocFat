@@ -525,6 +525,8 @@ An instance of ==TBCategoriesComponent== is rendered on the web page and allows 
 !!Look and Layout
 
 We will improve the layout of ==TBPostsListComponent== using a repsonsive design for the list of posts.
+It means that the CSS will adapt the component size and placement based on the available space. 
+
 Components are displayed inside two Bootstrap containers in a row and two columns.
 Column width is determined according to the resolution (viewport) of the displaying device.  
 The 12 columns of the Bootstrap grid are splitted between the list of categories and list of posts. 
@@ -553,11 +555,11 @@ TBPostsListComponent >> renderContentOn: html
              html render: (TBPostComponent new post: p) ] ] ] ]
 ]]]
 
-You should now obtain the same look as in figure *@nicer*.
+You should now obtain the same look as in Figure *@nicer*.
 
 +TinyBlog with a Responsive Design.>file://figures/NicerCategories.png|width=75|label=nicer+
 
-If you select a category, the list of posts is correctly refreshed.
+When you select a category, the list of posts is correctly refreshed.
 However, the current category is not highlighted.
 To introduce this feature, we modify the following method:
 
