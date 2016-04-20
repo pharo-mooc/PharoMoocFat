@@ -27,6 +27,13 @@ TBBlog reset ;
 	createDemoPosts
 ]]]
 
+Before continuing, stop the Teapot server:
+
+[[[
+	TBTeapotWebApp stop
+]]]
+
+
 !Describe your Model Data with Magritte
 
 Magritte is a library to describe data. 

@@ -29,6 +29,11 @@ Vous devez ajouter des posts dans le blog pour voir quelquechose.
 	TBBlog reset ; createDemoPosts
 ]]]
 
+Avant de passer à la suite, stoppez votre serveur Teapot:
+
+[[[
+	TBTeapotWebApp stop
+]]]
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !!Préparation de sauvegarde extérieure avec Voyage
@@ -190,10 +195,8 @@ TBBlog >> removeAllPosts
 Ici dans la méthode ==removeAllPosts== nous enlevons chaque posts puis nous remettons à jour la collection.
 
 
-
-
-
 !!Tester avec une base Mongo
+
 Nous allons maintenant utiliser une base Mongo externe à Pharo. 
 En utilisant Voyage nous pouvons rapidement sauver nos posts dans une base de données Mongo. Cette section explique rapidement la mise en oeuvre et les quelques modifications que nous devons apporter à notre projet Pharo pour y parvenir. 
 
@@ -218,17 +221,15 @@ TBBlog class >> initializeLocalhostMongoDB
    repository enableSingleton.
 ]]]
 
-
-
-
-Now we make sure that resetting the class will set a connection to the database. 
+Il faut aussi s'assurer de la ré-initialisation de la connexion à la base lors du reset de la classe.
 
 [[[
 TBBlog class >> reset
    self initializeLocalhostMongoDB
 ]]]
 
-!!! A cas de problème
+!!!En cas de problème
+
 Notez que si vous avez besoin de réinitialiser la base extérieure complètement, vous pouvez utiliser la méthode ==dropDatabase==.
 
 [[[
@@ -238,7 +239,7 @@ Notez que si vous avez besoin de réinitialiser la base extérieure complètemen
 ]]]
 
 
-!!! Attention : Changements de TBBlog
+!!!Attention : Changements de TBBlog
 
 Si vous utilisez une base locale plutôt qu'une base en mémoire, à chaque fois que vous ajoutez une nouvelle racine d'objets ou modifiez la définition d'une classe racine (ajout, retrait, modification d'attribut) il est capital de réinitializer le cache maintenu par Voyage.  La réinitialisation se fait comme suit:
 
@@ -247,6 +248,6 @@ Si vous utilisez une base locale plutôt qu'une base en mémoire, à chaque fois
 ]]]
 
 
-!! Conclusion
+!!Conclusion
 
 Voyage propose une API sympathique pour gérer de manière transparente la sauvegarde d'objets soit en mémoire soit dans une base de données document. Votre application peut maintenant être sauvée dans la base et vous êtes donc prêt pour construire son interface web. 

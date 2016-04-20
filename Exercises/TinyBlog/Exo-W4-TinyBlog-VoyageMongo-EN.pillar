@@ -232,7 +232,7 @@ TBBlog class >> reset
 Now you can use your application. For example add new posts. They will be saved directly in the Mongo database. 
 
 
-!! In case of trouble
+!!In case of trouble
 
 If you need to re-initalize completely an external database, you can use the ==dropDatabase== method.
 
