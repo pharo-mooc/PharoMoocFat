@@ -401,7 +401,7 @@ Posts are classified into categories. By default, a post is classified into a sp
 
 We will now create a new component named ==TBCategoriesComponent== to manage the list of categories.
 
-!!!Categories
+!!!Category Component Definition
 
 ==TBCategoriesComponent== is responsible to display the list of all categories available in the database (the model) and also to select one category. This component should be able to communicate with the ==TBPostsListComponent== to pass it the currently selected category.
 
@@ -463,7 +463,7 @@ TBScreenComponent >> currentCategory: anObject
    currentCategory := anObject
 ]]]
 
-!!! Category Rendering 
+!!Category Rendering 
 We add a rendering method ('rendering' protocol) to display one category.
 A category is rendered as a link and that make this category the current one if the user click on it.
 
@@ -488,7 +488,7 @@ TBCategoriesComponent >> renderContentOn: html
 It remains to display the list of categories in the root application component and refresh the list of displayed posts regarding the currently selected category.
 
 
-!!!Refreshing the List of Posts
+!!Refreshing the List of Posts
 
 
 We have to modify some methods of ==TBPostsListComponent==.
@@ -574,7 +574,7 @@ TBCategoriesComponent >> renderCategoryLinkOn: html with: aCategory
 The application works well but you must not keep the current implementation of ==TBPostsListComponent >> renderContentOn:==. 
 This method is too long and cannot be easily reused. Propose a solution.
 
-!!!!Our Solution
+!! Our Solution: Small Methods
 
 [[[
 TBPostsListComponent >> renderContentOn: html

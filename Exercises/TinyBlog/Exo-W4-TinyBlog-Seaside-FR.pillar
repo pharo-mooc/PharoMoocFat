@@ -105,7 +105,7 @@ TBApplicationRootComponent >> renderContentOn: html
 
 En se connectant avec un navigateur sur *http://localhost:8080/TinyBlog*, la page affichée doit être similaire à celle sur la figure *@EmptyPage*.
 
-+Une page quasi vide mais servie par Seaside.>file://figures/EmptyPage.png|width=75|label=EmptyPage+
++Une page quasi vide mais servie par Seaside.>file://figures/TinyBlog-EmptyPage2.png|width=75|label=EmptyPage+
 
 
 Ajoutons maintenant des informations dans l'entête de la page HTML afin que TinyBlog ait un titre et soit une application HTML5. 
@@ -431,7 +431,7 @@ Les posts sont classés par catégorie. Par défaut, si aucune catégorie n'a é
 
 Nous allons créer un composant pour gérer une liste de catégories nommée: ==TBCategoriesComponent==.
 
-!!!Catégories
+!!!Definition d'un composant pour les catégories
 
 Nous avons besoin d'un composant qui affiche la liste des catégories présentes dans la base et permet d'en sélectionner une. Ce composant devra donc avoir la possibilité de communiquer avec le composant ==TBPostsListComponent== afin de lui communiquer la catégorie courante.
 
@@ -493,7 +493,7 @@ TBScreenComponent >> currentCategory: anObject
    currentCategory := anObject
 ]]]
 
-!!! Rendu des catégories
+!! Rendu des catégories
 Nous pouvons maintenant ajouter une méthode (protocole 'rendering') pour afficher les catégories sur la page. En particulier pour chaque catégorie nous définissons le fait que cliquer sur la catégorie la sélectionne comme la catégorie courante.
 
 [[[
@@ -516,7 +516,7 @@ TBCategoriesComponent >> renderContentOn: html
 
 Nous avons presque fini mais il faut encore afficher la liste des catégories et mettre à jour la liste des posts en fonction de la catégorie courante. 
 
-!!!Mise à jour des Posts
+!!Mise à jour des Posts
 
 Pour cela, modifions la méthode de rendu du composant ==TBPostsListComponent==.
 
@@ -596,7 +596,7 @@ TBCategoriesComponent >> renderCategoryLinkOn: html with: aCategory
 Bien que le code fonctionne, on ne doit pas laisser la méthode ==TBPostsListComponent >> renderContentOn: html== dans un tel état. Elle est bien trop longue et difficilement réutilisable. 
 Proposer une solution. 
 
-!!!!Notre solution
+!!Notre solution: Plein de petites méthodes
 
 [[[
 TBPostsListComponent >> renderContentOn: html
