@@ -33,7 +33,7 @@ You should also create posts in the blog to be able to see data.
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Until now we used model objects stored in memory and it works well because saving the Pharo image also save these objects.
-Nevertheless, it would be better to save these model data into an external database. Voyage provides a mean to store objects into a Mongo database. In fact Voyage is a framework that offers the same API to  document-based databases such as Mongo or UnQLite. It is what we will discover in this exercise. First, we will use Voyage and its capacity to simulate an external database. This is really useful during development. Then, we will install a Mongo database and access it through Voyage. This second step will have a really little impact on the code of our code.
+Nevertheless, it would be better to save these model data into an external database. Voyage provides a mean to store objects into a Mongo database. In fact Voyage is a framework that offers the same API to  document-based databases such as Mongo or UnQLite. It is what we will discover in this exercise. First, we will use Voyage and its capacity to simulate an external database. This is really useful during development. Then, we will install a Mongo database and access it through Voyage. This second step will have a really little impact on our code.
 
 !!Configure Voyage to Save TBBlog Objects
 
@@ -54,7 +54,7 @@ VOMemoryRepository new enableSingleton.
 
 The ==enableSingleton== message indicates to Voyage that we will use only one database. This will free us to specify the database each time.
 
-We establish create and initialize the database in memory in a class-side method named ==initializeVoyageOnMemoryDB==.
+We create and initialize the database in memory in a class-side method named ==initializeVoyageOnMemoryDB==.
 
 [[[
 TBBlog class >> initializeVoyageOnMemoryDB
@@ -63,14 +63,13 @@ TBBlog class >> initializeVoyageOnMemoryDB
 
 We do not need to save the database into an instance variable because we will have only one database accessible through Voyage configured in singleton  mode.
 
-We now define the ==reset== and ==initialize== class methods to ensure that the databse is initialized when we will load TinyBlog's code.
+We now define the ==reset== and ==initialize== class methods to ensure that the databse is initialized when we load TinyBlog's code.
 
-La méthode ==reset== réinitialize la base.
+The ==reset== method re-initializes the database.
 [[[
 TBBlog class >> reset
    self initializeVoyageOnMemoryDB
-]]]
-[[[
+
 TBBlog class >> initialize
    self reset
 ]]]
@@ -162,7 +161,7 @@ Indeed, when loading (and this can be different from the situation before the sa
 Declaring posts as root objects would imply that saved blogs have a reference to a ==TBPost== object. Otherwise, a post is included into its blog.
 When posts are not root objects, they are not guaranteed to be unique after loading from the database. Indeed, after loading each blog object will have its own posts objects even if some posts were shared before saving. Shared objects before saving will be duplicated for each root objects after loading.
 
-If you want to share posts and make them unique btween multiple blog, therefore, the ==TBPost== class must be declared as a root in the database.
+If you want to share posts and make them unique between multiple blogs, therefore, the ==TBPost== class must be declared as a root in the database.
 In this case, posts are saved as autonomous entities and  instances of ==TBBlog== will reference posts entities instead of embedding them.
 The consequence is that a post is unique and can be shared via reference from a blog.
 To achieve this, we ""would"" define the following methods:
@@ -173,7 +172,7 @@ TBPost class >> isVoyageRoot
    ^ true
 ]]]
 
-During the addition of a post to a blog, it would be importnat to save both the blog and the new post.
+During the addition of a post to a blog, it would be important to save both the blog and the new post.
 
 [[[
 TBBlog >> writeBlogPost: aPost
