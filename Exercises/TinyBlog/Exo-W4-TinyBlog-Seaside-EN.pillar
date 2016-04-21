@@ -629,3 +629,7 @@ For example, you can:
 Figure *@final* shows the final application you may have developped.
 
 +Final TinyBlog Public UI.>file://figures/finalPublicWebPage.png|width=85|label=final+
+
+% Local Variables:
+% compile-command: "cd .. && ./compile.sh --to='latex' Exercises/Exo-W4-TinyBlog-Seaside-EN.pillar"
+% End:

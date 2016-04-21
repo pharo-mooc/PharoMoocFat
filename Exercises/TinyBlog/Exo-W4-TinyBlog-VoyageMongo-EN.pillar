@@ -253,4 +253,8 @@ When you use an external Mongo database instead of a memory one, each time you a
 
 !! Conclusion
 Voyage proposes a nice API to manage transparently storage of objects either into memory or in document database. 
-Your application can now be saved into a database and we are now ready for its web user interface. 
+Your application can now be saved into a database and we are now ready for its web user interface.
+
+% Local Variables:
+% compile-command: "cd .. && ./compile.sh --to='latex' Exercises/Exo-W4-TinyBlog-VoyageMongo-EN.pillar"
+% End:
