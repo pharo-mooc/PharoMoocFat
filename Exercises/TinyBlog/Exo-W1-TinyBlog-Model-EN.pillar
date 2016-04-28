@@ -4,13 +4,15 @@
 
 !TinyBlog: presentation and model
 
-In this project, we will guide you to develop a mini project: a small web application, named TinyBlog, that manages a blog system.
+
+In this project, we will guide you to develop a mini project: a small web application, named TinyBlog, that manages a blog system (see its final state in Figure *@TinyBlogOnPharoCloud*).
 The idea is that a visitor of the web site can read the posts and that the post author could connect to the web site to admin the application and manage its posts (add, remove and modify existing ones). 
 
 TinyBlog is a small pedagogical application that will show you how to define and deploy a web application using Pharo / Seaside / Mongo and frameworks available in Pharo such as NeoJSON. We will show you how to expose your application via a REST server.
 Presented solutions are sometimes not the best to offer you a room for improvement.
 Our goal is not to be exhaustive. We present one way to develop TinyBlog nevertheless we invite the reader to read further references such as books or tutorials on Pharo to deepen his expertise and enhance his application.
 
++Final state of the TinyBlog application>figures/TinyBlogOnPharoCloud.png|width=100|label=TinyBlogOnPharoCloud+
 
 !!Installing Pharo
 
