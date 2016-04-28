@@ -41,7 +41,7 @@ Actuellement, PharoCloud ne supporte que les images Pharo 4.
 
 Télécharger une image PharoWeb 4 
 *https://ci.inria.fr/pharo-contribution/job/PharoWeb/PHARO=40,VERSION=stable,VM=vm/lastSuccessfulBuild/artifact/PharoWeb.zip*. 
-Télécharger également la VM pour les images Pharo 4 *http://get.pharo.org/vm40*.
+Télécharger également la VM pour les images Pharo 4 *http://www.pharo.org/download*.
 Lancer cette image avec la VM et nous allons maintenant la configurer.
 
 Commençons par configurer Seaside en enlevant les applications de démonstration et les outils de développement:

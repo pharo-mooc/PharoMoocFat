@@ -3,6 +3,7 @@
 }
 
 !Construction d'une interface Web en Seaside pour TinyBlog
+
 !!Correction semaine précédente
 
 Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
@@ -94,7 +95,7 @@ TBApplicationRootComponent class >> canBeRoot
 
 Une connexion sur le serveur Seaside ("Browse the applications installed in your image") permet de vérifier que l'application TinyBlog est bien enregistrée comme le montre la figure *@BrowseApplications*.
 
-!! Premier rendu simple 
+!!Premier rendu simple 
 
 Ajoutons maintenant une méthode d'instance ==renderContentOn:== dans le protocole ==rendering== afin de vérifier que notre application répond bien.
 
