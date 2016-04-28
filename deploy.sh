@@ -15,6 +15,7 @@ DEST=PharoMooc/Week1
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week1/*.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-LiteralObjects.pdf $DEST
+$CPMV $SRC/Exercises/Exo-Expressions-LiteralObjects-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Counter.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W1-TinyBlog-Model-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W1-TinyBlog-Model-FR.pdf $DEST
@@ -25,11 +26,13 @@ DEST=PharoMooc/Week2
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week2/*.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-LiteralObjects-Solution.pdf $DEST
+$CPMV $SRC/Exercises/Exo-Expressions-LiteralObjects-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge0-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge0-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W2-TinyBlog-ModelExtensionTests-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W2-TinyBlog-ModelExtensionTests-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-ObjectsExpressions.pdf $DEST
+$CPMV $SRC/Exercises/Exo-ObjectsExpressions-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-DSL.pdf $DEST
 $CPMV $SRC/Exercises/Challenge1-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge1-EN.pdf $DEST
@@ -38,7 +41,9 @@ DEST=PharoMooc/Week3
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week3/*.pdf $DEST
 $CPMV $SRC/Exercises/Exo-ObjectsExpressions-Solution.pdf $DEST
+$CPMV $SRC/Exercises/Exo-ObjectsExpressions-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-Rewriting.pdf $DEST
+$CPMV $SRC/Exercises/Exo-Expressions-Rewriting-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge1-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge1-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge2-EN.pdf $DEST
@@ -52,6 +57,7 @@ $CPMV $SRC/Slides/Week4/*.pdf $DEST
 $CPMV $SRC/Exercises/Challenge2-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge2-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-Rewriting-Solution.pdf $DEST
+$CPMV $SRC/Exercises/Exo-Expressions-Rewriting-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge3-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge3-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-ContactManager.pdf $DEST
