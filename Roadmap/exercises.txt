@@ -1,16 +1,16 @@
 Week1
-- Exo-Expressions-LiteralObjects.pdf
-- Exo-Counter.pdf
+- Exo-Expressions-LiteralObjects-EN.pdf
+- Exo-Counter-EN.pdf
 - Challenge0-EN.pdf
 - Challenge0-FR.pdf
 - Exo-W1-TinyBlog-Model-FR.pdf
 - Exo-W1-TinyBlog-Model-EN.pdf
 
 Week2
-- Exo-Expressions-LiteralObjects-solution.pdf
+- Exo-Expressions-LiteralObjects-solution-EN.pdf
 - Challenge0-Solution-EN.pdf
 - Challenge0-Solution-FR.pdf
-- Exo-ObjectsExpressions.pdf
+- Exo-ObjectsExpressions-EN.pdf
 - Challenge1-EN.pdf
 - Challenge1-FR.pdf
 - Exo-DSL.pdf
@@ -18,8 +18,8 @@ Week2
 - Exo-W2-TinyBlog-ModelExtensionTests-FR.pdf
 
 Week3
-- Exo-ObjectsExpressions-Solution.pdf
-- Exo-Expressions-Rewriting.pdf
+- Exo-ObjectsExpressions-Solution-EN.pdf
+- Exo-Expressions-Rewriting-EN.pdf
 - Challenge1-Solution-EN.pdf
 - Challenge1-Solution-FR.pdf
 - Challenge2-EN.pdf
@@ -27,12 +27,12 @@ Week3
 - Exo-W3-TinyBlog-Teapot-FR.pdf
 
 Week4
-- Exo-Expressions-Rewriting-Solution.pdf
+- Exo-Expressions-Rewriting-Solution-EN.pdf
 - Challenge2-Solution-EN.pdf
 - Challenge2-Solution-FR.pdf
 - Challenge3-EN.pdf
 - Challenge3-FR.pdf
-- Exo-ContactManager.pdf
+- Exo-ContactManager-EN.pdf
 - Exo-W4-TinyBlog-Seaside-FR.pdf
 - Exo-W4-TinyBlog-VoyageMongo-FR.pdf
 
@@ -50,7 +50,7 @@ Week6
 - Challenge4-Solution-FR.pdf
 - Challenge5-EN.pdf
 - Challenge5-FR.pdf
-- Exo-W6-TinyBlog-Deployment-FR.pdf 
+- Exo-W6-TinyBlog-Deployment-FR.pdf
 
 Week7
 - Challenge5-Solution-EN.pdf

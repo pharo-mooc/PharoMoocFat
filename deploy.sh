@@ -8,15 +8,15 @@ DEST=PharoMooc
 
 rm -fr $DEST
 mkdir -p $DEST
-$CPMV $SRC/Roadmap/MoocRoadmap.pdf $DEST/PharoMoocRoadmap.pdf
+$CPMV $SRC/Roadmap/MoocRoadmap-EN.pdf $DEST/PharoMoocRoadmap-EN.pdf
 $CPMV $SRC/Roadmap/MoocRoadmap-FR.pdf $DEST/PharoMoocRoadmap-FR.pdf
 
 DEST=PharoMooc/Week1
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week1/*.pdf $DEST
-$CPMV $SRC/Exercises/Exo-Expressions-LiteralObjects.pdf $DEST
+$CPMV $SRC/Exercises/Exo-Expressions-LiteralObjects-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-LiteralObjects-FR.pdf $DEST
-$CPMV $SRC/Exercises/Exo-Counter.pdf $DEST
+$CPMV $SRC/Exercises/Exo-Counter-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W1-TinyBlog-Model-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W1-TinyBlog-Model-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge0-EN.pdf $DEST
@@ -25,13 +25,13 @@ $CPMV $SRC/Exercises/Challenge0-FR.pdf $DEST
 DEST=PharoMooc/Week2
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week2/*.pdf $DEST
-$CPMV $SRC/Exercises/Exo-Expressions-LiteralObjects-Solution.pdf $DEST
+$CPMV $SRC/Exercises/Exo-Expressions-LiteralObjects-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-LiteralObjects-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge0-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge0-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W2-TinyBlog-ModelExtensionTests-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W2-TinyBlog-ModelExtensionTests-FR.pdf $DEST
-$CPMV $SRC/Exercises/Exo-ObjectsExpressions.pdf $DEST
+$CPMV $SRC/Exercises/Exo-ObjectsExpressions-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-ObjectsExpressions-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-DSL.pdf $DEST
 $CPMV $SRC/Exercises/Challenge1-FR.pdf $DEST
@@ -40,9 +40,9 @@ $CPMV $SRC/Exercises/Challenge1-EN.pdf $DEST
 DEST=PharoMooc/Week3
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week3/*.pdf $DEST
-$CPMV $SRC/Exercises/Exo-ObjectsExpressions-Solution.pdf $DEST
+$CPMV $SRC/Exercises/Exo-ObjectsExpressions-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-ObjectsExpressions-Solution-FR.pdf $DEST
-$CPMV $SRC/Exercises/Exo-Expressions-Rewriting.pdf $DEST
+$CPMV $SRC/Exercises/Exo-Expressions-Rewriting-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-Rewriting-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge1-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge1-Solution-FR.pdf $DEST
@@ -56,11 +56,11 @@ mkdir -p $DEST
 $CPMV $SRC/Slides/Week4/*.pdf $DEST
 $CPMV $SRC/Exercises/Challenge2-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge2-Solution-FR.pdf $DEST
-$CPMV $SRC/Exercises/Exo-Expressions-Rewriting-Solution.pdf $DEST
+$CPMV $SRC/Exercises/Exo-Expressions-Rewriting-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-Rewriting-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge3-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge3-FR.pdf $DEST
-$CPMV $SRC/Exercises/Exo-ContactManager.pdf $DEST
+$CPMV $SRC/Exercises/Exo-ContactManager-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W4-TinyBlog-Seaside-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W4-TinyBlog-Seaside-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W4-TinyBlog-VoyageMongo-FR.pdf  $DEST
