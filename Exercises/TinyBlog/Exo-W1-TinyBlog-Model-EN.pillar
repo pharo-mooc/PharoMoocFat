@@ -62,32 +62,32 @@ TBPost >> title
    ^ title
 ]]]
 [[[
-TBPost >> title: anObject
-   title := anObject
+TBPost >> title: aString
+   title := aString
 ]]]
 [[[
 TBPost >> text
    ^ text
 ]]]
 [[[
-TBPost >> text: anObject
-   text := anObject
+TBPost >> text: aString
+   text := aString
 ]]]
 [[[
 TBPost >> date
    ^ date
 ]]]
 [[[
-TBPost >> date: anObject
-   date := anObject
+TBPost >> date: aDate
+   date := aDate
 ]]]
 [[[
 TBPost >> visible
    ^ visible
 ]]]
 [[[
-TBPost >> visible: anObject
-   visible := anObject
+TBPost >> visible: aBoolean
+   visible := aBoolean
 ]]]
 [[[
 TBPost >> category
