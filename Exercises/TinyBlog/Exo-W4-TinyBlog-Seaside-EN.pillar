@@ -8,10 +8,10 @@
 You can load the solution of the previous week using the following snippet:
 
 [[[
-Gofer new 
+Gofer new
    smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
    package: 'ConfigurationOfTinyBlog';
-   load. 
+   load.
 #ConfigurationOfTinyBlog asClass loadWeek3Correction
 ]]]
 
@@ -21,9 +21,9 @@ Gofer new
 %	TBTeapotWebApp start
 %]]]
 
-Make sure that you Teapot server is stopped. 
+Make sure that you Teapot server is stopped.
 [[[
-	TBTeapotWebApp stop
+    TBTeapotWebApp stop
 ]]]
 
 
@@ -119,9 +119,9 @@ Figure *@ComponentOverview* shows the different components to develop and where 
 
 +TinyBlog Components.>file://figures/ComponentOverview.pdf|width=75|label=ComponentOverview+
 
-!!!TBScreenComponent Component 
+!!!TBScreenComponent Component
 
-All components contained in ==TBApplicationRootComponent== will be subclasses of the abstract class ==TBScreenComponent==. This class allows us to factorize shared behaviors between all our components.  
+All components contained in ==TBApplicationRootComponent== will be subclasses of the abstract class ==TBScreenComponent==. This class allows us to factorize shared behaviors between all our components.
 
 [[[
 WAComponent subclass: #TBScreenComponent
@@ -130,18 +130,18 @@ WAComponent subclass: #TBScreenComponent
    package: 'TinyBlog-Components'
 ]]]
 
-All components need to access the model of our application. Therefore, in the 'accessing' protocol, we add a ==blog== method that returns an instance of ==TBBlog== (here the singleton). 
+All components need to access the model of our application. Therefore, in the 'accessing' protocol, we add a ==blog== method that returns an instance of ==TBBlog== (here the singleton).
 
 [[[
 TBScreenComponent >> blog
-   "Return the current blog in the future we will ask the 
+   "Return the current blog in the future we will ask the
    session to return the blog of the currently logged user."
    ^ TBBlog current
 ]]]
 
 Inspect now the blog object returned  by ==TBBlog current== and verify that it contains some posts.  If it does not, execute: ==TBBlog current createDemoPost==.
 
-In the future, if you want to manage multiple blogs, you will need to modify this method and use information stored in the active session to retrieve the current user/blog (cf. ==TBSession== later on). 
+In the future, if you want to manage multiple blogs, you will need to modify this method and use information stored in the active session to retrieve the current user/blog (cf. ==TBSession== later on).
 
 +Bootstrap Library.>file://figures/SeasideBootstrap.png|width=75|label=bootstrap+
 
@@ -149,7 +149,7 @@ In the future, if you want to manage multiple blogs, you will need to modify thi
 
 The Bootstrap library is accessible from Seaside as we will see. If you access the Seaside Bootstrap application in your web browser (""bootstrap"" link in the list of Seaside application or directly access *http://localhost:8080/bootstrap*) you can see several examples as shown in figure *@bootstrap*.
 
-If you click on the ""Examples"" link at the bottom of the web page you can see some graphical elements and their respective code to integrate them in your application (cf. figure *@examplebootstrap*). 
+If you click on the ""Examples"" link at the bottom of the web page you can see some graphical elements and their respective code to integrate them in your application (cf. figure *@examplebootstrap*).
 
 +Bootstrap Elements and their code.>file://figures/TBSAlert.png|width=75|label=examplebootstrap+
 
@@ -187,7 +187,7 @@ Usually, clicking on an application title bring back the user to the web applica
 
 !!Header Use
 
-It is not desirable to instantiate the ==TBHeaderComponent== each time a component is called. 
+It is not desirable to instantiate the ==TBHeaderComponent== each time a component is called.
 So, we add an instance variable named ==header== in the ==TBScreenComponent== component and initializes it in its ==initialize== method.
 
 [[[
@@ -195,7 +195,7 @@ WAComponent subclass: #TBScreenComponent
    instanceVariableNames: 'header'
    classVariableNames: ''
    package: 'TinyBlog'
-	
+
 TBScreenComponent >> initialize
    super initialize.
    header := TBHeaderComponent new.
@@ -205,7 +205,7 @@ TBScreenComponent >> initialize
 
 !!!Composite-Component relationship
 
-In Seaside, subcomponents of a component must be returned by the composite when sending it the ==children== message. 
+In Seaside, subcomponents of a component must be returned by the composite when sending it the ==children== message.
 So, we must define that the ==TBHeaderComponent== instance is a children of the ==TBScreenComponent== component in the Seaside component hierachy (and not in the Pharo classes hierarchy). We do so by specializing the method ==children==.
 
 [[[
@@ -224,12 +224,12 @@ TBScreenComponent >> renderContentOn: html
 !!Using the Screen Component in our Application
 
 Temporarily, we will directly use the ==TBScreenComponent== while we develop other components.
-So, we instantiate it in ==initialize== method and store it in the instance variable ==main==. 
+So, we instantiate it in ==initialize== method and store it in the instance variable ==main==.
 
 [[[
 TBApplicationRootComponent >> initialize
    super initialize.
-   main := TBScreenComponent new. 
+   main := TBScreenComponent new.
 ]]]
 
 [[[
@@ -271,12 +271,12 @@ TBPostsListComponent >> renderContentOn: html
    html text: 'Blog Posts here !!!'
 ]]]
 
-Add this new component in the root application component: 
+Add this new component in the root application component:
 
 [[[
 TBApplicationRootComponent >> initialize
    super initialize.
-   main := TBPostsListComponent new. 
+   main := TBPostsListComponent new.
 ]]]
 
 Modify this method is not a good practice so we add a setter method to dynamically change the component to display in the future.
@@ -308,7 +308,7 @@ TBPostComponent >> initialize
       post := TBPost new.
 ]]]
 
-[[[      
+[[[
 TBPostComponent >> title
    ^ post title
 ]]]
@@ -358,20 +358,20 @@ Refresh you web browser and you should get ... the following error:
 
 ==Not Found /TinyBlog==
 
-!!Debugging Errors 
+!!Debugging Errors
 
 By default, when an error occurs in a web application, Seaside returns an HTML page that contains a generic message. You can change this message or during development, you can configure Seaside to open a debugger directly in Pharo IDE. To configure Seaside, just execute the following snippet:
 
 [[[
-(WAAdmin defaultDispatcher handlerAt: 'TinyBlog') 
+(WAAdmin defaultDispatcher handlerAt: 'TinyBlog')
     exceptionHandler: WADebugErrorHandler
-]]] 
+]]]
 
 Now, if you refresh the web page in your browser, a debugger should open on Pharo side. If you analyze the stack, you should see that we forgot to define the following method:
 
 [[[
 TBPostComponent >> post: aPost
-	post := aPost
+    post := aPost
 ]]]
 
 The web application should now correctly renders and you obtains what is shown in Figure *@better*.
@@ -386,7 +386,7 @@ Let's use Bootstrap to make the list of posts more beautiful using a Bootstrap c
 [[[
 TBPostsListComponent >> renderContentOn: html
    super renderContentOn: html.
-   html tbsContainer: [ 
+   html tbsContainer: [
    self blog allVisibleBlogPosts do: [ :p |
       html render: (TBPostComponent new post: p) ] ]
 ]]]
@@ -436,7 +436,7 @@ On class-side, we define a creation method.
 
 [[[
 TBCategoriesComponent class >> categories: aCollectionOfCategories postsList: aTBScreen
-   ^ self new categories: aCollectionOfCategories; postsList: aTBScreen 
+   ^ self new categories: aCollectionOfCategories; postsList: aTBScreen
 ]]]
 
 The ==selectCategory:== method (protocol 'action') communicates the currently selected category to the ==TBPostsListComponent==.
@@ -463,7 +463,7 @@ TBScreenComponent >> currentCategory: anObject
    currentCategory := anObject
 ]]]
 
-!!Category Rendering 
+!!Category Rendering
 We add a rendering method ('rendering' protocol) to display one category.
 A category is rendered as a link and that make this category the current one if the user click on it.
 
@@ -481,7 +481,7 @@ TBCategoriesComponent >> renderContentOn: html
    html tbsListGroup: [
       html tbsListGroupItem
          with: [  html strong: 'Categories' ].
-      categories do: [ :cat | 
+      categories do: [ :cat |
          self renderCategoryLinkOn: html with: cat ]]
 ]]]
 
@@ -493,7 +493,7 @@ It remains to display the list of categories in the root application component a
 
 We have to modify some methods of ==TBPostsListComponent==.
 
-First, the ==readSelectedPosts== method returns the posts to display. 
+First, the ==readSelectedPosts== method returns the posts to display.
 If the current category is ==nil==, it means that the user did not select any category yet and all visible posts of the database are displayed.
 If the user has selected a category, only posts of this category are displayed.
 
@@ -512,7 +512,7 @@ TBPostsListComponent >> renderContentOn: html
    html render: (TBCategoriesComponent
                categories: (self blog allCategories)
                postsList: self).
-   html tbsContainer: [ 
+   html tbsContainer: [
       self readSelectedPosts do: [ :p |
          html render: (TBPostComponent new post: p) ] ]
 ]]]
@@ -525,12 +525,12 @@ An instance of ==TBCategoriesComponent== is rendered on the web page and allows 
 !!Look and Layout
 
 We will improve the layout of ==TBPostsListComponent== using a repsonsive design for the list of posts.
-It means that the CSS will adapt the component size and placement based on the available space. 
+It means that the CSS will adapt the component size and placement based on the available space.
 
 Components are displayed inside two Bootstrap containers in a row and two columns.
-Column width is determined according to the resolution (viewport) of the displaying device.  
-The 12 columns of the Bootstrap grid are splitted between the list of categories and list of posts. 
-If a low resolution is used, the list of categories will be above the list of posts (each lists will occupy 100\% of the width of the container). 
+Column width is determined according to the resolution (viewport) of the displaying device.
+The 12 columns of the Bootstrap grid are splitted between the list of categories and list of posts.
+If a low resolution is used, the list of categories will be above the list of posts (each lists will occupy 100\% of the width of the container).
 
 [[[
 TBPostsListComponent >> renderContentOn: html
@@ -567,11 +567,11 @@ To introduce this feature, we modify the following method:
 TBCategoriesComponent >> renderCategoryLinkOn: html with: aCategory
    html tbsLinkifyListGroupItem
       class: 'active' if: aCategory = self postsList currentCategory ;
-      callback: [ self selectCategory: aCategory ]; 
+      callback: [ self selectCategory: aCategory ];
       with: aCategory
 ]]]
 
-The application works well but you must not keep the current implementation of ==TBPostsListComponent >> renderContentOn:==. 
+The application works well but you must not keep the current implementation of ==TBPostsListComponent >> renderContentOn:==.
 This method is too long and cannot be easily reused. Propose a solution.
 
 !! Our Solution: Small Methods
@@ -580,7 +580,7 @@ This method is too long and cannot be easily reused. Propose a solution.
 TBPostsListComponent >> renderContentOn: html
    super renderContentOn: html.
    html
-      tbsContainer: [ 
+      tbsContainer: [
          html tbsRow
             showGrid;
             with: [ self renderCategoryColumnOn: html.
@@ -598,23 +598,23 @@ TBPostsListComponent >> renderCategoryColumnOn: html
 
 [[[
 TBPostsListComponent >> basicRenderCategoriesOn: html
-   ^ html render: (TBCategoriesComponent 
-         categories: self blog allCategories 
+   ^ html render: (TBCategoriesComponent
+         categories: self blog allCategories
          postsList: self)
 ]]]
 
-[[[   
+[[[
 TBPostsListComponent >> renderPostColumnOn: html
    html tbsColumn
          extraSmallSize: 12;
          smallSize: 10;
          mediumSize: 8;
-         with: [ self basicRenderPostsOn: html ] 
+         with: [ self basicRenderPostsOn: html ]
 ]]]
 
 [[[
 TBPostsListComponent >> basicRenderPostsOn: html
-   ^ self readSelectedPosts do: [ :p | 
+   ^ self readSelectedPosts do: [ :p |
         html render: (TBPostComponent new post: p) ]
 ]]]
 
