@@ -119,7 +119,7 @@ TBApplicationRootComponent >> updateRoot: anHtmlRoot
 ]]]
 
 
-Le composant ==TBApplicationRootComponent== est le composant principal de l'application, il ne fait que du rendu graphique limité.
+Le message ==title:== permet de configurer le titre du document affiché dans la fenêtre du navigateur. Le composant ==TBApplicationRootComponent== est le composant principal de l'application, il ne fait que du rendu graphique limité.
 Dans le futur, il contiendra des composants et les affichera.
 Par exemple, les composants principaux de l'application permettant l'affichage des posts pour les lecteurs du blog mais également des composants pour administrer le blog et ses posts. 
 
@@ -151,12 +151,12 @@ Les différents composants d'interface de TinyBlog auront besoin d'accéder aux 
 
 [[[
 TBScreenComponent >> blog
-   "Return the current blog in the future we will ask the 
-   session to return the blog of the currently logged user."
+   "Return the current blog. In the future we will ask the
+   session to return the blog of the currently logged in user."
    ^ TBBlog current
 ]]]
 
-En inspectant l'objet blog retourné par ==TBBlog current==, vérifier qu'il contient bien des posts. Si ce n'est pas le cas, exécuter ==createDemoPost==.
+En inspectant l'objet blog retourné par ==TBBlog current==, vérifier qu'il contient bien des posts. Si ce n'est pas le cas, exécuter ==TBBlog createDemoPosts==.
 
 Dans le futur, lorsque nous gérerons les utilisateurs et le fait qu'un utilisateurs puisse avoir plusieurs blogs nous modifierons cette méthode pour utiliser des informations stockées dans la session active (Voir ==TBSession== plus loin). 
 
@@ -366,6 +366,7 @@ Dans le chapitre et celui sur l'interface d'administration et qui utilise Magrit
 
 [[[
 TBPostComponent >> renderContentOn: html
+   "DON'T WRITE THIS YET"
    html render: post asComponent
 ]]]
 
@@ -383,29 +384,27 @@ TBPostsListComponent >> renderContentOn: html
       html render: (TBPostComponent new post: p) ]
 ]]]
 
-Rafraichissez la page de votre navigateur et vous devez obtenir l'erreur suivante: 
+Rafraichissez la page de votre navigateur et vous devez obtenir un message d'erreur.
 
-==Not Found /TinyBlog==
+!!Debugger les erreurs
 
-!!Debugger les erreurs 
-
-Par défaut, lorsqu'une erreur se produit dans une application, Seaside retourne une page  HTML contenant un message d'erreur générique. Vous pouvez changer ce message mais le plus pratique pendant le développement de l'application est de configurer Seaside pour qu'il ouvre un debugger dans Pharo. Pour cela, exécuter le code suivant :
+Par défaut, lorsqu'une erreur se produit dans une application, Seaside retourne une page HTML contenant un message. Vous pouvez changer ce message mais le plus pratique pendant le développement de l'application est de configurer Seaside pour qu'il ouvre un debugger dans Pharo. Pour cela, exécuter le code suivant :
 
 [[[
 (WAAdmin defaultDispatcher handlerAt: 'TinyBlog') 
     exceptionHandler: WADebugErrorHandler
 ]]] 
 
-Rafraichissez la page de votre navigateur et vous devez obtenir un debugger côté Pharo.
+Rafraîchissez la page de votre navigateur et vous devez obtenir un debugger côté Pharo.
 L'analyse de la pile d'appels montre qu'il manque la méthode suivante :
 
 [[[
 TBPostComponent >> post: aPost
-	post := aPost
+   post := aPost
 ]]]
 
 
-Rafraichissez à nouveau la page de votre navigateur et vous devez obtenir la Figure *@better*.
+Vous pouvez ajouter cette méthode dans le debugger avec le bouton ==Create==. Quand c'est fait, appuyez sur le bouton ==Proceed==. La page de votre navigateur doit maintenant montrer la même chose que la Figure *@better*.
 
 +TinyBlog avec une liste de posts.>file://figures/betterListPosts.png|width=75|label=better+
 
@@ -441,24 +440,16 @@ WAComponent subclass: #TBCategoriesComponent
    instanceVariableNames: 'categories postsList'
    classVariableNames: ''
    package: 'TinyBlog-Components'
-]]]
 
-[[[
 TBCategoriesComponent >> categories
    ^ categories
-]]]
 
-[[[
 TBCategoriesComponent >> categories: aCollection
    categories := aCollection
-]]]
 
-[[[
 TBCategoriesComponent >> postsList: aComponent
       postsList := aComponent
-]]]
 
-[[[
 TBCategoriesComponent >> postsList
    ^ postsList
 ]]]
@@ -484,9 +475,7 @@ TBScreenComponent subclass: #TBPostsListComponent
    instanceVariableNames: 'currentCategory'
    classVariableNames: ''
    package: 'TinyBlog-Components'
-]]]
 
-[[[
 TBScreenComponent >> currentCategory
    ^ currentCategory
 
@@ -608,34 +597,26 @@ TBPostsListComponent >> renderContentOn: html
             showGrid;
             with: [ self renderCategoryColumnOn: html.
                   self renderPostColumnOn: html ] ]
-]]]
 
-[[[
 TBPostsListComponent >> renderCategoryColumnOn: html
    html tbsColumn
       extraSmallSize: 12;
       smallSize: 2;
       mediumSize: 4;
       with: [ self basicRenderCategoriesOn: html ]
-]]]
 
-[[[
 TBPostsListComponent >> basicRenderCategoriesOn: html
    ^ html render: (TBCategoriesComponent 
          categories: self blog allCategories 
          postsList: self)
-]]]
 
-[[[   
 TBPostsListComponent >> renderPostColumnOn: html
    html tbsColumn
          extraSmallSize: 12;
          smallSize: 10;
          mediumSize: 8;
          with: [ self basicRenderPostsOn: html ] 
-]]]
 
-[[[
 TBPostsListComponent >> basicRenderPostsOn: html
    ^ self readSelectedPosts do: [ :p | 
         html render: (TBPostComponent new post: p) ]
