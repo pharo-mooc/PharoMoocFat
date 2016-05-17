@@ -184,7 +184,7 @@ Réécrivez les expressions avec le minimum de parenthèses.
 
 ""Solution.""
 [[[
-    ('http://www.pharo.org' asUrl) retrieveContents
+    'http://www.pharo.org' asUrl retrieveContents
 ]]]
 
 
@@ -411,8 +411,9 @@ Examinez chacune des expressions suivantes et décrivez la séquence des étapes
 '^.*.jpg' asRegex in: [ :regex |
   					'/tmp/foo.txt' asFileReference contents lines 
     						select: [ :line | regex matches: line ] ]
-    asRegex
-	asFielReference
+   asRegex
+	in:
+	asFileReference
 	contents
 	line 
 	matches:
