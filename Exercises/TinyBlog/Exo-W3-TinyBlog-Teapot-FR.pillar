@@ -216,7 +216,7 @@ TBTeapotWebApp >> homePage
          self renderPageHeaderOn: s.
          s << '<h1>TinyBlog Web App</h1>'.
          s << '<ul>'.
-         self allPosts withIndexDo: [ :index :aPost |
+         self allPosts withIndexDo: [ :aPost :index |
               s << '<li>';
                 << ('<a href="/post/', index asString, '">');
                 << aPost title ;
