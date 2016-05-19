@@ -46,7 +46,7 @@ ${slide:title=Hello World}$
 ]]]
 
 
-We send the message ==asMorph== to a string and obtain a graphical element that we open in a window by sending it the message ==openInWorld==
+We send the message ==asMorph== to a string and obtain a graphical element that we open in a window by sending it the message ==openInWindow==
 
 
 ${slide:title=Getting the Pharo Logo from the Web}$
