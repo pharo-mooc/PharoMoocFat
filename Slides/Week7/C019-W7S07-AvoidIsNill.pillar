@@ -11,7 +11,7 @@ Main >> showHappiness: animal
       ifTrue: [ animal shakeTail ].
    animal isDuck
       ifTrue: [ animal quack ].
-   animal isCat: [ ... ].
+   animal isCat ifTrue: [ ... ].
 ]]]
 
 Branching (with ==if==) based on the type of an object is bad:
