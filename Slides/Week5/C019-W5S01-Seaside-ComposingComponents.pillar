@@ -120,22 +120,21 @@ ${slide:title=Rendering Only One Subcomponent}$
 
 [[[
 MyApp >> initialize
-    "..."
-	 selectedChild := children first
+   "..."
+   selectedChild := children first
 
 MyApp >> renderContentOn: html
-	self renderMenuOn: html.
-	html render: selectedChild 
+   self renderMenuOn: html.
+   html render: selectedChild
 
 MyApp >> renderMenuOn: html
-    html unorderedList: [ 
-        self children doWithIndex: [ :child :i |
-            html listItem: [ 
-                html anchor 
-                    class: 'selected' if: child = currentComponnent ;
-                    callback: [ selectedChild := self children at: i ];
-						  with: child className  
-    ] ] ]
+   html unorderedList: [
+      self children do: [ :child |
+         html listItem: [
+            html anchor
+               class: 'active' if: child = selectedChild;
+               callback: [ selectedChild := child ];
+               with: child className ]]]
 ]]]
 
 ${slide:title=Roadmap}$
