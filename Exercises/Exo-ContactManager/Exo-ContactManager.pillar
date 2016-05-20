@@ -204,11 +204,11 @@ Let us define a first simple component.
 
 !!! Defining the WAContactBook Component
 
-Our simple application consists of a top-level component represented by the ==WAContactBook== class, subclass of ==WAComponent==. Create the ==WAContactBook== class with a ==contactBook== instance variable:
+Our simple application consists of a top-level component represented by the ==WAContactBook== class, subclass of ==WAComponent==. Create the ==WAContactBook== class:
 
 [[[
 WAComponent subclass: #WAContactBook
-   instanceVariableNames: 'contactBook'
+   instanceVariableNames: ''
    classVariableNames: ''
    package: 'ContactBook'
 ]]]
@@ -268,15 +268,16 @@ Now we define some methods to access to the model from the view. We define them 
 
 [[[
 WAContactBook >> contacts
-    ^ self contactBook contacts
+   ^ self contactBook contacts
 ]]]
 
 [[[
 WAContactBook >> contactBook
-     ^ contactBook ifNil: [ contactBook := ContactBook createDefault ]
+   ^ contactBook ifNil: [ contactBook := ContactBook createDefault ]
 ]]]
 
-In the 'iterating' protocol add the method ==contactsDo:==
+The variable ==contactBook== is an instance variable of the ==WAContactBook== class. In the 'iterating' protocol add the method ==contactsDo:==.
+
 [[[
 WAContactBook >> contactsDo: aBlock
     self contacts do: aBlock
