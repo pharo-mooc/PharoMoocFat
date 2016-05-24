@@ -165,7 +165,7 @@ We define the method ==errorPage==.
 TBTeapotWebApp >> errorPage
    ^ String streamContents: [ :s | 
       self renderPageHeaderOn: s.
-      s << '<p>Oups, an error occurred</p>'.
+      s << '<p>Oops, an error occurred</p>'.
       self renderPageFooterOn: s ]
 ]]]
 
