@@ -194,7 +194,8 @@ TBTeapotWebApp >> pageForPostNumber: aPostNumber
          s << ('<p>', currentPost text, '</p>').
          self renderPageFooterOn: s ]
 ]]]
-You can now test your application directly with the following URL:  *http://localhost:8081/post/1*
+
+You should now restart the server before testing your application with the following URL:  *http://localhost:8081/post/1*
 
 The parameter of ==pageForPostNumber:== is the integer passed in the URL and it is used as an index to retrieve the post to display in the collection of posts. Obviously, this is a fragile solution because if the order of the posts changes in the collection, a given URL will not display the same post as before. 
 
@@ -209,7 +210,7 @@ TBTeapotWebApp >> homePage
          self renderPageHeaderOn: s.
          s << '<h1>TinyBlog Web App</h1>'.
          s << '<ul>'.
-         self allPosts withIndexDo: [ :index :aPost |
+         self allPosts withIndexDo: [ :aPost :index |
             s << '<li>';
               << ('<a href="/post/', index asString, '">');
               << aPost title ;

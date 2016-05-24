@@ -199,8 +199,7 @@ TBTeapotWebApp >> pageForPostNumber: aPostNumber
         ]
 ]]]
 
-
-
+Vous devez maintenant redémarrer le serveur avant de tester votre application en accédant à l'URL:  *http://localhost:8081/post/1*.
 
 Dans le code ci-dessus, on peut voir que le nombre passé dans l'URL est utilisé comme la position du post à afficher dans la collection des posts. 
 Cette solution est simple mais fragile puisque si l'ordre des posts dans la collection change, une même URL ne désignera plus le même post.
@@ -216,7 +215,7 @@ TBTeapotWebApp >> homePage
          self renderPageHeaderOn: s.
          s << '<h1>TinyBlog Web App</h1>'.
          s << '<ul>'.
-         self allPosts withIndexDo: [ :index :aPost |
+         self allPosts withIndexDo: [ :aPost :index |
               s << '<li>';
                 << ('<a href="/post/', index asString, '">');
                 << aPost title ;
