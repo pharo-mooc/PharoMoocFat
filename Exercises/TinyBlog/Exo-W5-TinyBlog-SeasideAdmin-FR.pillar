@@ -7,10 +7,10 @@
 Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
 
 [[[
-Gofer new 
+Gofer new
    smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
    package: 'ConfigurationOfTinyBlog';
-   load. 
+   load.
 #ConfigurationOfTinyBlog asClass loadWeek4Correction
 ]]]
 
@@ -23,8 +23,8 @@ ZnZincServerAdaptor startOn: 8080.
 Vous devrez également faire :
 
 [[[
-TBBlog reset ; 
-	createDemoPosts
+TBBlog reset ;
+    createDemoPosts
 ]]]
 
 !Décrire les données métiers avec Magritte
@@ -33,12 +33,12 @@ Magritte est une bibliothèque qui permet une fois les données décrites de gé
 
 Un chapitre dans le livre sur Seaside (*http://book.seaside.st*) est disponible sur Magritte ainsi qu'un tutoriel sur *https://github.com/SquareBracketAssociates/Magritte*.
 
-Dans ce chapitre, nous allons décrire les cinq variables d'instance de l'objet ==TBPost== à l'aide de Magritte. Dans le chapitre suivant, nous tirerons avantage de ces descriptions pour générer automatiquement des composants Seaside. 
+Dans ce chapitre, nous allons décrire les cinq variables d'instance de l'objet ==TBPost== à l'aide de Magritte. Dans le chapitre suivant, nous tirerons avantage de ces descriptions pour générer automatiquement des composants Seaside.
 
 !!Descriptions
 
 Les cinq méthodes suivantes sont dans le protocole 'descriptions' de la classe ==TBPost==.
-Noter que le nom des méthodes n'est pas important mais que nous suivons une convention. C'est le pragma ==<magritteDescription>== qui permet à Magritte d'identifier les descriptions. 
+Noter que le nom des méthodes n'est pas important mais que nous suivons une convention. C'est le pragma ==<magritteDescription>== qui permet à Magritte d'identifier les descriptions.
 
 Le titre d'un post est une chaine de caractères devant être obligatoirement complétée.
 
@@ -94,17 +94,17 @@ TBPost >> descriptionVisible
       beRequired;
       yourself
 ]]]
-   
+
 !!Améliorations possibles
 
-Voici quelques améliorations ou extensions possibles. 
+Voici quelques améliorations ou extensions possibles.
 Nous pourrions enrichir les descriptions pour qu'il ne soit pas possible de poster un post ayant une date antérieure à celle du jour. Nous pourrions changer la description d'une catégorie pour que ses valeurs possibles soient définies par l'ensemble des catégories existantes. Tout cela permettrait de produire des interfaces plus complètes et toujours aussi simplement.
 
 
 
 !Administration de TinyBlog
 
-Nous allons aborder maintenant l'administration de TinyBlog. Cet exercice va nous permettre de montrer comment utiliser des informations de session ainsi que Magritte pour la définition de rapports. 
+Nous allons aborder maintenant l'administration de TinyBlog. Cet exercice va nous permettre de montrer comment utiliser des informations de session ainsi que Magritte pour la définition de rapports.
 
 Le scénario assez classique que nous allons développer est le suivant : l'utilisateur doit s'authentifier pour accéder à la partie administration de TinyBlog. Il le fait à l'aide d'un compte et d'un mot de passe. Le lien permettant d'afficher le composant d'authentification sera placé sous la liste des catégories.
 
@@ -113,7 +113,7 @@ Le scénario assez classique que nous allons développer est le suivant : l'util
 
 Nous allons commencer par développer un composant d'identification qui lorsqu'il sera invoqué ouvrira une boite de dialogue pour demander les informations d'identification. Remarquer qu'une telle fonctionnalité devrait faire partie d'une bibliothèque de composants de base en Seaside.
 
-Ce composant va nous permettre d'illustrer comment la saisie de champs utilise de manière élégante les variables d'instances du composant. 
+Ce composant va nous permettre d'illustrer comment la saisie de champs utilise de manière élégante les variables d'instances du composant.
 
 [[[
 WAComponent subclass: #TBAuthentificationComponent
@@ -192,16 +192,16 @@ Quelle critique peut on faire sur cette méthode ? Proposer une refactorisation 
 TBAuthentificationComponent >> renderContentOn: html
    html tbsModal
       id: 'myAuthDialog';
-      with: [ html tbsModalDialog: [ 
-                     html tbsModalContent: [ 
+      with: [ html tbsModalDialog: [
+                     html tbsModalContent: [
                            self renderHeaderOn: html.
                            html
-                              tbsModalBody: [ 
+                              tbsModalBody: [
                                  html
-                                    form: [ 
-                                       self renderInputAccountOn: html. 
+                                    form: [
+                                       self renderInputAccountOn: html.
                                        html break.
-                                       self renderInputPasswordOn: html. 
+                                       self renderInputPasswordOn: html.
                                        html break.
                                        html break.
                                        html tbsModalFooter: [ self renderOkCancelOn: html ] ] ] ] ] ]
@@ -210,7 +210,7 @@ TBAuthentificationComponent >> renderContentOn: html
 [[[
 TBAuthentificationComponent >> renderHeaderOn: html
    html
-      tbsModalHeader: [ 
+      tbsModalHeader: [
          html tbsModalCloseIcon.
          html tbsModalTitle
             level: 4;
@@ -238,9 +238,9 @@ TBAuthentificationComponent >> renderInputPasswordOn: html
 [[[
 TBAuthentificationComponent >> renderOkCancelOn: html
    renderOkCancelOn: html
-      html tbsButton 
-		   attributeAt: 'type' put: 'button';
-		   value: 'Cancel'.
+      html tbsButton
+           attributeAt: 'type' put: 'button';
+           value: 'Cancel'.
       html tbsSubmitButton
          bePrimary;
          callback: [ self validate ];
@@ -251,11 +251,11 @@ Lorsque l'utilisateur clique sur le bouton 'SignIn', le message ==validate== est
 
 [[[
 TBAuthentificationComponent >> validate
-   (self account = 'admin' and: [ self password = 'password' ]) 
+   (self account = 'admin' and: [ self password = 'password' ])
       ifTrue: [ self alert: 'Success!' ]
 ]]]
 
-!!!!Critique 
+!!!!Critique
 
 Rechercher une autre méthode pour réaliser l'authentification de l'utilisateur (utilisation d'un backend de type base de données, LDAP ou fichier texte). En tout cas, ce n'est pas à la boite de login de faire ce travail, il faut le déléguer à un objet métier qui saura consulter le backend et authentifier l'utilisateur.
 
@@ -270,11 +270,11 @@ TBPostsListComponent >> renderContentOn: html
    super renderContentOn: html.
    html render: (TBAuthentificationComponent from: self).
    html
-      tbsContainer: [ 
+      tbsContainer: [
          html tbsRow
             showGrid;
             with: [ self renderCategoryColumnOn: html.
-                  self renderPostColumnOn: html ] ] 
+                  self renderPostColumnOn: html ] ]
 ]]]
 
  On définit maintenant une méthode qui affiche un pictogramme clé et un lien 'SignIn'.
@@ -292,8 +292,8 @@ TBPostsListComponent >> renderCategoryColumnOn: html
       extraSmallSize: 12;
       smallSize: 2;
       mediumSize: 4;
-      with: [ 
-		   self basicRenderCategoriesOn: html.
+      with: [
+           self basicRenderCategoriesOn: html.
          self renderSignInOn: html ]
 ]]]
 
@@ -305,11 +305,11 @@ Lorsque nous pressons sur le lien SignIn nous obtenons la figure *@authentificat
 
 !!Administration des posts
 
-Nous allons développer deux composants. Le premier sera un rapport qui contiendra tous les posts et le second contiendra ce rapport. Le rapport étant généré par Magritte sous la forme d'un composant Seaside, nous aurions pu n'avoir qu'un seul composant. Toutefois, nous pensons que distinguer le composant d'administration du rapport est une bonne chose pour l'évolution de la partie administration. Commençons donc par le composant d'administration. 
+Nous allons développer deux composants. Le premier sera un rapport qui contiendra tous les posts et le second contiendra ce rapport. Le rapport étant généré par Magritte sous la forme d'un composant Seaside, nous aurions pu n'avoir qu'un seul composant. Toutefois, nous pensons que distinguer le composant d'administration du rapport est une bonne chose pour l'évolution de la partie administration. Commençons donc par le composant d'administration.
 
 !!!Création d'un composant d'administration
 
-Le composant ==TBAdminComponent== hérite de ==TBScreenComponent== pour bénéficier du header et de l'accès au blog. Il contiendra en plus le rapport que nous construisons par la suite. 
+Le composant ==TBAdminComponent== hérite de ==TBScreenComponent== pour bénéficier du header et de l'accès au blog. Il contiendra en plus le rapport que nous construisons par la suite.
 
 [[[
 TBScreenComponent subclass: #TBAdminComponent
@@ -318,7 +318,7 @@ TBScreenComponent subclass: #TBAdminComponent
    category: 'TinyBlog-Components'
 ]]]
 
-Nous définissons une première version de la méthode de rendu afin de pourvoir tester. 
+Nous définissons une première version de la méthode de rendu afin de pourvoir tester.
 
 [[[
 TBAdminComponent >> renderContentOn: html
@@ -329,7 +329,7 @@ TBAdminComponent >> renderContentOn: html
 ]]]
 
 
-Nous modifions la méthode ==validate== pour qu'elle invoque la méthode ==gotoAdministration== définie dans le composant ==TBPostsListComponent==. Cette dernière méthode invoque le composant d'administration. 
+Nous modifions la méthode ==validate== pour qu'elle invoque la méthode ==gotoAdministration== définie dans le composant ==TBPostsListComponent==. Cette dernière méthode invoque le composant d'administration.
 
 [[[
 TBPostsListComponent >> gotoAdministration
@@ -351,7 +351,7 @@ Pour tester, identifiez-vous sur l'application et vous devez obtenir la situatio
 
 La liste des posts est affichée à l'aide d'un rapport généré dynamiquement par le framework Magritte. Nous utilisons ce framework pour réaliser les différentes fonctionnalités de la partie administration de TinyBlog (liste des posts, création, édition et suppression d'un post).
 
-Pour rester modulaire, nous allons créer un composant Seaside pour cette tâche. 
+Pour rester modulaire, nous allons créer un composant Seaside pour cette tâche.
 
 [[[
 TBSMagritteReport subclass: #TBPostsReport
@@ -360,7 +360,7 @@ TBSMagritteReport subclass: #TBPostsReport
    category: 'TinyBlog-Components'
 ]]]
 
-Avec la méthode ==from:== nous disons que nous voulons créer un rapport en prenant les descriptions de n'importe quel blog. 
+Avec la méthode ==from:== nous disons que nous voulons créer un rapport en prenant les descriptions de n'importe quel blog.
 [[[
 TBPostsReport class >> from: aBlog
    | allBlogs |
@@ -389,7 +389,7 @@ Comme le rapport est un composant fils du composant admin nous n'oublions pas de
 
 [[[
 TBAdminComponent >> children
-   ^ super children copyWith: self report 
+   ^ super children copyWith: self report
 ]]]
 
 La méthode ==initialize== permet d'initialiser la définition du rapport. Nous fournissons au composant ==TBPostReport== l'accès aux données.
@@ -418,7 +418,7 @@ Nous ajoutons une méthode de classe pour la sélection des colonnes et modifier
 [[[
 TBPostsReport class >> filteredDescriptionsFrom: aBlogPost
    ^ aBlogPost magritteDescription select: [ :each | #(title category date) includes: each accessor selector ]
-   
+
 TBPostsReport class >> from: aBlog
    | allBlogs |
    allBlogs := aBlog allBlogPosts.
@@ -489,13 +489,13 @@ Identifiez-vous et vous devez obtenir la situation telle que représentée par l
 
 Nous pouvons maintenant mettre en place un CRUD (Create Read Update Delete) permettant de gérer les posts. Pour cela, nous allons ajouter une colonne (instance ==MACommandColumn==) au rapport qui regroupera les différentes opérations utilisant ==addCommandOn:==.
 
-Ceci se fait lors de la création du rapport. En particulier nous donnons un accès au blog depuis le rapport. 
+Ceci se fait lors de la création du rapport. En particulier nous donnons un accès au blog depuis le rapport.
 
 [[[
 TBSMagritteReport subclass: #TBPostsReport
-	instanceVariableNames: 'report blog'
-	classVariableNames: ''
-	category: 'TinyBlog-Components'
+    instanceVariableNames: 'report blog'
+    classVariableNames: ''
+    category: 'TinyBlog-Components'
 
 TBSMagritteReport >> blog
    ^ blog
@@ -506,15 +506,15 @@ TBSMagritteReport >> blog: aTBBlog
 
 [[[
 TBPostsReport class >> from: aBlog
-	| report blogPosts |
-	blogPosts := aBlog allBlogPosts.
-	report := self rows: blogPosts description: (self filteredDescriptionsFrom: blogPosts anyOne).
-	report blog: aBlog.
-	report addColumn: (MACommandColumn new
-		addCommandOn: report  selector: #viewPost: text: 'View'; yourself;
-		addCommandOn: report selector: #editPost: text: 'Edit'; yourself;
-		addCommandOn: report selector: #deletePost: text: 'Delete'; yourself).
-	 ^ report
+    | report blogPosts |
+    blogPosts := aBlog allBlogPosts.
+    report := self rows: blogPosts description: (self filteredDescriptionsFrom: blogPosts anyOne).
+    report blog: aBlog.
+    report addColumn: (MACommandColumn new
+        addCommandOn: report  selector: #viewPost: text: 'View'; yourself;
+        addCommandOn: report selector: #editPost: text: 'Edit'; yourself;
+        addCommandOn: report selector: #deletePost: text: 'Delete'; yourself).
+     ^ report
 ]]]
 
 L'ajout (add) est dissocié des posts et se trouvera donc juste avant le rapport. Etant donné qu'il fait partie du composant ==TBPostsReport==, nous devons redéfinir la méthode ==renderContentOn:== du composant ==TBPostsReport== pour insérer le lien ==add==.
@@ -541,20 +541,20 @@ A chaque action (Create/Read/Update/Delete) correspond une méthode de l'objet =
 
 [[[
 TBPostsReport >> renderAddPostForm: aPost
-	^ aPost asComponent
-		addDecoration: (TBSMagritteFormDecoration buttons: { #save -> 'Add post' .  #cancel -> 'Cancel'});
-		yourself
+    ^ aPost asComponent
+        addDecoration: (TBSMagritteFormDecoration buttons: { #save -> 'Add post' .  #cancel -> 'Cancel'});
+        yourself
 ]]]
 
-La méthode ==renderAddPostForm== illustre la puissance de Magritte pour générer des formulaires. 
-Ici, le message ==asComponent== envoyé à un objet métier instance de la classe ==TBPost==, créé directement un composant Seaside. 
+La méthode ==renderAddPostForm== illustre la puissance de Magritte pour générer des formulaires.
+Ici, le message ==asComponent== envoyé à un objet métier instance de la classe ==TBPost==, créé directement un composant Seaside.
 Nous ajoutons une décoration à ce composant Seaside afin de gérer ok/cancel.
 
 [[[
 TBPostsReport >> addPost
-	| post |
-	post := self call: (self renderAddPostForm: TBPost new).
-	post ifNotNil: [ blog writeBlogPost: post ]
+    | post |
+    post := self call: (self renderAddPostForm: TBPost new).
+    post ifNotNil: [ blog writeBlogPost: post ]
 ]]]
 
 La méthode ==addPost== pour sa part, affiche le composant rendu par la méthode ==renderAddPostForm:== et lorsque qu'un nouveau post est créé, elle l'ajoute au blog.
@@ -568,14 +568,14 @@ Enregistrez-vous et vous devez obtenir la situation telle que représentée par 
 
 [[[
 TBPostsReport >> renderEditPostForm: aPost
-	^ aPost asComponent
-		addDecoration: (TBSMagritteFormDecoration buttons: { #save -> 'Save post' . #cancel -> 'Cancel'});
-		yourself
+    ^ aPost asComponent
+        addDecoration: (TBSMagritteFormDecoration buttons: { #save -> 'Save post' . #cancel -> 'Cancel'});
+        yourself
 
 TBPostsReport >> editPost: aPost
-	| post |
-	post := self call: (self renderEditPostForm: aPost).
-	post ifNotNil: [ blog save ]
+    | post |
+    post := self call: (self renderEditPostForm: aPost).
+    post ifNotNil: [ blog save ]
 ]]]
 
 
@@ -584,12 +584,12 @@ TBPostsReport >> editPost: aPost
 
 [[[
 TBPostsReport >> viewPost: aPost
-	self call: (self renderViewPostForm: aPost)
+    self call: (self renderViewPostForm: aPost)
 
 TBPostsReport >> renderViewPostForm: aPost
-	^ aPost asComponent
-		addDecoration: (TBSMagritteFormDecoration buttons: { #cancel -> 'Back' });
-		yourself
+    ^ aPost asComponent
+        addDecoration: (TBSMagritteFormDecoration buttons: { #cancel -> 'Back' });
+        yourself
 ]]]
 
 
@@ -599,24 +599,24 @@ Pour éviter une opération accidentelle, nous utilisons une boite modale pour q
 
 [[[
 TBPostsReport >> deletePost: aPost
-	(self confirm: 'Do you want remove this post ?') 
-		ifTrue: [ blog removeBlogPost: aPost ]
+    (self confirm: 'Do you want remove this post ?')
+        ifTrue: [ blog removeBlogPost: aPost ]
 ]]]
 
 
 [[[
 TBBlog >> removeBlogPost: aPost
-	posts remove: aPost ifAbsent: [ ].
-	self save.
+    posts remove: aPost ifAbsent: [ ].
+    self save.
 ]]]
 
 Cette dernière méthode est à ajouter dans une classe de la partie métier de notre application. Il faut donc ajouter un test unitaire.
 
 [[[
 TBBlogTest >> testRemoveBlogPost
-	self assert: blog size equals: 1.
-	blog removeBlogPost: blog allBlogPosts anyOne.
-	self assert: blog size equals: 0
+    self assert: blog size equals: 1.
+    blog removeBlogPost: blog allBlogPosts anyOne.
+    self assert: blog size equals: 0
 ]]]
 
 !!!Gérer le problème du rafraîchissement des données
@@ -625,26 +625,26 @@ Les méthodes ==TBPostsReport >> addPost:== et ==TBPostsReport >> deletePost:== 
 
 [[[
 TBPostsReport >> refreshReport
-	self rows: blog allBlogPosts.
-	self refresh.
+    self rows: blog allBlogPosts.
+    self refresh.
 ]]]
 
 [[[
 TBPostsReport >> addPost
-	| post |
-	post := self call: (self renderAddPostForm: TBPost new).
-	post ifNotNil: [
-		blog writeBlogPost: post.
- 		self refreshReport
-	]
+    | post |
+    post := self call: (self renderAddPostForm: TBPost new).
+    post ifNotNil: [
+        blog writeBlogPost: post.
+        self refreshReport
+    ]
 
 TBPostsReport >> deletePost: aPost
-	(self confirm: 'Do you want remove this post ?') 
-		ifTrue: [ blog removeBlogPost: aPost.
-				 self refreshReport ]
+    (self confirm: 'Do you want remove this post ?')
+        ifTrue: [ blog removeBlogPost: aPost.
+                 self refreshReport ]
 ]]]
 
-Le formulaire est fonctionnel maintenant et gère même les contraintes de saisie c'est-à-dire que le formulaire assure par exemple que les champs déclarés comme obligatoire dans les descriptions Magritte sont bien renseignés. 
+Le formulaire est fonctionnel maintenant et gère même les contraintes de saisie c'est-à-dire que le formulaire assure par exemple que les champs déclarés comme obligatoire dans les descriptions Magritte sont bien renseignés.
 
 !!!Amélioration de l'apparence du formulaire
 
@@ -652,66 +652,66 @@ Pour tirer partie de Bootstrap, nous allons modifier les définitions Magritte. 
 
 [[[
 TBPost >> descriptionContainer
-	<magritteContainer>
-	^ super descriptionContainer
-		componentRenderer: TBSMagritteFormRenderer;
-		yourself
+    <magritteContainer>
+    ^ super descriptionContainer
+        componentRenderer: TBSMagritteFormRenderer;
+        yourself
 ]]]
 
 Nous pouvons maintenant nous occuper des différents champs de saisie et améliorer leur apparence.
 
 [[[
 TBPost >> descriptionTitle
-	<magritteDescription>
-	^ MAStringDescription new
-		label: 'Title';
-		priority: 100;
-		accessor: #title;
-		requiredErrorMessage: 'A blog post must have a title.';
-		comment: 'Please enter a title';
-		componentClass: TBSMagritteTextInputComponent;
-		beRequired;
-		yourself
+    <magritteDescription>
+    ^ MAStringDescription new
+        label: 'Title';
+        priority: 100;
+        accessor: #title;
+        requiredErrorMessage: 'A blog post must have a title.';
+        comment: 'Please enter a title';
+        componentClass: TBSMagritteTextInputComponent;
+        beRequired;
+        yourself
 ]]]
 
 [[[
 TBPost >> descriptionText
-	<magritteDescription>
-	^ MAMemoDescription new
-		label: 'Text';
-		priority: 200;
-		accessor: #text;
-		beRequired;
-		requiredErrorMessage: 'A blog post must contain a text.';
-		comment: 'Please enter a text';
-		componentClass: TBSMagritteTextAreaComponent;
-		yourself
+    <magritteDescription>
+    ^ MAMemoDescription new
+        label: 'Text';
+        priority: 200;
+        accessor: #text;
+        beRequired;
+        requiredErrorMessage: 'A blog post must contain a text.';
+        comment: 'Please enter a text';
+        componentClass: TBSMagritteTextAreaComponent;
+        yourself
 ]]]
 
 [[[
 TBPost >> descriptionCategory
-	<magritteDescription>
-	^ MAStringDescription new
-		label: 'Category';
-		priority: 300;
-		accessor: #category;
-		comment: 'Unclassified if empty';
-		componentClass: TBSMagritteTextInputComponent;
-		yourself
+    <magritteDescription>
+    ^ MAStringDescription new
+        label: 'Category';
+        priority: 300;
+        accessor: #category;
+        comment: 'Unclassified if empty';
+        componentClass: TBSMagritteTextInputComponent;
+        yourself
 ]]]
 
 
 
 [[[
 TBPost >> descriptionVisible
-	<magritteDescription>
-	^ MABooleanDescription new
-		checkboxLabel: 'Visible';
-		priority: 500;
-		accessor: #visible;
-		componentClass: TBSMagritteCheckboxComponent;
-		beRequired;
-		yourself
+    <magritteDescription>
+    ^ MABooleanDescription new
+        checkboxLabel: 'Visible';
+        priority: 500;
+        accessor: #visible;
+        componentClass: TBSMagritteCheckboxComponent;
+        beRequired;
+        yourself
 ]]]
 
 Le formulaire d'édition d'un post doit maintenant ressembler à celui de la figure *@addAPostBootstrap*.
@@ -722,74 +722,74 @@ Le formulaire d'édition d'un post doit maintenant ressembler à celui de la fig
 
 Un objet session est attribué à chaque instance de l'application. Il permet de conserver principalement des informations qui sont partagées et accessible entre les composants. Une session est pratique pour gérer les informations de l'utilisateur en cours (identifié).  Nous allons voir comment nous l'utilisons pour gérer une connexion.
 
-L'administrateur du blog peut vouloir voyager entre la partie privée et la partie publique de TinyBlog. 
+L'administrateur du blog peut vouloir voyager entre la partie privée et la partie publique de TinyBlog.
 
-Nous définissons une nouvelle sous-classe de ==WASession== nommée ==TBSession==. Pour savoir si l'utilisateur s'est authentifié, nous devons définir un objet session et ajouter une variable d'instance contenant une valeur booléenne précisant l'état de l'utilisateur. 
+Nous définissons une nouvelle sous-classe de ==WASession== nommée ==TBSession==. Pour savoir si l'utilisateur s'est authentifié, nous devons définir un objet session et ajouter une variable d'instance contenant une valeur booléenne précisant l'état de l'utilisateur.
 
 [[[
 WASession subclass: #TBSession
-	instanceVariableNames: 'logged'
-	classVariableNames: ''
-	category: 'TinyBlog-Components'
+    instanceVariableNames: 'logged'
+    classVariableNames: ''
+    category: 'TinyBlog-Components'
 
 TBSession >> logged
-	^ logged
+    ^ logged
 
 TBSession >> logged: anObject
-	logged := anObject
+    logged := anObject
 
 TBSession >> isLogged
-	^ self logged
+    ^ self logged
 ]]]
 
 Il faut ensuite initialiser à `false` cette variable d'instance à la création d'une session.
 
 [[[
 TBSession >> initialize
-	super initialize.
-	self logged: false.
+    super initialize.
+    self logged: false.
 ]]]
 
 Dans la partie privée de TinyBlog, ajoutons un lien permettant le retour à la partie publique. Nous utilisons ici le message ==answer== puisque le composant d'administration a été appelé à l'aide du message ==call:==.
 
 [[[
 TBAdminComponent >> renderContentOn: html
-	super renderContentOn: html.
-	html tbsContainer: [
-		html heading: 'Blog Admin'.
-		html tbsGlyphIcon perform: #iconEyeOpen.
-		html anchor
-			callback: [ self answer ];
-			with: 'Public Area'.
-		html horizontalRule.
-		html render: self report.
-	]
+    super renderContentOn: html.
+    html tbsContainer: [
+        html heading: 'Blog Admin'.
+        html tbsGlyphIcon perform: #iconEyeOpen.
+        html anchor
+            callback: [ self answer ];
+            with: 'Public Area'.
+        html horizontalRule.
+        html render: self report.
+    ]
 ]]]
 
 Dans l'espace public, il nous faut modifier le comportement du lien permettant d'accéder à l'administration. Il doit provoquer l'affichage de la boite d'authentification uniquement si l'utilisateur ne s'est pas encore connecté.
 
 [[[
 TBPostsListComponent >> renderSignInOn: html
-	self session isLogged
-		ifFalse: [
-			html tbsGlyphIcon perform: #iconLock.
-			html html: '<a data-toggle="modal" href="#myAuthDialog" class="link">SignIn</a>' ]
-		ifTrue: [
-			html tbsGlyphIcon perform: #iconUser.
-			html anchor callback: [ self gotoAdministration ]; with: 'Private area' ]
+    self session isLogged
+        ifFalse: [
+            html tbsGlyphIcon perform: #iconLock.
+            html html: '<a data-toggle="modal" href="#myAuthDialog" class="link">SignIn</a>' ]
+        ifTrue: [
+            html tbsGlyphIcon perform: #iconUser.
+            html anchor callback: [ self gotoAdministration ]; with: 'Private area' ]
 ]]]
 
 Enfin, le composant ==TBAuthentificationComponent== doit mettre à jour la variable d'instance ==logged== de la session si l'utilisateur est bien un administrateur.
 
 [[[
 TBauthentificationComponent >> validate
-	(self account = 'admin' and: [ self password = 'password' ]) 
-		ifTrue: [ self session logged: true.
-		component gotoAdministration ]
+    (self account = 'admin' and: [ self password = 'password' ])
+        ifTrue: [ self session logged: true.
+        component gotoAdministration ]
 ]]]
 
 
-Il vous faut maintenant spécifier à Seaside qu'il doit utiliser l'objet ==TBSession== comme objet de session courant pour l'application TinyBlog. 
+Il vous faut maintenant spécifier à Seaside qu'il doit utiliser l'objet ==TBSession== comme objet de session courant pour l'application TinyBlog.
 Cette initialisation s'effectue dans la méthode ==initialize== de la classe ==TBApplicationRootComponent== que l'on modifie ainsi:
 
 [[[
@@ -797,7 +797,7 @@ TBApplicationRootComponent class >> initialize
       "self initialize"
       | app |
       app := WAAdmin register: self asApplicationAt: 'TinyBlog'.
-      app 
+      app
          preferenceAt: #sessionClass put: TBSession.
       app
          addLibrary: JQDeploymentLibrary;
@@ -811,11 +811,8 @@ Pensez à exécuter cette méthode via ==TBApplicationRootComponent initialize==
 
 - Ajouter un bouton "Déconnexion"
 - gérer plusieurs comptes administrateur ce qui nécessite une amélioration des sessions qui devront conserver l'identification de l'utilisateur courant
-- gérer plusieurs blogs 
+- gérer plusieurs blogs
 
-
-
-
-
-
-
+% Local Variables:
+% compile-command: "cd .. && ./compile.sh --to='latex' Exercises/Exo-W5-TinyBlog-SeasideAdmin-EN.pillar"
+% End:
