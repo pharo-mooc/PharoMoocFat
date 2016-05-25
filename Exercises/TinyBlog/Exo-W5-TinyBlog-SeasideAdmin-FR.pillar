@@ -96,11 +96,7 @@ TBPost >> descriptionVisible
       yourself
 ]]]
 
-!!!Améliorations possibles
-
-Voici quelques améliorations ou extensions possibles.
 Nous pourrions enrichir les descriptions pour qu'il ne soit pas possible de poster un post ayant une date antérieure à celle du jour. Nous pourrions changer la description d'une catégorie pour que ses valeurs possibles soient définies par l'ensemble des catégories existantes. Tout cela permettrait de produire des interfaces plus complètes et toujours aussi simplement.
-
 
 
 !!Administration de TinyBlog
@@ -144,8 +140,10 @@ TBAuthentificationComponent >> component: anObject
 La variable d'instance ==component== est initialisée par la méthode de classe suivante :
 
 [[[
-TBauthenticationComponent class >> from: aComponent
-   ^ self new component: aComponent
+TBAuthentificationComponent class >> from: aComponent
+   ^ self new
+      component: aComponent;
+      yourself
 ]]]
 
 La méthode ==renderContentOn:== définit le contenu d'une boite de dialogue modale.
@@ -154,59 +152,50 @@ La méthode ==renderContentOn:== définit le contenu d'une boite de dialogue mod
 TBAuthentificationComponent >> renderContentOn: html
    html tbsModal
       id: 'myAuthDialog';
-      with: [ html tbsModalDialog: [
-                     html tbsModalContent: [
-                           self renderHeaderOn: html.
-                           html
-                              tbsModalBody: [
-                                 html
-                                    form: [
-                                       self renderInputAccountOn: html.
-                                       html break.
-                                       self renderInputPasswordOn: html.
-                                       html break.
-                                       html break.
-                                       html tbsModalFooter: [ self renderOkCancelOn: html ] ] ] ] ] ]
-]]]
+      with: [
+         html tbsModalDialog: [
+            html tbsModalContent: [
+               self renderHeaderOn: html.
+               self renderBodyOn: html ] ] ]
 
-[[[
 TBAuthentificationComponent >> renderHeaderOn: html
    html
       tbsModalHeader: [
          html tbsModalCloseIcon.
          html tbsModalTitle
             level: 4;
-            with: 'Authentification' ]
-]]]
+            with: 'Authentication' ]
 
-[[[
-TBAuthentificationComponent >> renderInputAccountOn: html
-   html text: 'Account:'.
-   html break.
-   html textInput
-         callback: [ :value | account := value ];
-         value: account
-]]]
+TBAuthentificationComponent >> renderBodyOn: html
+    html
+        tbsModalBody: [
+            html tbsForm: [
+                self renderAccountFieldOn: html.
+                self renderPasswordFieldOn: html.
+                html tbsModalFooter:    [ self renderButtonsOn: html ] ] ]
 
-[[[
-TBAuthentificationComponent >> renderInputPasswordOn: html
-   html text: 'Password:'.
-   html break.
-   html passwordInput
-      callback: [ :value | password := value ];
-      value: password
-]]]
+TBAuthentificationComponent >> renderButtonsOn: html
+   html tbsSubmitButton value: 'Cancel'.
+   html tbsSubmitButton
+      bePrimary;
+      callback: [ self validate ];
+      value: 'SignIn'
 
-[[[
-TBAuthentificationComponent >> renderOkCancelOn: html
-   renderOkCancelOn: html
-      html tbsButton
-           attributeAt: 'type' put: 'button';
-           value: 'Cancel'.
-      html tbsSubmitButton
-         bePrimary;
-         callback: [ self validate ];
-         value: 'SignIn'
+TBAuthentificationComponent >> renderAccountFieldOn: html
+   html
+      tbsFormGroup: [ html label with: 'Account'.
+         html textInput
+            tbsFormControl;
+            callback: [ :value | account := value ];
+            value: account ]
+
+TBAuthentificationComponent >> renderPasswordFieldOn: html
+   html tbsFormGroup: [
+      html label with: 'Password'.
+      html passwordInput
+         tbsFormControl;
+         callback: [ :value | password := value ];
+         value: account ]
 ]]]
 
 Lorsque l'utilisateur clique sur le bouton 'SignIn', le message ==validate== est envoyé et vérifie que l'utilisateur a bien le compte 'admin' et a saisi le mot de passe 'password'.
@@ -214,7 +203,7 @@ Lorsque l'utilisateur clique sur le bouton 'SignIn', le message ==validate== est
 [[[
 TBAuthentificationComponent >> validate
    (self account = 'admin' and: [ self password = 'password' ])
-      ifTrue: [ self alert: 'Success!' ]
+      ifTrue: [ ... ]
 ]]]
 
 Rechercher une autre méthode pour réaliser l'authentification de l'utilisateur (utilisation d'un backend de type base de données, LDAP ou fichier texte). En tout cas, ce n'est pas à la boite de login de faire ce travail, il faut le déléguer à un objet métier qui saura consulter le backend et authentifier l'utilisateur.
@@ -328,14 +317,7 @@ TBPostsReport class >> from: aBlog
    ^ self rows: allBlogs description: allBlogs anyOne magritteDescription
 ]]]
 
-On ajoute un rapport au composant admin ==TBAdminComponent==.
-
-[[[
-TBScreenComponent subclass: #TBAdminComponent
-   instanceVariableNames: 'report'
-   classVariableNames: ''
-   category: 'TinyBlog-Components'
-]]]
+On ajoute ensuite une variable d'instance ==report== et ses accesseurs à la classe ==TBAdminComponent==.
 
 [[[
 TBAdminComponent >> report
@@ -453,7 +435,7 @@ Ceci se fait lors de la création du rapport. En particulier nous donnons un acc
 
 [[[
 TBSMagritteReport subclass: #TBPostsReport
-    instanceVariableNames: 'report blog'
+    instanceVariableNames: 'blog'
     classVariableNames: ''
     category: 'TinyBlog-Components'
 
@@ -524,28 +506,25 @@ Enregistrez-vous et vous devez obtenir la situation telle que représentée par 
 
 [[[
 TBPostsReport >> renderEditPostForm: aPost
-    ^ aPost asComponent
-        addDecoration: (TBSMagritteFormDecoration buttons: { #save -> 'Save post' . #cancel -> 'Cancel'});
-        yourself
+   ^ aPost asComponent addDecoration: (
+      TBSMagritteFormDecoration buttons: {
+         #save -> 'Save post'.
+         #cancel -> 'Cancel'});
+      yourself
 
 TBPostsReport >> editPost: aPost
-    | post |
-    post := self call: (self renderEditPostForm: aPost).
-    post ifNotNil: [ blog save ]
-]]]
-
-
-
-[[[
-TBPostsReport >> viewPost: aPost
-    self call: (self renderViewPostForm: aPost)
+   | post |
+   post := self call: (self renderEditPostForm: aPost).
+   post ifNotNil: [ blog save ]
 
 TBPostsReport >> renderViewPostForm: aPost
-    ^ aPost asComponent
-        addDecoration: (TBSMagritteFormDecoration buttons: { #cancel -> 'Back' });
-        yourself
-]]]
+   ^ aPost asComponent addDecoration: (
+      TBSMagritteFormDecoration buttons: { #cancel -> 'Back' });
+      yourself
 
+TBPostsReport >> viewPost: aPost
+   self call: (self renderViewPostForm: aPost)
+]]]
 
 Pour éviter une opération accidentelle, nous utilisons une boite modale pour que l'utilisateur confirme la suppression du post. Une fois le post effacé, la liste des posts gérés par le composant ==TBPostsReport== est actualisée et le rapport est rafraîchi.
 
@@ -555,6 +534,7 @@ TBPostsReport >> deletePost: aPost
         ifTrue: [ blog removeBlogPost: aPost ]
 ]]]
 
+Il nous faut maintenant ajouter la méthode ==removeBlogPost:== à la classe ==TBBlog==:
 
 [[[
 TBBlog >> removeBlogPost: aPost
@@ -562,7 +542,7 @@ TBBlog >> removeBlogPost: aPost
     self save.
 ]]]
 
-Cette dernière méthode est à ajouter dans une classe de la partie métier de notre application. Il faut donc ajouter un test unitaire.
+ainsi qu'un test unitaire :
 
 [[[
 TBBlogTest >> testRemoveBlogPost
@@ -573,7 +553,7 @@ TBBlogTest >> testRemoveBlogPost
 
 !!!!Gérer le problème du rafraîchissement des données
 
-Les méthodes ==TBPostsReport >> addPost:== et ==TBPostsReport >> deletePost:== font bien leur travail mais les données à l'écran ne sont pas mises à jour. Il faut donc rafraichir la liste des posts car il y a un décalage entre les données en mémoire et celles stockées dans la base de données.
+Les méthodes ==TBPostsReport>>addPost:== et ==TBPostsReport>>deletePost:== font bien leur travail mais les données à l'écran ne sont pas mises à jour. Il faut donc rafraichir la liste des posts car il y a un décalage entre les données en mémoire et celles stockées dans la base de données.
 
 [[[
 TBPostsReport >> refreshReport
@@ -734,10 +714,11 @@ TBPostsListComponent >> renderSignInOn: html
 Enfin, le composant ==TBAuthentificationComponent== doit mettre à jour la variable d'instance ==logged== de la session si l'utilisateur est bien un administrateur.
 
 [[[
-TBauthentificationComponent >> validate
-    (self account = 'admin' and: [ self password = 'password' ])
-        ifTrue: [ self session logged: true.
-        component gotoAdministration ]
+TBAuthentificationComponent >> validate
+   (self account = 'admin' and: [ self password = 'password' ])
+      ifTrue: [
+         self session logged: true.
+         component gotoAdministration ]
 ]]]
 
 
