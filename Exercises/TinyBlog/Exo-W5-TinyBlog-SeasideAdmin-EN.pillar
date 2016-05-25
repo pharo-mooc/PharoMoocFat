@@ -545,14 +545,15 @@ TBPostsReport >> deletePost: aPost
         ifTrue: [ blog removeBlogPost: aPost ]
 ]]]
 
+We need to add a ==removeBlogPost:== method to the ==TBBlog== class:
 
 [[[
 TBBlog >> removeBlogPost: aPost
-    posts remove: aPost ifAbsent: [ ].
-    self save.
+   posts remove: aPost ifAbsent: [ ].
+   self save.
 ]]]
 
-The last method above has been added in the ==TBBlog== class that belongs to the model of our application. We must write a new unit test to cover this functionnality.
+We must write a new unit test to cover this feature.
 
 [[[
 TBBlogTest >> testRemoveBlogPost
