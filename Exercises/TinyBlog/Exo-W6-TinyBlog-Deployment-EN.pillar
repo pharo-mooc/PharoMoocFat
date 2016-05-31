@@ -7,15 +7,15 @@
 You can load the full TinyBlog application using the following snippet:
 
 [[[
-Gofer new 
+Gofer new
    smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
    package: 'ConfigurationOfTinyBlog';
-   load. 
+   load.
 #ConfigurationOfTinyBlog asClass loadFinalApp
 ]]]
 
-To test it, you should launch the Seaside HTTP server. 
-You can now complete or finish ""your"" application et commit it in your Smalltalkhub repository. 
+To test it, you should launch the Seaside HTTP server.
+You can now complete or finish ""your"" application et commit it in your Smalltalkhub repository.
 
 !Deploy in the Cloud
 
@@ -40,63 +40,63 @@ Set-up your PharoCloud account:
 
 !!Preparing Pharo image to Deploy on PharoCloud
 
-Currently, PharoCloud only supports Pharo 4 images. 
+Currently, PharoCloud only supports Pharo 4 images.
 
 So, download a PharoWeb 4 image.
-*https://ci.inria.fr/pharo-contribution/job/PharoWeb/PHARO=40,VERSION=stable,VM=vm/lastSuccessfulBuild/artifact/PharoWeb.zip*. 
+*https://ci.inria.fr/pharo-contribution/job/PharoWeb/PHARO=40,VERSION=stable,VM=vm/lastSuccessfulBuild/artifact/PharoWeb.zip*.
 You should also download a virtual machine for Pharo 4 images *http://get.pharo.org/vm40*.
 Then, launch this image using this VM and we will configure it.
 
 Let's strat by configuring Seaside by removing all demos applications and all development tools:
 
 [[[
-	"Seaside Deployment configuration"
-	WAAdmin clearAll.
-	WAAdmin applicationDefaults removeParent: WADevelopmentConfiguration instance.
-	WAFileHandler default: WAFileHandler new.
-	WAFileHandler default 
-		preferenceAt: #fileHandlerListingClass
-		put: WAHtmlFileHandlerListing.
-	WAAdmin defaultDispatcher 
-		register: WAFileHandler default
-		at: 'files'.
+    "Seaside Deployment configuration"
+    WAAdmin clearAll.
+    WAAdmin applicationDefaults removeParent: WADevelopmentConfiguration instance.
+    WAFileHandler default: WAFileHandler new.
+    WAFileHandler default
+        preferenceAt: #fileHandlerListingClass
+        put: WAHtmlFileHandlerListing.
+    WAAdmin defaultDispatcher
+        register: WAFileHandler default
+        at: 'files'.
 ]]]
 
 Now, you can load the TinyBlog application:
 
 [[[
-	"Load TinyBlog"
-	Gofer new 
-	   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
-	   package: 'ConfigurationOfTinyBlog';
-	   load. 
-	#ConfigurationOfTinyBlog asClass loadFinalApp.
+    "Load TinyBlog"
+    Gofer new
+       smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+       package: 'ConfigurationOfTinyBlog';
+       load.
+    #ConfigurationOfTinyBlog asClass loadFinalApp.
 
-	"Create Demo posts if needed"
-	#TBBlog asClass createDemoPosts.
+    "Create Demo posts if needed"
+    #TBBlog asClass createDemoPosts.
 ]]]
 
 or ""your"" application directly from your Smalltalkhub code repository:
 
 [[[
-	"Load TinyBlog"
-	Gofer new 
-	   smalltalkhubUser: 'XXXX' project: 'TinyBlog';
-	   package: 'TinyBlog';
-	   load. 
+    "Load TinyBlog"
+    Gofer new
+       smalltalkhubUser: 'XXXX' project: 'TinyBlog';
+       package: 'TinyBlog';
+       load.
 
-	"Create Demo posts if needed"
-	#TBBlog asClass createDemoPosts.
+    "Create Demo posts if needed"
+    #TBBlog asClass createDemoPosts.
 ]]]
 
 We now configure Seaside to use TinyBlog as the default application and we launch the HTTP server.
 
 [[[
-	"Tell Seaside to use TinyBlog as default app"
-	WADispatcher default defaultName: 'TinyBlog'.
+    "Tell Seaside to use TinyBlog as default app"
+    WADispatcher default defaultName: 'TinyBlog'.
 
-	"Start HTTP server"
-	ZnZincServerAdaptor startOn: 8080.
+    "Start HTTP server"
+    ZnZincServerAdaptor startOn: 8080.
 ]]]
 
 You can now save the Pharo image (World Menu > save) and test locally with a web browser on the URL: *http://localhost:8080*.
@@ -113,5 +113,6 @@ If you clic on the public URL provided Ephemeric Cloud, you should see your web 
 
 +Your TinyBlog Application Hosted on PharoCloud.>file://figures/TinyBlogOnPharoCloud.png|width=85|label=tinyBlogOnPharoCloud+
 
-
-
+% Local Variables:
+% compile-command: "cd .. && ./compile.sh --to='latex' Exercises/Exo-W6-TinyBlog-Deployment-EN.pillar"
+% End:
