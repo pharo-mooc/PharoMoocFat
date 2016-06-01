@@ -37,7 +37,7 @@ The sum of all the numbers of the array: 250
 
 ""Solution.""
 [[[
-#(21 23 53 66 87) inject: 0 into: [:item :sum | sum + item]
+#(21 23 53 66 87) inject: 0 into: [:sum :item | sum + item]
 ]]]
 
 !!! Exercise: Comparing expressions
