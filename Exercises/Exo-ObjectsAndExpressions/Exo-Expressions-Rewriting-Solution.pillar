@@ -28,7 +28,7 @@ The sum of all the numbers of the array: 250
 	| array sum |
 	array := #(21 23 53 66 87).
 	sum := 0.
-	1 to: array size do: [ :i | sum := sum + array at: i ].
+	1 to: array size do: [ :i | sum := sum + (array at: i) ].
 	sum
 ]]]
 
