@@ -9,9 +9,9 @@ des méthodes correspond généralement à ce que le nom du message implique (pa
 De plus, la plupart des expression que nous utilisons sont des expressions que vous pouvez exécuter dans Pharo donc n'hésitez pas. 
 
 
-!!! Exercice : Objets Litéraux
+!!! Exercice : Objets Littéraux
 
-A quelles sortes d'objets les expressions litérales font elles référence ? 
+A quelles sortes d'objets les expressions littérales font elles référence ?
 
 !!!! Exercice :
 [[[
