@@ -195,7 +195,7 @@ TBAuthentificationComponent >> renderPasswordFieldOn: html
       html passwordInput
          tbsFormControl;
          callback: [ :value | password := value ];
-         value: account ]
+         value: password ]
 ]]]
 
 Lorsque l'utilisateur clique sur le bouton 'SignIn', le message ==validate== est envoyé et vérifie que l'utilisateur a bien le compte 'admin' et a saisi le mot de passe 'password'.
