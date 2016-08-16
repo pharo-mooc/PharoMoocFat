@@ -1,0 +1,487 @@
+1
+00:00:00,570 --> 00:00:05,000
+Bonjour. Bienvenue dans cette
+quatrième séquence sur l'héritage
+
+2
+00:00:05,200 --> 00:00:05,960
+et le lookup.
+
+3
+00:00:06,440 --> 00:00:08,080
+Dans cette séquence nous
+allons voir ce qui se passe
+
+4
+00:00:08,280 --> 00:00:09,950
+quand l'algorithme de
+lookup ne trouve pas une méthode
+
+5
+00:00:10,150 --> 00:00:11,290
+correspondante à un message.
+
+6
+00:00:11,880 --> 00:00:16,710
+Alors on va voir que le
+code, les classes, sont capables
+
+7
+00:00:17,360 --> 00:00:21,840
+d'ajouter du traitement
+pour traiter le fait qu'
+
+8
+00:00:22,410 --> 00:00:24,940
+un message aurait été envoyé
+et qui n'aurait pas été compris.
+
+9
+00:00:26,000 --> 00:00:28,520
+Si je reviens rapidement
+sur l'envoi de messages.
+
+10
+00:00:29,640 --> 00:00:32,550
+On envoie le message Area à
+l'objet colored rectangle.
+
+11
+00:00:33,850 --> 00:00:37,000
+L'algorithme de lookup a
+pour but de trouver la méthode à
+
+12
+00:00:37,200 --> 00:00:40,160
+exécuter par rapport à ce
+message là, donc l'algorithme
+
+13
+00:00:40,360 --> 00:00:42,710
+de lookup cherche dans la
+ classe du receveur, c'est-à-dire
+
+14
+00:00:42,910 --> 00:00:46,460
+colored rectangle, une
+méthode qui s'appelle Area, s'il
+
+15
+00:00:46,660 --> 00:00:48,020
+la trouve, il l'exécute.
+
+16
+00:00:48,220 --> 00:00:49,570
+Là il ne la trouve pas
+donc l'algorithme de lookup va
+
+17
+00:00:49,770 --> 00:00:54,100
+aller voir dans la
+superclasse. La méthode Area est
+
+18
+00:00:54,300 --> 00:00:58,540
+trouvée et elle est
+exécutée sur le receveur.
+
+19
+00:01:00,790 --> 00:01:03,270
+Alors qu'est-ce-qui se
+passe s'il n'y a pas de méthode
+
+20
+00:01:03,470 --> 00:01:06,960
+Area du tout, et que
+algorithme de lookup échoue?
+
+21
+00:01:08,090 --> 00:01:12,620
+Alors dans ce cas-là on envoie
+le message "Coucou" à l'objet
+
+22
+00:01:12,820 --> 00:01:17,200
+node 1. Il n'y a pas de
+méthode Coucou implémentée, donc
+
+23
+00:01:17,400 --> 00:01:18,300
+l'envoi de message se passe comment ?
+
+24
+00:01:18,500 --> 00:01:22,520
+On envoie le message Coucou
+à node 1, on cherche Coucou
+
+25
+00:01:22,720 --> 00:01:25,340
+dans la classe node il n'est
+pas trouvé, l'algorithme de
+
+26
+00:01:25,540 --> 00:01:27,820
+lookup cherche Coucou dans la
+ classe object, il n'est pas trouvé.
+
+27
+00:01:28,260 --> 00:01:32,500
+À ce moment-là, la
+machine virtuelle FARO envoie le
+
+28
+00:01:32,700 --> 00:01:37,570
+message does not
+understand au receveur donc
+
+29
+00:01:37,770 --> 00:01:41,400
+à node 1. Donc does not
+
+30
+00:01:42,640 --> 00:01:46,700
+understand avec le message
+initial en paramètres, donc
+
+31
+00:01:46,900 --> 00:01:49,930
+avec un coucou stef en paramètre.
+
+32
+00:01:50,780 --> 00:01:55,150
+Ici, si je le refais étape
+par étape, coucou est envoyé à
+
+33
+00:01:55,350 --> 00:01:59,530
+node 1, Coucou est cherché
+dans la classe node, Coucou
+
+34
+00:01:59,730 --> 00:02:02,480
+est cherché dans la classe
+object, la méthode Coucou n'existe
+
+35
+00:02:02,680 --> 00:02:07,350
+pas donc le message does not
+understand est envoyé à l'objet
+
+36
+00:02:07,550 --> 00:02:08,310
+node 1.
+
+37
+00:02:09,070 --> 00:02:12,110
+Donc l'algorithme de lookup
+va chercher une méthode does
+
+38
+00:02:12,310 --> 00:02:14,140
+not understand dans
+la classe de node 1.
+
+39
+00:02:14,930 --> 00:02:17,260
+Does not understand n'est
+pas trouvé dans la classe node
+
+40
+00:02:17,460 --> 00:02:19,030
+donc l'algorithme de lookup
+ charge does not understand
+
+41
+00:02:19,230 --> 00:02:22,770
+dans la super classe, la
+méthode does not understand est
+
+42
+00:02:23,000 --> 00:02:25,000
+trouvée ou une méthode does
+not understand est trouvée
+
+43
+00:02:25,200 --> 00:02:26,920
+dans la classe
+object, elle est exécutée.
+
+44
+00:02:27,500 --> 00:02:28,570
+Donc qu'est ce que ça signifie ça ?
+
+45
+00:02:28,770 --> 00:02:31,430
+Ça signifie que dans toutes
+les sous-classes de la classe
+
+46
+00:02:31,630 --> 00:02:35,260
+object, on peut
+implémenter does not understand pour
+
+47
+00:02:35,460 --> 00:02:38,270
+avoir du comportement
+particulier qui va s'exécuter
+
+48
+00:02:39,190 --> 00:02:43,310
+lorsqu'un objet, une instance de
+cette classe ne comprend pas un message.
+
+49
+00:02:44,470 --> 00:02:48,440
+Donc sur ce slide vous avez
+les détails étape par étape
+
+50
+00:02:48,640 --> 00:02:50,100
+de cet exemple que
+vous pouvez relire.
+
+51
+00:02:51,450 --> 00:02:54,450
+Does not understand, c'est
+un message comme les autres.
+
+52
+00:02:54,650 --> 00:02:56,550
+Donc vous pouvez
+implémenter une méthode qui s'appelle
+
+53
+00:02:56,750 --> 00:02:59,030
+does not understand, et qui
+sera exécutée à chaque fois
+
+54
+00:02:59,230 --> 00:03:03,280
+qu'une instance ne
+comprendra pas un message.
+
+55
+00:03:03,770 --> 00:03:08,000
+On se sert de ce mécanisme
+dans certains cas un petit peu
+
+56
+00:03:08,200 --> 00:03:12,300
+compliqués comme les
+proxys, la délégation
+
+57
+00:03:12,500 --> 00:03:16,280
+automatique, c'est-à-dire
+lorsque vous voulez que tous
+
+58
+00:03:16,480 --> 00:03:18,720
+les messages que reçoit un objet
+soient transmis à un autre objet.
+
+59
+00:03:19,710 --> 00:03:22,470
+Dans ces cas-là on peut utiliser
+ce mécanisme de does not understand.
+
+60
+00:03:24,080 --> 00:03:27,100
+L'implémentation par
+défaut de does not understand se
+
+61
+00:03:27,300 --> 00:03:30,260
+trouve dans la classe
+object, et cette implémentation par
+
+62
+00:03:30,460 --> 00:03:34,070
+défaut lève une
+exception. Donc l'exception
+
+63
+00:03:35,740 --> 00:03:37,280
+s'appelle "message not understood".
+
+64
+00:03:38,670 --> 00:03:41,120
+Donc si la méthode does
+not understand de la classe
+
+65
+00:03:41,320 --> 00:03:44,250
+object est exécutée,
+une exception est levée.
+
+66
+00:03:44,450 --> 00:03:49,000
+Cela signifie que le code
+que vous écrivez peut capturer
+
+67
+00:03:49,200 --> 00:03:51,950
+cette exception, comme il
+capturerait n'importe quelle
+
+68
+00:03:52,150 --> 00:03:55,230
+exception, et peut y avoir
+du traitement particulier
+
+69
+00:03:55,650 --> 00:03:57,170
+lorsqu'un message n'est pas compris.
+
+70
+00:03:58,280 --> 00:04:02,170
+Dans cet exemple là, on
+revient sur la classe node, et
+
+71
+00:04:03,110 --> 00:04:06,010
+on a une méthode "say
+Hello" dans la classe node, qui
+
+72
+00:04:06,210 --> 00:04:09,020
+envoie le message Coucou
+au receveur donc à self.
+
+73
+00:04:10,840 --> 00:04:14,610
+On a aussi une méthode
+Welcome qui envoie le message "Say
+
+74
+00:04:14,810 --> 00:04:18,780
+hello" à self et qui fait
+un traitement particulier si
+
+75
+00:04:19,490 --> 00:04:24,090
+dans le contexte de
+cet envoi de message, si
+
+76
+00:04:24,590 --> 00:04:28,080
+un message n'est pas compris,
+il va y avoir du traitement.
+
+77
+00:04:28,830 --> 00:04:32,570
+Donc là say hello envoie le
+messageCoucou à self, Coucou
+
+78
+00:04:32,770 --> 00:04:36,450
+n'est toujours pas
+implémenté, donc au final la méthode
+
+79
+00:04:36,650 --> 00:04:40,390
+does not understand sera exécutée,
+
+80
+00:04:41,640 --> 00:04:43,720
+une exception sera levée,
+donc l'exception message not
+
+81
+00:04:43,920 --> 00:04:48,050
+understood sera levée. Le
+code qui est ici avec undo
+
+82
+00:04:48,680 --> 00:04:51,690
+sert à capturer les exceptions,
+c'est l'équivalent de try catch en Java.
+
+83
+00:04:51,890 --> 00:04:56,240
+Vous aurez une séquence plus tard qui
+vous parlera des exceptions en détail.
+
+84
+00:04:57,920 --> 00:05:00,670
+Mais là ce qui nous
+intéresse c'est de voir que ce
+
+85
+00:05:00,870 --> 00:05:02,780
+code-là, en fait, c'est
+l'équivalent du catch de Java,
+
+86
+00:05:03,000 --> 00:05:05,490
+donc c'est le code qui va être
+exécuté lorsque l'exception est capturée.
+
+87
+00:05:06,810 --> 00:05:11,400
+Donc si on envoie le
+message Welcome à node 1,
+
+88
+00:05:12,180 --> 00:05:15,530
+sachant que Coucou n'est
+pas implémenté, on affichera
+
+89
+00:05:15,730 --> 00:05:17,760
+dans la console le message
+something went wrong with the message.
+
+90
+00:05:17,960 --> 00:05:22,270
+Ce que vous devez retenir, c'est que
+
+91
+00:05:22,680 --> 00:05:25,500
+lorsque l'algorithme de
+lookup ne trouve pas une méthode
+
+92
+00:05:25,700 --> 00:05:28,010
+correspondante à un message
+qui est envoyé, un message
+
+93
+00:05:28,210 --> 00:05:31,290
+does not understand est
+envoyé au receveur initial avec
+
+94
+00:05:31,550 --> 00:05:33,740
+le message d'origine en paramètres.
+
+95
+00:05:34,330 --> 00:05:37,280
+Vous pouvez implémenter une méthode
+does not understand dans vos classes.
+
+96
+00:05:37,800 --> 00:05:41,620
+A défaut, l'implémentation par défaut
+dans la classe object sera exécutée.
+
+97
+00:05:42,120 --> 00:05:45,530
+Cette implémentation par
+défaut lève une exception, cette
+
+98
+00:05:45,730 --> 00:05:48,040
+exception s'appelle message
+not understood, et le code
+
+99
+00:05:48,240 --> 00:05:50,170
+que vous écrivez peut
+capturer cette exception et avoir
+
+100
+00:05:50,370 --> 00:05:53,050
+du traitement particulier
+lorsqu'un message n'est pas compris.
+
