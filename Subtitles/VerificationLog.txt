@@ -40,5 +40,84 @@ Week3
 - 3.12 Lives
 
 Week4
--
+- 4.1 ok for fr and eng
+- 4.2 ok for fr and eng
+- 4.2 ok for fr and eng
+- 4.3 ok for fr and eng
+- 4.4 ok for fr and eng
+- 4.5 ok for fr and eng
+- 4.6 ok for fr and eng
+- 4.7 ok for fr and eng
+- 4.8 ok for fr and eng
+- 4.9 ok for fr and eng
+- 4.10 ok for fr and eng
+- 4.11 ok for fr and eng
+
+Week5
+
+- 5.1 ok for fr and eng
+- 5.2 ok for fr and eng
+- 5.3 ok for fr and eng
+- 5.4 ok for fr and eng
+- 5.5 ok for fr and eng
+- 5.6 ok for fr and eng
+- 5.7 ok for fr and eng
+- 5.8 ok for fr and eng
+- 5.9 ok for fr and eng
+- 5.10 [Lives]
+
+Week6 
+- 6.1 no english  fr ok
+- 6.2  no english fr ok
+- 6.3  no english fr ok
+- 6.4  no english fr ok
+- 6.5  no english fr ok
+- 6.6  no english fr ok
+- 6.7  no english fr ok
+- 6.8  no english fr ok
+- 6.8  [Live]
+
+Week7
+
+
+%%% Week 1 %%%
+
+Dans 1.7 exercises :
+le lien   "Développer un compteur simple"
+pointe vers la version anglaise (au lieu de la version française).
+
+%%% Week 2 %%%
+
+Dans 2.5 [Lives] Finder et GTInspector 1
+il y a deux vidéos. Dans la deuxième vidéos entre 8:22 et 8:35 il manque
+la lettre h dans sub-morph (dans le sous-titrage)
+
+Dans 2.12 [ReDo] & [Lives] la première video ne comporte pas de
+sous-titrage en anglais
+
+Dans la quatrième video entre 8:30 et 8:40 il manque la lettre h dans
+sub-morph (dans le sous-titrage).
+
+
+Nota Bene : la vérification relative aux semaines 3, 4, 5, 6, et 7 sera
+terminée au plus tard ce mardi soir 23 aout 2016.
+
+
+%%% Week 3 %%%
+
+ Rien à signaler
+
+%%% Week 4 %%%
+
+Dans 4.6 il y a une seule vidéo.
+A plusieurs reprises nous pouvons lire dans le sous-titrage : True.
+Il me semble que True est inexact (mais que true est exact)
+
+Dans 4.9 il y a une seule vidéo.
+Entre 0:11 et 0:27 dans le sous-titrage il faut remplacer HTML par html
+
+
+
+Nota Bene : la vérification relative aux semaines 5, 6, et 7 sera
+terminée au plus tard ce mardi soir 23 aout 2016.
 
