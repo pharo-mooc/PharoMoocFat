@@ -129,3 +129,49 @@ Entre 0:11 et 0:27 dans le sous-titrage il faut remplacer HTML par html
 Nota Bene : la vérification relative aux semaines 5, 6, et 7 sera
 terminée au plus tard ce mardi soir 23 aout 2016.
 
+
+%%% Week 5 %%%
+
+ http://ramix.org/MoocPharo/PowerfulExceptions.png
+
+cette capture montre bien la faute de frappe sur le mot exceptions (en 5.4)
+
+Dans 5.4 il y a une seule vidéo.
+Entre 1:16 et 1:20 le message on: do: est utilisé dans le sous-titrage
+mais il manque : (après do)
+Entre 9:20 et 9:23 même chose , il manque : (après do)
+
+Dans 5.7 il y a une seule vidéo.
+Entre 3:23 et 3:33 il y a une faute de frappe :
+au lieu de *.ogg il y a *.org
+Entre 7.04 et 7.06 le sous titrage est :
+"stream nextPutAll: Hello World"
+au lieu de :
+stream nextPutAll: 'Hello World'
+
+
+%%% Week 6 %%%
+
+Dans 6.1 , 6.2 , 6.3 , 6.4 , 6.5 , 6.6 , 6.7 et 6.8 il manque le
+sous-titrage de la vidéo.
+
+Dans 6.9 il y a deux vidéos.
+Dans la première il y a une faute de frappe entre 1:16 et 1:21 sur le
+mot something (somtehing)
+Dans la seconde il manque un mot (que je note $$$) entre 2:40 et 2:45 :
+.... and you can work in group very $$$ in Pharo.
+
+
+%%% Week 7 %%%
+
+Dans 7.1 , 7.2 , 7.3 , 7.4 , 7.5 , 7.6 , 7.7 et 7.8 il manque le
+sous-titrage de la vidéo.
+En revanche dans 7.9 les trois vidéos sont parfaitement sous-titrées.
+
+
+-- 
+Je te souhaite ainsi qu'à Serge, Damien, Noury , Alexandre, Luc et
+Marcus un bon ESUG 2016 sur les bords de la Vltava.
+Rene Paul Mages ( GnuPG_key 1024D/2CC455D9 )
+http://www.linux-azur.org/ramix
+
