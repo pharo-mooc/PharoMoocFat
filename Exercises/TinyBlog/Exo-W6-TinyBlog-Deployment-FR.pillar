@@ -7,11 +7,10 @@
 Vous pouvez charger l'application complète TinyBlog en exécutant :
 
 [[[
-Gofer new
-   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
-   package: 'ConfigurationOfTinyBlog';
-   load.
-#ConfigurationOfTinyBlog asClass loadFinalApp
+Metacello new
+    smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+    configuration: 'TinyBlog';
+    load
 ]]]
 
 Pour tester le code, vous devez lancer le serveur HTTP pour Seaside:

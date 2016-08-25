@@ -8,11 +8,10 @@
 You can load the full TinyBlog application using the following snippet:
 
 [[[
-Gofer new
-   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
-   package: 'ConfigurationOfTinyBlog';
-   load.
-#ConfigurationOfTinyBlog asClass loadFinalApp
+Metacello new
+    smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+	 configuration: 'TinyBlog';
+    load
 ]]]
 
 To test it, you should launch the Seaside HTTP server:

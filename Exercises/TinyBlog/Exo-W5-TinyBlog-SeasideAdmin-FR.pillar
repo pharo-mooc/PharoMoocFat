@@ -8,11 +8,11 @@
 Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
 
 [[[
-Gofer new
-   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
-   package: 'ConfigurationOfTinyBlog';
-   load.
-#ConfigurationOfTinyBlog asClass loadWeek4Correction
+Metacello new
+    smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+    version: #week4solution;
+    configuration: 'TinyBlog';
+    load
 ]]]
 
 Pour tester le code, vous devez lancer le serveur HTTP pour Seaside  avec l'outil Seaside Control Panel (cf. sujet semaine précédente) ou avec le code suivant :

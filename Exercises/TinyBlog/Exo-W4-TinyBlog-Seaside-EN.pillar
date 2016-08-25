@@ -8,11 +8,11 @@
 You can load the solution of the previous week using the following snippet:
 
 [[[
-Gofer new
-   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
-   package: 'ConfigurationOfTinyBlog';
-   load.
-#ConfigurationOfTinyBlog asClass loadWeek3Correction
+Metacello new
+    smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+    version: #week3solution;
+    configuration: 'TinyBlog';
+    load
 ]]]
 
 %Before testing it, ensure that you do not have an HTTP server already running on port 8080.
