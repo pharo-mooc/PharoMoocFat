@@ -3,27 +3,8 @@ Week1
 
 Week2
 - 2.1 ok for eng fr missing
-- 2.6 ok for eng fr missing
-
-Week6 
-- 6.1 no english  fr ok
-- 6.2  no english fr ok
-- 6.3  no english fr ok
-- 6.4  no english fr ok
-- 6.5  no english fr ok
-- 6.6  no english fr ok
-- 6.7  no english fr ok
-- 6.8  no english fr ok
-
-Week7
-- 7.1 no english  fr ok
-- 7.2 no english  fr ok
-- 7.3 no english  fr ok
-- 7.4 no english  fr ok
-- 7.5 no english  fr ok
-- 7.6 no english  fr ok
-
-
+- 2.12 [ReDo] & [Lives] la première video ne comporte pas de
+sous-titrage en anglais
 
 
 %%% Week 1 %%%
@@ -32,14 +13,13 @@ Dans 1.7 exercises :
 le lien   "Développer un compteur simple"
 pointe vers la version anglaise (au lieu de la version française).
 
+-> pas de version FR sur le serveur
+
 %%% Week 2 %%%
 
 Dans 2.5 [Lives] Finder et GTInspector 1
 il y a deux vidéos. Dans la deuxième vidéos entre 8:22 et 8:35 il manque
 la lettre h dans sub-morph (dans le sous-titrage)
-
-Dans 2.12 [ReDo] & [Lives] la première video ne comporte pas de
-sous-titrage en anglais
 
 Dans la quatrième video entre 8:30 et 8:40 il manque la lettre h dans
 sub-morph (dans le sous-titrage).
@@ -70,10 +50,6 @@ terminée au plus tard ce mardi soir 23 aout 2016.
 
 %%% Week 5 %%%
 
- http://ramix.org/MoocPharo/PowerfulExceptions.png
-
-cette capture montre bien la faute de frappe sur le mot exceptions (en 5.4)
-
 Dans 5.4 il y a une seule vidéo.
 Entre 1:16 et 1:20 le message on: do: est utilisé dans le sous-titrage
 mais il manque : (après do)
@@ -98,14 +74,6 @@ Dans la première il y a une faute de frappe entre 1:16 et 1:21 sur le
 mot something (somtehing)
 Dans la seconde il manque un mot (que je note $$$) entre 2:40 et 2:45 :
 .... and you can work in group very $$$ in Pharo.
-
-
-%%% Week 7 %%%
-
-Dans 7.1 , 7.2 , 7.3 , 7.4 , 7.5 , 7.6 , 7.7 et 7.8 il manque le
-sous-titrage de la vidéo.
-En revanche dans 7.9 les trois vidéos sont parfaitement sous-titrées.
-
 
 -- 
 Je te souhaite ainsi qu'à Serge, Damien, Noury , Alexandre, Luc et
