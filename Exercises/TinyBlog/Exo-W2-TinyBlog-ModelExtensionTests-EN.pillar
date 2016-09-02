@@ -9,11 +9,11 @@
 You can load the solution of the previous week using the following snippet:
 
 [[[
-Gofer new 
-   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
-   package: 'ConfigurationOfTinyBlog';
-   load. 
-#ConfigurationOfTinyBlog asClass loadWeek1Correction
+Metacello new
+    smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+    version: #week1solution;
+    configuration: 'TinyBlog';
+    load
 ]]]
 
 Then, you can browse the code of the ==TBPost== class.

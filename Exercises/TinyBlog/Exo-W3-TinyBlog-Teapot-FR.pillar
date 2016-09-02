@@ -10,11 +10,11 @@
 Vous pouvez charger la correction de la semaine précédente en exécutant le code suivant:
 
 [[[
-Gofer new 
-   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
-   package: 'ConfigurationOfTinyBlog';
-   load. 
-#ConfigurationOfTinyBlog asClass loadWeek2Correction
+Metacello new
+    smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+    version: #week2solution;
+    configuration: 'TinyBlog';
+    load
 ]]]
 
 Après le chargement d'un package, il est recommandé d'exécuter les tests unitaires qu'il contient afin de vérifier le bon fonctionnement du code chargé.

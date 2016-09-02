@@ -9,11 +9,11 @@
 You can load the solution of the previous week using the following snippet:
 
 [[[
-Gofer new 
-   smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
-   package: 'ConfigurationOfTinyBlog';
-   load. 
-#ConfigurationOfTinyBlog asClass loadWeek2Correction
+Metacello new
+    smalltalkhubUser: 'PharoMooc' project: 'TinyBlog';
+    version: #week2solution;
+    configuration: 'TinyBlog';
+    load
 ]]]
 
 After a loading a package, you shall run the unit tests to ensure that the loaded code is correctly working.
