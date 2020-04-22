@@ -1,6 +1,6 @@
 # Deprecated Repository
 
-All MOOCs artefact are now there: [https://github.com/PharoMOOC](https://github.com/PharoMOOC)
+All MOOC's artefacts are now there: [https://github.com/PharoMOOC](https://github.com/PharoMOOC)
 
 # Pharo MOOC
 
