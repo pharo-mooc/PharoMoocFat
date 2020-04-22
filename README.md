@@ -1,3 +1,7 @@
+#Deprecated Repository
+
+All MOOCs artefact are now there: [https://github.com/PharoMOOC](https://github.com/PharoMOOC)
+
 #Pharo MOOC
 
 Outline of the MOOC is in Roadmap/Roadmap.pillar.
