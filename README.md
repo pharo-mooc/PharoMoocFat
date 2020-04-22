@@ -1,8 +1,8 @@
-#Deprecated Repository
+# Deprecated Repository
 
 All MOOCs artefact are now there: [https://github.com/PharoMOOC](https://github.com/PharoMOOC)
 
-#Pharo MOOC
+# Pharo MOOC
 
 Outline of the MOOC is in Roadmap/Roadmap.pillar.
 
@@ -21,11 +21,11 @@ Slides/ represents the folder based on week decomposition
 It also contains the current slides that we are revisiting in the other subfolders. 
 
 
-###To install once you clone
+### To install once you clone
 
 	./download.sh
 
-###To generate the slides
+### To generate the slides
 
 	./compile.sh
 
